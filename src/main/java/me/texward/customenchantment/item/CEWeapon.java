@@ -1,0 +1,79 @@
+package me.texward.customenchantment.item;
+
+import java.util.List;
+
+import org.bukkit.inventory.ItemStack;
+
+import me.texward.customenchantment.CustomEnchantment;
+import me.texward.customenchantment.api.MaterialData;
+import me.texward.customenchantment.api.MaterialList;
+import me.texward.customenchantment.nms.CECraftItemStackNMS;
+import me.texward.texwardlib.util.MaterialUtils;
+import me.texward.texwardlib.util.nms.NMSNBTTagCompound;
+
+public class CEWeapon extends CEWeaponAbstract<CEWeaponData> {
+	private static MaterialList materialWhitelist = new MaterialList();
+
+	public CEWeapon(ItemStack itemStack) {
+		super(CEItemType.WEAPON, itemStack);
+	}
+
+	public static void setWhitelist(List<MaterialData> list) {
+		if (list == null) {
+			return;
+		}
+		CEWeapon.materialWhitelist = new MaterialList(list);
+	}
+	
+	public void importFrom(ItemStack itemStack) {
+		super.importFrom(itemStack);
+		
+		CECraftItemStackNMS itemStackNMS = getCraftItemStack();
+		NMSNBTTagCompound tag = itemStackNMS.getCECompound();
+
+		String pattern = tag.getString(CENBT.PATTERN);
+
+		CEWeapon item = (CEWeapon) CustomEnchantment.instance().getCEItemStorageMap().get(type).get(pattern);
+
+		if (item != null) {
+			setData(item.getData());
+		}
+	}
+	
+	public ItemStack exportTo() {
+		ItemStack itemStack = super.exportTo();
+		
+		CECraftItemStackNMS itemStackNMS = new CECraftItemStackNMS(itemStack);
+		NMSNBTTagCompound tag = itemStackNMS.getCECompound();
+
+		if (data != null) {
+			tag.setString(CENBT.PATTERN, data.getPattern());
+		}
+
+		itemStackNMS.setCETag(tag);
+		return itemStackNMS.getNewItemStack();
+	}
+
+	public boolean isMatchType(String type) {
+		ItemStack itemStack = getCurrentItemStack();
+		if (materialWhitelist.contains(new MaterialData(itemStack))) {
+			return true;
+		}
+		CECraftItemStackNMS craftItemStack = new CECraftItemStackNMS(itemStack);
+		return craftItemStack.getCECompound().getString(CENBT.TYPE).equals(getType());
+	}
+
+	public ApplyReason applyTo(CEItem ceItem) {
+		if (ceItem instanceof CEBanner && MaterialUtils.isSimilar(this.getDefaultItemStack().getType(), "HELMET")
+				&& ((CEBanner) ceItem).isHelmetEnable()) {
+			return ((CEBanner) ceItem).applyTo(this);
+		}
+
+		if (ceItem instanceof CEMask) {
+			return ((CEMask) ceItem).applyTo(this);
+		}
+
+		return ApplyReason.CANCEL;
+	}
+
+}

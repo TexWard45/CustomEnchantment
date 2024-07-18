@@ -1,0 +1,99 @@
+woundhealing:
+  group: 'epic'
+  display: 'WoundHealing'
+  description:
+  - '&eCó tỉ lệ hồi phục một lượng máu theo'
+  - '&ethời gian sau khi bị tấn công'
+  applies-description:
+  - 'Quần'
+  applies:
+  - 'ALL_LEGGINGS'
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      defense:
+        type: DEFENSE
+        chance: 20
+        cooldown: 10000
+        conditions:
+        - ''
+        effects:
+        - 'DELAY=20 | HEALTH:ADD:2'
+    2:
+      defense:
+        type: DEFENSE
+        chance: 25
+        cooldown: 10000
+        conditions:
+        - ''
+        effects:
+        - 'DELAY=20 | HEALTH:ADD:2'
+        - 'DELAY=40 | HEALTH:ADD:2'
+    3:
+      defense:
+        type: DEFENSE
+        chance: 30
+        cooldown: 10000
+        conditions:
+        - ''
+        effects:
+        - 'DELAY=20 | HEALTH:ADD:2'
+        - 'DELAY=40 | HEALTH:ADD:2'
+        - 'DELAY=60 | HEALTH:ADD:2'
+    4:
+      defense:
+        type: DEFENSE
+        chance: 40
+        cooldown: 10000
+        conditions:
+        - ''
+        effects:
+        - 'DELAY=20 | HEALTH:ADD:2'
+        - 'DELAY=40 | HEALTH:ADD:2'
+        - 'DELAY=60 | HEALTH:ADD:2'
+        - 'DELAY=80 | HEALTH:ADD:2'
+    5:
+      defense:
+        type: DEFENSE
+        chance: 50
+        cooldown: 10000
+        conditions:
+        - ''
+        effects:
+        - 'DELAY=20 | HEALTH:ADD:2'
+        - 'DELAY=40 | HEALTH:ADD:2'
+        - 'DELAY=60 | HEALTH:ADD:2'
+        - 'DELAY=80 | HEALTH:ADD:2'
+        - 'DELAY=100 | HEALTH:ADD:2'
+defusing: 
+  group: 'supreme'
+  display: 'Defusing'
+  description: 
+  - '&eMiễn nhiễm sát thương từ vụ nổ khi trang bị'
+  applies-description:
+  - 'Quần'
+  applies:
+  - 'ALL_LEGGINGS'
+  max-level: 1
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      defense:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:CREEPER'
+        options:
+        - 'DEFENSE:1:2'
+      unknown_defense:
+        type: UNKNOWN_DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'DAMAGE_CAUSE:ENTITY_EXPLOSION,BLOCK_EXPLOSION'
+        options:
+        - 'DEFENSE:1:2'

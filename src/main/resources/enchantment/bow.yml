@@ -1,0 +1,1036 @@
+# tag_attribute: MOVEMENT_SPEED +
+fairyelf:
+  group: 'supreme'
+  display: 'FairyElf'
+  description:
+  - '&eCó tỉ lệ gây thêm sát thương và tăng'
+  - '&etốc độ di chuyển cho bản thân trong'
+  - '&emột khoảng thời gian khi bắn trúng'
+  applies-description:
+  - 'Cung'
+  applies:
+  - 'ALL_BOW'
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 20
+        cooldown: 1000
+        options:
+        - 'ATTACK:1:0'
+        effects:
+        - 'ADD_ATTRIBUTE:MOVEMENT_SPEED:fairyelf_movement_speed:0.1:1'
+        - 'DELAY=20 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:fairyelf_movement_speed'
+    2:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 40
+        cooldown: 1000
+        options:
+        - 'ATTACK:2:0'
+        effects:
+        - 'ADD_ATTRIBUTE:MOVEMENT_SPEED:fairyelf_movement_speed:0.15:1'
+        - 'DELAY=20 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:fairyelf_movement_speed'
+    3:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 60
+        cooldown: 1500
+        options:
+        - 'ATTACK:3:0'
+        effects:
+        - 'ADD_ATTRIBUTE:MOVEMENT_SPEED:fairyelf_movement_speed:0.2:1'
+        - 'DELAY=30 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:fairyelf_movement_speed'
+    4:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 80
+        cooldown: 1500
+        options:
+        - 'ATTACK:4:0'
+        effects:
+        - 'ADD_ATTRIBUTE:MOVEMENT_SPEED:fairyelf_movement_speed:0.25:1'
+        - 'DELAY=30 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:fairyelf_movement_speed'
+    5:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 100
+        cooldown: 2000
+        options:
+        - 'ATTACK:5:0'
+        effects:
+        - 'ADD_ATTRIBUTE:MOVEMENT_SPEED:fairyelf_movement_speed:0.3:1'
+        - 'DELAY=40 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:fairyelf_movement_speed'
+# tag_potion: SPEED
+lightning:
+  enable: false
+  group: 'rare'
+  display: 'Lightning'
+  description:
+  - '&eCó tỉ lệ đánh sét lên kẻ địch'
+  - '&ekhi bắn trúng'
+  applies-description:
+  - 'Cung'
+  applies:
+  - 'ALL_BOW'
+  max-level: 1
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 33
+        cooldown: 2000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | LIGHTNING:~_xP_yP_zP'
+    2:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 33
+        cooldown: 2000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | LIGHTNING:~_xP_yP_zP'
+    3:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 33
+        cooldown: 2000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | LIGHTNING:~_xP_yP_zP'
+    4:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 33
+        cooldown: 2000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | LIGHTNING:~_xP_yP_zP'
+    5:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 33
+        cooldown: 2000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | LIGHTNING:~_xP_yP_zP'
+multiarrow:
+  group: 'rare'
+  display: 'MultiArrow'
+  description:
+  - '&eCó tỉ lệ bắn ra nhiều cung tên cùng lúc'
+  - '&ekhi bắn cung'
+  applies-description:
+  - 'Cung'
+  applies:
+  - 'ALL_BOW'
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'ENABLE_MULTIPLE_ARROW:1:-0.12->0.12'
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'DISABLE_MULTIPLE_ARROW'
+    2:
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'ENABLE_MULTIPLE_ARROW:2:-0.12->0.12'
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'DISABLE_MULTIPLE_ARROW'
+    3:
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'ENABLE_MULTIPLE_ARROW:3:-0.12->0.12'
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'DISABLE_MULTIPLE_ARROW'
+    4:
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'ENABLE_MULTIPLE_ARROW:4:-0.12->0.12'
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'DISABLE_MULTIPLE_ARROW'
+    5:
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'ENABLE_MULTIPLE_ARROW:5:-0.12->0.12'
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'DISABLE_MULTIPLE_ARROW'
+piercing:
+  group: 'rare'
+  display: 'Piercing'
+  description:
+  - '&eCó tỉ lệ gây thêm sát thương khi'
+  - '&ebắn trúng'
+  applies-description:
+  - 'Cung'
+  applies:
+  - 'ALL_BOW'
+  max-level: 10
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 33
+        cooldown: 1000
+        options:
+        - 'ATTACK:0.2:2'
+    2:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 33
+        cooldown: 1000
+        options:
+        - 'ATTACK:0.4:2'
+    3:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 33
+        cooldown: 1000
+        options:
+        - 'ATTACK:0.6:2'
+    4:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 33
+        cooldown: 1000
+        options:
+        - 'ATTACK:0.8:2'
+    5:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 33
+        cooldown: 1000
+        options:
+        - 'ATTACK:1.0:2'
+    6:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 33
+        cooldown: 1000
+        options:
+        - 'ATTACK:1.2:2'
+    7:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 33
+        cooldown: 1000
+        options:
+        - 'ATTACK:1.4:2'
+    8:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 33
+        cooldown: 1000
+        options:
+        - 'ATTACK:1.6:2'
+    9:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 33
+        cooldown: 1000
+        options:
+        - 'ATTACK:1.8:2'
+    10:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 33
+        cooldown: 1000
+        options:
+        - 'ATTACK:2.0:2'
+# tag_potion: POISON
+venom:
+  group: 'rare'
+  display: 'Venom'
+  description:
+  - '&eCó tỉ lệ làm đối thủ bị trúng độc'
+  - '&etrong một khoảng thời gian khi'
+  - '&ebắn trúng'
+  applies-description:
+  - 'Cung'
+  applies:
+  - 'ALL_BOW'
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 50
+        cooldown: 3000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ADD_POTION:POISON:0:40'
+    2:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 50
+        cooldown: 3000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ADD_POTION:POISON:1:40'
+    3:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 50
+        cooldown: 3000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ADD_POTION:POISON:1:40'
+    4:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 50
+        cooldown: 2500
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ADD_POTION:POISON:2:40'
+    5:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 50
+        cooldown: 2000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ADD_POTION:POISON:2:40'
+# adjust
+explosive:
+  group: 'epic'
+  display: 'Explosive'
+  description:
+  - '&eCó tỉ lệ gây nổ lên đối thủ khi bắn trúng'
+  applies-description:
+  - 'Cung'
+  applies:
+  - 'ALL_BOW'
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 33
+        cooldown: 3000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | EXPLOSION:~_~_~_~:1:false:false'
+    2:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 33
+        cooldown: 3000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | EXPLOSION:~_~_~_~:2:false:false'
+    3:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 33
+        cooldown: 3000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | EXPLOSION:~_~_~_~:3:false:false'
+    4:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 33
+        cooldown: 3000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | EXPLOSION:~_~_~_~:4:false:false'
+    5:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 33
+        cooldown: 3000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | EXPLOSION:~_~_~_~:5:false:false'
+freeze:
+  group: 'epic'
+  display: 'Freeze'
+  description:
+  - '&eCó tỉ lệ làm chậm tốc độ di chuyển'
+  - '&ecủa đối thủ khi bắn trúng'
+  applies-description:
+  - 'Cung'
+  applies:
+  - 'ALL_BOW'
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 50
+        cooldown: 3000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:frozen_movement_speed:-0.1:2'
+        - 'TARGET=ENEMY,DELAY=20 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:frozen_movement_speed'
+    2:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 50
+        cooldown: 3000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:frozen_movement_speed:-0.15:2'
+        - 'TARGET=ENEMY,DELAY=20 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:frozen_movement_speed'
+    3:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 50
+        cooldown: 3000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:frozen_movement_speed:-0.2:2'
+        - 'TARGET=ENEMY,DELAY=20 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:frozen_movement_speed'
+    4:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 50
+        cooldown: 3000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:frozen_movement_speed:-0.25:2'
+        - 'TARGET=ENEMY,DELAY=20 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:frozen_movement_speed'
+    5:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 50
+        cooldown: 3000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:frozen_movement_speed:-0.3:2'
+        - 'TARGET=ENEMY,DELAY=20 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:frozen_movement_speed'
+# dynamite:
+  # group: 'epic'
+  # display: 'Dynamite'
+  # description:
+  # - '&eCó tỉ lệ gây nổ khi chạm đất'
+  # applies-description:
+  # - 'Cung'
+  # applies:
+  # - 'ALL_BOW'
+  # max-level: 5
+  # enchant-point: 1
+  # valuable: 0
+  # levels:
+    # 1:
+      # arrow_hit:
+        # type: ARROW_HIT_BLOCK
+        # chance: 100
+        # cooldown: 10000
+        # conditions:
+        # - ''
+        # effects:
+        # - 'TARGET=ENEMY | EXPLOSION:~_~_~_~:5:false:false'
+glamour:
+  group: 'event'
+  display: 'Glamour'
+  description:
+  - '&eCó tỉ lệ làm đối thủ bị mê hoặc khiến'
+  - '&ekhông thể tấn công và di chuyển trong'
+  - '&emột khoảng thời gian khi bắn trúng'
+  applies-description:
+  - 'Cung'
+  applies:
+  - 'ALL_BOW'
+  max-level: 3
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 10
+        cooldown: 4000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | DEACTIVE_ABILITY:MOVE:glamous_move'
+        - 'TARGET=ENEMY | DEACTIVE_ABILITY:ATTACK:glamous_arrow_hit'
+        - 'TARGET=ENEMY,DELAY=10 | ACTIVE_ABILITY:MOVE:glamous_move'
+        - 'TARGET=ENEMY,DELAY=10 | ACTIVE_ABILITY:ATTACK:glamous_arrow_hit'
+    2:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 20
+        cooldown: 4000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | DEACTIVE_ABILITY:MOVE:glamous_move'
+        - 'TARGET=ENEMY | DEACTIVE_ABILITY:ATTACK:glamous_arrow_hit'
+        - 'TARGET=ENEMY,DELAY=20 | ACTIVE_ABILITY:MOVE:glamous_move'
+        - 'TARGET=ENEMY,DELAY=20 | ACTIVE_ABILITY:ATTACK:glamous_arrow_hit'
+    3:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 30
+        cooldown: 4000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | DEACTIVE_ABILITY:MOVE:glamous_move'
+        - 'TARGET=ENEMY | DEACTIVE_ABILITY:ATTACK:glamous_arrow_hit'
+        - 'TARGET=ENEMY,DELAY=30 | ACTIVE_ABILITY:MOVE:glamous_move'
+        - 'TARGET=ENEMY,DELAY=30 | ACTIVE_ABILITY:ATTACK:glamous_arrow_hit'
+lodestar:
+  group: 'rare'
+  display: 'Lodestar'
+  description:
+  - '&eCó tỉ lệ làm kẻ địch bị hiệu ứng phát'
+  - '&esáng trong một khoảng thời gian khi'
+  - '&ebắn trúng'
+  applies-description:
+  - 'Cung'
+  applies:
+  - 'ALL_BOW'
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 50
+        cooldown: 10000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ADD_POTION:GLOWING:0:100'
+    2:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 50
+        cooldown: 8000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ADD_POTION:GLOWING:0:120'
+    3:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 50
+        cooldown: 7000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ADD_POTION:GLOWING:0:140'
+    4:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 50
+        cooldown: 6000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ADD_POTION:GLOWING:0:160'
+    5:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 50
+        cooldown: 5000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ADD_POTION:GLOWING:0:200'        
+sniper:
+  group: 'ultimate'
+  display: 'Sniper'
+  description:
+  - '&eCó tỉ lệ gây sát thương chuẩn lên kẻ địch'
+  - '&ekhi bắn trúng'
+  applies-description:
+  - 'Cung'
+  applies:
+  - 'ALL_BOW'
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 33
+        cooldown: 3000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        options:
+        - 'ATTACK:-0.05:2'
+        effects:
+        - 'TARGET=ENEMY | HEALTH:REMOVE:%damage%*5/100'
+    2:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 33
+        cooldown: 3000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        options:
+        - 'ATTACK:-0.10:2'
+        effects:
+        - 'TARGET=ENEMY | HEALTH:REMOVE:%damage%*10/100'
+    3:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 33
+        cooldown: 3000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        options:
+        - 'ATTACK:-0.15:2'
+        effects:
+        - 'TARGET=ENEMY | HEALTH:REMOVE:%damage%*15/100'
+    4:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 33
+        cooldown: 3000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        options:
+        - 'ATTACK:-0.20:2'
+        effects:
+        - 'TARGET=ENEMY | HEALTH:REMOVE:%damage%*20/100'
+    5:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 33
+        cooldown: 3000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        options:
+        - 'ATTACK:-0.25:2'
+        effects:
+        - 'TARGET=ENEMY | HEALTH:REMOVE:%damage%*25/100'
+doctor:
+  group: 'epic'
+  display: 'Doctor'
+  description:
+  - '&eĐồng đội và đồng minh gần nhất sẽ được hồi'
+  - '&emột phần lượng máu đã mất theo thời gian'
+  - '&ethay vì gây sát thương khi bắn trúng'
+  applies-description:
+  - 'Cung'
+  applies:
+  - 'ALL_BOW'
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 100
+        cooldown: 10000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        options:
+        - 'ATTACK:-1:2'
+        target-filter:
+          target: ENEMY
+          except-player: true
+          except-enemy: false
+          min-distance: 0
+          max-distance: 4
+        target-conditions:
+        - 'FACTION_RELATION:RECRUIT,MEMBER,OFFICER,LEADER'
+        target-effects:
+        - 'TARGET=ENEMY,DELAY=8 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*1/100'
+        - 'TARGET=ENEMY,DELAY=16 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*1/100'
+        - 'TARGET=ENEMY,DELAY=24 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*1/100'
+        - 'TARGET=ENEMY,DELAY=32 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*1/100'
+        - 'TARGET=ENEMY,DELAY=40 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*1/100'
+        - 'TARGET=ENEMY,DELAY=48 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*1/100'
+        - 'TARGET=ENEMY,DELAY=56 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*1/100'
+        - 'TARGET=ENEMY,DELAY=64 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*1/100'
+        - 'TARGET=ENEMY,DELAY=72 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*1/100'
+        - 'TARGET=ENEMY,DELAY=80 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*1/100'
+        effects:
+        - 'TARGET=ENEMY,DELAY=8 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*1/100'
+        - 'TARGET=ENEMY,DELAY=16 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*1/100'
+        - 'TARGET=ENEMY,DELAY=24 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*1/100'
+        - 'TARGET=ENEMY,DELAY=32 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*1/100'
+        - 'TARGET=ENEMY,DELAY=40 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*1/100'
+        - 'TARGET=ENEMY,DELAY=48 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*1/100'
+        - 'TARGET=ENEMY,DELAY=56 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*1/100'
+        - 'TARGET=ENEMY,DELAY=64 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*1/100'
+        - 'TARGET=ENEMY,DELAY=72 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*1/100'
+        - 'TARGET=ENEMY,DELAY=80 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*1/100'
+      arrow_hit2:
+        type: ARROW_HIT
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        - 'FACTION_RELATION:RECRUIT,MEMBER,OFFICER,LEADER'
+        options:
+        - 'ATTACK:-1:2'
+        effects:
+        - ''
+    2:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 100
+        cooldown: 10000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        options:
+        - 'ATTACK:-1:2'
+        target-filter:
+          target: ENEMY
+          except-player: true
+          except-enemy: false
+          min-distance: 0
+          max-distance: 4
+        target-conditions:
+        - 'FACTION_RELATION:RECRUIT,MEMBER,OFFICER,LEADER'
+        target-effects:
+        - 'TARGET=ENEMY,DELAY=8 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*2/100'
+        - 'TARGET=ENEMY,DELAY=16 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*2/100'
+        - 'TARGET=ENEMY,DELAY=24 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*2/100'
+        - 'TARGET=ENEMY,DELAY=32 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*2/100'
+        - 'TARGET=ENEMY,DELAY=40 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*2/100'
+        - 'TARGET=ENEMY,DELAY=48 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*2/100'
+        - 'TARGET=ENEMY,DELAY=56 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*2/100'
+        - 'TARGET=ENEMY,DELAY=64 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*2/100'
+        - 'TARGET=ENEMY,DELAY=72 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*2/100'
+        - 'TARGET=ENEMY,DELAY=80 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*2/100'
+        effects:
+        - 'TARGET=ENEMY,DELAY=8 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*2/100'
+        - 'TARGET=ENEMY,DELAY=16 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*2/100'
+        - 'TARGET=ENEMY,DELAY=24 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*2/100'
+        - 'TARGET=ENEMY,DELAY=32 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*2/100'
+        - 'TARGET=ENEMY,DELAY=40 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*2/100'
+        - 'TARGET=ENEMY,DELAY=48 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*2/100'
+        - 'TARGET=ENEMY,DELAY=56 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*2/100'
+        - 'TARGET=ENEMY,DELAY=64 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*2/100'
+        - 'TARGET=ENEMY,DELAY=72 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*2/100'
+        - 'TARGET=ENEMY,DELAY=80 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*2/100'
+      arrow_hit2:
+        type: ARROW_HIT
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        - 'FACTION_RELATION:RECRUIT,MEMBER,OFFICER,LEADER'
+        options:
+        - 'ATTACK:-1:2'
+        effects:
+        - ''
+    3:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 100
+        cooldown: 10000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        options:
+        - 'ATTACK:-1:2'
+        target-filter:
+          target: ENEMY
+          except-player: true
+          except-enemy: false
+          min-distance: 0
+          max-distance: 4
+        target-conditions:
+        - 'FACTION_RELATION:RECRUIT,MEMBER,OFFICER,LEADER'
+        target-effects:
+        - 'TARGET=ENEMY,DELAY=8 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*3/100'
+        - 'TARGET=ENEMY,DELAY=16 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*3/100'
+        - 'TARGET=ENEMY,DELAY=24 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*3/100'
+        - 'TARGET=ENEMY,DELAY=32 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*3/100'
+        - 'TARGET=ENEMY,DELAY=40 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*3/100'
+        - 'TARGET=ENEMY,DELAY=48 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*3/100'
+        - 'TARGET=ENEMY,DELAY=56 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*3/100'
+        - 'TARGET=ENEMY,DELAY=64 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*3/100'
+        - 'TARGET=ENEMY,DELAY=72 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*3/100'
+        - 'TARGET=ENEMY,DELAY=80 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*3/100'
+        effects:
+        - 'TARGET=ENEMY,DELAY=8 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*3/100'
+        - 'TARGET=ENEMY,DELAY=16 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*3/100'
+        - 'TARGET=ENEMY,DELAY=24 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*3/100'
+        - 'TARGET=ENEMY,DELAY=32 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*3/100'
+        - 'TARGET=ENEMY,DELAY=40 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*3/100'
+        - 'TARGET=ENEMY,DELAY=48 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*3/100'
+        - 'TARGET=ENEMY,DELAY=56 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*3/100'
+        - 'TARGET=ENEMY,DELAY=64 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*3/100'
+        - 'TARGET=ENEMY,DELAY=72 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*3/100'
+        - 'TARGET=ENEMY,DELAY=80 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*3/100'
+      arrow_hit2:
+        type: ARROW_HIT
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        - 'FACTION_RELATION:RECRUIT,MEMBER,OFFICER,LEADER'
+        options:
+        - 'ATTACK:-1:2'
+        effects:
+        - ''
+    4:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 100
+        cooldown: 10000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        options:
+        - 'ATTACK:-1:2'
+        target-filter:
+          target: ENEMY
+          except-player: true
+          except-enemy: false
+          min-distance: 0
+          max-distance: 4
+        target-conditions:
+        - 'FACTION_RELATION:RECRUIT,MEMBER,OFFICER,LEADER'
+        target-effects:
+        - 'TARGET=ENEMY,DELAY=8 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*4/100'
+        - 'TARGET=ENEMY,DELAY=16 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*4/100'
+        - 'TARGET=ENEMY,DELAY=24 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*4/100'
+        - 'TARGET=ENEMY,DELAY=32 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*4/100'
+        - 'TARGET=ENEMY,DELAY=40 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*4/100'
+        - 'TARGET=ENEMY,DELAY=48 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*4/100'
+        - 'TARGET=ENEMY,DELAY=56 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*4/100'
+        - 'TARGET=ENEMY,DELAY=64 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*4/100'
+        - 'TARGET=ENEMY,DELAY=72 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*4/100'
+        - 'TARGET=ENEMY,DELAY=80 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*4/100'
+        effects:
+        - 'TARGET=ENEMY,DELAY=8 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*4/100'
+        - 'TARGET=ENEMY,DELAY=16 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*4/100'
+        - 'TARGET=ENEMY,DELAY=24 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*4/100'
+        - 'TARGET=ENEMY,DELAY=32 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*4/100'
+        - 'TARGET=ENEMY,DELAY=40 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*4/100'
+        - 'TARGET=ENEMY,DELAY=48 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*4/100'
+        - 'TARGET=ENEMY,DELAY=56 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*4/100'
+        - 'TARGET=ENEMY,DELAY=64 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*4/100'
+        - 'TARGET=ENEMY,DELAY=72 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*4/100'
+        - 'TARGET=ENEMY,DELAY=80 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*4/100'
+      arrow_hit2:
+        type: ARROW_HIT
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        - 'FACTION_RELATION:RECRUIT,MEMBER,OFFICER,LEADER'
+        options:
+        - 'ATTACK:-1:2'
+        effects:
+        - ''
+    5:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 100
+        cooldown: 10000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        options:
+        - 'ATTACK:-1:2'
+        target-filter:
+          target: ENEMY
+          except-player: true
+          except-enemy: false
+          min-distance: 0
+          max-distance: 4
+        target-conditions:
+        - 'FACTION_RELATION:RECRUIT,MEMBER,OFFICER,LEADER'
+        target-effects:
+        - 'TARGET=ENEMY,DELAY=8 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*5/100'
+        - 'TARGET=ENEMY,DELAY=16 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*5/100'
+        - 'TARGET=ENEMY,DELAY=24 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*5/100'
+        - 'TARGET=ENEMY,DELAY=32 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*5/100'
+        - 'TARGET=ENEMY,DELAY=40 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*5/100'
+        - 'TARGET=ENEMY,DELAY=48 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*5/100'
+        - 'TARGET=ENEMY,DELAY=56 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*5/100'
+        - 'TARGET=ENEMY,DELAY=64 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*5/100'
+        - 'TARGET=ENEMY,DELAY=72 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*5/100'
+        - 'TARGET=ENEMY,DELAY=80 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*5/100'
+        effects:
+        - 'TARGET=ENEMY,DELAY=8 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*5/100'
+        - 'TARGET=ENEMY,DELAY=16 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*5/100'
+        - 'TARGET=ENEMY,DELAY=24 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*5/100'
+        - 'TARGET=ENEMY,DELAY=32 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*5/100'
+        - 'TARGET=ENEMY,DELAY=40 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*5/100'
+        - 'TARGET=ENEMY,DELAY=48 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*5/100'
+        - 'TARGET=ENEMY,DELAY=56 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*5/100'
+        - 'TARGET=ENEMY,DELAY=64 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*5/100'
+        - 'TARGET=ENEMY,DELAY=72 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*5/100'
+        - 'TARGET=ENEMY,DELAY=80 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*5/100'
+      arrow_hit2:
+        type: ARROW_HIT
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        - 'FACTION_RELATION:RECRUIT,MEMBER,OFFICER,LEADER'
+        options:
+        - 'ATTACK:-1:2'
+        effects:
+        - ''
+creatine:
+  group: 'epic'
+  display: 'Creatine'
+  description:
+  - '&eKhi bắn trúng, đồng đội nhận thêm tốc độ'
+  - '&edi chuyển và sức tấn công trong một khoảng'
+  - '&ethời gian'
+  applies-description:
+  - 'Cung'
+  applies:
+  - 'ALL_BOW'
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 100
+        cooldown: 10000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:creatine_movement_speed:0.05:1'
+        - 'TARGET=ENEMY | ADD_ATTRIBUTE:ATTACK_DAMAGE:creatine_attack_damage:0.05:1'
+        - 'TARGET=ENEMY,DELAY=200,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:creatine_movement_speed'
+        - 'TARGET=ENEMY,DELAY=200,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:ATTACK_DAMAGE:creatine_attack_damage'
+    2:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 100
+        cooldown: 10000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:creatine_movement_speed:0.10:1'
+        - 'TARGET=ENEMY | ADD_ATTRIBUTE:ATTACK_DAMAGE:creatine_attack_damage:0.10:1'
+        - 'TARGET=ENEMY,DELAY=200,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:creatine_movement_speed'
+        - 'TARGET=ENEMY,DELAY=200,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:ATTACK_DAMAGE:creatine_attack_damage'
+    3:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 100
+        cooldown: 10000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:creatine_movement_speed:0.15:1'
+        - 'TARGET=ENEMY | ADD_ATTRIBUTE:ATTACK_DAMAGE:creatine_attack_damage:0.15:1'
+        - 'TARGET=ENEMY,DELAY=200,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:creatine_movement_speed'
+        - 'TARGET=ENEMY,DELAY=200,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:ATTACK_DAMAGE:creatine_attack_damage'
+    4:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 100
+        cooldown: 10000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:creatine_movement_speed:0.20:1'
+        - 'TARGET=ENEMY | ADD_ATTRIBUTE:ATTACK_DAMAGE:creatine_attack_damage:0.20:1'
+        - 'TARGET=ENEMY,DELAY=200,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:creatine_movement_speed'
+        - 'TARGET=ENEMY,DELAY=200,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:ATTACK_DAMAGE:creatine_attack_damage'
+    5:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 100
+        cooldown: 10000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:creatine_movement_speed:0.25:1'
+        - 'TARGET=ENEMY | ADD_ATTRIBUTE:ATTACK_DAMAGE:creatine_attack_damage:0.25:1'
+        - 'TARGET=ENEMY,DELAY=200,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:creatine_movement_speed'
+        - 'TARGET=ENEMY,DELAY=200,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:ATTACK_DAMAGE:creatine_attack_damage'

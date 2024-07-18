@@ -1,0 +1,3713 @@
+zombie:
+  group: 'mask'
+  display: 'Zombie'
+  custom-display-lore: '&2%enchant_display% %enchant_level%'
+  description:
+  - '&eCấp I:'
+  - '&7- Triệu hồi Zombie thường khi bị tấn công'
+  - '&eCấp II:'
+  - '&7- Tăng thêm Zombie thường khi triệu hồi'
+  - '&eCấp III:'
+  - '&7- Tăng thêm Zombie con khi triệu hồi'
+  - '&7- Có tỉ lệ gây hiệu ứng đói cho đối thủ khi'
+  - '&7  tấn công'
+  - '&eCấp IV:'
+  - '&7- Tăng thêm Zombie con khi triệu hồi'
+  - '&7- Tăng thêm sức mạnh cho hiệu ứng đói'
+  - '&eCấp V:'
+  - '&7- Tăng thêm Zombie con khi triệu hồi'
+  - '&7- Tăng thêm sức mạnh cho hiệu ứng đói'
+  descriptions:
+    1:
+    - '&a+ Triệu hồi 1 Zombie thường khi bị tấn công'
+    2:
+    - '&e* Triệu hồi 2 Zombie thường khi bị tấn công'
+    3:
+    - '&e* Triệu hồi 3 Zombie thường khi bị tấn công'
+    - '&a+ Có tỉ lệ gây hiệu ứng đói cho đối thủ khi'
+    - '&a  tấn công'
+    4:
+    - '&7- Triệu hồi 3 Zombie thường khi bị tấn công'
+    - '&a+ Triệu hồi 1 Zombie con khi bị tấn công'
+    - '&e* Có tỉ lệ gây hiệu ứng đói cho đối thủ khi'
+    - '&e  tấn công'
+    - '&e  (Tăng thêm sức mạnh cho hiệu ứng)'
+    5:
+    - '&7- Triệu hồi 3 Zombie thường khi bị tấn công'
+    - '&e* Triệu hồi 2 Zombie con khi bị tấn công'
+    - '&e* Có tỉ lệ gây hiệu ứng đói cho đối thủ khi'
+    - '&e  tấn công'
+    - '&e  (Tăng thêm sức mạnh cho hiệu ứng)'
+  applies-description:
+  - 'Mặt nạ'
+  applies:
+  - 'PLAYER_HEAD'
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      armor_equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 10000
+        effects:
+        - 'SUMMON_GUARD:zombie2_%player_name%_guard:ZOMBIE:~_xP+2*sin(eyawP)_~_zP+2*cos(eyawP)_yawP_pitchP:1.5:16:16:3000000'
+      armor_undress:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        effects:
+        - 'REMOVE_GUARD:zombie2_%player_name%_guard'
+      defense:
+        type: DEFENSE
+        chance: 100
+        cooldown: 20000
+        effects:
+        - 'SUMMON_GUARD:zombie_%player_name%_guard:ZOMBIE:~_xP+2*sin(eyawP)_~_zP+2*cos(eyawP)_yawP_pitchP:1.5:16:16:10000'
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_GUARD:zombie_%player_name%_guard'
+    2:
+      defense:
+        type: DEFENSE
+        chance: 100
+        cooldown: 20000
+        effects:
+        - 'SUMMON_GUARD:zombie_%player_name%_guard:ZOMBIE:~_xP+2*sin(eyawP)_~_zP+2*cos(eyawP)_yawP_pitchP:1.5:16:16:10000'
+        - 'SUMMON_GUARD:zombie_%player_name%_guard2:ZOMBIE:~_xP+2*sin(eyawP+180)_~_zP+2*cos(eyawP+180)_yawP_pitchP:1.5:16:16:10000'
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_GUARD:zombie_%player_name%_guard'
+        - 'REMOVE_GUARD:zombie_%player_name%_guard2'
+    3:
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ADD_POTION:HUNGER:10:200'
+      defense:
+        type: DEFENSE
+        chance: 100
+        cooldown: 20000
+        effects:
+        - 'SUMMON_GUARD:zombie_%player_name%_guard:ZOMBIE:~_xP+2*sin(eyawP+225)_~_zP+2*cos(eyawP+225)_yawP_pitchP:1.5:16:16:10000'
+        - 'SUMMON_GUARD:zombie_%player_name%_guard2:ZOMBIE:~_xP+2*sin(eyawP+315)_~_zP+2*cos(eyawP+315)_yawP_pitchP:1.5:16:16:10000'
+        - 'SUMMON_ZOMBIE_BABY_GUARD:zombie_%player_name%_guard3:~_xP+2*sin(eyawP+90)_~_zP+2*cos(eyawP+90)_yawP_pitchP:1.5:16:16:10000'
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_GUARD:zombie_%player_name%_guard'
+        - 'REMOVE_GUARD:zombie_%player_name%_guard2'
+        - 'REMOVE_GUARD:zombie_%player_name%_guard3'
+    4:
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ADD_POTION:HUNGER:20:200'
+      defense:
+        type: DEFENSE
+        chance: 100
+        cooldown: 20000
+        effects:
+        - 'SUMMON_GUARD:zombie_%player_name%_guard:ZOMBIE:~_xP+2*sin(eyawP+225)_~_zP+2*cos(eyawP+225)_yawP_pitchP:1.5:16:16:10000'
+        - 'SUMMON_GUARD:zombie_%player_name%_guard2:ZOMBIE:~_xP+2*sin(eyawP+315)_~_zP+2*cos(eyawP+315)_yawP_pitchP:1.5:16:16:10000'
+        - 'SUMMON_ZOMBIE_BABY_GUARD:zombie_%player_name%_guard3:~_xP+2*sin(eyawP+45)_~_zP+2*cos(eyawP+45)_yawP_pitchP:1.5:16:16:10000'
+        - 'SUMMON_ZOMBIE_BABY_GUARD:zombie_%player_name%_guard4:~_xP+2*sin(eyawP+135)_~_zP+2*cos(eyawP+135)_yawP_pitchP:1.5:16:16:10000'
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_GUARD:zombie_%player_name%_guard'
+        - 'REMOVE_GUARD:zombie_%player_name%_guard2'
+        - 'REMOVE_GUARD:zombie_%player_name%_guard3'
+        - 'REMOVE_GUARD:zombie_%player_name%_guard4'
+    5:
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ADD_POTION:HUNGER:30:200'
+      defense:
+        type: DEFENSE
+        chance: 100
+        cooldown: 20000
+        effects:
+        - 'SUMMON_GUARD:zombie_%player_name%_guard:ZOMBIE:~_xP+2*sin(eyawP+225)_~_zP+2*cos(eyawP+225)_yawP_pitchP:1.5:16:16:10000'
+        - 'SUMMON_GUARD:zombie_%player_name%_guard2:ZOMBIE:~_xP+2*sin(eyawP+315)_~_zP+2*cos(eyawP+315)_yawP_pitchP:1.5:16:16:10000'
+        - 'SUMMON_ZOMBIE_BABY_GUARD:zombie_%player_name%_guard3:~_xP+2*sin(eyawP+45)_~_zP+2*cos(eyawP+45)_yawP_pitchP:1.5:16:16:10000'
+        - 'SUMMON_ZOMBIE_BABY_GUARD:zombie_%player_name%_guard4:~_xP+2*sin(eyawP+180)_~_zP+2*cos(eyawP+180)_yawP_pitchP:1.5:16:16:10000'
+        - 'SUMMON_ZOMBIE_BABY_GUARD:zombie_%player_name%_guard5:~_xP+2*sin(eyawP+135)_~_zP+2*cos(eyawP+135)_yawP_pitchP:1.5:16:16:10000'
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_GUARD:zombie_%player_name%_guard'
+        - 'REMOVE_GUARD:zombie_%player_name%_guard2'
+        - 'REMOVE_GUARD:zombie_%player_name%_guard3'
+        - 'REMOVE_GUARD:zombie_%player_name%_guard4'
+        - 'REMOVE_GUARD:zombie_%player_name%_guard5'
+skeleton:
+  group: 'mask'
+  display: 'Skeleton'
+  custom-display-lore: '&f%enchant_display% %enchant_level%'
+  description:
+  - '&eCấp I:'
+  - '&7- Tăng lực bắn của cung khi cầm vật phẩm'
+  - '&eCấp II:'
+  - '&7- Tăng thêm lực bắn cung'
+  - '&eCấp III:'
+  - '&7- Tăng thêm lực bắn cung'
+  - '&7- Có tỉ lệ né cung tên từ kẻ địch'
+  - '&eCấp IV:'
+  - '&7- Tăng thêm lực bắn cung'
+  - '&7- Tăng tỉ lệ né cung tên từ kẻ địch'
+  - '&eCấp V:'
+  - '&7- Tăng thêm lực bắn cung'
+  - '&7- Tăng tỉ lệ né cung tên từ kẻ địch'
+  descriptions:
+    1:
+    - '&a+ Tăng lực bắn của cung khi cầm vật phẩm'
+    2:
+    - '&e* Tăng lực bắn của cung khi cầm vật phẩm'
+    - '&e  (Tăng thêm lực bắn cung)'
+    3:
+    - '&e* Tăng lực bắn của cung khi cầm vật phẩm'
+    - '&e  (Tăng thêm lực bắn cung)'
+    - '&a+ Có tỉ lệ né cung tên từ kẻ địch'
+    4:
+    - '&e* Tăng lực bắn của cung khi cầm vật phẩm'
+    - '&e  (Tăng thêm lực bắn cung)'
+    - '&e* Có tỉ lệ né cung tên từ kẻ địch'
+    5:
+    - '&e* Tăng lực bắn của cung khi cầm vật phẩm'
+    - '&e  (Tăng thêm lực bắn cung)'
+    - '&e* Có tỉ lệ né cung tên từ kẻ địch'
+  applies-description:
+  - 'Mặt nạ'
+  applies:
+  - 'PLAYER_HEAD'
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'ADD_CUSTOM_ATTRIBUTE:skeleton_power:POWER:0.1:1'
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_CUSTOM_ATTRIBUTE:skeleton_power'
+    2:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'ADD_CUSTOM_ATTRIBUTE:skeleton_power:POWER:0.2:1'
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_CUSTOM_ATTRIBUTE:skeleton_power'
+    3:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'ADD_CUSTOM_ATTRIBUTE:skeleton_power:POWER:0.3:1'
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_CUSTOM_ATTRIBUTE:skeleton_power'
+      arrow_defense:
+        type: ARROW_DEFENSE
+        chance: 10
+        cooldown: 1000
+        conditions:
+        - ''
+        options:
+        - 'DEFENSE:1:1'
+    4:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'ADD_CUSTOM_ATTRIBUTE:skeleton_power:POWER:0.4:1'
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_CUSTOM_ATTRIBUTE:skeleton_power'
+      arrow_defense:
+        type: ARROW_DEFENSE
+        chance: 15
+        cooldown: 1000
+        conditions:
+        - ''
+        options:
+        - 'DEFENSE:1:1'
+    5:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'ADD_CUSTOM_ATTRIBUTE:skeleton_power:POWER:0.5:1'
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_CUSTOM_ATTRIBUTE:skeleton_power'
+      arrow_defense:
+        type: ARROW_DEFENSE
+        chance: 20
+        cooldown: 1000
+        conditions:
+        - ''
+        options:
+        - 'DEFENSE:1:1'
+cavespider:
+  group: 'mask'
+  display: 'CaveSpider'
+  custom-display-lore: '&9%enchant_display% %enchant_level%'
+  description:
+  - '&eCấp I:'
+  - '&7- Miễn nhiễm sát thương dính độc'
+  - '&7- Có tỉ lệ gây hiệu ứng độc cho đối thủ'
+  - '&7  khi tấn công'
+  - '&eCấp II:'
+  - '&7- Tăng thêm sức mạnh cho hiệu ứng độc'
+  - '&eCấp III:'
+  - '&7- Tăng thêm sức mạnh cho hiệu ứng độc'
+  - '&eCấp IV:'
+  - '&7- Tăng thêm sức mạnh cho hiệu ứng độc'
+  - '&eCấp V:'
+  - '&7- Tăng thêm sức mạnh cho hiệu ứng độc'
+  - '&7- Nhận hiệu ứng tàng hình khi trang bị'
+  - '&7  (Trang bị đang mặc vẫn hiển thị)'
+  descriptions:
+    1:
+    - '&a+ Miễn nhiễm sát thương dính độc'
+    - '&a+ Có tỉ lệ gây hiệu ứng độc cho đối thủ'
+    - '&a  khi tấn công'
+    2:
+    - '&7- Miễn nhiễm sát thương dính độc'
+    - '&e* Có tỉ lệ gây hiệu ứng độc cho đối thủ'
+    - '&e  khi tấn công'
+    - '&e  (Tăng thêm sức mạnh cho hiệu ứng)'
+    3:
+    - '&7- Miễn nhiễm sát thương dính độc'
+    - '&e* Có tỉ lệ gây hiệu ứng độc cho đối thủ'
+    - '&e  khi tấn công'
+    - '&e  (Tăng thêm sức mạnh cho hiệu ứng)'
+    4:
+    - '&7- Miễn nhiễm sát thương dính độc'
+    - '&e* Có tỉ lệ gây hiệu ứng độc cho đối thủ'
+    - '&e  khi tấn công'
+    - '&e  (Tăng thêm sức mạnh cho hiệu ứng)'
+    5:
+    - '&7- Miễn nhiễm sát thương dính độc'
+    - '&e* Có tỉ lệ gây hiệu ứng độc cho đối thủ'
+    - '&e  khi tấn công'
+    - '&e  (Tăng thêm sức mạnh cho hiệu ứng)'
+    - '&a+ Nhận hiệu ứng tàng hình khi trang bị'
+    - '&a  (Trang bị đang mặc vẫn hiển thị)'
+  applies-description:
+  - 'Mặt nạ'
+  applies:
+  - 'PLAYER_HEAD'
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      unknown_defense:
+        type: UNKNOWN_DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'DAMAGE_CAUSE:POISON'
+        options:
+        - 'DEFENSE:1.0:2'
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 15000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ADD_POTION:POISON:0:200'
+    2:
+      unknown_defense:
+        type: UNKNOWN_DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'DAMAGE_CAUSE:POISON'
+        options:
+        - 'DEFENSE:1.0:2'
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 15000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ADD_POTION:POISON:1:200'
+    3:
+      unknown_defense:
+        type: UNKNOWN_DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'DAMAGE_CAUSE:POISON'
+        options:
+        - 'DEFENSE:1.0:2'
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 15000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ADD_POTION:POISON:2:200'
+    4:
+      unknown_defense:
+        type: UNKNOWN_DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'DAMAGE_CAUSE:POISON'
+        options:
+        - 'DEFENSE:1.0:2'
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 15000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ADD_POTION:POISON:3:200'
+    5:
+      unknown_defense:
+        type: UNKNOWN_DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'DAMAGE_CAUSE:POISON'
+        options:
+        - 'DEFENSE:1.0:2'
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 15000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ADD_POTION:POISON:4:200'
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'ADD_FOREVER_POTION:cave_spider_invisibility:INVISIBILITY:0'
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_FOREVER_POTION:cave_spider_invisibility'
+spider:
+  group: 'mask'
+  display: 'Spider'
+  custom-display-lore: '&5%enchant_display% %enchant_level%'
+  description:
+  - '&eCấp I:'
+  - '&7- Miễn nhiễm sát thương dính độc'
+  - '&7- Có tỉ lệ làm chậm tốc độ di chuyển'
+  - '&7  của kẻ địch khi tấn công'
+  - '&eCấp II-IV:'
+  - '&7- Tăng thêm hiệu quả làm chậm'
+  - '&eCấp V:'
+  - '&7- Có tỉ lệ tạo tơ ngay vị trí kẻ địch'
+  - '&7  khi tấn công'
+  descriptions:
+    1:
+    - '&a+ Miễn nhiễm sát thương dính độc'
+    - '&a+ Có tỉ lệ làm chậm tốc độ di chuyển'
+    - '&a  của kẻ địch khi tấn công'
+    2:
+    - '&7- Miễn nhiễm sát thương dính độc'
+    - '&e* Có tỉ lệ làm chậm tốc độ di chuyển'
+    - '&e  của kẻ địch khi tấn công'
+    - '&e  (Tăng thêm hiệu quả làm chậm)'
+    3:
+    - '&7- Miễn nhiễm sát thương dính độc'
+    - '&e* Có tỉ lệ làm chậm tốc độ di chuyển'
+    - '&e  của kẻ địch khi tấn công'
+    - '&e  (Tăng thêm hiệu quả làm chậm)'
+    4:
+    - '&7- Miễn nhiễm sát thương dính độc'
+    - '&e* Có tỉ lệ làm chậm tốc độ di chuyển'
+    - '&e  của kẻ địch khi tấn công'
+    - '&e  (Tăng thêm hiệu quả làm chậm)'
+    5:
+    - '&7- Miễn nhiễm sát thương dính độc'
+    - '&7- Có tỉ lệ làm chậm tốc độ di chuyển'
+    - '&7  của kẻ địch khi tấn công'
+    - '&a+ Có tỉ lệ tạo tơ ngay vị trí kẻ địch'
+    - '&a  khi tấn công'
+  applies-description:
+  - 'Mặt nạ'
+  applies:
+  - 'PLAYER_HEAD'
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      unknown_defense:
+        type: UNKNOWN_DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'DAMAGE_CAUSE:POISON'
+        options:
+        - 'DEFENSE:1.0:2'
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 7000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:spider_movement_speed:-0.15:1'
+        - 'TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:spider_movement_speed'
+    2:
+      unknown_defense:
+        type: UNKNOWN_DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'DAMAGE_CAUSE:POISON'
+        options:
+        - 'DEFENSE:1.0:2'
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 7000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:spider_movement_speed:-0.3:1'
+        - 'TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:spider_movement_speed'
+    3:
+      unknown_defense:
+        type: UNKNOWN_DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'DAMAGE_CAUSE:POISON'
+        options:
+        - 'DEFENSE:1.0:2'
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 7000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:spider_movement_speed:-0.45:1'
+        - 'TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:spider_movement_speed'
+    4:
+      unknown_defense:
+        type: UNKNOWN_DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'DAMAGE_CAUSE:POISON'
+        options:
+        - 'DEFENSE:1.0:2'
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 7000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:spider_movement_speed:-0.6:1'
+        - 'TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:spider_movement_speed'
+    5:
+      unknown_defense:
+        type: UNKNOWN_DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'DAMAGE_CAUSE:POISON'
+        options:
+        - 'DEFENSE:1.0:2'
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 7000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:spider_movement_speed:-0.6:1'
+        - 'TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:spider_movement_speed'
+      attack2:
+        type: ATTACK
+        chance: 10
+        cooldown: 10000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | SET_BLOCK:COBWEB:0:3000:~_~_~_~'
+blaze:
+  group: 'mask'
+  display: 'Blaze'
+  custom-display-lore: '&6%enchant_display% %enchant_level%'
+  description:
+  - '&eCấp I:'
+  - '&7- Nhận hiệu ứng kháng lửa khi trang bị'
+  - '&7- Có tỉ lệ thiêu đốt đối thủ khi tấn công'
+  - '&eCấp II,IV:'
+  - '&7- Tăng thêm thời gian thiêu đốt'
+  - '&eCấp III-V:'
+  - '&7- Tăng thêm sát thương thiêu đốt'
+  - '&eCấp V:'
+  - '&7- Có tỉ lệ gây thêm gấp đôi sát thương'
+  - '&7  cơ bản lên kẻ địch bị cháy'
+  descriptions:
+    1:
+    - '&a+ Nhận hiệu ứng kháng lửa khi trang bị'
+    - '&a+ Có tỉ lệ thiêu đốt đối thủ khi tấn công'
+    2:
+    - '&7- Nhận hiệu ứng kháng lửa khi trang bị'
+    - '&e* Có tỉ lệ thiêu đốt đối thủ khi tấn công'
+    - '&e  (Tăng thêm thời gian thiêu đốt)'
+    3:
+    - '&7- Nhận hiệu ứng kháng lửa khi trang bị'
+    - '&e* Có tỉ lệ thiêu đốt đối thủ khi tấn công'
+    - '&e  (Tăng thêm sát thương thiêu đốt)'
+    4:
+    - '&7- Nhận hiệu ứng kháng lửa khi trang bị'
+    - '&e* Có tỉ lệ thiêu đốt đối thủ khi tấn công'
+    - '&e  (Tăng thêm thời gian thiêu đốt)'
+    5:
+    - '&7- Nhận hiệu ứng kháng lửa khi trang bị'
+    - '&e* Có tỉ lệ thiêu đốt đối thủ khi tấn công'
+    - '&e  (Tăng thêm sát thương thiêu đốt)'
+    - '&a+ Có tỉ lệ gây thêm gấp đôi sát thương'
+    - '&a  cơ bản lên kẻ địch bị cháy'
+  applies-description:
+  - 'Mặt nạ'
+  applies:
+  - 'PLAYER_HEAD'
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'ADD_FOREVER_POTION:blaze_fire_resistance:FIRE_RESISTANCE:0'
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_FOREVER_POTION:blaze_fire_resistance'
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 10000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ON_FIRE:100'
+        - 'TARGET=ENEMY,DELAY=20 | HEALTH:REMOVE:1'
+        - 'TARGET=ENEMY,DELAY=40 | HEALTH:REMOVE:1'
+        - 'TARGET=ENEMY,DELAY=60 | HEALTH:REMOVE:1'
+        - 'TARGET=ENEMY,DELAY=80 | HEALTH:REMOVE:1'
+        - 'TARGET=ENEMY,DELAY=100 | HEALTH:REMOVE:1'
+    2:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'ADD_FOREVER_POTION:blaze_fire_resistance:FIRE_RESISTANCE:0'
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_FOREVER_POTION:blaze_fire_resistance'
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 12500
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ON_FIRE:150'
+        - 'TARGET=ENEMY,DELAY=20 | HEALTH:REMOVE:1'
+        - 'TARGET=ENEMY,DELAY=40 | HEALTH:REMOVE:1'
+        - 'TARGET=ENEMY,DELAY=60 | HEALTH:REMOVE:1'
+        - 'TARGET=ENEMY,DELAY=80 | HEALTH:REMOVE:1'
+        - 'TARGET=ENEMY,DELAY=100 | HEALTH:REMOVE:1'
+        - 'TARGET=ENEMY,DELAY=120 | HEALTH:REMOVE:1'
+        - 'TARGET=ENEMY,DELAY=140 | HEALTH:REMOVE:1'
+    3:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'ADD_FOREVER_POTION:blaze_fire_resistance:FIRE_RESISTANCE:0'
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_FOREVER_POTION:blaze_fire_resistance'
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 12500
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ON_FIRE:150'
+        - 'TARGET=ENEMY,DELAY=20 | HEALTH:REMOVE:1'
+        - 'TARGET=ENEMY,DELAY=40 | HEALTH:REMOVE:2'
+        - 'TARGET=ENEMY,DELAY=60 | HEALTH:REMOVE:1'
+        - 'TARGET=ENEMY,DELAY=80 | HEALTH:REMOVE:2'
+        - 'TARGET=ENEMY,DELAY=100 | HEALTH:REMOVE:1'
+        - 'TARGET=ENEMY,DELAY=120 | HEALTH:REMOVE:2'
+        - 'TARGET=ENEMY,DELAY=140 | HEALTH:REMOVE:1'
+    4:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'ADD_FOREVER_POTION:blaze_fire_resistance:FIRE_RESISTANCE:0'
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_FOREVER_POTION:blaze_fire_resistance'
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 15000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ON_FIRE:200'
+        - 'TARGET=ENEMY,DELAY=20 | HEALTH:REMOVE:1'
+        - 'TARGET=ENEMY,DELAY=40 | HEALTH:REMOVE:2'
+        - 'TARGET=ENEMY,DELAY=60 | HEALTH:REMOVE:1'
+        - 'TARGET=ENEMY,DELAY=80 | HEALTH:REMOVE:2'
+        - 'TARGET=ENEMY,DELAY=100 | HEALTH:REMOVE:1'
+        - 'TARGET=ENEMY,DELAY=120 | HEALTH:REMOVE:2'
+        - 'TARGET=ENEMY,DELAY=140 | HEALTH:REMOVE:1'
+        - 'TARGET=ENEMY,DELAY=160 | HEALTH:REMOVE:2'
+        - 'TARGET=ENEMY,DELAY=180 | HEALTH:REMOVE:1'
+        - 'TARGET=ENEMY,DELAY=200 | HEALTH:REMOVE:2'
+    5:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'ADD_FOREVER_POTION:blaze_fire_resistance:FIRE_RESISTANCE:0'
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_FOREVER_POTION:blaze_fire_resistance'
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 15000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ON_FIRE:200'
+        - 'TARGET=ENEMY,DELAY=20 | HEALTH:REMOVE:2'
+        - 'TARGET=ENEMY,DELAY=40 | HEALTH:REMOVE:2'
+        - 'TARGET=ENEMY,DELAY=60 | HEALTH:REMOVE:2'
+        - 'TARGET=ENEMY,DELAY=80 | HEALTH:REMOVE:2'
+        - 'TARGET=ENEMY,DELAY=100 | HEALTH:REMOVE:2'
+        - 'TARGET=ENEMY,DELAY=120 | HEALTH:REMOVE:2'
+        - 'TARGET=ENEMY,DELAY=140 | HEALTH:REMOVE:2'
+        - 'TARGET=ENEMY,DELAY=160 | HEALTH:REMOVE:2'
+        - 'TARGET=ENEMY,DELAY=180 | HEALTH:REMOVE:2'
+        - 'TARGET=ENEMY,DELAY=200 | HEALTH:REMOVE:2'
+      attack2:
+        type: ATTACK
+        chance: 20
+        cooldown: 5000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        - 'TARGET=ENEMY | ON_FIRE'
+        options:
+        - 'ATTACK:1.0:1'
+pig: 
+  group: 'mask'
+  display: 'Pig'
+  custom-display-lore: '&d%enchant_display% %enchant_level%'
+  description:
+  - '&eCấp I:'
+  - '&7- Tiêu thụ thịt heo chín sẽ nhận'
+  - '&7  hiệu ứng bão hòa trong một khoảng'
+  - '&7  thời gian'
+  - '&eCấp II:'
+  - '&7- Tăng thêm thời gian hiệu ứng'
+  - '&eCấp III:'
+  - '&7- Tăng thêm thời gian hiệu ứng'
+  - '&7- Nhận giảm sát thương khi bị tấn công'
+  - '&eCấp IV:'
+  - '&7- Tăng thêm thời gian hiệu ứng'
+  - '&eCấp V:'
+  - '&7- Tăng thêm thời gian hiệu ứng'
+  - '&7- Nhận giảm sát thương khi bị tấn công'
+  descriptions:
+    1:
+    - '&a+ Tiêu thụ thịt heo chín sẽ nhận'
+    - '&a  hiệu ứng bão hòa trong một khoảng'
+    - '&a  thời gian'
+    2:
+    - '&e* Tiêu thụ thịt heo chín sẽ nhận'
+    - '&e  hiệu ứng bão hòa trong một khoảng'
+    - '&e  thời gian'
+    - '&e  (Tăng thêm thời gian hiệu ứng)'
+    3:
+    - '&e* Tiêu thụ thịt heo chín sẽ nhận'
+    - '&e  hiệu ứng bão hòa trong một khoảng'
+    - '&e  thời gian'
+    - '&e  (Tăng thêm thời gian hiệu ứng)'
+    - '&a+ Nhận giảm sát thương khi bị tấn công'
+    4:
+    - '&e* Tiêu thụ thịt heo chín sẽ nhận'
+    - '&e  hiệu ứng bão hòa trong một khoảng'
+    - '&e  thời gian'
+    - '&e  (Tăng thêm thời gian hiệu ứng)'
+    - '&7- Nhận giảm sát thương khi bị tấn công'
+    5:
+    - '&e* Tiêu thụ thịt heo chín sẽ nhận'
+    - '&e  hiệu ứng bão hòa trong một khoảng'
+    - '&e  thời gian'
+    - '&e  (Tăng thêm thời gian hiệu ứng)'
+    - '&e* Nhận giảm sát thương khi bị tấn công'
+  applies-description:
+  - 'Mặt nạ'
+  applies:
+  - 'PLAYER_HEAD'
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      item_consume:
+        type: ITEM_CONSUME
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'ITEM_CONSUME:COOKED_PORKCHOP'
+        effects:
+        - 'ADD_POTION:SATURATION:0:100'
+    2:
+      item_consume:
+        type: ITEM_CONSUME
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'ITEM_CONSUME:COOKED_PORKCHOP'
+        effects:
+        - 'ADD_POTION:SATURATION:0:125'
+    3:
+      item_consume:
+        type: ITEM_CONSUME
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'ITEM_CONSUME:COOKED_PORKCHOP'
+        effects:
+        - 'ADD_POTION:SATURATION:0:150'
+      defense:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        options:
+        - 'DEFENSE:0.15:2'
+    4:
+      item_consume:
+        type: ITEM_CONSUME
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'ITEM_CONSUME:COOKED_PORKCHOP'
+        effects:
+        - 'ADD_POTION:SATURATION:0:175'
+      defense:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        options:
+        - 'DEFENSE:0.15:2'
+    5:
+      item_consume:
+        type: ITEM_CONSUME
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'ITEM_CONSUME:COOKED_PORKCHOP'
+        effects:
+        - 'ADD_POTION:SATURATION:0:200'
+      defense:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        options:
+        - 'DEFENSE:0.25:2'
+chicken: 
+  group: 'mask'
+  display: 'Chicken'
+  custom-display-lore: '&f%enchant_display% %enchant_level%'
+  description:
+  - '&eCấp I:'
+  - '&7- Nhận giảm sát thương khi rơi'
+  - '&eCấp II:'
+  - '&7- Nhận giảm sát thương khi rơi'
+  - '&eCấp III:'
+  - '&7- Nhận giảm sát thương khi rơi'
+  - '&eCấp IV:'
+  - '&7- Nhận giảm sát thương khi rơi'
+  - '&eCấp V:'
+  - '&7- Miễn nhiễm sát thương khi rơi'
+  descriptions:
+    1:
+    - '&a+ Nhận giảm sát thương khi rơi'
+    2:
+    - '&e* Nhận giảm sát thương khi rơi'
+    - '&e  (Tăng sát thương nhận giảm)'
+    3:
+    - '&e* Nhận giảm sát thương khi rơi'
+    - '&e  (Tăng sát thương nhận giảm)'
+    4:
+    - '&e* Nhận giảm sát thương khi rơi'
+    - '&e  (Tăng sát thương nhận giảm)'
+    5:
+    - '&a+ Miễn nhiễm sát thương khi rơi'
+  applies-description:
+  - 'Mặt nạ'
+  applies:
+  - 'PLAYER_HEAD'
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      unknown_defense:
+        type: UNKNOWN_DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'DAMAGE_CAUSE:FALL'
+        options:
+        - 'DEFENSE:0.2:2'
+    2:
+      unknown_defense:
+        type: UNKNOWN_DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'DAMAGE_CAUSE:FALL'
+        options:
+        - 'DEFENSE:0.4:2'
+    3:
+      unknown_defense:
+        type: UNKNOWN_DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'DAMAGE_CAUSE:FALL'
+        options:
+        - 'DEFENSE:0.6:2'
+    4:
+      unknown_defense:
+        type: UNKNOWN_DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'DAMAGE_CAUSE:FALL'
+        options:
+        - 'DEFENSE:0.8:2'
+    5:
+      unknown_defense:
+        type: UNKNOWN_DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'DAMAGE_CAUSE:FALL'
+        options:
+        - 'DEFENSE:1.0:2'
+sheep:
+  group: 'mask'
+  display: 'Sheep'
+  custom-display-lore: '&f%enchant_display% %enchant_level%'
+  description:
+  - '&eCấp I:'
+  - '&7- Tiêu thụ thịt cừu chín sẽ nhận'
+  - '&7  hiệu ứng hồi máu trong một khoảng'
+  - '&7  thời gian'
+  - '&eCấp II:'
+  - '&7- Tăng thêm thời gian hồi máu'
+  - '&eCấp III:'
+  - '&7- Tăng thêm hiệu quả hồi máu'
+  - '&7- Nhận giảm sát thương khi bị tấn công'
+  - '&eCấp IV:'
+  - '&7- Tăng thêm thời gian hồi máu'
+  - '&eCấp V:'
+  - '&7- Tăng thêm hiệu quả hồi máu'
+  - '&7- Nhận giảm sát thương khi bị tấn công'
+  descriptions:
+    1:
+    - '&a+ Tiêu thụ thịt cừu chín sẽ nhận'
+    - '&a  hiệu ứng hồi máu trong một khoảng'
+    - '&a  thời gian'
+    2:
+    - '&e* Tiêu thụ thịt cừu chín sẽ nhận'
+    - '&e  hiệu ứng hồi máu trong một khoảng'
+    - '&e  thời gian'
+    - '&e  (Tăng thêm thời gian hồi máu)'
+    3:
+    - '&e* Tiêu thụ thịt cừu chín sẽ nhận'
+    - '&e  hiệu ứng hồi máu trong một khoảng'
+    - '&e  thời gian'
+    - '&e  (Tăng thêm hiệu quả hồi máu)'
+    - '&a+ Nhận giảm sát thương khi bị tấn công'
+    4:
+    - '&e* Tiêu thụ thịt cừu chín sẽ nhận'
+    - '&e  hiệu ứng hồi máu trong một khoảng'
+    - '&e  thời gian'
+    - '&e  (Tăng thêm thời gian hồi máu)'
+    - '&7- Nhận giảm sát thương khi bị tấn công'
+    5:
+    - '&e* Tiêu thụ thịt cừu chín sẽ nhận'
+    - '&e  hiệu ứng hồi máu trong một khoảng'
+    - '&e  thời gian'
+    - '&e  (Tăng thêm hiệu quả hồi máu)'
+    - '&e* Nhận giảm sát thương khi bị tấn công'
+    - '&e  (Tăng lượng sát thương nhận giảm)'
+  applies-description:
+  - 'Mặt nạ'
+  applies:
+  - 'PLAYER_HEAD'
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      item_consume:
+        type: ITEM_CONSUME
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'ITEM_CONSUME:COOKED_MUTTON'
+        effects:
+        - 'ADD_POTION:REGENERATION:0:100'
+    2:
+      item_consume:
+        type: ITEM_CONSUME
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'ITEM_CONSUME:COOKED_MUTTON'
+        effects:
+        - 'ADD_POTION:REGENERATION:0:150'
+    3:
+      item_consume:
+        type: ITEM_CONSUME
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'ITEM_CONSUME:COOKED_MUTTON'
+        effects:
+        - 'ADD_POTION:REGENERATION:1:150'
+      defense:
+        type: DEFENSE
+        chance: 20
+        cooldown: 5000
+        options:
+        - 'DEFENSE:0.1:2'
+    4:
+      item_consume:
+        type: ITEM_CONSUME
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'ITEM_CONSUME:COOKED_MUTTON'
+        effects:
+        - 'ADD_POTION:REGENERATION:1:200'
+      defense:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        options:
+        - 'DEFENSE:0.1:2'
+    5:
+      item_consume:
+        type: ITEM_CONSUME
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'ITEM_CONSUME:COOKED_MUTTON'
+        effects:
+        - 'ADD_POTION:REGENERATION:2:200'
+      defense:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        options:
+        - 'DEFENSE:0.2:2'
+cow: 
+  group: 'mask'
+  display: 'Cow'
+  custom-display-lore: '&8%enchant_display% %enchant_level%'
+  description:
+  - '&eCấp I:'
+  - '&7- Tiêu thụ thịt bò chín sẽ loại bỏ tất'
+  - '&7  cả hiệu ứng thuốc bất lợi trên người'
+  - '&7- Nhận hiệu ứng hồi máu khi tiêu thụ'
+  - '&7  thịt bò'
+  - '&eCấp II-IV:'
+  - '&7- Tăng thêm hiệu quả hồi máu'
+  - '&eCấp V:'
+  - '&7- Có tỉ lệ xóa bỏ hiệu ứng thuốc bất lợi'
+  - '&7  khi tấn công'
+  descriptions:
+    1:
+    - '&a+ Tiêu thụ thịt bò chín sẽ loại bỏ tất'
+    - '&a  cả hiệu ứng thuốc bất lợi trên người'
+    - '&a+ Nhận hiệu ứng hồi máu khi tiêu thụ'
+    - '&a  thịt bò'
+    2:
+    - '&7- Tiêu thụ thịt bò chín sẽ loại bỏ tất'
+    - '&7  cả hiệu ứng thuốc bất lợi trên người'
+    - '&e* Nhận hiệu ứng hồi máu khi tiêu thụ'
+    - '&e  thịt bò'
+    - '&e  (Tăng thêm hiệu quả hồi máu)'
+    3:
+    - '&7- Tiêu thụ thịt bò chín sẽ loại bỏ tất'
+    - '&7  cả hiệu ứng thuốc bất lợi trên người'
+    - '&e* Nhận hiệu ứng hồi máu khi tiêu thụ'
+    - '&e  thịt bò'
+    - '&e  (Tăng thêm hiệu quả hồi máu)'
+    4:
+    - '&7- Tiêu thụ thịt bò chín sẽ loại bỏ tất'
+    - '&7  cả hiệu ứng thuốc bất lợi trên người'
+    - '&e* Nhận hiệu ứng hồi máu khi tiêu thụ'
+    - '&e  thịt bò'
+    - '&e  (Tăng thêm hiệu quả hồi máu)'
+    5:
+    - '&7- Tiêu thụ thịt bò chín sẽ loại bỏ tất'
+    - '&7  cả hiệu ứng thuốc bất lợi trên người'
+    - '&7- Nhận hiệu ứng hồi máu khi tiêu thụ'
+    - '&7  thịt bò'
+    - '&a+ Có tỉ lệ xóa bỏ hiệu ứng thuốc bất lợi'
+    - '&a  khi tấn công'
+  applies-description:
+  - 'Mặt nạ'
+  applies:
+  - 'PLAYER_HEAD'
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      item_consume:
+        type: ITEM_CONSUME
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'ITEM_CONSUME:COOKED_BEEF'
+        effects:
+        - 'REMOVE_POTION:POISON,WITHER,SLOW,WEAKNESS,LEVITATION,HARMING,SLOW_DIGGING,CONFUSION,HUNGER,UNLUCK,BLINDNESS'
+        - 'ADD_POTION:REGENERATION:0:100'
+    2:
+      item_consume:
+        type: ITEM_CONSUME
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'ITEM_CONSUME:COOKED_BEEF'
+        effects:
+        - 'REMOVE_POTION:POISON,WITHER,SLOW,WEAKNESS,LEVITATION,HARMING,SLOW_DIGGING,CONFUSION,HUNGER,UNLUCK,BLINDNESS'
+        - 'ADD_POTION:REGENERATION:1:100'
+    3:
+      item_consume:
+        type: ITEM_CONSUME
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'ITEM_CONSUME:COOKED_BEEF'
+        effects:
+        - 'REMOVE_POTION:POISON,WITHER,SLOW,WEAKNESS,LEVITATION,HARMING,SLOW_DIGGING,CONFUSION,HUNGER,UNLUCK,BLINDNESS'
+        - 'ADD_POTION:REGENERATION:2:100'
+    4:
+      item_consume:
+        type: ITEM_CONSUME
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'ITEM_CONSUME:COOKED_BEEF'
+        effects:
+        - 'REMOVE_POTION:POISON,WITHER,SLOW,WEAKNESS,LEVITATION,HARMING,SLOW_DIGGING,CONFUSION,HUNGER,UNLUCK,BLINDNESS'
+        - 'ADD_POTION:REGENERATION:3:100'
+    5:
+      item_consume:
+        type: ITEM_CONSUME
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'ITEM_CONSUME:COOKED_BEEF'
+        effects:
+        - 'REMOVE_POTION:POISON,WITHER,SLOW,WEAKNESS,LEVITATION,HARMING,SLOW_DIGGING,CONFUSION,HUNGER,UNLUCK,BLINDNESS'
+        - 'ADD_POTION:REGENERATION:3:100'
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 4000
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_POTION:POISON,WITHER,SLOW,WEAKNESS,LEVITATION,HARMING,SLOW_DIGGING,CONFUSION,HUNGER,UNLUCK,BLINDNESS'
+bat:
+  group: 'mask'
+  display: 'Bat'
+  custom-display-lore: '&8%enchant_display% %enchant_level%'
+  description:
+  - '&eCấp I:'
+  - '&7- Nhận hiệu ứng nhìn trong bóng tối khi'
+  - '&7  trang bị'
+  - '&7- Có tỉ lệ hút máu đối thủ khi tấn công'
+  - '&eCấp II-V:'
+  - '&7- Tăng hiệu quả máu hút được'
+  - '&eCấp V:'
+  - '&7- Miễn nhiễm hiệu ứng mù từ mọi nguồn'
+  descriptions:
+    1:
+    - '&a+ Nhận hiệu ứng nhìn trong bóng tối khi'
+    - '&a  trang bị'
+    - '&a+ Có tỉ lệ hút máu đối thủ khi tấn công'
+    2:
+    - '&7- Nhận hiệu ứng nhìn trong bóng tối khi'
+    - '&7  trang bị'
+    - '&e* Có tỉ lệ hút máu đối thủ khi tấn công'
+    - '&e  (Tăng thêm số lượng máu hút)'
+    3:
+    - '&7- Nhận hiệu ứng nhìn trong bóng tối khi'
+    - '&7  trang bị'
+    - '&e* Có tỉ lệ hút máu đối thủ khi tấn công'
+    - '&e  (Tăng thêm số lượng máu hút)'
+    4:
+    - '&7- Nhận hiệu ứng nhìn trong bóng tối khi'
+    - '&7  trang bị'
+    - '&e* Có tỉ lệ hút máu đối thủ khi tấn công'
+    - '&e  (Tăng thêm số lượng máu hút)'
+    5:
+    - '&7- Nhận hiệu ứng nhìn trong bóng tối khi'
+    - '&7  trang bị'
+    - '&e* Có tỉ lệ hút máu đối thủ khi tấn công'
+    - '&e  (Tăng thêm số lượng máu hút)'
+    - '&a+ Miễn nhiễm hiệu ứng mù từ mọi nguồn'
+  applies-description:
+  - 'Mặt nạ'
+  applies:
+  - 'PLAYER_HEAD'
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      armor_equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'ADD_FOREVER_POTION:bat_night_vision:NIGHT_VISION:0'
+      armor_undress:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_FOREVER_POTION:bat_night_vision'
+      attack:
+        type: attack
+        chance: 20
+        cooldown: 5000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | HEALTH:REMOVE:2'
+        - 'HEALTH:ADD:2'
+    2:
+      armor_equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'ADD_FOREVER_POTION:bat_night_vision:NIGHT_VISION:0'
+      armor_undress:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_FOREVER_POTION:bat_night_vision'
+      attack:
+        type: attack
+        chance: 20
+        cooldown: 5000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | HEALTH:REMOVE:4'
+        - 'HEALTH:ADD:4'
+    3:
+      armor_equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'ADD_FOREVER_POTION:bat_night_vision:NIGHT_VISION:0'
+      armor_undress:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_FOREVER_POTION:bat_night_vision'
+      attack:
+        type: attack
+        chance: 20
+        cooldown: 5000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | HEALTH:REMOVE:6'
+        - 'HEALTH:ADD:6'
+    4:
+      armor_equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'ADD_FOREVER_POTION:bat_night_vision:NIGHT_VISION:0'
+      armor_undress:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_FOREVER_POTION:bat_night_vision'
+      attack:
+        type: attack
+        chance: 20
+        cooldown: 5000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | HEALTH:REMOVE:8'
+        - 'HEALTH:ADD:8'
+    5:
+      armor_equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'ADD_FOREVER_POTION:bat_night_vision:NIGHT_VISION:0'
+        - 'NAME=bat_blindness,PERIOD=10 | REMOVE_POTION:BLINDNESS'
+      armor_undress:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_FOREVER_POTION:bat_night_vision'
+        - 'REMOVE_TASK:bat_blindness'
+      attack:
+        type: attack
+        chance: 20
+        cooldown: 5000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | HEALTH:REMOVE:10'
+        - 'HEALTH:ADD:10'
+wolf:
+  group: 'mask'
+  display: 'Wolf'
+  custom-display-lore: '&f%enchant_display% %enchant_level%'
+  description:
+  - '&eCấp I:'
+  - '&7- Triệu hồi Wolf khi bị tấn công'
+  - '&7- Nhận thêm tốc độ di chuyển và'
+  - '&7  sức tấn công trong một khoảng'
+  - '&7  thời gian khi bị tấn công'
+  - '&eCấp II-V:'
+  - '&7- Tăng thêm tốc độ di chuyển và'
+  - '&7  sức tấn công khi bị tấn công'
+  - '&eCấp III,V:'
+  - '&7- Tăng thêm Wolf khi triệu hồi'
+  descriptions:
+    1:
+    - '&a+ Triệu hồi 1 Wolf khi bị tấn công'
+    - '&a+ Nhận thêm tốc độ di chuyển và'
+    - '&a  sức tấn công trong một khoảng'
+    - '&a  thời gian khi bị tấn công'
+    2:
+    - '&7- Triệu hồi 1 Wolf khi bị tấn công'
+    - '&e* Nhận thêm tốc độ di chuyển và'
+    - '&e  sức tấn công trong một khoảng'
+    - '&e  thời gian khi bị tấn công'
+    - '&e  (Tăng thêm tốc độ di chuyển và'
+    - '&e  sức tấn công)'
+    3:
+    - '&e* Triệu hồi 2 Wolf khi bị tấn công'
+    - '&e* Nhận thêm tốc độ di chuyển và'
+    - '&e  sức tấn công trong một khoảng'
+    - '&e  thời gian khi bị tấn công'
+    - '&e  (Tăng thêm tốc độ di chuyển và'
+    - '&e  sức tấn công)'
+    4:
+    - '&7- Triệu hồi 2 Wolf khi bị tấn công'
+    - '&e* Nhận thêm tốc độ di chuyển và'
+    - '&e  sức tấn công trong một khoảng'
+    - '&e  thời gian khi bị tấn công'
+    - '&e  (Tăng thêm tốc độ di chuyển và'
+    - '&e  sức tấn công)'
+    5:
+    - '&e* Triệu hồi 3 Wolf khi bị tấn công'
+    - '&e* Nhận thêm tốc độ di chuyển và'
+    - '&e  sức tấn công trong một khoảng'
+    - '&e  thời gian khi bị tấn công'
+    - '&e  (Tăng thêm tốc độ di chuyển và'
+    - '&e  sức tấn công)'
+  applies-description:
+  - 'Mặt nạ'
+  applies:
+  - 'PLAYER_HEAD'
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      defense:
+        type: DEFENSE
+        chance: 100
+        cooldown: 20000
+        effects:
+        - 'SUMMON_GUARD:wolf_%player_name%_guard:WOLF:~_xP+2*sin(eyawP)_~_zP+2*cos(eyawP)_yawP_pitchP:1.3:16:16:10000'
+      defense2:
+        type: DEFENSE
+        chance: 20
+        cooldown: 10000
+        effects:
+        - 'ADD_ATTRIBUTE:ATTACK_DAMAGE:wolf_damage:1:0'
+        - 'ADD_ATTRIBUTE:MOVEMENT_SPEED:wolf_speed:0.05:1'
+        - 'DELAY=100 | REMOVE_ATTRIBUTE:ATTACK_DAMAGE:wolf_damage'
+        - 'DELAY=100 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:wolf_speed'
+      armor_undress:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        effects:
+        - 'REMOVE_GUARD:wolf_%player_name%_guard'
+    2:
+      defense:
+        type: DEFENSE
+        chance: 100
+        cooldown: 20000
+        effects:
+        - 'SUMMON_GUARD:wolf_%player_name%_guard:WOLF:~_xP+2*sin(eyawP)_~_zP+2*cos(eyawP)_yawP_pitchP:1.3:16:16:10000'
+      defense2:
+        type: DEFENSE
+        chance: 20
+        cooldown: 10000
+        effects:
+        - 'ADD_ATTRIBUTE:ATTACK_DAMAGE:wolf_damage:2:0'
+        - 'ADD_ATTRIBUTE:MOVEMENT_SPEED:wolf_speed:0.10:1'
+        - 'DELAY=100 | REMOVE_ATTRIBUTE:ATTACK_DAMAGE:wolf_damage'
+        - 'DELAY=100 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:wolf_speed'
+      armor_undress:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        effects:
+        - 'REMOVE_GUARD:wolf_%player_name%_guard'
+    3:
+      defense:
+        type: DEFENSE
+        chance: 100
+        cooldown: 20000
+        effects:
+        - 'SUMMON_GUARD:wolf_%player_name%_guard:WOLF:~_xP+2*sin(eyawP)_~_zP+2*cos(eyawP)_yawP_pitchP:1.3:16:16:10000'
+        - 'SUMMON_GUARD:wolf_%player_name%_guard2:WOLF:~_xP+2*sin(eyawP+120)_~_zP+2*cos(eyawP+120)_yawP_pitchP:1.3:16:16:10000'
+      defense2:
+        type: DEFENSE
+        chance: 20
+        cooldown: 10000
+        effects:
+        - 'ADD_ATTRIBUTE:ATTACK_DAMAGE:wolf_damage:3:0'
+        - 'ADD_ATTRIBUTE:MOVEMENT_SPEED:wolf_speed:0.15:1'
+        - 'DELAY=100 | REMOVE_ATTRIBUTE:ATTACK_DAMAGE:wolf_damage'
+        - 'DELAY=100 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:wolf_speed'
+      armor_undress:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        effects:
+        - 'REMOVE_GUARD:wolf_%player_name%_guard'
+        - 'REMOVE_GUARD:wolf_%player_name%_guard2'
+    4:
+      defense:
+        type: DEFENSE
+        chance: 100
+        cooldown: 20000
+        effects:
+        - 'SUMMON_GUARD:wolf_%player_name%_guard:WOLF:~_xP+2*sin(eyawP)_~_zP+2*cos(eyawP)_yawP_pitchP:1.3:16:16:10000'
+        - 'SUMMON_GUARD:wolf_%player_name%_guard2:WOLF:~_xP+2*sin(eyawP+120)_~_zP+2*cos(eyawP+120)_yawP_pitchP:1.3:16:16:10000'
+      defense2:
+        type: DEFENSE
+        chance: 20
+        cooldown: 10000
+        effects:
+        - 'ADD_ATTRIBUTE:ATTACK_DAMAGE:wolf_damage:4:0'
+        - 'ADD_ATTRIBUTE:MOVEMENT_SPEED:wolf_speed:0.20:1'
+        - 'DELAY=100 | REMOVE_ATTRIBUTE:ATTACK_DAMAGE:wolf_damage'
+        - 'DELAY=100 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:wolf_speed'
+      armor_undress:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        effects:
+        - 'REMOVE_GUARD:wolf_%player_name%_guard'
+        - 'REMOVE_GUARD:wolf_%player_name%_guard2'
+    5:
+      defense:
+        type: DEFENSE
+        chance: 100
+        cooldown: 20000
+        effects:
+        - 'SUMMON_GUARD:wolf_%player_name%_guard:WOLF:~_xP+2*sin(eyawP)_~_zP+2*cos(eyawP)_yawP_pitchP:1.3:16:16:10000'
+        - 'SUMMON_GUARD:wolf_%player_name%_guard2:WOLF:~_xP+2*sin(eyawP+120)_~_zP+2*cos(eyawP+120)_yawP_pitchP:1.3:16:16:10000'
+        - 'SUMMON_GUARD:wolf_%player_name%_guard3:WOLF:~_xP+2*sin(eyawP+240)_~_zP+2*cos(eyawP+240)_yawP_pitchP:1.3:16:16:10000'
+      defense2:
+        type: DEFENSE
+        chance: 20
+        cooldown: 10000
+        effects:
+        - 'ADD_ATTRIBUTE:ATTACK_DAMAGE:wolf_damage:5:0'
+        - 'ADD_ATTRIBUTE:MOVEMENT_SPEED:wolf_speed:0.25:1'
+        - 'DELAY=100 | REMOVE_ATTRIBUTE:ATTACK_DAMAGE:wolf_damage'
+        - 'DELAY=100 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:wolf_speed'
+      armor_undress:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        effects:
+        - 'REMOVE_GUARD:wolf_%player_name%_guard'
+        - 'REMOVE_GUARD:wolf_%player_name%_guard2'
+        - 'REMOVE_GUARD:wolf_%player_name%_guard3'
+ocelot:
+  group: 'mask'
+  display: 'Ocelot'
+  custom-display-lore: '&e%enchant_display% %enchant_level%'
+  description:
+  - '&eCấp I:'
+  - '&7- Gây thêm sát thương khi tấn công kẻ địch'
+  - '&7  từ đằng sau mỗi khoảng thời gian'
+  - '&eCấp II-V:'
+  - '&7- Tăng thêm sát thương khi tấn công kẻ địch'
+  - '&7  từ đằng sau mỗi khoảng thời gian'
+  - '&7- Nhận thêm tốc độ di chuyển trong một khoảng'
+  - '&7  thời gian khi tấn công kẻ địch từ đằng sau'
+  descriptions:
+    1:
+    - '&a+ Gây thêm sát thương khi tấn công kẻ địch'
+    - '&a  từ đằng sau mỗi khoảng thời gian'
+    2:
+    - '&e* Gây thêm sát thương khi tấn công kẻ địch'
+    - '&e  từ đằng sau mỗi khoảng thời gian'
+    - '&e  (Tăng thêm sát thương)'
+    - '&a+ Nhận thêm tốc độ di chuyển trong một khoảng'
+    - '&a  thời gian khi tấn công kẻ địch từ đằng sau'
+    3:
+    - '&e* Gây thêm sát thương khi tấn công kẻ địch'
+    - '&e  từ đằng sau mỗi khoảng thời gian'
+    - '&e  (Tăng thêm sát thương)'
+    - '&e* Nhận thêm tốc độ di chuyển trong một khoảng'
+    - '&e  thời gian khi tấn công kẻ địch từ đằng sau'
+    - '&e  (Tăng thêm tốc độ di chuyển)'
+    4:
+    - '&e* Gây thêm sát thương khi tấn công kẻ địch'
+    - '&e  từ đằng sau mỗi khoảng thời gian'
+    - '&e  (Tăng thêm sát thương)'
+    - '&e* Nhận thêm tốc độ di chuyển trong một khoảng'
+    - '&e  thời gian khi tấn công kẻ địch từ đằng sau'
+    - '&e  (Tăng thêm tốc độ di chuyển)'
+    5:
+    - '&e* Gây thêm sát thương khi tấn công kẻ địch'
+    - '&e  từ đằng sau mỗi khoảng thời gian'
+    - '&e  (Tăng thêm sát thương)'
+    - '&e* Nhận thêm tốc độ di chuyển trong một khoảng'
+    - '&e  thời gian khi tấn công kẻ địch từ đằng sau'
+    - '&e  (Tăng thêm tốc độ di chuyển)'
+  applies-description:
+  - 'Mặt nạ'
+  applies:
+  - 'PLAYER_HEAD'
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 1000
+        conditions:
+        - 'OUT_OF_SIGHT'
+        options:
+        - 'ATTACK:0.5:1'
+    2:
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 1000
+        conditions:
+        - 'OUT_OF_SIGHT'
+        options:
+        - 'ATTACK:0.625:1'
+      attack2:
+        type: ATTACK
+        chance: 100
+        cooldown: 4000
+        conditions:
+        - 'OUT_OF_SIGHT'
+        effects:
+        - 'ADD_ATTRIBUTE:MOVEMENT_SPEED:ocelot_speed:0.15:1'
+        - 'DELAY=40 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:ocelot_speed'
+    3:
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 1000
+        conditions:
+        - 'OUT_OF_SIGHT'
+        options:
+        - 'ATTACK:0.75:1'
+      attack2:
+        type: ATTACK
+        chance: 100
+        cooldown: 4000
+        conditions:
+        - 'OUT_OF_SIGHT'
+        effects:
+        - 'ADD_ATTRIBUTE:MOVEMENT_SPEED:ocelot_speed:0.3:1'
+        - 'DELAY=40 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:ocelot_speed'
+    4:
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 1000
+        conditions:
+        - 'OUT_OF_SIGHT'
+        options:
+        - 'ATTACK:0.875:1'
+      attack2:
+        type: ATTACK
+        chance: 100
+        cooldown: 4000
+        conditions:
+        - 'OUT_OF_SIGHT'
+        effects:
+        - 'ADD_ATTRIBUTE:MOVEMENT_SPEED:ocelot_speed:0.45:1'
+        - 'DELAY=40 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:ocelot_speed'
+    5:
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 1000
+        conditions:
+        - 'OUT_OF_SIGHT'
+        options:
+        - 'ATTACK:1.0:1'
+      attack2:
+        type: ATTACK
+        chance: 100
+        cooldown: 4000
+        conditions:
+        - 'OUT_OF_SIGHT'
+        effects:
+        - 'ADD_ATTRIBUTE:MOVEMENT_SPEED:ocelot_speed:0.6:1'
+        - 'DELAY=40 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:ocelot_speed'
+rabbit:
+  group: 'mask'
+  display: 'Rabbit'
+  custom-display-lore: '&7%enchant_display% %enchant_level%'
+  description:
+  - '&eCấp I:'
+  - '&7- Nhận hiệu ứng nhảy cao khi trang bị'
+  - '&eCấp II-V:'
+  - '&7- Tăng thêm sức mạnh của hiệu ứng nhảy cao'
+  descriptions:
+    1:
+    - '&a+ Nhận hiệu ứng nhảy cao khi trang bị'
+    2:
+    - '&e* Nhận hiệu ứng nhảy cao khi trang bị'
+    - '&e  (Tăng thêm sức mạnh hiệu ứng)'
+    3:
+    - '&e* Nhận hiệu ứng nhảy cao khi trang bị'
+    - '&e  (Tăng thêm sức mạnh hiệu ứng)'
+    4:
+    - '&e* Nhận hiệu ứng nhảy cao khi trang bị'
+    - '&e  (Tăng thêm sức mạnh hiệu ứng)'
+    5:
+    - '&e* Nhận hiệu ứng nhảy cao khi trang bị'
+    - '&e  (Tăng thêm sức mạnh hiệu ứng)'
+  applies-description:
+  - 'Mặt nạ'
+  applies:
+  - 'PLAYER_HEAD'
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'ADD_FOREVER_POTION:rabbit_jump:JUMP:0'
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_FOREVER_POTION:rabbit_jump'
+    2:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'ADD_FOREVER_POTION:rabbit_jump:JUMP:1'
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_FOREVER_POTION:rabbit_jump'
+    3:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'ADD_FOREVER_POTION:rabbit_jump:JUMP:2'
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_FOREVER_POTION:rabbit_jump'
+    4:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'ADD_FOREVER_POTION:rabbit_jump:JUMP:3'
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_FOREVER_POTION:rabbit_jump'
+    5:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'ADD_FOREVER_POTION:rabbit_jump:JUMP:4'
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_FOREVER_POTION:rabbit_jump'
+llama:
+  group: 'mask'
+  display: 'Llama'
+  custom-display-lore: '&e%enchant_display% %enchant_level%'
+  description:
+  - '&eCấp I:'
+  - '&7- Có tỉ lệ gây thêm sát thương và khiến'
+  - '&7  đối thủ nhận hiệu ứng bay lên trong'
+  - '&7  một khoảng thời gian khi tấn công'
+  - '&eCấp II-V:'
+  - '&7- Tăng thêm sát thương'
+  - '&eCấp II,IV:'
+  - '&7- Tăng thêm thời gian hiệu ứng'
+  - '&eCấp III,V:'
+  - '&7- Tăng thêm sức mạnh hiệu ứng'
+  descriptions:
+    1:
+    - '&a+ Có tỉ lệ gây thêm sát thương và khiến'
+    - '&a  đối thủ nhận hiệu ứng bay lên trong'
+    - '&a  một khoảng thời gian khi tấn công'
+    2:
+    - '&e* Có tỉ lệ gây thêm sát thương và khiến'
+    - '&e  đối thủ nhận hiệu ứng bay lên trong'
+    - '&e  một khoảng thời gian khi tấn công'
+    - '&e  (Tăng thêm sát thương và thời gian'
+    - '&e  hiệu ứng)'
+    3:
+    - '&e* Có tỉ lệ gây thêm sát thương và khiến'
+    - '&e  đối thủ nhận hiệu ứng bay lên trong'
+    - '&e  một khoảng thời gian khi tấn công'
+    - '&e  (Tăng thêm sát thương và sức mạnh'
+    - '&e  hiệu ứng)'
+    4:
+    - '&e* Có tỉ lệ gây thêm sát thương và khiến'
+    - '&e  đối thủ nhận hiệu ứng bay lên trong'
+    - '&e  một khoảng thời gian khi tấn công'
+    - '&e  (Tăng thêm sát thương và thời gian'
+    - '&e  hiệu ứng)'
+    5:
+    - '&e* Có tỉ lệ gây thêm sát thương và khiến'
+    - '&e  đối thủ nhận hiệu ứng bay lên trong'
+    - '&e  một khoảng thời gian khi tấn công'
+    - '&e  (Tăng thêm sát thương và sức mạnh'
+    - '&e  hiệu ứng)'
+  applies-description:
+  - 'Mặt nạ'
+  applies:
+  - 'PLAYER_HEAD'
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 8000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        options:
+        - 'ATTACK:2:1'
+        effects:
+        - 'TARGET=ENEMY | ADD_POTION:LEVITATION:0:40'
+    2:
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 8000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        options:
+        - 'ATTACK:4:0'
+        effects:
+        - 'TARGET=ENEMY | ADD_POTION:LEVITATION:0:60'
+    3:
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 8000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        options:
+        - 'ATTACK:6:0'
+        effects:
+        - 'TARGET=ENEMY | ADD_POTION:LEVITATION:1:60'
+    4:
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 8000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        options:
+        - 'ATTACK:8:0'
+        effects:
+        - 'TARGET=ENEMY | ADD_POTION:LEVITATION:1:80'
+    5:
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 8000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        options:
+        - 'ATTACK:10:0'
+        effects:
+        - 'TARGET=ENEMY | ADD_POTION:LEVITATION:2:80'
+squid:
+  group: 'mask'
+  display: 'Squid'
+  custom-display-lore: '&b%enchant_display% %enchant_level%'
+  description:
+  - '&eCấp I:'
+  - '&7- Nhận hiệu ứng thở dưới nước khi trang bị'
+  - '&7- Có tỉ lệ gây hiệu ứng mù cho đối thủ khi'
+  - '&7  tấn công'
+  - '&eCấp II:'
+  - '&7- Thêm hiệu ứng buồn nôn cho đối thủ khi'
+  - '&7  tấn công'
+  - '&eCấp II,IV:'
+  - '&7- Tăng thời gian cho hiệu ứng mù'
+  - '&eCấp III, V:'
+  - '&7- Thêm làm chậm tốc độ di chuyển kẻ địch'
+  - '&7  khi tấn công'
+  - '&7- Tăng thời gian cho hiệu ứng buồn nôn'
+  descriptions:
+    1:
+    - '&a+ Nhận hiệu ứng thở dưới nước khi trang bị'
+    - '&a+ Có tỉ lệ gây hiệu ứng mù cho đối thủ khi'
+    - '&a  tấn công'
+    2:
+    - '&7- Nhận hiệu ứng thở dưới nước khi trang bị'
+    - '&e* Có tỉ lệ gây hiệu ứng mù cho đối thủ khi'
+    - '&e  tấn công'
+    - '&e  (Tăng thêm thời gian cho hiệu ứng)'
+    - '&a+ Có tỉ lệ gây thêm hiệu ứng buồn nôn cho'
+    - '&a  đối thủ khi tấn công'
+    3:
+    - '&7- Nhận hiệu ứng thở dưới nước khi trang bị'
+    - '&7- Có tỉ lệ gây hiệu ứng mù cho đối thủ khi'
+    - '&7  tấn công'
+    - '&e* Có tỉ lệ gây thêm hiệu ứng buồn nôn cho'
+    - '&e  đối thủ khi tấn công'
+    - '&e  (Tăng thêm thời gian cho hiệu ứng)'
+    - '&a+ Có tỉ lệ gây thêm làm chậm tốc độ di chuyển'
+    - '&a  cho đối thủ khi tấn công'
+    4:
+    - '&7- Nhận hiệu ứng thở dưới nước khi trang bị'
+    - '&e* Có tỉ lệ gây hiệu ứng mù cho đối thủ khi'
+    - '&e  tấn công'
+    - '&e  (Tăng thêm thời gian cho hiệu ứng)'
+    - '&7- Có tỉ lệ gây thêm hiệu ứng buồn nôn cho'
+    - '&7  đối thủ khi tấn công'
+    - '&7- Có tỉ lệ gây thêm làm chậm tốc độ di chuyển'
+    - '&7  cho đối thủ khi tấn công'
+    5:
+    - '&7- Nhận hiệu ứng thở dưới nước khi trang bị'
+    - '&7- Có tỉ lệ gây hiệu ứng mù cho đối thủ khi'
+    - '&7  tấn công'
+    - '&e* Có tỉ lệ gây thêm hiệu ứng buồn nôn cho'
+    - '&e  đối thủ khi tấn công'
+    - '&e  (Tăng thêm thời gian cho hiệu ứng)'
+    - '&e* Có tỉ lệ gây thêm làm chậm tốc độ di chuyển'
+    - '&e  cho đối thủ khi tấn công'
+    - '&e  (Tăng thêm làm chậm tốc độ di chuyển)'
+  applies-description:
+  - 'Mặt nạ'
+  applies:
+  - 'PLAYER_HEAD'
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      armor_equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        effects:
+        - 'ADD_FOREVER_POTION:squid_water_breathing:WATER_BREATHING:0'
+      armor_undress:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        effects:
+        - 'REMOVE_FOREVER_POTION:squid_water_breathing'
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 15000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ADD_POTION:BLINDNESS:0:100'
+    2:
+      armor_equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        effects:
+        - 'ADD_FOREVER_POTION:squid_water_breathing:WATER_BREATHING:0'
+      armor_undress:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        effects:
+        - 'REMOVE_FOREVER_POTION:squid_water_breathing'
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 15000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ADD_POTION:BLINDNESS:0:125'
+        - 'TARGET=ENEMY | ADD_POTION:NAUSEA:0:100'
+    3:
+      armor_equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        effects:
+        - 'ADD_FOREVER_POTION:squid_water_breathing:WATER_BREATHING:0'
+      armor_undress:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        effects:
+        - 'REMOVE_FOREVER_POTION:squid_water_breathing'
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 15000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ADD_POTION:BLINDNESS:0:125'
+        - 'TARGET=ENEMY | ADD_POTION:NAUSEA:0:125'
+        - 'TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:squid_speed:-0.25:1'
+        - 'TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:squid_speed'
+    4:
+      armor_equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        effects:
+        - 'ADD_FOREVER_POTION:squid_water_breathing:WATER_BREATHING:0'
+      armor_undress:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        effects:
+        - 'REMOVE_FOREVER_POTION:squid_water_breathing'
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 15000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ADD_POTION:BLINDNESS:0:150'
+        - 'TARGET=ENEMY | ADD_POTION:NAUSEA:0:125'
+        - 'TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:squid_speed:-0.25:1'
+        - 'TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:squid_speed'
+    5:
+      armor_equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        effects:
+        - 'ADD_FOREVER_POTION:squid_water_breathing:WATER_BREATHING:0'
+      armor_undress:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        effects:
+        - 'REMOVE_FOREVER_POTION:squid_water_breathing'
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 15000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ADD_POTION:BLINDNESS:0:150'
+        - 'TARGET=ENEMY | ADD_POTION:NAUSEA:0:150'
+        - 'TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:squid_speed:-0.5:1'
+        - 'TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:squid_speed'
+mushroomcow:
+  group: 'mask'
+  display: 'Mooshroom'
+  custom-display-lore: '&4%enchant_display% %enchant_level%'
+  description:
+  - '&eCấp I:'
+  - '&7- Tiêu thụ súp nấm sẽ loại bỏ tất'
+  - '&7  cả hiệu ứng thuốc bất lợi trên người'
+  - '&7- Nhận tim vàng khi tiêu thụ súp nấm'
+  - '&eCấp II-V:'
+  - '&7- Tăng số lượng tim vàng khi tiêu thụ'
+  - '&eCấp V:'
+  - '&7- Có tỉ lệ xóa bỏ hiệu ứng thuốc bất lợi'
+  - '&7  khi bị tấn công'
+  descriptions:
+    1:
+    - '&a+ Tiêu thụ súp nấm sẽ loại bỏ tất'
+    - '&a  cả hiệu ứng thuốc bất lợi trên người'
+    - '&a+ Nhận tim vàng khi tiêu thụ súp nấm'
+    2:
+    - '&7- Tiêu thụ súp nấm sẽ loại bỏ tất'
+    - '&7  cả hiệu ứng thuốc bất lợi trên người'
+    - '&e* Nhận tim vàng khi tiêu thụ súp nấm'
+    - '&e  (Tăng thêm số lượng tim vàng)'
+    3:
+    - '&7- Tiêu thụ súp nấm sẽ loại bỏ tất'
+    - '&7  cả hiệu ứng thuốc bất lợi trên người'
+    - '&e* Nhận tim vàng khi tiêu thụ súp nấm'
+    - '&e  (Tăng thêm số lượng tim vàng)'
+    4:
+    - '&7- Tiêu thụ súp nấm sẽ loại bỏ tất'
+    - '&7  cả hiệu ứng thuốc bất lợi trên người'
+    - '&e* Nhận tim vàng khi tiêu thụ súp nấm'
+    - '&e  (Tăng thêm số lượng tim vàng)'
+    5:
+    - '&7- Tiêu thụ súp nấm sẽ loại bỏ tất'
+    - '&7  cả hiệu ứng thuốc bất lợi trên người'
+    - '&e* Nhận tim vàng khi tiêu thụ súp nấm'
+    - '&e  (Tăng thêm số lượng tim vàng)'
+    - '&a+ Có tỉ lệ xóa bỏ hiệu ứng thuốc bất lợi'
+    - '&a  khi bị tấn công'
+  applies-description:
+  - 'Mặt nạ'
+  applies:
+  - 'PLAYER_HEAD'
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      item_consume:
+        type: ITEM_CONSUME
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'ITEM_CONSUME:MUSHROOM_STEW'
+        effects:
+        - 'REMOVE_POTION:POISON,WITHER,SLOW,WEAKNESS,LEVITATION,HARMING,SLOW_DIGGING,CONFUSION,HUNGER,UNLUCK'
+        - 'ABSORPTION_HEART:ADD:2:20'
+    2:
+      item_consume:
+        type: ITEM_CONSUME
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'ITEM_CONSUME:MUSHROOM_STEW'
+        effects:
+        - 'REMOVE_POTION:POISON,WITHER,SLOW,WEAKNESS,LEVITATION,HARMING,SLOW_DIGGING,CONFUSION,HUNGER,UNLUCK'
+        - 'ABSORPTION_HEART:ADD:4:20'
+    3:
+      item_consume:
+        type: ITEM_CONSUME
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'ITEM_CONSUME:MUSHROOM_STEW'
+        effects:
+        - 'REMOVE_POTION:POISON,WITHER,SLOW,WEAKNESS,LEVITATION,HARMING,SLOW_DIGGING,CONFUSION,HUNGER,UNLUCK'
+        - 'ABSORPTION_HEART:ADD:6:20'
+    4:
+      item_consume:
+        type: ITEM_CONSUME
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'ITEM_CONSUME:MUSHROOM_STEW'
+        effects:
+        - 'REMOVE_POTION:POISON,WITHER,SLOW,WEAKNESS,LEVITATION,HARMING,SLOW_DIGGING,CONFUSION,HUNGER,UNLUCK'
+        - 'ABSORPTION_HEART:ADD:8:20'
+    5:
+      item_consume:
+        type: ITEM_CONSUME
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'ITEM_CONSUME:MUSHROOM_STEW'
+        effects:
+        - 'REMOVE_POTION:POISON,WITHER,SLOW,WEAKNESS,LEVITATION,HARMING,SLOW_DIGGING,CONFUSION,HUNGER,UNLUCK'
+        - 'ABSORPTION_HEART:ADD:10:20'
+      defense:
+        type: DEFENSE
+        chance: 20
+        cooldown: 4000
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_POTION:POISON,WITHER,SLOW,WEAKNESS,LEVITATION,HARMING,SLOW_DIGGING,CONFUSION,HUNGER,UNLUCK'
+horse:
+  group: 'mask'
+  display: 'Horse'
+  custom-display-lore: '&e%enchant_display% %enchant_level%'
+  description:
+  - '&eCấp I:'
+  - '&7- Nhận thêm tốc độ di chuyển khi trang bị'
+  - '&eCấp II-V:'
+  - '&7- Tăng thêm tốc độ di chuyển khi trang bị'
+  descriptions:
+    1:
+    - '&a+ Nhận thêm tốc độ di chuyển khi trang bị'
+    2:
+    - '&e* Nhận thêm tốc độ di chuyển khi trang bị'
+    - '&e  (Tăng thêm tốc độ di chuyển)'
+    3:
+    - '&e* Nhận thêm tốc độ di chuyển khi trang bị'
+    - '&e  (Tăng thêm tốc độ di chuyển)'
+    4:
+    - '&e* Nhận thêm tốc độ di chuyển khi trang bị'
+    - '&e  (Tăng thêm tốc độ di chuyển)'
+    5:
+    - '&e* Nhận thêm tốc độ di chuyển khi trang bị'
+    - '&e  (Tăng thêm tốc độ di chuyển)'
+  applies-description:
+  - 'Mặt nạ'
+  applies:
+  - 'PLAYER_HEAD'
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'ADD_ATTRIBUTE:MOVEMENT_SPEED:horsemask_movement_speed:0.1:1'
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_ATTRIBUTE:MOVEMENT_SPEED:horsemask_movement_speed'
+    2:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'ADD_ATTRIBUTE:MOVEMENT_SPEED:horsemask_movement_speed:0.2:1'
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_ATTRIBUTE:MOVEMENT_SPEED:horsemask_movement_speed'
+    3:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'ADD_ATTRIBUTE:MOVEMENT_SPEED:horsemask_movement_speed:0.3:1'
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_ATTRIBUTE:MOVEMENT_SPEED:horsemask_movement_speed'
+    4:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'ADD_ATTRIBUTE:MOVEMENT_SPEED:horsemask_movement_speed:0.4:1'
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_ATTRIBUTE:MOVEMENT_SPEED:horsemask_movement_speed'
+    5:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'ADD_ATTRIBUTE:MOVEMENT_SPEED:horsemask_movement_speed:0.5:1'
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_ATTRIBUTE:MOVEMENT_SPEED:horsemask_movement_speed'
+parrot:
+  group: 'mask'
+  display: 'Parrot'
+  custom-display-lore: '&c%enchant_display% %enchant_level%'
+  description:
+  - '&eCấp I:'
+  - '&7- Triệu hồi Parrot khi trang bị'
+  - '&eCấp II-V:'
+  - '&7- Tăng thêm Parrot khi triệu hồi'
+  descriptions:
+    1:
+    - '&a+ Triệu hồi 1 Parrot khi trang bị'
+    2:
+    - '&e* Triệu hồi 2 Parrot khi trang bị'
+    3:
+    - '&e* Triệu hồi 3 Parrot khi trang bị'
+    4:
+    - '&e* Triệu hồi 4 Parrot khi trang bị'
+    5:
+    - '&e* Triệu hồi 5 Parrot khi trang bị'
+  applies-description:
+  - 'Mặt nạ'
+  applies:
+  - 'PLAYER_HEAD'
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      armor_equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 10000
+        effects:
+        - 'SUMMON_GUARD:parrot_%player_name%_guard:PARROT:~_xP+2*sin(eyawP)_~_zP+2*cos(eyawP)_yawP_pitchP:1.5:16:0:3600000'
+      armor_undress:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        effects:
+        - 'REMOVE_GUARD:parrot_%player_name%_guard'
+    2:
+      armor_equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 10000
+        effects:
+        - 'SUMMON_GUARD:parrot_%player_name%_guard:PARROT:~_xP+2*sin(eyawP)_~_zP+2*cos(eyawP)_yawP_pitchP:1.5:16:0:3600000'
+        - 'SUMMON_GUARD:parrot_%player_name%_guard2:PARROT:~_xP+2*sin(eyawP+72)_~_zP+2*cos(eyawP+72)_yawP_pitchP:1.5:16:0:3600000'
+      armor_undress:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        effects:
+        - 'REMOVE_GUARD:parrot_%player_name%_guard'
+        - 'REMOVE_GUARD:parrot_%player_name%_guard2'
+    3:
+      armor_equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 10000
+        effects:
+        - 'SUMMON_GUARD:parrot_%player_name%_guard:PARROT:~_xP+2*sin(eyawP)_~_zP+2*cos(eyawP)_yawP_pitchP:1.5:16:0:3600000'
+        - 'SUMMON_GUARD:parrot_%player_name%_guard2:PARROT:~_xP+2*sin(eyawP+72)_~_zP+2*cos(eyawP+72)_yawP_pitchP:1.5:16:0:3600000'
+        - 'SUMMON_GUARD:parrot_%player_name%_guard3:PARROT:~_xP+2*sin(eyawP+144)_~_zP+2*cos(eyawP+144)_yawP_pitchP:1.5:16:0:3600000'
+      armor_undress:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        effects:
+        - 'REMOVE_GUARD:parrot_%player_name%_guard'
+        - 'REMOVE_GUARD:parrot_%player_name%_guard2'
+        - 'REMOVE_GUARD:parrot_%player_name%_guard3'
+    4:
+      armor_equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 10000
+        effects:
+        - 'SUMMON_GUARD:parrot_%player_name%_guard:PARROT:~_xP+2*sin(eyawP)_~_zP+2*cos(eyawP)_yawP_pitchP:1.5:16:0:3600000'
+        - 'SUMMON_GUARD:parrot_%player_name%_guard2:PARROT:~_xP+2*sin(eyawP+72)_~_zP+2*cos(eyawP+72)_yawP_pitchP:1.5:16:0:3600000'
+        - 'SUMMON_GUARD:parrot_%player_name%_guard3:PARROT:~_xP+2*sin(eyawP+144)_~_zP+2*cos(eyawP+144)_yawP_pitchP:1.5:16:0:3600000'
+        - 'SUMMON_GUARD:parrot_%player_name%_guard4:PARROT:~_xP+2*sin(eyawP+216)_~_zP+2*cos(eyawP+216)_yawP_pitchP:1.5:16:0:3600000'
+      armor_undress:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        effects:
+        - 'REMOVE_GUARD:parrot_%player_name%_guard'
+        - 'REMOVE_GUARD:parrot_%player_name%_guard2'
+        - 'REMOVE_GUARD:parrot_%player_name%_guard3'
+        - 'REMOVE_GUARD:parrot_%player_name%_guard4'
+    5:
+      armor_equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 10000
+        effects:
+        - 'SUMMON_GUARD:parrot_%player_name%_guard:PARROT:~_xP+2*sin(eyawP)_~_zP+2*cos(eyawP)_yawP_pitchP:1.5:16:0:3600000'
+        - 'SUMMON_GUARD:parrot_%player_name%_guard2:PARROT:~_xP+2*sin(eyawP+72)_~_zP+2*cos(eyawP+72)_yawP_pitchP:1.5:16:0:3600000'
+        - 'SUMMON_GUARD:parrot_%player_name%_guard3:PARROT:~_xP+2*sin(eyawP+144)_~_zP+2*cos(eyawP+144)_yawP_pitchP:1.5:16:0:3600000'
+        - 'SUMMON_GUARD:parrot_%player_name%_guard4:PARROT:~_xP+2*sin(eyawP+216)_~_zP+2*cos(eyawP+216)_yawP_pitchP:1.5:16:0:3600000'
+        - 'SUMMON_GUARD:parrot_%player_name%_guard5:PARROT:~_xP+2*sin(eyawP+288)_~_zP+2*cos(eyawP+288)_yawP_pitchP:1.5:16:0:3600000'
+        - 'SUMMON_GUARD:parrot_%player_name%_guard6:PARROT:~_xP+2*sin(eyawP)_~_zP+2*cos(eyawP+36)_yawP_pitchP:1.5:16:0:3600000'
+        - 'SUMMON_GUARD:parrot_%player_name%_guard7:PARROT:~_xP+2*sin(eyawP+72)_~_zP+2*cos(eyawP+108)_yawP_pitchP:1.5:16:0:3600000'
+        - 'SUMMON_GUARD:parrot_%player_name%_guard8:PARROT:~_xP+2*sin(eyawP+144)_~_zP+2*cos(eyawP+180)_yawP_pitchP:1.5:16:0:3600000'
+        - 'SUMMON_GUARD:parrot_%player_name%_guard9:PARROT:~_xP+2*sin(eyawP+216)_~_zP+2*cos(eyawP+252)_yawP_pitchP:1.5:16:0:3600000'
+        - 'SUMMON_GUARD:parrot_%player_name%_guard10:PARROT:~_xP+2*sin(eyawP+288)_~_zP+2*cos(eyawP+324)_yawP_pitchP:1.5:16:0:3600000'
+      armor_undress:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        effects:
+        - 'REMOVE_GUARD:parrot_%player_name%_guard'
+        - 'REMOVE_GUARD:parrot_%player_name%_guard2'
+        - 'REMOVE_GUARD:parrot_%player_name%_guard3'
+        - 'REMOVE_GUARD:parrot_%player_name%_guard4'
+        - 'REMOVE_GUARD:parrot_%player_name%_guard5'
+        - 'REMOVE_GUARD:parrot_%player_name%_guard6'
+        - 'REMOVE_GUARD:parrot_%player_name%_guard7'
+        - 'REMOVE_GUARD:parrot_%player_name%_guard8'
+        - 'REMOVE_GUARD:parrot_%player_name%_guard9'
+        - 'REMOVE_GUARD:parrot_%player_name%_guard10'
+polarbear:
+  group: 'mask'
+  display: 'PolarBear'
+  custom-display-lore: '&f%enchant_display% %enchant_level%'
+  description:
+  - '&eCấp I:'
+  - '&7- Có tỉ lệ gây choáng khi tấn công'
+  - '&7  đối thủ'
+  - '&eCấp II:'
+  - '&7- Triệu hồi PolarBear khi bị tấn công'
+  - '&eCấp III-V:'
+  - '&7- Gây thêm sát thương ở lần gây choáng'
+  - '&eCấp V:'
+  - '&7- Tăng thêm PolarBear khi triệu hồi'
+  descriptions:
+    1:
+    - '&a+ Có tỉ lệ gây choáng khi tấn công'
+    - '&a  đối thủ'
+    2:
+    - '&7- Có tỉ lệ gây choáng khi tấn công'
+    - '&7  đối thủ'
+    - '&a+ Triệu hồi 1 PolarBear khi bị tấn công'
+    3:
+    - '&e* Có tỉ lệ gây choáng khi tấn công'
+    - '&e  đối thủ'
+    - '&e  (Tăng thêm sát thương)'
+    - '&a+ Triệu hồi 1 PolarBear khi bị tấn công'
+    4:
+    - '&e* Có tỉ lệ gây choáng khi tấn công'
+    - '&e  đối thủ'
+    - '&e  (Tăng thêm sát thương)'
+    - '&7- Triệu hồi 1 PolarBear khi bị tấn công'
+    5:
+    - '&e* Có tỉ lệ gây choáng khi tấn công'
+    - '&e  đối thủ'
+    - '&e  (Tăng thêm sát thương)'
+    - '&e* Triệu hồi 2 PolarBear khi bị tấn công'
+  applies-description:
+  - 'Mặt nạ'
+  applies:
+  - 'PLAYER_HEAD'
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 10000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | DEACTIVE_ABILITY:MOVE:polarbear_move'
+        - 'TARGET=ENEMY | DEACTIVE_ABILITY:ATTACK:polarbear_attack'
+        - 'TARGET=ENEMY,DELAY=20,EFFECT_AFTER_DEAD=true | ACTIVE_ABILITY:MOVE:polarbear_move'
+        - 'TARGET=ENEMY,DELAY=20,EFFECT_AFTER_DEAD=true | ACTIVE_ABILITY:ATTACK:polarbear_attack'
+    2:
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 10000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | DEACTIVE_ABILITY:MOVE:polarbear_move'
+        - 'TARGET=ENEMY | DEACTIVE_ABILITY:ATTACK:polarbear_attack'
+        - 'TARGET=ENEMY,DELAY=20,EFFECT_AFTER_DEAD=true | ACTIVE_ABILITY:MOVE:polarbear_move'
+        - 'TARGET=ENEMY,DELAY=20,EFFECT_AFTER_DEAD=true | ACTIVE_ABILITY:ATTACK:polarbear_attack'
+      defense:
+        type: DEFENSE
+        chance: 100
+        cooldown: 20000
+        effects:
+        - 'SUMMON_GUARD:polarbear_%player_name%_guard:POLAR_BEAR:~_xP+2*sin(eyawP)_~_zP+2*cos(eyawP)_yawP_pitchP:1.5:16:16:10000'
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_GUARD:polarbear_%player_name%_guard'
+    3:
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 10000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        options:
+        - 'ATTACK:0.5:1'
+        effects:
+        - 'TARGET=ENEMY | DEACTIVE_ABILITY:MOVE:polarbear_move'
+        - 'TARGET=ENEMY | DEACTIVE_ABILITY:ATTACK:polarbear_attack'
+        - 'TARGET=ENEMY,DELAY=20,EFFECT_AFTER_DEAD=true | ACTIVE_ABILITY:MOVE:polarbear_move'
+        - 'TARGET=ENEMY,DELAY=20,EFFECT_AFTER_DEAD=true | ACTIVE_ABILITY:ATTACK:polarbear_attack'
+      defense:
+        type: DEFENSE
+        chance: 100
+        cooldown: 20000
+        effects:
+        - 'SUMMON_GUARD:polarbear_%player_name%_guard:POLAR_BEAR:~_xP+2*sin(eyawP)_~_zP+2*cos(eyawP)_yawP_pitchP:1.5:16:16:10000'
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_GUARD:polarbear_%player_name%_guard'
+    4:
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 10000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        options:
+        - 'ATTACK:0.75:1'
+        effects:
+        - 'TARGET=ENEMY | DEACTIVE_ABILITY:MOVE:polarbear_move'
+        - 'TARGET=ENEMY | DEACTIVE_ABILITY:ATTACK:polarbear_attack'
+        - 'TARGET=ENEMY,DELAY=20,EFFECT_AFTER_DEAD=true | ACTIVE_ABILITY:MOVE:polarbear_move'
+        - 'TARGET=ENEMY,DELAY=20,EFFECT_AFTER_DEAD=true | ACTIVE_ABILITY:ATTACK:polarbear_attack'
+      defense:
+        type: DEFENSE
+        chance: 100
+        cooldown: 20000
+        effects:
+        - 'SUMMON_GUARD:polarbear_%player_name%_guard:POLAR_BEAR:~_xP+2*sin(eyawP)_~_zP+2*cos(eyawP)_yawP_pitchP:1.5:16:16:10000'
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_GUARD:polarbear_%player_name%_guard'
+    5:
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 10000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        options:
+        - 'ATTACK:1.0:1'
+        effects:
+        - 'TARGET=ENEMY | DEACTIVE_ABILITY:MOVE:polarbear_move'
+        - 'TARGET=ENEMY | DEACTIVE_ABILITY:ATTACK:polarbear_attack'
+        - 'TARGET=ENEMY,DELAY=20,EFFECT_AFTER_DEAD=true | ACTIVE_ABILITY:MOVE:polarbear_move'
+        - 'TARGET=ENEMY,DELAY=20,EFFECT_AFTER_DEAD=true | ACTIVE_ABILITY:ATTACK:polarbear_attack'
+      defense:
+        type: DEFENSE
+        chance: 100
+        cooldown: 20000
+        effects:
+        - 'SUMMON_GUARD:polarbear_%player_name%_guard:POLAR_BEAR:~_xP+2*sin(eyawP)_~_zP+2*cos(eyawP)_yawP_pitchP:1.5:16:16:10000'
+        - 'SUMMON_GUARD:polarbear_%player_name%_guard2:POLAR_BEAR:~_xP+2*sin(eyawP+180)_~_zP+2*cos(eyawP+180)_yawP_pitchP:1.5:16:16:10000'
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_GUARD:polarbear_%player_name%_guard'
+        - 'REMOVE_GUARD:polarbear_%player_name%_guard2'
+witch:
+  group: 'mask'
+  display: 'Witch'
+  custom-display-lore: '&2%enchant_display% %enchant_level%'
+  description:
+  - '&eCấp I:'
+  - '&7- Có tỉ lệ gây ngẫu nhiên một hiệu ứng'
+  - '&7  bất lợi lên đối thủ khi tấn công'
+  - '&eCấp II,IV:'
+  - '&7- Tăng thêm sức mạnh cho hiệu ứng'
+  - '&eCấp III,V:'
+  - '&7- Tăng thêm số lượng hiệu ứng bất lợi'
+  - '&7  trên người đối thủ'
+  descriptions:
+    1:
+    - '&a+ Có tỉ lệ gây ngẫu nhiên một hiệu ứng'
+    - '&a  bất lợi lên đối thủ khi tấn công'
+    2:
+    - '&e* Có tỉ lệ gây ngẫu nhiên một hiệu ứng'
+    - '&e  bất lợi lên đối thủ khi tấn công'
+    - '&e  (Tăng thêm sức mạnh hiệu ứng)'
+    3:
+    - '&e* Có tỉ lệ gây ngẫu nhiên một hiệu ứng'
+    - '&e  bất lợi lên đối thủ khi tấn công'
+    - '&e  (Tăng thêm số lượng hiệu ứng bất lợi'
+    - '&e  trên người đối thủ)'
+    4:
+    - '&e* Có tỉ lệ gây ngẫu nhiên một hiệu ứng'
+    - '&e  bất lợi lên đối thủ khi tấn công'
+    - '&e  (Tăng thêm sức mạnh hiệu ứng)'
+    5:
+    - '&e* Có tỉ lệ gây ngẫu nhiên một hiệu ứng'
+    - '&e  bất lợi lên đối thủ khi tấn công'
+    - '&e  (Tăng thêm số lượng hiệu ứng bất lợi'
+    - '&e  trên người đối thủ)'
+  applies-description:
+  - 'Mặt nạ'
+  applies:
+  - 'PLAYER_HEAD'
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 10000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ADD_RANDOM_POTION:NOT_DUPLICATE:1:POISON,WITHER,SLOW,WEAKNESS,LEVITATION,HARMING,SLOW_DIGGING,CONFUSION,HUNGER,UNLUCK:0:100'
+    2:
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 10000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ADD_RANDOM_POTION:NOT_DUPLICATE:1:POISON,WITHER,SLOW,WEAKNESS,LEVITATION,HARMING,SLOW_DIGGING,CONFUSION,HUNGER,UNLUCK:0:100'
+    3:
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 10000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ADD_RANDOM_POTION:NOT_DUPLICATE:2:POISON,WITHER,SLOW,WEAKNESS,LEVITATION,HARMING,SLOW_DIGGING,CONFUSION,HUNGER,UNLUCK:1:100'
+    4:
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 10000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ADD_RANDOM_POTION:NOT_DUPLICATE:2:POISON,WITHER,SLOW,WEAKNESS,LEVITATION,HARMING,SLOW_DIGGING,CONFUSION,HUNGER,UNLUCK:1:100'
+    5:
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 10000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ADD_RANDOM_POTION:NOT_DUPLICATE:3:POISON,WITHER,SLOW,WEAKNESS,LEVITATION,HARMING,SLOW_DIGGING,CONFUSION,HUNGER,UNLUCK:2:100'
+pigzombie:
+  group: 'mask'
+  display: 'PigZombie'
+  custom-display-lore: '&d%enchant_display% %enchant_level%'
+  description:
+  - '&eCấp I:'
+  - '&7- Nhận hiệu ứng kháng lửa khi trang bị'
+  - '&7- Có tỉ lệ gây thêm sát thương và nhận'
+  - '&7  tim vàng khi tấn công mục tiêu'
+  - '&eCấp II-V:'
+  - '&7- Tăng thêm sát thương và tim vàng khi'
+  - '&7  tấn công mục tiêu'
+  descriptions:
+    1:
+    - '&a+ Nhận hiệu ứng kháng lửa khi trang bị'
+    - '&a+ Có tỉ lệ gây thêm sát thương và nhận'
+    - '&a  tim vàng khi tấn công mục tiêu'
+    2:
+    - '&7- Nhận hiệu ứng kháng lửa khi trang bị'
+    - '&e* Có tỉ lệ gây thêm sát thương và nhận'
+    - '&e  tim vàng khi tấn công mục tiêu'
+    - '&e  (Tăng thêm sát thương và tim vàng)'
+    3:
+    - '&7- Nhận hiệu ứng kháng lửa khi trang bị'
+    - '&e* Có tỉ lệ gây thêm sát thương và nhận'
+    - '&e  tim vàng khi tấn công mục tiêu'
+    - '&e  (Tăng thêm sát thương và tim vàng)'
+    4:
+    - '&7- Nhận hiệu ứng kháng lửa khi trang bị'
+    - '&e* Có tỉ lệ gây thêm sát thương và nhận'
+    - '&e  tim vàng khi tấn công mục tiêu'
+    - '&e  (Tăng thêm sát thương và tim vàng)'
+    5:
+    - '&7- Nhận hiệu ứng kháng lửa khi trang bị'
+    - '&e* Có tỉ lệ gây thêm sát thương và nhận'
+    - '&e  tim vàng khi tấn công mục tiêu'
+    - '&e  (Tăng thêm sát thương và tim vàng)'
+  applies-description:
+  - 'Mặt nạ'
+  applies:
+  - 'PLAYER_HEAD'
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'ADD_FOREVER_POTION:blaze_fire_resistance:FIRE_RESISTANCE:0'
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_FOREVER_POTION:blaze_fire_resistance'
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 5000
+        options:
+        - 'ATTACK:0.5:1'
+        effects:
+        - 'ABSORPTION_HEART:ADD:2:20'
+    2:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'ADD_FOREVER_POTION:blaze_fire_resistance:FIRE_RESISTANCE:0'
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_FOREVER_POTION:blaze_fire_resistance'
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 5000
+        options:
+        - 'ATTACK:0.625:1'
+        effects:
+        - 'ABSORPTION_HEART:ADD:4:20'
+    3:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'ADD_FOREVER_POTION:blaze_fire_resistance:FIRE_RESISTANCE:0'
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_FOREVER_POTION:blaze_fire_resistance'
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 5000
+        options:
+        - 'ATTACK:0.75:1'
+        effects:
+        - 'ABSORPTION_HEART:ADD:6:20'
+    4:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'ADD_FOREVER_POTION:blaze_fire_resistance:FIRE_RESISTANCE:0'
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_FOREVER_POTION:blaze_fire_resistance'
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 5000
+        options:
+        - 'ATTACK:0.875:1'
+        effects:
+        - 'ABSORPTION_HEART:ADD:8:20'
+    5:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'ADD_FOREVER_POTION:blaze_fire_resistance:FIRE_RESISTANCE:0'
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_FOREVER_POTION:blaze_fire_resistance'
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 5000
+        options:
+        - 'ATTACK:1:1'
+        effects:
+        - 'ABSORPTION_HEART:ADD:10:20'
+creeper:
+  group: 'mask'
+  display: 'Creeper'
+  custom-display-lore: '&a%enchant_display% %enchant_level%'
+  description:
+  - '&eCấp I:'
+  - '&7- Miễn nhiễm sát thương từ vụ nổ'
+  - '&7- Có tỉ lệ kích nổ khi bị tấn công'
+  - '&eCấp II:'
+  - '&7- Có tỉ lệ gây thêm sát thương nhưng'
+  - '&7  bù lại mất một lượng máu khi tấn công'
+  - '&eCấp III:'
+  - '&7- Tăng phạm vi vụ nổ'
+  - '&eCấp III-V:'
+  - '&7- Tăng sát thương khi tấn công'
+  descriptions:
+    1:
+    - '&a+ Miễn nhiễm sát thương từ vụ nổ'
+    - '&a+ Có tỉ lệ kích nổ khi bị tấn công'
+    2:
+    - '&7- Miễn nhiễm sát thương từ vụ nổ'
+    - '&7- Có tỉ lệ kích nổ khi bị tấn công'
+    - '&a+ Có tỉ lệ gây thêm sát thương nhưng'
+    - '&a  bù lại mất một lượng máu khi tấn công'
+    3:
+    - '&7- Miễn nhiễm sát thương từ vụ nổ'
+    - '&e* Có tỉ lệ kích nổ khi bị tấn công'
+    - '&e  (Tăng phạm vi vụ nổ)'
+    - '&e* Có tỉ lệ gây thêm sát thương nhưng'
+    - '&e  bù lại mất một lượng máu khi tấn công'
+    - '&e  (Tăng thêm sát thương)'
+    4:
+    - '&7- Miễn nhiễm sát thương từ vụ nổ'
+    - '&7- Có tỉ lệ kích nổ khi bị tấn công'
+    - '&e* Có tỉ lệ gây thêm sát thương nhưng'
+    - '&e  bù lại mất một lượng máu khi tấn công'
+    - '&e  (Tăng thêm sát thương)'
+    5:
+    - '&7- Miễn nhiễm sát thương từ vụ nổ'
+    - '&7- Có tỉ lệ kích nổ khi bị tấn công'
+    - '&e* Có tỉ lệ gây thêm sát thương nhưng'
+    - '&e  bù lại mất một lượng máu khi tấn công'
+    - '&e  (Tăng thêm sát thương)'
+  applies-description:
+  - 'Mặt nạ'
+  applies:
+  - 'PLAYER_HEAD'
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      defense:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:CREEPER'
+        options:
+        - 'DEFENSE:1:2'
+      unknown_defense:
+        type: UNKNOWN_DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'DAMAGE_CAUSE:ENTITY_EXPLOSION,BLOCK_EXPLOSION'
+        options:
+        - 'DEFENSE:1:2'
+      defense:
+        type: DEFENSE
+        chance: 20
+        cooldown: 5000
+        effects:
+        - 'EXPLOSION:~_~_~_~:1:false:false'
+    2:
+      defense:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:CREEPER'
+        options:
+        - 'DEFENSE:1:2'
+      unknown_defense:
+        type: UNKNOWN_DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'DAMAGE_CAUSE:ENTITY_EXPLOSION,BLOCK_EXPLOSION'
+        options:
+        - 'DEFENSE:1:2'
+      defense:
+        type: DEFENSE
+        chance: 20
+        cooldown: 5000
+        effects:
+        - 'EXPLOSION:~_~_~_~:1:false:false'
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 5000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        - 'HEALTH:>=:10'
+        options:
+        - 'ATTACK:4:0'
+        effects:
+        - 'HEALTH:REMOVE:2'
+    3:
+      defense:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:CREEPER'
+        options:
+        - 'DEFENSE:1:2'
+      unknown_defense:
+        type: UNKNOWN_DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'DAMAGE_CAUSE:ENTITY_EXPLOSION,BLOCK_EXPLOSION'
+        options:
+        - 'DEFENSE:1:2'
+      defense:
+        type: DEFENSE
+        chance: 20
+        cooldown: 5000
+        effects:
+        - 'EXPLOSION:~_~_~_~:2:false:false'
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 5000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        - 'HEALTH:>=:10'
+        options:
+        - 'ATTACK:6:0'
+        effects:
+        - 'HEALTH:REMOVE:3'
+    4:
+      defense:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:CREEPER'
+        options:
+        - 'DEFENSE:1:2'
+      unknown_defense:
+        type: UNKNOWN_DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'DAMAGE_CAUSE:ENTITY_EXPLOSION,BLOCK_EXPLOSION'
+        options:
+        - 'DEFENSE:1:2'
+      defense:
+        type: DEFENSE
+        chance: 20
+        cooldown: 5000
+        effects:
+        - 'EXPLOSION:~_~_~_~:2:false:false'
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 5000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        - 'HEALTH:>=:10'
+        options:
+        - 'ATTACK:8:0'
+        effects:
+        - 'HEALTH:REMOVE:4'
+    5:
+      defense:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:CREEPER'
+        options:
+        - 'DEFENSE:1:2'
+      unknown_defense:
+        type: UNKNOWN_DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'DAMAGE_CAUSE:ENTITY_EXPLOSION,BLOCK_EXPLOSION'
+        options:
+        - 'DEFENSE:1:2'
+      defense:
+        type: DEFENSE
+        chance: 20
+        cooldown: 5000
+        effects:
+        - 'EXPLOSION:~_~_~_~:2:false:false'
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 5000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        - 'HEALTH:>=:10'
+        options:
+        - 'ATTACK:10:0'
+        effects:
+        - 'HEALTH:REMOVE:5'
+guardian:
+  group: 'mask'
+  display: 'Guardian'
+  custom-display-lore: '&3%enchant_display% %enchant_level%'
+  description:
+  - '&eCấp I:'
+  - '&7- Nhận hiệu ứng thở dưới nước khi'
+  - '&7  trang bị'
+  - '&7- Có tỉ lệ gây hiệu ứng đào chậm'
+  - '&7  cho đối thủ khi tấn công'
+  - '&eCấp II:'
+  - '&7- Có tỉ lệ gây hiệu ứng yếu đuối'
+  - '&7  cho đối thủ khi tấn công'
+  - '&eCấp III:'
+  - '&7- Có tỉ lệ gây hiệu ứng chậm chạp cho'
+  - '&7  đối thủ khi tấn công'
+  - '&eCấp IV:'
+  - '&7- Tăng thêm thời gian cho các hiệu ứng'
+  - '&eCấp V:'
+  - '&7- Tăng thêm sức mạnh cho các hiệu ứng'
+  descriptions:
+    1:
+    - '&a+ Nhận hiệu ứng thở dưới nước khi'
+    - '&a  trang bị'
+    - '&a+ Có tỉ lệ gây hiệu ứng đào chậm'
+    - '&a  cho đối thủ khi tấn công'
+    2:
+    - '&7- Nhận hiệu ứng thở dưới nước khi'
+    - '&7  trang bị'
+    - '&7- Có tỉ lệ gây hiệu ứng đào chậm'
+    - '&7  cho đối thủ khi tấn công'
+    - '&a+ Có tỉ lệ gây thêm hiệu ứng yếu đuối'
+    - '&a  cho đối thủ khi tấn công'
+    3:
+    - '&7- Nhận hiệu ứng thở dưới nước khi'
+    - '&7  trang bị'
+    - '&7- Có tỉ lệ gây hiệu ứng đào chậm'
+    - '&7  cho đối thủ khi tấn công'
+    - '&7- Có tỉ lệ gây thêm hiệu ứng yếu đuối'
+    - '&7  cho đối thủ khi tấn công'
+    - '&a+ Có tỉ lệ gây thêm hiệu ứng chậm chạp'
+    - '&a  cho đối thủ khi tấn công'
+    4:
+    - '&7- Nhận hiệu ứng thở dưới nước khi'
+    - '&7  trang bị'
+    - '&e* Có tỉ lệ gây hiệu ứng đào chậm'
+    - '&e  cho đối thủ khi tấn công'
+    - '&e  (Tăng thêm thời gian hiệu ứng)'
+    - '&e* Có tỉ lệ gây thêm hiệu ứng yếu đuối'
+    - '&e  cho đối thủ khi tấn công'
+    - '&e  (Tăng thêm thời gian hiệu ứng)'
+    - '&e* Có tỉ lệ gây thêm hiệu ứng chậm chạp'
+    - '&e  cho đối thủ khi tấn công'
+    - '&e  (Tăng thêm thời gian hiệu ứng)'
+    5:
+    - '&7- Nhận hiệu ứng thở dưới nước khi'
+    - '&7  trang bị'
+    - '&e* Có tỉ lệ gây hiệu ứng đào chậm'
+    - '&e  cho đối thủ khi tấn công'
+    - '&e  (Tăng thêm sức mạnh hiệu ứng)'
+    - '&e* Có tỉ lệ gây thêm hiệu ứng yếu đuối'
+    - '&e  cho đối thủ khi tấn công'
+    - '&e  (Tăng thêm sức mạnh hiệu ứng)'
+    - '&e* Có tỉ lệ gây thêm hiệu ứng chậm chạp'
+    - '&e  cho đối thủ khi tấn công'
+    - '&e  (Tăng thêm sức mạnh hiệu ứng)'
+  applies-description:
+  - 'Mặt nạ'
+  applies:
+  - 'PLAYER_HEAD'
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      armor_equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        effects:
+        - 'ADD_FOREVER_POTION:guardian_water_breathing:WATER_BREATHING:0'
+      armor_undress:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        effects:
+        - 'REMOVE_FOREVER_POTION:guardian_water_breathing'
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 8000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ADD_POTION:SLOW_DIGGING:0:40'
+    2:
+      armor_equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        effects:
+        - 'ADD_FOREVER_POTION:guardian_water_breathing:WATER_BREATHING:0'
+      armor_undress:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        effects:
+        - 'REMOVE_FOREVER_POTION:guardian_water_breathing'
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 8000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ADD_POTION:SLOW_DIGGING:0:40'
+        - 'TARGET=ENEMY | ADD_POTION:WEAKNESS:0:40'
+    3:
+      armor_equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        effects:
+        - 'ADD_FOREVER_POTION:guardian_water_breathing:WATER_BREATHING:0'
+      armor_undress:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        effects:
+        - 'REMOVE_FOREVER_POTION:guardian_water_breathing'
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 8000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ADD_POTION:SLOW_DIGGING:0:40'
+        - 'TARGET=ENEMY | ADD_POTION:WEAKNESS:0:40'
+        - 'TARGET=ENEMY | ADD_POTION:SLOW:0:40'
+    4:
+      armor_equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        effects:
+        - 'ADD_FOREVER_POTION:guardian_water_breathing:WATER_BREATHING:0'
+      armor_undress:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        effects:
+        - 'REMOVE_FOREVER_POTION:guardian_water_breathing'
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 8000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ADD_POTION:SLOW_DIGGING:0:80'
+        - 'TARGET=ENEMY | ADD_POTION:WEAKNESS:0:80'
+        - 'TARGET=ENEMY | ADD_POTION:SLOW:0:80'
+    5:
+      armor_equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        effects:
+        - 'ADD_FOREVER_POTION:guardian_water_breathing:WATER_BREATHING:0'
+      armor_undress:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        effects:
+        - 'REMOVE_FOREVER_POTION:guardian_water_breathing'
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 8000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | ADD_POTION:SLOW_DIGGING:1:80'
+        - 'TARGET=ENEMY | ADD_POTION:WEAKNESS:1:80'
+        - 'TARGET=ENEMY | ADD_POTION:SLOW:1:80'
+enderman:
+  group: 'mask'
+  display: 'Enderman'
+  custom-display-lore: '&8%enchant_display% %enchant_level%'
+  description:
+  - '&eCấp I:'
+  - '&7- Nhận giảm sát thương từ cung tên khi'
+  - '&7  trang bị'
+  - '&7- Tăng thêm sát thương khi tấn công'
+  - '&7  trực diện kẻ địch mỗi khoảng thời gian'
+  - '&eCấp II:'
+  - '&7- Có tỉ lệ dịch chuyển ra trước đối thủ'
+  - '&7  khi tấn công từ đằng sau'
+  - '&eCấp II-V:'
+  - '&7- Tăng thêm sát thương khi tấn công'
+  - '&7  trực diện'
+  - '&7- Nhận giảm sát thương từ cung tên'
+  descriptions:
+    1:
+    - '&a+ Nhận giảm sát thương từ cung tên khi'
+    - '&a  trang bị'
+    - '&a+ Tăng thêm sát thương khi tấn công'
+    - '&a  trực diện kẻ địch mỗi khoảng thời gian'
+    2:
+    - '&e* Nhận giảm sát thương từ cung tên khi'
+    - '&e  trang bị'
+    - '&e  (Thêm giảm sát thương)'
+    - '&e* Tăng thêm sát thương khi tấn công'
+    - '&e  trực diện kẻ địch mỗi khoảng thời gian'
+    - '&e  (Tăng thêm sát thương)'
+    - '&a+ Có tỉ lệ dịch chuyển ra trước đối thủ'
+    - '&a  khi tấn công từ đằng sau'
+    3:
+    - '&e* Nhận giảm sát thương từ cung tên khi'
+    - '&e  trang bị'
+    - '&e  (Thêm giảm sát thương)'
+    - '&e* Tăng thêm sát thương khi tấn công'
+    - '&e  trực diện kẻ địch mỗi khoảng thời gian'
+    - '&e  (Tăng thêm sát thương)'
+    - '&7- Có tỉ lệ dịch chuyển ra trước đối thủ'
+    - '&7  khi tấn công từ đằng sau'
+    4:
+    - '&e* Nhận giảm sát thương từ cung tên khi'
+    - '&e  trang bị'
+    - '&e  (Thêm giảm sát thương)'
+    - '&e* Tăng thêm sát thương khi tấn công'
+    - '&e  trực diện kẻ địch mỗi khoảng thời gian'
+    - '&e  (Tăng thêm sát thương)'
+    - '&7- Có tỉ lệ dịch chuyển ra trước đối thủ'
+    - '&7  khi tấn công từ đằng sau'
+    5:
+    - '&e* Nhận giảm sát thương từ cung tên khi'
+    - '&e  trang bị'
+    - '&e  (Thêm giảm sát thương)'
+    - '&e* Tăng thêm sát thương khi tấn công'
+    - '&e  trực diện kẻ địch mỗi khoảng thời gian'
+    - '&e  (Tăng thêm sát thương)'
+    - '&7- Có tỉ lệ dịch chuyển ra trước đối thủ'
+    - '&7  khi tấn công từ đằng sau'
+  applies-description:
+  - 'Mặt nạ'
+  applies:
+  - 'PLAYER_HEAD'
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      arrow_defense:
+        type: ARROW_DEFENSE
+        chance: 100
+        cooldown: 0
+        options:
+        - 'DEFENSE:0.1:1'
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 1000
+        conditions:
+        - 'NEGATIVE=TRUE | OUT_OF_SIGHT'
+        options:
+        - 'ATTACK:2:0'
+    2:
+      arrow_defense:
+        type: ARROW_DEFENSE
+        chance: 100
+        cooldown: 0
+        options:
+        - 'DEFENSE:0.2:1'
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 1000
+        conditions:
+        - 'NEGATIVE=TRUE | OUT_OF_SIGHT'
+        options:
+        - 'ATTACK:4:0'
+      attack2:
+        type: ATTACK
+        chance: 20
+        cooldown: 5000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        - 'OUT_OF_SIGHT'
+        effects:
+        - 'TELEPORT:~_xE+2*sin(eyawE+90)_yE_zE+2*cos(eyawE+90)_yawE+180_pitchP'
+    3:
+      arrow_defense:
+        type: ARROW_DEFENSE
+        chance: 100
+        cooldown: 0
+        options:
+        - 'DEFENSE:0.3:1'
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 1000
+        conditions:
+        - 'NEGATIVE=TRUE | OUT_OF_SIGHT'
+        options:
+        - 'ATTACK:6:0'
+      attack2:
+        type: ATTACK
+        chance: 20
+        cooldown: 5000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        - 'OUT_OF_SIGHT'
+        effects:
+        - 'TELEPORT:~_xE+2*sin(eyawE+90)_yE_zE+2*cos(eyawE+90)_yawE+180_pitchP'
+    4:
+      arrow_defense:
+        type: ARROW_DEFENSE
+        chance: 100
+        cooldown: 0
+        options:
+        - 'DEFENSE:0.4:1'
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 1000
+        conditions:
+        - 'NEGATIVE=TRUE | OUT_OF_SIGHT'
+        options:
+        - 'ATTACK:8:0'
+      attack2:
+        type: ATTACK
+        chance: 20
+        cooldown: 5000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        - 'OUT_OF_SIGHT'
+        effects:
+        - 'TELEPORT:~_xE+2*sin(eyawE+90)_yE_zE+2*cos(eyawE+90)_yawE+180_pitchP'
+    5:
+      arrow_defense:
+        type: ARROW_DEFENSE
+        chance: 100
+        cooldown: 0
+        options:
+        - 'DEFENSE:0.5:1'
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 1000
+        conditions:
+        - 'NEGATIVE=TRUE | OUT_OF_SIGHT'
+        options:
+        - 'ATTACK:10:0'
+      attack2:
+        type: ATTACK
+        chance: 20
+        cooldown: 5000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        - 'OUT_OF_SIGHT'
+        effects:
+        - 'TELEPORT:~_xE+2*sin(eyawE+90)_yE_zE+2*cos(eyawE+90)_yawE+180_pitchP'
+irongolem:
+  group: 'mask'
+  display: 'IronGolem'
+  custom-display-lore: '&f%enchant_display% %enchant_level%'
+  description:
+  - '&eCấp I:'
+  - '&7- Nhận thêm sức mạnh khi trang bị'
+  - '&eCấp II:'
+  - '&a+ Nhận giảm sát thương từ mọi nguồn khi'
+  - '&a  trang bị'
+  - '&7- Triệu hồi IronGolem khi bị tấn công'
+  - '&eCấp III:'
+  - '&7- Nhận giảm sát thương và tăng sức mạnh'
+  - '&7  khi tấn công'
+  - '&eCấp IV:'
+  - '&7- Tăng thêm IronGolem khi triệu hồi'
+  - '&eCấp V:'
+  - '&7- Có tỉ lệ hất tung kẻ địch và gây choáng'
+  - '&7  khi tấn công'
+  descriptions:
+    1:
+    - '&a+ Nhận thêm sức mạnh khi trang bị'
+    2:
+    - '&7- Nhận thêm sức mạnh khi trang bị'
+    - '&a+ Nhận giảm sát thương từ mọi nguồn khi'
+    - '&a  trang bị'
+    - '&a+ Triệu hồi 1 IronGolem khi bị tấn công'
+    3:
+    - '&7- Nhận thêm sức mạnh khi trang bị'
+    - '&7- Nhận giảm sát thương từ mọi nguồn khi'
+    - '&7  trang bị'
+    - '&7- Triệu hồi 1 IronGolem khi bị tấn công'
+    - '&a+ Nhận giảm sát thương và tăng sức mạnh'
+    - '&a  khi trang bị'
+    4:
+    - '&7- Nhận thêm sức mạnh khi trang bị'
+    - '&7- Nhận giảm sát thương từ mọi nguồn khi'
+    - '&7  trang bị'
+    - '&e* Triệu hồi 2 IronGolem khi bị tấn công'
+    - '&7- Nhận giảm sát thương và tăng sức mạnh'
+    - '&7  khi trang bị'
+    5:
+    - '&7- Nhận thêm sức mạnh khi trang bị'
+    - '&7- Nhận giảm sát thương từ mọi nguồn khi'
+    - '&7  trang bị'
+    - '&7- Triệu hồi 2 IronGolem khi bị tấn công'
+    - '&7- Nhận giảm sát thương và tăng sức mạnh'
+    - '&7  khi trang bị'
+    - '&a+ Có tỉ lệ hất tung kẻ địch và gây choáng'
+    - '&a  khi tấn công'
+  applies-description:
+  - 'Mặt nạ'
+  applies:
+  - 'PLAYER_HEAD'
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      armor_equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        effects:
+        - 'ADD_ATTRIBUTE:ATTACK_DAMAGE:irongolem_attack_damage:4:0'
+      armor_undress:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        effects:
+        - 'REMOVE_ATTRIBUTE:ATTACK_DAMAGE:irongolem_attack_damage'
+    2:
+      unknown_defense:
+        type: UNKNOWN_DEFENSE
+        chance: 100
+        cooldown: 0
+        options:
+        - 'DEFENSE:0.2:2'
+      armor_equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        effects:
+        - 'ADD_ATTRIBUTE:ATTACK_DAMAGE:irongolem_attack_damage:4:0'
+      defense:
+        type: DEFENSE
+        chance: 100
+        cooldown: 20000
+        effects:
+        - 'SUMMON_GUARD:irongolem_%player_name%_guard:IRON_GOLEM:~_xP+2*sin(eyawP)_~_zP+2*cos(eyawP)_yawP_pitchP:1.5:16:16:10000'
+      armor_undress:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        effects:
+        - 'REMOVE_ATTRIBUTE:ATTACK_DAMAGE:irongolem_attack_damage'
+        - 'REMOVE_GUARD:irongolem_%player_name%_guard'
+    3:
+      unknown_defense:
+        type: UNKNOWN_DEFENSE
+        chance: 100
+        cooldown: 0
+        options:
+        - 'DEFENSE:0.4:2'
+      armor_equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        effects:
+        - 'ADD_ATTRIBUTE:ATTACK_DAMAGE:irongolem_attack_damage:8:0'
+      defense:
+        type: DEFENSE
+        chance: 100
+        cooldown: 20000
+        effects:
+        - 'SUMMON_GUARD:irongolem_%player_name%_guard:IRON_GOLEM:~_xP+2*sin(eyawP)_~_zP+2*cos(eyawP)_yawP_pitchP:1.5:16:16:10000'
+      armor_undress:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        effects:
+        - 'REMOVE_ATTRIBUTE:ATTACK_DAMAGE:irongolem_attack_damage'
+        - 'REMOVE_GUARD:irongolem_%player_name%_guard'
+    4:
+      unknown_defense:
+        type: UNKNOWN_DEFENSE
+        chance: 100
+        cooldown: 0
+        options:
+        - 'DEFENSE:0.4:2'
+      armor_equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        effects:
+        - 'ADD_ATTRIBUTE:ATTACK_DAMAGE:irongolem_attack_damage:8:0'
+      defense:
+        type: DEFENSE
+        chance: 100
+        cooldown: 20000
+        effects:
+        - 'SUMMON_GUARD:irongolem_%player_name%_guard:IRON_GOLEM:~_xP+2*sin(eyawP)_~_zP+2*cos(eyawP)_yawP_pitchP:1.5:16:16:10000'
+        - 'SUMMON_GUARD:irongolem_%player_name%_guard2:IRON_GOLEM:~_xP+2*sin(eyawP+180)_~_zP+2*cos(eyawP+180)_yawP_pitchP:1.5:16:16:10000'
+      armor_undress:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        effects:
+        - 'REMOVE_ATTRIBUTE:ATTACK_DAMAGE:irongolem_attack_damage'
+        - 'REMOVE_GUARD:irongolem_%player_name%_guard'
+        - 'REMOVE_GUARD:irongolem_%player_name%_guard2'
+    5:
+      unknown_defense:
+        type: UNKNOWN_DEFENSE
+        chance: 100
+        cooldown: 0
+        options:
+        - 'DEFENSE:0.4:2'
+      armor_equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        effects:
+        - 'ADD_ATTRIBUTE:ATTACK_DAMAGE:irongolem_attack_damage:8:0'
+      defense:
+        type: DEFENSE
+        chance: 100
+        cooldown: 20000
+        effects:
+        - 'SUMMON_GUARD:irongolem_%player_name%_guard:IRON_GOLEM:~_xP+2*sin(eyawP)_~_zP+2*cos(eyawP)_yawP_pitchP:1.5:16:16:10000'
+        - 'SUMMON_GUARD:irongolem_%player_name%_guard2:IRON_GOLEM:~_xP+2*sin(eyawP+180)_~_zP+2*cos(eyawP+180)_yawP_pitchP:1.5:16:16:10000'
+      armor_undress:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        effects:
+        - 'REMOVE_ATTRIBUTE:ATTACK_DAMAGE:irongolem_attack_damage'
+        - 'REMOVE_GUARD:irongolem_%player_name%_guard'
+        - 'REMOVE_GUARD:irongolem_%player_name%_guard2'
+      attack:
+        type: ATTACK
+        chance: 10
+        cooldown: 5000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        effects:
+        - 'TARGET=ENEMY | PULL:~_~_~+2_~'
+        - 'TARGET=ENEMY | DEACTIVE_ABILITY:MOVE:irongolem_move'
+        - 'TARGET=ENEMY | DEACTIVE_ABILITY:ATTACK:irongolem_attack'
+        - 'TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | ACTIVE_ABILITY:MOVE:irongolem_move'
+        - 'TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | ACTIVE_ABILITY:ATTACK:irongolem_attack'

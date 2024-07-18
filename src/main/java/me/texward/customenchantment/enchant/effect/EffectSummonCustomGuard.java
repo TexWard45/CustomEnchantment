@@ -1,0 +1,159 @@
+package me.texward.customenchantment.enchant.effect;
+
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.craftbukkit.v1_16_R3.entity.CraftVex;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Panda;
+import org.bukkit.entity.Panda.Gene;
+import org.bukkit.entity.Player;
+import org.bukkit.entity.Vex;
+
+import me.texward.customenchantment.CustomEnchantment;
+import me.texward.customenchantment.api.LocationFormat;
+import me.texward.customenchantment.enchant.CEFunctionData;
+import me.texward.customenchantment.enchant.EffectHook;
+import me.texward.customenchantment.guard.Guard;
+import me.texward.customenchantment.guard.PlayerGuard;
+import net.minecraft.server.v1_16_R3.EnumItemSlot;
+import net.minecraft.server.v1_16_R3.ItemStack;
+import net.minecraft.server.v1_16_R3.Items;
+
+public class EffectSummonCustomGuard extends EffectHook {
+	protected String name;
+	protected double damage;
+	protected boolean suicide;
+	protected EntityType entityType;
+	protected String locationFormat;
+	protected double speed = 1.5;
+	protected double playerRange = 16;
+	protected double attackRange = 16;
+	protected long aliveTime = 15000;
+	protected Gene pandaGene;
+	protected Boolean vexCharge;
+	protected Material vexHold;
+
+	public String getIdentify() {
+		return "SUMMON_CUSTOM_GUARD";
+	}
+
+	public boolean isAsync() {
+		return false;
+	}
+
+	public void setup(String[] args) {
+		for (String arg : args[0].split(",")) {
+			String key = arg.split("=")[0];
+			String value = arg.split("=")[1];
+
+			switch (key) {
+			case "NAME":
+				this.name = value;
+				continue;
+			case "LOCATION":
+				this.locationFormat = value;
+				continue;
+			case "ENTITY_TYPE":
+				this.entityType = EntityType.valueOf(value);
+				continue;
+			case "SPEED":
+				this.speed = Double.parseDouble(value);
+				continue;
+			case "PLAYER_RANGE":
+				this.playerRange = Double.parseDouble(value);
+				continue;
+			case "ATTACK_RANGE":
+				this.attackRange = Double.parseDouble(value);
+				continue;
+			case "ALIVE_TIME":
+				this.aliveTime = Long.parseLong(value);
+				continue;
+			case "SUICIDE":
+				this.suicide = Boolean.valueOf(value);
+				continue;
+			case "DAMAGE":
+				this.damage = Double.parseDouble(value);
+				continue;
+			case "PANDA_GENE":
+				this.pandaGene = Gene.valueOf(value);
+				continue;
+			case "VEX_CHARGE":
+				this.vexCharge = Boolean.valueOf(value);
+				continue;
+			case "VEX_HOLD":
+				this.vexHold = Material.valueOf(value);
+				continue;
+			}
+		}
+	}
+
+	public void execute(CEFunctionData data) {
+		summon(data);
+	}
+
+	public Entity summon(CEFunctionData data) {
+		Player player = data.getPlayer();
+
+		if (player == null) {
+			return null;
+		}
+
+		PlayerGuard playerGuard = CustomEnchantment.instance().getGuardManager().getPlayerGuard(player);
+
+		String name = this.name.replace("%player%", player.getName()).replace("%random_id%",
+				"" + System.nanoTime());
+
+		if (playerGuard.containsGuardName(name)) {
+			return null;
+		}
+
+		Guard guard = new Guard(playerGuard, name, player.getName(), entityType, playerRange, attackRange, aliveTime);
+		guard.setDamage(damage);
+		guard.setSuicide(suicide);
+
+		LocationFormat locationFormat = new LocationFormat(this.locationFormat);
+
+		Location location = locationFormat.getLocation(player, null);
+		location = locationFormat.getLegitLocation(player.getLocation(), location);
+
+		Entity entity = guard.summon(location, speed);
+
+		if (pandaGene != null && entity instanceof Panda) {
+			((Panda) entity).setMainGene(pandaGene);
+			((Panda) entity).setHiddenGene(pandaGene);
+		}
+		
+		if (vexHold != null && entity instanceof Vex) {
+			ItemStack itemStack = new ItemStack(Items.IRON_SWORD);
+			switch(vexHold) {
+			case DIAMOND_SWORD:
+				itemStack = new ItemStack(Items.DIAMOND_SWORD);
+				break;
+			case GOLDEN_SWORD:
+				itemStack = new ItemStack(Items.GOLDEN_SWORD);
+				break;
+			case STONE_SWORD:
+				itemStack = new ItemStack(Items.STONE_SWORD);
+				break;
+			case IRON_SWORD:
+				itemStack = new ItemStack(Items.IRON_SWORD);
+				break;
+			case NETHERITE_SWORD:
+				itemStack = new ItemStack(Items.NETHERITE_SWORD);
+				break;
+			case WOODEN_SWORD:
+				itemStack = new ItemStack(Items.WOODEN_SWORD);
+				break;
+			}
+			((CraftVex) ((Vex) entity)).getHandle().setSlot(EnumItemSlot.MAINHAND, itemStack);
+		}
+		
+		if (vexCharge != null && entity instanceof Vex) {
+			((Vex) entity).setCharging(vexCharge);
+		}
+
+		playerGuard.addGuard(guard);
+		return entity;
+	}
+}

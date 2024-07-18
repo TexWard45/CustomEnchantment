@@ -1,0 +1,63 @@
+common:
+  display: Thường
+  prefix: '&f'
+  success: 0->50
+  destroy: 0->20
+  valuable: 0
+rare:
+  display: Hiếm
+  prefix: '&a'
+  success: 0->45
+  destroy: 0->30
+  valuable: 1000
+epic:
+  display: Sử thi
+  prefix: '&b'
+  success: 0->40
+  destroy: 0->40
+  valuable: 2000
+legendary:
+  display: Huyền thoại
+  prefix: '&e'
+  success: 0->30
+  destroy: 0->60
+  valuable: 3000
+supreme:
+  display: Tối thượng
+  prefix: '&6'
+  success: 0->20
+  destroy: 0->80
+  valuable: 4000
+ultimate:
+  display: Chiến thần
+  prefix: '&c'
+  success: 0->10
+  destroy: 0->100
+  valuable: 5000
+event:
+  display: Sự kiện
+  prefix: '&d'
+  success: 100
+  destroy: 0
+  valuable: 10000
+mask:
+  display: Mặt nạ
+  prefix: '&5'
+  success: 100
+  destroy: 0
+  valuable: 20000
+  priority: HIGHEST
+set:
+  display: Bộ trang bị
+  disable-enchant-lore: true
+  prefix: '&f'
+  success: 100
+  destroy: 0
+  valuable: 50000
+  priority: MORNITOR
+disable:
+  display: Không hoạt động
+  prefix: '&8&m'
+  success: 0
+  destroy: 100
+  valuable: 0

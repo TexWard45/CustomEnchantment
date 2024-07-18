@@ -1,0 +1,213 @@
+# tag_potion: NIGHT_VISION
+glowing:
+  group: 'rare'
+  display: 'Glowing'
+  description:
+  - '&eNhận hiệu ứng nhìn trong bóng tối'
+  - '&ekhi trang bị'
+  applies-description:
+  - 'Mũ'
+  applies:
+  - 'ALL_HELMET'
+  max-level: 1
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'ADD_FOREVER_POTION:glowing:NIGHT_VISION:0'
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_FOREVER_POTION:glowing'
+# tag_potion: WATER_BREATHING
+mermaid:
+  group: 'epic'
+  display: 'Mermaid'
+  description:
+  - '&eNhận hiệu ứng thở dưới nước khi'
+  - '&etrang bị'
+  applies-description:
+  - 'Mũ'
+  applies:
+  - 'ALL_HELMET'
+  max-level: 1
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'ADD_FOREVER_POTION:mermaid:WATER_BREATHING:0'
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_FOREVER_POTION:mermaid'
+hurstwic:
+  group: 'epic'
+  display: 'Hurstwic'
+  description:
+  - '&eCó tỉ lệ nhận giảm sát thương từ các'
+  - '&eđòn đánh với lượng sát thương cao khi'
+  - '&ebị tấn công'
+  applies-description:
+  - 'Mũ'
+  applies:
+  - 'ALL_HELMET'
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      attack:
+        type: DEFENSE
+        chance: 10
+        cooldown: 2000
+        conditions:
+        - 'NUMBER_STORAGE:damage:>:20'
+        options:
+        - 'DEFENSE:0.05:2'
+    2:
+      attack:
+        type: DEFENSE
+        chance: 20
+        cooldown: 2000
+        conditions:
+        - 'NUMBER_STORAGE:damage:>:20'
+        options:
+        - 'DEFENSE:0.10:2'
+    3:
+      attack:
+        type: DEFENSE
+        chance: 30
+        cooldown: 2000
+        conditions:
+        - 'NUMBER_STORAGE:damage:>:20'
+        options:
+        - 'DEFENSE:0.15:2'
+    4:
+      attack:
+        type: DEFENSE
+        chance: 40
+        cooldown: 2000
+        conditions:
+        - 'NUMBER_STORAGE:damage:>:20'
+        options:
+        - 'DEFENSE:0.20:2'
+    5:
+      attack:
+        type: DEFENSE
+        chance: 50
+        cooldown: 2000
+        conditions:
+        - 'NUMBER_STORAGE:damage:>:20'
+        options:
+        - 'DEFENSE:0.25:2'
+greathelm:
+  group: 'legendary'
+  display: 'GreatHelm'
+  description:
+  - '&eNhận giảm sát thương từ cung tên khi'
+  - '&ebị bắn trúng'
+  applies-description:
+  - 'Mũ'
+  applies:
+  - 'ALL_HELMET'
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      arrow_defense:
+        type: ARROW_DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        options:
+        - 'DEFENSE:0.05:2'
+        effects:
+        - ''
+    2:
+      arrow_defense:
+        type: ARROW_DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        options:
+        - 'DEFENSE:0.10:2'
+        effects:
+        - ''
+    3:
+      arrow_defense:
+        type: ARROW_DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        options:
+        - 'DEFENSE:0.15:2'
+        effects:
+        - ''
+    4:
+      arrow_defense:
+        type: ARROW_DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        options:
+        - 'DEFENSE:0.20:2'
+        effects:
+        - ''
+    5:
+      arrow_defense:
+        type: ARROW_DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        options:
+        - 'DEFENSE:0.25:2'
+        effects:
+        - ''
+sober:
+  group: 'supreme'
+  display: 'Sober'
+  description:
+  - 'Nhận kháng hiệu ứng buồn nôn khi trang bị'
+  applies-description:
+  - 'Mũ'
+  applies:
+  - 'ALL_HELMET'
+  max-level: 1
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      auto:
+        type: AUTO
+        chance: 100
+        cooldown: 1000
+        effects:
+        - 'REMOVE_POTION:CONFUSION'

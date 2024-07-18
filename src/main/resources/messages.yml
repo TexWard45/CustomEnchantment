@@ -1,0 +1,88 @@
+menu:
+  bookcraft:
+    add-book:
+      success: ''
+      different-enchant:
+      - 'DANGER Không cùng loại phù phép!'
+      different-level:
+      - 'DANGER Không cùng cấp độ phù phép!'
+      max-level:
+      - 'DANGER Sách đã đạt cấp độ tối đa!'
+      enough-book:
+      - 'DANGER Tối đa 2 sách cho 1 lần ghép!'
+    confirm:
+      success:
+      - 'SUCCESS Ghép sách thành công!'
+      not-enough-money:
+      - 'DANGER Không đủ tiền để ghép sách!'
+      not-enough-book:
+      - 'DANGER Yêu cầu 2 sách cùng loại và cấp độ để ghép!'
+  tinkerer:
+    add-tinkerer:
+      success: ''
+      not-support-item:
+      - 'DANGER Không hỗ trợ loại vật phẩm này!'
+      full-slot:
+      - 'DANGER Ô dung luyện đã đầy!'
+    confirm:
+      success: 
+      - 'SUCCESS Dung luyện thành công!'
+      nothing:
+      - 'DANGER Không có vật phẩm nào để dung luyện!'
+ce-item:
+  book:
+    success:
+    - 'SUCCESS Ép sách %group_prefix%&l%enchant_display% %enchant_level% &avào vật phẩm thành công!'
+    fail:
+    - 'DANGER Ép sách %group_prefix%&l%enchant_display% %enchant_level% &cvào vật phẩm thất bại!'
+    destroy:
+    - 'DANGER Ép sách %group_prefix%&l%enchant_display% %enchant_level% &csách thất bại và trang bị đã bị phá hủy!'
+    protect-destroy:
+    - 'DANGER Ép sách %group_prefix%&l%enchant_display% %enchant_level% &cthất bại và cuộn bảo vệ trang bị đã bị phá hủy!'
+    not-enough-enchant-point:
+    - 'DANGER Vật phẩm đạt giới hạn phù phép!'
+    not-support-type:
+    - 'DANGER Không hỗ trợ loại vật phẩm này!'
+    conflict-enchant:
+    - 'DANGER Sách đã có trong vật phẩm. Yêu cầu cấp độ cao hơn để ép chồng lên!'
+  increaseratebook:
+    success:
+    - 'SUCCESS Sử dụng bột thành công!'
+    perfect:
+    - 'DANGER Sách đã đạt đủ tỉ lệ thành công và phá hủy!'
+    enough-success:
+    - 'DANGER Sách đã đạt tối đa tỉ lệ thành công!'
+    enough-destroy:
+    - 'DANGER Sách đã đạt tối thiểu tỉ lệ phá hủy!'
+    not-same-group:
+    - 'DANGER Loại bột và sách không phù hợp!'
+  enchantpoint:
+    success:
+    - 'SUCCESS Ép &5Ngọc đột phá &athành công!'
+    not-support-type:
+    - 'DANGER Không hỗ trợ loại vật phẩm này!'
+    max-enchant-point:
+    - 'DANGER Vật phẩm đã đạt số lượng phù phép tối đa!'
+  protectdead:
+    success:
+    - 'SUCCESS Ép &6Ngọc bảo vệ &athành công!'
+    enchanted:
+    - 'DANGER Vật phẩm đã được ép &6Ngọc bảo vệ &ctrước đó!'
+  protectdestroy:
+    success:
+    - 'SUCCESS Ép &fGiấy bảo vệ&a thành công!'
+    enchanted:
+    - 'DANGER Vật phẩm đã được ép &fCuộn bảo vệ &ctrước đó!'
+  removeenchant:
+    success:
+    - 'SUCCESS Rút sách %group_prefix%&l%enchant_display% %enchant_level%&a ra khỏi vật phẩm thành công!'
+    empty:
+    - 'DANGER Vật phẩm không có sách nào để rút!'
+    not-support-group:
+    - 'DANGER Vật phẩm không có sách phù hợp để rút!'
+  randombook:
+    success:
+    - 'SUCCESS Mở được %group_prefix%&l%enchant_display% %enchant_level%&a!'
+  nametag:
+    success:
+    - 'SUCCESS Đổi tên vật phẩm thành công!'

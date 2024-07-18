@@ -1,0 +1,25 @@
+name: CustomEnchantment
+main: me.texward.customenchantment.CustomEnchantment
+version: 0.0.1
+api-version: 1.13
+author: TexWard
+depend: [TexWardLib]
+softdepend: [CustomMenu, StackMob, Vouchers, ItemDropManager, mcMMO, PlaceholderAPIAddon, CustomShop]
+description: Support for custom enchantment
+commands:
+  customenchantment:
+    description: CustomEnchantment main commands
+    usage: /<command>
+    aliases: [ce, cem, cenchant]
+  tinkerer:
+    description: Tinkerer CustomEnchantment item
+    usage: /<command>
+  bookcraft:
+    description: Craft CustomEnchantment book
+    usage: /<command>
+  ceanvil:
+    description: Anvil CustomEnchantment item
+    usage: /<command>
+  nametag:
+    description: Nametag for CustomEnchantment item
+    usage: /<command>

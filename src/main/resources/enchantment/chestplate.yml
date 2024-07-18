@@ -1,0 +1,675 @@
+# adjust
+stoneplate:
+  group: 'legendary'
+  display: 'Stoneplate'
+  description:
+  - '&eCó tỉ lệ chặn đứng đòn đánh tiếp theo'
+  - '&ecủa kẻ địch khi bị tấn công'
+  applies-description:
+  - 'Giáp ngực'
+  applies:
+  - 'ALL_CHESTPLATE'
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      defense:
+        type: DEFENSE
+        chance: 5
+        cooldown: 2000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        options:
+        - 'ATTACK:-1:2'
+        effects:
+        - 'PLAY_SOUND:ITEM_SHIELD_BLOCK:1:1:10'
+        - 'MESSAGE:&6&l***Stoneplate: &7&lBlock %enemy_name%''s Attack&6&l***'
+    2:
+      defense:
+        type: DEFENSE
+        chance: 10
+        cooldown: 2000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        options:
+        - 'ATTACK:-1:2'
+        effects:
+        - 'PLAY_SOUND:ITEM_SHIELD_BLOCK:1:1:10'
+        - 'MESSAGE:&6&l***Stoneplate: &7&lBlock %enemy_name%''s Attack&6&l***'
+    3:
+      defense:
+        type: DEFENSE
+        chance: 15
+        cooldown: 2000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        options:
+        - 'ATTACK:-1:2'
+        effects:
+        - 'PLAY_SOUND:ITEM_SHIELD_BLOCK:1:1:10'
+        - 'MESSAGE:&6&l***Stoneplate: &7&lBlock %enemy_name%''s Attack&6&l***'
+    4:
+      defense:
+        type: DEFENSE
+        chance: 20
+        cooldown: 2000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        options:
+        - 'ATTACK:-1:2'
+        effects:
+        - 'PLAY_SOUND:ITEM_SHIELD_BLOCK:1:1:10'
+        - 'MESSAGE:&6&l***Stoneplate: &7&lBlock %enemy_name%''s Attack&6&l***'
+    5:
+      defense:
+        type: DEFENSE
+        chance: 25
+        cooldown: 2000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        options:
+        - 'ATTACK:-1:2'
+        effects:
+        - 'PLAY_SOUND:ITEM_SHIELD_BLOCK:1:1:10'
+        - 'MESSAGE:&6&l***Stoneplate: &7&lBlock %enemy_name%''s Attack&6&l***'
+abnegation:
+  group: 'legendary'
+  display: 'Abnegation'
+  description:
+  - '&eCó tỉ lệ hi sinh phần trăm máu của bản thân để'
+  - '&egây một lượng sát thương chuẩn tương đương lượng'
+  - '&emáu vừa bỏ ra lên kẻ địch khi bị tấn công lúc'
+  - '&ethấp máu'
+  applies-description:
+  - 'Giáp ngực'
+  applies:
+  - 'ALL_CHESTPLATE'
+  max-level: 3
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      defense:
+        type: DEFENSE
+        chance: 20
+        cooldown: 2000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        - 'HEALTH_PERCENT:<=:20'
+        effects:
+        - 'TARGET=ENEMY | HEALTH:REMOVE:%enemy_value%*50/100'
+        - 'HEALTH:REMOVE:%player_value%*50/100'
+    2:
+      defense:
+        type: DEFENSE
+        chance: 20
+        cooldown: 2000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        - 'HEALTH_PERCENT:<=:25'
+        effects:
+        - 'TARGET=ENEMY | HEALTH:REMOVE:%enemy_value%*50/100'
+        - 'HEALTH:REMOVE:%player_value%*50/100'
+    3:
+      defense:
+        type: DEFENSE
+        chance: 20
+        cooldown: 2000
+        conditions:
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        - 'HEALTH_PERCENT:<=:30'
+        effects:
+        - 'TARGET=ENEMY | HEALTH:REMOVE:%enemy_value%*50/100'
+        - 'HEALTH:REMOVE:%player_value%*50/100'
+endurance:
+  group: 'supreme'
+  display: 'Endurance'
+  description:
+  - '&eGiao chiến càng lâu, sát thương bạn'
+  - '&enhận giảm từ kẻ địch càng nhiều'
+  applies-description:
+  - 'Giáp ngực'
+  applies:
+  - 'ALL_CHESTPLATE'
+  max-level: 3
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'NUMBER_STORAGE:SET:enduring_combat_time:-1'
+        - 'NUMBER_STORAGE:SET:enduring_shield_times:0'
+      cancel:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'NUMBER_STORAGE:enduring_shield_times:>:0'
+        - 'NUMBER_STORAGE:%time%-enduring_last_defense_time:>:5100'
+        effects:
+        - 'NUMBER_STORAGE:SET:enduring_shield_times:0'
+        - 'NUMBER_STORAGE:SET:enduring_combat_time:%time%'
+        true-condition-break: true
+      shield_0:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'NUMBER_STORAGE:enduring_shield_times:=:0'
+        effects:
+        - 'NUMBER_STORAGE:SET:enduring_shield_times:1'
+        - 'NUMBER_STORAGE:SET:enduring_combat_time:%time%'
+        - 'MESSAGE:&e&l***Enduring: On&e&l***'
+        - 'NUMBER_STORAGE:SET:enduring_last_defense_time:%time%'
+        - 'NAME=enduring_stop,DELAY=100 | MESSAGE:&7&l***Enduring: Off***'
+        true-condition-break: true
+      shield_1:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'ENTITY_TYPE:MOB'
+        - 'NUMBER_STORAGE:enduring_shield_times:=:1'
+        - 'NUMBER_STORAGE:%time%-enduring_combat_time:>:2000'
+        - 'NUMBER_STORAGE:%time%-enduring_combat_time:<=:6000'
+        options:
+        - 'DEFENSE:0.05:2'
+        effects:
+        - 'NUMBER_STORAGE:SET:enduring_shield_times:2'
+        - 'MESSAGE:&e&l***Enduring: &3&l+5% &3&lDEF&e&l***'
+        - 'NUMBER_STORAGE:SET:enduring_last_defense_time:%time%'
+        - 'NAME=enduring_stop,DELAY=100 | MESSAGE:&7&l***Enduring: Off***'
+      shield_2:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'ENTITY_TYPE:MOB'
+        - 'NUMBER_STORAGE:enduring_shield_times:=:2'
+        - 'NUMBER_STORAGE:%time%-enduring_combat_time:>:6000'
+        - 'NUMBER_STORAGE:%time%-enduring_combat_time:<=:10000'
+        options:
+        - 'DEFENSE:0.10:2'
+        effects:
+        - 'NUMBER_STORAGE:SET:enduring_shield_times:3'
+        - 'MESSAGE:&e&l***Enduring: &3&l+10% &3&lDEF&e&l***'
+        - 'NUMBER_STORAGE:SET:enduring_last_defense_time:%time%'
+        - 'NAME=enduring_stop,DELAY=100 | MESSAGE:&7&l***Enduring: Off***'
+        true-condition-break: true
+      shield_3:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'ENTITY_TYPE:MOB'
+        - 'NUMBER_STORAGE:enduring_shield_times:=:3'
+        - 'NUMBER_STORAGE:%time%-enduring_combat_time:>:10000'
+        options:
+        - 'DEFENSE:0.20:2'
+        effects:
+        - 'NUMBER_STORAGE:SET:enduring_shield_times:4'
+        - 'MESSAGE:&e&l***Enduring: &3&l+20% &3&lDEF&e&l***'
+        - 'NUMBER_STORAGE:SET:enduring_last_defense_time:%time%'
+        - 'NAME=enduring_stop,DELAY=100 | MESSAGE:&7&l***Enduring: Off***'
+        true-condition-break: true
+      shield_4:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'ENTITY_TYPE:MOB'
+        - 'NUMBER_STORAGE:enduring_shield_times:=:4'
+        - 'NUMBER_STORAGE:%time%-enduring_combat_time:>:10000'
+        options: 
+        - 'DEFENSE:0.20:2'
+        effects:
+        - 'NUMBER_STORAGE:SET:enduring_last_defense_time:%time%'
+        - 'NAME=enduring_stop,DELAY=100 | MESSAGE:&7&l***Enduring: Off***'
+        true-condition-break: true
+    2:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'NUMBER_STORAGE:SET:enduring_combat_time:-1'
+        - 'NUMBER_STORAGE:SET:enduring_shield_times:0'
+      cancel:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'NUMBER_STORAGE:enduring_shield_times:>:0'
+        - 'NUMBER_STORAGE:%time%-enduring_last_defense_time:>:5100'
+        effects:
+        - 'NUMBER_STORAGE:SET:enduring_shield_times:0'
+        - 'NUMBER_STORAGE:SET:enduring_combat_time:%time%'
+        true-condition-break: true
+      shield_0:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'NUMBER_STORAGE:enduring_shield_times:=:0'
+        effects:
+        - 'NUMBER_STORAGE:SET:enduring_shield_times:1'
+        - 'NUMBER_STORAGE:SET:enduring_combat_time:%time%'
+        - 'MESSAGE:&e&l***Enduring: On&e&l***'
+        - 'NUMBER_STORAGE:SET:enduring_last_defense_time:%time%'
+        - 'NAME=enduring_stop,DELAY=100 | MESSAGE:&7&l***Enduring: Off***'
+        true-condition-break: true
+      shield_1:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'ENTITY_TYPE:MOB'
+        - 'NUMBER_STORAGE:enduring_shield_times:=:1'
+        - 'NUMBER_STORAGE:%time%-enduring_combat_time:>:2000'
+        - 'NUMBER_STORAGE:%time%-enduring_combat_time:<=:6000'
+        options:
+        - 'DEFENSE:0.10:2'
+        effects:
+        - 'NUMBER_STORAGE:SET:enduring_shield_times:2'
+        - 'MESSAGE:&e&l***Enduring: &3&l+10% &3&lDEF&e&l***'
+        - 'NUMBER_STORAGE:SET:enduring_last_defense_time:%time%'
+        - 'NAME=enduring_stop,DELAY=100 | MESSAGE:&7&l***Enduring: Off***'
+      shield_2:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'ENTITY_TYPE:MOB'
+        - 'NUMBER_STORAGE:enduring_shield_times:=:2'
+        - 'NUMBER_STORAGE:%time%-enduring_combat_time:>:6000'
+        - 'NUMBER_STORAGE:%time%-enduring_combat_time:<=:10000'
+        options:
+        - 'DEFENSE:0.20:2'
+        effects:
+        - 'NUMBER_STORAGE:SET:enduring_shield_times:3'
+        - 'MESSAGE:&e&l***Enduring: &3&l+20% &3&lDEF&e&l***'
+        - 'NAME=enduring_stop,DELAY=100 | MESSAGE:&7&l***Enduring: Off***'
+        - 'NUMBER_STORAGE:SET:enduring_last_defense_time:%time%'
+        true-condition-break: true
+      shield_3:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'ENTITY_TYPE:MOB'
+        - 'NUMBER_STORAGE:enduring_shield_times:=:3'
+        - 'NUMBER_STORAGE:%time%-enduring_combat_time:>:10000'
+        options:
+        - 'DEFENSE:0.35:2'
+        effects:
+        - 'NUMBER_STORAGE:SET:enduring_shield_times:4'
+        - 'MESSAGE:&e&l***Enduring: &3&l+35% &3&lDEF&e&l***'
+        - 'NUMBER_STORAGE:SET:enduring_last_defense_time:%time%'
+        - 'NAME=enduring_stop,DELAY=100 | MESSAGE:&7&l***Enduring: Off***'
+        true-condition-break: true
+      shield_4:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'ENTITY_TYPE:MOB'
+        - 'NUMBER_STORAGE:enduring_shield_times:=:4'
+        - 'NUMBER_STORAGE:%time%-enduring_combat_time:>:10000'
+        options: 
+        - 'DEFENSE:0.35:2'
+        effects:
+        - 'NAME=enduring_stop,DELAY=100 | MESSAGE:&7&l***Enduring: Off***'
+        - 'NUMBER_STORAGE:SET:enduring_last_defense_time:%time%'
+        true-condition-break: true
+    3:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'NUMBER_STORAGE:SET:enduring_combat_time:-1'
+        - 'NUMBER_STORAGE:SET:enduring_shield_times:0'
+      cancel:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'NUMBER_STORAGE:enduring_shield_times:>:0'
+        - 'NUMBER_STORAGE:%time%-enduring_last_defense_time:>:5100'
+        effects:
+        - 'NUMBER_STORAGE:SET:enduring_shield_times:0'
+        - 'NUMBER_STORAGE:SET:enduring_combat_time:%time%'
+        true-condition-break: true
+      shield_0:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'NUMBER_STORAGE:enduring_shield_times:=:0'
+        effects:
+        - 'NUMBER_STORAGE:SET:enduring_shield_times:1'
+        - 'NUMBER_STORAGE:SET:enduring_combat_time:%time%'
+        - 'MESSAGE:&e&l***Enduring: On&e&l***'
+        - 'NUMBER_STORAGE:SET:enduring_last_defense_time:%time%'
+        - 'NAME=enduring_stop,DELAY=100 | MESSAGE:&7&l***Enduring: Off***'
+        true-condition-break: true
+      shield_1:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'ENTITY_TYPE:MOB'
+        - 'NUMBER_STORAGE:enduring_shield_times:=:1'
+        - 'NUMBER_STORAGE:%time%-enduring_combat_time:>:2000'
+        - 'NUMBER_STORAGE:%time%-enduring_combat_time:<=:6000'
+        options:
+        - 'DEFENSE:0.15:2'
+        effects:
+        - 'NUMBER_STORAGE:SET:enduring_shield_times:2'
+        - 'MESSAGE:&e&l***Enduring: &3&l+15% &3&lDEF&e&l***'
+        - 'NUMBER_STORAGE:SET:enduring_last_defense_time:%time%'
+        - 'NAME=enduring_stop,DELAY=100 | MESSAGE:&7&l***Enduring: Off***'
+      shield_2:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'ENTITY_TYPE:MOB'
+        - 'NUMBER_STORAGE:enduring_shield_times:=:2'
+        - 'NUMBER_STORAGE:%time%-enduring_combat_time:>:6000'
+        - 'NUMBER_STORAGE:%time%-enduring_combat_time:<=:10000'
+        options:
+        - 'DEFENSE:0.30:2'
+        effects:
+        - 'NUMBER_STORAGE:SET:enduring_shield_times:3'
+        - 'MESSAGE:&e&l***Enduring: &3&l+30% &3&lDEF&e&l***'
+        - 'NUMBER_STORAGE:SET:enduring_last_defense_time:%time%'
+        - 'NAME=enduring_stop,DELAY=100 | MESSAGE:&7&l***Enduring: Off***'
+        true-condition-break: true
+      shield_3:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'ENTITY_TYPE:MOB'
+        - 'NUMBER_STORAGE:enduring_shield_times:=:3'
+        - 'NUMBER_STORAGE:%time%-enduring_combat_time:>:10000'
+        options:
+        - 'DEFENSE:0.50:2'
+        effects:
+        - 'NUMBER_STORAGE:SET:enduring_shield_times:4'
+        - 'MESSAGE:&e&l***Enduring: &3&l+50% &3&lDEF&e&l***'
+        - 'NUMBER_STORAGE:SET:enduring_last_defense_time:%time%'
+        - 'NAME=enduring_stop,DELAY=100 | MESSAGE:&7&l***Enduring: Off***'
+        true-condition-break: true
+      shield_4:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'ENTITY_TYPE:MOB'
+        - 'NUMBER_STORAGE:enduring_shield_times:=:4'
+        - 'NUMBER_STORAGE:%time%-enduring_combat_time:>:10000'
+        options: 
+        - 'DEFENSE:0.50:2'
+        effects:
+        - 'NUMBER_STORAGE:SET:enduring_last_defense_time:%time%'
+        - 'NAME=enduring_stop,DELAY=100 | MESSAGE:&7&l***Enduring: Off***'
+        true-condition-break: true
+# suicidebomber:
+  # group: 'epic'
+  # display: 'SuicideBomber'
+  # description:
+  # - '&eKhi chết, tạo một vụ nổ ngay'
+  # - '&etại chỗ'
+  # applies-description:
+  # - 'Giáp ngực'
+  # applies:
+  # - 'ALL_CHESTPLATE'
+  # max-level: 5
+  # enchant-point: 1
+  # valuable: 0
+  # levels:
+    # 1:
+      # death:
+        # type: DEATH
+        # chance: 100
+        # cooldown: 10000
+        # conditions:
+        # - ''
+        # effects:
+        # - 'ADVANCED:PLAYER:EXPLOSION:~_~_~_~:5:false:false'
+# priority: DEFENSE 10
+immortal:
+  group: 'ultimate'
+  display: 'Immortal'
+  description:
+  - '&eCó tỉ lệ khiến bạn miễn nhiễm sát thương'
+  - '&enhận vào trong một khoảng thời gian khi'
+  - '&ebị tấn công'
+  applies-description:
+  - 'Giáp ngực'
+  applies:
+  - 'ALL_CHESTPLATE'
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      defense:
+        type: DEFENSE
+        chance: 20
+        cooldown: 6000
+        conditions:
+        - ''
+        options:
+        - 'DEFENSE:1:2'
+        effects:
+        - 'NUMBER_STORAGE:SET:immortal_time:%time%'
+        - 'MESSAGE:&eKích hoạt miễn nhiễn mọi nguồn sát thương nhận vào'
+        - 'DELAY=40 | MESSAGE:&eHết thời gian miễn nhiễm sát thương nhận vào'
+        true-condition-break: true
+      defense2:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'NUMBER_STORAGE:%time%-immortal_time:<:1000'
+        options:
+        - 'DEFENSE:1:2'
+        effects:
+        - 'NUMBER_STORAGE:SET:immortal_start_time:%time%'
+        - 'MESSAGE:&e***IMMORTAL'
+    2:
+      defense:
+        type: DEFENSE
+        chance: 20
+        cooldown: 6000
+        conditions:
+        - ''
+        options:
+        - 'DEFENSE:1:2'
+        effects:
+        - 'NUMBER_STORAGE:SET:immortal_time:%time%'
+        - 'MESSAGE:&eKích hoạt miễn nhiễn mọi nguồn sát thương nhận vào'
+        - 'DELAY=40 | MESSAGE:&eHết thời gian miễn nhiễm sát thương nhận vào'
+        true-condition-break: true
+      defense2:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'NUMBER_STORAGE:%time%-immortal_time:<:1500'
+        options:
+        - 'DEFENSE:1:2'
+        effects:
+        - 'NUMBER_STORAGE:SET:immortal_start_time:%time%'
+        - 'MESSAGE:&e***IMMORTAL'
+    3:
+      defense:
+        type: DEFENSE
+        chance: 20
+        cooldown: 6000
+        conditions:
+        - ''
+        options:
+        - 'DEFENSE:1:2'
+        effects:
+        - 'NUMBER_STORAGE:SET:immortal_time:%time%'
+        - 'MESSAGE:&eKích hoạt miễn nhiễn mọi nguồn sát thương nhận vào'
+        - 'DELAY=40 | MESSAGE:&eHết thời gian miễn nhiễm sát thương nhận vào'
+        true-condition-break: true
+      defense2:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'NUMBER_STORAGE:%time%-immortal_time:<:2000'
+        options:
+        - 'DEFENSE:1:2'
+        effects:
+        - 'NUMBER_STORAGE:SET:immortal_start_time:%time%'
+        - 'MESSAGE:&e***IMMORTAL'
+    4:
+      defense:
+        type: DEFENSE
+        chance: 20
+        cooldown: 6000
+        conditions:
+        - ''
+        options:
+        - 'DEFENSE:1:2'
+        effects:
+        - 'NUMBER_STORAGE:SET:immortal_time:%time%'
+        - 'MESSAGE:&eKích hoạt miễn nhiễn mọi nguồn sát thương nhận vào'
+        - 'DELAY=40 | MESSAGE:&eHết thời gian miễn nhiễm sát thương nhận vào'
+        true-condition-break: true
+      defense2:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'NUMBER_STORAGE:%time%-immortal_time:<:2500'
+        options:
+        - 'DEFENSE:1:2'
+        effects:
+        - 'NUMBER_STORAGE:SET:immortal_start_time:%time%'
+        - 'MESSAGE:&e***IMMORTAL'
+    5:
+      defense:
+        type: DEFENSE
+        chance: 20
+        cooldown: 6000
+        conditions:
+        - ''
+        options:
+        - 'DEFENSE:1:2'
+        effects:
+        - 'NUMBER_STORAGE:SET:immortal_time:%time%'
+        - 'MESSAGE:&eKích hoạt miễn nhiễn mọi nguồn sát thương nhận vào'
+        - 'DELAY=40 | MESSAGE:&eHết thời gian miễn nhiễm sát thương nhận vào'
+        true-condition-break: true
+      defense2:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'NUMBER_STORAGE:%time%-immortal_time:<:3000'
+        options:
+        - 'DEFENSE:1:2'
+        effects:
+        - 'NUMBER_STORAGE:SET:immortal_start_time:%time%'
+        - 'MESSAGE:&e***IMMORTAL'
+phoenix:
+  group: 'ultimate'
+  display: 'Phoenix'
+  description:
+  - '&eCó tỉ lệ hồi phục toàn bộ sinh lực'
+  - '&ekhi bị tấn công lúc thấp máu'
+  applies-description:
+  - 'Giáp ngực'
+  applies:
+  - 'ALL_CHESTPLATE'
+  max-level: 3
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      defense:
+        type: DEFENSE
+        chance: 25
+        cooldown: 120000
+        conditions:
+        - 'HEALTH_PERCENT:<=:25'
+        effects:
+        - 'HEALTH:SET:%player_max_value%'
+    2:
+      defense:
+        type: DEFENSE
+        chance: 25
+        cooldown: 60000
+        conditions:
+        - 'HEALTH_PERCENT:<=:25'
+        effects:
+        - 'HEALTH:SET:%player_max_value%'
+    3:
+      defense:
+        type: DEFENSE
+        chance: 25
+        cooldown: 30000
+        conditions:
+        - 'HEALTH_PERCENT:<=:25'
+        effects:
+        - 'HEALTH:SET:%player_max_value%'
+aegis:
+  group: 'ultimate'
+  display: 'Aegis'
+  description:
+  - '&eCó tỉ lệ nhận tối đa tim vàng khi bị'
+  - '&etấn công lúc thấp máu'
+  applies-description:
+  - 'Giáp ngực'
+  applies:
+  - 'ALL_CHESTPLATE'
+  max-level: 3
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      defense:
+        type: DEFENSE
+        chance: 25
+        cooldown: 20000
+        conditions:
+        - 'HEALTH_PERCENT:<=:25'
+        effects:
+        - 'ABSORPTION_HEART:SET:20:20'
+    2:
+      defense:
+        type: DEFENSE
+        chance: 25
+        cooldown: 15000
+        conditions:
+        - 'HEALTH_PERCENT:<=:25'
+        effects:
+        - 'ABSORPTION_HEART:SET:20:20'
+    3:
+      defense:
+        type: DEFENSE
+        chance: 25
+        cooldown: 10000
+        conditions:
+        - 'HEALTH_PERCENT:<=:25'
+        effects:
+        - 'ABSORPTION_HEART:SET:20:20'

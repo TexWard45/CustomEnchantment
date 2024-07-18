@@ -1,0 +1,948 @@
+default:
+  ==: org.bukkit.inventory.ItemStack
+  type: AIR
+  amount: 1
+trash-powder:
+  ==: org.bukkit.inventory.ItemStack
+  type: GUNPOWDER
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: §8§lBột hỏng
+    lore:
+    - §7Bột đã bị hỏng và không thể
+    - §7tiếp tục sử dụng
+enchant_paper:
+  ==: org.bukkit.inventory.ItemStack
+  type: PAPER
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: §f§lGiấy phù phép
+    lore:
+    - §eLoại giấy có nhiều công dụng đặc biệt
+    enchants:
+      DURABILITY: 1
+    ItemFlags:
+    - HIDE_ENCHANTS
+club_paper:
+  ==: org.bukkit.inventory.ItemStack
+  type: PAPER
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: §f§lPhiếu §c§lHội quán
+    lore:
+    - §7Nguyên liệu trao đổi tại §cHội quán
+    enchants:
+      DURABILITY: 1
+    ItemFlags:
+    - HIDE_ENCHANTS
+soul:
+  ==: org.bukkit.inventory.ItemStack
+  type: YELLOW_DYE
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: §ex1 §6Soul
+    lore:
+    - §aDùng để trao đổi các vật phẩm
+    - §acó giá trị tại §e/soul
+    enchants:
+      DURABILITY: 1
+    ItemFlags:
+    - HIDE_ENCHANTS
+soulx64:
+  ==: org.bukkit.inventory.ItemStack
+  type: YELLOW_DYE
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: §ex64 §6Soul
+    lore:
+    - §aDùng để trao đổi các vật phẩm
+    - §acó giá trị tại §e/soul
+    enchants:
+      DURABILITY: 1
+    ItemFlags:
+    - HIDE_ENCHANTS
+shard:
+  ==: org.bukkit.inventory.ItemStack
+  type: PRISMARINE_SHARD
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: §bx1 §3Shard
+    lore:
+    - §dDùng để trao đổi các vật phẩm
+    - §dcó giá trị tại §b/shard
+    enchants:
+      DURABILITY: 1
+    ItemFlags:
+    - HIDE_ENCHANTS
+shardx64:
+  ==: org.bukkit.inventory.ItemStack
+  type: PRISMARINE_SHARD
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: §bx64 §3Shard
+    lore:
+    - §dDùng để trao đổi các vật phẩm
+    - §dcó giá trị tại §b/shard
+    enchants:
+      DURABILITY: 1
+    ItemFlags:
+    - HIDE_ENCHANTS
+skull_zombie:
+  ==: org.bukkit.inventory.ItemStack
+  type: PLAYER_HEAD
+  meta:
+    ==: ItemMeta
+    meta-type: SKULL
+    display-name: §2Đầu Zombie
+    lore:
+    - §7Nguyên liệu rơi ra khi giết quái
+    internal: H4sIAAAAAAAAAFWPyY6rVhRFeU+JVCnlMzKzSoVpbBi8AU2ZHnwxjbmTiL67GGx6viWfkI+MX6UGyehI+5x99tqvGPaK/X6pR4TOjzYrUfqCfVcS7I8kjEMiJpO3456N3qh9Rr9FB4J6SymcZNNDjFNR8oq9Pk1d+hjKtP8NexnSZRgfaf+KYdi3F+y3S5nfwp/K97+H8G4ranBDHBvhjNaUkzjo7UM31A25c1FfNPEeL3Bau3QSoLuPEiAMwc4LqMmnEm1aK34lnZWTH+LjFHOQG3GJ4cdtSqTKJUY8ccm1vK6uTe12A3NrEx5ImYgrs5PFQJL2RXZ/ZPQe7bTlhpgB1OB4UsAsAnZL7UhPzkduocoh8zb/nXADoMtDfG7o8cTUdkt0jLUXcbnK13vH0Aotb6eauzQ9yOtVnz5Yig3k0Yqi3eU9sVktmVefpW4lzlmj0NJtqoK4bnbd4eLkwqIOIXFf79x5RaGgzLN+Zjt+3thArytTUXRDF2END2uzdVeBF5gGMiSjRRLPDNpm8ol37SLKeFjBe2vw4bI4UlbhRiBHLqWj3Qj16D0waT62HtJddxc/JJluN+DceJGV2V/lfmXs431eHGj4yeqtsm/Zt9gbXV2e50FnPj4AZJSqFIojje/uBZ0xS+po5xQkuHrsHA+QfdpZY8ukJHcVe1tLlWxGNJ+bSzVYbbHUE2lKTiA/GU6Ai2aTnG7EXEhnlka7yhdazTPEHNRNEqhh4ZFU5t6nd8ApYcdRR61nK8phcxoE8tVSsnHgPuyqch67bnGdfPZiXDqoQ1l5KZsQYcwCpWb7ZtmQfMGVgwyKieE2VrXvsUQFk4Fcx86QX26LH3PlCK5od+UfTkyaPXOyqeF44GyitKfGU/vDuaN+vGC/eiEa029/pXObK4KKh/4exaRdRFeuVMQ2N5xgNSuXMrd8NUSwWpdZUwSujGV1gg3qoYtqpeQOT28d+GZhNMYGxXixfAU3/GAfVE+/5OKGaNDQgZUh2iUUlF4ouVy58WtEwC6SPCt45n79MS8fMPMbdgga9NS+8gh0i5oTnlxV5DbekvhohT74ZExkdQ+/uBLJoxLZW+HV+Nz92+uZhUz94lL/137eX9X+K7dNZHu2Smb6z48x8tEIfXMNfIjrDY0SgcXhtfjk0AlAm8SzW+XSxhbTgcMRsFJwSwRbsJ3KoAIrrNT62XofbB8brPLZ8E+1IcY0rOLF9J87HzzvizqoisZ0kspYFe2TTcafk2eFG/4Dw16wX8ywSbFXQz79CdsmKlMM+we3iIDa0QQAAA==
+    skull-owner: MHF_Zombie
+skull_skeleton:
+  ==: org.bukkit.inventory.ItemStack
+  type: PLAYER_HEAD
+  meta:
+    ==: ItemMeta
+    meta-type: SKULL
+    display-name: §fĐầu Skeleton
+    lore:
+    - §7Nguyên liệu rơi ra khi giết quái
+    internal: H4sIAAAAAAAAAFVQybKjRhBkJuyI5xfzGb69mBCrEIc5gACxSwga6L442MQiFoFALF/jD/BHmnkxB/vQ1RFZmVlZ9Y5h79g35z5W1aVvb0WVvmFf1QT7M6RuNMmGh+/EIWa+09xWQvoWfd/T8T7FUyLFw8M79r6JHmk/FOnzD+xtSOdh7NPnO4ZhX96wP5wia8KfyNd/hqeE8vmCtx+OE/cTMujGNHeTzS/JLo/MwZDp7sQkXKjjTGNdK1kH0WMsYH+3aDlbwHHCNcI+ekLvRrhDEblvePm12Y1G35w02dAfrX233QfZ2dIh0saeQ8x6C2KeP1qveAiFHZuGhTsXBsFJK/QDYmdEDct2dRLUQxqBDFyOKQh0xU0SkX8VCtitMVlppziDAkt2iqZx0nME3nCDkSuGCu6G+8rl2H4fZYUjOXg7fOyz3lfmTG1HJp7FZFhCYb52rO3cJOcQr1pnPC6oCO7lRwoQ8qWwQi21cK/8Q/HqXuxLX2/8m3qJCDSUHes/dMkYY9F4+EP6IoVT459XR0Mg7KWRF4ME6n29PwwZoxa6xMEWp4piiGt3xUO6AFaexVKnTYHWdujZZCtYm3Sgw9VKaYqS2qnzL8BQaoW/gshmDEl7zrLn3ElRJwEcX4yQyNm4v17QwZQGZJ770607t8AWqbU7Ahe6VQQehF/X+spdTTotZQfBUfZ4blnvtD0ZSWYSu7zMdKVb+VCf2thch5j6oDwUngXhkK2BQN0t6CgcvgtIXJtRbe7lyabmes8MKc+Dqzxfhzwh7klzfYbVvM9Pxb7pIDzNlHBHi/nwGdaXZD5m2Zi76HhEuMeXnZVGu6D+xoLDAderWaAUQlu56VqlbDbs1gvRajDQ5cQkAli33cuX1uL28gNR/fGG/e6F1Zh++Tud2kw9anjoE1VMXfMo4AtVbDPThYtVAtpas/nnM5dJV498ESvaC9XVE4Hqrhb8ftPmJglxs0zysyjRcAX42TcJ6F5rWEIcrqgyT2BGrpCfj+rzWPCZ2ghLRKJHdPLOcJv7y8dyJHQD5FBtOB6RdGHwn9nW0E9GGFyJuPYcFMhEGGgVOqrZuRDwuPGqXzwcBTmebL14+eyxn7O2zAAfNLf4H/aTv/lNn7uq9aZT+L2xcP/xYIbQZypIaTlq7DGqPdygttsqP3OAl1mq1Nn1SpM0SbRVJEIKnbwSlVVurhJj+WA2y2yyRKFA2z02PglLnrB8uMBS2vg2iWppPvsSY7rZhFx+MRdV/8ym4NsvcMcG/4Fhb9hvVlin2DdTkf9y7mmVDm2DYf8CFAPpidcEAAA=
+    skull-owner: MHF_Skeleton
+skull_cave_spider:
+  ==: org.bukkit.inventory.ItemStack
+  type: PLAYER_HEAD
+  meta:
+    ==: ItemMeta
+    meta-type: SKULL
+    display-name: §9Đầu CaveSpider
+    lore:
+    - §7Nguyên liệu rơi ra khi giết quái
+    internal: H4sIAAAAAAAAAFVSya6jVhClW4n0+inKV2SHWmDAxl70gnmwuRgw091EzPNgwMbwPVnmI8Pr7ijKqqRTp6rOOap3BHlHfrOqR11fhy4t6uQN+azEyB9REBJHmt59TfEo/kqlCf013BGnrzgRHU5JGNCnYP+OvG9DfTJMRTJ+Qd6m5DU9hmR8RxDk0xvyxSqyNvhAPv89o7mby00/SGGKAaPERp0y1ycdmCTK0gBg+oucT/jheidIp0cdrfNZ+d7FRks+PV7sSJvv2wqbDfLBK3jom759YZvanV5uxoo2btrVyciSWFfs7EYE4Fliq0H68Hr3wrPX4er0INuWNS/6Xu3J/W6u4TM9pzScGkwCedNay/zAcMAn13zsz+vQOkdJlJj7FT73Bt1j6L6hq7N6OrqjFpSVp3qHoTxagXTJfcEXBipb0EtCXlNDidEn2iZYZToYvZZCyEhhD0l9uC4uO033EZRy3zNrc7Ad5k6gRpJl6KNdBdcFN04X4FHeScwcNfGU4z22qFZ4QbsD85yqUBriQySQslzhUWK7jHgmi/GV4nWOvmB7dcLlairFzGpTuVawEC2fmR9o0fUkLEU5ZadYnjgsS/tdz9sxw59oS+HpdU06B6+ox5Z+0mar5eeoy++sGTi6cB3OrdwwVURIh5VliNs+fAmoJaXeHqogJRzpEFPRVImGKYnh63ExzYqLci/GaDGbH8eIquhuZTH81rl5cjS8GRvh3POjllIcWw96Y8Gn5Qh2tbb79SmECR8RetiSC+0XXHqb1RZNZ/bBTEw2Jx6NqhivZQN1N1pqwLh4LrlFPTjLmdWkXSNJwL2UJ7nngA441xxHwb4rPSEU8svGY7Xv75SewBK45xjCkcsc0XJeBu3TgndzjHgI/W9vyK9OUD+ST38lc5cpnIoH7q6OSDMPPaZQ+C7Tbv4CSpsCa7aAW0YAaz4rHFNEsvqETT1Cu66Ugjlss6XvKovOR6Tm+rNPGDhsbNIvhUW/MYu/+nvoqjlY6xxYysgVTKa07BISsA8lR/e3uz/3AEuAqUGIBHTAHLhmHRX/8kEPiX0ey84CHbWOPKePGufHfdlcYtf+yTPrRDZ3W2/90Rs/NH/4u1l4rf8f++A7S8gpmV4wRSCbeMR3zwv5345Ls+vDximjRmxibv+AnvGMJYf6rsM6koBQZrAyhEYIxOZ/8y2s8KZseRkU3LxrvL/4jUFqKyi1LUudt/daWVEaXxFaabx0ns23bIoNf4GbvT0wzJWs+64tNbYq4+fU+PYNQd6QX0DQJMjvmiz+yQXPxOqLOBkQ5B/Tq+q43QQAAA==
+    skull-owner: MHF_CaveSpider
+skull_spider:
+  ==: org.bukkit.inventory.ItemStack
+  type: PLAYER_HEAD
+  meta:
+    ==: ItemMeta
+    meta-type: SKULL
+    display-name: §5Đầu Spider
+    lore:
+    - §7Nguyên liệu rơi ra khi giết quái
+    internal: H4sIAAAAAAAAAFVQyY6jSBClWzNSdWk+Y25WyWzGcJgDYMxig41ZMy8jNrMlmAIMJN/SnzAfOdXVfZhRHEJ6EfGWeCWIV+IPp34idO0f9xJlL8RXPSX+3EXpbndn2DeWirk3Nk7pNyFh6DeKF3gm4ZidwHCvxOvHUZf1Y5kN34iXMVvGZ58NrwRBfHkhvjll3kY/kK//QH+JqdOUO3nvjajyZuBGA70XJxmvrHhEJQD5ZnCvy/vd0fxIMU3OcquDvAkS7bBtsNGFgd6iLSojT+bJbY71Sa64p16L1HMPWxK/u32eDR0iT9Sel/rTLRlp9zkadHlCvhSabv00pGoC5H2zutc8E9XE9zKzvjtY4AVx+zAY3fc6bMqTZ7+r7cFSVNhem1stmk7vr20ZGXJwi2Ra4LhNSeG2aAeFA1hUbzMrs87sUahgYsCdpuS68UnK0/MwG43dkS51JsaGyhdGXkHpQW0o1WDOuOHJsO3io1aHts7OFXVoTvZCbeZNyPO3M8+5iEZ54HALdw1rvj5O5PBYDKXQNf8pOP7A+D12ziQ31qYjIIqcKNUuzNPjzrVAMBtRWFR2o6TNxBmrd0mfU8eiJr/7xfnGLM3owtt1ZG1ppOuJ3U47n0vSo2NUGE5UjPskgrSw1KFWu8rOvhdt4Gcntq1mrO7eLSa/mtjw4rsjbLitnUQhK501B9ZP1VRS5AjbiUzSdI/Up9Zj/Zr3KIhW2SzZy7shNngAEtssx0CZKFm8nqsGngpjk+gPNKb1EvEH5MNwQZV/8cdw13fnTrh2+45hpKIijzabi2q42lCa+nXCarZ1qUJDYC+pE6uUw46JvfpUa3UiqposTeeTufA2d13wVWhJIT6f32PMRWJr7edouGBwQuVNtiekDH+9EL/7EXpmX75n8yPXZYOMAgolzK2IQ7HUD4/cdAG2Ko+11ny5HLzZdOaTLotlohkTbNAAPVTrpcjpsk6BwKasAKzWwV5ABUjQ2PgSmKtZKezFzVfwUZZbr1apD3Ip5nor4ZiGXaz6F/Ch+5PHsBwF3j1G6qDqY738pUejNm6OZBoayGv8JQ0QhoH96THVDAr+8pWqPptqPoah+Tn7metDC1lnx2P/j/3YD43hl+4j1W7zpeSn/3A84wA9YWBhEEDy3OxQKgskDItPH2ca0GagkBfXIz86a66wAG7RWCpgrMab4eFWgcpoYCWSl0POfuTHsKpJ0z0i4CozoI0C0GCBlVFYrk2alY2tg1h+/kaWhB/9bncCQbwQv1lRkxGvpnb82+nKNOsJ4l8ar4QB0QQAAA==
+    skull-owner: MHF_Spider
+skull_blaze:
+  ==: org.bukkit.inventory.ItemStack
+  type: PLAYER_HEAD
+  meta:
+    ==: ItemMeta
+    meta-type: SKULL
+    display-name: §6Đầu Blaze
+    lore:
+    - §7Nguyên liệu rơi ra khi giết quái
+    internal: H4sIAAAAAAAAAFVQyY6rVhDlPSVSdyufkZ3V4jJ5WLwFYGymC42Z7ybCzHABY5vJ35JPyEc+d78skkWppKozVb0RxBvxh10PGH9cu6zE6QvxXUmIP9mY2aYJRb1zu3X0zmYJ+x6dqeSdXmfMdh1T8TmK34i3J+mSXu9lenslXu7pfB+u6e2NIIhvL8SrXeZt9Dn5/g9/YZASU9T9npmc5h80U4Ca4jeD78Y5dOc+ZgKmPCf9LUcPEJPVlqbWph3iw6QEYJhVtqYpywYFGlCqw9ykbhQw6sq7TAyNvfNmqu0wdNEKiuz2aomhUcwSN6KP0stG7Epdy03Dio5Eseby5XBbscXqcQHRsSgYsdNcU5+VIZRncuzU7bp3Fjue/L4D2cgFQxrRUgW2qkonXTM/xHSSTuMxW2pY0HylBpVUHlW7VaWsqct71/cnxt+ZLTq7fGutRvdyMgN7FdPAS4xY1XPfzXXKCtybKsQnDcQuxUY719iUS++dGFzz1HZvVj5Qx/g4KVkjUK6p1YLgs4GOWCwYWoI2ePBP14dqO3e7lsLoYJVyrkUY7NRk2PMmk3usLkJo57ITHze6R05acHX7Wc1EPVUlnqba0t/HrVRJl23GdNnHUdQXSw3gMrAymQZ6Nnn7+4XZp+N2HZEaXplz1F07ik0qrBlMxIUmKPSQaVP8gS/GVmqOqtvWQnkryJYUPOe2a4Eu9CN7e357pawMAZOHVUWTYtOf6wc0Ny150NfHI3llxPUWzkAF12g0NoIjd+WaMe8rLCf9skN2adLmvGtMLxQifjoUuK9IwQ1udFrGMbIonTQ4XhP8nTxDtbYNpRftwKbhipIl9KCZIjkB+SN373xFM4aQPDiStuJR7h9p01HNFpxi+WyN4CrnP16I370ID+m3v9OpyxVRBZFP4Zg5FeeAL5V9l0MnXIzKZY1Hvph7izPtSVNEvoxldUQNviEX10rJrxVRAeEDssi3Zui4nNFIADUWCH1lRnuFRhVkjQbOIa0W4aLcxJLPlVZYzjS6nI+eGT59f+mohi2hzGrmIm3cUue/cj0iPxnC4ETFjWej4EBFgYqRqORmKYC49fC/OICCAiTPXbx87TZfPs+8LrirTvm/2Sf+qTd93ak0T57Mr/Vl9x8N7h75HA4ZtUCtNZwbD+jMCafyZw53RHueRg4EsAk5ePQqw4Fs6B+K5/0UbJQFVqcGViEIHR7Aff6seoKNO8MK1aZzwCHt0tCBXOhLVFgZlUEbFVwU7SubDJ5d2Ikt+EEQL8RvRtSkxCuUD38JOHqkBPETeUXoBtAEAAA=
+    skull-owner: MHF_Blaze
+skull_pig:
+  ==: org.bukkit.inventory.ItemStack
+  type: PLAYER_HEAD
+  meta:
+    ==: ItemMeta
+    meta-type: SKULL
+    display-name: §dĐầu Pig
+    lore:
+    - §7Nguyên liệu rơi ra khi giết quái
+    internal: H4sIAAAAAAAAAFVRSbKjRhSkO+zw7x8+hneKH2IeFl4gxgJVgQbGjQMEgkIghEAIOIkP4UNa/bsX9urFmzLz5XsniHfi98PlUdfuvT3jOn8jvoKM+ENMOYEUxPTjTKXZB8tl5w+RObEfmShmFC/w4jnN34n319Itvw84778Rb0M+DY973r8TBPHljfh2wMU1+V75+s+k1rG4LlfuqYhq2S61XNfvrpQD+9h1SGuBK0b8YSq3ZrHSebKM43A10s003Y9LPy2HijGk4TpdXeBXY+oum77eHSZq7uhR2q3coLvvZ1E3bMeZLtjwvJt2vYfq3hZW+davzrFsoe42b2IGUNbUlpM8qwb/1FQed4oozRW9OSg2ybdgDIXl7N02M885snt9bgrZynV6Ch9Y49iLn+io9AYER3b0h7mpTc/ULKqximWz47hUuezRWl9xtu5sJP6mKDYlne99JMIHTJWWmXvDG+6PwYGR2B/z4r5KHQMixlIWlnwcnZXRu6iQTLTVpyezjJTAn5xjULD6ZEO7ssBpTT7WMW7xZVtItr1rPL0Kc1XuRwcI68F250mLz/A6cowzJk2/UsjpMOdN1sNZCiicDkK1H/kT3+1rh2dMh9kn8IUky3cwS2M8NRqt+LwdUT7NCYFfz9YIOO9y2Mhtdq+2Dp0pCdMaXXgBj10Xpq4iTPu2c6uXM5Jpt/BJkxtyGG+yfUrLm+IuNWfB5dkCYdjfEh3YAPBLuwR48M1uTI7rcKM76FRcq17T3TFae1THQJTkwgDGR0lFEia7K77Q2m11IzV5WzuiOXQR3lHdBQez4XvV+jpIWlBk62dbYcHs/XI3eJfUdZ6KyYIn4usLNyqbzEkwCx5rtx7h3TgOGjvZuXDEPW/rSE1ujuUI7Z9vxK9+Uj/yL3/nz7YAikUmAVWfmH2ZhjIGalvAYzSjymPRUpBQjSZ4eNpAkfHJtMa4qfvYqy8AyzxQABtVHgPVExs10RQ1OxIF+8ZRUYWMHesYuwlVJ9oxYhwfQK9guQDXzZzS8S01fCd68f7AsdDh9VbPqK8A/+Si62va6GQWWrXX+FMW1HMc7D71ZaZFxT81ZYbPZqY/xyH87P246cVTo+3BY/9f+z4fWv1PzjYz908Hi+N/MB5pUD/iAM1REJPbhqszRSLjsPzUsaU1ClVWCZcMO+ppiqsLjQyriRZUwyOcYOCXr3tfu3oJVcg56r58+VEh9TTDo0dGR0jGBpxRoDevnImPkIUNwJ++KBvpezzvbhJBvBG/oKTJid+gqf/l4oIg/gUk1lPkygQAAA==
+    skull-owner: MHF_Pig
+skull_chicken:
+  ==: org.bukkit.inventory.ItemStack
+  type: PLAYER_HEAD
+  meta:
+    ==: ItemMeta
+    meta-type: SKULL
+    display-name: §fĐầu Chicken
+    lore:
+    - §7Nguyên liệu rơi ra khi giết quái
+    internal: H4sIAAAAAAAAAFVS2a6jVhBkRol0c5PPyJt1xY7hYR7YbMBwMPvyEpl9B4Mxy9fkA/KR8Z1JFOWpparq6upWv0PQO/SbVc9Ncx37rGzSN+irnEC/M1iS3rIb80HgyPGDwBLmI0IQ/IOmKQQlGTqhYuQden81Den4KNPpF+jtka6PeUyndwiCvrxBv1hl3t0+ka9/2Sgd2T21k6fgyDUUScoZjVNAmWourQiquJKF3PN7xzNTh1ZkjwlD5EcYdapFRECfRmpsHkn7Y+Crg/HAuessgp4eF7Ek6T4Dppm5hGYF2yUJV0KQVZdzrm5VC4fgAUgnM5ghGObWV0mPS32EEJiHEAbtUtGEHOcaG3RON6fxiGHHR29vKaxwYF+fmuvFW2ydzNpRj4a7wxf8cL8Y0t3aMJLyUhJ26t70HYKt2cC00hMjukompmuzwp5v2YSIeeaDvYNzIkhoAzclfM972R/63BMGZX2WAvfcaM6bm0xXtRI7oYEWWkpBgcO6J95uyMgV4ygiPZJdbtNZY07ZApcoAGLNDVR2Twuk44O5JhliNNEb6nuYvsoKHBYBQRy76epy1G3sLviFPa+AI9ZmOWFLXWj9hBVOHu5UiC7zbHMqQd1ra9fxSEN4QuqL7XJTYbveYXTot64gGrGSpPnIl6+3KFQ63u/3cfCwG6PT8mwf9p2wKnlSD4F+lcrhcZyEeEuy6/nIsIEA8HGnAmuYFKbZmGzeF02gC2pWl/kpEsHVZflEwXJ4WOl4HK9D8xSvYbgoizfdmTVs2ETFw6Lgw6tXaGMYdVnFJnF4EzvV1NOEKne2wlFWPbB7GQ/MYHGneqRY9GjCNR/1XPBglkhBWJ2vcraZvEgmDm3m5fIhwM8wFfoPZG4rLXu2zvLtDfrZvTVz+uXPdOlzmVeQm4c2MW4Wkc+WstDnmh1soHIIsOcIEERcs5aLzLNlLCnPsG2m0GlquWQpmZdJrTWbwAsL3TZ2TYgRrTXIoGIXbc8JULErsGsiFMJK4+WJL9lc7rgtwsIhOrt68Jr7w0cBlhhmBlYMAfZoovJfLRhCjCwSyd1CV2li3x3i1v0xWzK3xHP+0ZlNKpnoi9t/cNNn3s/dbAtp9P9jn3p3i3g510u2vEkmEgv9U8X/81BbdIhat4rbU5vw5Bz6xjM5u8T3HBZNanZY6meH1AWN0D0NBcKpDCoNA4Kz64KzBC0oQ+HUAkypgCeiADMLUCl1gGmo9uJfd0E0oca1PWmC3S3BrhRy3n/PlhmvKiGXzPj2DYLeoJ/ArU2hXzXp9AdflHGddhD0NwbwAy3WBAAA
+    skull-owner: MHF_Chicken
+skull_sheep:
+  ==: org.bukkit.inventory.ItemStack
+  type: PLAYER_HEAD
+  meta:
+    ==: ItemMeta
+    meta-type: SKULL
+    display-name: §fĐầu Sheep
+    lore:
+    - §7Nguyên liệu rơi ra khi giết quái
+    internal: H4sIAAAAAAAAAFVTya6jVhClW4n0+imfkZ31ZMAMZtELBmNj+4JtJnM30QUuMwZj5m/JJ+Qjw3vqRbIqqarOUKWqd4J4J/4w864oLk0VpQV+I75rIfFnGCEUsiz1wWAefzAsoj4QF/EfARcFLA629AYF78T7Aqpx06b49YN4a/HYdg1+vRME8e2N+GGm8QN9Zr7/47A+Y0odp61EdOP2KghbWKtPPRIc4dp1hjFwdvyC1lONLRuTZ3Z3ts+SEY2raV2TJc1xuzNnBLkttIN4qpQVbww7Iw7vKqUkfLXLEdT6gykY7VB0z5WmV72tBOFZavJq2x1m0t/YwQTUtucqd7jsNE2oDf01wvjJCxg9fD+Xbuvr9V4h5zhu1Xs9ipqgKsW+g8dQP7DXRGoNx7kkke2qVblVS0esQ3pkpszAYyrGftPq2ErHJ3dcOx7Xtf1ONm+PVq+vFy8eLs0VWLIyRSk0HQmPtNihw1ylkaucvVIg8w7t+v0YAKmR5uujmKkVZTdJG0yWL45z7SeXrVSPa9yYTW5c2RIEnuLfonHjguzawnz9AgY7FbIagpOjmavMPu7t7JQNQWbN8QpZRdwYq+Gy2YAyGY3sRmemqQq9NXjeXOVRire9ISDzkm3o3TqUHNvgsV8cepdkXsrUNAf6YqcSbw6zLI191fFmZJYMZ5WYF+PQPbVssMtDPFmNLGoqz8VJ5EznGy5XIcPirqaKYxButpX/etpCUHDw4mX5/nmED+PkUgjV9n7b1DfZ5iLYXirYiAnHavson9Bel8vU1+790yWp9EyyHVUr3EA3/MwlSmPrCbUfmpPHO344tij1T2ALTqrtsG61etGn1XrMit0Ix+kuSZBkUNDJjADaAwWsXg+4dRZdIyFDroNj7+cb8buDig5/+xsPVazJRxK5VBFsbol/F1NNqWJgeZOe2Yw+xySwwKibw0mTxTQ4HHtYFi9oF7mWityCzWGpJlCxF6VbodM2qbu70bNgqdOAhiWgoAsYkOmJN2kvebkj7SFNPg1rf+8Y3qL7i0c3dzCy6aSAi4ez+OVrRm7YefcbFZSOCZdXQPdjAWUtNlKJDB5O8auPhPeEDJdaMH3V+C+dxa9Ntkcr/V/us3/hG77m1MoFdxC58yT8h4NtkcsW3uaYwMe180uHPG9uBT58+rB7ndYTMCeZR3vLbsLCsIrMs4pcV8ICutq4zM94Fhige0uBZQ86rSa6dUz1LGC8WZvAHmwWXKYrAem5u2VH9gxN7fTl7UAuURLkB/mTIN6I33RUYuIHOKh/mQnGNUH8Czfqi5jQBAAA
+    skull-owner: MHF_Sheep
+skull_cow:
+  ==: org.bukkit.inventory.ItemStack
+  type: PLAYER_HEAD
+  meta:
+    ==: ItemMeta
+    meta-type: SKULL
+    display-name: §8Đầu Cow
+    lore:
+    - §7Nguyên liệu rơi ra khi giết quái
+    internal: H4sIAAAAAAAAAFWPSbKjVhREKYcd/vXDy/BM8UPwACEGNQBEK3iIRqKZOOgFejRCol2JF+FFWvWrBvboRuTNvCfvO4a9Y384twGhU9/mJcresF/UFPszJ2g2Bgz1kQCQfVAkhX/ETEJ80CCK04ygGIYg37H3V6jL+meZPb5ib89sfg599njHMOzLG/bVKYsm+q788s90TBbzVPZ3GQAYw+lGkzy3y+xeOLNeyEKNWZ9Pw7G3ti2ftraUR+1ZIieFvjNu2AQKPh4z05/4nSsP6W7HdsUBufkScHSvk3z4wCXOOj3wLTUWy8A53aEjSPneEiUZrtZaXovL6SoAnqcOIbRtkz0V2nZ+pluaZ2jm3KwxzfoTqbfXPaXbsT3mVt+zu81jI5pa4+1agqPEfeRYUXeUyFztOpbzLPba5etOInnSLHmnaDIwJWtwlDm+QSOxv+pOutOGvKRTuOTFdnRWijFcTyen/WhlIhte4G6+rgy18QBsIh+R5nNPRMxcHd3nODCB0j+v010R8lNNcumyzNZUmJwvbjtIBdt+iVwpGyk9gxuCGbwAQCLiYkMXNwWZGY6MnylCumvbGyWHqZcLyuNmGSnlHnhtFLwrY7pAHtcbpT40z7/3bou4WPNviNhSdWscZm3ihd18Siz7VMZGPsf43bspnLlWoMPBvY/Q4jMIR1K/aUQVxEtTIaWNTLIXrJ2UnQB9BSHMmiETRT1zDWuyrNgahERXOK3TZUrc7OOLXo8RLo3LxkUgr0RbSTpRY4OHn5KbmzKzdbZNoA8a1cBdp26Og7M2XatKs78vD4JI+gudWWpyflgp1KQyJc1ezduMA6ZjAL2yrPbqVXClhbjbRmalkx0tyWJjWHch0tU2OQxeqWvz/t63Veel7bc37LdLhIbsy9/Z1BaqoOGRR6CEtK+xz5XqoS0MN1hgdabgWuDGapGmMB1VgSsTRRvDGj3CM7qpJbd7ZWvDPdNBpZJQNhajPn/3T0GVVi99CTztFroiDtdkNhb1IZRcoTb8EoOwi+WLGby4P+9ARwxzC7CkWv5kAdTEtYSnvobO9WVOPbSEnvXZL1U0InR++FL5QqXKZQl943P346cXB0HdOVP/1777fe3xk9mmij2Z5X78z40h9tAQevDVPcT1mkapwOKhf/3soQNrCl0bwTosw+pSG8CuwuqGw4O6BK5UG6tIw4NFhZVIGJUBTM+a4YpuwcsfALs2DjyCnlaHboGb7qUO3BsJF/X42U3BX5NnhQb/hmFv2K8wqjPsd0OR/hLaCcP+BXIG/anKBAAA
+    skull-owner: MHF_Cow
+skull_bat:
+  ==: org.bukkit.inventory.ItemStack
+  type: PLAYER_HEAD
+  meta:
+    ==: ItemMeta
+    meta-type: SKULL
+    display-name: §8Đầu Bat
+    lore:
+    - §7Nguyên liệu rơi ra khi giết quái
+    internal: H4sIAAAAAAAAAE2Py06DQBiFf01MKvEx3JJMgYGycKGC7ZAOVaC0w47LIJehNhRMh+fyAcWdy/Od7yyOAqDAQ9iOQrz3X2Ut+AJuSQGPpsFXS920VFuzsGpkKVJtbtlqxg1cWqWF01WhgDKPzrwfan65h8XAr8PY84sCADcLuItTMXL44dJDybFCxdETuSTmnKMQiR1pzhY5xTJ7JSbp5n7zbG6l/c/FQ3rAgulelZw+xqyL0VYPBN8Ey7zbf9PpU9K1e6XroKYNkUnDMDtQSRt3mThFS6OXlmku8rVYsENS/XE/2k/+xBCLvHrnvNUzb30nx0mUYzr5LQ09uzyip/kB/AJei4lYHAEAAA==
+skull_wolf:
+  ==: org.bukkit.inventory.ItemStack
+  type: PLAYER_HEAD
+  meta:
+    ==: ItemMeta
+    meta-type: SKULL
+    display-name: §fĐầu Wolf
+    lore:
+    - §7Nguyên liệu rơi ra khi giết quái
+    internal: H4sIAAAAAAAAAFVRyY6rVhDlPSVSv1Y+IzurxWzDoheYGRto5mETXWYMGDMP35JPyEfG/TpRlFWpqk6dc6rqFYJeod+saqrrj77Nyjp9gb7LCfQ7lWAJmhyTNwrBiTcipui3KKGOz5QGOJolJErjr9Drc+iR9mOZDj+glzFdx6lPh1cIgr69QD+sMr+Dz8r3v+7hTRjQufdyurRh9cymXhlNp+7I7IClu7o6j24HTP0jVFyRReGJM8oTWcpI/bBrtS1mlWWHh3DBG9iNaEbMeLM7LXBkeGuoMHzhYUvr3+EOocKkQweBpncP1XuCSDiGY9Ubyom2Bx9jXOsLQyEVi47UuZL19mZo5zO/CoUM84S6Rhy+pjceAPk2U6CzJV2aYLoEoEu5ZMhwZNTZ2kgaEmiHUdRIpyi9qLo1/pZOiOhezOPAjyrFgN6UJscDY4wIhXZ0TbiB74ft1CEpH8wGmp7TuKuwfCf34rCM9CMKrg4ZyAorVVLNyKmvAvgKDh5dxuXIeeNRg4meudpZZgZ8TKb2csSt8IqkWeZfTol00g+DwecXE8yBjF1WXsCdS2zahh1i/sW9oAk1BrokRK3ik/kKmtbuV148VlZje0nLsKm0WDs7FmdkAz5QKCFzxurR+IgxHY18kM17deislvoopjWWi1SuBCdyI/9M5mTVaq6NH6Z9Hd2UvCdOcFSX1DGFA4NTlrQmH+u9GeBW6ONGKIHYsgLP0v6UZNkYBqVTk/ol7FQFLjj0vhA9ahln/+D1x6hGY+1+6Fkqx1KXEuh93xnxtHHXssUeB1hUwb1ki27pCf8S720yzb3KRozIeIvSmLW3GaLJbwGVmTzLhIXzmDVOa7p5l5bMs/KS2mb7Fu+aFksxQBcAkOD9BfrVBfWUfvszXdpcZhUEeGgd42YR+Uwpc22u2sGm3RxC23NEu+WrVi4XmWXKWFLmsKmH0KkruWSOMisTIadUqmdgIZcv6m4gwZ6TQWMQz7lF9/hd9cJKs3lS3eSBLZlcvp+3CAsfkejqwVP3i0fRLD7MXIwewvJfnPYIMbJIJHcLXaWOffcRN+6XrmRuief8gzPrVDLRZ2//6g2fXj/3si2k1v9f+8S7W8TKuV4yJZBMJOba+Yr/x3Ft0EfUuLfnJ5uEJafQN+ZEdImfPiwK0+2w0GwVD+x8VTF+DXYeDzz5uXe1hJy8qo1MqKKxqJi8Bk8O1XP2AAtWbVcazQub0Ga24HkTlXN2tQlvAeY2ct7+9JYZzyghl8x4f4egF+gXDTQp9KJKwh9eW2cQ9DcE96UPzwQAAA==
+    skull-owner: MHF_Wolf
+skull_ocelot:
+  ==: org.bukkit.inventory.ItemStack
+  type: PLAYER_HEAD
+  meta:
+    ==: ItemMeta
+    meta-type: SKULL
+    display-name: §eĐầu Ocelot
+    lore:
+    - §7Nguyên liệu rơi ra khi giết quái
+    internal: H4sIAAAAAAAAAFVSybKjNhSlu5Kq16/yGdm5XpnRhkUWGDPagPEAiE2KQcaAZCYbg76lPyEfGfp1L5KFSqqjo3PuubrvFPVO/XGqnggduvpaIPhGfTUz6k8mgVDKrsIHf10zHzwbsx/JVWA/MmktremMu8KYe6fe50cN7B4F7L9Rbw84Pp4d7N8pivryRn07Ffk9/oF8/adeXbe2rMrFJoyLfNMz4TmF6iJTJsOC10dLNjh169TZaRcJtZH/pMWXBbgTxKGra51QMLf0XsZkr2eAfu5ux/tBf6xpebFhN1z64DSt2apb6SVqA356cs4R5Ert8lZAxcQG3/t8u2YTNrJ1yz9ckLGt1b7G+35lgLVYVJcn6fw1BqG65NJ4mQZ5T3hW07p+waJByjqa1eCW1OlmeNmToJdqMZp2ANOgY9jVxlq42NYF5cyH115iQgau/X3Ti1grRwsmJAgPzeVp5Z3mlK6TbYFxJ0eNXxX88cC5/vLlra2o6Pp6VMtzW0FFrZOuxwHwb0hscLxJ2HvZOumjT4yuLfXx5dkxn9XRYbscsB/X90aOr0nCnKumeG6zo6YwXVBpgWuyTkyGeCUsvOE0SDtONKpYMF/YYCG3llbEOjb9CRZZf9QMThzI2HArDYXlSCshOEfctGJy/tiQadmdx8UQg4Og7giq+Ykm0RostCc+Tru8JuniwN05ZY5mp6CpupOwSCKm9iDT7LyypRde7y4LC6g53lZiVTuc3Mc3wrFJ46zVK0imZKrlJAvFG689VMGyOJVhwV1etXpU1rOweM95rEWWFSriXkwK1GvzPzoHubMs/aS5hsFfZAHmTRUZ7O1yuAmSiZhgyT4Gd3+9N8FCJqlaSuHIteqiddtXpdNptmt0bhJ92HLxEJkC/dcb9bsfoyf88h2+6txULDoOGJRyx1sSyoW5rXP7DCanvPAOyZn5TGzltTMVuUgNa4gw6qMLqsxCXpmKOQLsIzc4Yuc8L6LSNlYngAFjY09wSMXZukci7N/syeyVQs7N+2aaB7VJdN8Fs+9PHcs5qdH1zDoo0SXaLH75seieYI3OQgtdsD9mAZqiwPusMTMsJjr95GW6z2eGP0Wh/Xn3M9fshZz96cL/H/vBD63+l2+dGceXW4jDfzSeSYCeUeBMIIjoPRZQpkh0FN4+69gTdXR1kwVlOufLiU0AH+kRsrcybZcV75zV0daPtxlnoxKVM4cHpcfY24oDZwfNQ1fNPRHAOWVs9iJEpTcBAorP3igb6cd+9RqJot6o35wYQ+rdNrS/3RSi+kFR/wLoyQls0QQAAA==
+    skull-owner: MHF_Ocelot
+skull_rabbit:
+  ==: org.bukkit.inventory.ItemStack
+  type: PLAYER_HEAD
+  meta:
+    ==: ItemMeta
+    meta-type: SKULL
+    display-name: §7Đầu Rabbit
+    lore:
+    - §7Nguyên liệu rơi ra khi giết quái
+    internal: H4sIAAAAAAAAAFVQyY6jSBClWzNSdWk+Y26lkjMBY/swBxaz2JAYYwyZlxH7vhRgbPiW+YT5yK6q7pZmDqFQRLx4L148U9Qz9Ydd3qrq1LdJXsVP1Fctov5MgjiEMGJft8DfvLIhDF93Ucy8spDhfMglMIrBM/X8vtTF/ZjHwzfqaYwf462Ph2eKor48Ud/sPG38j87Xf/F52ytNM/jyG7FliVmIN+xoib1Zq9Ot0FE6Wn3xgiLUtUYEBFS5ve0EuXxI0OgX4RyMo3U4Db1Ob2wnitUEpyvCmfcdHV5tuLXVvJd8dm3ZXrilt2dr6Kq9vgURW+XjxdSDiQSZxAncAx/FpdYaJV6KqW6G1QOWEHgXBjawOcnadF0JQFdme5ULwqkF3XmwgTTSE1cKWjnxMLfMqzxBtDeJa9sp3cRLmWwUtOO9N1eJQvFqL/Pg3ZxueYSOTPNZiV42qWEUJyzvTNrUT0zQH88ht3gPIOGNSSfWCEy1XD0SOAZ8zGo6fwBKiUFjWS8x7NsVLQjtKhbi7FbSPppCW3V8fSgmqawN8U1umEtXD3eBmbU9FmqGCe19Voquus9kVWXTRcR9e04zlR6zkds4ktn1FRiFgNuBWYLy8OJHGUGsO7M5NtHqKD6Eu2E4ZKpY5B3My7k7bjsZp/EDQ+P40mMAzWAq0gI4EtcDjwZOGaP8ZX1ZpXzfeIGC54DF8eaNczm3Q66291xvUsRBToFiw0Tn7zTbgnaR4Rbso2RSBuG+Fr1F3bKtuLS6G/G0eEkcruXEw+5WkeqtaFLj2nqCn9yYcmOellFuM4a3PVwbJknldbzXQpcv7lgxDPbenTO+9c6r41FLArpXTqMpnvU3sbbWPtBZLy+LIdhbsBpJNeq3xd7tI0kaMf7rifr96le3+Ms/8b1NNfEAfBdWIXPOAo/PNalNjQueUeGwaEkhkixo5PejJvJ5qB4mUlcDcapSy3nufbfG9bUwLnKJpPSOLyHAi1yY7rkyFuthLCQzLqQ2PmpRG8ScT7VGmAOadIFyNfG77k8eZO9J4tRyjusKaL/06KoJahlE3qFy6usjcquZuNbnjZF6gMT+gYuUKxup15l4xufsh693rQrptsP+v/eB9w7DT902Us93M99O/+G4BW51Iy6asUuAXq+rSNwB4mWfd+gLhqTeP4hrrE3p+ukNScYdu9ZsKqhEl3I2FoMhrgPf4/2PcoZpVBpFlJuS9kDFoTQuIUukdDElucK0XOJCyz9/Iwq7j5xY3Y6inqjfkF/H1LOhyn+f/SDIR4r6DkEMSnjRBAAA
+    skull-owner: MHF_Rabbit
+skull_llama:
+  ==: org.bukkit.inventory.ItemStack
+  type: PLAYER_HEAD
+  meta:
+    ==: ItemMeta
+    meta-type: SKULL
+    display-name: §eĐầu Llama
+    lore:
+    - §7Nguyên liệu rơi ra khi giết quái
+    internal: H4sIAAAAAAAAAE2PwU6DQBRFnyYmSPwMtySDdNBZuKjSpkM6IJQWmB3QIQVmakOhAt/lB8rS5c05Z3F1AB2edk0v5Vf7XVZSaHBPj/D8horMtrLSIIVVGguChEHIwjYyLBZHkuNSoFwHfY4uou0qcX0ErRND17fiqgPAnQYPh0z2An7F6CKenNAxcWUxUnve0Q5Jn9aXV3o+jPkntama+WZpb0fyz8VdFmOZWu6Jn4M+Vwe0tUIpNqFZqP2NqZXJ69UPj7j0ajoxlQ6+4yoeNS+eSk3mrBWL2eRNDeZOYKbxfvCj5cTi1cCjAHvOuvLiUPLoQ/GYK+bscVq5pEzQ+/wA/gDX3l06HAEAAA==
+skull_squid:
+  ==: org.bukkit.inventory.ItemStack
+  type: PLAYER_HEAD
+  meta:
+    ==: ItemMeta
+    meta-type: SKULL
+    display-name: §bĐầu Squid
+    lore:
+    - §7Nguyên liệu rơi ra khi giết quái
+    internal: H4sIAAAAAAAAAFVSx47jVhDkLmxgduDP8E0Y6DGLhz0wBzGI4TFdDIpiFIMoJonf4k/wR1oz9sE+Nbqqu6oa6HcEeUd+c69z05zufV412RvyXb0gv9NYRhHUAf/IcBT/IFKc+kgIcPhIKepMERlDJDn5jry/lm7Zfaqy8QfyNmWPab5n4zuCIN/ekB9uVXTJJ/L9L0t3nYPS5mmcLxSn6b6lB4y8gtszz0SA3vmNo2CU9YJ3asDONLSTcpSeaDCY4FbB7rI7lShZms3K89NOp67i2NVFjDkNemMSu0s4OETTA9BaKD7h/XGd60T3d7Y/Xm6Lp7bDI8W1rtr6oxWfnMumVKXLBTALW4kusW4lknbAXUqIe/s+20QexSWeCmUWjzdhbM8PhtePAwaPolzbu717n+6WIWF7+nm6tfA5D8XWonrvqb0s9vuby4rq2slTdcbHgDoSlwF9rKI+8A8qfeIFCQyGF07KOWiLO0sKXD9NDx+MBCHMOy3U7ZhsRT1xZf/gOoRz2F8lPMoVOVxOejqcJ252pCPpkI+6xrL4gE0DGbpzMIcHGoMYNOpBfUZHkaE3EVvb2s12hw0syzihwOk4zneXK7xf63hpettrZmdXt/5eKYlntb/4WQGuY9CMpmT10jXnTip7O6WJlGQz75ILPGYjWCq6ane1F4irYhfRfW+MNC5G2lAuOTPfSwsX+Js82OuSKB5Dz/TkPFTe29Oi0PNMY1t+K4GkDcrQP1idNS4Dz07QcmZRLs+UaAAOXOgUb2Z/7zm0oHtOgmUCTA4WcytZ+cB0i99iF35Jk8HaHfC12RKQg9MU28LeFdSUUjGBIShrrOA6Y9ANSckQX99c1grPoELx6ABJ4+3RDiI3mYi99kg9iS2OGSw54ucb8qufNHP27c9s7QuV10ASoE2KO+U5ZCtV6AvDi55mDQlzK4ApFITBr0eVZ6tU0Za4bcYYNle1YimVV3GjhZgpRISBwc3wDBBtBhZ59mrJBma2KmbKkDRlqTVddeQrtlA77nnG4ttZ9q3o5fuPjma6YpxDXEKTwK509ivXlgSXOQodNG19Nw5fXKg1Ma8WVsWBtPObf+dAHJbg8uLS5xdHf/m88kIwaV71P+xz/qW3ft2ptq89haX0J/MfDXJKArKJcK2MO3s+tz7QcafJlM8ccDEDSFieuBqBjUaYgb9uK00BEoagPiKPxQz5hdYFGXnw1Rto5F2uxuZcLdksY9lpo82sYznaolqrrdeHmZtUqkX/lS23X1UBx9z++RNB3pBfzKTNkB+GIv3hDnN1QZC/ASLzn6HQBAAA
+    skull-owner: MHF_Squid
+skull_mushroom_cow:
+  ==: org.bukkit.inventory.ItemStack
+  type: PLAYER_HEAD
+  meta:
+    ==: ItemMeta
+    meta-type: SKULL
+    display-name: §4Đầu Mooshroom
+    lore:
+    - §7Nguyên liệu rơi ra khi giết quái
+    internal: H4sIAAAAAAAAAFVQya6jRhSlW4n0+ilSfiI79GRGYxa9YDBQmMGYuTZRgQGDC4wxGJvv6WU+Mu6nXiSrK917pnveCeKd+MM/Txjvh0tZ4+KN+AqOxF+IW29o4bj+ENic/+BKtvzIBJr5QOU6Y8uSEzJx/U68v0h9MYx1cftGvI3FY5yG4vZOEMSXN+KbX1cd+rn5+g9ALu5vUbVFBRlK4MAzR5pXK9nyWgvjiJHVodzTvGPwzVztkvgKnm7Ti26IxkWX0bUcelx6q5VzUtvak1Scm+Xdujs7oFq+ZWz6sujiSWvKh2ug2Fk5lyA0GcYLd0GfIldNEhy1N+l40JJcUt0qCETvstFm5oZT1+O3cYGox3PbjPu7SHo4GUM/r6+ckt78Aa/EBSC+Pm3DsXTurdKqUl56hzFYOq/PBsukrmN0zKo0ASHdkqWhDGRjRZYUxfpMe6LUGRfRRb7EFN3SH5U76epcMPX33PdOHN+TTw5KA5STQ2FVgC53snEQgLdeVyputnKfz89m6mrl0pFjmhhTjS7pJjTy/VzCZBC9/YDHDaOlotD3aZmYc7RmYuzEV9z753myN7cVL+ayfO0mNoMCWg1iVjN87IryxF59mQOVEJZqfG706i5ClvSFAST7LDhldRQ2emqsscbfpafJindrUrRcQQ9KH9NlH+421zDaOd5xmG0lAgztdGRg75yCv0HkFLOCZJ0Tr3yULHJEgu6xDIBb8S3eIue5EcRe33nRsuofudaT8Mz7Tq/Jwvl6dKFmbjPGq+fAm3TahvtBhYy66gOyKuFiBoheWHTtYylj8IF7wideaYsCyH2n6tcqQdOhu/ebksLGvmJ0bDISBWlhFzUFeRjtyfAKOgPZEvliHK1PqqybURO7C/j+RvweITwVX34U86UCikmhmMY5ezhliVQD9VLZQfp0mpBzlopyVcDYyrwDilTnhnmHLb7BEJ9BLa1f3JOjppwdHM9Oky/pElKwcdq0yR92q7VOCxbYppTDAN6pwU2ppQp08jNjYJ/pkZu+fH/pOP4WlkESLejlkTG0mrF5bUmf+RYUH6c0OdB5G/kw0WiUmBgqoHJrmcq7CP/CUTA5UcfXLX9+3oRPv1fukBrNoP7f7if+pTd//gvaF8+Q1tZT/I8GP6KYxylrnmDnTVkbURZ7wIXxM0d4twOwpMzr2yDk7MajHR02sDnztgpbV/UesD2c7NZ5taFhVz0zKfPq4ROrNY6undNgy7vB6QyDfHbVnE0Zm3t1tPvMZlCvKYtKR30niDfiNwe1BfGnbWh/29PtNFwurXKZCeJfL4LSxt4EAAA=
+    skull-owner: MHF_MushroomCow
+skull_horse:
+  ==: org.bukkit.inventory.ItemStack
+  type: PLAYER_HEAD
+  meta:
+    ==: ItemMeta
+    meta-type: SKULL
+    display-name: §eĐầu Horse
+    lore:
+    - §7Nguyên liệu rơi ra khi giết quái
+    internal: H4sIAAAAAAAAAE2PzW6CQBhFvzZpQkkfo1uSQRyURRemGh3iDEUp4Oz4GYowWINgYZ6rD1iWXd6ccxZXB9Dh5Vj3Un6038VZCg0eSQ6v8yUqhDPLjAzlljG3hWOk5mxhpNjMi2WCHCwKHfQpuoq2O4vbM2idGLq+FTcdAB40eAoT2Qv4FaOLeFyiPHZlNhJ72sERSY9U1wW5hGP6TmzSTHy3svej88/FXRJhebLckl/8Pm1CtLcOUuwOZtZ83mlEMV1vBt4Qk1YU84iOXsAa3mzmrJKSb3nNlI+pWv3QQNZU+Yipk8kDVjL1NdCI13TLKqo2M7ausbd2S3Z2nSJGb9MD+ANoAjOfHAEAAA==
+skull_parrot:
+  ==: org.bukkit.inventory.ItemStack
+  type: PLAYER_HEAD
+  meta:
+    ==: ItemMeta
+    meta-type: SKULL
+    display-name: §cĐầu Parrot
+    lore:
+    - §7Nguyên liệu rơi ra khi giết quái
+    internal: H4sIAAAAAAAAAE2Py26CQBhG/zZpQkkfo1uSQS5lFi6aGnGIYMURndlxGYRhoEahEZ+rD1i66/LLOWfx6QA6vOyaQanPy1dZK6HBIyngtfAwcjy3MCxheoZtlrmRYqswMLJRkc8cG+FMB32KzuLS1+L6DFovbv1wEVcdAB40eEpSNQj4EWOA+LFCxTFQ+UjcadMdUhsiz2+kS8bsg7iknfjq3V2P+J/r9OnBUcwKKt5th6xN0NqKlVjFZt7uvxmNa0arJpK85YeoDmnjhO3eiXxiR/Jk8QWvmIyriIZj6C/r6P7HlnLyEKNkFtJE8UXccHm6bfykYW14J52Jy+18Pj2AX3Gf8EscAQAA
+skull_polar_bear:
+  ==: org.bukkit.inventory.ItemStack
+  type: PLAYER_HEAD
+  meta:
+    ==: ItemMeta
+    meta-type: SKULL
+    display-name: §fĐầu PolarBear
+    lore:
+    - §7Nguyên liệu rơi ra khi giết quái
+    internal: H4sIAAAAAAAAAE2PzVLCMBhFP51xBjs+htvOJP1J24ULBYR0aLClIsmukEBpU2SgVZvn8gHt0uWZe+7iWAAWPKzqTuu3y+f+qNUIbqmER9dR27Ag2CaKENuTe2mHgafswAsxjhDCXhFZYA2ns7q0R3W9h1Grftruoq4WANyM4G5d6E7Br+pjJDYlkptY73pKBs5XSC9pdQ7oad1vx5TQZtjnz2TRR/9cvy0+fM3duBSntNs2a7RwM63mGd4171/cSbGY8G+eZzUzL5qbqWHN1GH5AScTWYn80Is8QWzCKjF7LRNT4+UsdUXDysRJ/cTsBnfqciNrXmWaVTUW4zjab9DTUAB/bANnwBwBAAA=
+skull_witch:
+  ==: org.bukkit.inventory.ItemStack
+  type: PLAYER_HEAD
+  meta:
+    ==: ItemMeta
+    meta-type: SKULL
+    display-name: §2Đầu Witch
+    lore:
+    - §7Nguyên liệu rơi ra khi giết quái
+    internal: H4sIAAAAAAAAAE2Py06DQBiFf01MkPgYbkkGKNOwcKE2pkPKIBeBYcdlsAwztaGghefyAWXp8uR850uODqDDQ9xPUr4PX20nuQa3pIHHbetald1gw+EcGZuywkbZltywLIQr1zE3JbZ10NfRmQ9jxy/3oI38Ok4Dv+gAcKPBXVrKicMvnz1U5EfU5J6sZ4LXnMRIBkSct+SUztUrwUSt/f4ZH2b3H+uMZeZIZnvH4hROlUrRwY4k30dmrT6+ffEi/YT2fvKJ6BIptvSoyEKTZm+SifqHit6kopB0xzbUCm260J5l/pUqhthCVbCrZ18VIkjSrhBS+Wp1xJ7b5uhpfQB/vk7qxBwBAAA=
+skull_pig_zombie:
+  ==: org.bukkit.inventory.ItemStack
+  type: PLAYER_HEAD
+  meta:
+    ==: ItemMeta
+    meta-type: SKULL
+    display-name: §dĐầu PigZombie
+    lore:
+    - §7Nguyên liệu rơi ra khi giết quái
+    internal: H4sIAAAAAAAAAFVQya6rVhDkPSXSfVfJX2RnXRkOYMMiC5vBBnMOYCbDJmI2cDC2mfmafEA+Mnd4i2TTLVVXV1X3K0G8Er9ZVY+x8WyyAqcvxHclIf6guBBEEUu+0TQTvjEkx7zx1HsBMc2RgKVCwESvxOv70j19dkXa/iBeunTq+mfavhIE8e2F+GEV+S38QL7/ozZpN4lzIMvrnOFumZWBuZLrAPSCzdLP84a5efZNBpqpyJoO8s26WgGNl3fIDG3PFxv2nI1DjKVWXBhSBWbjxhlOwZpj/Kk1hi6OLo7VPKnB5GzSPvBT1tyucBmSxEZMLG5JSI/dbA2Sdza17nqa9pu1ws3VhnmKG53UlSy5T9BILnfknfut99AMNtlLimPZe+PadqdSAZG6D+PNiKmSAWBdsU1IW3yZio9nf94qkIt3diWpPrLXFn/wcklWkyGgImE8ASxXlbQNQsN1B3Cd5E7IT4aci9tH6+vzoA6R4Qj+ljWiiDTzyt0N0lbQdlOwKuBzroA+t9GuqLZrq4iY5JqG4eNw0xf64nE13+J91m9Cqgv06RYehWoR1wvv1IvhkHP4tGpestsSS/e5yuSDdbL9OtCoO5OHS9NIGw+Kbjo1oQh2gRVyUnzkadaNHmTrouK0CgV7C4zVRrUXcOnPqrnj7/taEpr+LunPFb/U5RRPdCk7FrTq7LwJmpFs1VA7nmfV4efSj/cdKfdB0nKPdtX6V4oV6cNJvtSmWW7NYaX4N2rwyVy7sjlltJSytCztZjeIl9T2dSnW3XRBW2dhy6ry7m0/JcUzp9i1GU87MW8Hw7xHGTfT2YghL21Feol4OhG1vLiYK03i+XlR0PKcvKw4e49clPUpMf08vxQ6JjtFqihbqkpx6pQu5P58IX51Q9yn3/5OxyZXBJUMPQrH9PkaXXaFIjY5tP0ZlQ6DlnyGS7zAYjwpwq6Ij+oQ1LgNHFwpxW6jCMqkH6TZrxUKinBBB4mEYk7qtsQgUS3hko+wdCbfVki/UFqh2OXKbT9HILhHB1f3332/dFRkSUHmHPDNq/nOr/E7/tMT4FtUy2RyUbFTu1Pi4TnwzM+cyVGlAuuLlxxcJjm6c3CBn7Ov2979MNIsh/k/9sG/qO1P7yY5nke94Ib/aPSRh/vAQ7PvBaRWszgReDK4XD9zaEs1odqcUJmUyI5JdHAraJ+xX8MR1j6JxKSGiwKgbY7IrhZUqgUC5ntuVOjijglqf0SlBJBnzv4CSQhUHJRK8fkfYc9/9My88wTxQvyCwjolfodH+S+jyIOmjoqUIP4FbAfJgNgEAAA=
+    skull-owner: MHF_PigZombie
+skull_creeper:
+  ==: org.bukkit.inventory.ItemStack
+  type: PLAYER_HEAD
+  meta:
+    ==: ItemMeta
+    meta-type: SKULL
+    display-name: §aĐầu Creeper
+    lore:
+    - §7Nguyên liệu rơi ra khi giết quái
+    internal: H4sIAAAAAAAAAFWU2Y6jVhCGmVEi9XTyGLmzWuYABnwxF+zrAbMvNxH7YrY2xjY8zTxAHjLu6ShRrkqq+qrq/1VSvSLIK/K7c1667nQZy6YrXpCvSo78gR6oFGQE9QZwDLwRNIm/JWRZvNE0TZXHIsPIQ/mKvD6bpuJybYr5G/JyLR7X5VLMrwiCfHlBvjlNNSQfma9/VfKqn9n+fMzHedObO9D2fQ3UNbvMUFWDeEjHY1t6TmPgJ5N8Z2bRyfSGmKW16XNhIGhshwVrIgwTPeoCiKFMjcQqYgkpHLtodObx1Ne+zWmFSuW5x3ZDwya8LVZO+dAfYXSG2tUilinwbOze3kXPoWbssruBhW97FjVk2XJvdR2Zfs0dIRGrnn2a3++5wj6GHAN7db+6sqSGe3EAjmsp0SPgFlzgvGThK4nV6BJcK06OA5oE44D2FMWofZtEWmDFeMrfOQswckrhbawlu45XpehSo3mvSOp5XZchDp1eZRuX2KdjAxg2TPioHaPhvdOHXJ1uUOLzASeXU0I2wpba1DKiF4+C0vvD83wtNewyVFpy1bd7A1btcL9xeXvUD9K4TyIj22O6owlgSRlCN0vjGnHSxDKiQZ9UVe3oI7VMkYElEN9JI6avoclYZ3/tsspK0hOFlal9m7UJnHReN2apCKWHXMiACK29LhZXOqxo1i9xBg9otGuDKd3WvazCSwCSW0nJnL0vwuvtSFJa+644z9M/TCI/pozS3fvleJhDXXhkeqBH6B3ejpfOapM5SSSDdtliGTURb6nCSP2Yqa7FrjX1kw7wEsy77DyW7ST1lx0nqWoJ+LyRR911ILtuFKliZ+FGp4zd8+5SX8klG4ZkS99VG2SpaG+V1Cwm5+WMXAW1Iejk1bg+Fi76/oL86ifdUnz5UdzHSuFUNAlAl+F2nYZMo/BjBd1oNVqPMLbqYWzCw+TumsIxTSart7jv5tjrzkrDkAqn3A03b2AA0Se3wVZATT7aIjfuY7ciTD7vzcBvYRuBuFFmrmEqZWDXFIunVPLN6Ln3c45qOEJcWrjaxSHbZf+yxhRjhzqX/TX21S4L/Snr/c/dsr3mgfcPZ3eF/PTd+9tnbf7Q++HNddDO/H/ug/fXlFMqs2GaRLbRjB9vOv7fDL0HU9r7bdaLfc4dlji0brnkEz91OMcmcv3OdD0cbn4NsWgztmyNWrEx+ArErgAgrxCQz+vYhQejF3DYQwwGah/zTzpQUBjEtbGJTRzANW4jNAqEVanGn9pK6xllVCut798R5AX5xUj6AvkNyuKf3KUont8IQf4GL5mf8NYEAAA=
+    skull-owner: MHF_Creeper
+skull_guardian:
+  ==: org.bukkit.inventory.ItemStack
+  type: PLAYER_HEAD
+  meta:
+    ==: ItemMeta
+    meta-type: SKULL
+    display-name: §3Đầu Guardian
+    lore:
+    - §7Nguyên liệu rơi ra khi giết quái
+    internal: H4sIAAAAAAAAAF1QybKjRhBkJuyINy/mM3xTvADEfvABJIEAgQCxdV8cbGJHCAECvmk+zJ9h3nKwfeiojszKrKx6RZBX5OelHKrK6G7XvEpekO9yjPyBU0GARXT4FuM09UZeQ/otvIbRG52EFEGyOMXE8SvyuorapOvz5PEDeemTqR+65PGKIMi3F+THJU+b4B35/kvyg5Fod1yJirs0S7FumMWYHZit/7ALVVoik1UB+jgB1jDM/VPxJBluLtZVIdwIPygbRqFG9rBQhUjtVM1S+JMUqzM8aHMo+iWgpIW1cOpJPQY86DuXZvHqgZ4aIaGd/qidgNlBQxq56nhYjFgk85sSl7YkxMrEXkh4re4n0iJg6DBevwzMM95ddjRaidGEz44AoBSHBMt6vFPGddOqAqEuzONiTaPEXs2Ea04Gjz2ER1h1ECh8SQ6WcRDYUeLm9LYl1JxtsGqSzayA3vkpaeiJ9jiXPwDfYQfy5PJjPAooKyr1zR/um4oFdleGAE3pMYg2953IeO7TU2ZvrrPqgKX5QvG9Qj1NStFlrOXelyZBHaI3OWIvBrGcTRUVCRQTpfro3F0BkLzKZHA8Er1QLFFMkGXL+oOeykSuYsXmHM4tlwjNFjUM3fB5tY24xit4dMFIXMs79pzuOcwOcpTiKpX3LNrJ7HkbOJp0o7En7vNld+ZJaDT4Lb23djyaV681JFsO4LV39tW93LaiDo956PO3DZMfOFrG3F7dtLBzdzhPhUbQ4XKJ847AMNu9WoMlfF6xkp2oqB1OPj2dS1Unrf3VV0PlYEBCrUw/zPeRJDNZnJPnRigOWx+gpA5qavLGrLloMMK3IzPCfN5HE8dZDYdJo9R6FpH5BlCaLWNwMoan+T4xiqNoskf/9ucL8rsbVEPy7e/keUvlnYIFHl5FhJWt4XN5f0s1G8x64ZD6ki7nfTTr81OVd3weHZUR1tUDOlUp5zwt7+RJ98RMk7QtqM1p1WCwltc/zMECK1A4i75PJ92OS7iTH7ucT+VGmMMtbEPJPYN17qePol8O8GoRbhbVVgs8Mj/xH9mWwIsH4Ft4VLsX6It44CvV6pWecwGLGrf66sOgn2HxykXzB8d8zFozO1iv2Pl/sPf+1e/5satcr7ojT59m7l8eVB94VAUIJYONOYS1i50Iq0qO7zmc9QaHSbPdHHgaBT1n0jy9Bh6gwFKVeiEvwNZIrdBzrRALWCsllLQJFBqhLVatLytWAALWzrzqn8BzS82OcDB/3eczXw99K4OSiIHL/7Ovr8ZHKLmPr9stoVT1cnr74gXus/ezXs2WQ5AX5Dc9qBPkp3YU/5KGoIvzoEGQfwBfNlkEHwUAAA==
+    skull-owner: MHF_Guardian
+skull_enderman:
+  ==: org.bukkit.inventory.ItemStack
+  type: PLAYER_HEAD
+  meta:
+    ==: ItemMeta
+    meta-type: SKULL
+    display-name: §8Đầu Enderman
+    lore:
+    - §7Nguyên liệu rơi ra khi giết quái
+    internal: H4sIAAAAAAAAAFVQya6jRhSlW4n08tSfkZ3VeozGLHqBMcaAKcxkqNpEzC6gwDbGDF+TD8hHxv2SRbK60rlnuvedot6pb149NM3p3hW4yd+or3pG/c7TRZFwIvudYYv1d34tbr4nXMF+ZxlxnRTCOsv45J16f4mu+f2B8/436u2RT4/hnvfvFEV9eaN+83DZxj+Rr3+dV6LMTLsFMMAtPPc+OilSRj3WeO4JdCb0Ot1tz8W9ORXSgJ/Hs/Hhmwp9FQ9ohsmz2fXTJuNSZ8sGe22ynfpmscQtJqKldpcKblJKPTYyHdDPqSvo7IDNe8HlHC4HlzuWbGcC2vRFcyQMf1CaVyJchEvkyswzuUbARnqzReb+EVZ2e7ss80Pm52BRjmE/kF1uzXKrljSnn9oMlobk1BhBkvtGrSjmsE2Elmhg1kSXHy8q9sRS1gYtaMclULAhrBnNdehAW0z5memrw7DcgbXJ3Yolt8Sy6VOtgI+hCIK+mtpjPSxi2EOz6zJ5pdY500jT61pH5Lq5h/er5kVTWz4uInPAh8VYx3WYC/NGyEXJqYqh5TFZY/PYl1WOpCnpxPQ2Nl59S08ofKggWWl8p8VaVkUbh2Tyc3NVESyY1fpjaErCfNDRthDu4XM3OhwzmbPBXvbXhyJpN9paBYyTb46FvvHa5hRHqsuLO1DSKnfd1m4sAk0GJx+KH0EwsdKJAEDO7mbLOc+2h2IcX3fw6cl7c2fZ+NbFm2oxmiHkkJTkfam5hRYdgmWYN4NR+5Aml2t17KRRGhODW62BqH8wEre3eh9Xe4njknpLGh0zQRTkfHcurWPiXZh5W+ShA9FuSPaRIvTRrUwfRr7a56F4q83nPbjJSOrDG/bSJUmKnaue1sfpSEN+ggGp4Y836tdz3Az5lz/zsSt1xaDjkGlSzr0kkYz1XVdaPpxBFfBgKWewc2Ywj6auyDg9GE9Emh4FTa1jea0rOm1piMDK4qxKnVEFaVClPKwAsSp9AgvCqApYpDk0xHqvYLnU2+2csOiaaGcbvnL/8TGAp6LCDYUaRcYDhjw+yp/dljjMBhi5TErOHor2TBwZDVL00sZbOm3Pzb88GkUXOnvt0vlzJ35mvToH9MPw8f+wn/yX3/h5q05euoO8Ps7SfzyERxwKDeSMC2qdISFn+si5TX742SN4WqE+2qG6gCWYga+OyK8noOkjJG5l+7IAiL7YvoFff2HsEHLQvzS2pgrAhyz05Rn5GQHV628hIrbmsKgqBeTp5me3A/2aW0lp6R8U9Ub9AmKSU9+sw/4Ptc3yO4lbivob+ubUZNcEAAA=
+    skull-owner: MHF_Enderman
+skull_iron_golem:
+  ==: org.bukkit.inventory.ItemStack
+  type: PLAYER_HEAD
+  meta:
+    ==: ItemMeta
+    meta-type: SKULL
+    display-name: §fĐầu IronGolem
+    lore:
+    - §7Nguyên liệu rơi ra khi giết quái
+    internal: H4sIAAAAAAAAAFVQyY6jVhSlW4lUXcpnZIdKjLbxohcMBh7DAzMZ2ESAmQeDAWP4lnxCPjKuShbJ6kr3DPfc844g78hvdj03jXm/ZWWTviHfwRX5/bA7ZEc8Jj9IiqY/6Ji5fjDXKPlgSJqkyJRM0iR9R95foj69T2U6/kDepvQ5zfd0fEcQ5Nsb8sMu8y763Hz/65E8hTxr6igsi/WEe5QaeTKcQQDBmD/0rX9gdZ5fwPMOPNrZoRHbz+u8sC631dSs1oZlj7mWqhvmF42oPS1uoeE9nismnk11zHOcHrS6o9ono+d1bDyLax3XIvB6yNcWlbayygUWYefiQKJdZoqSn3lWRsSRnHUhAVd0wM4qoyk5ox6l6QR8zqaVSYpmvE0OhfXM2b6O0IEQo1F7cv2j1+OM9QuVZi5S2RoHuWsjeyyCsbJgrdi7+RytKOmYdz9ZjIcnpmOEEqNpMBxtHqWh1oU+2W+Piynd/AsxKbsydW89ast0yLvV4hsd6uoE0a4+u1X3SBKsVHdvTp5V4eHh71AbN64hdig1mmg09I4CQGFu4bAJI+UXduJGFjUKMjfPjsxEGMoTyVOa7I1Iu3EXpdRpHDhrbUVFqEpiYItX9YG+MyY30jDCMYWhwnhRIzN7gP6VccLx7I02ORYmrj0zzjCb1Yyr/YZdQFzOkc9WujmlVCSktA2XO0ayN3yjU0dSIAdv81gfVWbY89XShHzXL9N4M/Bb7BL2dabVBvefeDuJbCIVHsaXR84zScGiEs4mHzajnGTAuhuZAvIkTcfjYTsISl8IMYGHJoXDGj5PHj6kw6mexPuycdfjAJazeD7ukzPhHSZKKqoNy0hMfTq925k3dDWNruxg5VBT4GC87lcXQx5kKzrPlvvzDfnVi5o5/fZnutxywCt4dCGahLKK2GdLINxy3QlWWLk03HJCr/QN2osKeLZMZOURts0Yuk0NSnYPeEBB59oaDlfqFdigcMaDqqgNySqCLV+hADa9ddeA9KrQBiNfsjnouDUmwz6WPCN43f3HR4H2Kcws8jiGF7zU2K9cW3S5zoFvEUnr2aEvEpGvvAoGuVFyeNJ5zb88PPQL/PrCkvULO3zdeeV18Ulxyv/tPvkvv+XrT9C+dDK719bjfzx2U3TZNQGlFGF3nuPWwzXKalL5M4f70C86GZBnSq/YNdh0PHQSOqz0BW76Yjjsq4OmheR5Bzf46iSng0tAhI5XvvANSlatV+edLpyWoIKtXiUvXdEaNlC/ssn4a3JHvsN/Isgb8guM2hT5ocviH9KtSVsE+RugkLmY0AQAAA==
+    skull-owner: MHF_Golem
+spawner_piece0:
+  ==: org.bukkit.inventory.ItemStack
+  type: FLINT
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: §9§lMảnh lồng quái §f§lSơ cấp
+    lore:
+    - §7Nguyên liệu dùng để đổi lồng quái
+    enchants:
+      DURABILITY: 1
+    ItemFlags:
+    - HIDE_ENCHANTS
+spawner_piece1:
+  ==: org.bukkit.inventory.ItemStack
+  type: FLINT
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: §9§lMảnh lồng quái §b§lTrung cấp
+    lore:
+    - §7Nguyên liệu dùng để đổi lồng quái
+    enchants:
+      DURABILITY: 1
+    ItemFlags:
+    - HIDE_ENCHANTS
+spawner_piece2:
+  ==: org.bukkit.inventory.ItemStack
+  type: FLINT
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: §9§lMảnh lồng quái §d§lCao cấp
+    lore:
+    - §7Nguyên liệu dùng để đổi lồng quái
+    enchants:
+      DURABILITY: 1
+    ItemFlags:
+    - HIDE_ENCHANTS
+mask_zombie_piece:
+  ==: org.bukkit.inventory.ItemStack
+  type: POPPED_CHORUS_FRUIT
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: §d§lMảnh mặt nạ §2§lZombie
+    lore:
+    - §7Nguyên liệu dùng để chế tạo mặt nạ
+    enchants:
+      DURABILITY: 1
+    ItemFlags:
+    - HIDE_ENCHANTS
+mask_skeleton_piece:
+  ==: org.bukkit.inventory.ItemStack
+  type: POPPED_CHORUS_FRUIT
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: §d§lMảnh mặt nạ §f§lSkeleton
+    lore:
+    - §7Nguyên liệu dùng để chế tạo mặt nạ
+    enchants:
+      DURABILITY: 1
+    ItemFlags:
+    - HIDE_ENCHANTS
+mask_cave_spider_piece:
+  ==: org.bukkit.inventory.ItemStack
+  type: POPPED_CHORUS_FRUIT
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: §d§lMảnh mặt nạ §9§lCaveSpider
+    lore:
+    - §7Nguyên liệu dùng để chế tạo mặt nạ
+    enchants:
+      DURABILITY: 1
+    ItemFlags:
+    - HIDE_ENCHANTS
+mask_spider_piece:
+  ==: org.bukkit.inventory.ItemStack
+  type: POPPED_CHORUS_FRUIT
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: §d§lMảnh mặt nạ §5§lSpider
+    lore:
+    - §7Nguyên liệu dùng để chế tạo mặt nạ
+    enchants:
+      DURABILITY: 1
+    ItemFlags:
+    - HIDE_ENCHANTS
+mask_blaze_piece:
+  ==: org.bukkit.inventory.ItemStack
+  type: POPPED_CHORUS_FRUIT
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: §d§lMảnh mặt nạ §6§lBlaze
+    lore:
+    - §7Nguyên liệu dùng để chế tạo mặt nạ
+    enchants:
+      DURABILITY: 1
+    ItemFlags:
+    - HIDE_ENCHANTS
+mask_pig_piece:
+  ==: org.bukkit.inventory.ItemStack
+  type: POPPED_CHORUS_FRUIT
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: §d§lMảnh mặt nạ §d§lPig
+    lore:
+    - §7Nguyên liệu dùng để chế tạo mặt nạ
+    enchants:
+      DURABILITY: 1
+    ItemFlags:
+    - HIDE_ENCHANTS
+mask_chicken_piece:
+  ==: org.bukkit.inventory.ItemStack
+  type: POPPED_CHORUS_FRUIT
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: §d§lMảnh mặt nạ §f§lChicken
+    lore:
+    - §7Nguyên liệu dùng để chế tạo mặt nạ
+    enchants:
+      DURABILITY: 1
+    ItemFlags:
+    - HIDE_ENCHANTS
+mask_sheep_piece:
+  ==: org.bukkit.inventory.ItemStack
+  type: POPPED_CHORUS_FRUIT
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: §d§lMảnh mặt nạ §f§lSheep
+    lore:
+    - §7Nguyên liệu dùng để chế tạo mặt nạ
+    enchants:
+      DURABILITY: 1
+    ItemFlags:
+    - HIDE_ENCHANTS
+mask_cow_piece:
+  ==: org.bukkit.inventory.ItemStack
+  type: POPPED_CHORUS_FRUIT
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: §d§lMảnh mặt nạ §8§lCow
+    lore:
+    - §7Nguyên liệu dùng để chế tạo mặt nạ
+    enchants:
+      DURABILITY: 1
+    ItemFlags:
+    - HIDE_ENCHANTS
+mask_bat_piece:
+  ==: org.bukkit.inventory.ItemStack
+  type: POPPED_CHORUS_FRUIT
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: §d§lMảnh mặt nạ §8§lBat
+    lore:
+    - §7Nguyên liệu dùng để chế tạo mặt nạ
+    enchants:
+      DURABILITY: 1
+    ItemFlags:
+    - HIDE_ENCHANTS
+mask_wolf_piece:
+  ==: org.bukkit.inventory.ItemStack
+  type: POPPED_CHORUS_FRUIT
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: §d§lMảnh mặt nạ §f§lWolf
+    lore:
+    - §7Nguyên liệu dùng để chế tạo mặt nạ
+    enchants:
+      DURABILITY: 1
+    ItemFlags:
+    - HIDE_ENCHANTS
+mask_ocelot_piece:
+  ==: org.bukkit.inventory.ItemStack
+  type: POPPED_CHORUS_FRUIT
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: §d§lMảnh mặt nạ §e§lOcelot
+    lore:
+    - §7Nguyên liệu dùng để chế tạo mặt nạ
+    enchants:
+      DURABILITY: 1
+    ItemFlags:
+    - HIDE_ENCHANTS
+mask_rabbit_piece:
+  ==: org.bukkit.inventory.ItemStack
+  type: POPPED_CHORUS_FRUIT
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: §d§lMảnh mặt nạ §7§lRabbit
+    lore:
+    - §7Nguyên liệu dùng để chế tạo mặt nạ
+    enchants:
+      DURABILITY: 1
+    ItemFlags:
+    - HIDE_ENCHANTS
+mask_llama_piece:
+  ==: org.bukkit.inventory.ItemStack
+  type: POPPED_CHORUS_FRUIT
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: §d§lMảnh mặt nạ §e§lLlama
+    lore:
+    - §7Nguyên liệu dùng để chế tạo mặt nạ
+    enchants:
+      DURABILITY: 1
+    ItemFlags:
+    - HIDE_ENCHANTS
+mask_squid_piece:
+  ==: org.bukkit.inventory.ItemStack
+  type: POPPED_CHORUS_FRUIT
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: §d§lMảnh mặt nạ §b§lSquid
+    lore:
+    - §7Nguyên liệu dùng để chế tạo mặt nạ
+    enchants:
+      DURABILITY: 1
+    ItemFlags:
+    - HIDE_ENCHANTS
+mask_mushroom_cow_piece:
+  ==: org.bukkit.inventory.ItemStack
+  type: POPPED_CHORUS_FRUIT
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: §d§lMảnh mặt nạ §4§lMushroom
+    lore:
+    - §7Nguyên liệu dùng để chế tạo mặt nạ
+    enchants:
+      DURABILITY: 1
+    ItemFlags:
+    - HIDE_ENCHANTS
+mask_horse_piece:
+  ==: org.bukkit.inventory.ItemStack
+  type: POPPED_CHORUS_FRUIT
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: §d§lMảnh mặt nạ §e§lHorse
+    lore:
+    - §7Nguyên liệu dùng để chế tạo mặt nạ
+    enchants:
+      DURABILITY: 1
+    ItemFlags:
+    - HIDE_ENCHANTS
+mask_parrot_piece:
+  ==: org.bukkit.inventory.ItemStack
+  type: POPPED_CHORUS_FRUIT
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: §d§lMảnh mặt nạ §c§lParrot
+    lore:
+    - §7Nguyên liệu dùng để chế tạo mặt nạ
+    enchants:
+      DURABILITY: 1
+    ItemFlags:
+    - HIDE_ENCHANTS
+mask_polar_bear_piece:
+  ==: org.bukkit.inventory.ItemStack
+  type: POPPED_CHORUS_FRUIT
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: §d§lMảnh mặt nạ §f§lPolarBear
+    lore:
+    - §7Nguyên liệu dùng để chế tạo mặt nạ
+    enchants:
+      DURABILITY: 1
+    ItemFlags:
+    - HIDE_ENCHANTS
+mask_witch_piece:
+  ==: org.bukkit.inventory.ItemStack
+  type: POPPED_CHORUS_FRUIT
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: §d§lMảnh mặt nạ §2§lWitch
+    lore:
+    - §7Nguyên liệu dùng để chế tạo mặt nạ
+    enchants:
+      DURABILITY: 1
+    ItemFlags:
+    - HIDE_ENCHANTS
+mask_pig_zombie_piece:
+  ==: org.bukkit.inventory.ItemStack
+  type: POPPED_CHORUS_FRUIT
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: §d§lMảnh mặt nạ §d§lPigZombie
+    lore:
+    - §7Nguyên liệu dùng để chế tạo mặt nạ
+    enchants:
+      DURABILITY: 1
+    ItemFlags:
+    - HIDE_ENCHANTS
+mask_creeper_piece:
+  ==: org.bukkit.inventory.ItemStack
+  type: POPPED_CHORUS_FRUIT
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: §d§lMảnh mặt nạ §a§lCreeper
+    lore:
+    - §7Nguyên liệu dùng để chế tạo mặt nạ
+    enchants:
+      DURABILITY: 1
+    ItemFlags:
+    - HIDE_ENCHANTS
+mask_guardian_piece:
+  ==: org.bukkit.inventory.ItemStack
+  type: POPPED_CHORUS_FRUIT
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: §d§lMảnh mặt nạ §3§lGuardian
+    lore:
+    - §7Nguyên liệu dùng để chế tạo mặt nạ
+    enchants:
+      DURABILITY: 1
+    ItemFlags:
+    - HIDE_ENCHANTS
+mask_enderman_piece:
+  ==: org.bukkit.inventory.ItemStack
+  type: POPPED_CHORUS_FRUIT
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: §d§lMảnh mặt nạ §8§lEnderman
+    lore:
+    - §7Nguyên liệu dùng để chế tạo mặt nạ
+    enchants:
+      DURABILITY: 1
+    ItemFlags:
+    - HIDE_ENCHANTS
+mask_iron_golem_piece:
+  ==: org.bukkit.inventory.ItemStack
+  type: POPPED_CHORUS_FRUIT
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: §d§lMảnh mặt nạ §f§lIronGolem
+    lore:
+    - §7Nguyên liệu dùng để chế tạo mặt nạ
+    enchants:
+      DURABILITY: 1
+    ItemFlags:
+    - HIDE_ENCHANTS
+diamond_helmet:
+  ==: org.bukkit.inventory.ItemStack
+  type: DIAMOND_HELMET
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    lore:
+    - §7Protection IV
+    - §7Unbreaking III
+    - ''
+    - '§7Khi ở đầu:'
+    - §9+ 3 Giáp
+    - §9+ 2 Độ bền của áo giáp
+    enchants:
+      PROTECTION_ENVIRONMENTAL: 4
+      DURABILITY: 3
+    ItemFlags:
+    - HIDE_ENCHANTS
+    - HIDE_ATTRIBUTES
+    - HIDE_POTION_EFFECTS
+    internal: H4sIAAAAAAAAAC2ISQ6AIBAEO3FDbj4RpVUSGIyMMf7eJfalqtoCFsN0FM2JMq1O9KEamELVIEtB5zm7I6pFHfPOHm0K3kfiXY+K4n9tRi5BvoBBrddGtCfdlp/zBr3pAW1qAAAA
+diamond_chestplate:
+  ==: org.bukkit.inventory.ItemStack
+  type: DIAMOND_CHESTPLATE
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    lore:
+    - §7Protection IV
+    - §7Unbreaking III
+    - ''
+    - '§7Khi ở ngực:'
+    - §9+ 8 Giáp
+    - §9+ 2 Độ bền của áo giáp
+    enchants:
+      PROTECTION_ENVIRONMENTAL: 4
+      DURABILITY: 3
+    ItemFlags:
+    - HIDE_ENCHANTS
+    - HIDE_ATTRIBUTES
+    - HIDE_POTION_EFFECTS
+    internal: H4sIAAAAAAAAAC2ISQ6AIBAEO3FDbj4RpVUSGIyMMf7eJfalqtoCFsN0FM2JMq1O9KEamELVIEtB5zm7I6pFHfPOHm0K3kfiXY+K4n9tRi5BvoBBrddGtCfdlp/zBr3pAW1qAAAA
+diamond_leggings:
+  ==: org.bukkit.inventory.ItemStack
+  type: DIAMOND_LEGGINGS
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    lore:
+    - §7Protection IV
+    - §7Unbreaking III
+    - ''
+    - '§7Khi ở chân:'
+    - §9+ 6 Giáp
+    - §9+ 2 Độ bền của áo giáp
+    enchants:
+      PROTECTION_ENVIRONMENTAL: 4
+      DURABILITY: 3
+    ItemFlags:
+    - HIDE_ENCHANTS
+    - HIDE_ATTRIBUTES
+    - HIDE_POTION_EFFECTS
+    internal: H4sIAAAAAAAAAC2ISQ6AIBAEO3FDbj4RpVUSGIyMMf7eJfalqtoCFsN0FM2JMq1O9KEamELVIEtB5zm7I6pFHfPOHm0K3kfiXY+K4n9tRi5BvoBBrddGtCfdlp/zBr3pAW1qAAAA
+diamond_boots:
+  ==: org.bukkit.inventory.ItemStack
+  type: DIAMOND_BOOTS
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    lore:
+    - §7Protection IV
+    - §7Unbreaking III
+    - ''
+    - '§7Khi ở bàn chân:'
+    - §9+ 3 Giáp
+    - §9+ 2 Độ bền của áo giáp
+    enchants:
+      PROTECTION_ENVIRONMENTAL: 4
+      DURABILITY: 3
+    ItemFlags:
+    - HIDE_ENCHANTS
+    - HIDE_ATTRIBUTES
+    - HIDE_POTION_EFFECTS
+    internal: H4sIAAAAAAAAAC2ISQ6AIBAEO3FDbj4RpVUSGIyMMf7eJfalqtoCFsN0FM2JMq1O9KEamELVIEtB5zm7I6pFHfPOHm0K3kfiXY+K4n9tRi5BvoBBrddGtCfdlp/zBr3pAW1qAAAA
+diamond_sword:
+  ==: org.bukkit.inventory.ItemStack
+  type: DIAMOND_SWORD
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    lore:
+    - §7Sharpness V
+    - §7Unbreaking III
+    - ''
+    - '§7Khi ở tay chính:'
+    - §c+ 10 Sức tấn công
+    - §e+ 1.6 Tốc độ tấn công
+    enchants:
+      DAMAGE_ALL: 5
+      DURABILITY: 3
+    ItemFlags:
+    - HIDE_ENCHANTS
+    - HIDE_ATTRIBUTES
+    - HIDE_POTION_EFFECTS
+    internal: H4sIAAAAAAAAAC2ISQ6AIBAEO3FDbj4RpVUSGIyMMf7eJfalqtoCFsN0FM2JMq1O9KEamELVIEtB5zm7I6pFHfPOHm0K3kfiXY+K4n9tRi5BvoBBrddGtCfdlp/zBr3pAW1qAAAA
+diamond_axe_weapon:
+  ==: org.bukkit.inventory.ItemStack
+  type: DIAMOND_AXE
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    lore:
+    - §7Sharpness V
+    - §7Unbreaking III
+    - ''
+    - '§7Khi ở tay chính:'
+    - §c+ 12 Sức tấn công
+    - §e+ 1 Tốc độ tấn công
+    enchants:
+      DAMAGE_ALL: 5
+      DURABILITY: 3
+    ItemFlags:
+    - HIDE_ENCHANTS
+    - HIDE_ATTRIBUTES
+    - HIDE_POTION_EFFECTS
+    internal: H4sIAAAAAAAAAC2ISQ6AIBAEO3FDbj4RpVUSGIyMMf7eJfalqtoCFsN0FM2JMq1O9KEamELVIEtB5zm7I6pFHfPOHm0K3kfiXY+K4n9tRi5BvoBBrddGtCfdlp/zBr3pAW1qAAAA
+diamond_axe_tool:
+  ==: org.bukkit.inventory.ItemStack
+  type: DIAMOND_AXE
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    lore:
+    - §7Efficiency V
+    - §7Unbreaking III
+    - ''
+    - '§7Khi ở tay chính:'
+    - §c+ 9 Sức tấn công
+    - §e+ 1 Tốc độ tấn công
+    enchants:
+      DIG_SPEED: 5
+      DURABILITY: 3
+    ItemFlags:
+    - HIDE_ENCHANTS
+    - HIDE_ATTRIBUTES
+    - HIDE_POTION_EFFECTS
+    internal: H4sIAAAAAAAAAC2ISQ6AIBAEO3FDbj4RpVUSGIyMMf7eJfalqtoCFsN0FM2JMq1O9KEamELVIEtB5zm7I6pFHfPOHm0K3kfiXY+K4n9tRi5BvoBBrddGtCfdlp/zBr3pAW1qAAAA
+diamond_pickaxe:
+  ==: org.bukkit.inventory.ItemStack
+  type: DIAMOND_PICKAXE
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    lore:
+    - §7Efficiency V
+    - §7Unbreaking III
+    - ''
+    - '§7Khi ở tay chính:'
+    - §c+ 5 Sức tấn công
+    - §e+ 1.2 Tốc độ tấn công
+    enchants:
+      DIG_SPEED: 5
+      DURABILITY: 3
+    ItemFlags:
+    - HIDE_ENCHANTS
+    - HIDE_ATTRIBUTES
+    - HIDE_POTION_EFFECTS
+    internal: H4sIAAAAAAAAAC2ISQ6AIBAEO3FDbj4RpVUSGIyMMf7eJfalqtoCFsN0FM2JMq1O9KEamELVIEtB5zm7I6pFHfPOHm0K3kfiXY+K4n9tRi5BvoBBrddGtCfdlp/zBr3pAW1qAAAA
+diamond_shovel:
+  ==: org.bukkit.inventory.ItemStack
+  type: DIAMOND_SHOVEL
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    lore:
+    - §7Efficiency V
+    - §7Unbreaking III
+    - ''
+    - '§7Khi ở tay chính:'
+    - §c+ 5.5 Sức tấn công
+    - §e+ 1 Tốc độ tấn công
+    enchants:
+      DIG_SPEED: 5
+      DURABILITY: 3
+    ItemFlags:
+    - HIDE_ENCHANTS
+    - HIDE_ATTRIBUTES
+    - HIDE_POTION_EFFECTS
+    internal: H4sIAAAAAAAAAC2ISQ6AIBAEO3FDbj4RpVUSGIyMMf7eJfalqtoCFsN0FM2JMq1O9KEamELVIEtB5zm7I6pFHfPOHm0K3kfiXY+K4n9tRi5BvoBBrddGtCfdlp/zBr3pAW1qAAAA
+diamond_hoe:
+  ==: org.bukkit.inventory.ItemStack
+  type: DIAMOND_HOE
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    lore:
+    - §7Unbreaking III
+    - ''
+    - '§7Khi ở tay chính:'
+    - §c+ 1 Sức tấn công
+    - §e+ 4 Tốc độ tấn công
+    enchants:
+      DURABILITY: 3
+    ItemFlags:
+    - HIDE_ENCHANTS
+    - HIDE_ATTRIBUTES
+    - HIDE_POTION_EFFECTS
+    internal: H4sIAAAAAAAAAC2ISQ6AIBAEO3FDbj4RpVUSGIyMMf7eJfalqtoCFsN0FM2JMq1O9KEamELVIEtB5zm7I6pFHfPOHm0K3kfiXY+K4n9tRi5BvoBBrddGtCfdlp/zBr3pAW1qAAAA
+creeper_egg:
+  ==: org.bukkit.inventory.ItemStack
+  type: CREEPER_SPAWN_EGG
+  meta:
+    ==: ItemMeta
+    meta-type: SPAWN_EGG
+    display-name: §2§lTrứng §a§lCreeper
+    lore:
+    - §7Hỗ trợ trong việc raid Faction
+    internal: H4sIAAAAAAAAAONiYOBi4HTNK8ksqQxJTOdgYMpMYRDMzcxLTS5KTCuxSi5KTS1ILWJgAAB18udrKQAAAA==
+    id: creeper

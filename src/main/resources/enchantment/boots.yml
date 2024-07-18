@@ -1,0 +1,407 @@
+wings:
+  group: 'ultimate'
+  display: 'Wings'
+  description:
+  - '&eGiúp bay trong khu vực Faction khi trang bị'
+  applies-description:
+  - 'Giày'
+  applies:
+  - 'ALL_BOOTS'
+  max-level: 1
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'NUMBER_STORAGE:SET:wings_enable:1'
+        - 'NAME=wings_particle_0,PERIOD=6 | PACKET_REDSTONE_PARTICLE:10:500:~_~_~+0.1_~:0.5_0_0.5:0_0_0:1:0:#FFFFFF:1'
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'NUMBER_STORAGE:SET:wings_enable:0'
+        - 'REMOVE_TASK:wings_particle_0'
+        - 'SET_FLIGHT:false'
+      nearby_enemy:
+        type: AUTO
+        chance: 100
+        cooldown: 1000
+        conditions:
+        - 'NUMBER_STORAGE:wings_enable:=:1'
+        - 'IN_COMBAT'
+        effects:
+        - 'SET_FLIGHT:false'
+        true-condition-break: true
+      enable_flight:
+        type: AUTO
+        chance: 100
+        cooldown: 1000
+        conditions:
+        - 'NUMBER_STORAGE:wings_enable:=:1'
+        - 'IN_FACTION_TERRIORITY'
+        effects:
+        - 'SET_FLIGHT:true'
+        true-condition-break: true
+      disable_flight:
+        type: AUTO
+        chance: 100
+        cooldown: 1000
+        conditions:
+        - 'NUMBER_STORAGE:wings_enable:=:1'
+        - 'NEGATIVE=true | IN_FACTION_TERRIORITY'
+        effects:
+        - 'SET_FLIGHT:false'
+# tag_potion: SPEED
+# tag_potion: JUMP
+feather:
+  group: 'legendary'
+  display: 'Feather'
+  description:
+  - '&eNhận hiệu ứng tốc độ và nhảy cao'
+  - '&ekhi trang bị'
+  applies-description:
+  - 'Giày'
+  applies:
+  - 'ALL_BOOTS'
+  max-level: 2
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'ADD_FOREVER_POTION:feather_speed:SPEED:0'
+        - 'ADD_FOREVER_POTION:feather_jump:JUMP:0'
+        - 'NAME=feather_particle_0,PERIOD=6 | PACKET_REDSTONE_PARTICLE:10:500:~_~_~+0.1_~:0.5_0_0.5:0_0_0:1:0:#55FFFF:1'
+        - 'NAME=feather_particle_1,PERIOD=6 | PACKET_REDSTONE_PARTICLE:10:500:~_~_~+0.1_~:0.5_0_0.5:0_0_0:1:0:#55FF55:1'
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_FOREVER_POTION:feather_speed'
+        - 'REMOVE_FOREVER_POTION:feather_jump'
+        - 'REMOVE_TASK:feather_particle_0'
+        - 'REMOVE_TASK:feather_particle_1'
+    2:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'ADD_FOREVER_POTION:feather_speed:SPEED:1'
+        - 'ADD_FOREVER_POTION:feather_jump:JUMP:1'
+        - 'NAME=feather_particle_0,PERIOD=5 | PACKET_REDSTONE_PARTICLE:10:500:~_~_~+0.1_~:0.5_0_0.5:0_0_0:1:0:#55FFFF:1'
+        - 'NAME=feather_particle_1,PERIOD=5 | PACKET_REDSTONE_PARTICLE:10:500:~_~_~+0.1_~:0.5_0_0.5:0_0_0:1:0:#55FF55:1'
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_FOREVER_POTION:feather_speed'
+        - 'REMOVE_FOREVER_POTION:feather_jump'
+        - 'REMOVE_TASK:feather_particle_0'
+        - 'REMOVE_TASK:feather_particle_1'
+# tag_potion: SPEED
+gears:
+  group: 'epic'
+  display: 'Gears'
+  description:
+  - '&eNhận hiệu ứng tốc độ khi trang bị'
+  applies-description:
+  - 'Giày'
+  applies:
+  - 'ALL_BOOTS'
+  max-level: 3
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'ADD_FOREVER_POTION:gears:SPEED:0'
+        - 'NAME=gears_particle_0,PERIOD=6 | PACKET_REDSTONE_PARTICLE:10:500:~_~_~+0.1_~:0.5_0_0.5:0_0_0:1:0:#55FFFF:1'
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_FOREVER_POTION:gears'
+        - 'REMOVE_TASK:gears_particle_0'
+    2:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'ADD_FOREVER_POTION:gears:SPEED:1'
+        - 'NAME=gears_particle_0,PERIOD=5 | PACKET_REDSTONE_PARTICLE:10:500:~_~_~+0.1_~:0.5_0_0.5:0_0_0:1:0:#55FFFF:1'
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_FOREVER_POTION:gears'
+        - 'REMOVE_TASK:gears_particle_0'
+    3:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'ADD_FOREVER_POTION:gears:SPEED:2'
+        - 'NAME=gears_particle_0,PERIOD=4 | PACKET_REDSTONE_PARTICLE:10:500:~_~_~+0.1_~:0.5_0_0.5:0_0_0:1:0:#55FFFF:1'
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_FOREVER_POTION:gears'
+        - 'REMOVE_TASK:gears_particle_0'
+# tag_potion: JUMP
+springs:
+  group: 'epic'
+  display: 'Springs'
+  description:
+  - '&eNhận hiệu ứng nhảy cao khi trang bị'
+  applies-description:
+  - 'Giày'
+  applies:
+  - 'ALL_BOOTS'
+  max-level: 3
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'ADD_FOREVER_POTION:springs:JUMP:0'
+        - 'NAME=springs_particle_0,PERIOD=6 | PACKET_REDSTONE_PARTICLE:10:500:~_~_~+0.1_~:0.5_0_0.5:0_0_0:1:0:#55FF55:1'
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_FOREVER_POTION:springs'
+        - 'REMOVE_TASK:springs_particle_0'
+    2:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'ADD_FOREVER_POTION:springs:JUMP:1'
+        - 'NAME=springs_particle_0,PERIOD=5 | PACKET_REDSTONE_PARTICLE:10:500:~_~_~+0.1_~:0.5_0_0.5:0_0_0:1:0:#55FF55:1'
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_FOREVER_POTION:springs'
+        - 'REMOVE_TASK:springs_particle_0'
+    3:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'ADD_FOREVER_POTION:springs:JUMP:2'
+        - 'NAME=springs_particle_0,PERIOD=4 | PACKET_REDSTONE_PARTICLE:10:500:~_~_~+0.1_~:0.5_0_0.5:0_0_0:1:0:#55FF55:1'
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_FOREVER_POTION:springs'
+        - 'REMOVE_TASK:springs_particle_0'
+sanguine:
+  group: 'legendary'
+  display: 'Sanguine'
+  description:
+  - '&eCó tỉ lệ nhận thêm tốc độ di chuyển và'
+  - '&etốc độ đánh tỉ lệ với lượng máu thấp'
+  - '&etrong một khoảng thời gian khi bị'
+  - '&etấn công'
+  applies-description:
+  - 'Giày'
+  applies:
+  - 'ALL_BOOTS'
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      defense50:
+        type: DEFENSE
+        chance: 20
+        cooldown: 3000
+        conditions:
+        - 'HEALTH_PERCENT:<=:25'
+        effects:
+        - 'ADD_ATTRIBUTE:MOVEMENT_SPEED:sanguine_movement_speed2:0.2:1'
+        - 'ADD_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed2:0.2:1'
+        - 'DELAY=40 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:sanguine_movement_speed2'
+        - 'DELAY=40 | REMOVE_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed2'
+        true-condition-break: true
+      defense25:
+        type: DEFENSE
+        chance: 20
+        cooldown: 3000
+        conditions:
+        - 'HEALTH_PERCENT:<=:50'
+        effects:
+        - 'ADD_ATTRIBUTE:MOVEMENT_SPEED:sanguine_movement_speed:0.1:1'
+        - 'ADD_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed:0.1:1'
+        - 'DELAY=40 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:sanguine_movement_speed'
+        - 'DELAY=40 | REMOVE_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed'
+        true-condition-break: true
+    2:
+      defense25:
+        type: DEFENSE
+        chance: 20
+        cooldown: 3000
+        conditions:
+        - 'HEALTH_PERCENT:<=:25'
+        effects:
+        - 'ADD_ATTRIBUTE:MOVEMENT_SPEED:sanguine_movement_speed2:0.24:1'
+        - 'ADD_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed2:0.24:1'
+        - 'DELAY=40 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:sanguine_movement_speed2'
+        - 'DELAY=40 | REMOVE_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed2'
+        true-condition-break: true
+      defense50:
+        type: DEFENSE
+        chance: 20
+        cooldown: 3000
+        conditions:
+        - 'HEALTH_PERCENT:<=:50'
+        effects:
+        - 'ADD_ATTRIBUTE:MOVEMENT_SPEED:sanguine_movement_speed:0.12:1'
+        - 'ADD_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed:0.12:1'
+        - 'DELAY=40 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:sanguine_movement_speed'
+        - 'DELAY=40 | REMOVE_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed'
+        true-condition-break: true
+    3:
+      defense25:
+        type: DEFENSE
+        chance: 20
+        cooldown: 3000
+        conditions:
+        - 'HEALTH_PERCENT:<=:25'
+        effects:
+        - 'ADD_ATTRIBUTE:MOVEMENT_SPEED:sanguine_movement_speed2:0.28:1'
+        - 'ADD_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed2:0.28:1'
+        - 'DELAY=40 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:sanguine_movement_speed2'
+        - 'DELAY=40 | REMOVE_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed2'
+        true-condition-break: true
+      defense50:
+        type: DEFENSE
+        chance: 20
+        cooldown: 3000
+        conditions:
+        - 'HEALTH_PERCENT:<=:50'
+        effects:
+        - 'ADD_ATTRIBUTE:MOVEMENT_SPEED:sanguine_movement_speed:0.14:1'
+        - 'ADD_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed:0.14:1'
+        - 'DELAY=40 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:sanguine_movement_speed'
+        - 'DELAY=40 | REMOVE_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed'
+        true-condition-break: true
+    4:
+      defense25:
+        type: DEFENSE
+        chance: 20
+        cooldown: 3000
+        conditions:
+        - 'HEALTH_PERCENT:<=:25'
+        effects:
+        - 'ADD_ATTRIBUTE:MOVEMENT_SPEED:sanguine_movement_speed2:0.34:1'
+        - 'ADD_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed2:0.34:1'
+        - 'DELAY=40 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:sanguine_movement_speed2'
+        - 'DELAY=40 | REMOVE_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed2'
+        true-condition-break: true
+      defense50:
+        type: DEFENSE
+        chance: 20
+        cooldown: 3000
+        conditions:
+        - 'HEALTH_PERCENT:<=:50'
+        effects:
+        - 'ADD_ATTRIBUTE:MOVEMENT_SPEED:sanguine_movement_speed:0.1:17'
+        - 'ADD_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed:0.17:1'
+        - 'DELAY=40 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:sanguine_movement_speed'
+        - 'DELAY=40 | REMOVE_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed'
+        true-condition-break: true
+    5:
+      defense25:
+        type: DEFENSE
+        chance: 20
+        cooldown: 3000
+        conditions:
+        - 'HEALTH_PERCENT:<=:25'
+        effects:
+        - 'ADD_ATTRIBUTE:MOVEMENT_SPEED:sanguine_movement_speed2:0.4:1'
+        - 'ADD_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed2:0.4:1'
+        - 'DELAY=40 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:sanguine_movement_speed2'
+        - 'DELAY=40 | REMOVE_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed2'
+        true-condition-break: true
+      defense50:
+        type: DEFENSE
+        chance: 20
+        cooldown: 3000
+        conditions:
+        - 'HEALTH_PERCENT:<=:50'
+        effects:
+        - 'ADD_ATTRIBUTE:MOVEMENT_SPEED:sanguine_movement_speed:0.2:1'
+        - 'ADD_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed:0.2:1'
+        - 'DELAY=40 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:sanguine_movement_speed'
+        - 'DELAY=40 | REMOVE_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed'
+        true-condition-break: true
