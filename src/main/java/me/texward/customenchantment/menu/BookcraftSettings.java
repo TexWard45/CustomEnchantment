@@ -28,4 +28,18 @@ public class BookcraftSettings {
 		EconomyAPI.takeMoney(player, getMoneyRequire(groupName));
 		return true;
 	}
+
+	//FastCraft Zone
+
+	public boolean isRequireMoney(Player player, String groupName, double amount) {
+		return (getMoneyRequire(groupName)*amount) <= EconomyAPI.getMoney(player);
+	}
+
+	public boolean payMoney(Player player, String groupName, double amount) {
+		if (!isRequireMoney(player, groupName, amount)) {
+			return false;
+		}
+		EconomyAPI.takeMoney(player, getMoneyRequire(groupName)*amount);
+		return true;
+	}
 }

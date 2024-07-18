@@ -104,11 +104,14 @@ public class CMenuListener implements Listener {
 		BookcraftMenu bookCraftMenu = BookcraftMenu.getBookCraftMenu(player);
 		BookAddReason reason = bookCraftMenu.addBook(clickedItem, ((CEBook) ceItem).getData().getCESimple());
 
+		//set item add thanh cong thanh air
 		if (reason == BookAddReason.SUCCESS) {
 			e.setCurrentItem(null);
 		}
 
 		CustomEnchantmentMessage.send(player, "menu.bookcraft.add-book." + EnumUtils.toConfigStyle(reason));
+
+		bookCraftMenu.fastCraft(player);
 	}
 
 	public void onTinkererItemClick(InventoryClickEvent e) {
@@ -155,7 +158,7 @@ public class CMenuListener implements Listener {
 		if (reason == CEAnvilAddReason.SUCCESS) {
 			e.setCurrentItem(null);
 		}
-		
+
 		CustomEnchantmentMessage.send(player, "menu.ce-anvil.add-item." + EnumUtils.toConfigStyle(reason));
 	}
 
