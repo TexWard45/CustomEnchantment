@@ -258,7 +258,7 @@ public class BookcraftMenu extends MenuAbstract {
 	}
 
 	private void clearBookFastCraft(int level){
-		if(level < this.minLevel){
+		if(level < 1){
 			return;
 		}
 
@@ -332,14 +332,14 @@ public class BookcraftMenu extends MenuAbstract {
 
 		Collections.sort(this.array.get(level), compare1);
 		this.demoBook.get(level).add(this.array.get(level).get(0).getKey());
-		int s1 = this.array.get(level).get(0).getKey().getCESimple().getSuccess().getValue();
-		int d1 = this.array.get(level).get(0).getKey().getCESimple().getDestroy().getValue();
+		int success1 = this.array.get(level).get(0).getKey().getCESimple().getSuccess().getValue();
+		int destroy1 = this.array.get(level).get(0).getKey().getCESimple().getDestroy().getValue();
 		Collections.sort(this.array.get(level), compare2);
 		this.demoBook.get(level).add(this.array.get(level).get(0).getKey());
-		int s2 = this.array.get(level).get(0).getKey().getCESimple().getSuccess().getValue();
-		int d2 = this.array.get(level).get(0).getKey().getCESimple().getDestroy().getValue();
+		int success2 = this.array.get(level).get(0).getKey().getCESimple().getSuccess().getValue();
+		int destroy2 = this.array.get(level).get(0).getKey().getCESimple().getDestroy().getValue();
 		CESimple ceSimple = new CESimple(this.array.get(level).get(0).getKey().getCESimple().getName(),
-				level + 1, Math.max(s1, s2), Math.min(d1, d2));
+				level + 1, Math.max(success1, success2), Math.min(destroy1, destroy2));
 		for(int i = 0 ; i < amount ; ++i){
 			this.array.get(level + 1).add(new Pair<BookData, Integer>(new BookData(CEAPI.getCEBookItemStack(ceSimple), ceSimple), 1));
 		}
@@ -429,7 +429,7 @@ public class BookcraftMenu extends MenuAbstract {
 			maxLevel = book1.getCESimple().getCEEnchant().getMaxLevel();
 
 			//khoi tao gia tri
-			for(int i = minLevel ; i <= maxLevel ; i++){
+			for(int i = 1 ; i <= maxLevel ; i++){
 				this.array.put(i, new ArrayList<>());
 				this.demoBook.put(i, new ArrayList<>());
 				this.usedBook.put(i, new ArrayList<>());
@@ -452,13 +452,13 @@ public class BookcraftMenu extends MenuAbstract {
 			}
 
 			int amount = 0;
-			for(int i = minLevel ; i <= maxLevel ; i++){
+			for(int i = 1 ; i <= maxLevel ; i++){
 				int countBook = 0, soluong = this.array.get(i).size();
 				if(soluong < 2 || i == maxLevel){
 					if((soluong == 1 || i == maxLevel) && amount > 0){
 						this.bookHighLevel = this.array.get(i).get(0).getKey();
 						this.amountBook = 0;
-						addUsedBookFastCraft(i-1, minLevel, 2);
+						addUsedBookFastCraft(i-1, 1, 2);
 						cntBook.add(amountBook);
 					}
 					amount = 0;
