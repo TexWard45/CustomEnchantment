@@ -17,6 +17,10 @@ public class CustomEnchantmentPlaceholder extends PlaceholderExpansion {
     }
 
     public String onRequest(OfflinePlayer player, String params) {
+        if (params.equals("player")) {
+            return player.getName();
+        }
+
         return null;
     }
 }
