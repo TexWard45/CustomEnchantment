@@ -4,7 +4,7 @@ version: 0.0.1
 api-version: 1.13
 author: TexWard
 depend: [TexWardLib]
-softdepend: [CustomMenu, StackMob, Vouchers, ItemDropManager, mcMMO, PlaceholderAPIAddon, CustomShop]
+softdepend: [CustomMenu, StackMob, Vouchers, ItemDropManager, mcMMO, PlaceholderAPI, PlaceholderAPIAddon, CustomShop]
 description: Support for custom enchantment
 commands:
   customenchantment:

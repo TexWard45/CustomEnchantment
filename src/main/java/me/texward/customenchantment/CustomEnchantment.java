@@ -109,6 +109,8 @@ public class CustomEnchantment extends JavaPlugin implements Listener {
 		setupMenu();
 		setupCatalog();
 
+        Bukkit.getScheduler().runTask(this, () -> setupPlaceholders());
+
 		Bukkit.getScheduler().runTaskAsynchronously(this, () -> {
 			registerCMenu();
 		});
@@ -495,6 +497,10 @@ public class CustomEnchantment extends JavaPlugin implements Listener {
 			}
 		}.runTaskAsynchronously(this);
 	}
+
+    public void setupPlaceholders() {
+
+    }
 
 	public void setupGuard() {
 		this.guardManager = new GuardManager();
