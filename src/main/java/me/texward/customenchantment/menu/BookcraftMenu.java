@@ -550,10 +550,10 @@ public class BookcraftMenu extends MenuAbstract {
 			}
 		} else {
 			this.array.clear();
-			this.amountBook = 0;
 			this.usedBook.clear();
 			this.bookHighLevel = null;
 			this.demoBook.clear();
+			this.cntBook.clear();
 		}
 	}
 }
