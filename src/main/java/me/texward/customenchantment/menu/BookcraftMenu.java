@@ -1,13 +1,10 @@
 package me.texward.customenchantment.menu;
 
-import java.awt.print.Book;
 import java.util.*;
 
 import me.texward.customenchantment.api.Pair;
 import me.texward.customenchantment.item.CEBook;
 import me.texward.customenchantment.item.CEItem;
-import org.bukkit.Material;
-import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
@@ -17,7 +14,6 @@ import me.texward.custommenu.menu.CItem;
 import me.texward.custommenu.menu.CMenuView;
 import me.texward.texwardlib.util.InventoryUtils;
 import me.texward.texwardlib.util.ItemStackUtils;
-import org.jetbrains.annotations.NotNull;
 
 public class BookcraftMenu extends MenuAbstract {
 	public static final String MENU_NAME = "bookcraft";
@@ -89,7 +85,7 @@ public class BookcraftMenu extends MenuAbstract {
 	private HashMap<Integer, List<BookData>> usedBook = new HashMap<>();
 	private List<Integer> cntBook = new ArrayList<>();
 	private int amountBook;
-	private int minLevel, maxLevel;
+	private int minLevel, maxLevel, pos;
 	//
 
 	public BookcraftMenu(CMenuView menuView, Player player) {
@@ -204,7 +200,7 @@ public class BookcraftMenu extends MenuAbstract {
 
 	public BookcraftConfirmReason confirmUpgrade() {
 		if (list.size() < 2) {
-			if(this.list.size() == 1 && bookHighLevel != null) {
+			if(this.list.size() == 1 && this.bookHighLevel != null) {
 				return confirmUpgradeFastCraft();
 			} else {
 				return BookcraftConfirmReason.NOT_ENOUGH_BOOK;
@@ -241,19 +237,23 @@ public class BookcraftMenu extends MenuAbstract {
 	//FastCraft Zone
 
 	private boolean compareCeBook(CESimple ceSimple1, CESimple ceSimple2) {
-		//true =, false !=
+		//true -> equal, false -> different
 		if(!ceSimple1.getName().equals(ceSimple2.getName())){
 			return false;
 		}
+
 		if(ceSimple1.getLevel() != ceSimple2.getLevel()){
 			return false;
 		}
+
 		if(ceSimple1.getSuccess().getValue() != ceSimple2.getSuccess().getValue()){
 			return false;
 		}
+
 		if(ceSimple1.getDestroy().getValue() != ceSimple2.getDestroy().getValue()){
 			return false;
 		}
+
 		return true;
 	}
 
@@ -285,18 +285,18 @@ public class BookcraftMenu extends MenuAbstract {
 	public BookcraftConfirmReason confirmUpgradeFastCraft(){
 		String groupName = list.get(0).getCESimple().getCEEnchant().getGroupName();
 
-		if (!settings.payMoney(player, groupName, (double)(cntBook.get(cntBook.size()-1)))) {
+		if (!settings.payMoney(player, groupName, (double)(this.cntBook.get(this.pos)))) {
 			return BookcraftConfirmReason.NOT_ENOUGH_MONEY;
 		}
 
-		//tra lai sach va updateMenu de tien hanh delete
+		//Return CE in book1-slot and update menu
 		returnBook(0);
 		updateMenu();
 
-		//xoa sach o day
+		//Remove CE-used
 		clearBookFastCraft(bookHighLevel.getCESimple().getLevel()-1);
 
-		//return book result
+		//Return CE-result
 		ItemStack result = CEAPI.getCEBookItemStack(bookHighLevel.getCESimple());
 		InventoryUtils.addItem(player, Arrays.asList(result));
 
@@ -310,6 +310,7 @@ public class BookcraftMenu extends MenuAbstract {
 	}
 
 	private void addBookFastCraft(int level, int amount){
+		//Sort bring high success ce to first
 		Comparator<Pair<BookData, Integer>> compare1 = new Comparator<Pair<BookData, Integer>>() {
 			public int compare(Pair<BookData, Integer> book1, Pair<BookData, Integer> book2) {
 				if(book1.getKey().getCESimple().getSuccess().getValue() < book2.getKey().getCESimple().getSuccess().getValue()){
@@ -320,6 +321,7 @@ public class BookcraftMenu extends MenuAbstract {
 			}
 		};
 
+		//Sort bring low destroy ce to first
 		Comparator<Pair<BookData, Integer>> compare2 = new Comparator<Pair<BookData, Integer>>() {
 			public int compare(Pair<BookData, Integer> book1, Pair<BookData, Integer> book2) {
 				if(book1.getKey().getCESimple().getDestroy().getValue() > book2.getKey().getCESimple().getDestroy().getValue()){
@@ -330,24 +332,33 @@ public class BookcraftMenu extends MenuAbstract {
 			}
 		};
 
+		//Sort choose high success %
 		Collections.sort(this.array.get(level), compare1);
-		this.demoBook.get(level).add(this.array.get(level).get(0).getKey());
-		int success1 = this.array.get(level).get(0).getKey().getCESimple().getSuccess().getValue();
-		int destroy1 = this.array.get(level).get(0).getKey().getCESimple().getDestroy().getValue();
+		BookData bookData = this.array.get(level).get(0).getKey();
+		CESimple ceSimple = bookData.getCESimple();
+		this.demoBook.get(level).add(bookData);
+		int success1 = ceSimple.getSuccess().getValue();
+		int destroy1 = ceSimple.getDestroy().getValue();
+
+		//Sort choose low destroy %
 		Collections.sort(this.array.get(level), compare2);
-		this.demoBook.get(level).add(this.array.get(level).get(0).getKey());
-		int success2 = this.array.get(level).get(0).getKey().getCESimple().getSuccess().getValue();
-		int destroy2 = this.array.get(level).get(0).getKey().getCESimple().getDestroy().getValue();
-		CESimple ceSimple = new CESimple(this.array.get(level).get(0).getKey().getCESimple().getName(),
-				level + 1, Math.max(success1, success2), Math.min(destroy1, destroy2));
+		bookData = this.array.get(level).get(0).getKey();
+		ceSimple = bookData.getCESimple();
+		this.demoBook.get(level).add(bookData);
+		int success2 = ceSimple.getSuccess().getValue();
+		int destroy2 = ceSimple.getDestroy().getValue();
+
+		//Create and push CE result into array
+		CESimple ceSimpleResult = new CESimple(ceSimple.getName(),level + 1,
+				Math.max(success1, success2), Math.min(destroy1, destroy2));
 		for(int i = 0 ; i < amount ; ++i){
-			this.array.get(level + 1).add(new Pair<BookData, Integer>(new BookData(CEAPI.getCEBookItemStack(ceSimple), ceSimple), 1));
+			this.array.get(level + 1).add(new Pair<BookData, Integer>(new BookData(CEAPI.getCEBookItemStack(ceSimpleResult), ceSimpleResult), 1));
 		}
 	}
 
 	private void addUsedBookFastCraft(int level, int minlevel, int amount){
 		if(amount > 0 && level >= minlevel){
-			int soluong = amount;
+			int quantity = amount;
 			this.amountBook += (amount/2);
 			BookData bookData1 = this.demoBook.get(level).get(0);
 			BookData bookData2 = this.demoBook.get(level).get(1);
@@ -379,7 +390,7 @@ public class BookcraftMenu extends MenuAbstract {
 					} else {
 						this.usedBook.get(level).add(bookData);
 					}
-					--soluong;
+					--quantity;
 					visited.replace(i, true);
 					continue;
 				}
@@ -389,7 +400,7 @@ public class BookcraftMenu extends MenuAbstract {
 					} else {
 						this.usedBook.get(level).add(bookData);
 					}
-					--soluong;
+					--quantity;
 					visited.replace(i, true);
 				}
 			}
@@ -400,7 +411,7 @@ public class BookcraftMenu extends MenuAbstract {
 					continue;
 				}
 
-				if(soluong <= 0){
+				if(quantity <= 0){
 					break;
 				}
 
@@ -412,7 +423,7 @@ public class BookcraftMenu extends MenuAbstract {
 				} else {
 					this.usedBook.get(level).add(bookData);
 				}
-				--soluong;
+				--quantity;
 				visited.replace(i, true);
 			}
 
@@ -420,23 +431,52 @@ public class BookcraftMenu extends MenuAbstract {
 		}
 	}
 
+	private int getPos(){
+		int pos = -1;
+		boolean start = false, end = false, flag = false;
+
+		for(int i = 1 ; i <= maxLevel ; ++i){
+			if(minLevel == i){
+				flag = true;
+			}
+			if(!start && !this.demoBook.get(i).isEmpty()){
+				start = true;
+			}
+			if(!end && start && this.demoBook.get(i).isEmpty()){
+				end = true;
+			}
+			if(start && end){
+				++pos;
+				start = end = false;
+				if(flag){
+					this.bookHighLevel = this.array.get(i).get(0).getKey();
+					break;
+				}
+			}
+		}
+
+		return pos;
+	}
+
 	public void fastCraft(Player player){
 		if(this.list.size() == 1){
 			this.bookHighLevel = null;
 			BookData book1 = this.list.get(0);
 			String nameBook1 = book1.getCESimple().getName();
-			minLevel = book1.getCESimple().getLevel();
-			maxLevel = book1.getCESimple().getCEEnchant().getMaxLevel();
+			this.minLevel = book1.getCESimple().getLevel();
+			this.maxLevel = book1.getCESimple().getCEEnchant().getMaxLevel();
 
-			//khoi tao gia tri
-			for(int i = 1 ; i <= maxLevel ; i++){
+			//initial value
+			for(int i = 1 ; i <= this.maxLevel ; i++){
 				this.array.put(i, new ArrayList<>());
 				this.demoBook.put(i, new ArrayList<>());
 				this.usedBook.put(i, new ArrayList<>());
 			}
 
-			//addbook trong o menu book1
-			array.get(minLevel).add(new Pair<BookData, Integer>(new BookData(CEAPI.getCEBookItemStack(book1.getCESimple()), book1.getCESimple()), 0));
+			//Add CE in book1-slot to array
+			this.array.get(this.minLevel).
+					add(new Pair<BookData, Integer>(new BookData(CEAPI.getCEBookItemStack(book1.getCESimple()), book1.getCESimple()),
+							0));
 
 			for(ItemStack item : player.getInventory().getContents()){
 				CEItem ceItem = CEAPI.getCEItem(item);
@@ -448,18 +488,19 @@ public class BookcraftMenu extends MenuAbstract {
 				if(!nameBook1.equals(nameCEHave)){
 					continue;
 				}
-				this.array.get(levelBookHave).add(new Pair<BookData, Integer>(new BookData(item, ((CEBook)ceItem).getData().getCESimple()), 0));
+				this.array.get(levelBookHave).
+						add(new Pair<BookData, Integer>(new BookData(item, ((CEBook)ceItem).getData().getCESimple()), 0));
 			}
 
 			int amount = 0;
-			for(int i = 1 ; i <= maxLevel ; i++){
+			for(int i = 1 ; i <= this.maxLevel ; i++){
 				int countBook = 0, soluong = this.array.get(i).size();
-				if(soluong < 2 || i == maxLevel){
-					if((soluong == 1 || i == maxLevel) && amount > 0){
+				if(soluong < 2 || i == this.maxLevel){
+					if((soluong == 1 || i == this.maxLevel) && amount > 0){
 						this.bookHighLevel = this.array.get(i).get(0).getKey();
 						this.amountBook = 0;
 						addUsedBookFastCraft(i-1, 1, 2);
-						cntBook.add(amountBook);
+						this.cntBook.add(this.amountBook);
 					}
 					amount = 0;
 					continue;
@@ -479,11 +520,18 @@ public class BookcraftMenu extends MenuAbstract {
 				amount += countBook;
 			}
 
-			if(this.bookHighLevel != null){
-				//updateslot preview
-				updateSlots("preview", CEAPI.getCEBookItemStack(bookHighLevel.getCESimple()));
+			this.pos = -1;
+			if(this.bookHighLevel == null || this.demoBook.get(minLevel).isEmpty()){
+				this.bookHighLevel = null;
+			} else {
+				this.pos = getPos();
+			}
 
-				//updateslot gia tien
+			if(this.bookHighLevel != null){
+				//Update preview-slot
+				updateSlots("preview", CEAPI.getCEBookItemStack(this.bookHighLevel.getCESimple()));
+
+				//Update price to upgrade CE in accept-slot
 				CItem cItem = menuView.getCMenu().getMenuItem().getCItemByName("accept");
 
 				if (cItem == null) {
@@ -492,9 +540,9 @@ public class BookcraftMenu extends MenuAbstract {
 
 				ItemStack itemStack = cItem.getItemStack(player);
 
-				String groupName = list.get(0).getCESimple().getCEEnchant().getGroupName();
+				String groupName = this.list.get(0).getCESimple().getCEEnchant().getGroupName();
 				HashMap<String, String> placeholder = new HashMap<String, String>();
-				placeholder.put("%money%", String.valueOf(settings.getMoneyRequire(groupName)*(double)(cntBook.get(cntBook.size()-1))));
+				placeholder.put("%money%", String.valueOf(settings.getMoneyRequire(groupName)*(double)(this.cntBook.get(this.pos))));
 				itemStack = ItemStackUtils.setItemStack(itemStack, placeholder);
 
 				updateSlots("accept", itemStack);
