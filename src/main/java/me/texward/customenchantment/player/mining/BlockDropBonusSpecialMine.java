@@ -135,7 +135,7 @@ public class BlockDropBonusSpecialMine extends AbstractSpecialMine {
 		return blockDropBonus.isWork();
 	}
 
-	public List<ItemStack> getDrops(List<ItemStack> drops, boolean fake) {
+	public List<ItemStack> getDrops(SpecialMiningData data, List<ItemStack> drops, boolean fake) {
 		return blockDropBonus.getBonus(drops);
 	}
 

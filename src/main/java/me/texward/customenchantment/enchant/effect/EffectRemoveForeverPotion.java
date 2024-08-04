@@ -14,6 +14,10 @@ public class EffectRemoveForeverPotion extends EffectHook {
 		return "REMOVE_FOREVER_POTION";
 	}
 
+    public boolean isForceEffectOnEnemyDead() {
+        return true;
+    }
+
 	public boolean isAsync() {
 		return false;
 	}

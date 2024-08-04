@@ -13,9 +13,10 @@ public class CEEnchant {
 	private CEDisplay ceDisplay;
 	private SparseMap<CELevel> ceLevelMap;
 	private MaterialList appliesMaterialList;
+    private String set;
 
 	public CEEnchant(String name, String groupName, int maxLevel, int valuable, int enchantPoint, CEDisplay ceDisplay,
-			SparseMap<CELevel> ceLevelMap, MaterialList appliesMaterialList) {
+			SparseMap<CELevel> ceLevelMap, MaterialList appliesMaterialList, String set) {
 		this.name = name;
 		this.groupName = groupName;
 		this.maxLevel = maxLevel;
@@ -24,6 +25,7 @@ public class CEEnchant {
 		this.ceDisplay = ceDisplay;
 		this.ceLevelMap = ceLevelMap;
 		this.appliesMaterialList = appliesMaterialList;
+        this.set = set;
 	}
 
 	public String getName() {
@@ -65,4 +67,8 @@ public class CEEnchant {
 	public MaterialList getAppliesMaterialList() {
 		return appliesMaterialList;
 	}
+
+    public String getSet() {
+        return set;
+    }
 }

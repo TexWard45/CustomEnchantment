@@ -80,7 +80,7 @@ public class FurnaceSpecialMine extends AbstractSpecialMine {
 		return furnace.isWork();
 	}
 
-	public List<ItemStack> getDrops(List<ItemStack> drops, boolean fake) {
+	public List<ItemStack> getDrops(SpecialMiningData data, List<ItemStack> drops, boolean fake) {
 		return furnace.applyFurnace(drops);
 	}
 

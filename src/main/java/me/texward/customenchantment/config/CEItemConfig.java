@@ -6,53 +6,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+import me.texward.customenchantment.item.*;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 
 import me.texward.customenchantment.CustomEnchantment;
 import me.texward.customenchantment.api.MaterialList;
 import me.texward.customenchantment.enchant.CESimple;
-import me.texward.customenchantment.item.CEBanner;
-import me.texward.customenchantment.item.CEBannerData;
-import me.texward.customenchantment.item.CEBannerStorage;
-import me.texward.customenchantment.item.CEBook;
-import me.texward.customenchantment.item.CEBookStorage;
-import me.texward.customenchantment.item.CEEnchantPoint;
-import me.texward.customenchantment.item.CEEnchantPointData;
-import me.texward.customenchantment.item.CEEnchantPointStorage;
-import me.texward.customenchantment.item.CEEraseEnchant;
-import me.texward.customenchantment.item.CEEraseEnchantData;
-import me.texward.customenchantment.item.CEEraseEnchantStorage;
-import me.texward.customenchantment.item.CEIncreaseRateBook;
-import me.texward.customenchantment.item.CEIncreaseRateBookData;
-import me.texward.customenchantment.item.CEIncreaseRateBookStorage;
-import me.texward.customenchantment.item.CEItemType;
-import me.texward.customenchantment.item.CEMask;
-import me.texward.customenchantment.item.CEMaskData;
-import me.texward.customenchantment.item.CEMaskStorage;
-import me.texward.customenchantment.item.CENameTag;
-import me.texward.customenchantment.item.CENameTagData;
-import me.texward.customenchantment.item.CENameTagStorage;
-import me.texward.customenchantment.item.CEProtectDead;
-import me.texward.customenchantment.item.CEProtectDeadData;
-import me.texward.customenchantment.item.CEProtectDeadStorage;
-import me.texward.customenchantment.item.CEProtectDestroy;
-import me.texward.customenchantment.item.CEProtectDestroyData;
-import me.texward.customenchantment.item.CEProtectDestroyStorage;
-import me.texward.customenchantment.item.CERandomBook;
-import me.texward.customenchantment.item.CERandomBookData;
-import me.texward.customenchantment.item.CERandomBookFilter;
-import me.texward.customenchantment.item.CERandomBookStorage;
-import me.texward.customenchantment.item.CERemoveEnchant;
-import me.texward.customenchantment.item.CERemoveEnchantData;
-import me.texward.customenchantment.item.CERemoveEnchantStorage;
-import me.texward.customenchantment.item.CERemoveProtectDead;
-import me.texward.customenchantment.item.CERemoveProtectDeadData;
-import me.texward.customenchantment.item.CERemoveProtectDeadStorage;
-import me.texward.customenchantment.item.CEWeapon;
-import me.texward.customenchantment.item.CEWeaponData;
-import me.texward.customenchantment.item.CEWeaponStorage;
-import me.texward.customenchantment.item.WeaponSettings;
 import me.texward.texwardlib.configuration.AbstractConfig;
 import me.texward.texwardlib.configuration.AdvancedConfigurationSection;
 import me.texward.texwardlib.util.EnumUtils;
@@ -67,6 +27,7 @@ public class CEItemConfig extends AbstractConfig {
 		loadCEBookStorage();
 		loadCEProtectDeadStorage();
 		loadCERemoveProtectDeadStorage();
+        loadCERemoveEnchantPointStorage();
 		loadCEProtectDestroyStorage();
 		loadCENameTagStorage();
 		loadCEEnchantPointStorage();
@@ -77,6 +38,7 @@ public class CEItemConfig extends AbstractConfig {
 		loadCEMaskStorage();
 		loadCEWeaponStorage();
 		loadCEBannerStorage();
+        loadCELoreFormatStorage();
 	}
 
 	public void loadWeaponSettingsMap() {
@@ -215,6 +177,57 @@ public class CEItemConfig extends AbstractConfig {
 			storage.put(pattern, ceItem);
 		}
 	}
+
+    public void loadCELoreFormatStorage() {
+        CELoreFormatStorage storage = new CELoreFormatStorage();
+        CustomEnchantment.instance().getCEItemStorageMap().put(CEItemType.LORE_FORMAT, storage);
+
+        for (String pattern : config.getKeySection("lore-format", false)) {
+            String path = "lore-format." + pattern;
+
+            ItemStack itemStack = config.getItemStack(path + ".item");
+            CELoreFormat ceItem = new CELoreFormat(itemStack);
+            CELoreFormatData data = new CELoreFormatData();
+            data.setPattern(pattern);
+            data.setType(config.getString(path + ".lore-format-type"));
+            ceItem.setData(data);
+
+            storage.put(pattern, ceItem);
+        }
+    }
+
+    public void loadCERemoveEnchantPointStorage() {
+        CERemoveEnchantPointStorage storage = new CERemoveEnchantPointStorage();
+        CustomEnchantment.instance().getCEItemStorageMap().put(CEItemType.REMOVE_ENCHANT_POINT, storage);
+
+        for (String pattern : config.getKeySection("remove-enchant-point", false)) {
+            String path = "remove-enchant-point." + pattern;
+
+            ItemStack itemStack = config.getItemStack(path + ".item");
+
+            CERemoveEnchantPoint ceItem = new CERemoveEnchantPoint(itemStack);
+            CERemoveEnchantPointData data = new CERemoveEnchantPointData();
+
+            List<CERemoveEnchantPointData.Data> dataList = new ArrayList<>();
+            data.setPattern(pattern);
+
+            for (String key : config.getKeySection(path + ".list", false)) {
+                String keyPath = path + ".list." + key;
+
+                CERemoveEnchantPointData.Data listData = new CERemoveEnchantPointData.Data();
+                listData.setEnchantPointType(config.getString(keyPath + ".enchant-point-type"));
+                listData.setAppliesMaterialList(MaterialList.getMaterialList(config.getStringList(keyPath + ".applies")));
+                listData.setExtraPointRequired(config.getInt(keyPath + ".extra-point-required"));
+
+                dataList.add(listData);
+            }
+
+            data.setDataList(dataList);
+
+            ceItem.setData(data);
+            storage.put(pattern, ceItem);
+        }
+    }
 
 	public void loadCEProtectDestroyStorage() {
 		CEProtectDestroyStorage storage = new CEProtectDestroyStorage();

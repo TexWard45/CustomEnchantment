@@ -1,3 +1,6 @@
+log:
+  random-book:
+    enable: false
 enchant-disable-worlds:
 - ''
 ce-item-material-whitelist:

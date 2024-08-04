@@ -1,10 +1,9 @@
 package me.texward.customenchantment.enchant;
 
-import java.util.List;
-
+import me.texward.customenchantment.api.CEAPI;
 import org.bukkit.entity.Player;
 
-import me.texward.customenchantment.api.CEAPI;
+import java.util.List;
 
 public abstract class EffectHook implements Cloneable {
 	private EffectSettings settings;
@@ -17,13 +16,14 @@ public abstract class EffectHook implements Cloneable {
 	public void updateAndExecute(CEFunctionData data) {
 		Target target = getSettings().getTarget();
 
-		Player enemy = data.getEnemyPlayer();
-
-		boolean removeEnemyEffectWhenDeath = enemy != null && !settings.isEffectAfterDead() && target == Target.ENEMY
-				&& CEAPI.getCEPlayer(enemy).getDeathTime() != data.getEnemyDeathTime();
+		boolean removeEnemyEffectWhenDeath = !isForceEffectOnEnemyDead() && !settings.isEffectAfterDead() && isDifferentEnemyDeadSession(data);
 		if (removeEnemyEffectWhenDeath) {
 			return;
 		}
+
+        if (data.isFakeSource() && !settings.isEffectOnFakeSource()) {
+            return;
+        }
 
 		CEFunctionData executeData = data;
 		if (executeData.getTarget() != target) {
@@ -48,10 +48,7 @@ public abstract class EffectHook implements Cloneable {
 	private void updateAndExecuteOther(CEFunctionData data) {
 		Target target = getSettings().getTargetOther();
 
-		Player enemy = data.getEnemyPlayer();
-
-		boolean removeEnemyEffectWhenDeath = enemy != null && !settings.isEffectAfterDead() && target == Target.ENEMY
-				&& CEAPI.getCEPlayer(enemy).getDeathTime() != data.getEnemyDeathTime();
+		boolean removeEnemyEffectWhenDeath = !isForceEffectOnEnemyDead() && !settings.isEffectAfterDead() && isDifferentEnemyDeadSession(data);
 		if (removeEnemyEffectWhenDeath) {
 			return;
 		}
@@ -59,6 +56,16 @@ public abstract class EffectHook implements Cloneable {
 
 		execute(data);
 	}
+
+    public boolean isDifferentEnemyDeadSession(CEFunctionData data) {
+        Player enemy = data.getEnemyPlayer();
+        return enemy != null && getSettings().getTarget() == Target.ENEMY
+                && CEAPI.getCEPlayer(enemy).getDeathTime() != data.getEnemyDeathTime();
+    }
+
+    public boolean isForceEffectOnEnemyDead() {
+        return false;
+    }
 
 	public abstract String getIdentify();
 

@@ -65,21 +65,23 @@ public class CERandomBook extends CEItemUsable<CERandomBookData> {
 		Map<String, String> placeholder = CEPlaceholder.getCESimplePlaceholder(ceSimple);
 		placeholder.putAll(CEPlaceholder.getCEGroupPlaceholder(ceSimple.getCEEnchant().getCEGroup()));
 		CustomEnchantmentMessage.send(player, "ce-item." + getType() + ".success", placeholder);
-		
-		ApplyReason reason = new ApplyReason("SUCCESS", ApplyResult.SUCCESS);
-		reason.setWriteLogs(true);
-		reason.setPlayer(player);
-		reason.setCEItem1(this);
-		reason.putData("pattern", getData().getPattern());
-		reason.putData("enchant", ceSimple.getName());
-		reason.putData("level", ceSimple.getLevel());
-		reason.putData("success", ceSimple.getSuccess().getValue());
-		reason.putData("destroy", ceSimple.getDestroy().getValue());
-		reason.putData("world", player.getLocation().getWorld().getName());
-		reason.putData("x", (int) player.getLocation().getX());
-		reason.putData("y", (int) player.getLocation().getY());
-		reason.putData("z", (int) player.getLocation().getZ());
-		CustomEnchantmentLog.writeItemActionLogs(reason);
+
+        if (CustomEnchantment.instance().getConfig().getBoolean("log.random-book.enable")) {
+            ApplyReason reason = new ApplyReason("SUCCESS", ApplyResult.SUCCESS);
+            reason.setWriteLogs(true);
+            reason.setPlayer(player);
+            reason.setCEItem1(this);
+            reason.putData("pattern", getData().getPattern());
+            reason.putData("enchant", ceSimple.getName());
+            reason.putData("level", ceSimple.getLevel());
+            reason.putData("success", ceSimple.getSuccess().getValue());
+            reason.putData("destroy", ceSimple.getDestroy().getValue());
+            reason.putData("world", player.getLocation().getWorld().getName());
+            reason.putData("x", (int) player.getLocation().getX());
+            reason.putData("y", (int) player.getLocation().getY());
+            reason.putData("z", (int) player.getLocation().getZ());
+            CustomEnchantmentLog.writeItemActionLogs(reason);
+        }
 
 		InventoryUtils.addItem(player, Arrays.asList(itemStack));
 	}

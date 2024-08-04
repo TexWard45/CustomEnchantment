@@ -21,6 +21,10 @@ public class EffectActiveAbility extends EffectHook {
 		this.name = args[1];
 	}
 
+    public boolean isForceEffectOnEnemyDead() {
+        return true;
+    }
+
 	public void execute(CEFunctionData data) {
 		Player player = data.getPlayer();
 		if (player == null) {

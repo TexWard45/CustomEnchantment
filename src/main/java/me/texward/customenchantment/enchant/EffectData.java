@@ -22,6 +22,14 @@ public class EffectData {
 		effectHook.updateAndExecute(data);
 	}
 
+    public boolean isDifferentEnemyDeadSession() {
+        return effectHook.isDifferentEnemyDeadSession(data);
+    }
+
+    public boolean isForceEffectOnEnemyDead() {
+        return effectHook.isForceEffectOnEnemyDead();
+    }
+
 	public void execute() {
 		effectHook.execute(data);
 	}

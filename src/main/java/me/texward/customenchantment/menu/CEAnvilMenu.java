@@ -1,14 +1,5 @@
 package me.texward.customenchantment.menu;
 
-import java.lang.reflect.Constructor;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
-import org.bukkit.Material;
-import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
-
 import me.texward.customenchantment.CustomEnchantmentLog;
 import me.texward.customenchantment.CustomEnchantmentMessage;
 import me.texward.customenchantment.api.CEAPI;
@@ -16,9 +7,18 @@ import me.texward.customenchantment.item.ApplyReason;
 import me.texward.customenchantment.item.CEItem;
 import me.texward.customenchantment.menu.anvil.AnvilSlot1View;
 import me.texward.customenchantment.menu.anvil.AnvilSlot2View;
+import me.texward.customenchantment.menu.anvil.Slot2CEDefaultView;
 import me.texward.custommenu.menu.CMenuView;
 import me.texward.texwardlib.util.InventoryUtils;
 import me.texward.texwardlib.util.ItemStackUtils;
+import org.bukkit.Material;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+
+import java.lang.reflect.Constructor;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class CEAnvilMenu extends MenuAbstract {
 	public static final String MENU_NAME = "ce-anvil";
@@ -116,27 +116,37 @@ public class CEAnvilMenu extends MenuAbstract {
 			}
 		}
 
+        AnvilSlot2View findView2 = new Slot2CEDefaultView(this);
+
 		if (findView1 != null) {
 			if (this.view1 == null) {
 				this.view1 = findView1;
 				this.itemData1 = new ItemData(itemStack, ceItem);
-				updateMenu();
+
+                if (this.view2 == null) {
+                    this.view2 = findView2;
+                }
+
+                updateMenu();
 				return CEAnvilAddReason.SUCCESS;
 			} else {
 				return CEAnvilAddReason.ALREADY_HAS_SLOT1;
 			}
 		}
 
-		AnvilSlot2View findView2 = null;
-		for (AnvilSlot2View view : slot2ViewMap.values()) {
-			if (view.isSuitable(ceItem)) {
-				findView2 = view.instance(this);
-				break;
-			}
-		}
+        for (AnvilSlot2View view : slot2ViewMap.values()) {
+            if (view.isSuitable(ceItem)) {
+                findView2 = view.instance(this);
+                break;
+            }
+        }
 
 		if (findView2 != null) {
-			if (this.view2 == null) {
+			if (this.view2 == null || this.itemData2 == null) {
+                if (this.view2 != null) {
+                    view2.updateAllPreviewNull();
+                }
+
 				this.view2 = findView2;
 				this.itemData2 = new ItemData(itemStack, ceItem);
 				updateMenu();
@@ -181,15 +191,17 @@ public class CEAnvilMenu extends MenuAbstract {
 		itemStack = itemData2.getItemStack();
 		if (itemStack == null || itemStack.getAmount() == 0 || itemStack.getType() == Material.AIR) {
 			itemData2 = null;
-			view2 = null;
+			view2 = new Slot2CEDefaultView(this);
 		}
 		
 		updateSlots("slot2", itemData2 != null ? itemData2.getItemStack() : null);
 	}
 
 	public void updatePreview() {
-		if (itemData1 != null && itemData2 != null) {
-			view2.updateView();
+		if (itemData1 != null) {
+            if (view2 != null) {
+                view2.updateView();
+            }
 		} else {
 			updateAllPreviewNull();
 		}
@@ -314,12 +326,27 @@ public class CEAnvilMenu extends MenuAbstract {
 		ItemStack itemStack = null;
 		if (name.equals("slot1") && itemData1 != null) {
 			itemStack = itemData1.getItemStack();
+            if (view2 != null) {
+                view2.updateAllPreviewNull();
+            }
+
 			itemData1 = null;
 			view1 = null;
 		} else if (name.equals("slot2") && itemData2 != null) {
 			itemStack = itemData2.getItemStack();
+            if (view2 != null) {
+                view2.updateAllPreviewNull();
+
+                view2 = new Slot2CEDefaultView(this);
+
+                updateMenu();
+            }
+
+            if (view1 == null) {
+                view2 = null;
+            }
+
 			itemData2 = null;
-			view2 = null;
 		}
 		if (itemStack == null) {
 			return;
@@ -355,4 +382,8 @@ public class CEAnvilMenu extends MenuAbstract {
 	public void setItemData2(ItemData itemData2) {
 		this.itemData2 = itemData2;
 	}
+
+    public CMenuView getMenuView() {
+        return menuView;
+    }
 }

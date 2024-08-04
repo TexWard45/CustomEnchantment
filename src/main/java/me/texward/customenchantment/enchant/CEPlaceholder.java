@@ -1,21 +1,24 @@
 package me.texward.customenchantment.enchant;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import org.bukkit.entity.LivingEntity;
-import org.bukkit.entity.Player;
-
 import me.texward.customenchantment.player.PlayerTemporaryStorage;
 import me.texward.texwardlib.util.RomanNumber;
 import me.texward.texwardlib.util.StringUtils;
+import org.bukkit.entity.LivingEntity;
+import org.bukkit.entity.Player;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class CEPlaceholder {
-	public static String setPlaceholder(String s, Map<String, String> map) {
+	public static String setPlaceholder(String string, Map<String, String> map) {
+        if (map.containsKey(string)) {
+            return map.get(string);
+        }
+
 		for (String key : map.keySet()) {
-			s = s.replace(key, map.get(key));
+			string = string.replace(key, map.get(key));
 		}
-		return s;
+		return string;
 	}
 
 	public static Map<String, String> getTemporaryStoragePlaceholder(PlayerTemporaryStorage storage) {

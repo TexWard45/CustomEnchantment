@@ -121,7 +121,7 @@ public class CECaller {
 		if (ceFunction.getCEType() != ceType) {
 			return stepAction;
 		}
-		
+
 		// Check active equip slot
 		if (!isPrimary() && !ceFunction.getActiveSlot().contains(activeEquipSlot)) {
 			return StepAction.CONTINUE;
@@ -144,14 +144,22 @@ public class CECaller {
 			}
 		}
 
+        boolean chance = ceFunction.getChance().work();
+
+        if (chanceSlot.isEmpty()) {
+            putEnchantChance(equipSlot, ceEnchant.getName());
+        } else {
+            putEnchantChance(chanceSlot, ceEnchant.getName());
+        }
+
 		// Check chance
-		if (!caller.isAdminMode() && !ceFunction.getChance().work()) {
-			return StepAction.valueOf(ceFunction.isFalseChanceBreak());
+		if (!caller.isAdminMode() && !chance) {
+            return StepAction.valueOf(ceFunction.isFalseChanceBreak());
 		}
 		stepAction = StepAction.valueOf(ceFunction.isTrueChanceBreak());
 
 		// Check cooldown
-		if (hasCaller() && !caller.getCECooldown().isCooldownTimeout(equipSlot, ceEnchant, ceFunction)) {
+		if (hasCaller() && !isByPassCooldown() && !caller.getCECooldown().isCooldownTimeout(equipSlot, ceEnchant, ceFunction)) {
 			return StepAction.valueOf(ceFunction.isInCooldownBreak());
 		}
 
@@ -159,12 +167,6 @@ public class CECaller {
 
 		if (data == null) {
 			return StepAction.BREAK;
-		}
-
-		if (chanceSlot.isEmpty()) {
-			putEnchantChance(equipSlot, ceEnchant.getName());
-		} else {
-			putEnchantChance(chanceSlot, ceEnchant.getName());
 		}
 
 		CEFunctionData data = this.data.clone();
@@ -194,7 +196,7 @@ public class CECaller {
 		getResult().getOptionDataList().addAll(result.getOptionDataList());
 
 		// Set cooldown to caller
-		if (hasCaller()) {
+		if (hasCaller() && !isByPassCooldown()) {
 			if (ceFunction.getCooldownSlot().isEmpty()) {
 				getCaller().getCECooldown().put(equipSlot, ceEnchant, ceFunction);
 			} else {

@@ -2,6 +2,7 @@ package me.texward.customenchantment.player;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class PlayerTemporaryStorage extends CEPlayerExpansion {
@@ -122,4 +123,20 @@ public class PlayerTemporaryStorage extends CEPlayerExpansion {
 			return value;
 		}
 	}
+
+    public void removeStartsWith(String key) {
+        List<String> removeList = new ArrayList<>();
+        for (String k : map.keySet()) {
+            if (k.startsWith(key)) {
+                removeList.add(k);
+            }
+        }
+        for (String k : removeList) {
+            map.remove(k);
+        }
+    }
+
+    public void setAll(Map<String, Object> map) {
+        this.map.putAll(map);
+    }
 }

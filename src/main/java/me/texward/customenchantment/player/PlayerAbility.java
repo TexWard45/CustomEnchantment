@@ -24,10 +24,20 @@ public class PlayerAbility extends CEPlayerExpansion {
 	}
 
 	public void setCancel(Type type, String unique, boolean cancel) {
-		map.get(type).setCancel(unique, cancel);
+        CancelManager cancelManager = map.get(type);
+        if (cancelManager == null) {
+            return;
+        }
+
+        cancelManager.setCancel(unique, cancel);
 	}
 
 	public boolean isCancel(Type type) {
-		return map.get(type).isCancel();
+        CancelManager cancelManager = map.get(type);
+        if (cancelManager == null) {
+            return false;
+        }
+
+        return cancelManager.isCancel();
 	}
 }

@@ -41,6 +41,10 @@ public class TargetFilter {
 				break;
 			}
 
+            if (playerTarget.isDead()) {
+                continue;
+            }
+
 			if (exceptPlayer && player != null && playerTarget == player) {
 				continue;
 			}

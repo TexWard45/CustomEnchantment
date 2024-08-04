@@ -129,7 +129,7 @@ public class ExplosionSpecialMine extends AbstractSpecialMine {
 		return explosion.isWork();
 	}
 
-	public List<ItemStack> getDrops(List<ItemStack> drops, boolean fake) {
+	public List<ItemStack> getDrops(SpecialMiningData data, List<ItemStack> drops, boolean fake) {
 		return drops;
 	}
 

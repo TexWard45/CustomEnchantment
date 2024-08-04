@@ -19,6 +19,7 @@ public class CECallerBuilder {
 	private Map<EquipSlot, CEWeaponAbstract> weaponMap;
 	private boolean executeLater = true;
 	private boolean checkWorld = true;
+    private boolean bypassCooldown = false;
 	
 	private CECallerBuilder() {
 	}
@@ -61,6 +62,7 @@ public class CECallerBuilder {
 					.setWeaponMap(weaponMap)
 					.setCESimpleList(weaponMap.get(slot))
 					.setCEType(ceType)
+                    .setByPassCooldown(bypassCooldown)
 					.setExecuterLater(executeLater).call();
 			slotEnchantChanceMap = caller.getSlotEnchantsChanceMap();
 			callerList.add(caller);
@@ -102,6 +104,11 @@ public class CECallerBuilder {
 		this.checkWorld = checkWorld;
 		return this;
 	}
+
+    public CECallerBuilder setByPassCooldown(boolean bypassCooldown) {
+        this.bypassCooldown = bypassCooldown;
+        return this;
+    }
 
 	public Player getPlayer() {
 		return player;

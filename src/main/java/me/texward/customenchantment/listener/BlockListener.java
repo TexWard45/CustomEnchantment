@@ -1,15 +1,17 @@
 package me.texward.customenchantment.listener;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ListIterator;
+import java.util.*;
 
+import com._3fmc.bukkit.utils.LocationUtils;
+import com.gmail.nossr50.datatypes.meta.BonusDropMeta;
 import me.texward.customenchantment.player.mining.AutoSellSpecialMine;
 import org.bukkit.Bukkit;
+import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.enchantments.Enchantment;
+import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -55,7 +57,6 @@ public class BlockListener implements Listener {
 		blockTask.remove(e.getBlock().getLocation());
 
 		Player player = e.getPlayer();
-
 		CEPlayer cePlayer = CEAPI.getCEPlayer(player);
 
 		Block block = e.getBlock();
@@ -92,12 +93,12 @@ public class BlockListener implements Listener {
 
 	@EventHandler(ignoreCancelled = true)
 	public void onSugarCaneBreak(BlockBreakEvent e) {
-		if (e.getBlock().getType() != Material.SUGAR_CANE) {
+        Block block = e.getBlock();
+		if (block.getType() != Material.SUGAR_CANE) {
 			return;
 		}
-		Location location = e.getBlock().getLocation();
-
-		Player player = e.getPlayer();
+        Player player = e.getPlayer();
+		Location location = block.getLocation();
 		CEPlayer cePlayer = CEAPI.getCEPlayer(player);
 
         boolean telepathy = cePlayer.getSpecialMining().getTelepathySpecialMine().isWork(true);
@@ -111,7 +112,7 @@ public class BlockListener implements Listener {
 
         for (int i = 1; i <= 2; i++) {
             location.setY(location.getY() + 1);
-            Block block = location.getBlock();
+            block = location.getBlock();
             if (block.getType() == Material.SUGAR_CANE) {
                 block.setType(Material.AIR);
                 count++;
@@ -120,13 +121,11 @@ public class BlockListener implements Listener {
 
         if (count != 0) {
             if (autosell) {
-                List<ItemStack> drops = new ArrayList<>();
-                drops.add(new ItemStack(Material.SUGAR_CANE, count));
-                AutoSellSpecialMine.doAutoSell(player, drops, false);
+                AutoSellSpecialMine.doAutoSell(player, new ItemStack(Material.SUGAR_CANE, count + 1), true);
             }
 
             if (!autosell) {
-                InventoryUtils.addItem(player, new ItemStack(Material.SUGAR_CANE, count));
+                InventoryUtils.addItem(player, new ItemStack(Material.SUGAR_CANE, count + 1));
             }
         }
 	}

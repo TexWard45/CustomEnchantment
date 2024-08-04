@@ -56,7 +56,7 @@ public class ConditionNumberStorage extends ConditionHook {
 		} catch (Exception e) {
 			compareNumber2 = 0;
 		}
-		
+
 		return CompareOperation.compare(compareNumber1, compareNumber2, operation);
 	}
 

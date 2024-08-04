@@ -47,8 +47,18 @@ public class EffectExecuteTask extends BukkitRunnable {
 			boolean canActivePeriod = effectData.canActivePeriod();
 			boolean execute = instant || (onlyDelay && canActiveDelay) || (onlyPeriod && canActivePeriod)
 					|| (delayAndPeriod && canActiveDelay && canActivePeriod);
+            boolean forceExecute = false;
 
-			if (execute && !effectData.isRemove()) {
+            if (effectData.isForceEffectOnEnemyDead() && effectData.isDifferentEnemyDeadSession()) {
+                try {
+                    effectData.updateAndExecute();
+                    forceExecute = true;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    list.remove(i);
+                    continue;
+                }
+            }else if (execute && !effectData.isRemove()) {
 				try {
 					effectData.updateAndExecute();
 				} catch (Exception e) {
@@ -58,7 +68,7 @@ public class EffectExecuteTask extends BukkitRunnable {
 				}
 			}
 
-			boolean executeOnce = instant || (onlyDelay && canActiveDelay);
+			boolean executeOnce = forceExecute || instant || (onlyDelay && canActiveDelay);
 			if (executeOnce) {
 				list.remove(i);
 			} else {

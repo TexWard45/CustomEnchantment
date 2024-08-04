@@ -9,6 +9,8 @@ import me.texward.customenchantment.api.CEAPI;
 import me.texward.customenchantment.enchant.CEEnchant;
 import me.texward.customenchantment.enchant.CEGroup;
 import me.texward.customenchantment.enchant.CESimple;
+import me.texward.texwardlib.util.GaussianChance;
+import me.texward.texwardlib.util.StdRandom;
 
 public class CERandomBookFilter {
 	public class LevelList extends ArrayList<Integer> {
@@ -37,6 +39,8 @@ public class CERandomBookFilter {
 	private int totalChance;
 	private int success = -1;
 	private int destroy = -1;
+    private double sigma = 0;
+    private GaussianChance gaussianChance;
 
 	public CESimple getRandomEnchant() {
 		int index = random.nextInt(totalChance);
@@ -51,8 +55,20 @@ public class CERandomBookFilter {
 
 			if (index >= minIndex && index <= maxIndex) {
 				String name = keys[i];
-				int level = map.get(keys[i]).get(random.nextInt(maxIndex - minIndex + 1));
-				
+				int level = 0;
+
+                if (sigma > 0) {
+                    double rate = StdRandom.gaussian(0.0, sigma);
+                    rate = Math.abs(rate);
+
+                    rate = Math.min(rate, 1.0);
+
+                    level = (int) Math.ceil(rate * 10);
+                    level = (int) Math.ceil(rate * 10) ;
+                }else {
+                    level = map.get(keys[i]).get(random.nextInt(maxIndex - minIndex + 1));
+                }
+
 				CEEnchant enchant = CEAPI.getCEEnchant(name);
 				CEGroup group = enchant.getCEGroup();
 				int success = this.success < 0 ? group.getSuccess().getValue() : this.success;
@@ -156,7 +172,9 @@ public class CERandomBookFilter {
 			this.success = Integer.valueOf(value);
 		} else if (key.equals("DESTROY")) {
 			this.destroy = Integer.valueOf(value);
-		}
+		} else if (key.equals("LEVEL_SIGMA")) {
+            this.sigma = Double.valueOf(value);
+        }
 
 		updateTotalChance();
 	}

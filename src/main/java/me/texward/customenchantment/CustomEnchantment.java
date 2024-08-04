@@ -1,8 +1,36 @@
 package me.texward.customenchantment;
 
-import java.io.File;
-
+import me.texward.customenchantment.api.CEAPI;
+import me.texward.customenchantment.command.CommandNameTag;
+import me.texward.customenchantment.command.CustomEnchantmentCommand;
+import me.texward.customenchantment.config.*;
+import me.texward.customenchantment.custommenu.CEBookCatalog;
+import me.texward.customenchantment.custommenu.CustomEnchantmentItemDisplaySetup;
+import me.texward.customenchantment.custommenu.CustomEnchantmentTradeItemCompare;
+import me.texward.customenchantment.database.Database;
+import me.texward.customenchantment.enchant.EffectTaskSeparate;
+import me.texward.customenchantment.enchant.condition.*;
 import me.texward.customenchantment.enchant.effect.*;
+import me.texward.customenchantment.execute.GiveItemExecute;
+import me.texward.customenchantment.execute.GiveVoucherItemExecute;
+import me.texward.customenchantment.execute.UseItemExecute;
+import me.texward.customenchantment.filter.FilterRegister;
+import me.texward.customenchantment.guard.GuardManager;
+import me.texward.customenchantment.item.*;
+import me.texward.customenchantment.listener.*;
+import me.texward.customenchantment.menu.BookcraftMenu;
+import me.texward.customenchantment.menu.CEAnvilMenu;
+import me.texward.customenchantment.menu.anvil.*;
+import me.texward.customenchantment.player.*;
+import me.texward.customenchantment.player.mining.*;
+import me.texward.customenchantment.task.*;
+import me.texward.custommenu.api.CustomMenuAPI;
+import me.texward.texwardlib.command.AdvancedCommandBuilder;
+import me.texward.texwardlib.command.AdvancedCommandExecutor;
+import me.texward.texwardlib.command.Argument;
+import me.texward.texwardlib.configuration.AdvancedFileConfiguration;
+import me.texward.texwardlib.util.ConfigUtils;
+import me.texward.texwardlib.util.FileUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.CommandSender;
@@ -11,122 +39,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import me.texward.customenchantment.api.CEAPI;
-import me.texward.customenchantment.command.CommandNameTag;
-import me.texward.customenchantment.command.CustomEnchantmentCommand;
-import me.texward.customenchantment.config.BookcraftConfig;
-import me.texward.customenchantment.config.CEConfig;
-import me.texward.customenchantment.config.CEEnchantConfig;
-import me.texward.customenchantment.config.CEGroupConfig;
-import me.texward.customenchantment.config.CEItemConfig;
-import me.texward.customenchantment.config.TinkererConfig;
-import me.texward.customenchantment.config.VanillaItemConfig;
-import me.texward.customenchantment.custommenu.CEBookCatalog;
-import me.texward.customenchantment.custommenu.CustomEnchantmentItemDisplaySetup;
-import me.texward.customenchantment.custommenu.CustomEnchantmentTradeItemCompare;
-import me.texward.customenchantment.database.Database;
-import me.texward.customenchantment.enchant.EffectTaskSeparate;
-import me.texward.customenchantment.enchant.condition.ConditionActiveEquipSlot;
-import me.texward.customenchantment.enchant.condition.ConditionAllowFlight;
-import me.texward.customenchantment.enchant.condition.ConditionCanAttack;
-import me.texward.customenchantment.enchant.condition.ConditionDamageCause;
-import me.texward.customenchantment.enchant.condition.ConditionEntityType;
-import me.texward.customenchantment.enchant.condition.ConditionEquipSlot;
-import me.texward.customenchantment.enchant.condition.ConditionExp;
-import me.texward.customenchantment.enchant.condition.ConditionFactionRelation;
-import me.texward.customenchantment.enchant.condition.ConditionFood;
-import me.texward.customenchantment.enchant.condition.ConditionFoodPercent;
-import me.texward.customenchantment.enchant.condition.ConditionHasDamageCause;
-import me.texward.customenchantment.enchant.condition.ConditionHasEnemy;
-import me.texward.customenchantment.enchant.condition.ConditionHasNearbyEnemy;
-import me.texward.customenchantment.enchant.condition.ConditionHealth;
-import me.texward.customenchantment.enchant.condition.ConditionHealthPercent;
-import me.texward.customenchantment.enchant.condition.ConditionHold;
-import me.texward.customenchantment.enchant.condition.ConditionInCombat;
-import me.texward.customenchantment.enchant.condition.ConditionInFactionTerriority;
-import me.texward.customenchantment.enchant.condition.ConditionItemConsume;
-import me.texward.customenchantment.enchant.condition.ConditionLevel;
-import me.texward.customenchantment.enchant.condition.ConditionNumberStorage;
-import me.texward.customenchantment.enchant.condition.ConditionOnFire;
-import me.texward.customenchantment.enchant.condition.ConditionOnGround;
-import me.texward.customenchantment.enchant.condition.ConditionOnlyActiveEquip;
-import me.texward.customenchantment.enchant.condition.ConditionOutOfSight;
-import me.texward.customenchantment.enchant.condition.ConditionOxygen;
-import me.texward.customenchantment.enchant.condition.ConditionOxygenPercent;
-import me.texward.customenchantment.enchant.condition.ConditionTextStorage;
-import me.texward.customenchantment.execute.GiveItemExecute;
-import me.texward.customenchantment.execute.GiveVoucherItemExecute;
-import me.texward.customenchantment.execute.UseItemExecute;
-import me.texward.customenchantment.guard.GuardManager;
-import me.texward.customenchantment.item.CEBanner;
-import me.texward.customenchantment.item.CEBook;
-import me.texward.customenchantment.item.CEEnchantPoint;
-import me.texward.customenchantment.item.CEEraseEnchant;
-import me.texward.customenchantment.item.CEIncreaseRateBook;
-import me.texward.customenchantment.item.CEItemRegister;
-import me.texward.customenchantment.item.CEItemType;
-import me.texward.customenchantment.item.CEMask;
-import me.texward.customenchantment.item.CENameTag;
-import me.texward.customenchantment.item.CEProtectDead;
-import me.texward.customenchantment.item.CEProtectDestroy;
-import me.texward.customenchantment.item.CERandomBook;
-import me.texward.customenchantment.item.CERemoveEnchant;
-import me.texward.customenchantment.item.CERemoveProtectDead;
-import me.texward.customenchantment.item.CEWeapon;
-import me.texward.customenchantment.listener.BannerListener;
-import me.texward.customenchantment.listener.BlockListener;
-import me.texward.customenchantment.listener.CEProtectDeadListener;
-import me.texward.customenchantment.listener.CMenuListener;
-import me.texward.customenchantment.listener.EntityListener;
-import me.texward.customenchantment.listener.GuardListener;
-import me.texward.customenchantment.listener.InventoryListener;
-import me.texward.customenchantment.listener.McMMOListener;
-import me.texward.customenchantment.listener.MobDeathListener;
-import me.texward.customenchantment.listener.MobStackDeathListener;
-import me.texward.customenchantment.listener.PlayerListener;
-import me.texward.customenchantment.menu.BookcraftMenu;
-import me.texward.customenchantment.menu.CEAnvilMenu;
-import me.texward.customenchantment.menu.anvil.Slot1CEWeaponView;
-import me.texward.customenchantment.menu.anvil.Slot2CEBookView;
-import me.texward.customenchantment.menu.anvil.Slot2CEEnchantPointView;
-import me.texward.customenchantment.menu.anvil.Slot2CEEraseEnchantView;
-import me.texward.customenchantment.menu.anvil.Slot2CEProtectDeadView;
-import me.texward.customenchantment.menu.anvil.Slot2CEProtectDestroyView;
-import me.texward.customenchantment.menu.anvil.Slot2CERemoveEnchantView;
-import me.texward.customenchantment.menu.anvil.Slot2CERemoveProtectDeadView;
-import me.texward.customenchantment.player.CEPlayer;
-import me.texward.customenchantment.player.CEPlayerExpansionRegister;
-import me.texward.customenchantment.player.PlayerAbility;
-import me.texward.customenchantment.player.PlayerBlockBonus;
-import me.texward.customenchantment.player.PlayerCECooldown;
-import me.texward.customenchantment.player.PlayerCEManager;
-import me.texward.customenchantment.player.PlayerCustomAttribute;
-import me.texward.customenchantment.player.PlayerMobBonus;
-import me.texward.customenchantment.player.PlayerNameTag;
-import me.texward.customenchantment.player.PlayerPotion;
-import me.texward.customenchantment.player.PlayerSpecialMining;
-import me.texward.customenchantment.player.PlayerSpecialMiningRegister;
-import me.texward.customenchantment.player.PlayerStorage;
-import me.texward.customenchantment.player.PlayerTemporaryStorage;
-import me.texward.customenchantment.player.PlayerVanillaAttribute;
-import me.texward.customenchantment.player.mining.AutoSellSpecialMine;
-import me.texward.customenchantment.player.mining.BlockDropBonusSpecialMine;
-import me.texward.customenchantment.player.mining.ExplosionSpecialMine;
-import me.texward.customenchantment.player.mining.FurnaceSpecialMine;
-import me.texward.customenchantment.player.mining.TelepathySpecialMine;
-import me.texward.customenchantment.task.BlockTask;
-import me.texward.customenchantment.task.CECallerTask;
-import me.texward.customenchantment.task.CEPlayerTask;
-import me.texward.customenchantment.task.EffectExecuteTask;
-import me.texward.customenchantment.task.GuardTask;
-import me.texward.customenchantment.task.SpecialMiningTask;
-import me.texward.custommenu.api.CustomMenuAPI;
-import me.texward.texwardlib.command.AdvancedCommandBuilder;
-import me.texward.texwardlib.command.AdvancedCommandExecutor;
-import me.texward.texwardlib.command.Argument;
-import me.texward.texwardlib.configuration.AdvancedFileConfiguration;
-import me.texward.texwardlib.util.ConfigUtils;
-import me.texward.texwardlib.util.FileUtils;
+import java.io.File;
 
 public class CustomEnchantment extends JavaPlugin implements Listener {
 	private static CustomEnchantment instance;
@@ -142,6 +55,7 @@ public class CustomEnchantment extends JavaPlugin implements Listener {
 	private GuardManager guardManager;
 	private GuardTask guardTask;
 	private BlockTask blockTask;
+    private ArrowTask arrowTask;
 	private Database database;
 
 	@Override
@@ -176,6 +90,7 @@ public class CustomEnchantment extends JavaPlugin implements Listener {
 	}
 
 	public void setup() {
+        setupFilter();
 		setupCommand();
 		setupTradeItemCompare();
 		setupCEItem();
@@ -198,6 +113,10 @@ public class CustomEnchantment extends JavaPlugin implements Listener {
 			registerCMenu();
 		});
 	}
+
+    public void setupFilter() {
+        FilterRegister.register();
+    }
 
 	public void setupCommand() {
 		AdvancedCommandBuilder builder = new AdvancedCommandBuilder("customenchantment");
@@ -252,11 +171,14 @@ public class CustomEnchantment extends JavaPlugin implements Listener {
 
 	public void setupMenu() {
 		CEAnvilMenu.registerView1(CEItemType.WEAPON, Slot1CEWeaponView.class);
+        CEAnvilMenu.registerView2("default", Slot2CEDefaultView.class);
 		CEAnvilMenu.registerView2(CEItemType.REMOVE_ENCHANT, Slot2CERemoveEnchantView.class);
 		CEAnvilMenu.registerView2(CEItemType.ENCHANT_POINT, Slot2CEEnchantPointView.class);
 		CEAnvilMenu.registerView2(CEItemType.BOOK, Slot2CEBookView.class);
 		CEAnvilMenu.registerView2(CEItemType.PROTECT_DEAD, Slot2CEProtectDeadView.class);
 		CEAnvilMenu.registerView2(CEItemType.REMOVE_PROTECT_DEAD, Slot2CERemoveProtectDeadView.class);
+        CEAnvilMenu.registerView2(CEItemType.LORE_FORMAT, Slot2CELoreFormatView.class);
+        CEAnvilMenu.registerView2(CEItemType.REMOVE_ENCHANT_POINT, Slot2CERemoveEnchantPointView.class);
 		CEAnvilMenu.registerView2(CEItemType.PROTECT_DESTROY, Slot2CEProtectDestroyView.class);
 		CEAnvilMenu.registerView2(CEItemType.EARSE_ENCHANT, Slot2CEEraseEnchantView.class);
 	}
@@ -284,7 +206,9 @@ public class CustomEnchantment extends JavaPlugin implements Listener {
 		CEItemRegister.register(CEIncreaseRateBook.class);
 		CEItemRegister.register(CERandomBook.class);
 		CEItemRegister.register(CERemoveEnchant.class);
+        CEItemRegister.register(CERemoveEnchantPoint.class);
 		CEItemRegister.register(CEEraseEnchant.class);
+        CEItemRegister.register(CELoreFormat.class);
 	}
 
 	public void setupCEPlayerExpansion() {
@@ -293,6 +217,7 @@ public class CustomEnchantment extends JavaPlugin implements Listener {
 		CEPlayerExpansionRegister.register(PlayerVanillaAttribute.class);
 		CEPlayerExpansionRegister.register(PlayerCustomAttribute.class);
 		CEPlayerExpansionRegister.register(PlayerPotion.class);
+        CEPlayerExpansionRegister.register(PlayerSet.class);
 		CEPlayerExpansionRegister.register(PlayerCECooldown.class);
 		CEPlayerExpansionRegister.register(PlayerCEManager.class);
 		CEPlayerExpansionRegister.register(PlayerAbility.class);
@@ -426,6 +351,8 @@ public class CustomEnchantment extends JavaPlugin implements Listener {
 		new EffectSummonCustomGuard().register();
 		new EffectEnableAutoSell().register();
 		new EffectDisableAutoSell().register();
+        new EffectBlockForeverPotion().register();
+        new EffectUnblockForeverPotion().register();
 	}
 
 	public void setupCondition() {
@@ -543,6 +470,9 @@ public class CustomEnchantment extends JavaPlugin implements Listener {
 
 		this.blockTask = new BlockTask(this);
 		this.blockTask.runTaskTimer(this, 0, 1);
+
+        this.arrowTask = new ArrowTask();
+        this.arrowTask.runTaskTimer(this, 0, 20);
 
 		new BukkitRunnable() {
 			public void run() {

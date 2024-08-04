@@ -1,27 +1,5 @@
 package me.texward.customenchantment.listener;
 
-import java.util.Map;
-
-import org.bukkit.Bukkit;
-import org.bukkit.GameMode;
-import org.bukkit.Location;
-import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.EventPriority;
-import org.bukkit.event.Listener;
-import org.bukkit.event.block.Action;
-import org.bukkit.event.entity.PlayerDeathEvent;
-import org.bukkit.event.player.PlayerChangedWorldEvent;
-import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.event.player.PlayerItemConsumeEvent;
-import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerMoveEvent;
-import org.bukkit.event.player.PlayerQuitEvent;
-import org.bukkit.inventory.EquipmentSlot;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.potion.PotionEffect;
-import org.bukkit.potion.PotionEffectType;
-
 import me.texward.customenchantment.ConfigVariable;
 import me.texward.customenchantment.CustomEnchantment;
 import me.texward.customenchantment.api.CEAPI;
@@ -32,15 +10,27 @@ import me.texward.customenchantment.event.CEPlayerStatsModifyEvent;
 import me.texward.customenchantment.item.CEItem;
 import me.texward.customenchantment.item.CEItemUsable;
 import me.texward.customenchantment.item.CEWeaponAbstract;
-import me.texward.customenchantment.player.CEPlayer;
-import me.texward.customenchantment.player.PlayerAbility;
+import me.texward.customenchantment.player.*;
 import me.texward.customenchantment.player.PlayerAbility.Type;
-import me.texward.customenchantment.player.PlayerCustomAttribute;
-import me.texward.customenchantment.player.PlayerTemporaryStorage;
-import me.texward.customenchantment.player.TemporaryKey;
 import me.texward.texwardlib.event.ItemEquipEvent;
 import me.texward.texwardlib.util.EquipSlot;
 import me.texward.texwardlib.util.ItemStackUtils;
+import org.bukkit.Bukkit;
+import org.bukkit.GameMode;
+import org.bukkit.Location;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
+import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
+import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.event.player.*;
+import org.bukkit.inventory.EquipmentSlot;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
+
+import java.util.Map;
 
 public class PlayerListener implements Listener {
 	private CustomEnchantment plugin;

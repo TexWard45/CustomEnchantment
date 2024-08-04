@@ -1,13 +1,14 @@
 package me.texward.customenchantment.player;
 
-import java.util.concurrent.ConcurrentHashMap;
-
-import org.bukkit.entity.Player;
-
 import me.texward.customenchantment.CustomEnchantment;
 import me.texward.customenchantment.item.CEWeapon;
 import me.texward.customenchantment.item.CEWeaponAbstract;
 import me.texward.texwardlib.util.EquipSlot;
+import org.bukkit.entity.Player;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class CEPlayer implements ICEPlayerEvent {
 	private ConcurrentHashMap<Class<? extends CEPlayerExpansion>, CEPlayerExpansion> map = new ConcurrentHashMap<Class<? extends CEPlayerExpansion>, CEPlayerExpansion>();
@@ -124,6 +125,10 @@ public class CEPlayer implements ICEPlayerEvent {
 		return (PlayerPotion) getExpansion(PlayerPotion.class);
 	}
 
+    public PlayerSet getSet() {
+        return (PlayerSet) getExpansion(PlayerSet.class);
+    }
+
 	public PlayerStorage getStorage() {
 		return (PlayerStorage) getExpansion(PlayerStorage.class);
 	}
@@ -200,5 +205,11 @@ public class CEPlayer implements ICEPlayerEvent {
 		} else {
 			slotMap.remove(slot);
 		}
+
+        getSet().onUpdate();
 	}
+
+    public Map<EquipSlot, CEWeaponAbstract> getSlotMap() {
+        return new LinkedHashMap<>(slotMap);
+    }
 }

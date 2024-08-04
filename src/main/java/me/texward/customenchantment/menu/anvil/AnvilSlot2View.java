@@ -18,11 +18,13 @@ public abstract class AnvilSlot2View<T extends AnvilSlot2View> {
 	public abstract void updateView();
 	
 	public abstract void updateConfirm();
+
+    public void updateAllPreviewNull() {}
 	
 	public void clickProcess(String name) {
-		
+
 	}
-	
+
 	public abstract ApplyReason apply(CEItem ceItem1, CEItem ceItem2);
 	
 	public CEAnvilMenu getAnvilMenu() {

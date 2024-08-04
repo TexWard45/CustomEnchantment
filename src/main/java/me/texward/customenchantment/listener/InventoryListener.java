@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
+import com.destroystokyo.paper.event.inventory.PrepareGrindstoneEvent;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -47,6 +48,21 @@ public class InventoryListener implements Listener {
 
 		Bukkit.getPluginManager().registerEvents(this, plugin);
 	}
+
+    @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
+    public void onPrepareGrindstone(PrepareGrindstoneEvent e) {
+        ItemStack itemStack = e.getResult();
+        if (itemStack == null) {
+            return;
+        }
+
+        CEItem ceItem = CEAPI.getCEItem(itemStack);
+        if (ceItem == null) {
+            return;
+        }
+
+        e.setResult(ceItem.exportTo());
+    }
 
 	@SuppressWarnings("deprecation")
 	@EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)

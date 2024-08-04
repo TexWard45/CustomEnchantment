@@ -8,12 +8,13 @@ public class EffectSettings implements Cloneable {
 	private long delay;
 	private long period;
 	private boolean effectAfterDead;
+    private boolean effectOnFakeSource;
 
 	public EffectSettings() {
 	}
 
 	public EffectSettings(String name, Target target, Target targetOther, TargetFilter targetFilter, long delay,
-			long period, boolean effectAfterDead) {
+			long period, boolean effectAfterDead, boolean enableFakeSource) {
 		this.name = name;
 		this.target = target;
 		this.targetOther = targetOther;
@@ -21,6 +22,7 @@ public class EffectSettings implements Cloneable {
 		this.delay = delay;
 		this.period = period;
 		this.effectAfterDead = effectAfterDead;
+        this.effectOnFakeSource = enableFakeSource;
 	}
 
 	public String getName() {
@@ -79,11 +81,19 @@ public class EffectSettings implements Cloneable {
 		this.effectAfterDead = effectAfterDead;
 	}
 
+    public boolean isEffectOnFakeSource() {
+        return effectOnFakeSource;
+    }
+
+    public void setEffectOnFakeSource(boolean effectOnFakeSource) {
+        this.effectOnFakeSource = effectOnFakeSource;
+    }
+
 	public EffectSettings clone() {
 		try {
 			return (EffectSettings) super.clone();
 		} catch (CloneNotSupportedException e) {
-			return new EffectSettings(name, target, targetOther, targetFilter, delay, period, effectAfterDead);
+			return new EffectSettings(name, target, targetOther, targetFilter, delay, period, effectAfterDead, effectOnFakeSource);
 		}
 	}
 }

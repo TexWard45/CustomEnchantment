@@ -1,43 +1,18 @@
 package me.texward.customenchantment.config;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.ListIterator;
-import java.util.Set;
-
 import me.texward.customenchantment.CustomEnchantment;
 import me.texward.customenchantment.CustomEnchantmentDebug;
 import me.texward.customenchantment.api.CEAPI;
 import me.texward.customenchantment.api.MaterialList;
 import me.texward.customenchantment.attribute.AttributeData;
 import me.texward.customenchantment.attribute.AttributeData.Operation;
-import me.texward.customenchantment.enchant.CEDisplay;
-import me.texward.customenchantment.enchant.CEEnchant;
-import me.texward.customenchantment.enchant.CEFunction;
-import me.texward.customenchantment.enchant.CEGroup;
-import me.texward.customenchantment.enchant.CELevel;
-import me.texward.customenchantment.enchant.CEType;
-import me.texward.customenchantment.enchant.Condition;
-import me.texward.customenchantment.enchant.ConditionHook;
-import me.texward.customenchantment.enchant.ConditionOR;
-import me.texward.customenchantment.enchant.ConditionSettings;
 import me.texward.customenchantment.enchant.Cooldown;
-import me.texward.customenchantment.enchant.Effect;
-import me.texward.customenchantment.enchant.EffectHook;
-import me.texward.customenchantment.enchant.EffectSettings;
-import me.texward.customenchantment.enchant.Option;
-import me.texward.customenchantment.enchant.OptionType;
-import me.texward.customenchantment.enchant.Target;
-import me.texward.customenchantment.enchant.TargetFilter;
+import me.texward.customenchantment.enchant.*;
 import me.texward.texwardlib.configuration.AbstractConfig;
 import me.texward.texwardlib.configuration.AdvancedConfigurationSection;
-import me.texward.texwardlib.util.Chance;
-import me.texward.texwardlib.util.EnumUtils;
-import me.texward.texwardlib.util.EquipSlot;
-import me.texward.texwardlib.util.SparseMap;
-import me.texward.texwardlib.util.StringUtils;
+import me.texward.texwardlib.util.*;
+
+import java.util.*;
 
 public class CEEnchantConfig extends AbstractConfig {
 
@@ -56,7 +31,6 @@ public class CEEnchantConfig extends AbstractConfig {
 		int maxLevel = config.getInt("max-level");
 		int valuable = config.getInt("valuable");
 		int enchantPoint = config.getInt("enchant-point");
-        String set = config.getString("set-example");
 		CEGroup ceGroup = CEAPI.getCEGroup(groupName);
 		valuable = ceGroup.getValuable();
 		CEDisplay ceDisplay = new CEDisplay(config.getStringColor("display"),
@@ -68,9 +42,10 @@ public class CEEnchantConfig extends AbstractConfig {
 
 		SparseMap<CELevel> ceLevelMap = loadCELevels(config.getAdvancedConfigurationSection("levels"));
 		MaterialList appliesMaterialList = MaterialList.getMaterialList(config.getStringList("applies"));
+        String set = config.getString("set");
 
 		return new CEEnchant(name, groupName, maxLevel, valuable, enchantPoint, ceDisplay, ceLevelMap,
-				appliesMaterialList);
+				appliesMaterialList, set);
 	}
 
 	public HashMap<Integer, List<String>> loadDescriptionMap(AdvancedConfigurationSection config) {
@@ -88,7 +63,18 @@ public class CEEnchantConfig extends AbstractConfig {
 
 		for (String levelKey : config.getKeys(false)) {
 			try {
-				map.put(Integer.valueOf(levelKey), loadCELevel(config.getAdvancedConfigurationSection(levelKey)));
+                if (levelKey.equals("default") || levelKey.equals("0")) {
+                    continue;
+                }
+
+                AdvancedConfigurationSection defaultConfig = null;
+                if (config.isSet("default")) {
+                    defaultConfig = config.getAdvancedConfigurationSection("default");
+                }else if (config.isSet("0")) {
+                    defaultConfig = config.getAdvancedConfigurationSection("0");
+                }
+
+				map.put(Integer.valueOf(levelKey), loadCELevel(defaultConfig, config.getAdvancedConfigurationSection(levelKey)));
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -97,18 +83,25 @@ public class CEEnchantConfig extends AbstractConfig {
 		return map;
 	}
 
-	public CELevel loadCELevel(AdvancedConfigurationSection config) {
-		LinkedHashMap<String, CEFunction> functionMap = loadFunctionMap(config);
+	public CELevel loadCELevel(AdvancedConfigurationSection defaultConfig, AdvancedConfigurationSection levelConfig) {
+		LinkedHashMap<String, CEFunction> functionMap = loadFunctionMap(defaultConfig, levelConfig);
 
 		return new CELevel(functionMap);
 	}
 
-	public LinkedHashMap<String, CEFunction> loadFunctionMap(AdvancedConfigurationSection config) {
-		LinkedHashMap<String, CEFunction> map = new LinkedHashMap<String, CEFunction>();
-		Set<String> functionKeys = config.getKeys(false);
+	public LinkedHashMap<String, CEFunction> loadFunctionMap(AdvancedConfigurationSection defaultConfig, AdvancedConfigurationSection levelConfig) {
+		LinkedHashMap<String, CEFunction> map = new LinkedHashMap<>();
 
-		for (String key : functionKeys) {
-			map.put(key, loadCEFunction(key, config.getAdvancedConfigurationSection(key)));
+        if (defaultConfig != null) {
+            Set<String> defaultFunctionKeys = defaultConfig.getKeys(false);
+            for (String key : defaultFunctionKeys) {
+                map.put(key, loadCEFunction(key, defaultConfig.getAdvancedConfigurationSection(key)));
+            }
+        }
+
+		Set<String> levelFunctionKeys = levelConfig.getKeys(false);
+		for (String key : levelFunctionKeys) {
+			map.put(key, loadCEFunction(key, levelConfig.getAdvancedConfigurationSection(key)));
 		}
 
 		return map;
@@ -140,9 +133,10 @@ public class CEEnchantConfig extends AbstractConfig {
 		boolean trueConditionBreak = config.getBoolean("true-condition-break");
 		boolean falseConditionBreak = config.getBoolean("false-condition-break");
 
-		return new CEFunction(name, ceType, chance, cooldown, chanceSlot, cooldownSlot, activeSlot, targetFilter,
+		CEFunction ceFunction = new CEFunction(name, ceType, chance, cooldown, chanceSlot, cooldownSlot, activeSlot, targetFilter,
 				targetCondition, targetOption, targetEffect, condition, option, effect, effectNow, trueChanceBreak,
 				falseChanceBreak, timeoutCooldownBreak, inCooldownBreak, trueConditionBreak, falseConditionBreak);
+        return ceFunction;
 	}
 
 	public TargetFilter loadTargetFilter(AdvancedConfigurationSection config) {
@@ -442,6 +436,9 @@ public class CEEnchantConfig extends AbstractConfig {
 				targetEnable = true;
 				settings.setTargetOther(Target.valueOf(value));
 				break;
+            case "EFFECT_ON_FAKE_SOURCE":
+                settings.setEffectOnFakeSource(Boolean.valueOf(value));
+                break;
 			}
 		}
 		TargetFilter targetFilter = new TargetFilter(targetEnable, target, targetExceptPlayer, targetExceptEnemy,

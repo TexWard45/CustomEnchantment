@@ -31,6 +31,10 @@ public class Slot2CERemoveEnchantView extends AnvilSlot2View<Slot2CERemoveEnchan
 
 		public void setPage(int page) {
 			this.page = page;
+
+            if (page < 1) {
+                this.page = 1;
+            }
 		}
 
 		public int getMaxPage() {
@@ -89,10 +93,10 @@ public class Slot2CERemoveEnchantView extends AnvilSlot2View<Slot2CERemoveEnchan
 		CERemoveEnchant removeEnchant = (CERemoveEnchant) ceItem2;
 
 		CEWeapon weapon = (CEWeapon) ceItem1;
-		List<CESimple> list = removeEnchantData.getRemoveEnchantList();
-		removeEnchantData
-				.setRemoveEnchantList(removeEnchant.getRemoveEnchantList(weapon.getWeaponEnchant().getCESimpleList()));
+		List<CESimple> list = removeEnchant.getRemoveEnchantList(weapon.getWeaponEnchant().getCESimpleList());
+		removeEnchantData.setRemoveEnchantList(list);
 		removeEnchantData.setMaxPage((int) Math.ceil(list.size() / 5d));
+
 		updateRemoveEnchant();
 	}
 
@@ -134,7 +138,7 @@ public class Slot2CERemoveEnchantView extends AnvilSlot2View<Slot2CERemoveEnchan
 		}
 		return -1;
 	}
-	
+
 	public void updateRemoveEnchant() {
 		int page = removeEnchantData.getPage();
 		List<CESimple> list = removeEnchantData.getRemoveEnchantList();
@@ -223,6 +227,7 @@ public class Slot2CERemoveEnchantView extends AnvilSlot2View<Slot2CERemoveEnchan
 	
 	public ApplyReason apply(CEItem ceItem1, CEItem ceItem2) {
 		if (ceItem2 instanceof CERemoveEnchant) {
+            CEWeapon weapon = (CEWeapon) ceItem1;
 			CERemoveEnchant removeEnchant = (CERemoveEnchant) ceItem2;
 
 			if (removeEnchantData.getRemoveEnchantList().isEmpty()) {
@@ -232,12 +237,37 @@ public class Slot2CERemoveEnchantView extends AnvilSlot2View<Slot2CERemoveEnchan
 			int index = removeEnchantData.getChooseIndex();
 			CESimple ceSimple = null;
 			if (index != -1) {
+                if (index >= removeEnchantData.getRemoveEnchantList().size()) {
+                    return ApplyReason.NOTHING;
+                }
+
 				ceSimple = removeEnchantData.getRemoveEnchantList().get(index);
 				removeEnchantData.setChooseIndex(-1);
 			}
 
-			return removeEnchant.applyByMenuTo(ceItem1, ceSimple);
+			ApplyReason reason = removeEnchant.applyByMenuTo(ceItem1, ceSimple);
+
+            if (reason.getResult() == ApplyResult.SUCCESS) {
+                List<CESimple> list = removeEnchant.getRemoveEnchantList(weapon.getWeaponEnchant().getCESimpleList());
+                removeEnchantData.setRemoveEnchantList(list);
+                removeEnchantData.setMaxPage((int) Math.ceil(list.size() / 5d));
+
+                if (removeEnchantData.getPage() > removeEnchantData.getMaxPage()) {
+                    removeEnchantData.setPage(removeEnchantData.getPage() - 1);
+                }
+            }
+
+            return reason;
 		}
 		return ApplyReason.NOTHING;
 	}
+
+    public void updateAllPreviewNull() {
+        for (int i = 0; i < 5; i++) {
+            updateRemovePreview(i, null);
+        }
+
+        getAnvilMenu().updateSlots("next-page", null);
+        getAnvilMenu().updateSlots("previous-page", null);
+    }
 }

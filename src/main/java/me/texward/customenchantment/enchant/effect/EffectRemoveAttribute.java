@@ -17,6 +17,10 @@ public class EffectRemoveAttribute extends EffectHook {
 		return "REMOVE_ATTRIBUTE";
 	}
 
+    public boolean isForceEffectOnEnemyDead() {
+        return true;
+    }
+
 	public void setup(String[] args) {
 		this.attribute = EffectUtil.getAttributeType(args[0]);
 		this.name = args[1];

@@ -1,15 +1,8 @@
 package me.texward.customenchantment.player;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-
-import me.texward.customenchantment.CustomEnchantment;
 import me.texward.customenchantment.player.mining.*;
-import me.texward.customenchantment.task.SpecialMiningTask;
-import org.bukkit.Location;
+import net.minecraft.server.v1_16_R3.BlockPosition;
+import net.minecraft.server.v1_16_R3.EntityPlayer;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.craftbukkit.v1_16_R3.entity.CraftPlayer;
@@ -18,8 +11,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.block.BlockDropItemEvent;
 import org.bukkit.inventory.ItemStack;
 
-import net.minecraft.server.v1_16_R3.BlockPosition;
-import net.minecraft.server.v1_16_R3.EntityPlayer;
+import java.util.*;
 
 public class PlayerSpecialMining extends CEPlayerExpansion {
 	private Map<Class<? extends AbstractSpecialMine>, AbstractSpecialMine> map;
@@ -70,8 +62,15 @@ public class PlayerSpecialMining extends CEPlayerExpansion {
             return;
         }
 
-		List<ItemStack> drops = toItemStackList(e.getItems());
-		drops = getDrops(drops, workMap, fake);
+        SpecialMiningData data = null;
+        if (fake) {
+            data = getMiningData();
+        } else {
+            data = new SpecialMiningData(player, block, itemStack);
+        }
+
+		List<ItemStack> originalDrops = toItemStackList(e.getItems());
+		List<ItemStack> drops = getDrops(data, new ArrayList<>(originalDrops), workMap, fake);
         drops = optimizeItemStacks(drops);
 
         e.getItems().clear();
@@ -80,12 +79,8 @@ public class PlayerSpecialMining extends CEPlayerExpansion {
             e.getItems().add(item);
         }
 
-		SpecialMiningData data = null;
-		if (fake) {
-			data = getMiningData();
-		} else {
-			data = new SpecialMiningData(player, block, itemStack);
-		}
+        data.setDrops(drops);
+        data.setOriginalDrops(originalDrops);
 
 		doSpecialMine(data, workMap, fake);
 	}
@@ -136,14 +131,14 @@ public class PlayerSpecialMining extends CEPlayerExpansion {
 		return workMap;
 	}
 
-	public List<ItemStack> getDrops(List<ItemStack> drops, List<Class<? extends AbstractSpecialMine>> workMap,
+	public List<ItemStack> getDrops(SpecialMiningData specialMiningData, List<ItemStack> drops, List<Class<? extends AbstractSpecialMine>> workMap,
 			boolean fake) {
 		SpecialMiningData data = getMiningData();
 
 		for (Class<? extends AbstractSpecialMine> clazz : workMap) {
 			AbstractSpecialMine specialMine = this.map.get(clazz);
 
-			List<ItemStack> newDrops = specialMine.getDrops(drops, fake);
+			List<ItemStack> newDrops = specialMine.getDrops(specialMiningData, drops, fake);
 			if (newDrops == null) {
 				continue;
 			}

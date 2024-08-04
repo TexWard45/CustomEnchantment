@@ -109,6 +109,8 @@ public class CMenuListener implements Listener {
 		}
 
 		CustomEnchantmentMessage.send(player, "menu.bookcraft.add-book." + EnumUtils.toConfigStyle(reason));
+
+        bookCraftMenu.fastCraft(player);
 	}
 
 	public void onTinkererItemClick(InventoryClickEvent e) {

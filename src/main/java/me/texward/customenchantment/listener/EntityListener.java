@@ -1,34 +1,10 @@
 package me.texward.customenchantment.listener;
 
-import java.text.DecimalFormat;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-
-import org.bukkit.Bukkit;
-import org.bukkit.Material;
-import org.bukkit.entity.Arrow;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.LivingEntity;
-import org.bukkit.entity.Player;
-import org.bukkit.entity.Projectile;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.EventPriority;
-import org.bukkit.event.Listener;
-import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.event.entity.EntityDamageEvent;
-import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
-import org.bukkit.event.entity.ProjectileLaunchEvent;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.util.Vector;
-
+import com.gmail.nossr50.events.skills.rupture.McMMOEntityDamageByRuptureEvent;
 import me.texward.customenchantment.CustomEnchantment;
 import me.texward.customenchantment.api.CEAPI;
 import me.texward.customenchantment.attribute.AttributeCalculate;
-import me.texward.customenchantment.enchant.CECallerBuilder;
-import me.texward.customenchantment.enchant.CECallerList;
-import me.texward.customenchantment.enchant.CEFunctionData;
-import me.texward.customenchantment.enchant.CEType;
-import me.texward.customenchantment.enchant.OptionType;
+import me.texward.customenchantment.enchant.*;
 import me.texward.customenchantment.guard.Guard;
 import me.texward.customenchantment.guard.GuardManager;
 import me.texward.customenchantment.guard.PlayerGuard;
@@ -38,8 +14,27 @@ import me.texward.customenchantment.player.PlayerAbility;
 import me.texward.customenchantment.player.PlayerAbility.Type;
 import me.texward.customenchantment.player.PlayerTemporaryStorage;
 import me.texward.customenchantment.player.TemporaryKey;
+import me.texward.customenchantment.task.ArrowTask;
 import me.texward.texwardlib.util.EquipSlot;
 import me.texward.texwardlib.util.RandomRange;
+import org.bukkit.Bukkit;
+import org.bukkit.Material;
+import org.bukkit.entity.*;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
+import org.bukkit.event.Listener;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.EntityDamageEvent;
+import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
+import org.bukkit.event.entity.ProjectileHitEvent;
+import org.bukkit.event.entity.ProjectileLaunchEvent;
+import org.bukkit.util.Vector;
+
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class EntityListener implements Listener {
 	private static ConcurrentHashMap<Entity, CEWeaponAbstract> arrowMap = new ConcurrentHashMap<Entity, CEWeaponAbstract>();
@@ -52,6 +47,12 @@ public class EntityListener implements Listener {
 
 		Bukkit.getPluginManager().registerEvents(this, plugin);
 	}
+
+    private static List<String> mainArrowShootList = new ArrayList<>();
+
+    public static void removeMainArrowShootList(String uuid) {
+        mainArrowShootList.remove(uuid);
+    }
 
 	@EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
 	public void onProjectile(ProjectileLaunchEvent e) {
@@ -71,22 +72,23 @@ public class EntityListener implements Listener {
 
 		double power = storage.getDouble(TemporaryKey.BOW_POWER, 1d);
 
-		EquipSlot bowSlot = getBowShoowSlot(player);
-
-		// Put arrow with weapon to arrowMap
-		CEWeaponAbstract ceWeapon = cePlayer.getSlot(bowSlot);
-
-		if (ceWeapon != null) {
-			putArrow(projectile, ceWeapon);
-		} else {
-			System.err.println("Error when shoot arrow");
-			System.err.println(projectile);
-			System.err.println(player.getItemInHand());
-		}
-
 		// Call ce
 		Map<EquipSlot, CEWeaponAbstract> weaponMap = CEAPI.getCEWeaponMap(player);
-		weaponMap.put(bowSlot, ceWeapon);
+
+        CEWeaponAbstract ceWeapon = null;
+        if (weaponMap.get(EquipSlot.MAINHAND) != null && isBow(weaponMap.get(EquipSlot.MAINHAND).getDefaultItemStack().getType())) {
+            ceWeapon = weaponMap.get(EquipSlot.MAINHAND);
+        } else if (weaponMap.get(EquipSlot.OFFHAND) != null && isBow(weaponMap.get(EquipSlot.OFFHAND).getDefaultItemStack().getType())) {
+            ceWeapon = weaponMap.get(EquipSlot.OFFHAND);
+        }
+
+        if (ceWeapon == null) {
+            return;
+        }
+
+        // Put arrow with weapon to arrowMap
+        putArrow(projectile, ceWeapon);
+
 		CECallerList result = CECallerBuilder
 									.build(player)
 									.setCEType(CEType.BOW_SHOOT)
@@ -104,17 +106,24 @@ public class EntityListener implements Listener {
 		if (power != 1d) {
 			projectile.setVelocity(projectile.getVelocity().multiply(power));
 		}
+
+        mainArrowShootList.add(projectile.getUniqueId().toString());
 	}
 
-	private static EquipSlot getBowShoowSlot(Player player) {
-		ItemStack itemStack = player.getItemInHand();
+    @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
+    public void onProjectile(ProjectileHitEvent e) {
+        Entity entity = e.getEntity();
 
-		if (itemStack.getType() == Material.BOW || itemStack.getType() == Material.CROSSBOW) {
-			return EquipSlot.MAINHAND;
-		}
+        if (!(entity instanceof Arrow)) {
+            return;
+        }
 
-		return EquipSlot.OFFHAND;
-	}
+        ArrowTask.addEntity(e.getEntity());
+    }
+
+    public boolean isBow(Material material) {
+        return material == Material.BOW || material == Material.CROSSBOW;
+    }
 
 	public static void putArrow(Entity entity, CEWeaponAbstract weapon) {
 		arrowMap.put(entity, weapon);
@@ -134,6 +143,7 @@ public class EntityListener implements Listener {
 			Arrow arrow = (Arrow) player.launchProjectile(Arrow.class,
 					vector.setX(vector.getX() + velocityMod.getValue()).setY(vector.getY() + velocityMod.getValue())
 							.setZ(vector.getZ() + velocityMod.getValue()).multiply(power));
+
 			arrow.setFireTicks(fireTicks);
 			putArrow(arrow, ceWeapon);
 		}
@@ -177,6 +187,10 @@ public class EntityListener implements Listener {
 		if (e.getCause() == DamageCause.ENTITY_SWEEP_ATTACK) {
 			return;
 		}
+
+        if (e instanceof McMMOEntityDamageByRuptureEvent) {
+            return;
+        }
 
 		Entity attacker = getRealEntity(e.getDamager());
 		Entity defenser = getRealEntity(e.getEntity());
@@ -413,7 +427,7 @@ public class EntityListener implements Listener {
 
 		pResult = CECallerBuilder
 				.build(pAttacker)
-				.setCEType(CEType.ATTACK)
+				.setCEType(CEType.FINAL_ATTACK)
 				.setCEFunctionData(pData)
 				.call();
 		
@@ -435,21 +449,24 @@ public class EntityListener implements Listener {
 		Player pAttacker = (Player) ((Arrow) attacker).getShooter();
 		Player pDefenser = (Player) defenser;
 
+        boolean isFakeArrow = !mainArrowShootList.contains(attacker.getUniqueId().toString());
+
 		CEFunctionData pData = new CEFunctionData(pAttacker);
 		pData.setEnemyPlayer(pDefenser);
 		pData.set("damage", damage);
+        pData.setFakeSource(isFakeArrow);
 		pData.setDamageCause(e.getCause());
 
 		Map<EquipSlot, CEWeaponAbstract> weaponMap = CEAPI.getCEWeaponMap(pAttacker);
-		weaponMap.put(EquipSlot.MAINHAND, weapon);
-		
+
 		CECallerList pResult = CECallerBuilder
 				.build(pAttacker)
 				.setCEType(CEType.ARROW_HIT)
 				.setWeaponMap(weaponMap)
 				.setCEFunctionData(pData)
+                .setByPassCooldown(isFakeArrow)
 				.call();
-		
+
 //		CECallerList pResult = CEAPI.callCEList(pAttacker, CEType.ARROW_HIT, weaponMap, pData, EquipSlot.MAINHAND);
 		damage = AttributeCalculate.calculate(CEAPI.getCEPlayer(pAttacker), OptionType.ATTACK, damage,
 				pResult.getOptionDataList());
@@ -459,14 +476,14 @@ public class EntityListener implements Listener {
 		eData.set("damage", damage);
 		eData.setDamageCause(e.getCause());
 
-		CECallerList eResult = CECallerBuilder
-				.build(pDefenser)
-				.setCEType(CEType.ARROW_DEFENSE)
-				.setCEFunctionData(eData)
-				.call();
-		
+        CECallerList eResult = CECallerBuilder
+                .build(pDefenser)
+                .setCEType(CEType.ARROW_DEFENSE)
+                .setCEFunctionData(eData)
+                .call();
+
 		return AttributeCalculate.calculate(CEAPI.getCEPlayer(pDefenser), OptionType.DEFENSE, damage,
-				eResult.getOptionDataList());
+                eResult.getOptionDataList());
 	}
 
 	public double onArrowPlayerVsMob(Entity attacker, Entity defenser, double damage, EntityDamageByEntityEvent e) {
@@ -489,8 +506,7 @@ public class EntityListener implements Listener {
 		data.setDamageCause(e.getCause());
 
 		Map<EquipSlot, CEWeaponAbstract> weaponMap = CEAPI.getCEWeaponMap(pAttacker);
-		weaponMap.put(EquipSlot.MAINHAND, weapon);
-		
+
 		CECallerList result = CECallerBuilder
 				.build(pAttacker)
 				.setCEType(CEType.ARROW_HIT)

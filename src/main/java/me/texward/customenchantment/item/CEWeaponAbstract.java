@@ -157,6 +157,10 @@ public abstract class CEWeaponAbstract<T extends CEItemData> extends CEItem<T> {
 		return weaponSettingsName;
 	}
 
+    public void setWeaponSettingsName(String weaponSettingsName) {
+        this.weaponSettingsName = weaponSettingsName;
+    }
+
 	public WeaponSettings getWeaponSettings() {
 		return WeaponSettings.getSettings(getWeaponSettingsName());
 	}

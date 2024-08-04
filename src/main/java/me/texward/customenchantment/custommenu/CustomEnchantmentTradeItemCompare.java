@@ -1,5 +1,8 @@
 package me.texward.customenchantment.custommenu;
 
+import com._3fmc.finditem.item.UniqueItem;
+import com.badbones69.vouchers.plugin.lib.de.tr7zw.changeme.nbtapi.NBTItem;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
@@ -55,7 +58,28 @@ public class CustomEnchantmentTradeItemCompare extends TradeItemCompare {
 			weapon2.clearAttribute();
 		}
 
-		return weapon1.exportTo().isSimilar(weapon2.exportTo());
+        ItemStack weaponItemStack1 = weapon1.exportTo();
+        ItemStack weaponItemStack2 = weapon2.exportTo();
+        if (Bukkit.getPluginManager().isPluginEnabled("FindItem")) {
+
+            UniqueItem uniqueItem = new UniqueItem(weaponItemStack1);
+            if (uniqueItem.getId() != null) {
+                uniqueItem.deleteLoreFormat();
+                uniqueItem.removeId();
+
+                weaponItemStack1 = uniqueItem.getItemStack();
+            }
+
+            uniqueItem = new UniqueItem(weaponItemStack2);
+            if (uniqueItem.getId() != null) {
+                uniqueItem.deleteLoreFormat();
+                uniqueItem.removeId();
+
+                weaponItemStack2 = uniqueItem.getItemStack();
+            }
+        }
+
+		return weaponItemStack1.isSimilar(weaponItemStack2);
 	}
 
 }

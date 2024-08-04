@@ -174,6 +174,15 @@ public class CEFunctionData implements Cloneable {
 		return this;
 	}
 
+    public boolean isFakeSource() {
+        return get("fake_source") != null && (boolean) get("fake_source");
+    }
+
+    public CEFunctionData setFakeSource(boolean fakeSource) {
+        set("fake_source", fakeSource);
+        return this;
+    }
+
 	public CEFunctionData set(String key, Object value) {
 		key = key.toLowerCase();
 		if (value == null) {

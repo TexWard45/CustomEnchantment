@@ -1,10 +1,9 @@
 package me.texward.customenchantment.player.mining;
 
-import java.util.List;
-
+import me.texward.customenchantment.player.PlayerSpecialMining;
 import org.bukkit.inventory.ItemStack;
 
-import me.texward.customenchantment.player.PlayerSpecialMining;
+import java.util.List;
 
 public abstract class AbstractSpecialMine {
 	private PlayerSpecialMining playerSpecialMining;
@@ -19,8 +18,8 @@ public abstract class AbstractSpecialMine {
 	
 	public abstract Boolean isWork(boolean fake);
 
-	public abstract List<ItemStack> getDrops(List<ItemStack> drops, boolean fake);
-	
+	public abstract List<ItemStack> getDrops(SpecialMiningData specialMiningData, List<ItemStack> drops, boolean fake);
+
 	public abstract void doSpecialMine(SpecialMiningData data, boolean fake);
 
 	public PlayerSpecialMining getPlayerSpecialMining() {
