@@ -305,6 +305,7 @@ public class BookcraftMenu extends MenuAbstract {
 		this.array.clear();
 		this.demoBook.clear();
 		this.bookHighLevel = null;
+		this.cntBook.clear();
 
 		return BookcraftConfirmReason.SUCCESS;
 	}
