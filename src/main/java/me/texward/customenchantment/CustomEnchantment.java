@@ -21,6 +21,7 @@ import me.texward.customenchantment.listener.*;
 import me.texward.customenchantment.menu.BookcraftMenu;
 import me.texward.customenchantment.menu.CEAnvilMenu;
 import me.texward.customenchantment.menu.anvil.*;
+import me.texward.customenchantment.placeholder.CustomEnchantmentPlaceholder;
 import me.texward.customenchantment.player.*;
 import me.texward.customenchantment.player.mining.*;
 import me.texward.customenchantment.task.*;
@@ -499,7 +500,9 @@ public class CustomEnchantment extends JavaPlugin implements Listener {
 	}
 
     public void setupPlaceholders() {
-
+		if(Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")){
+			new CustomEnchantmentPlaceholder().register();
+		}
     }
 
 	public void setupGuard() {
