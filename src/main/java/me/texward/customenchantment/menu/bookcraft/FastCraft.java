@@ -25,6 +25,7 @@ public class FastCraft {
     private List<Integer> cntBook = new ArrayList<>();
     private int amountBook;
     private int minLevel, maxLevel, pos;
+    private Player player;
     //
     private BookcraftMenu bookcraftMenu;
 
@@ -183,10 +184,12 @@ public class FastCraft {
                 visited.put(i, false);
             }
 
-            for(int i = 0 ; i < this.array.get(level).size() ; ++i){
+            boolean bookData1Flag = false, bookData2Flag = false;
+
+            for(int i = 0 ; i < this.array.get(level).size() && (!bookData1Flag || !bookData2Flag) ; ++i){
                 BookcraftMenu.BookData bookData = this.array.get(level).get(i).getKey();
                 int value = this.array.get(level).get(i).getValue();
-                if(!visited.get(i) && compareCeBook(bookData.getCESimple(), bookData1.getCESimple())){
+                if(!bookData1Flag && compareCeBook(bookData.getCESimple(), bookData1.getCESimple())){
                     if(value == 1){
                         amount += 2;
                     } else {
@@ -194,9 +197,10 @@ public class FastCraft {
                     }
                     --quantity;
                     visited.replace(i, true);
+                    bookData1Flag = true;
                     continue;
                 }
-                if(!visited.get(i) && compareCeBook(bookData.getCESimple(), bookData2.getCESimple())){
+                if(!bookData2Flag && compareCeBook(bookData.getCESimple(), bookData2.getCESimple())){
                     if(value == 1){
                         amount += 2;
                     } else {
@@ -204,23 +208,17 @@ public class FastCraft {
                     }
                     --quantity;
                     visited.replace(i, true);
+                    bookData2Flag = true;
                 }
             }
-
-            for(int i = 0 ; i < this.array.get(level).size() ; ++i){
-
-                if(visited.get(i)){
+            for(int i = 0 ; i < this.array.get(level).size() && quantity > 0; ++i) {
+                if (visited.get(i)) {
                     continue;
-                }
-
-                if(quantity <= 0){
-                    break;
                 }
 
                 BookcraftMenu.BookData bookData = this.array.get(level).get(i).getKey();
                 int value = this.array.get(level).get(i).getValue();
-
-                if(value == 1){
+                if (value == 1) {
                     amount += 2;
                 } else {
                     this.usedBook.get(level).add(bookData);
@@ -228,7 +226,6 @@ public class FastCraft {
                 --quantity;
                 visited.replace(i, true);
             }
-
             addUsedBookFastCraft(level-1, minlevel, amount);
         }
     }
@@ -261,6 +258,7 @@ public class FastCraft {
     }
 
     public void fastCraft(Player player){
+        this.player = player;
         if(this.bookcraftMenu.getList().size() == 1){
             this.bookHighLevel = null;
             BookcraftMenu.BookData book1 = bookcraftMenu.getList().get(0);
@@ -346,7 +344,6 @@ public class FastCraft {
                 HashMap<String, String> placeholder = new HashMap<String, String>();
                 placeholder.put("%money%", String.valueOf(BookcraftMenu.getSettings().getMoneyRequire(groupName)*(double)(this.cntBook.get(this.pos))));
                 itemStack = ItemStackUtils.setItemStack(itemStack, placeholder);
-
                 bookcraftMenu.updateSlots("accept", itemStack);
             }
         } else {
