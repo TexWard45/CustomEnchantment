@@ -1,11 +1,11 @@
 package com.bafmc.customenchantment.placeholder;
 
+import com.bafmc.customenchantment.api.CEAPI;
+import com.bafmc.customenchantment.attribute.AttributeCalculate;
+import com.bafmc.customenchantment.enchant.EffectUtil;
+import com.bafmc.customenchantment.player.CEPlayer;
+import com.bafmc.customenchantment.player.PlayerVanillaAttribute;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
-import me.texward.customenchantment.api.CEAPI;
-import me.texward.customenchantment.attribute.AttributeCalculate;
-import me.texward.customenchantment.enchant.EffectUtil;
-import me.texward.customenchantment.player.CEPlayer;
-import me.texward.customenchantment.player.PlayerVanillaAttribute;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.attribute.Attribute;
@@ -36,7 +36,7 @@ public class CustomEnchantmentPlaceholder extends PlaceholderExpansion {
     private double getAttackDamage(Player player){
         double result = 1.0;
         ItemStack itemStack = player.getInventory().getItemInMainHand();
-        double level = itemStack.getEnchantmentLevel(Enchantment.DAMAGE_ALL);
+        double level = itemStack.getEnchantmentLevel(Enchantment.SHARPNESS);
         //bonus damage by sharpness
         result += (level == 0.0) ? 0 : (0.5 * level + 0.5);
         return result;
