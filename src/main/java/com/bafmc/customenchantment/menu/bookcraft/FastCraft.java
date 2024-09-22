@@ -113,6 +113,21 @@ public class FastCraft {
         return BookcraftMenu.BookcraftConfirmReason.SUCCESS;
     }
 
+    private BookData upgradeBookData(BookData book1, BookData book2){
+        CESimple ceSimple1 = book1.getCESimple();
+        int success1 = ceSimple1.getSuccess().getValue();
+        int destroy1 = ceSimple1.getDestroy().getValue();
+
+        CESimple ceSimple2 = book2.getCESimple();
+        int success2 = ceSimple2.getSuccess().getValue();
+        int destroy2 = ceSimple2.getDestroy().getValue();
+
+        CESimple ceSimpleResult = new CESimple(ceSimple1.getName(), ceSimple1.getLevel() + 1,
+                Math.max(success1, success2), Math.min(destroy1, destroy2));
+
+        return new BookData(CEAPI.getCEBookItemStack(ceSimpleResult), ceSimpleResult);
+    }
+
     private void addBookFastCraft(int level, int amount){
         //Sort bring high success ce to first
         Comparator<Pair<BookData, Integer>> compare1 = new Comparator<Pair<BookData, Integer>>() {
@@ -249,7 +264,12 @@ public class FastCraft {
                 ++pos;
                 start = end = false;
                 if(flag){
-                    this.bookHighLevel = this.array.get(i).get(0).getKey();
+                    if(!this.array.get(i).isEmpty()){
+                        BookData bookData1 = this.demoBook.get(i-1).get(0), bookData2 = this.demoBook.get(i-1).get(1);
+                        this.bookHighLevel = upgradeBookData(bookData1, bookData2);
+                    } else {
+                        this.bookHighLevel = this.array.get(i).get(0).getKey();
+                    }
                     break;
                 }
             }
@@ -298,6 +318,7 @@ public class FastCraft {
                 int countBook = 0, soluong = this.array.get(i).size();
                 if(soluong < 2 || i == this.maxLevel){
                     if((soluong == 1 || i == this.maxLevel) && amount > 0){
+                        this.bookHighLevel = this.array.get(i).get(0).getKey();
                         this.amountBook = 0;
                         addUsedBookFastCraft(i-1, 1, 2);
                         this.cntBook.add(this.amountBook);

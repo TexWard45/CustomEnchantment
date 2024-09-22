@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.bafmc.customenchantment.attribute.AttributeData.Operation;
 import com.bafmc.customenchantment.player.CEPlayer;
+import org.bukkit.attribute.AttributeModifier;
 
 public class AttributeCalculate {
 	public static double calculate(CEPlayer cePlayer, String type, double amount, List<AttributeData> list) {
@@ -65,6 +66,43 @@ public class AttributeCalculate {
 				if (!data.hasChance() || data.getChance().work()) {
 					amount *= (1 + data.getAmount());
 				}
+			}
+		}
+		return amount;
+	}
+
+	public static double calculateAttributeModifier(double amount, List<AttributeModifier> list){
+		for (AttributeModifier data : list) {
+			if (data.getOperation() == AttributeModifier.Operation.ADD_NUMBER) {
+				amount += data.getAmount();
+			}
+		}
+
+		double p = 1;
+		for (AttributeModifier data : list) {
+			if (data.getOperation() == AttributeModifier.Operation.ADD_SCALAR) {
+				p += data.getAmount();
+			}
+		}
+		amount *= p;
+
+//		double newAmount = 0;
+//		boolean has = false;
+//		for (AttributeModifier data : list) {
+//			if (data.getOperation() == Operation.SET_NUMBER) {
+//				if (!data.hasChance() || data.getChance().work()) {
+//					newAmount = Math.max(newAmount, data.getAmount());
+//					has = true;
+//				}
+//			}
+//		}
+//		if (has) {
+//			amount = newAmount;
+//		}
+
+		for (AttributeModifier data : list) {
+			if (data.getOperation() == AttributeModifier.Operation.MULTIPLY_SCALAR_1) {
+				amount *= (1 + data.getAmount());
 			}
 		}
 		return amount;
