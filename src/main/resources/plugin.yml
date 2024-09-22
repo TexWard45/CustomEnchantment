@@ -1,9 +1,9 @@
 name: CustomEnchantment
-main: me.texward.customenchantment.CustomEnchantment
-version: 0.0.1
-api-version: 1.13
+main: com.bafmc.customenchantment.CustomEnchantment
+version: 1.0.0
+api-version: 1.21
 author: TexWard
-depend: [TexWardLib]
+depend: [BafFramework]
 softdepend: [CustomMenu, StackMob, Vouchers, ItemDropManager, mcMMO, PlaceholderAPI, PlaceholderAPIAddon, CustomShop]
 description: Support for custom enchantment
 commands:
@@ -17,6 +17,11 @@ commands:
   bookcraft:
     description: Craft CustomEnchantment book
     usage: /<command>
+    aliases: [bookc, cecraft]
+  bookupgrade:
+    description: Craft CustomEnchantment book
+    usage: /<command>
+    aliases: [bookup, ceup]
   ceanvil:
     description: Anvil CustomEnchantment item
     usage: /<command>

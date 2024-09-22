@@ -1,88 +1,209 @@
+command:
+  nametag:
+    not-set:
+      - 'DANGER Chưa thiết lập tên tạm thời để có thể xem!'
+    show:
+      - 'INFO Tên tạm thời đã thiết lập là &r%display%'
+    preview:
+      - 'SUCCESS Tên tạm thời xem trước là &r%display%'
+    set:
+      - 'SUCCESS Đã thiết lập tên vật phẩm tạm thời là &r%display%'
+      - 'SUCCESS Sử dụng Thẻ đổi tên và nhập &r\%nametag\% &avào đe để sử dụng tên vật phẩm tạm thời!'
+    max-length:
+      - 'DANGER Tối đa 35 ký tự khi đặt tên cho vật phẩm (không tính ký tự màu)!'
+    help1:
+      - '&c-----------------Lệnh thẻ đổi tên-----------------'
+      - '&f/nametag show <loại> &e- Xem tên tạm thời trước đó theo loại'
+      - '&f/nametag preview <loại> &e- Xem trước tên tạm thời theo loại'
+      - '&f/nametag set <loại> <tên tạm thời> &e- Thiết lập tên tạm thời theo loại'
+      - '&c---------------Các loại thẻ đổi tên---------------'
+      - '&eLoại &f1&e: Được sử dụng màu thường'
+      - '&eLoại &f2&e: Được sử dụng màu thường, gạch dưới/ngang, in đậm/nghiêng'
+      - '&eLoại &f3&e: Được sử dụng màu thường, gạch dưới/ngang, in đậm/nghiêng, màu đặc biệt (màu hex)'
+      - '&c----------Hướng dẫn sử dụng tên tạm thời----------'
+      - '&eBước &f1&e: Thiết lập tên tạm thời bằng câu lệnh'
+      - '&eBước &f2&e: Để trang bị và thẻ đổi tên vào ô tương ứng trong đe'
+      - '&eBước &f3&e: Nhập &f%nametag% &evào khung đe để sử dụng tên tạm thời'
+      - '&eTên tạm thời giúp đổi tên trang bị với 35 ký tự không tính ký tự màu (trong khi đe giới hạn 35 ký tự tính cả ký tự màu)'
+      - '&f/nametag help 2 &eđể xem hướng dẫn cách sử dụng màu'
+    help2:
+      - '&c------------Hướng dẫn cách sử dụng màu------------'
+      - '&e*Đối với màu thường (loại 1):'
+      - '  &eThêm &f&<ký tự màu> &etrước tên để đổi'
+      - '  &eKý tự màu thường: &00 &11 &22 &33 &44 &55 &66 &77 &88 &99 &aa &bb &cc &dd &ee &ff'
+      - '  &eVD:'
+      - '  &e- &f&&f3Kiếm kim cương &e-> &3Kiếm kim cương'
+      - '  &e- &f&&f3Kiếm &f&&fbkim &f&&f3cương &e-> &3Kiếm &bkim &3cương'
+      - ' '
+      - '&e*Đối với kiểu chữ đặc biệt (loại 2):'
+      - '  &eThêm &f&<ký tự kiểu chữ đặc biệt> &etrước tên để đổi'
+      - '  &eKý tự kiểu chữ đặc biệt: &f&nn&r &mm&r &ll&r &oo&r'
+      - '  &eVD:'
+      - '  &e- &f&&fnKiếm kim cương &e-> &f&nKiếm kim cương'
+      - '  &e- &f&&f3&&fnKiếm kim cương &e-> &3&nKiếm kim cương'
+      - '  &e- &f&&f3&&fmKiếm&&fr &f&&fb&&flkim&&fr &f&&f3&&focương &e-> &3&mKiếm&r &b&lkim &3&ocương'
+      - '  &f(Ký tự &&fr dùng để xóa màu và kiểu chữ đặc biệt)'
+      - '&f/nametag help 3 &eđể xem hướng dẫn cách sử dụng màu hex'
+    help3:
+      - '&c------------Hướng dẫn cách sử dụng màu------------'
+      - '&e*Đối với màu đặc biệt (màu hex) (loại 3):'
+      - '  &eThêm &f&#xxxxxx &etrước tên để đổi'
+      - '  &fx là 0 1 2 3 4 5 6 7 8 9 a b c d e f'
+      - '  &eMột số ký tự màu hex: &0&&0#000000 &c&&c#ff5555 &f&&f#ffffff'
+      - '  &eVD:'
+      - '  &e- &f&#&f135790Kiếm kim cương &e-> &#135790Kiếm kim cương'
+      - '  &e- &f&#&f24adefKiếm kim cương &e-> &#24adefKiếm kim cương'
+      - '  &e- &f&#&f24adefKiếm &f&&fbkim &f&&f3cương &e-> &#24adefKiếm &bkim &3cương'
+      - '  &e- &f&#&f24adef&&fmKiếm&f&&fr &f&&fb&f&lkim &f&&f3&f&&focương &e-> &#24adef&mKiếm&r &b&lkim &3&ocương'
+      - '&e*Hỗ trợ thêm đối với màu hex'
+      - '  &eThêm <G:xxxxxx>...</G:xxxxxx> để có dải màu'
+      - '  &eVD:'
+      - '  &e- &f<G:aa0000>Kiếm kim cương</G:ffaa00> &e-> §x§a§a§0§0§0§0K§x§b§0§0§d§0§0i§x§b§6§1§a§0§0ế§x§b§c§2§7§0§0m§x§c§2§3§4§0§0 §x§c§8§4§1§0§0k§x§c§e§4§e§0§0i§x§d§4§5§b§0§0m§x§d§a§6§8§0§0 §x§e§0§7§5§0§0c§x§e§6§8§2§0§0ư§x§e§c§8§f§0§0ơ§x§f§2§9§c§0§0n§x§f§8§a§9§0§0g'
+      - '  &eThêm <Ri>...</R> để có màu cầu vồng'
+      - '  &fi từ 0 đến 999'
+      - '  &eVD:'
+      - '  &e- &f<R1>Kiếm kim cương</R> &e-> §x§f§f§0§0§0§0K§x§f§f§6§d§0§0i§x§f§f§d§b§0§0ế§x§b§6§f§f§0§0m§x§4§9§f§f§0§0 §x§0§0§f§f§2§4k§x§0§0§f§f§9§2i§x§0§0§f§f§f§fm§x§0§0§9§2§f§f §x§0§0§2§4§f§fc§x§4§9§0§0§f§fư§x§b§6§0§0§f§fơ§x§f§f§0§0§d§bn§x§f§f§0§0§6§dg'
+      - '&eLấy mã màu hex ở &fhttps://htmlcolorcodes.com/color-picker/'
+      - '&eLiên hệ ngay Admin nếu có thắc mắc về việc đặt tên màu!'
 menu:
   bookcraft:
     add-book:
       success: ''
       different-enchant:
-      - 'DANGER Không cùng loại phù phép!'
+        - 'DANGER Không cùng loại phù phép!'
       different-level:
-      - 'DANGER Không cùng cấp độ phù phép!'
+        - 'DANGER Không cùng cấp độ phù phép!'
       max-level:
-      - 'DANGER Sách đã đạt cấp độ tối đa!'
+        - 'DANGER Sách đã đạt cấp độ tối đa!'
       enough-book:
-      - 'DANGER Tối đa 2 sách cho 1 lần ghép!'
+        - 'DANGER Tối đa 2 sách cho 1 lần ghép!'
     confirm:
       success:
-      - 'SUCCESS Ghép sách thành công!'
+        - 'SUCCESS Ghép sách thành công!'
       not-enough-money:
-      - 'DANGER Không đủ tiền để ghép sách!'
+        - 'DANGER Không đủ tiền để ghép sách!'
       not-enough-book:
-      - 'DANGER Yêu cầu 2 sách cùng loại và cấp độ để ghép!'
+        - 'DANGER Yêu cầu 2 sách cùng loại và cấp độ để ghép!'
+  bookupgrade:
+    add-book:
+      success: ''
+      already-has-book:
+        - 'DANGER Đã chọn sách trước đó!'
+      different-enchant:
+        - 'DANGER Không cùng loại phù phép!'
+      different-level:
+        - 'DANGER Không cùng cấp độ phù phép!'
+      max-level:
+        - 'DANGER Sách đã đạt cấp độ tối đa!'
+      enough-book:
+        - 'DANGER Tối đa 2 sách cho 1 lần ghép!'
+    confirm:
+      success:
+        - 'SUCCESS Ghép sách thành công!'
+      not-enough-money:
+        - 'DANGER Không đủ tiền để ghép sách!'
+      not-enough-book:
+        - 'DANGER Yêu cầu 2 sách cùng loại và cấp độ để ghép!'
   tinkerer:
     add-tinkerer:
       success: ''
       not-support-item:
-      - 'DANGER Không hỗ trợ loại vật phẩm này!'
+        - 'DANGER Không hỗ trợ loại vật phẩm này!'
       full-slot:
-      - 'DANGER Ô dung luyện đã đầy!'
+        - 'DANGER Ô dung luyện đã đầy!'
     confirm:
-      success: 
-      - 'SUCCESS Dung luyện thành công!'
+      success:
+        - 'SUCCESS Dung luyện thành công!'
       nothing:
-      - 'DANGER Không có vật phẩm nào để dung luyện!'
+        - 'DANGER Không có vật phẩm nào để dung luyện!'
+  ce-anvil:
+    add-item:
+      success: ''
+      not-suitable:
+        - 'DANGER Vật phẩm không phù hợp!'
+      already-has-slot1:
+        - 'DANGER Hãy tháo trang bị đã chọn trước đó!'
+      already-has-slot2:
+        - 'DANGER Hãy tháo vật phẩm đã chọn trước đó!'
 ce-item:
   book:
     success:
-    - 'SUCCESS Ép sách %group_prefix%&l%enchant_display% %enchant_level% &avào vật phẩm thành công!'
+      - 'SUCCESS Ép sách %group_prefix%&l%enchant_display% %enchant_level% &avào vật phẩm thành công!'
     fail:
-    - 'DANGER Ép sách %group_prefix%&l%enchant_display% %enchant_level% &cvào vật phẩm thất bại!'
+      - 'DANGER Ép sách %group_prefix%&l%enchant_display% %enchant_level% &cvào vật phẩm thất bại!'
     destroy:
-    - 'DANGER Ép sách %group_prefix%&l%enchant_display% %enchant_level% &csách thất bại và trang bị đã bị phá hủy!'
+      - 'DANGER Ép sách %group_prefix%&l%enchant_display% %enchant_level% &cthất bại và trang bị đã bị phá hủy!'
     protect-destroy:
-    - 'DANGER Ép sách %group_prefix%&l%enchant_display% %enchant_level% &cthất bại và cuộn bảo vệ trang bị đã bị phá hủy!'
+      - 'DANGER Ép sách %group_prefix%&l%enchant_display% %enchant_level% &cthất bại và cuộn bảo vệ trang bị đã bị phá hủy!'
     not-enough-enchant-point:
-    - 'DANGER Vật phẩm đạt giới hạn phù phép!'
+      - 'DANGER Vật phẩm đạt giới hạn phù phép!'
     not-support-type:
-    - 'DANGER Không hỗ trợ loại vật phẩm này!'
+      - 'DANGER Sách phù phép không hỗ trợ loại trang bị này!'
     conflict-enchant:
-    - 'DANGER Sách đã có trong vật phẩm. Yêu cầu cấp độ cao hơn để ép chồng lên!'
+      - 'DANGER Sách đã có trong vật phẩm. Yêu cầu cấp độ cao hơn để ép chồng lên!'
   increaseratebook:
     success:
-    - 'SUCCESS Sử dụng bột thành công!'
+      - 'SUCCESS Sử dụng bột thành công!'
     perfect:
-    - 'DANGER Sách đã đạt đủ tỉ lệ thành công và phá hủy!'
+      - 'DANGER Sách đã đạt đủ tỉ lệ thành công và phá hủy!'
     enough-success:
-    - 'DANGER Sách đã đạt tối đa tỉ lệ thành công!'
+      - 'DANGER Sách đã đạt tối đa tỉ lệ thành công!'
     enough-destroy:
-    - 'DANGER Sách đã đạt tối thiểu tỉ lệ phá hủy!'
+      - 'DANGER Sách đã đạt tối thiểu tỉ lệ phá hủy!'
     not-same-group:
-    - 'DANGER Loại bột và sách không phù hợp!'
+      - 'DANGER Loại bột và sách không phù hợp!'
   enchantpoint:
     success:
-    - 'SUCCESS Ép &5Ngọc đột phá &athành công!'
+      - 'SUCCESS Khảm &5Ngọc đột phá &athành công!'
     not-support-type:
-    - 'DANGER Không hỗ trợ loại vật phẩm này!'
+      - 'DANGER Ngọc đột phá không hỗ trợ loại trang bị này!'
     max-enchant-point:
-    - 'DANGER Vật phẩm đã đạt số lượng phù phép tối đa!'
+      - 'DANGER Vật phẩm đã đạt số lượng phù phép tối đa!'
   protectdead:
     success:
-    - 'SUCCESS Ép &6Ngọc bảo vệ &athành công!'
+      - 'SUCCESS Ép &6Ngọc bảo vệ &athành công!'
     enchanted:
-    - 'DANGER Vật phẩm đã được ép &6Ngọc bảo vệ &ctrước đó!'
+      - 'DANGER Vật phẩm đã được ép &6Ngọc bảo vệ &ctrước đó!'
+  removeprotectdead:
+    success:
+      - 'SUCCESS Tách &6Ngọc bảo vệ &athành công!'
+    empty:
+      - 'DANGER Vật phẩm không có &6Ngọc bảo vệ &cđể tách!'
   protectdestroy:
     success:
-    - 'SUCCESS Ép &fGiấy bảo vệ&a thành công!'
+      - 'SUCCESS Ép &fGiấy bảo vệ&a thành công!'
     enchanted:
-    - 'DANGER Vật phẩm đã được ép &fCuộn bảo vệ &ctrước đó!'
+      - 'DANGER Vật phẩm đã được ép &fCuộn bảo vệ &ctrước đó!'
   removeenchant:
     success:
-    - 'SUCCESS Rút sách %group_prefix%&l%enchant_display% %enchant_level%&a ra khỏi vật phẩm thành công!'
+      - 'SUCCESS Tách sách %group_prefix%&l%enchant_display% %enchant_level%&a ra khỏi vật phẩm thành công!'
     empty:
-    - 'DANGER Vật phẩm không có sách nào để rút!'
+      - 'DANGER Vật phẩm không có sách nào để tách!'
     not-support-group:
-    - 'DANGER Vật phẩm không có sách phù hợp để rút!'
+      - 'DANGER Vật phẩm không có sách phù hợp để tách!'
+    not-choose:
+      - 'DANGER Hãy nhấp chọn sách cần tách khỏi trang bị!'
+  eraseenchant:
+    success:
+      - 'SUCCESS Xóa sách %enchant_display% %enchant_level%&a ra khỏi vật phẩm thành công!'
+    empty:
+      - 'DANGER Vật phẩm không có sách nào để xóa!'
+    not-support-group:
+      - 'DANGER Vật phẩm không có sách phù hợp để xóa!'
+    not-choose:
+      - 'DANGER Hãy nhấp chọn sách cần xóa khỏi trang bị!'
   randombook:
     success:
-    - 'SUCCESS Mở được %group_prefix%&l%enchant_display% %enchant_level%&a!'
+      - 'SUCCESS Mở được %group_prefix%&l%enchant_display% %enchant_level%&a!'
+    full:
+      - 'DANGER Túi đồ đã đầy!'
   nametag:
     success:
-    - 'SUCCESS Đổi tên vật phẩm thành công!'
+      - 'SUCCESS Đổi tên vật phẩm thành công!'
+  removeenchantpoint:
+    success:
+      - 'SUCCESS Rút &5Ngọc đột phá &a ra khỏi vật phẩm thành công!'
+    empty:
+      - 'DANGER Vật phẩm không có &5Ngọc đột phá &a để rút!'
+    remove-book-first:
+      - 'DANGER Rút sách trước khi rút &5Ngọc đột phá!'
