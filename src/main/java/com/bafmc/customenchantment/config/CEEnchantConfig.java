@@ -7,6 +7,7 @@ import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.api.MaterialList;
 import com.bafmc.customenchantment.attribute.AttributeData;
 import com.bafmc.customenchantment.attribute.AttributeData.Operation;
+import com.bafmc.customenchantment.attribute.CustomAttributeType;
 import com.bafmc.customenchantment.enchant.*;
 import com.bafmc.bukkit.utils.Chance;
 import com.bafmc.bukkit.utils.EnumUtils;
@@ -136,10 +137,9 @@ public class CEEnchantConfig extends AbstractConfig {
 		boolean trueConditionBreak = config.getBoolean("true-condition-break");
 		boolean falseConditionBreak = config.getBoolean("false-condition-break");
 
-		CEFunction ceFunction = new CEFunction(name, ceType, chance, cooldown, chanceSlot, cooldownSlot, activeSlot, targetFilter,
+		return new CEFunction(name, ceType, chance, cooldown, chanceSlot, cooldownSlot, activeSlot, targetFilter,
 				targetCondition, targetOption, targetEffect, condition, option, effect, effectNow, trueChanceBreak,
 				falseChanceBreak, timeoutCooldownBreak, inCooldownBreak, trueConditionBreak, falseConditionBreak);
-        return ceFunction;
 	}
 
 	public TargetFilter loadTargetFilter(AdvancedConfigurationSection config) {
@@ -295,19 +295,23 @@ public class CEEnchantConfig extends AbstractConfig {
 		List<String> parameters = StringUtils.split(line, ":", 0);
 
 		String type = parameters.get(0);
+		if (!type.startsWith("OPTION_")) {
+			type = "OPTION_" + type;
+		}
+		CustomAttributeType attributeType = CustomAttributeType.valueOf(type);
 
 		double amount = Double.valueOf(parameters.get(1));
-		if (type.equals(OptionType.DEFENSE)) {
+		if (attributeType.equals(OptionType.OPTION_DEFENSE)) {
 			amount = -amount;
 		}
-		Operation operation = null;
+		Operation operation;
 		try {
-			operation = Operation.fromId(Integer.valueOf(parameters.get(2)));
+			operation = Operation.fromId(Integer.parseInt(parameters.get(2)));
 		} catch (Exception e) {
 			operation = Operation.valueOf(parameters.get(2));
 		}
 
-		return new AttributeData(type, amount, operation);
+		return new AttributeData(attributeType, amount, operation);
 	}
 
 	public Effect loadEffect(List<String> lines) {

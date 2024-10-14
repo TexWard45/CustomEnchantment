@@ -1,16 +1,15 @@
 package com.bafmc.customenchantment.execute;
 
-import java.util.Arrays;
-import java.util.List;
-
+import ca.tweetzy.vouchers.Vouchers;
+import ca.tweetzy.vouchers.api.voucher.Voucher;
 import com.bafmc.bukkit.feature.execute.ExecuteHook;
-import org.bukkit.entity.Player;
-
-import com.badbones69.vouchers.api.CrazyManager;
-import com.badbones69.vouchers.api.objects.Voucher;
-
 import com.bafmc.bukkit.utils.InventoryUtils;
+import com.bafmc.bukkit.utils.ItemStackUtils;
 import com.bafmc.bukkit.utils.StringUtils;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+
+import java.util.List;
 
 public class GiveVoucherItemExecute extends ExecuteHook {
 	public String getIdentify() {
@@ -20,8 +19,9 @@ public class GiveVoucherItemExecute extends ExecuteHook {
 	public void execute(Player player, String value) {
 		List<String> list = StringUtils.split(value, ":", 0);
 
-		Voucher voucher = CrazyManager.getVoucher(list.get(0));
-		if (voucher == null) {
+		String id = list.get(0);
+		Voucher voucherFound = Vouchers.getVoucherManager().find(id);
+		if (voucherFound == null) {
 			return;
 		}
 
@@ -29,7 +29,8 @@ public class GiveVoucherItemExecute extends ExecuteHook {
 		if (list.size() > 1) {
 			amount = Integer.valueOf(list.get(1));
 		}
-		
-		InventoryUtils.addItem(player, Arrays.asList(voucher.buildItem(amount)));
+
+		ItemStack item = voucherFound.buildItem(player);
+		InventoryUtils.addItem(player, ItemStackUtils.getItemStacks(item, amount));
 	}
 }

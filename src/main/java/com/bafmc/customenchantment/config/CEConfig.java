@@ -19,6 +19,7 @@ public class CEConfig extends AbstractConfig {
 
 		ConfigVariable.MOVE_EVENT_PERIOD = config.getLong("move-event-period", 1000);
 		ConfigVariable.ENCHANT_DISABLE_WORLDS = config.getStringList("enchant-disable-worlds");
+		ConfigVariable.MAX_ARTIFACT_USE_COUNT = config.getInt("max-artifact-use-count", 3);
 	}
 
 	public void loadMaterialGroup(AdvancedConfigurationSection config) {

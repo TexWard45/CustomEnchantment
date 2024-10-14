@@ -1,6 +1,10 @@
 package com.bafmc.customenchantment.command;
 
+import com.bafmc.bukkit.bafframework.nms.NMSAttribute;
+import com.bafmc.bukkit.bafframework.nms.NMSAttributeType;
 import com.bafmc.customenchantment.api.CEAPI;
+import com.bafmc.customenchantment.item.CEItem;
+import com.bafmc.customenchantment.item.CEWeapon;
 import com.bafmc.customenchantment.player.CEPlayer;
 import com.bafmc.customenchantment.player.PlayerVanillaAttribute;
 import com.bafmc.bukkit.command.*;
@@ -39,6 +43,12 @@ public class CommandInfo implements AbstractCommand {
 							}
 
 							sender.sendMessage("== End ==");
+
+							CEItem ceItem = CEAPI.getCEItem(player.getInventory().getItemInMainHand());
+							CEWeapon ceWeapon = (CEWeapon) ceItem;
+							for (NMSAttribute nmsAttribute : ceWeapon.getWeaponAttribute().getAttributeList()) {
+								sender.sendMessage(NMSAttributeType.fromId(nmsAttribute.getName()) + " " + nmsAttribute.getName() + " " + nmsAttribute.getAmount() + " " + nmsAttribute.getOperation());
+							}
 							return true;
 						}
 					})

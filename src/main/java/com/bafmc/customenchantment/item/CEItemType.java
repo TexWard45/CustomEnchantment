@@ -14,8 +14,8 @@ public class CEItemType {
 	public static final String NAME_TAG = "nametag";
 	public static final String ENCHANT_POINT = "enchantpoint";
 	public static final String INCREASE_RATE_BOOK = "increaseratebook";
-	public static final String VOUCHER = "voucher";
 	public static final String STORAGE = "storage";
 	public static final String BANNER = "banner";
     public static final String LORE_FORMAT = "loreformat";
+	public static final String ARTIFACT = "artifact";
 }

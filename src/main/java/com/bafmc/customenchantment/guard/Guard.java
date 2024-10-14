@@ -6,7 +6,7 @@ import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.listener.GuardListener;
 import com.bafmc.customenchantment.nms.EntityInsentientNMS;
 import com.bafmc.customenchantment.nms.EntityLivingNMS;
-import me.texward.custommobdrop.CustomMobDropTag;
+import com.bafmc.custommobdrop.CustomMobDropTag;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Entity;

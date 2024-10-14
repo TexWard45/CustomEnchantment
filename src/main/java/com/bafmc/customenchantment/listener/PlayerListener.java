@@ -10,6 +10,7 @@ import com.bafmc.bukkit.utils.StringUtils;
 import com.bafmc.customenchantment.ConfigVariable;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.api.CEAPI;
+import com.bafmc.customenchantment.attribute.CustomAttributeType;
 import com.bafmc.customenchantment.enchant.CECallerBuilder;
 import com.bafmc.customenchantment.enchant.CEFunctionData;
 import com.bafmc.customenchantment.enchant.CEType;
@@ -54,7 +55,11 @@ public class PlayerListener implements Listener {
 
 		PlayerCustomAttribute attribute = cePlayer.getCustomAttribute();
 
-		e.setValue(attribute.getAttributeValue(e.getStatsType().name(), e.getCurrentValue()));
+		CustomAttributeType type = e.getStatsType();
+		double value = e.getCurrentValue();
+		double newValue = attribute.getValue(type, value);
+
+		e.setValue(newValue);
 	}
 
 	@EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
@@ -68,11 +73,19 @@ public class PlayerListener implements Listener {
 				.setCEType(CEType.ARMOR_UNDRESS)
 				.setWeaponMap(CEAPI.getCEWeaponMap(player, EquipSlot.ARMOR_ARRAY))
 				.call();
-		
+
+		if (CustomEnchantment.instance().getArtifactTask().updateArtifact(player)) {
+			CECallerBuilder
+					.build(player)
+					.setCEType(CEType.CHANGE_HAND)
+					.setWeaponMap(CEAPI.getCEWeaponMap(player, EquipSlot.HAND_ARRAY))
+					.call();
+		}
+
 		CECallerBuilder
 				.build(player)
-				.setCEType(CEType.CHANGE_HAND)
-				.setWeaponMap(CEAPI.getCEWeaponMap(player, EquipSlot.HAND_ARRAY))
+				.setCEType(CEType.HOTBAR_CHANGE)
+				.setWeaponMap(CEAPI.getCEWeaponMap(player, EquipSlot.HOTBAR_ARRAY))
 				.call();
 
 		CECallerBuilder
@@ -85,6 +98,12 @@ public class PlayerListener implements Listener {
 				.build(player)
 				.setCEType(CEType.HOLD)
 				.setWeaponMap(CEAPI.getCEWeaponMap(player, EquipSlot.HAND_ARRAY))
+				.call();
+
+		CECallerBuilder
+				.build(player)
+				.setCEType(CEType.HOTBAR_HOLD)
+				.setWeaponMap(CEAPI.getCEWeaponMap(player, EquipSlot.HOTBAR_ARRAY))
 				.call();
 
 //		CEAPI.callCEList(player, CEType.ARMOR_UNDRESS, armorMap);
@@ -113,6 +132,13 @@ public class PlayerListener implements Listener {
 				.setExecuteLater(false)
 				.call();
 
+		CECallerBuilder
+				.build(player)
+				.setCEType(CEType.HOTBAR_CHANGE)
+				.setWeaponMap(CEAPI.getCEWeaponMap(player, EquipSlot.HOTBAR_ARRAY))
+				.setExecuteLater(false)
+				.call();
+
 		cePlayer.onQuit();
 	}
 
@@ -134,6 +160,13 @@ public class PlayerListener implements Listener {
 					.setWeaponMap(CEAPI.getCEWeaponMap(player, EquipSlot.HAND_ARRAY))
 					.setExecuteLater(false)
 					.call();
+
+			CECallerBuilder
+					.build(player)
+					.setCEType(CEType.HOTBAR_CHANGE)
+					.setWeaponMap(CEAPI.getCEWeaponMap(player, EquipSlot.HOTBAR_ARRAY))
+					.setExecuteLater(false)
+					.call();
 		} else if (ConfigVariable.isEnchantDisableLocation(e.getFrom())) {
 			CECallerBuilder
 					.build(player)
@@ -148,6 +181,15 @@ public class PlayerListener implements Listener {
 					.setWeaponMap(CEAPI.getCEWeaponMap(player, EquipSlot.HAND_ARRAY))
 					.setExecuteLater(false)
 					.call();
+
+			if (CustomEnchantment.instance().getArtifactTask().updateArtifact(player)) {
+				CECallerBuilder
+						.build(player)
+						.setCEType(CEType.HOTBAR_HOLD)
+						.setWeaponMap(CEAPI.getCEWeaponMap(player, EquipSlot.HOTBAR_ARRAY))
+						.setExecuteLater(false)
+						.call();
+			}
 		}
 	}
 
@@ -168,11 +210,6 @@ public class PlayerListener implements Listener {
 		if (killer != null) {
 			CECallerBuilder.build(killer).setCEType(CEType.KILL_PLAYER).call();
 		}
-	}
-
-	@EventHandler
-	public void onItemDamage(PlayerItemDamageEvent e) {
-		e.setDamage(0);
 	}
 
 	@EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
@@ -224,12 +261,14 @@ public class PlayerListener implements Listener {
 				ceType = CEType.HOLD;
 			}
 
-			CECallerBuilder
-					.build(player)
-					.setCEType(ceType)
-					.setWeaponMap(map)
-					.setActiveEquipSlot(slot)
-					.call();
+			if (ceType != CEType.HOTBAR_HOLD || (CustomEnchantment.instance().getArtifactTask().updateArtifact(player))) {
+				CECallerBuilder
+						.build(player)
+						.setCEType(ceType)
+						.setWeaponMap(map)
+						.setActiveEquipSlot(slot)
+						.call();
+			}
 		}
 	}
 

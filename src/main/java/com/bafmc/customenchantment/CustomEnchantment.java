@@ -4,35 +4,39 @@ import com.bafmc.bukkit.command.AdvancedCommandBuilder;
 import com.bafmc.bukkit.command.AdvancedCommandExecutor;
 import com.bafmc.bukkit.command.Argument;
 import com.bafmc.bukkit.config.AdvancedFileConfiguration;
+import com.bafmc.bukkit.utils.ConfigUtils;
+import com.bafmc.bukkit.utils.FileUtils;
 import com.bafmc.customenchantment.api.CEAPI;
+import com.bafmc.customenchantment.attribute.CENMSAttributeType;
+import com.bafmc.customenchantment.attribute.CustomAttributeType;
 import com.bafmc.customenchantment.command.CommandNameTag;
 import com.bafmc.customenchantment.command.CustomEnchantmentCommand;
 import com.bafmc.customenchantment.config.*;
-import com.bafmc.customenchantment.enchant.condition.*;
-import com.bafmc.customenchantment.enchant.effect.*;
-import com.bafmc.customenchantment.item.*;
-import com.bafmc.customenchantment.listener.*;
-import com.bafmc.customenchantment.menu.anvil.*;
-import com.bafmc.customenchantment.player.*;
-import com.bafmc.customenchantment.player.mining.*;
-import com.bafmc.customenchantment.task.*;
 import com.bafmc.customenchantment.custommenu.CEBookCatalog;
 import com.bafmc.customenchantment.custommenu.CustomEnchantmentItemDisplaySetup;
 import com.bafmc.customenchantment.custommenu.CustomEnchantmentTradeItemCompare;
 import com.bafmc.customenchantment.database.Database;
 import com.bafmc.customenchantment.enchant.EffectTaskSeparate;
+import com.bafmc.customenchantment.enchant.OptionType;
+import com.bafmc.customenchantment.enchant.condition.*;
+import com.bafmc.customenchantment.enchant.effect.*;
 import com.bafmc.customenchantment.execute.GiveItemExecute;
 import com.bafmc.customenchantment.execute.GiveVoucherItemExecute;
 import com.bafmc.customenchantment.execute.UseItemExecute;
 import com.bafmc.customenchantment.filter.FilterRegister;
 import com.bafmc.customenchantment.guard.GuardManager;
-import com.bafmc.customenchantment.menu.BookcraftMenu;
+import com.bafmc.customenchantment.item.*;
+import com.bafmc.customenchantment.listener.*;
 import com.bafmc.customenchantment.menu.BookUpgradeMenu;
+import com.bafmc.customenchantment.menu.BookcraftMenu;
 import com.bafmc.customenchantment.menu.CEAnvilMenu;
+import com.bafmc.customenchantment.menu.anvil.*;
 import com.bafmc.customenchantment.placeholder.CustomEnchantmentPlaceholder;
+import com.bafmc.customenchantment.player.*;
+import com.bafmc.customenchantment.player.mining.*;
+import com.bafmc.customenchantment.task.*;
 import com.bafmc.custommenu.api.CustomMenuAPI;
-import com.bafmc.bukkit.utils.ConfigUtils;
-import com.bafmc.bukkit.utils.FileUtils;
+import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.CommandSender;
@@ -43,6 +47,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import java.io.File;
 
+@Getter
 public class CustomEnchantment extends JavaPlugin implements Listener {
 	private static CustomEnchantment instance;
 	private CEPlayerMap cePlayerMap;
@@ -52,6 +57,9 @@ public class CustomEnchantment extends JavaPlugin implements Listener {
 	private EffectExecuteTask asyncEffectExecuteTask;
 	private EffectExecuteTask effectExecuteTask;
 	private CECallerTask ceCallerTask;
+	private CEArtifactTask artifactTask;
+	private RecalculateAttributeTask attributeTask;
+	private RegenerationTask regenerationTask;
 	private CEPlayerTask cePlayerTask;
 	private SpecialMiningTask specialMiningTask;
 	private GuardManager guardManager;
@@ -92,6 +100,7 @@ public class CustomEnchantment extends JavaPlugin implements Listener {
 	}
 
 	public void setup() {
+		setupCustomAttribute();
         setupFilter();
 		setupCommand();
 		setupTradeItemCompare();
@@ -116,6 +125,14 @@ public class CustomEnchantment extends JavaPlugin implements Listener {
 		Bukkit.getScheduler().runTaskAsynchronously(this, () -> {
 			registerCMenu();
 		});
+	}
+
+	public void setupCustomAttribute() {
+		CENMSAttributeType.init();
+
+		CustomAttributeType.init();
+		StatType.init();
+		OptionType.init();
 	}
 
     public void setupFilter() {
@@ -211,21 +228,22 @@ public class CustomEnchantment extends JavaPlugin implements Listener {
 	}
 
 	public void setupCEItem() {
-		CEItemRegister.register(CEWeapon.class);
-		CEItemRegister.register(CEMask.class);
-		CEItemRegister.register(CEBanner.class);
-		CEItemRegister.register(CEBook.class);
-		CEItemRegister.register(CEProtectDead.class);
-		CEItemRegister.register(CERemoveProtectDead.class);
-		CEItemRegister.register(CEProtectDestroy.class);
-		CEItemRegister.register(CENameTag.class);
-		CEItemRegister.register(CEEnchantPoint.class);
-		CEItemRegister.register(CEIncreaseRateBook.class);
-		CEItemRegister.register(CERandomBook.class);
-		CEItemRegister.register(CERemoveEnchant.class);
-        CEItemRegister.register(CERemoveEnchantPoint.class);
-		CEItemRegister.register(CEEraseEnchant.class);
-        CEItemRegister.register(CELoreFormat.class);
+		new CEArtifactFactory().register();
+		new CEMaskFactory().register();
+		new CEBannerFactory().register();
+		new CEWeaponFactory().register();
+		new CEBookFactory().register();
+		new CEProtectDeadFactory().register();
+		new CERemoveProtectDeadFactory().register();
+		new CEProtectDestroyFactory().register();
+		new CENameTagFactory().register();
+		new CEEnchantPointFactory().register();
+		new CEIncreaseRateBookFactory().register();
+		new CERandomBookFactory().register();
+		new CERemoveEnchantFactory().register();
+		new CERemoveEnchantPointFactory().register();
+		new CEEraseEnchantFactory().register();
+		new CELoreFormatFactory().register();
 	}
 
 	public void setupCEPlayerExpansion() {
@@ -494,6 +512,15 @@ public class CustomEnchantment extends JavaPlugin implements Listener {
 		this.ceCallerTask = new CECallerTask(this);
 		this.ceCallerTask.runTaskTimer(this, 0, 1);
 
+		this.artifactTask = new CEArtifactTask(this);
+		this.artifactTask.runTaskTimer(this, 0, 20);
+
+		this.attributeTask = new RecalculateAttributeTask(this);
+		this.attributeTask.runTaskTimerAsynchronously(this, 0, 4);
+
+		this.regenerationTask = new RegenerationTask(this);
+		this.regenerationTask.runTaskTimer(this, 0, 4);
+		
 		this.specialMiningTask = new SpecialMiningTask(this);
 		this.specialMiningTask.runTaskTimer(this, 0, 1);
 

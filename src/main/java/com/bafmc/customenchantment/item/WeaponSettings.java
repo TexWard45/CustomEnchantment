@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+import lombok.Getter;
 import org.bukkit.inventory.ItemFlag;
 
 import com.bafmc.bukkit.utils.SparseMap;
@@ -33,9 +34,12 @@ public class WeaponSettings {
 	private List<String> loreStyle;
 	private List<String> loreStyleWithMask;
 	
-	private List<ItemFlag> itemFlags;
-	private Map<NMSAttributeType, String> attributeTypeMap;
-	private Map<String, String> attributeSlotMap;
+	@Getter
+    private List<ItemFlag> itemFlags;
+	@Getter
+    private Map<NMSAttributeType, String> attributeTypeMap;
+	@Getter
+    private Map<String, String> attributeSlotMap;
 
 	public WeaponSettings(int enchantPoint, String vanillaEnchantLore, String customEnchantLore, SparseMap<String> enchantPointLore,
 			SparseMap<String> protectDeadLore, SparseMap<String> protectDestroyLore, List<String> loreStyle,
@@ -85,15 +89,4 @@ public class WeaponSettings {
 		return new ArrayList<String>(loreStyleWithMask);
 	}
 
-	public List<ItemFlag> getItemFlags() {
-		return itemFlags;
-	}
-
-	public Map<NMSAttributeType, String> getAttributeTypeMap() {
-		return attributeTypeMap;
-	}
-	
-	public Map<String, String> getAttributeSlotMap() {
-		return attributeSlotMap;
-	}
 }

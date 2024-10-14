@@ -1,17 +1,10 @@
 package com.bafmc.customenchantment.item;
 
+import com.bafmc.bukkit.bafframework.nms.*;
+import com.bafmc.customenchantment.api.ITrade;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
-
-import com.bafmc.customenchantment.api.ITrade;
-import com.bafmc.bukkit.bafframework.nms.NMSAttribute;
-import com.bafmc.bukkit.bafframework.nms.NMSAttributeOperation;
-import com.bafmc.bukkit.bafframework.nms.NMSAttributeSlot;
-import com.bafmc.bukkit.bafframework.nms.NMSAttributeType;
-import com.bafmc.bukkit.bafframework.nms.NMSNBTBase;
-import com.bafmc.bukkit.bafframework.nms.NMSNBTTagCompound;
-import com.bafmc.bukkit.bafframework.nms.NMSNBTTagList;
 
 public class WeaponAttribute extends CEItemExpansion implements ITrade<NMSNBTTagList> {
 	private List<NMSAttribute> attributeList;
@@ -33,8 +26,9 @@ public class WeaponAttribute extends CEItemExpansion implements ITrade<NMSNBTTag
 
 				switch (key) {
 				case "type":
-					builder.type(NMSAttributeType.valueOf(value));
-					builder.name(NMSAttributeType.valueOf(value).getMinecraftId());
+					NMSAttributeType type = NMSAttributeType.valueOf(value);
+					builder.type(type);
+					builder.name(type.getMinecraftId());
 					break;
 				case "operation":
 					builder.operation(NMSAttributeOperation.fromId(Integer.valueOf(value)));

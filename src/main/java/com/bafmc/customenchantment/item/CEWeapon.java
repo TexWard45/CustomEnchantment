@@ -66,11 +66,11 @@ public class CEWeapon extends CEWeaponAbstract<CEWeaponData> {
 	public ApplyReason applyTo(CEItem ceItem) {
 		if (ceItem instanceof CEBanner && MaterialUtils.isSimilar(this.getDefaultItemStack().getType(), "HELMET")
 				&& ((CEBanner) ceItem).isHelmetEnable()) {
-			return ((CEBanner) ceItem).applyTo(this);
+			return ceItem.applyTo(this);
 		}
 
 		if (ceItem instanceof CEMask) {
-			return ((CEMask) ceItem).applyTo(this);
+			return ceItem.applyTo(this);
 		}
 
 		return ApplyReason.CANCEL;

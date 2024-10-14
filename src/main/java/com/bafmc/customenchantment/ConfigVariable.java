@@ -8,6 +8,7 @@ import org.bukkit.World;
 public class ConfigVariable {
 	public static long MOVE_EVENT_PERIOD;
 	public static List<String> ENCHANT_DISABLE_WORLDS;
+	public static int MAX_ARTIFACT_USE_COUNT;
 
 	public static synchronized boolean isEnchantDisableLocation(Location location) {
 		return ENCHANT_DISABLE_WORLDS.contains(location.getWorld().getName());

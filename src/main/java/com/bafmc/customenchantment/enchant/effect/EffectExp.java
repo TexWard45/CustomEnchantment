@@ -12,7 +12,7 @@ import com.bafmc.customenchantment.enchant.EffectHook;
 import com.bafmc.customenchantment.enchant.ModifyType;
 import com.bafmc.customenchantment.event.CEPlayerStatsModifyEvent;
 import com.bafmc.customenchantment.player.CEPlayer;
-import com.bafmc.customenchantment.player.StatsType;
+import com.bafmc.customenchantment.player.StatType;
 import com.bafmc.bukkit.utils.RandomRange;
 import com.bafmc.bukkit.utils.ExpUtils;
 
@@ -48,7 +48,7 @@ public class EffectExp extends EffectHook {
 		double defaultValue = player.getTotalExperience();
 		double currentValue = new RandomRange(format).getValue();
 
-		CEPlayerStatsModifyEvent event = new CEPlayerStatsModifyEvent(cePlayer, StatsType.EXP, modifyType,
+		CEPlayerStatsModifyEvent event = new CEPlayerStatsModifyEvent(cePlayer, StatType.STAT_EXP, modifyType,
 				defaultValue, currentValue);
 		Bukkit.getPluginManager().callEvent(event);
 

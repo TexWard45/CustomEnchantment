@@ -1,15 +1,12 @@
 package com.bafmc.customenchantment.item;
 
-import java.lang.reflect.Constructor;
+import org.bukkit.inventory.ItemStack;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import org.bukkit.inventory.ItemStack;
-
-import com.bafmc.customenchantment.exception.CENotSuitableTypeException;
-
 public class CEItemRegister {
-	public static final List<Class<? extends CEItem>> list = new ArrayList<Class<? extends CEItem>>();
+	public static final List<CEItemFactory> list = new ArrayList<>();
 
 	public static boolean isCEItem(ItemStack itemStack) {
 		return getCEItem(itemStack) != null;
@@ -34,29 +31,26 @@ public class CEItemRegister {
 		if (itemStack == null) {
 			return null;
 		}
-		
-		for (Class<? extends CEItem> clazz : list) {
-			try {
-				Constructor<?> constructor = clazz.getConstructor(ItemStack.class);
-				CEItem ceItem = (CEItem) constructor.newInstance(itemStack);
-				if (!ceItem.isMatchType(ceItem.getType())) {
-					throw new CENotSuitableTypeException("Not support that type");
-				}
-				return ceItem;
-			} catch (Exception e) {
+
+		CEItem ceItem;
+		for (CEItemFactory clazz : list) {
+			ceItem = clazz.create(itemStack);
+			if (!ceItem.isMatchType(ceItem.getType())) {
 				continue;
 			}
+			return ceItem;
 		}
+
 		return null;
 	}
 
-	public static void register(Class<? extends CEItem> clazz) {
+	public static void register(CEItemFactory clazz) {
 		if (!list.contains(clazz)) {
 			list.add(clazz);
 		}
 	}
 
-	public static void unregister(Class<? extends CEItem> clazz) {
+	public static void unregister(CEItemFactory clazz) {
 		list.remove(clazz);
 	}
 }

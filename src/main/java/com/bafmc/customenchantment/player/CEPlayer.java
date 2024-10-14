@@ -1,9 +1,11 @@
 package com.bafmc.customenchantment.player;
 
+import com.bafmc.bukkit.utils.EquipSlot;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.item.CEWeapon;
 import com.bafmc.customenchantment.item.CEWeaponAbstract;
-import com.bafmc.bukkit.utils.EquipSlot;
+import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.entity.Player;
 
 import java.util.LinkedHashMap;
@@ -13,13 +15,25 @@ import java.util.concurrent.ConcurrentHashMap;
 public class CEPlayer implements ICEPlayerEvent {
 	private ConcurrentHashMap<Class<? extends CEPlayerExpansion>, CEPlayerExpansion> map = new ConcurrentHashMap<Class<? extends CEPlayerExpansion>, CEPlayerExpansion>();
 	private ConcurrentHashMap<EquipSlot, CEWeaponAbstract> slotMap = new ConcurrentHashMap<EquipSlot, CEWeaponAbstract>();
-	private Player player;
-	private boolean register;
-	private boolean adminMode;
-	private boolean debugMode;
-	private int deathTime;
-	private boolean deathTimeBefore;
-	private boolean fullChance;
+	@Getter
+    private Player player;
+    @Getter
+    private boolean register;
+	@Setter
+    @Getter
+    private boolean adminMode;
+	@Getter
+    @Setter
+    private boolean debugMode;
+	@Setter
+    @Getter
+    private int deathTime;
+	@Setter
+    @Getter
+    private boolean deathTimeBefore;
+	@Setter
+    @Getter
+    private boolean fullChance;
 
 	public CEPlayer(Player player) {
 		this.player = player;
@@ -77,20 +91,7 @@ public class CEPlayer implements ICEPlayerEvent {
 		return player.isOnline();
 	}
 
-	/**
-	 * Check if player is registered
-	 * 
-	 * @return true if register, false if not
-	 */
-	public boolean isRegister() {
-		return register;
-	}
-
-	public Player getPlayer() {
-		return player;
-	}
-
-	public void addExpantion(CEPlayerExpansion expansion) {
+    public void addExpantion(CEPlayerExpansion expansion) {
 		map.put(expansion.getClass(), expansion);
 	}
 
@@ -154,47 +155,7 @@ public class CEPlayer implements ICEPlayerEvent {
 		return (PlayerNameTag) getExpansion(PlayerNameTag.class);
 	}
 
-	public boolean isAdminMode() {
-		return adminMode;
-	}
-
-	public void setAdminMode(boolean adminMode) {
-		this.adminMode = adminMode;
-	}
-	
-	public boolean isDebugMode() {
-		return debugMode;
-	}
-
-	public void setDebugMode(boolean debugMode) {
-		this.debugMode = debugMode;
-	}
-
-	public boolean isFullChance() {
-		return fullChance;
-	}
-
-	public void setFullChance(boolean fullChance) {
-		this.fullChance = fullChance;
-	}
-
-	public int getDeathTime() {
-		return deathTime;
-	}
-
-	public void setDeathTime(int deathTime) {
-		this.deathTime = deathTime;
-	}
-
-	public boolean isDeathTimeBefore() {
-		return deathTimeBefore;
-	}
-
-	public void setDeathTimeBefore(boolean deathTimeBefore) {
-		this.deathTimeBefore = deathTimeBefore;
-	}
-
-	public void updateSlot() {
+    public void updateSlot() {
 		for (EquipSlot slot : EquipSlot.ALL_ARRAY) {
 			CEWeaponAbstract weapon = CEWeapon.getCEWeapon(slot.getItemStack(player));
 			if (weapon == null) {

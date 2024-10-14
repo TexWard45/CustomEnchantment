@@ -3,14 +3,14 @@ package com.bafmc.customenchantment.item;
 import com.bafmc.bukkit.api.PlaceholderAPI;
 import com.bafmc.bukkit.bafframework.nms.*;
 import com.bafmc.bukkit.bafframework.utils.EnchantmentUtils;
+import com.bafmc.bukkit.feature.placeholder.PlaceholderBuilder;
 import com.bafmc.bukkit.utils.ColorUtils;
 import com.bafmc.bukkit.utils.NumberUtils;
-import com.bafmc.bukkit.utils.StringListReplace;
-import com.bafmc.bukkit.utils.StringReplace;
 import com.bafmc.customenchantment.api.ITrade;
 import com.bafmc.customenchantment.enchant.CEEnchant;
 import com.bafmc.customenchantment.enchant.CEPlaceholder;
 import com.bafmc.customenchantment.enchant.CESimple;
+import lombok.AllArgsConstructor;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
@@ -20,6 +20,7 @@ import java.text.DecimalFormat;
 import java.util.*;
 
 public class WeaponDisplay extends CEItemExpansion implements ITrade<NMSNBTTagCompound> {
+	public static final String REMOVE = "__REMOVE__";
 	private List<String> beginLore = new ArrayList<String>();
 	private List<String> middleLore = new ArrayList<String>();
 	private List<String> endLore = new ArrayList<String>();
@@ -32,284 +33,85 @@ public class WeaponDisplay extends CEItemExpansion implements ITrade<NMSNBTTagCo
 		WeaponSettings settings = ceItem.getWeaponSettings();
 		WeaponData data = ceItem.getWeaponData();
 
-		StringListReplace replace = new StringListReplace(loreStyle);
+//		StringListReplace replace = new StringListReplace(loreStyle);
+		PlaceholderBuilder builder = PlaceholderBuilder.builder();
 
-		replace.add(new StringReplace() {
-			public List<String> getStringList(String line) {
-				if (!line.equals("begin_default_lore")) {
-					return null;
-				}
+		BeginLore beginLore = new BeginLore(this.beginLore);
+		builder.put("begin_default_lore", beginLore.buildLores());
 
-				if (beginLore.isEmpty()) {
-					setHeaderContinue(true);
-					return null;
-				} else {
-					setFooterContinue(true);
-					return beginLore;
-				}
+		NormalEnchantLore normalEnchantLore = new NormalEnchantLore(settings, itemStack);
+		builder.put("normal_enchant_lore", normalEnchantLore.buildLores());
+
+		CustomEnchantLore customEnchantLore = new CustomEnchantLore(settings, ceItem);
+		builder.put("custom_enchant_lore", customEnchantLore.buildLores());
+
+		MiddleDefaultLore middleDefaultLore = new MiddleDefaultLore(middleLore);
+		builder.put("middle_default_lore", middleDefaultLore.buildLores());
+
+		ExtraEnchantPoint extraEnchantPoint = new ExtraEnchantPoint(data, settings);
+		builder.put("extra_enchant_point", extraEnchantPoint.buildLores());
+
+		ExtraProtectDead extraProtectDead = new ExtraProtectDead(data, settings);
+		builder.put("extra_protect_dead", extraProtectDead.buildLores());
+
+		ExtraProtectDestroy extraProtectDestroy = new ExtraProtectDestroy(data, settings);
+		builder.put("extra_protect_destroy", extraProtectDestroy.buildLores());
+
+		AttributeLore attributeLore = new AttributeLore(settings, itemStack);
+		builder.put("attribute_lore", attributeLore.buildLores());
+
+		EndDefaultLores endDefaultLores = new EndDefaultLores(endLore);
+		builder.put("end_default_lore", endDefaultLores.buildLores());
+
+		List<String> newLore = builder.build().apply(loreStyle);
+
+		ListIterator<String> iterator = newLore.listIterator();
+		while (iterator.hasNext()) {
+			String next = iterator.next();
+			if (next.equals(REMOVE)) {
+				iterator.remove();
 			}
-		});
+		}
 
-		replace.add(new StringReplace() {
-			public List<String> getStringList(String line) {
-				if (!line.equals("normal_enchant_lore")) {
-					return null;
-				}
-
-				List<String> lore = new ArrayList<String>();
-
-				Map<Enchantment, Integer> enchantMap = itemStack.getEnchantments();
-
-				for (Enchantment enchantment : enchantMap.keySet()) {
-					String vanillaLore = settings.getVanillaEnchantLore();
-					vanillaLore = vanillaLore.replace("%enchant_display%", PlaceholderAPI.setPlaceholders(null, EnchantmentUtils.getDisplayName(enchantment)));
-					vanillaLore = vanillaLore.replace("%enchant_level%",
-							NumberUtils.toRomanNumber(enchantMap.get(enchantment)));
-					lore.add(vanillaLore);
-				}
-
-				if (lore.isEmpty()) {
-					setHeaderContinue(true);
-					return null;
-				} else {
-					setFooterContinue(true);
-					return lore;
-				}
-			}
-		});
-
-		replace.add(new StringReplace() {
-			public List<String> getStringList(String line) {
-				if (!line.equals("custom_enchant_lore")) {
-					return null;
-				}
-
-				List<String> lore = new ArrayList<String>();
-				List<CESimple> ceSimpleList = ceItem.getWeaponEnchant().getCESimpleListByPriority();
-				for (CESimple ceSimple : ceSimpleList) {
-					Map<String, String> placeholder = CEPlaceholder.getCESimplePlaceholder(ceSimple);
-
-					CEEnchant ceEnchant = ceSimple.getCEEnchant();
-					if (ceEnchant.getCEDisplay().isDisableEnchantLore()) {
-						continue;
-					}
-
-					String customDisplay = ceEnchant.getCEDisplay().getCustomDisplayFormat();
-					if (customDisplay == null) {
-						customDisplay = settings.getCustomEnchantLore();
-					}
-
-					String display = CEPlaceholder.setPlaceholder(customDisplay, placeholder);
-                    display = PlaceholderAPI.setPlaceholders(null, display);
-                    lore.add(display);
-				}
-
-				if (lore.isEmpty()) {
-					setHeaderContinue(true);
-					return null;
-				} else {
-					setFooterContinue(true);
-					return lore;
-				}
-			}
-		});
-
-		replace.add(new StringReplace() {
-			public List<String> getStringList(String line) {
-				if (!line.equals("middle_default_lore")) {
-					return null;
-				}
-
-				if (middleLore.isEmpty()) {
-					setHeaderContinue(true);
-					return null;
-				} else {
-					setFooterContinue(true);
-					return middleLore;
-				}
-			}
-		});
-
-		replace.add(new StringReplace() {
-			public List<String> getStringList(String line) {
-				if (!line.equals("extra_enchant_point")) {
-					return null;
-				}
-
-				int point = data.getExtraEnchantPoint();
-				String lore = settings.getEnchantPointLore(point);
-				if (lore != null) {
-					lore = lore.replace("%amount%", String.valueOf(point));
-				}
-
-				if (lore.isEmpty()) {
-					setHeaderContinue(true);
-					return null;
-				} else {
-					setFooterContinue(true);
-					return Arrays.asList(lore);
-				}
-			}
-		});
-
-		replace.add(new StringReplace() {
-			public List<String> getStringList(String line) {
-				if (!line.equals("extra_protect_dead")) {
-					return null;
-				}
-
-				int point = data.getExtraProtectDead();
-				String lore = settings.getProtectDeadLore(point);
-				if (lore != null) {
-					lore = lore.replace("%amount%", String.valueOf(point));
-				}
-
-				if (lore.isEmpty()) {
-					setHeaderContinue(true);
-					return null;
-				} else {
-					setFooterContinue(true);
-					return Arrays.asList(lore);
-				}
-			}
-		});
-
-		replace.add(new StringReplace() {
-			public List<String> getStringList(String line) {
-				if (!line.equals("extra_protect_destroy")) {
-					return null;
-				}
-
-				int point = data.getExtraProtectDestroy();
-				String lore = settings.getProtectDestroyLore(point);
-				if (lore != null) {
-					lore = lore.replace("%amount%", String.valueOf(point));
-				}
-
-				if (lore.isEmpty()) {
-					setHeaderContinue(true);
-					return null;
-				} else {
-					setFooterContinue(true);
-					return Arrays.asList(lore);
-				}
-			}
-		});
-
-		replace.add(new StringReplace() {
-			public List<String> getStringList(String line) {
-				if (!line.equals("attribute_lore")) {
-					return null;
-				}
-
-				List<String> lore = new ArrayList<String>();
-
-				Map<NMSAttributeType, String> typeMap = settings.getAttributeTypeMap();
-				Map<String, String> slotMap = settings.getAttributeSlotMap();
-				
-				INMSAttributeItem attributes = NMSManager.getAttributesProvider().getNMSAttributeItem().setItemStack(itemStack);
-				DecimalFormat format = new DecimalFormat("#.##");
-				
-				for (String slot : slotMap.keySet()) {
-					List<String> currentLore = new ArrayList<String>();
-					
-					for (NMSAttributeType type : typeMap.keySet()) {
-						if (attributes.hasAttributeType(type, slot, NMSAttributeOperation.ADD_NUMBER)) {
-							double amount = attributes.getValue(type, slot, NMSAttributeOperation.ADD_NUMBER);
-							currentLore.add(typeMap.get(type).replace("%amount%", format.format(amount)));
-						}
-						
-						if (attributes.hasAttributeType(type, slot, NMSAttributeOperation.MULTIPLY_PERCENTAGE)) {
-							double amount = attributes.getValue(type, slot, NMSAttributeOperation.MULTIPLY_PERCENTAGE);
-							currentLore.add(typeMap.get(type).replace("%amount%", format.format(amount * 100) + "%"));
-						}
-						
-						if (attributes.hasAttributeType(type, slot, NMSAttributeOperation.ADD_PERCENTAGE)) {
-							double amount = attributes.getValue(type, slot, NMSAttributeOperation.ADD_PERCENTAGE);
-							currentLore.add(typeMap.get(type).replace("%amount%", format.format(amount * 100) + "%"));
-						}
-					}
-
-					if (!currentLore.isEmpty()) {
-						lore.add(slotMap.get(slot));
-						lore.addAll(currentLore);
-						
-						// Add empty line between slot
-						lore.add("");
-					}
-				}
-				
-				// Remove last empty line
-				if (!lore.isEmpty() && lore.get(lore.size() - 1).isEmpty()) {
-					lore.remove(lore.size() - 1);
-				}
-
-				if (lore.isEmpty()) {
-					setHeaderContinue(true);
-					return null;
-				} else {
-					setFooterContinue(true);
-					return lore;
-				}
-			}
-		});
-
-		replace.add(new StringReplace() {
-			public List<String> getStringList(String line) {
-				if (!line.equals("end_default_lore")) {
-					return null;
-				}
-
-				if (endLore.isEmpty()) {
-					setHeaderContinue(true);
-					return null;
-				} else {
-					setFooterContinue(true);
-					return endLore;
-				}
-			}
-		});
-
-		List<String> newLore = replace.build();
 		for (int i = 0; i < newLore.size() - 1; i++) {
 			if (newLore.get(i).isEmpty() && newLore.get(i + 1).isEmpty()) {
 				newLore.remove(i);
 			}
 
-			if (newLore.get(i).isEmpty() && newLore.get(i + 1).indexOf("blank_lore") != -1) {
+			if (newLore.get(i).isEmpty() && newLore.get(i + 1).contains("blank_lore")) {
 				newLore.remove(i);
 			}
 		}
 		
 		for (int i = 0; i < newLore.size() - 1; i++) {
-			if (newLore.get(i).indexOf("blank_lore") != -1 && newLore.get(i + 1).isEmpty()) {
+			if (newLore.get(i).contains("blank_lore") && newLore.get(i + 1).isEmpty()) {
 				newLore.remove(i + 1);
 			}
 			
-			if (newLore.get(i).indexOf("lower_blank_lore") != -1 && newLore.get(i + 1).indexOf("lower_blank_lore") != -1) {
+			if (newLore.get(i).contains("lower_blank_lore") && newLore.get(i + 1).contains("lower_blank_lore")) {
 				newLore.remove(i + 1);
 			}
 			
-			if (newLore.get(i).indexOf("upper_blank_lore") != -1 && newLore.get(i + 1).indexOf("upper_blank_lore") != -1) {
+			if (newLore.get(i).contains("upper_blank_lore") && newLore.get(i + 1).contains("upper_blank_lore")) {
 				newLore.remove(i + 1);
 			}
 		}
 		
 		// Trim
-		while (!newLore.isEmpty() && (newLore.get(0).isEmpty() || newLore.get(0).equals("lower_blank_lore"))) {
-			newLore.remove(0);
+		while (!newLore.isEmpty() && (newLore.getFirst().isEmpty() || newLore.getFirst().equals("lower_blank_lore"))) {
+			newLore.removeFirst();
 		}
 
-		while (!newLore.isEmpty() && (newLore.get(newLore.size() - 1).isEmpty()
-				|| newLore.get(newLore.size() - 1).equals("upper_blank_lore"))) {
-			newLore.remove(newLore.size() - 1);
+		while (!newLore.isEmpty() && (newLore.getLast().isEmpty()
+				|| newLore.getLast().equals("upper_blank_lore"))) {
+			newLore.removeLast();
 		}
 
 		ListIterator<String> ite = newLore.listIterator();
 		while (ite.hasNext()) {
 			String next = ite.next();
 
-			if (next.indexOf("blank_lore") != -1) {
+			if (next.contains("blank_lore")) {
 				ite.set("");
 			}
 		}
@@ -346,10 +148,10 @@ public class WeaponDisplay extends CEItemExpansion implements ITrade<NMSNBTTagCo
 			List<String> lore = itemStack.getItemMeta().getLore();
 
 			for (String line : lore) {
-				if (line.startsWith("§b§r")) {
-					this.beginLore.add(line);
-				} else if (line.startsWith("§e§r")) {
-					this.endLore.add(line);
+				if (line.startsWith("Ⓑ")) {
+					this.beginLore.add(line.substring(1));
+				} else if (line.startsWith("Ⓔ")) {
+					this.endLore.add(line.substring(1));
 				} else {
 					this.middleLore.add(line);
 				}
@@ -386,4 +188,221 @@ public class WeaponDisplay extends CEItemExpansion implements ITrade<NMSNBTTagCo
 		return tag;
 	}
 
+}
+
+@AllArgsConstructor
+class BeginLore {
+	private List<String> beginLore;
+
+	public List<String> buildLores() {
+		if (beginLore.isEmpty()) {
+			return Arrays.asList(WeaponDisplay.REMOVE);
+		}
+
+		return beginLore;
+	}
+}
+
+@AllArgsConstructor
+class NormalEnchantLore {
+	private WeaponSettings settings;
+	private ItemStack itemStack;
+
+	public List<String> buildLores() {
+		List<String> lore = new ArrayList<String>();
+
+		Map<Enchantment, Integer> enchantMap = itemStack.getEnchantments();
+
+		for (Enchantment enchantment : enchantMap.keySet()) {
+			String vanillaLore = settings.getVanillaEnchantLore();
+			vanillaLore = vanillaLore.replace("%enchant_display%", PlaceholderAPI.setPlaceholders(null, EnchantmentUtils.getDisplayName(enchantment)));
+			vanillaLore = vanillaLore.replace("%enchant_level%", NumberUtils.toRomanNumber(enchantMap.get(enchantment)));
+			lore.add(vanillaLore);
+		}
+
+		if (lore.isEmpty()) {
+			return Arrays.asList(WeaponDisplay.REMOVE);
+		}
+
+		return lore;
+	}
+}
+
+@AllArgsConstructor
+class CustomEnchantLore {
+	private WeaponSettings settings;
+	private CEWeaponAbstract ceItem;
+
+	public List<String> buildLores() {
+		List<String> lore = new ArrayList<String>();
+		List<CESimple> ceSimpleList = ceItem.getWeaponEnchant().getCESimpleListByPriority();
+		for (CESimple ceSimple : ceSimpleList) {
+			Map<String, String> placeholder = CEPlaceholder.getCESimplePlaceholder(ceSimple);
+
+			CEEnchant ceEnchant = ceSimple.getCEEnchant();
+			if (ceEnchant.getCEDisplay().isDisableEnchantLore()) {
+				continue;
+			}
+
+			String customDisplay = ceEnchant.getCEDisplay().getCustomDisplayFormat();
+			if (customDisplay == null) {
+				customDisplay = settings.getCustomEnchantLore();
+			}
+
+			String display = CEPlaceholder.setPlaceholder(customDisplay, placeholder);
+			display = PlaceholderAPI.setPlaceholders(null, display);
+			lore.add(display);
+		}
+
+		if (lore.isEmpty()) {
+			return Arrays.asList(WeaponDisplay.REMOVE);
+		}
+
+		return lore;
+	}
+}
+
+@AllArgsConstructor
+class MiddleDefaultLore {
+	private List<String> middleLore;
+
+	public List<String> buildLores() {
+		if (middleLore.isEmpty()) {
+			return Arrays.asList(WeaponDisplay.REMOVE);
+		}
+
+		return middleLore;
+	}
+}
+
+@AllArgsConstructor
+class ExtraEnchantPoint {
+	private WeaponData data;
+	private WeaponSettings settings;
+
+	public List<String> buildLores() {
+		int point = data.getExtraEnchantPoint();
+		String lore = settings.getEnchantPointLore(point);
+		if (lore != null) {
+			lore = lore.replace("%amount%", String.valueOf(point));
+		}
+
+		if (lore.isEmpty()) {
+			return Arrays.asList(WeaponDisplay.REMOVE);
+		}
+
+		return Arrays.asList(lore);
+	}
+}
+
+@AllArgsConstructor
+class ExtraProtectDead {
+	private WeaponData data;
+	private WeaponSettings settings;
+
+	public List<String> buildLores() {
+		int point = data.getExtraProtectDead();
+		String lore = settings.getProtectDeadLore(point);
+		if (lore != null) {
+			lore = lore.replace("%amount%", String.valueOf(point));
+		}
+
+		if (lore.isEmpty()) {
+			return Arrays.asList(WeaponDisplay.REMOVE);
+		}
+
+		return Arrays.asList(lore);
+	}
+}
+
+@AllArgsConstructor
+class ExtraProtectDestroy {
+	private WeaponData data;
+	private WeaponSettings settings;
+
+	public List<String> buildLores() {
+		int point = data.getExtraProtectDestroy();
+		String lore = settings.getProtectDestroyLore(point);
+		if (lore != null) {
+			lore = lore.replace("%amount%", String.valueOf(point));
+		}
+
+		if (lore.isEmpty()) {
+			return Arrays.asList(WeaponDisplay.REMOVE);
+		}
+
+		return Arrays.asList(lore);
+	}
+}
+
+@AllArgsConstructor
+class AttributeLore {
+	private WeaponSettings settings;
+	private ItemStack itemStack;
+
+	public List<String> buildLores() {
+		List<String> lore = new ArrayList<String>();
+
+		Map<NMSAttributeType, String> typeMap = settings.getAttributeTypeMap();
+		Map<String, String> slotMap = settings.getAttributeSlotMap();
+
+		INMSAttributeItem attributes = NMSManager.getAttributesProvider().getNMSAttributeItem().setItemStack(itemStack);
+		DecimalFormat format = new DecimalFormat("#.##");
+
+		for (String slot : slotMap.keySet()) {
+			List<String> currentLore = new ArrayList<String>();
+
+			for (NMSAttributeType type : typeMap.keySet()) {
+				if (attributes.hasAttributeType(type, slot, NMSAttributeOperation.ADD_NUMBER)) {
+					double amount = attributes.getValue(type, slot, NMSAttributeOperation.ADD_NUMBER);
+					if (amount == 0) {
+						continue;
+					}
+					currentLore.add(typeMap.get(type).replace("%amount%", format.format(amount)));
+				}
+
+				if (attributes.hasAttributeType(type, slot, NMSAttributeOperation.MULTIPLY_PERCENTAGE)) {
+					double amount = attributes.getValue(type, slot, NMSAttributeOperation.MULTIPLY_PERCENTAGE);
+					currentLore.add(typeMap.get(type).replace("%amount%", format.format(amount * 100) + "%"));
+				}
+
+				if (attributes.hasAttributeType(type, slot, NMSAttributeOperation.ADD_PERCENTAGE)) {
+					double amount = attributes.getValue(type, slot, NMSAttributeOperation.ADD_PERCENTAGE);
+					currentLore.add(typeMap.get(type).replace("%amount%", format.format(amount * 100) + "%"));
+				}
+			}
+
+			if (!currentLore.isEmpty()) {
+				lore.add(slotMap.get(slot));
+				lore.addAll(currentLore);
+
+				// Add empty line between slot
+				lore.add("");
+			}
+		}
+
+		// Remove last empty line
+		if (!lore.isEmpty() && lore.get(lore.size() - 1).isEmpty()) {
+			lore.remove(lore.size() - 1);
+		}
+
+		if (lore.isEmpty()) {
+			return Arrays.asList(WeaponDisplay.REMOVE);
+		}
+
+		return lore;
+	}
+}
+
+@AllArgsConstructor
+class EndDefaultLores {
+	private List<String> endLore;
+
+	public List<String> buildLores() {
+		if (endLore.isEmpty()) {
+			return Arrays.asList(WeaponDisplay.REMOVE);
+		}
+
+		return endLore;
+	}
 }

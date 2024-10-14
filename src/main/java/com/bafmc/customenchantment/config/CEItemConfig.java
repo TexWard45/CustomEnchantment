@@ -36,6 +36,7 @@ public class CEItemConfig extends AbstractConfig {
 		loadCEEraseEnchantStorage();
 		loadCEMaskStorage();
 		loadCEWeaponStorage();
+		loadCEArtifactStorage();
 		loadCEBannerStorage();
         loadCELoreFormatStorage();
 	}
@@ -433,6 +434,42 @@ public class CEItemConfig extends AbstractConfig {
 			}
 
 			CEWeaponData data = new CEWeaponData();
+			data.setPattern(pattern);
+			ceItem.setData(data);
+
+			storage.put(pattern, ceItem);
+		}
+	}
+
+	public void loadCEArtifactStorage() {
+		CEArtifactStorage storage = new CEArtifactStorage();
+		CustomEnchantment.instance().getCEItemStorageMap().put(CEItemType.ARTIFACT, storage);
+
+		for (String pattern : config.getKeySection("artifact", false)) {
+			String path = "artifact." + pattern;
+
+			ItemStack itemStack = config.getItemStack(path + ".item", true);
+			CEArtifact ceItem = new CEArtifact(itemStack);
+			for (String enchantFormat : config.getStringList(path + ".enchants")) {
+				String enchantName = null;
+				int level = 1;
+
+				int spaceIndex = enchantFormat.indexOf(" ");
+				if (spaceIndex != -1) {
+					enchantName = enchantFormat.substring(0, spaceIndex);
+					level = Integer.parseInt(enchantFormat.substring(spaceIndex + 1, enchantFormat.length()));
+				} else {
+					enchantName = enchantFormat;
+				}
+
+				ceItem.getWeaponEnchant().addCESimple(new CESimple(enchantName, level));
+			}
+
+			for (String attributeFormat : config.getStringList(path + ".attributes")) {
+				ceItem.getWeaponAttribute().addAttribute(attributeFormat);
+			}
+
+			CEArtifactData data = new CEArtifactData();
 			data.setPattern(pattern);
 			ceItem.setData(data);
 

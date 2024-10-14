@@ -2,6 +2,7 @@ package com.bafmc.customenchantment.attribute;
 
 import com.bafmc.bukkit.utils.Chance;
 import com.bafmc.bukkit.utils.RandomRange;
+import lombok.Getter;
 
 public class AttributeData implements Cloneable {
 	public enum Operation {
@@ -9,7 +10,7 @@ public class AttributeData implements Cloneable {
 
 		private int id;
 
-		private Operation(int id) {
+		Operation(int id) {
 			this.id = id;
 		}
 
@@ -27,63 +28,50 @@ public class AttributeData implements Cloneable {
 		}
 	}
 
-	private String type;
+	@Getter
+    private CustomAttributeType type;
 	private RandomRange amount;
-	private Operation operation;
-	private Chance chance;
+	@Getter
+    private Operation operation;
+	@Getter
+    private Chance chance;
 
-	public AttributeData(String type, double amount, Operation operation) {
-		this.type = type != null ? type.toUpperCase() : null;
+	public AttributeData(CustomAttributeType type, double amount, Operation operation) {
+		this.type = type;
 		this.amount = new RandomRange(amount);
 		this.operation = operation;
 	}
 
-	public AttributeData(String type, RandomRange amount, Operation operation) {
-		this.type = type != null ? type.toUpperCase() : null;
+	public AttributeData(CustomAttributeType type, RandomRange amount, Operation operation) {
+		this.type = type;
 		this.amount = amount;
 		this.operation = operation;
 	}
 	
-	public AttributeData(String type, double amount, Operation operation, Chance chance) {
-		this.type = type != null ? type.toUpperCase() : null;
+	public AttributeData(CustomAttributeType type, double amount, Operation operation, Chance chance) {
+		this.type = type;
 		this.amount = new RandomRange(amount);
 		this.operation = operation;
 		this.chance = chance.clone();
 	}
 	
-	public AttributeData(String type, RandomRange amount, Operation operation, Chance chance) {
-		this.type = type != null ? type.toUpperCase() : null;
+	public AttributeData(CustomAttributeType type, RandomRange amount, Operation operation, Chance chance) {
+		this.type = type;
 		this.amount = amount;
 		this.operation = operation;
 		this.chance = chance.clone();
 	}
 
-	public String getType() {
-		return type;
-	}
-
-	public double getAmount() {
+    public double getAmount() {
 		return amount.getValue();
 	}
 
-	public RandomRange getAmountRange() {
-		return amount;
-	}
-	
-	public Operation getOperation() {
-		return operation;
-	}
-
-	public Chance getChance() {
-		return chance;
-	}
-
-	public boolean hasChance() {
+    public boolean hasChance() {
 		return chance != null;
 	}
 
 	public String toString() {
-		return "OptionData [type=" + type + ", amount=" + amount + ", operation=" + operation + "]";
+		return "OptionData [type=" + type.getType() + ", amount=" + amount + ", operation=" + operation + "]";
 	}
 
 	public AttributeData clone() {

@@ -13,7 +13,7 @@ import com.bafmc.customenchantment.enchant.EffectHook;
 import com.bafmc.customenchantment.enchant.ModifyType;
 import com.bafmc.customenchantment.event.CEPlayerStatsModifyEvent;
 import com.bafmc.customenchantment.player.CEPlayer;
-import com.bafmc.customenchantment.player.StatsType;
+import com.bafmc.customenchantment.player.StatType;
 import com.bafmc.bukkit.utils.RandomRange;
 
 public class EffectAbsorptionHeart extends EffectHook {
@@ -53,7 +53,7 @@ public class EffectAbsorptionHeart extends EffectHook {
 		double defaultValue = entityPlayer.getAbsorptionAmount();
 		double currentValue = new RandomRange(format).getValue();
 
-		CEPlayerStatsModifyEvent event = new CEPlayerStatsModifyEvent(cePlayer, StatsType.ABSORPTION_HEART, modifyType,
+		CEPlayerStatsModifyEvent event = new CEPlayerStatsModifyEvent(cePlayer, StatType.STAT_ABSORPTION_HEART, modifyType,
 				defaultValue, currentValue);
 		Bukkit.getPluginManager().callEvent(event);
 

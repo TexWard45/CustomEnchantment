@@ -1,21 +1,19 @@
 package com.bafmc.customenchantment.attribute;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.bafmc.customenchantment.attribute.AttributeData.Operation;
 import com.bafmc.customenchantment.player.CEPlayer;
 import org.bukkit.attribute.AttributeModifier;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class AttributeCalculate {
-	public static double calculate(CEPlayer cePlayer, String type, double amount, List<AttributeData> list) {
-		list.addAll(cePlayer.getCustomAttribute().getAttributeList());
-		return calculate(type, amount, list);
+	public static double calculate(CEPlayer cePlayer, CustomAttributeType type, double amount, List<AttributeData> additionalList) {
+		additionalList.addAll(cePlayer.getCustomAttribute().getAttributeList());
+		return calculate(type, amount, additionalList);
 	}
 	
-	public static double calculate(String type, double amount, List<AttributeData> list) {
-		type = type.toUpperCase();
-
+	public static double calculate(CustomAttributeType type, double amount, List<AttributeData> list) {
 		List<AttributeData> newList = new ArrayList<AttributeData>();
 
 		for (AttributeData data : list) {

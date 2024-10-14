@@ -1,23 +1,23 @@
 package com.bafmc.customenchantment.listener;
 
-import com.bafmc.customenchantment.enchant.*;
-import com.gmail.nossr50.events.skills.rupture.McMMOEntityDamageByRuptureEvent;
+import com.bafmc.bukkit.utils.EquipSlot;
+import com.bafmc.bukkit.utils.RandomRange;
+import com.bafmc.bukkit.utils.RandomUtils;
 import com.bafmc.customenchantment.CustomEnchantment;
+import com.bafmc.customenchantment.CustomEnchantmentMessage;
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.attribute.AttributeCalculate;
+import com.bafmc.customenchantment.attribute.CustomAttributeType;
 import com.bafmc.customenchantment.command.CommandDebugAll;
+import com.bafmc.customenchantment.enchant.*;
+import com.bafmc.customenchantment.event.CEPlayerStatsModifyEvent;
 import com.bafmc.customenchantment.guard.Guard;
 import com.bafmc.customenchantment.guard.GuardManager;
 import com.bafmc.customenchantment.guard.PlayerGuard;
 import com.bafmc.customenchantment.item.CEWeaponAbstract;
-import com.bafmc.customenchantment.player.CEPlayer;
-import com.bafmc.customenchantment.player.PlayerAbility;
+import com.bafmc.customenchantment.player.*;
 import com.bafmc.customenchantment.player.PlayerAbility.Type;
-import com.bafmc.customenchantment.player.PlayerTemporaryStorage;
-import com.bafmc.customenchantment.player.TemporaryKey;
 import com.bafmc.customenchantment.task.ArrowTask;
-import com.bafmc.bukkit.utils.EquipSlot;
-import com.bafmc.bukkit.utils.RandomRange;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.*;
@@ -96,7 +96,7 @@ public class EntityListener implements Listener {
 									.setCEType(CEType.BOW_SHOOT)
 									.setWeaponMap(weaponMap)
 									.call();
-		power = AttributeCalculate.calculate(cePlayer, OptionType.POWER, power, result.getOptionDataList());
+		power = AttributeCalculate.calculate(cePlayer, OptionType.OPTION_POWER, power, result.getOptionDataList());
 
 		// Enable Multiple Arrow
 		storage.set(TemporaryKey.NOW_MULTIPLE_ARROW, true);
@@ -178,7 +178,7 @@ public class EntityListener implements Listener {
 				.call();
 		
 		if (!result.getOptionDataList().isEmpty()) {
-			e.setDamage(AttributeCalculate.calculate(CEAPI.getCEPlayer(pDefenser), OptionType.DEFENSE, damage,
+			e.setDamage(AttributeCalculate.calculate(CEAPI.getCEPlayer(pDefenser), OptionType.OPTION_DEFENSE, damage,
 					result.getOptionDataList()));
 		}
 
@@ -196,10 +196,6 @@ public class EntityListener implements Listener {
 			return;
 		}
 
-        if (Bukkit.getPluginManager().isPluginEnabled("McMMO") && (e instanceof McMMOEntityDamageByRuptureEvent)) {
-            return;
-		}
-
 		Entity attacker = getRealEntity(e.getDamager());
 		Entity defenser = getRealEntity(e.getEntity());
 
@@ -207,6 +203,13 @@ public class EntityListener implements Listener {
 			CEPlayer cePlayer = (CEPlayer) CEAPI.getCEPlayer(((Player) attacker));
 			PlayerAbility ability = cePlayer.getAbility();
 			if (ability.isCancel(Type.ATTACK)) {
+				e.setCancelled(true);
+				return;
+			}
+		}
+
+		if (e.getCause() == DamageCause.ENTITY_ATTACK && defenser instanceof Player) {
+			if (isDodged((Player) defenser)) {
 				e.setCancelled(true);
 				return;
 			}
@@ -260,6 +263,12 @@ public class EntityListener implements Listener {
 
 		if (currentDamage != defaultDamage)
 			e.setDamage(currentDamage);
+
+		double finalDamage = e.getFinalDamage();
+
+		if (attacker instanceof Player) {
+			handleLifeSteal((Player) attacker, finalDamage);
+		}
 
 		if (attacker instanceof Player) {
 			Player player = (Player) attacker;
@@ -373,9 +382,10 @@ public class EntityListener implements Listener {
 				.setCEType(CEType.ATTACK)
 				.setCEFunctionData(data)
 				.call();
-		
-		damage = AttributeCalculate.calculate(CEAPI.getCEPlayer(pAttacker), OptionType.ATTACK, damage,
+
+		damage = AttributeCalculate.calculate(CEAPI.getCEPlayer(pAttacker), OptionType.OPTION_ATTACK, damage,
 				result.getOptionDataList());
+		damage = handleCritical(attacker, damage);
 
 		data = new CEFunctionData(pAttacker);
 		data.setEnemyLivingEntity(eDefenser);
@@ -387,8 +397,8 @@ public class EntityListener implements Listener {
 				.setCEType(CEType.FINAL_ATTACK)
 				.setCEFunctionData(data)
 				.call();
-		
-		return AttributeCalculate.calculate(CEAPI.getCEPlayer(pAttacker), OptionType.ATTACK, damage,
+
+		return AttributeCalculate.calculate(CEAPI.getCEPlayer(pAttacker), OptionType.OPTION_ATTACK, damage,
 				result.getOptionDataList());
 	}
 
@@ -411,8 +421,9 @@ public class EntityListener implements Listener {
 				.setCEFunctionData(data)
 				.call();
 		
-		return AttributeCalculate.calculate(CEAPI.getCEPlayer(pDefenser), OptionType.DEFENSE, damage,
+		damage = AttributeCalculate.calculate(CEAPI.getCEPlayer(pDefenser), OptionType.OPTION_DEFENSE, damage,
 				result.getOptionDataList());
+		return handleDamageReduction(defenser, damage);
 	}
 
 	public double onPlayerVsPlayer(Entity attacker, Entity defenser, double damage, EntityDamageByEntityEvent e) {
@@ -433,8 +444,9 @@ public class EntityListener implements Listener {
 				.setCEType(CEType.ATTACK)
 				.setCEFunctionData(pData)
 				.call();
-		damage = AttributeCalculate.calculate(CEAPI.getCEPlayer(pAttacker), OptionType.ATTACK, damage,
+		damage = AttributeCalculate.calculate(CEAPI.getCEPlayer(pAttacker), OptionType.OPTION_ATTACK, damage,
 				pResult.getOptionDataList());
+		damage = handleCritical(attacker, damage);
 
 		CEFunctionData eData = new CEFunctionData(pDefenser);
 		eData.setEnemyPlayer(pAttacker);
@@ -446,8 +458,9 @@ public class EntityListener implements Listener {
 				.setCEType(CEType.DEFENSE)
 				.setCEFunctionData(eData)
 				.call();
-		damage = AttributeCalculate.calculate(CEAPI.getCEPlayer(pDefenser), OptionType.DEFENSE, damage,
+		damage = AttributeCalculate.calculate(CEAPI.getCEPlayer(pDefenser), OptionType.OPTION_DEFENSE, damage,
 				eResult.getOptionDataList());
+		damage = handleDamageReduction(defenser, damage);
 
 		pData = new CEFunctionData(pAttacker);
 		pData.setEnemyPlayer(pDefenser);
@@ -459,8 +472,8 @@ public class EntityListener implements Listener {
 				.setCEType(CEType.FINAL_ATTACK)
 				.setCEFunctionData(pData)
 				.call();
-		
-		return AttributeCalculate.calculate(CEAPI.getCEPlayer(pAttacker), OptionType.ATTACK, damage,
+
+		return AttributeCalculate.calculate(CEAPI.getCEPlayer(pAttacker), OptionType.OPTION_ATTACK, damage,
 				pResult.getOptionDataList());
 	}
 
@@ -496,9 +509,9 @@ public class EntityListener implements Listener {
                 .setByPassCooldown(isFakeArrow)
 				.call();
 
-//		CECallerList pResult = CEAPI.callCEList(pAttacker, CEType.ARROW_HIT, weaponMap, pData, EquipSlot.MAINHAND);
-		damage = AttributeCalculate.calculate(CEAPI.getCEPlayer(pAttacker), OptionType.ATTACK, damage,
+		damage = AttributeCalculate.calculate(CEAPI.getCEPlayer(pAttacker), OptionType.OPTION_ATTACK, damage,
 				pResult.getOptionDataList());
+		damage = handleCritical(attacker, damage);
 
 		CEFunctionData eData = new CEFunctionData(pDefenser);
 		eData.setEnemyPlayer(pAttacker);
@@ -511,8 +524,9 @@ public class EntityListener implements Listener {
                 .setCEFunctionData(eData)
                 .call();
 
-		double finalDamage = AttributeCalculate.calculate(CEAPI.getCEPlayer(pDefenser), OptionType.DEFENSE, damage,
+		double finalDamage = AttributeCalculate.calculate(CEAPI.getCEPlayer(pDefenser), OptionType.OPTION_DEFENSE, damage,
                 eResult.getOptionDataList());
+		finalDamage = handleDamageReduction(defenser, finalDamage);
 
         if (attacker.hasMetadata("ce_multi_arrow_damage_ratio")) {
             finalDamage *= attacker.getMetadata("ce_multi_arrow_damage_ratio").get(0).asDouble();
@@ -550,8 +564,97 @@ public class EntityListener implements Listener {
 				.setCEFunctionData(data)
 				.call();
 		
-//		CECallerList result = CEAPI.callCEList(pAttacker, CEType.ARROW_HIT, weaponMap, data, EquipSlot.MAINHAND);
-		return AttributeCalculate.calculate(CEAPI.getCEPlayer(pAttacker), OptionType.ATTACK, damage,
+		damage = AttributeCalculate.calculate(CEAPI.getCEPlayer(pAttacker), OptionType.OPTION_ATTACK, damage,
 				result.getOptionDataList());
+		return handleCritical(attacker, damage);
+	}
+
+	public Player getPlayer(Entity entity) {
+		if (entity instanceof Player) {
+			return (Player) entity;
+		}
+		if (entity instanceof Arrow && ((Arrow) entity).getShooter() instanceof Player) {
+			return (Player) ((Arrow) entity).getShooter();
+		}
+		return null;
+	}
+
+	public double handleCritical(Entity entity, double damage) {
+		if (damage <= 0) {
+			return damage;
+		}
+
+		Player player = getPlayer(entity);
+		if (player == null) {
+			return damage;
+		}
+
+		CEPlayer cePlayer = CEAPI.getCEPlayer(player);
+		PlayerCustomAttribute attribute = cePlayer.getCustomAttribute();
+
+		int chance = (int) attribute.getValue(CustomAttributeType.CRITICAL_CHANCE);
+		if (!RandomUtils.randomChance(chance)) {
+			return damage;
+		}
+
+		CustomEnchantmentMessage.send(player, "attribute.critical.success");
+		return damage * attribute.getValue(CustomAttributeType.CRITICAL_DAMAGE);
+	}
+
+	public double handleDamageReduction(Entity entity, double damage) {
+		if (damage <= 0) {
+			return damage;
+		}
+
+		Player player = getPlayer(entity);
+		if (player == null) {
+			return damage;
+		}
+
+		CEPlayer cePlayer = CEAPI.getCEPlayer(player);
+		PlayerCustomAttribute attribute = cePlayer.getCustomAttribute();
+
+		return damage * ((100 - attribute.getValue(CustomAttributeType.DAMAGE_REDUCTION)) / 100);
+	}
+
+	public boolean isDodged(Player player) {
+		CEPlayer cePlayer = CEAPI.getCEPlayer(player);
+		PlayerCustomAttribute attribute = cePlayer.getCustomAttribute();
+
+		int chance = (int) attribute.getValue(CustomAttributeType.DODGE_CHANCE);
+		if (RandomUtils.randomChance(chance)) {
+			CustomEnchantmentMessage.send(player, "attribute.dodge.success");
+			return true;
+		}
+		return false;
+	}
+
+	public void handleLifeSteal(Player player, double damage) {
+		if (damage <= 0) {
+			return;
+		}
+
+		CEPlayer cePlayer = CEAPI.getCEPlayer(player);
+		PlayerCustomAttribute attribute = cePlayer.getCustomAttribute();
+
+		double lifeSteal = attribute.getValue(CustomAttributeType.LIFE_STEAL_PERCENT);
+		if (lifeSteal <= 0) {
+			return;
+		}
+
+		double heal = damage * lifeSteal / 100;
+
+		double defaultValue = player.getHealth();
+		double currentValue = player.getHealth() + heal;
+
+		CEPlayerStatsModifyEvent event = new CEPlayerStatsModifyEvent(cePlayer, StatType.STAT_HEALTH, ModifyType.ADD,
+				defaultValue, currentValue, false);
+		Bukkit.getPluginManager().callEvent(event);
+
+		if (event.isCancelled()) {
+			return;
+		}
+
+		player.setHealth(Math.max(Math.min(event.getCurrentValue(), player.getMaxHealth()), 0));
 	}
 }

@@ -20,6 +20,7 @@ public class CustomEnchantmentMessage {
 		placeholder.put("EVENT ", "&5[&d&l!&5] &d");
 		placeholder.put("WARN ", "&6[&e&l!&6] &e");
 		placeholder.put("DEPRECATED ", "&8[&7&l!&8] &7");
+		placeholder.put("MESSAGE ", "");
 	}
 
 	public static void setConfig(AdvancedFileConfiguration config) {
