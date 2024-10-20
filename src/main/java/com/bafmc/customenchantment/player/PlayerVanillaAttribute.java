@@ -1,13 +1,13 @@
 package com.bafmc.customenchantment.player;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeInstance;
 import org.bukkit.attribute.AttributeModifier;
 import org.bukkit.attribute.AttributeModifier.Operation;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Handle attribute from player. Only handle attribute modifier which name
@@ -157,7 +157,7 @@ public class PlayerVanillaAttribute extends CEPlayerExpansion {
 	 */
 	public List<AttributeModifier> getAttributeModifiers(Attribute attribute) {
 		AttributeInstance aInstance = player.getAttribute(attribute);
-		return new ArrayList<AttributeModifier>(aInstance.getModifiers());
+		return new ArrayList<>(aInstance.getModifiers());
 	}
 
 	/**
@@ -167,11 +167,22 @@ public class PlayerVanillaAttribute extends CEPlayerExpansion {
 	 * @return list of attribute modifier unique name
 	 */
 	public List<String> getAttributeModifierNameList(Attribute attribute) {
-		List<String> list = new ArrayList<String>();
+		return getAttributeModifierNameList(attribute, PREFIX);
+	}
+
+	/**
+	 * Get list of attribute modifier unique name by type of attribute and prefix.
+	 *
+	 * @param attribute type of attribute
+	 * @param prefix    prefix of attribute modifier name
+	 * @return list of attribute modifier unique name
+	 */
+	public List<String> getAttributeModifierNameList(Attribute attribute, String prefix) {
+		List<String> list = new ArrayList<>();
 
 		for (AttributeModifier aModifier : player.getAttribute(attribute).getModifiers()) {
-			if (aModifier.getName().startsWith(PREFIX)) {
-				list.add(aModifier.getName().substring(PREFIX.length()));
+			if (aModifier.getName().startsWith(prefix)) {
+				list.add(aModifier.getName().substring(prefix.length()));
 			}
 		}
 
@@ -185,6 +196,6 @@ public class PlayerVanillaAttribute extends CEPlayerExpansion {
 	 * @return name with prefix at head
 	 */
 	public static String getPrefix(String name) {
-		return name.indexOf(PREFIX) != -1 ? name : PREFIX + name;
+		return name.contains(PREFIX) ? name : PREFIX + name;
 	}
 }

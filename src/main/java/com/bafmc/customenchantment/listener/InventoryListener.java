@@ -1,10 +1,14 @@
 package com.bafmc.customenchantment.listener;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-
 import com.bafmc.bukkit.bafframework.utils.EnchantmentUtils;
+import com.bafmc.bukkit.utils.InventoryUtils;
+import com.bafmc.bukkit.utils.ItemStackUtils;
+import com.bafmc.customenchantment.CustomEnchantment;
+import com.bafmc.customenchantment.CustomEnchantmentLog;
+import com.bafmc.customenchantment.CustomEnchantmentMessage;
+import com.bafmc.customenchantment.api.CEAPI;
+import com.bafmc.customenchantment.item.*;
+import com.bafmc.customenchantment.item.CEUnifyWeapon.Target;
 import com.destroystokyo.paper.event.inventory.PrepareGrindstoneEvent;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -15,29 +19,15 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
-import org.bukkit.event.inventory.ClickType;
-import org.bukkit.event.inventory.InventoryAction;
-import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.event.inventory.InventoryType;
-import org.bukkit.event.inventory.PrepareAnvilEvent;
+import org.bukkit.event.inventory.*;
 import org.bukkit.inventory.AnvilInventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import com.bafmc.customenchantment.CustomEnchantment;
-import com.bafmc.customenchantment.CustomEnchantmentLog;
-import com.bafmc.customenchantment.CustomEnchantmentMessage;
-import com.bafmc.customenchantment.api.CEAPI;
-import com.bafmc.customenchantment.item.ApplyReason;
-import com.bafmc.customenchantment.item.ApplyResult;
-import com.bafmc.customenchantment.item.CEItem;
-import com.bafmc.customenchantment.item.CENameTag;
-import com.bafmc.customenchantment.item.CEUnify;
-import com.bafmc.customenchantment.item.CEUnifyWeapon.Target;
-import com.bafmc.customenchantment.item.CEWeaponAbstract;
-import com.bafmc.bukkit.utils.InventoryUtils;
-import com.bafmc.bukkit.utils.ItemStackUtils;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 
 public class InventoryListener implements Listener {
 	public static final List<Integer> exceptSlot = Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7, 8, 45);
@@ -257,7 +247,7 @@ public class InventoryListener implements Listener {
 		if (!(clickType == ClickType.LEFT) && inventoryAction == InventoryAction.SWAP_WITH_CURSOR && rawSlot >= 0
 				&& !exceptSlot.contains(rawSlot)) {
 			onCEItemInventory(e);
-		} else if (clickType == ClickType.MIDDLE && cursor.getType() == Material.AIR) {
+		} else if (clickType == ClickType.RIGHT && cursor.getType() == Material.AIR) {
 			onMaskInventory(e);
 		}
 	}
@@ -379,7 +369,6 @@ public class InventoryListener implements Listener {
 		}
 
 		CEItem ceItem = CEAPI.getCEItem(itemStack);
-
 		if (!(ceItem instanceof CEUnify)) {
 			return;
 		}

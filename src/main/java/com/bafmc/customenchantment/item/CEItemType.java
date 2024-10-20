@@ -8,6 +8,7 @@ public class CEItemType {
 	public static final String REMOVE_ENCHANT = "removeenchant";
 	public static final String EARSE_ENCHANT = "eraseenchant";
 	public static final String PROTECT_DEAD = "protectdead";
+	public static final String GEM = "gem";
 	public static final String REMOVE_PROTECT_DEAD = "removeprotectdead";
     public static final String REMOVE_ENCHANT_POINT = "removeenchantpoint";
 	public static final String PROTECT_DESTROY = "protectdestroy";

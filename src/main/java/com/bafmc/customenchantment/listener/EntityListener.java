@@ -96,7 +96,7 @@ public class EntityListener implements Listener {
 									.setCEType(CEType.BOW_SHOOT)
 									.setWeaponMap(weaponMap)
 									.call();
-		power = AttributeCalculate.calculate(cePlayer, OptionType.OPTION_POWER, power, result.getOptionDataList());
+		power = AttributeCalculate.calculate(cePlayer, CustomAttributeType.OPTION_POWER, power, result.getOptionDataList());
 
 		// Enable Multiple Arrow
 		storage.set(TemporaryKey.NOW_MULTIPLE_ARROW, true);
@@ -178,7 +178,7 @@ public class EntityListener implements Listener {
 				.call();
 		
 		if (!result.getOptionDataList().isEmpty()) {
-			e.setDamage(AttributeCalculate.calculate(CEAPI.getCEPlayer(pDefenser), OptionType.OPTION_DEFENSE, damage,
+			e.setDamage(AttributeCalculate.calculate(CEAPI.getCEPlayer(pDefenser), CustomAttributeType.OPTION_DEFENSE, damage,
 					result.getOptionDataList()));
 		}
 
@@ -383,7 +383,7 @@ public class EntityListener implements Listener {
 				.setCEFunctionData(data)
 				.call();
 
-		damage = AttributeCalculate.calculate(CEAPI.getCEPlayer(pAttacker), OptionType.OPTION_ATTACK, damage,
+		damage = AttributeCalculate.calculate(CEAPI.getCEPlayer(pAttacker), CustomAttributeType.OPTION_ATTACK, damage,
 				result.getOptionDataList());
 		damage = handleCritical(attacker, damage);
 
@@ -398,7 +398,7 @@ public class EntityListener implements Listener {
 				.setCEFunctionData(data)
 				.call();
 
-		return AttributeCalculate.calculate(CEAPI.getCEPlayer(pAttacker), OptionType.OPTION_ATTACK, damage,
+		return AttributeCalculate.calculate(CEAPI.getCEPlayer(pAttacker), CustomAttributeType.OPTION_ATTACK, damage,
 				result.getOptionDataList());
 	}
 
@@ -421,7 +421,7 @@ public class EntityListener implements Listener {
 				.setCEFunctionData(data)
 				.call();
 		
-		damage = AttributeCalculate.calculate(CEAPI.getCEPlayer(pDefenser), OptionType.OPTION_DEFENSE, damage,
+		damage = AttributeCalculate.calculate(CEAPI.getCEPlayer(pDefenser), CustomAttributeType.OPTION_DEFENSE, damage,
 				result.getOptionDataList());
 		return handleDamageReduction(defenser, damage);
 	}
@@ -444,7 +444,7 @@ public class EntityListener implements Listener {
 				.setCEType(CEType.ATTACK)
 				.setCEFunctionData(pData)
 				.call();
-		damage = AttributeCalculate.calculate(CEAPI.getCEPlayer(pAttacker), OptionType.OPTION_ATTACK, damage,
+		damage = AttributeCalculate.calculate(CEAPI.getCEPlayer(pAttacker), CustomAttributeType.OPTION_ATTACK, damage,
 				pResult.getOptionDataList());
 		damage = handleCritical(attacker, damage);
 
@@ -458,7 +458,7 @@ public class EntityListener implements Listener {
 				.setCEType(CEType.DEFENSE)
 				.setCEFunctionData(eData)
 				.call();
-		damage = AttributeCalculate.calculate(CEAPI.getCEPlayer(pDefenser), OptionType.OPTION_DEFENSE, damage,
+		damage = AttributeCalculate.calculate(CEAPI.getCEPlayer(pDefenser), CustomAttributeType.OPTION_DEFENSE, damage,
 				eResult.getOptionDataList());
 		damage = handleDamageReduction(defenser, damage);
 
@@ -473,7 +473,7 @@ public class EntityListener implements Listener {
 				.setCEFunctionData(pData)
 				.call();
 
-		return AttributeCalculate.calculate(CEAPI.getCEPlayer(pAttacker), OptionType.OPTION_ATTACK, damage,
+		return AttributeCalculate.calculate(CEAPI.getCEPlayer(pAttacker), CustomAttributeType.OPTION_ATTACK, damage,
 				pResult.getOptionDataList());
 	}
 
@@ -509,7 +509,7 @@ public class EntityListener implements Listener {
                 .setByPassCooldown(isFakeArrow)
 				.call();
 
-		damage = AttributeCalculate.calculate(CEAPI.getCEPlayer(pAttacker), OptionType.OPTION_ATTACK, damage,
+		damage = AttributeCalculate.calculate(CEAPI.getCEPlayer(pAttacker), CustomAttributeType.OPTION_ATTACK, damage,
 				pResult.getOptionDataList());
 		damage = handleCritical(attacker, damage);
 
@@ -524,7 +524,7 @@ public class EntityListener implements Listener {
                 .setCEFunctionData(eData)
                 .call();
 
-		double finalDamage = AttributeCalculate.calculate(CEAPI.getCEPlayer(pDefenser), OptionType.OPTION_DEFENSE, damage,
+		double finalDamage = AttributeCalculate.calculate(CEAPI.getCEPlayer(pDefenser), CustomAttributeType.OPTION_DEFENSE, damage,
                 eResult.getOptionDataList());
 		finalDamage = handleDamageReduction(defenser, finalDamage);
 
@@ -564,7 +564,7 @@ public class EntityListener implements Listener {
 				.setCEFunctionData(data)
 				.call();
 		
-		damage = AttributeCalculate.calculate(CEAPI.getCEPlayer(pAttacker), OptionType.OPTION_ATTACK, damage,
+		damage = AttributeCalculate.calculate(CEAPI.getCEPlayer(pAttacker), CustomAttributeType.OPTION_ATTACK, damage,
 				result.getOptionDataList());
 		return handleCritical(attacker, damage);
 	}
@@ -637,7 +637,7 @@ public class EntityListener implements Listener {
 		CEPlayer cePlayer = CEAPI.getCEPlayer(player);
 		PlayerCustomAttribute attribute = cePlayer.getCustomAttribute();
 
-		double lifeSteal = attribute.getValue(CustomAttributeType.LIFE_STEAL_PERCENT);
+		double lifeSteal = attribute.getValue(CustomAttributeType.LIFE_STEAL);
 		if (lifeSteal <= 0) {
 			return;
 		}
@@ -647,7 +647,7 @@ public class EntityListener implements Listener {
 		double defaultValue = player.getHealth();
 		double currentValue = player.getHealth() + heal;
 
-		CEPlayerStatsModifyEvent event = new CEPlayerStatsModifyEvent(cePlayer, StatType.STAT_HEALTH, ModifyType.ADD,
+		CEPlayerStatsModifyEvent event = new CEPlayerStatsModifyEvent(cePlayer, CustomAttributeType.STAT_HEALTH, ModifyType.ADD,
 				defaultValue, currentValue, false);
 		Bukkit.getPluginManager().callEvent(event);
 

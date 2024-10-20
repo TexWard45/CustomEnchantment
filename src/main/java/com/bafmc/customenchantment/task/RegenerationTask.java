@@ -6,7 +6,6 @@ import com.bafmc.customenchantment.attribute.CustomAttributeType;
 import com.bafmc.customenchantment.enchant.ModifyType;
 import com.bafmc.customenchantment.event.CEPlayerStatsModifyEvent;
 import com.bafmc.customenchantment.player.CEPlayer;
-import com.bafmc.customenchantment.player.StatType;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -45,7 +44,7 @@ public class RegenerationTask extends BukkitRunnable {
                     double defaultValue = player.getHealth();
                     double currentValue = player.getHealth() + healRegeneration;
 
-                    CEPlayerStatsModifyEvent event = new CEPlayerStatsModifyEvent(cePlayer, StatType.STAT_HEALTH, ModifyType.ADD,
+                    CEPlayerStatsModifyEvent event = new CEPlayerStatsModifyEvent(cePlayer, CustomAttributeType.STAT_HEALTH, ModifyType.ADD,
                             defaultValue, currentValue, false);
                     Bukkit.getPluginManager().callEvent(event);
 

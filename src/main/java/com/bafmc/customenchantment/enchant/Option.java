@@ -3,20 +3,20 @@ package com.bafmc.customenchantment.enchant;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.bafmc.customenchantment.attribute.AttributeData;
+import com.bafmc.customenchantment.attribute.RangeAttribute;
 
 public class Option {
-	private List<AttributeData> list = new ArrayList<AttributeData>();
+	private List<RangeAttribute> list = new ArrayList<RangeAttribute>();
 
-	public Option(List<AttributeData> list) {
+	public Option(List<RangeAttribute> list) {
 		this.list = list;
 	}
 
-	public void setOptionDataList(List<AttributeData> list) {
+	public void setOptionDataList(List<RangeAttribute> list) {
 		this.list = list;
 	}
 
-	public List<AttributeData> getOptionDataList() {
+	public List<RangeAttribute> getOptionDataList() {
 		return list;
 	}
 }

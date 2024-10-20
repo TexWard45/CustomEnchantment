@@ -4,7 +4,9 @@ import com.bafmc.bukkit.config.AdvancedConfigurationSection;
 import com.bafmc.bukkit.feature.execute.Execute;
 import com.bafmc.bukkit.feature.requirement.RequirementList;
 import com.bafmc.bukkit.feature.requirement.RequirementManager;
+import com.bafmc.bukkit.utils.Chance;
 import com.bafmc.bukkit.utils.PathUtils;
+import com.bafmc.bukkit.utils.RandomRangeInt;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.enchant.CESimple;
 import com.bafmc.customenchantment.menu.BookUpgradeMenu;
@@ -13,8 +15,6 @@ import com.bafmc.customenchantment.menu.data.BookUpgradeData;
 import com.bafmc.customenchantment.menu.data.BookUpgradeLevelData;
 import com.bafmc.customenchantment.menu.data.RequiredXpGroup;
 import com.bafmc.customenchantment.menu.data.XpGroup;
-import com.bafmc.bukkit.utils.Chance;
-import com.bafmc.bukkit.utils.RandomRangeInt;
 
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -22,7 +22,6 @@ import java.util.Map;
 import java.util.Set;
 
 public class BookUpgradeConfig extends AbstractConfig {
-
 	protected void loadConfig() {
         if (BookUpgradeMenu.getSettings() == null) {
             BookUpgradeSettings settings = new BookUpgradeSettings();

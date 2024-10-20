@@ -1,22 +1,20 @@
 package com.bafmc.customenchantment.item;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ListIterator;
-
+import com.bafmc.bukkit.bafframework.nms.NMSManager;
+import com.bafmc.bukkit.bafframework.nms.NMSNBTTagCompound;
+import com.bafmc.bukkit.bafframework.nms.NMSNBTTagList;
 import com.bafmc.bukkit.bafframework.utils.MaterialUtils;
-import org.bukkit.Material;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
-
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.enchant.CESimple;
 import com.bafmc.customenchantment.item.CEUnifyWeapon.Target;
 import com.bafmc.customenchantment.nms.CECraftItemStackNMS;
-import com.bafmc.bukkit.bafframework.nms.NMSManager;
-import com.bafmc.bukkit.bafframework.nms.NMSNBTTagCompound;
-import com.bafmc.bukkit.bafframework.nms.NMSNBTTagList;
+import org.bukkit.Material;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class CEUnify<T extends CEUnifyData> extends CEWeaponAbstract<T> {
 	protected CEUnifyWeapon unifyWeapon;
@@ -79,8 +77,6 @@ public abstract class CEUnify<T extends CEUnifyData> extends CEWeaponAbstract<T>
 
 		// Update NBT from weapon to unify
 		NMSNBTTagCompound weaponTag = weapon.getCraftItemStack().getCompound();
-		NMSNBTTagCompound unifyTag = this.getCraftItemStack().getCompound();
-		this.updateWeaponTagFromUnifyTag(weaponTag, unifyTag);
 		this.getCraftItemStack().setCompound(weaponTag);
 
 		this.importFrom(this.getCurrentItemStack());
@@ -92,52 +88,30 @@ public abstract class CEUnify<T extends CEUnifyData> extends CEWeaponAbstract<T>
 		}
 
 		updateArmorAttribute(defaultItemStack, this.getCraftItemStack());
-		updateDisplay(defaultItemStack.getType(), this.getCraftItemStack());
+		updateDisplay(defaultItemStack.getType(), this.getCraftItemStack(), weapon.getCraftItemStack());
 		return this;
 	}
 
-	private void updateDisplay(Material armorType, CECraftItemStackNMS craftItemStack) {
+	private void updateDisplay(Material armorType, CECraftItemStackNMS craftItemStack, CECraftItemStackNMS weaponCraftItemStack) {
 		ItemStack itemStack = craftItemStack.getNewItemStack();
-		
+		ItemStack weaponItemStack = weaponCraftItemStack.getNewItemStack();
 		ItemMeta meta = itemStack.getItemMeta();
+		ItemMeta weaponMeta = weaponItemStack.getItemMeta();
 		
-		if (!meta.hasDisplayName()) {
+		if (!weaponMeta.hasDisplayName()) {
 			String display = getDisplay(MaterialUtils.getDisplayName(armorType));
 			meta.setDisplayName(display);
 		}else {
-			String display = getDisplay(meta.getDisplayName());
+			String display = getDisplay(weaponItemStack.getItemMeta().getDisplayName());
 			meta.setDisplayName(display);
 		}
 		
-		if (meta.hasLore()) {
-			List<String> lore = new ArrayList<String>(meta.getLore());
-			
-			ListIterator<String> ite = lore.listIterator();
-			
-			while(ite.hasNext()) {
-				String line = ite.next();
-				
-				if (line.startsWith("§r§r")) {
-					ite.remove();
-				}
-			}
-			meta.setLore(lore);
-		}
-		
 		itemStack.setItemMeta(meta);
-		craftItemStack.setCompound(new CECraftItemStackNMS(itemStack).getCompound());
+
+		CECraftItemStackNMS nms = new CECraftItemStackNMS(itemStack);
+		setCraftItemStack(nms);
 	}
 	
-	public void updateWeaponTagFromUnifyTag(NMSNBTTagCompound weaponTag, NMSNBTTagCompound unifyTag) {
-		if (unifyTag.hasKey("SkullOwner")) {
-			weaponTag.set("SkullOwner", unifyTag.get("SkullOwner"));
-		}
-		
-		if (unifyTag.hasKey("BlockEntityTag")) {
-			weaponTag.set("BlockEntityTag", unifyTag.get("BlockEntityTag"));
-		}
-	}
-
 	public String getDisplay(String display) {
 		return display;
 	}

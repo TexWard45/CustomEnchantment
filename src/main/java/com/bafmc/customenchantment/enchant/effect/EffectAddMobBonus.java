@@ -1,11 +1,11 @@
 package com.bafmc.customenchantment.enchant.effect;
 
+import com.bafmc.bukkit.bafframework.nms.NMSAttributeOperation;
 import org.bukkit.entity.Player;
 
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.api.EntityTypeList;
-import com.bafmc.customenchantment.attribute.AttributeData;
-import com.bafmc.customenchantment.attribute.AttributeData.Operation;
+import com.bafmc.customenchantment.attribute.RangeAttribute;
 import com.bafmc.customenchantment.enchant.CEFunctionData;
 import com.bafmc.customenchantment.enchant.EffectHook;
 import com.bafmc.customenchantment.player.CEPlayer;
@@ -17,7 +17,7 @@ public class EffectAddMobBonus extends EffectHook {
 	private String type;
 	private String name;
 	private EntityTypeList list;
-	private AttributeData attributeData;
+	private RangeAttribute attributeData;
 
 	public String getIdentify() {
 		return "ADD_MOB_BONUS";
@@ -27,8 +27,8 @@ public class EffectAddMobBonus extends EffectHook {
 		this.type = args[0];
 		this.name = args[1];
 		this.list = EntityTypeList.getEntityTypeList(args[2]);
-		this.attributeData = new AttributeData(null, new RandomRange(args[3]),
-				Operation.fromId(args.length > 4 ? Integer.valueOf(args[4]) : 0),
+		this.attributeData = new RangeAttribute(null, new RandomRange(args[3]),
+				NMSAttributeOperation.fromId(args.length > 4 ? Integer.valueOf(args[4]) : 0),
 				new Chance(args.length > 5 ? Integer.valueOf(args[5]) : 100));
 	}
 	

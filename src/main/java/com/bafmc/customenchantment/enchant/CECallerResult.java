@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
-import com.bafmc.customenchantment.attribute.AttributeData;
+import com.bafmc.customenchantment.attribute.RangeAttribute;
 
 public class CECallerResult {
 	private ConcurrentHashMap<String, Object> map = new ConcurrentHashMap<String, Object>();
-	private List<AttributeData> optionDataList = new ArrayList<AttributeData>();
+	private List<RangeAttribute> optionDataList = new ArrayList<RangeAttribute>();
 
 	private CECallerResult() {
 	}
@@ -17,11 +17,11 @@ public class CECallerResult {
 		return new CECallerResult();
 	}
 
-	public List<AttributeData> getOptionDataList() {
+	public List<RangeAttribute> getOptionDataList() {
 		return optionDataList;
 	}
 
-	public CECallerResult setOptionDataList(List<AttributeData> optionDataList) {
+	public CECallerResult setOptionDataList(List<RangeAttribute> optionDataList) {
 		this.optionDataList = optionDataList;
 		return this;
 	}

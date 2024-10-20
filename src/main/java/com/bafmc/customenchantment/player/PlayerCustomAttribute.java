@@ -1,8 +1,17 @@
 package com.bafmc.customenchantment.player;
 
+import com.bafmc.bukkit.bafframework.nms.NMSAttribute;
+import com.bafmc.bukkit.bafframework.nms.NMSAttributeType;
+import com.bafmc.bukkit.utils.EquipSlot;
 import com.bafmc.customenchantment.attribute.AttributeCalculate;
-import com.bafmc.customenchantment.attribute.AttributeData;
 import com.bafmc.customenchantment.attribute.CustomAttributeType;
+import com.bafmc.customenchantment.attribute.RangeAttribute;
+import com.bafmc.customenchantment.item.CEWeaponAbstract;
+import com.bafmc.customenchantment.player.attribute.AbstractAttributeMap;
+import com.bafmc.customenchantment.player.attribute.AttributeMapData;
+import com.bafmc.customenchantment.player.attribute.AttributeMapRegister;
+import com.google.common.collect.LinkedHashMultimap;
+import com.google.common.collect.Multimap;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -10,16 +19,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-/**
- * Handle attribute from player. Only handle attribute modifier which name
- * starts with specific prefix in variable PlayerAttribute.PREFIX.
- * 
- * @author nhata
- *
- */
 public class PlayerCustomAttribute extends CEPlayerExpansion {
-	private ConcurrentHashMap<String, AttributeData> attributeMap = new ConcurrentHashMap<>();
-	private ConcurrentHashMap<CustomAttributeType, Double> valueMap = new ConcurrentHashMap<>();
+	private Map<String, NMSAttribute> attributeMap = new ConcurrentHashMap<>();
+	private Map<NMSAttributeType, Double> valueMap = new ConcurrentHashMap<>();
+	private Multimap<CustomAttributeType, NMSAttribute> recalculateAttributeMap = LinkedHashMultimap.create();
 
 	public PlayerCustomAttribute(CEPlayer cePlayer) {
 		super(cePlayer);
@@ -35,8 +38,8 @@ public class PlayerCustomAttribute extends CEPlayerExpansion {
 		return AttributeCalculate.calculate(type, value, getAttributeList());
 	}
 
-	public double getValue(CustomAttributeType type, double value, List<AttributeData> otherList) {
-		List<AttributeData> list = getAttributeList();
+	public double getValue(CustomAttributeType type, double value, List<NMSAttribute> otherList) {
+		List<NMSAttribute> list = getAttributeList();
 		list.addAll(otherList);
 
 		return AttributeCalculate.calculate(type, value, list);
@@ -46,7 +49,7 @@ public class PlayerCustomAttribute extends CEPlayerExpansion {
 		return valueMap.getOrDefault(type, 0.0);
 	}
 
-	public void addCustomAttribute(String name, AttributeData attributeData) {
+	public void addCustomAttribute(String name, RangeAttribute attributeData) {
 		attributeMap.put(name, attributeData);
 	}
 
@@ -55,28 +58,48 @@ public class PlayerCustomAttribute extends CEPlayerExpansion {
 	}
 
 	public void recalculateAttribute() {
-		List<CustomAttributeType> types = new ArrayList<>(valueMap.keySet());
+		CEPlayer cePlayer = getCEPlayer();
 
-		for (AttributeData data : attributeMap.values()) {
-			if (!types.contains(data.getType())) {
-				types.add(data.getType());
+		Map<EquipSlot, CEWeaponAbstract> slotMap = cePlayer.getSlotMap();
+		AttributeMapData data = AttributeMapData.builder()
+				.cePlayer(cePlayer)
+				.slotMap(slotMap)
+				.build();
+
+		Multimap<CustomAttributeType, NMSAttribute> attributeMap = LinkedHashMultimap.create();
+
+		for (AbstractAttributeMap map : AttributeMapRegister.instance().getSingletonList()) {
+			attributeMap.putAll(map.loadAttributeMap(data));
+		}
+
+		recalculateAttributeMap = attributeMap;
+
+		for (NMSAttributeType type : NMSAttributeType.values()) {
+			if (!(type instanceof CustomAttributeType customType)) {
+				continue;
 			}
+
+			if (attributeMap.containsKey(customType)) {
+				continue;
+			}
+
+			valueMap.put(customType, 0.0);
 		}
 
-		for (CustomAttributeType type : types) {
-			recalculateAttribute(type);
+		for (CustomAttributeType type : attributeMap.keySet()) {
+			valueMap.put(type, AttributeCalculate.calculate(type, type.getBaseValue(), new ArrayList<>(attributeMap.get(type))));
 		}
 	}
 
-	public void recalculateAttribute(CustomAttributeType type) {
-		valueMap.put(type, AttributeCalculate.calculate(type, type.getBaseValue(), getAttributeList()));
-	}
-
-	public List<AttributeData> getAttributeList() {
+	public List<NMSAttribute> getAttributeList() {
 		return new ArrayList<>(attributeMap.values());
 	}
 
-	public Map<CustomAttributeType, Double> getValueMap() {
+	public Map<NMSAttributeType, Double> getValueMap() {
 		return new LinkedHashMap<>(valueMap);
+	}
+
+	public Multimap<CustomAttributeType, NMSAttribute> getRecalculateAttributeMap() {
+		return LinkedHashMultimap.create(recalculateAttributeMap);
 	}
 }

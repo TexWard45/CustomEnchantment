@@ -21,6 +21,8 @@ import java.util.*;
 
 public class WeaponDisplay extends CEItemExpansion implements ITrade<NMSNBTTagCompound> {
 	public static final String REMOVE = "__REMOVE__";
+	public static final String BEGIN_LABEL = "Ⓑ";
+	public static final String END_LABEL = "Ⓔ";
 	private List<String> beginLore = new ArrayList<String>();
 	private List<String> middleLore = new ArrayList<String>();
 	private List<String> endLore = new ArrayList<String>();
@@ -44,6 +46,9 @@ public class WeaponDisplay extends CEItemExpansion implements ITrade<NMSNBTTagCo
 
 		CustomEnchantLore customEnchantLore = new CustomEnchantLore(settings, ceItem);
 		builder.put("custom_enchant_lore", customEnchantLore.buildLores());
+
+		GemLore gemLore = new GemLore(settings, ceItem);
+		builder.put("gem_lore", gemLore.buildLores());
 
 		MiddleDefaultLore middleDefaultLore = new MiddleDefaultLore(middleLore);
 		builder.put("middle_default_lore", middleDefaultLore.buildLores());
@@ -148,9 +153,9 @@ public class WeaponDisplay extends CEItemExpansion implements ITrade<NMSNBTTagCo
 			List<String> lore = itemStack.getItemMeta().getLore();
 
 			for (String line : lore) {
-				if (line.startsWith("Ⓑ")) {
+				if (line.startsWith(BEGIN_LABEL)) {
 					this.beginLore.add(line.substring(1));
-				} else if (line.startsWith("Ⓔ")) {
+				} else if (line.startsWith(END_LABEL)) {
 					this.endLore.add(line.substring(1));
 				} else {
 					this.middleLore.add(line);
@@ -251,6 +256,38 @@ class CustomEnchantLore {
 
 			String display = CEPlaceholder.setPlaceholder(customDisplay, placeholder);
 			display = PlaceholderAPI.setPlaceholders(null, display);
+			lore.add(display);
+		}
+
+		if (lore.isEmpty()) {
+			return Arrays.asList(WeaponDisplay.REMOVE);
+		}
+
+		return lore;
+	}
+}
+
+@AllArgsConstructor
+class GemLore {
+	private WeaponSettings settings;
+	private CEWeaponAbstract ceItem;
+
+	public List<String> buildLores() {
+		List<String> lore = new ArrayList<>();
+		List<CEGemSimple> gemSimpleList = ceItem.getWeaponGem().getCEGemSimpleList();
+		for (CEGemSimple gemSimple : gemSimpleList) {
+			CEGem ceGem = gemSimple.getCEGem();
+
+			CEGemData ceGemData = ceGem.getData().clone();
+			ceGemData.setLevel(gemSimple.getLevel());
+
+			Map<String, String> placeholder = ceGem.getPlaceholder(ceGemData);
+
+			String display = ceGem.getData().getDisplay();
+
+			PlaceholderBuilder builder = PlaceholderBuilder.builder().putAll(placeholder);
+			display = builder.build().apply(display);
+
 			lore.add(display);
 		}
 

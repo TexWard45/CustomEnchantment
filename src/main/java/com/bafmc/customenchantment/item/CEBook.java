@@ -57,7 +57,7 @@ public class CEBook extends CEItem<CEBookData> {
 	}
 
 	public Map<String, String> getPlaceholder(CEBookData data) {
-		Map<String, String> map = new HashMap<String, String>();
+		Map<String, String> map = new HashMap<>();
 		map.putAll(CEPlaceholder.getCESimplePlaceholder(data.getCESimple()));
         if (data.getCESimple().getCEEnchant().getCEDisplay().getBookDisplay() != null) {
             map.put("%group_book_display%", data.getCESimple().getCEEnchant().getCEDisplay().getBookDisplay());

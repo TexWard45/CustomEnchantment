@@ -13,6 +13,7 @@ public class CustomEnchantmentCommand implements AbstractCommand {
 
 	public void onRegister(AdvancedCommandBuilder builder) {
 		new CommandAddEnchant().onRegister(builder);
+		new CommandAddGem().onRegister(builder);
 		new CommandAddItem().onRegister(builder);
 		new CommandAdmin().onRegister(builder);
 		new CommandClearTime().onRegister(builder);

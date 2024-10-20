@@ -1,28 +1,26 @@
 package com.bafmc.customenchantment.config;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-
-import com.bafmc.customenchantment.item.*;
-import org.bukkit.inventory.ItemFlag;
-import org.bukkit.inventory.ItemStack;
-
-import com.bafmc.customenchantment.CustomEnchantment;
-import com.bafmc.customenchantment.api.MaterialList;
-import com.bafmc.customenchantment.enchant.CESimple;
+import com.bafmc.bukkit.bafframework.nms.NMSAttributeType;
 import com.bafmc.bukkit.config.AdvancedConfigurationSection;
 import com.bafmc.bukkit.utils.EnumUtils;
 import com.bafmc.bukkit.utils.SparseMap;
 import com.bafmc.bukkit.utils.StringUtils;
-import com.bafmc.bukkit.bafframework.nms.NMSAttributeType;
+import com.bafmc.customenchantment.CustomEnchantment;
+import com.bafmc.customenchantment.api.MaterialList;
+import com.bafmc.customenchantment.enchant.CESimple;
+import com.bafmc.customenchantment.item.*;
+import org.apache.commons.lang3.Validate;
+import org.bukkit.inventory.ItemFlag;
+import org.bukkit.inventory.ItemStack;
+
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class CEItemConfig extends AbstractConfig {
 
 	protected void loadConfig() {
 		loadWeaponSettingsMap();
+		loadGemSettings();
 		loadCEBookStorage();
 		loadCEProtectDeadStorage();
 		loadCERemoveProtectDeadStorage();
@@ -39,6 +37,7 @@ public class CEItemConfig extends AbstractConfig {
 		loadCEArtifactStorage();
 		loadCEBannerStorage();
         loadCELoreFormatStorage();
+		loadCEGemStorage();
 	}
 
 	public void loadWeaponSettingsMap() {
@@ -50,71 +49,135 @@ public class CEItemConfig extends AbstractConfig {
 		Map<String, WeaponSettings> map = new ConcurrentHashMap<String, WeaponSettings>();
 
 		for (String key : config.getKeys(false)) {
-			map.put(key, loadWeaponSettings(config.getAdvancedConfigurationSection(key)));
+			try {
+				String template = config.getString(key + ".template");
+				Validate.notNull(template, "Please set the template for the weapon settings: " + key);
+
+				map.put(key, loadWeaponSettings(config.getAdvancedConfigurationSection(key), config.getAdvancedConfigurationSection(template)));
+			}catch (Exception e) {
+				e.printStackTrace();
+				continue;
+			}
 		}
 
 		return map;
 	}
 
-	public WeaponSettings loadWeaponSettings(AdvancedConfigurationSection config) {
-		int enchantPoint = config.getInt("custom-enchant.default-point");
-		String vanillaEnchantLore = config.getStringColor("vanilla-enchant.default-lore");
-		String customEnchantLore = config.getStringColor("custom-enchant.default-lore");
+	public WeaponSettings loadWeaponSettings(AdvancedConfigurationSection config, AdvancedConfigurationSection alternativeConfig) {
+		int enchantPoint = config.getInt("custom-enchant.default-point", alternativeConfig.getInt("custom-enchant.default-point"));
+		Map<MaterialList, Integer> gemPointMap = loadGemPointMap(config.getAdvancedConfigurationSection("gem.default-point"), alternativeConfig.getAdvancedConfigurationSection("gem.default-point"));
+		String vanillaEnchantLore = config.getStringColor("vanilla-enchant.default-lore", alternativeConfig.getString("vanilla-enchant.default-lore"));
+		String customEnchantLore = config.getStringColor("custom-enchant.default-lore", alternativeConfig.getString("custom-enchant.default-lore"));
 		SparseMap<String> enchantPointLore = getWeaponExtensionLore(
-				config.getAdvancedConfigurationSection("custom-enchant.extra-lore"));
+				config.getAdvancedConfigurationSection("custom-enchant.extra-lore"),
+				alternativeConfig.getAdvancedConfigurationSection("custom-enchant.extra-lore"));
 		SparseMap<String> protectDeadLore = getWeaponExtensionLore(
-				config.getAdvancedConfigurationSection("protect-dead.extra-lore"));
+				config.getAdvancedConfigurationSection("protect-dead.extra-lore"),
+				alternativeConfig.getAdvancedConfigurationSection("protect-dead.extra-lore"));
 		SparseMap<String> protectDestroyLore = getWeaponExtensionLore(
-				config.getAdvancedConfigurationSection("protect-destroy.extra-lore"));
-		;
-		List<String> loreStyle = config.getStringColorList("lore-style");
-		List<String> loreStyleWithMask = config.getStringColorList("lore-style-with-mask");
-		List<ItemFlag> itemFlags = EnumUtils.getEnumListByStringList(ItemFlag.class, config.getStringList("item-flag"));
-		Map<NMSAttributeType, String> attributeTypeMap = getAttributeLoreMap(
-				config.getAdvancedConfigurationSection("attribute-lore.type"));
-		Map<String, String> attributeSlotMap = getAttributeSlotMap(
-				config.getAdvancedConfigurationSection("attribute-lore.slot"));
+				config.getAdvancedConfigurationSection("protect-destroy.extra-lore"),
+				alternativeConfig.getAdvancedConfigurationSection("protect-destroy.extra-lore"));
 
-		return new WeaponSettings(enchantPoint, vanillaEnchantLore, customEnchantLore, enchantPointLore,
-				protectDeadLore, protectDestroyLore, loreStyle, loreStyleWithMask, itemFlags, attributeTypeMap,
-				attributeSlotMap);
+		List<String> loreStyle = config.getStringColorList("lore-style", alternativeConfig.getStringList("lore-style"));
+		List<String> loreStyleWithMask = config.getStringColorList("lore-style-with-mask", alternativeConfig.getStringList("lore-style-with-mask"));
+		List<ItemFlag> itemFlags = EnumUtils.getEnumListByStringList(ItemFlag.class, config.getStringList("item-flag", alternativeConfig.getStringList("item-flag")));
+		Map<NMSAttributeType, String> attributeTypeMap = getAttributeLoreMap(
+				config.getAdvancedConfigurationSection("attribute-lore.type"),
+				alternativeConfig.getAdvancedConfigurationSection("attribute-lore.type"));
+		Map<String, String> attributeSlotMap = getAttributeSlotMap(
+				config.getAdvancedConfigurationSection("attribute-lore.slot"),
+				alternativeConfig.getAdvancedConfigurationSection("attribute-lore.slot"));
+
+		return WeaponSettings.builder()
+				.enchantPoint(enchantPoint)
+				.vanillaEnchantLore(vanillaEnchantLore)
+				.customEnchantLore(customEnchantLore)
+				.enchantPointLore(enchantPointLore)
+				.protectDeadLore(protectDeadLore)
+				.protectDestroyLore(protectDestroyLore)
+				.loreStyle(loreStyle)
+				.loreStyleWithMask(loreStyleWithMask)
+				.itemFlags(itemFlags)
+				.attributeTypeMap(attributeTypeMap)
+				.attributeSlotMap(attributeSlotMap)
+				.gemPointMap(gemPointMap)
+				.build();
 	}
 
-	public Map<NMSAttributeType, String> getAttributeLoreMap(AdvancedConfigurationSection config) {
+	public Map<MaterialList, Integer> loadGemPointMap(AdvancedConfigurationSection config, AdvancedConfigurationSection alternativeConfig) {
+		Map<MaterialList, Integer> map = new HashMap<>();
+
+		Set<String> keys = config.getKeys(false);
+		if (keys.isEmpty()) {
+			keys = alternativeConfig.getKeys(false);
+		}
+
+		for (String key : keys) {
+			try {
+				MaterialList materialList = MaterialList.getMaterialList(key);
+				int point = config.getInt(key, alternativeConfig.getInt(key));
+
+				map.put(materialList, point);
+			} catch (Exception e) {
+				e.printStackTrace();
+				continue;
+			}
+		}
+
+		return map;
+	}
+
+	public Map<NMSAttributeType, String> getAttributeLoreMap(AdvancedConfigurationSection config, AdvancedConfigurationSection alternativeConfig) {
 		LinkedHashMap<NMSAttributeType, String> map = new LinkedHashMap<NMSAttributeType, String>();
 
-		for (String key : config.getKeys(false)) {
+		Set<String> keys = config.getKeys(false);
+		if (keys.isEmpty()) {
+			keys = alternativeConfig.getKeys(false);
+		}
+
+		for (String key : keys) {
 			NMSAttributeType attributeType = NMSAttributeType.valueOf(key);
 
 			if (attributeType == null) {
 				continue;
 			}
 
-			map.put(attributeType, config.getStringColor(key));
+			map.put(attributeType, config.getStringColor(key, alternativeConfig.getStringColor(key)));
 		}
 		return map;
 	}
 
-	public Map<String, String> getAttributeSlotMap(AdvancedConfigurationSection config) {
-		LinkedHashMap<String, String> map = new LinkedHashMap<String, String>();
-		for (String key : config.getKeys(false)) {
+	public Map<String, String> getAttributeSlotMap(AdvancedConfigurationSection config, AdvancedConfigurationSection alternativeConfig) {
+		LinkedHashMap<String, String> map = new LinkedHashMap<>();
+
+		Set<String> keys = config.getKeys(false);
+		if (keys.isEmpty()) {
+			keys = alternativeConfig.getKeys(false);
+		}
+
+		for (String key : keys) {
 			String attributeType = String.valueOf(key);
 
 			if (attributeType == null) {
 				continue;
 			}
 
-			map.put(attributeType, config.getStringColor(key));
+			map.put(attributeType, config.getStringColor(key, alternativeConfig.getStringColor(key)));
 		}
 		return map;
 	}
 
-	public SparseMap<String> getWeaponExtensionLore(AdvancedConfigurationSection config) {
+	public SparseMap<String> getWeaponExtensionLore(AdvancedConfigurationSection config, AdvancedConfigurationSection alternativeConfig) {
 		SparseMap<String> list = new SparseMap<String>();
 
-		for (String key : config.getKeys(false)) {
+		Set<String> keys = config.getKeys(false);
+		if (keys.isEmpty()) {
+			keys = alternativeConfig.getKeys(false);
+		}
+
+		for (String key : keys) {
 			try {
-				list.put(Integer.valueOf(key), config.getStringColor(key));
+				list.put(Integer.valueOf(key), config.getStringColor(key, alternativeConfig.getStringColor(key)));
 			} catch (Exception e) {
 				e.printStackTrace();
 				continue;
@@ -375,7 +438,7 @@ public class CEItemConfig extends AbstractConfig {
 		for (String pattern : config.getKeySection("mask", false)) {
 			String path = "mask." + pattern;
 
-			ItemStack itemStack = config.getItemStack(path + ".item", true);
+			ItemStack itemStack = config.getItemStack(path + ".item", true, true);
 			CEMask ceItem = new CEMask(itemStack);
 			for (String enchantFormat : config.getStringList(path + ".enchants")) {
 				String enchantName = null;
@@ -412,7 +475,7 @@ public class CEItemConfig extends AbstractConfig {
 		for (String pattern : config.getKeySection("weapon", false)) {
 			String path = "weapon." + pattern;
 
-			ItemStack itemStack = config.getItemStack(path + ".item", true);
+			ItemStack itemStack = config.getItemStack(path + ".item", true, true);
 			CEWeapon ceItem = new CEWeapon(itemStack);
 			for (String enchantFormat : config.getStringList(path + ".enchants")) {
 				String enchantName = null;
@@ -448,7 +511,7 @@ public class CEItemConfig extends AbstractConfig {
 		for (String pattern : config.getKeySection("artifact", false)) {
 			String path = "artifact." + pattern;
 
-			ItemStack itemStack = config.getItemStack(path + ".item", true);
+			ItemStack itemStack = config.getItemStack(path + ".item", true, true);
 			CEArtifact ceItem = new CEArtifact(itemStack);
 			for (String enchantFormat : config.getStringList(path + ".enchants")) {
 				String enchantName = null;
@@ -508,6 +571,48 @@ public class CEItemConfig extends AbstractConfig {
 			data.setNormalDisplay(normalDisplay);
 			data.setBoldDisplay(boldDisplay);
 			data.setPattern(pattern);
+			ceItem.setData(data);
+
+			storage.put(pattern, ceItem);
+		}
+	}
+
+	public void loadGemSettings() {
+		CEGemSettings.setSettings(loadGemSettings(config.getAdvancedConfigurationSection("gem-settings")));
+	}
+
+	public CEGemSettings loadGemSettings(AdvancedConfigurationSection config) {
+		Map<Integer, CEGemSettings.GemLevelSettings> map = new HashMap<>();
+
+		for (String key : config.getKeySection("levels", false)) {
+			try {
+				int level = Integer.parseInt(key);
+				String color = config.getString("levels." + key + ".color");
+
+				CEGemSettings.GemLevelSettings settings = new CEGemSettings.GemLevelSettings(color);
+				map.put(level, settings);
+			} catch (Exception e) {
+				e.printStackTrace();
+            }
+		}
+
+		return new CEGemSettings(map);
+	}
+
+	public void loadCEGemStorage() {
+		CEGemStorage storage = new CEGemStorage();
+		CustomEnchantment.instance().getCEItemStorageMap().put(CEItemType.GEM, storage);
+
+		for (String pattern : config.getKeySection("gem", false)) {
+			String path = "gem." + pattern;
+
+			ItemStack itemStack = config.getItemStack(path + ".item", false, false);
+			CEGem ceItem = new CEGem(itemStack);
+			CEGemData data = new CEGemData();
+			data.setPattern(pattern);
+			data.setDisplay(config.getString(path + ".display"));
+			data.setAppliesMaterialList(MaterialList.getMaterialList(config.getStringList("applies")));
+			data.setAppliesDescription(config.getStringList(path + ".applies-description"));
 			ceItem.setData(data);
 
 			storage.put(pattern, ceItem);

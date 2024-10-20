@@ -1,16 +1,20 @@
 package com.bafmc.customenchantment.item;
 
+import com.bafmc.bukkit.bafframework.nms.NMSAttributeType;
+import com.bafmc.bukkit.utils.SparseMap;
+import com.bafmc.customenchantment.api.MaterialData;
+import com.bafmc.customenchantment.api.MaterialList;
+import lombok.Builder;
+import lombok.Getter;
+import org.bukkit.inventory.ItemFlag;
+import org.bukkit.inventory.ItemStack;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import lombok.Getter;
-import org.bukkit.inventory.ItemFlag;
-
-import com.bafmc.bukkit.utils.SparseMap;
-import com.bafmc.bukkit.bafframework.nms.NMSAttributeType;
-
+@Builder
 public class WeaponSettings {
 	private static Map<String, WeaponSettings> map = new ConcurrentHashMap<String, WeaponSettings>();
 
@@ -22,10 +26,12 @@ public class WeaponSettings {
 		WeaponSettings.map = map != null ? map : new ConcurrentHashMap<String, WeaponSettings>();
 	}
 
-	
-	private int enchantPoint;
-	private String vanillaEnchantLore;
-	private String customEnchantLore;
+	@Getter
+    private int enchantPoint;
+	@Getter
+    private String vanillaEnchantLore;
+	@Getter
+    private String customEnchantLore;
 
 	private SparseMap<String> enchantPointLore;
 	private SparseMap<String> protectDeadLore;
@@ -40,36 +46,10 @@ public class WeaponSettings {
     private Map<NMSAttributeType, String> attributeTypeMap;
 	@Getter
     private Map<String, String> attributeSlotMap;
+	@Getter
+	private Map<MaterialList, Integer> gemPointMap;
 
-	public WeaponSettings(int enchantPoint, String vanillaEnchantLore, String customEnchantLore, SparseMap<String> enchantPointLore,
-			SparseMap<String> protectDeadLore, SparseMap<String> protectDestroyLore, List<String> loreStyle,
-			List<String> loreStyleWithMask, List<ItemFlag> itemFlags, Map<NMSAttributeType, String> attributeTypeMap, Map<String, String> attributeSlotMap) {
-		this.enchantPoint = enchantPoint;
-		this.vanillaEnchantLore = vanillaEnchantLore;
-		this.customEnchantLore = customEnchantLore;
-		this.enchantPointLore = enchantPointLore;
-		this.protectDeadLore = protectDeadLore;
-		this.protectDestroyLore = protectDestroyLore;
-		this.loreStyle = loreStyle;
-		this.loreStyleWithMask = loreStyleWithMask;
-		this.itemFlags = itemFlags;
-		this.attributeTypeMap = attributeTypeMap;
-		this.attributeSlotMap = attributeSlotMap;
-	}
-
-	public int getEnchantPoint() {
-		return enchantPoint;
-	}
-
-	public String getVanillaEnchantLore() {
-		return vanillaEnchantLore;
-	}
-
-	public String getCustomEnchantLore() {
-		return customEnchantLore;
-	}
-
-	public String getEnchantPointLore(int index) {
+    public String getEnchantPointLore(int index) {
 		return enchantPointLore.containsKey(index) ? enchantPointLore.get(index) : enchantPointLore.get(-1);
 	}
 
@@ -89,4 +69,13 @@ public class WeaponSettings {
 		return new ArrayList<String>(loreStyleWithMask);
 	}
 
+	public int getGemPoint(ItemStack itemStack) {
+		for (MaterialList materialList : gemPointMap.keySet()) {
+			if (materialList.contains(new MaterialData(itemStack))) {
+				return gemPointMap.get(materialList);
+			}
+		}
+
+		return 0;
+	}
 }

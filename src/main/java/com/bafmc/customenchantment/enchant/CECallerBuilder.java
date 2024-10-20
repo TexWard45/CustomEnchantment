@@ -4,9 +4,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.bafmc.customenchantment.CustomEnchantment;
 import org.bukkit.entity.Player;
 
-import com.bafmc.customenchantment.ConfigVariable;
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.item.CEWeaponAbstract;
 import com.bafmc.bukkit.utils.EquipSlot;
@@ -33,7 +33,7 @@ public class CECallerBuilder {
 	}
 
 	public CECallerList call() {
-		if (checkWorld && ConfigVariable.isEnchantDisableLocation(player.getLocation())) {
+		if (checkWorld && CustomEnchantment.instance().getMainConfig().isEnchantDisableLocation(player.getLocation())) {
 			return new CECallerList();
 		}
 

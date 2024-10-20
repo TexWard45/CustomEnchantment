@@ -7,7 +7,6 @@ import com.bafmc.bukkit.config.AdvancedFileConfiguration;
 import com.bafmc.bukkit.utils.ConfigUtils;
 import com.bafmc.bukkit.utils.FileUtils;
 import com.bafmc.customenchantment.api.CEAPI;
-import com.bafmc.customenchantment.attribute.CENMSAttributeType;
 import com.bafmc.customenchantment.attribute.CustomAttributeType;
 import com.bafmc.customenchantment.command.CommandNameTag;
 import com.bafmc.customenchantment.command.CustomEnchantmentCommand;
@@ -17,7 +16,6 @@ import com.bafmc.customenchantment.custommenu.CustomEnchantmentItemDisplaySetup;
 import com.bafmc.customenchantment.custommenu.CustomEnchantmentTradeItemCompare;
 import com.bafmc.customenchantment.database.Database;
 import com.bafmc.customenchantment.enchant.EffectTaskSeparate;
-import com.bafmc.customenchantment.enchant.OptionType;
 import com.bafmc.customenchantment.enchant.condition.*;
 import com.bafmc.customenchantment.enchant.effect.*;
 import com.bafmc.customenchantment.execute.GiveItemExecute;
@@ -33,6 +31,7 @@ import com.bafmc.customenchantment.menu.CEAnvilMenu;
 import com.bafmc.customenchantment.menu.anvil.*;
 import com.bafmc.customenchantment.placeholder.CustomEnchantmentPlaceholder;
 import com.bafmc.customenchantment.player.*;
+import com.bafmc.customenchantment.player.attribute.AttributeMapRegister;
 import com.bafmc.customenchantment.player.mining.*;
 import com.bafmc.customenchantment.task.*;
 import com.bafmc.custommenu.api.CustomMenuAPI;
@@ -67,6 +66,8 @@ public class CustomEnchantment extends JavaPlugin implements Listener {
 	private BlockTask blockTask;
     private ArrowTask arrowTask;
 	private Database database;
+	private MainConfig mainConfig;
+	private BookCraftConfig bookCraftConfig;
 
 	@Override
 	public void onEnable() {
@@ -128,11 +129,8 @@ public class CustomEnchantment extends JavaPlugin implements Listener {
 	}
 
 	public void setupCustomAttribute() {
-		CENMSAttributeType.init();
-
 		CustomAttributeType.init();
-		StatType.init();
-		OptionType.init();
+		AttributeMapRegister.init();
 	}
 
     public void setupFilter() {
@@ -234,6 +232,7 @@ public class CustomEnchantment extends JavaPlugin implements Listener {
 		new CEWeaponFactory().register();
 		new CEBookFactory().register();
 		new CEProtectDeadFactory().register();
+		new CEGemFactory().register();
 		new CERemoveProtectDeadFactory().register();
 		new CEProtectDestroyFactory().register();
 		new CENameTagFactory().register();
@@ -280,6 +279,7 @@ public class CustomEnchantment extends JavaPlugin implements Listener {
 	}
 
 	public void setupFile() {
+		FileUtils.createFolder(getGeneralDataFolder());
 		FileUtils.createFolder(getPlayerDataFolder());
 		FileUtils.createFolder(getEnchantFolder());
 
@@ -472,8 +472,8 @@ public class CustomEnchantment extends JavaPlugin implements Listener {
 		saveDefaultConfig();
 		reloadConfig();
 
-		CEConfig config = new CEConfig();
-		config.loadConfig(getConfigFile());
+		AdvancedFileConfiguration mainConfig = new AdvancedFileConfiguration(getConfigFile());
+		this.mainConfig = mainConfig.get(MainConfig.class);
 
 		CEGroupConfig groupConfig = new CEGroupConfig();
 		groupConfig.loadConfig(getGroupFile());
@@ -487,9 +487,8 @@ public class CustomEnchantment extends JavaPlugin implements Listener {
 		VanillaItemConfig vanillaItemConfig = new VanillaItemConfig();
 		vanillaItemConfig.loadConfig(getVanillaItemFile());
 
-        BookUpgradeMenu.setSettings(null);
-		BookcraftConfig bookcraftConfig = new BookcraftConfig();
-		bookcraftConfig.loadConfig(getBookCraftFile());
+		AdvancedFileConfiguration bookCraftConfig = new AdvancedFileConfiguration(getBookCraftFile());
+		this.bookCraftConfig = bookCraftConfig.get(BookCraftConfig.class);
 
         BookUpgradeConfig bookUpgradeConfig = new BookUpgradeConfig();
         bookUpgradeConfig.loadConfig(getBookUpgradeFile());
@@ -516,7 +515,7 @@ public class CustomEnchantment extends JavaPlugin implements Listener {
 		this.artifactTask.runTaskTimer(this, 0, 20);
 
 		this.attributeTask = new RecalculateAttributeTask(this);
-		this.attributeTask.runTaskTimerAsynchronously(this, 0, 4);
+		this.attributeTask.runTaskTimerAsynchronously(this, 0, 20);
 
 		this.regenerationTask = new RegenerationTask(this);
 		this.regenerationTask.runTaskTimer(this, 0, 4);
@@ -585,8 +584,12 @@ public class CustomEnchantment extends JavaPlugin implements Listener {
 		this.effectExecuteTask.removeEffectData(playerName, name);
 	}
 
+	public File getGeneralDataFolder() {
+		return new File(getDataFolder(), "data");
+	}
+
 	public File getPlayerDataFolder() {
-		return new File(getDataFolder(), "player-data");
+		return new File(getGeneralDataFolder(), "player");
 	}
 
 	public File getPlayerDataFile(OfflinePlayer player) {
@@ -622,15 +625,15 @@ public class CustomEnchantment extends JavaPlugin implements Listener {
 	}
 
 	public File getBookCraftFile() {
-		return new File(getDataFolder(), "bookcraft.yml");
+		return new File(getDataFolder(), "book-craft.yml");
 	}
 
     public File getBookUpgradeFile() {
-        return new File(getDataFolder(), "bookupgrade.yml");
+        return new File(getDataFolder(), "book-upgrade.yml");
     }
 
     public File getBookUpgradeFolder() {
-        return new File(getDataFolder(), "bookupgrade");
+        return new File(getDataFolder(), "book-upgrade");
     }
 
 	public File getDatabaseFile() {

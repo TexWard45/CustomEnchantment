@@ -18,11 +18,11 @@ public class VanillaItemConfig extends AbstractConfig {
 		CustomEnchantment.instance().getCEItemStorageMap().put(CEItemType.STORAGE, storage);
 
 		for (String key : config.getKeys(false)) {
-			storage.put(key, new VanillaItem(config.getItemStack(key, true)));
+			storage.put(key, new VanillaItem(config.getItemStack(key, true, true)));
 		}
 		
 		for (String key : saveConfig.getKeys(false)) {
-			storage.put(key, new VanillaItem(saveConfig.getItemStack(key, true)));
+			storage.put(key, new VanillaItem(saveConfig.getItemStack(key, true, true)));
 		}
 	}
 

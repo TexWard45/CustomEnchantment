@@ -1,13 +1,10 @@
 package com.bafmc.customenchantment.command;
 
-import com.bafmc.bukkit.bafframework.nms.NMSAttribute;
-import com.bafmc.bukkit.bafframework.nms.NMSAttributeType;
+import com.bafmc.bukkit.command.*;
 import com.bafmc.customenchantment.api.CEAPI;
-import com.bafmc.customenchantment.item.CEItem;
-import com.bafmc.customenchantment.item.CEWeapon;
 import com.bafmc.customenchantment.player.CEPlayer;
 import com.bafmc.customenchantment.player.PlayerVanillaAttribute;
-import com.bafmc.bukkit.command.*;
+import de.tr7zw.nbtapi.NBTItem;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeModifier;
 import org.bukkit.command.CommandSender;
@@ -41,14 +38,10 @@ public class CommandInfo implements AbstractCommand {
 									sender.sendMessage(modifier.getName() + " " + modifier.getAmount() + " " + modifier.getOperation());
 								}
 							}
-
 							sender.sendMessage("== End ==");
 
-							CEItem ceItem = CEAPI.getCEItem(player.getInventory().getItemInMainHand());
-							CEWeapon ceWeapon = (CEWeapon) ceItem;
-							for (NMSAttribute nmsAttribute : ceWeapon.getWeaponAttribute().getAttributeList()) {
-								sender.sendMessage(NMSAttributeType.fromId(nmsAttribute.getName()) + " " + nmsAttribute.getName() + " " + nmsAttribute.getAmount() + " " + nmsAttribute.getOperation());
-							}
+							NBTItem nbtItem = new NBTItem(player.getInventory().getItemInMainHand());
+							System.out.println(nbtItem.getKeys());
 							return true;
 						}
 					})

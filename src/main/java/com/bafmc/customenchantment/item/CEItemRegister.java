@@ -34,11 +34,15 @@ public class CEItemRegister {
 
 		CEItem ceItem;
 		for (CEItemFactory clazz : list) {
-			ceItem = clazz.create(itemStack);
-			if (!ceItem.isMatchType(ceItem.getType())) {
+			try {
+				ceItem = clazz.create(itemStack);
+				if (!ceItem.isMatchType(ceItem.getType())) {
+					continue;
+				}
+				return ceItem;
+			} catch (Exception e) {
 				continue;
 			}
-			return ceItem;
 		}
 
 		return null;

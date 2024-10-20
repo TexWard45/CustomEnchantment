@@ -1,11 +1,9 @@
 package com.bafmc.customenchantment.item;
 
-import org.bukkit.Material;
-import org.bukkit.inventory.ItemStack;
-
-import com.bafmc.customenchantment.api.ITrade;
-import com.bafmc.bukkit.bafframework.nms.NMSItemStack;
 import com.bafmc.bukkit.bafframework.nms.NMSNBTTagCompound;
+import com.bafmc.bukkit.utils.ItemStackUtils;
+import com.bafmc.customenchantment.api.ITrade;
+import org.bukkit.inventory.ItemStack;
 
 public class CEUnifyWeapon implements ITrade<NMSNBTTagCompound> {
 	public enum Target {
@@ -48,13 +46,7 @@ public class CEUnifyWeapon implements ITrade<NMSNBTTagCompound> {
 
 	public void setItemStack(Target target, ItemStack itemStack) {
 		NMSNBTTagCompound tag = new NMSNBTTagCompound();
-
-		tag.setString("type", itemStack.getType().name());
-		tag.setByte("amount", (byte) 1);
-
-		NMSItemStack craftItemStack = new NMSItemStack(itemStack);
-
-		tag.set("tag", craftItemStack.getCompound());
+		tag.setString("item-stack", ItemStackUtils.toString(itemStack));
 
 		if (target == Target.WEAPON) {
 			this.weaponTag = tag;
@@ -70,17 +62,11 @@ public class CEUnifyWeapon implements ITrade<NMSNBTTagCompound> {
 			return null;
 		}
 
-		Material type = Material.valueOf(tag.getString("type"));
-		byte amount = tag.getByte("amount");
-		short damage = tag.getShort("damage");
-
-		NMSItemStack craftItemStack = new NMSItemStack(new ItemStack(type, amount, damage));
-		craftItemStack.setCompound(tag.getCompound("tag"));
-		
+		ItemStack itemStack = ItemStackUtils.fromString(tag.getString("item-stack"));
 		if (target == Target.WEAPON) {
-			return ceUnify.updateProtectDead(craftItemStack.getNewItemStack());
+			return ceUnify.updateProtectDead(itemStack);
 		}
 		
-		return craftItemStack.getNewItemStack();
+		return itemStack;
 	}
 }

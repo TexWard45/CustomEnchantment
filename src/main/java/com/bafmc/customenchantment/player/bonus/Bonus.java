@@ -5,13 +5,13 @@ import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
 import com.bafmc.customenchantment.api.Pair;
-import com.bafmc.customenchantment.attribute.AttributeData;
+import com.bafmc.customenchantment.attribute.RangeAttribute;
 
 public class Bonus<K> {
-	private ConcurrentHashMap<String, Pair<K, AttributeData>> map = new ConcurrentHashMap<String, Pair<K, AttributeData>>();
+	private ConcurrentHashMap<String, Pair<K, RangeAttribute>> map = new ConcurrentHashMap<String, Pair<K, RangeAttribute>>();
 
-	public void put(String name, K key, AttributeData data) {
-		map.put(name, new Pair<K, AttributeData>(key, data));
+	public void put(String name, K key, RangeAttribute data) {
+		map.put(name, new Pair<K, RangeAttribute>(key, data));
 	}
 
 	public void remove(String name) {
@@ -22,7 +22,7 @@ public class Bonus<K> {
 		return map.isEmpty();
 	}
 
-	public List<Pair<K, AttributeData>> getBonusList() {
-		return new ArrayList<Pair<K, AttributeData>>(map.values());
+	public List<Pair<K, RangeAttribute>> getBonusList() {
+		return new ArrayList<Pair<K, RangeAttribute>>(map.values());
 	}
 }

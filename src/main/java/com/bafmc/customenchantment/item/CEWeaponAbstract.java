@@ -4,16 +4,27 @@ import com.bafmc.bukkit.bafframework.nms.NMSNBTTagCompound;
 import com.bafmc.bukkit.bafframework.nms.NMSNBTTagList;
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.nms.CECraftItemStackNMS;
+import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.inventory.ItemStack;
 
 public abstract class CEWeaponAbstract<T extends CEItemData> extends CEItem<T> {
-	private WeaponEnchant weaponEnchant;
-	private WeaponDisplay weaponDisplay;
-	private WeaponData weaponData;
-	private WeaponAttribute weaponAttribute;
-	private long lastTimeModifier;
+	@Getter
+    private WeaponEnchant weaponEnchant;
+	@Getter
+    private WeaponDisplay weaponDisplay;
+	@Getter
+	private WeaponGem weaponGem;
+	@Getter
+    private WeaponData weaponData;
+	@Getter
+    private WeaponAttribute weaponAttribute;
+	@Getter
+    private long lastTimeModifier;
 	private long newTimeModifier;
-	protected String weaponSettingsName;
+	@Setter
+    @Getter
+    protected String weaponSettingsName;
 	private int repairCost;
 
 	public CEWeaponAbstract(String type, ItemStack itemStack) {
@@ -44,6 +55,9 @@ public abstract class CEWeaponAbstract<T extends CEItemData> extends CEItem<T> {
 		this.weaponEnchant = new WeaponEnchant(this);
 		this.weaponEnchant.importFrom(tag.getList("enchant"));
 
+		this.weaponGem = new WeaponGem(this);
+		this.weaponGem.importFrom(tag.getList("gem"));
+
 		this.weaponDisplay = new WeaponDisplay(this);
 		this.weaponDisplay.importFrom(tag.getCompound("lore"));
 
@@ -73,6 +87,11 @@ public abstract class CEWeaponAbstract<T extends CEItemData> extends CEItem<T> {
 		NMSNBTTagList enchantTag = weaponEnchant.exportTo();
 		if (enchantTag != null) {
 			tag.set("enchant", enchantTag);
+		}
+
+		NMSNBTTagList gemTag = weaponGem.exportTo();
+		if (gemTag != null) {
+			tag.set("gem", gemTag);
 		}
 
 		NMSNBTTagCompound loreTag = weaponDisplay.exportTo();
@@ -116,8 +135,8 @@ public abstract class CEWeaponAbstract<T extends CEItemData> extends CEItem<T> {
 		}
 	}
 
-	public long updateTimeModifier() {
-		return this.newTimeModifier = System.currentTimeMillis();
+	public void updateTimeModifier() {
+		this.newTimeModifier = System.currentTimeMillis();
 	}
 	
 	public void clearTimeModifier() {
@@ -132,43 +151,11 @@ public abstract class CEWeaponAbstract<T extends CEItemData> extends CEItem<T> {
 		this.weaponAttribute.clearAttribute();
 	}
 
-	public long getLastTimeModifier() {
-		return lastTimeModifier;
-	}
-
-	public long getNewTimeModifier() {
-		return lastTimeModifier;
-	}
-
 	public void setType(String type) {
 		this.type = type;
 	}
 
-	public String getWeaponSettingsName() {
-		return weaponSettingsName;
-	}
-
-    public void setWeaponSettingsName(String weaponSettingsName) {
-        this.weaponSettingsName = weaponSettingsName;
-    }
-
-	public WeaponSettings getWeaponSettings() {
+    public WeaponSettings getWeaponSettings() {
 		return WeaponSettings.getSettings(getWeaponSettingsName());
-	}
-
-	public WeaponEnchant getWeaponEnchant() {
-		return weaponEnchant;
-	}
-
-	public WeaponAttribute getWeaponAttribute() {
-		return weaponAttribute;
-	}
-
-	public WeaponDisplay getWeaponDisplay() {
-		return weaponDisplay;
-	}
-
-	public WeaponData getWeaponData() {
-		return weaponData;
 	}
 }

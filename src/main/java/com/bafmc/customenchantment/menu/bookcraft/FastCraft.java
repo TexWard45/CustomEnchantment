@@ -1,5 +1,6 @@
 package com.bafmc.customenchantment.menu.bookcraft;
 
+import com.bafmc.customenchantment.CustomEnchantment;
 import lombok.Getter;
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.api.Pair;
@@ -88,7 +89,7 @@ public class FastCraft {
         List<BookData> list = bookcraftMenu.getList();
         String groupName = list.get(0).getCESimple().getCEEnchant().getGroupName();
 
-        if (!BookcraftMenu.getSettings().payMoney(player, groupName, (double)(this.cntBook.get(this.pos)))) {
+        if (!CustomEnchantment.instance().getBookCraftConfig().payMoney(player, groupName, (double)(this.cntBook.get(this.pos)))) {
             return BookcraftMenu.BookcraftConfirmReason.NOT_ENOUGH_MONEY;
         }
 
@@ -363,7 +364,7 @@ public class FastCraft {
 
                 String groupName = bookcraftMenu.getList().get(0).getCESimple().getCEEnchant().getGroupName();
                 HashMap<String, String> placeholder = new HashMap<String, String>();
-                placeholder.put("%money%", String.valueOf(BookcraftMenu.getSettings().getMoneyRequire(groupName)*(double)(this.cntBook.get(this.pos))));
+                placeholder.put("%money%", String.valueOf(CustomEnchantment.instance().getBookCraftConfig().getMoneyRequire(groupName)*(double)(this.cntBook.get(this.pos))));
                 itemStack = ItemStackUtils.setItemStack(itemStack, placeholder);
                 bookcraftMenu.updateSlots("accept", itemStack);
             }

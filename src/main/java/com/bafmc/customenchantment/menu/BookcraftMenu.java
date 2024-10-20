@@ -1,14 +1,15 @@
 package com.bafmc.customenchantment.menu;
 
-import lombok.Getter;
+import com.bafmc.bukkit.utils.InventoryUtils;
+import com.bafmc.bukkit.utils.ItemStackUtils;
+import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.enchant.CESimple;
 import com.bafmc.customenchantment.menu.bookcraft.FastCraft;
 import com.bafmc.customenchantment.menu.data.BookData;
 import com.bafmc.custommenu.menu.CItem;
 import com.bafmc.custommenu.menu.CMenuView;
-import com.bafmc.bukkit.utils.InventoryUtils;
-import com.bafmc.bukkit.utils.ItemStackUtils;
+import lombok.Getter;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
@@ -20,12 +21,6 @@ import java.util.List;
 public class BookcraftMenu extends MenuAbstract {
     public static final String MENU_NAME = "bookcraft";
     private static HashMap<String, BookcraftMenu> map = new HashMap<String, BookcraftMenu>();
-    @Getter
-    private static BookcraftSettings settings;
-
-    public static void setSettings(BookcraftSettings settings) {
-        BookcraftMenu.settings = settings;
-    }
 
     public static BookcraftMenu putBookCraftMenu(Player player, CMenuView cMenuView) {
         BookcraftMenu menu = map.get(player.getName());
@@ -141,7 +136,7 @@ public class BookcraftMenu extends MenuAbstract {
 
         String groupName = list.get(0).getCESimple().getCEEnchant().getGroupName();
         HashMap<String, String> placeholder = new HashMap<String, String>();
-        placeholder.put("%money%", String.valueOf(settings.getMoneyRequire(groupName)));
+        placeholder.put("%money%", String.valueOf(CustomEnchantment.instance().getBookCraftConfig().getMoneyRequire(groupName)));
         itemStack = ItemStackUtils.setItemStack(itemStack, placeholder);
 
         updateSlots("accept", itemStack);
@@ -184,7 +179,7 @@ public class BookcraftMenu extends MenuAbstract {
 
         String groupName = list.get(0).getCESimple().getCEEnchant().getGroupName();
 
-        if (!settings.payMoney(player, groupName)) {
+        if (!CustomEnchantment.instance().getBookCraftConfig().payMoney(player, groupName)) {
             return BookcraftConfirmReason.NOT_ENOUGH_MONEY;
         }
 

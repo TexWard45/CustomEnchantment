@@ -23,7 +23,7 @@ public class CEMask extends CEUnify<CEMaskData> {
 		}
 		
 		if (ceItem instanceof CEBanner) {
-			return ((CEBanner) ceItem).applyTo(this);
+			return ceItem.applyTo(this);
 		}
 
 		return ApplyReason.NOTHING;
@@ -42,7 +42,7 @@ public class CEMask extends CEUnify<CEMaskData> {
 				.get(getData().getPattern());
 		CEUnifyData data = (CEUnifyData) item.getData();
 
-		if (display.indexOf(ChatColor.BOLD.toString()) != -1) {
+		if (display.contains(ChatColor.BOLD.toString())) {
 			return data.getBoldDisplay().replace("%display%", display);
 		} else {
 			return data.getNormalDisplay().replace("%display%", display);

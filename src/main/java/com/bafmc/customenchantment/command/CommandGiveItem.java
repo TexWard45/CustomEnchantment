@@ -32,7 +32,7 @@ public class CommandGiveItem implements AbstractCommand {
 				return true;
 			}
 
-			List<String> list = new ArrayList<String>(Arrays.asList(arg.getToEnd(3).split(" ")));
+			List<String> list = new ArrayList<>(Arrays.asList(arg.getToEnd(3).split(" ")));
 
 			List<ItemStack> itemStacks = null;
 
@@ -87,6 +87,12 @@ public class CommandGiveItem implements AbstractCommand {
 				return levels;
 			}
 			return Arrays.asList("");
+		}
+	};
+
+	private AdvancedTabCompleter gemLevelTab = new AdvancedTabCompleter() {
+		public List<String> onTabComplete(CommandSender sender, Argument arg) {
+			return Arrays.asList("1", "2", "3", "4", "5", "6", "7", "8", "9", "10");
 		}
 	};
 	
@@ -164,6 +170,12 @@ public class CommandGiveItem implements AbstractCommand {
 						.subCommand("<name>").tabCompleter(nameTab)
 						.subCommand("<amount>").tabCompleter(amountTab)
 						.end().end()
+					.end()
+					.subCommand("gem")
+						.subCommand("<name>").tabCompleter(nameTab)
+						.subCommand("<level>").tabCompleter(gemLevelTab)
+						.subCommand("<amount>").tabCompleter(amountTab)
+						.end().end().end()
 					.end()
 					.subCommand("nametag")
 						.subCommand("<name>").tabCompleter(nameTab)

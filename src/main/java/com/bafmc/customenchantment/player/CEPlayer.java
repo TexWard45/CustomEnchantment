@@ -14,7 +14,8 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class CEPlayer implements ICEPlayerEvent {
 	private ConcurrentHashMap<Class<? extends CEPlayerExpansion>, CEPlayerExpansion> map = new ConcurrentHashMap<Class<? extends CEPlayerExpansion>, CEPlayerExpansion>();
-	private ConcurrentHashMap<EquipSlot, CEWeaponAbstract> slotMap = new ConcurrentHashMap<EquipSlot, CEWeaponAbstract>();
+	private ConcurrentHashMap<EquipSlot, CEWeaponAbstract> slotMap = new ConcurrentHashMap<>();
+	private ConcurrentHashMap<EquipSlot, Boolean> disableSlotMap = new ConcurrentHashMap<>();
 	@Getter
     private Player player;
     @Getter
@@ -166,6 +167,16 @@ public class CEPlayer implements ICEPlayerEvent {
 	}
 
 	public CEWeaponAbstract getSlot(EquipSlot slot) {
+		return getSlot(slot, true);
+	}
+
+	public CEWeaponAbstract getSlot(EquipSlot slot, boolean check) {
+		if (!slotMap.containsKey(slot)) {
+			return null;
+		}
+		if (check && disableSlotMap.containsKey(slot)) {
+			return null;
+		}
 		return slotMap.get(slot);
 	}
 
@@ -179,7 +190,33 @@ public class CEPlayer implements ICEPlayerEvent {
         getSet().onUpdate();
 	}
 
+	public void setDisableSlot(EquipSlot slot, boolean disable) {
+		if (disable) {
+			disableSlotMap.put(slot, true);
+		} else {
+			disableSlotMap.remove(slot);
+		}
+	}
+
+	public boolean isDisableSlot(EquipSlot slot) {
+		return disableSlotMap.containsKey(slot);
+	}
+
     public Map<EquipSlot, CEWeaponAbstract> getSlotMap() {
-        return new LinkedHashMap<>(slotMap);
+		return getSlotMap(true);
     }
+
+	public Map<EquipSlot, CEWeaponAbstract> getSlotMap(boolean check) {
+		if (!check) {
+			return new LinkedHashMap<>(slotMap);
+		}
+		Map<EquipSlot, CEWeaponAbstract> map = new LinkedHashMap<>();
+		for (EquipSlot slot : slotMap.keySet()) {
+			if (disableSlotMap.containsKey(slot)) {
+				continue;
+			}
+			map.put(slot, slotMap.get(slot));
+		}
+		return map;
+	}
 }

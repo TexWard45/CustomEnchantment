@@ -1,7 +1,6 @@
 package com.bafmc.customenchantment.task;
 
 import com.bafmc.bukkit.utils.EquipSlot;
-import com.bafmc.customenchantment.ConfigVariable;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.CustomEnchantmentMessage;
 import com.bafmc.customenchantment.api.CEAPI;
@@ -15,13 +14,11 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class CEArtifactTask extends BukkitRunnable {
     private CustomEnchantment plugin;
+    private Set<String> inDisableArtifactSet = new HashSet<>();
 
     public CEArtifactTask(CustomEnchantment plugin) {
         this.plugin = plugin;
@@ -50,9 +47,10 @@ public class CEArtifactTask extends BukkitRunnable {
         List<String> uniqueArtifactList = new ArrayList<>();
 
         for (EquipSlot equipSlot : EquipSlot.HOTBAR_ARRAY) {
-            CEItem ceItem = cePlayer.getSlot(equipSlot);
+            CEItem ceItem = cePlayer.getSlot(equipSlot, false);
 
             if (!(ceItem instanceof CEArtifact)) {
+                cePlayer.setDisableSlot(equipSlot, false);
                 continue;
             }
 
@@ -63,24 +61,28 @@ public class CEArtifactTask extends BukkitRunnable {
         }
 
         if (hotbarSlotMap.isEmpty()) {
+            inDisableArtifactSet.remove(player.getName());
             return false;
         }
 
-        if (hotbarSlotMap.size() <= ConfigVariable.MAX_ARTIFACT_USE_COUNT) {
+        if (hotbarSlotMap.size() <= CustomEnchantment.instance().getMainConfig().getMaxArtifactUseCount()) {
             if (uniqueArtifactList.size() != hotbarSlotMap.size()) {
-                if (handleArtifactDeactivation(cePlayer, hotbarSlotMap)) {
+                if (handleArtifactDeactivation(cePlayer, hotbarSlotMap) && !inDisableArtifactSet.contains(player.getName())) {
                     CustomEnchantmentMessage.send(player, "ce-item.artifact.duplicate");
+                    inDisableArtifactSet.add(player.getName());
                 }
                 return false;
             }
 
             if (handleArtifactActivation(cePlayer, hotbarSlotMap)) {
                 CustomEnchantmentMessage.send(player, "ce-item.artifact.active");
+                inDisableArtifactSet.remove(player.getName());
             }
             return true;
         }else {
-            if (handleArtifactDeactivation(cePlayer, hotbarSlotMap)) {
+            if (handleArtifactDeactivation(cePlayer, hotbarSlotMap) && !inDisableArtifactSet.contains(player.getName())) {
                 CustomEnchantmentMessage.send(player, "ce-item.artifact.exceed-use-amount");
+                inDisableArtifactSet.add(player.getName());
             }
             return false;
         }
@@ -89,18 +91,23 @@ public class CEArtifactTask extends BukkitRunnable {
     public boolean handleArtifactActivation(CEPlayer cePlayer, Map<EquipSlot, CEWeaponAbstract> map) {
         Player player = cePlayer.getPlayer();
 
-        if (!cePlayer.getCEManager().isCancelSlot(EquipSlot.HOTBAR_1)) {
-            return false;
+        Map<EquipSlot, CEWeaponAbstract> oldDisableMap = new LinkedHashMap<>();
+        for (EquipSlot equipSlot : EquipSlot.HOTBAR_ARRAY) {
+            if (cePlayer.isDisableSlot(equipSlot)) {
+                oldDisableMap.put(equipSlot, cePlayer.getSlot(equipSlot, false));
+            }
+
+            cePlayer.setDisableSlot(equipSlot, false);
         }
 
-        for (EquipSlot equipSlot : EquipSlot.HOTBAR_ARRAY) {
-            cePlayer.getCEManager().setCancelSlot(equipSlot, "ArtifactTask", false);
+        if (oldDisableMap.isEmpty()) {
+            return false;
         }
 
         CECallerBuilder
                 .build(player)
                 .setCEType(CEType.HOTBAR_HOLD)
-                .setWeaponMap(map)
+                .setWeaponMap(oldDisableMap)
                 .call();
 
         return true;
@@ -109,18 +116,22 @@ public class CEArtifactTask extends BukkitRunnable {
     public boolean handleArtifactDeactivation(CEPlayer cePlayer, Map<EquipSlot, CEWeaponAbstract> map) {
         Player player = cePlayer.getPlayer();
 
-        if (cePlayer.getCEManager().isCancelSlot(EquipSlot.HOTBAR_1)) {
-            return false;
+        Map<EquipSlot, CEWeaponAbstract> newDisableMap = new LinkedHashMap<>();
+        for (EquipSlot equipSlot : map.keySet()) {
+            if (cePlayer.isDisableSlot(equipSlot)) {
+                continue;
+            }
+            newDisableMap.put(equipSlot, cePlayer.getSlot(equipSlot, false));
         }
 
         CECallerBuilder
                 .build(player)
                 .setCEType(CEType.HOTBAR_CHANGE)
-                .setWeaponMap(map)
+                .setWeaponMap(newDisableMap)
                 .call();
 
-        for (EquipSlot equipSlot : EquipSlot.HOTBAR_ARRAY) {
-            cePlayer.getCEManager().setCancelSlot(equipSlot, "ArtifactTask", true);
+        for (EquipSlot equipSlot : map.keySet()) {
+            cePlayer.setDisableSlot(equipSlot, true);
         }
 
         return true;

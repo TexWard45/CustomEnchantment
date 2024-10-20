@@ -1,18 +1,19 @@
 package com.bafmc.customenchantment.config;
 
+import com.bafmc.bukkit.bafframework.nms.NMSAttributeOperation;
+import com.bafmc.bukkit.bafframework.nms.NMSAttributeType;
 import com.bafmc.bukkit.config.AdvancedConfigurationSection;
-import com.bafmc.customenchantment.CustomEnchantment;
-import com.bafmc.customenchantment.CustomEnchantmentDebug;
-import com.bafmc.customenchantment.api.CEAPI;
-import com.bafmc.customenchantment.api.MaterialList;
-import com.bafmc.customenchantment.attribute.AttributeData;
-import com.bafmc.customenchantment.attribute.AttributeData.Operation;
-import com.bafmc.customenchantment.attribute.CustomAttributeType;
-import com.bafmc.customenchantment.enchant.*;
 import com.bafmc.bukkit.utils.Chance;
 import com.bafmc.bukkit.utils.EnumUtils;
 import com.bafmc.bukkit.utils.EquipSlot;
 import com.bafmc.bukkit.utils.StringUtils;
+import com.bafmc.customenchantment.CustomEnchantment;
+import com.bafmc.customenchantment.CustomEnchantmentDebug;
+import com.bafmc.customenchantment.api.CEAPI;
+import com.bafmc.customenchantment.api.MaterialList;
+import com.bafmc.customenchantment.attribute.CustomAttributeType;
+import com.bafmc.customenchantment.attribute.RangeAttribute;
+import com.bafmc.customenchantment.enchant.*;
 
 import java.util.*;
 
@@ -272,7 +273,7 @@ public class CEEnchantConfig extends AbstractConfig {
 	}
 
 	public Option loadOption(List<String> lines) {
-		List<AttributeData> list = new ArrayList<AttributeData>();
+		List<RangeAttribute> list = new ArrayList<RangeAttribute>();
 
 		for (String line : lines) {
 			if (line.isEmpty()) {
@@ -291,27 +292,28 @@ public class CEEnchantConfig extends AbstractConfig {
 		return new Option(list);
 	}
 
-	public AttributeData loadOptionData(String line) {
+	public RangeAttribute loadOptionData(String line) {
 		List<String> parameters = StringUtils.split(line, ":", 0);
 
 		String type = parameters.get(0);
 		if (!type.startsWith("OPTION_")) {
 			type = "OPTION_" + type;
 		}
-		CustomAttributeType attributeType = CustomAttributeType.valueOf(type);
+
+		NMSAttributeType attributeType = NMSAttributeType.valueOf(type);
 
 		double amount = Double.valueOf(parameters.get(1));
-		if (attributeType.equals(OptionType.OPTION_DEFENSE)) {
+		if (attributeType.equals(CustomAttributeType.OPTION_DEFENSE)) {
 			amount = -amount;
 		}
-		Operation operation;
+		NMSAttributeOperation operation;
 		try {
-			operation = Operation.fromId(Integer.parseInt(parameters.get(2)));
+			operation = NMSAttributeOperation.fromId(Integer.parseInt(parameters.get(2)));
 		} catch (Exception e) {
-			operation = Operation.valueOf(parameters.get(2));
+			operation = NMSAttributeOperation.valueOf(parameters.get(2));
 		}
 
-		return new AttributeData(attributeType, amount, operation);
+		return new RangeAttribute(attributeType, amount, operation);
 	}
 
 	public Effect loadEffect(List<String> lines) {

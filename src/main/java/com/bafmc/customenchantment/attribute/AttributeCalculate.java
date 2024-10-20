@@ -1,6 +1,7 @@
 package com.bafmc.customenchantment.attribute;
 
-import com.bafmc.customenchantment.attribute.AttributeData.Operation;
+import com.bafmc.bukkit.bafframework.nms.NMSAttribute;
+import com.bafmc.bukkit.bafframework.nms.NMSAttributeOperation;
 import com.bafmc.customenchantment.player.CEPlayer;
 import org.bukkit.attribute.AttributeModifier;
 
@@ -8,16 +9,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AttributeCalculate {
-	public static double calculate(CEPlayer cePlayer, CustomAttributeType type, double amount, List<AttributeData> additionalList) {
+	public static double calculate(CEPlayer cePlayer, CustomAttributeType type, double amount, List<NMSAttribute> additionalList) {
 		additionalList.addAll(cePlayer.getCustomAttribute().getAttributeList());
 		return calculate(type, amount, additionalList);
 	}
 	
-	public static double calculate(CustomAttributeType type, double amount, List<AttributeData> list) {
-		List<AttributeData> newList = new ArrayList<AttributeData>();
+	public static double calculate(CustomAttributeType type, double amount, List<NMSAttribute> list) {
+		List<NMSAttribute> newList = new ArrayList<>();
 
-		for (AttributeData data : list) {
-			if (!data.getType().equals(type)) {
+		for (NMSAttribute data : list) {
+			if (!data.getAttributeType().equals(type)) {
 				continue;
 			}
 			newList.add(data);
@@ -26,19 +27,27 @@ public class AttributeCalculate {
 		return calculate(amount, newList);
 	}
 
-	public static double calculate(double amount, List<AttributeData> list) {
-		for (AttributeData data : list) {
-			if (data.getOperation() == Operation.ADD_NUMBER) {
-				if (!data.hasChance() || data.getChance().work()) {
+	public static double calculate(double amount, List<NMSAttribute> list) {
+		for (NMSAttribute data : list) {
+			if (data.getOperation() == NMSAttributeOperation.ADD_NUMBER) {
+				if (data instanceof RangeAttribute rangeAttribute) {
+					if (!rangeAttribute.hasChance() || rangeAttribute.getChance().work()) {
+						amount += rangeAttribute.getAmount();
+					}
+				}else {
 					amount += data.getAmount();
 				}
 			}
 		}
 
 		double p = 1;
-		for (AttributeData data : list) {
-			if (data.getOperation() == Operation.MULTIPLY_PERCENTAGE) {
-				if (!data.hasChance() || data.getChance().work()) {
+		for (NMSAttribute data : list) {
+			if (data.getOperation() == NMSAttributeOperation.MULTIPLY_PERCENTAGE) {
+				if (data instanceof RangeAttribute rangeAttribute) {
+					if (!rangeAttribute.hasChance() || rangeAttribute.getChance().work()) {
+						p += rangeAttribute.getAmount();
+					}
+				}else {
 					p += data.getAmount();
 				}
 			}
@@ -47,9 +56,14 @@ public class AttributeCalculate {
 
 		double newAmount = 0;
 		boolean has = false;
-		for (AttributeData data : list) {
-			if (data.getOperation() == Operation.SET_NUMBER) {
-				if (!data.hasChance() || data.getChance().work()) {
+		for (NMSAttribute data : list) {
+			if (data.getOperation() == NMSAttributeOperation.SET_NUMBER) {
+				if (data instanceof RangeAttribute rangeAttribute) {
+					if (!rangeAttribute.hasChance() || rangeAttribute.getChance().work()) {
+						newAmount = Math.max(newAmount, rangeAttribute.getAmount());
+						has = true;
+					}
+				}else {
 					newAmount = Math.max(newAmount, data.getAmount());
 					has = true;
 				}
@@ -59,9 +73,13 @@ public class AttributeCalculate {
 			amount = newAmount;
 		}
 
-		for (AttributeData data : list) {
-			if (data.getOperation() == Operation.ADD_PERCENTAGE) {
-				if (!data.hasChance() || data.getChance().work()) {
+		for (NMSAttribute data : list) {
+			if (data.getOperation() == NMSAttributeOperation.ADD_PERCENTAGE) {
+				if (data instanceof RangeAttribute rangeAttribute) {
+					if (!rangeAttribute.hasChance() || rangeAttribute.getChance().work()) {
+						amount *= (1 + rangeAttribute.getAmount());
+					}
+				}else {
 					amount *= (1 + data.getAmount());
 				}
 			}

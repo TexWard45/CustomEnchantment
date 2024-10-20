@@ -7,7 +7,6 @@ import com.bafmc.bukkit.utils.EquipSlot;
 import com.bafmc.bukkit.utils.ItemStackUtils;
 import com.bafmc.bukkit.utils.MessageUtils;
 import com.bafmc.bukkit.utils.StringUtils;
-import com.bafmc.customenchantment.ConfigVariable;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.attribute.CustomAttributeType;
@@ -146,7 +145,7 @@ public class PlayerListener implements Listener {
 	public void onChancedWorld(PlayerChangedWorldEvent e) {
 		Player player = e.getPlayer();
 
-		if (ConfigVariable.isEnchantDisableLocation(player.getLocation())) {
+		if (CustomEnchantment.instance().getMainConfig().isEnchantDisableLocation(player.getLocation())) {
 			CECallerBuilder
 					.build(player)
 					.setCEType(CEType.ARMOR_UNDRESS)
@@ -167,7 +166,7 @@ public class PlayerListener implements Listener {
 					.setWeaponMap(CEAPI.getCEWeaponMap(player, EquipSlot.HOTBAR_ARRAY))
 					.setExecuteLater(false)
 					.call();
-		} else if (ConfigVariable.isEnchantDisableLocation(e.getFrom())) {
+		} else if (CustomEnchantment.instance().getMainConfig().isEnchantDisableLocation(e.getFrom())) {
 			CECallerBuilder
 					.build(player)
 					.setCEType(CEType.ARMOR_EQUIP)
@@ -355,7 +354,7 @@ public class PlayerListener implements Listener {
 		PlayerTemporaryStorage storage = cePlayer.getTemporaryStorage();
 		long lastCallMoveTime = storage.getLong(TemporaryKey.LAST_CALL_MOVE_TIME, 0);
 
-		if (System.currentTimeMillis() - lastCallMoveTime > ConfigVariable.MOVE_EVENT_PERIOD) {
+		if (System.currentTimeMillis() - lastCallMoveTime > CustomEnchantment.instance().getMainConfig().getMoveEventPeriod()) {
 			CECallerBuilder
 					.build(cePlayer.getPlayer())
 					.setCEType(CEType.MOVE)

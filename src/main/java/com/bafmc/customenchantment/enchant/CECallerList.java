@@ -3,7 +3,8 @@ package com.bafmc.customenchantment.enchant;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.bafmc.customenchantment.attribute.AttributeData;
+import com.bafmc.bukkit.bafframework.nms.NMSAttribute;
+import com.bafmc.customenchantment.attribute.RangeAttribute;
 
 public class CECallerList extends ArrayList<CECaller> {
 
@@ -22,8 +23,8 @@ public class CECallerList extends ArrayList<CECaller> {
 		return results;
 	}
 	
-	public List<AttributeData> getOptionDataList() {
-		List<AttributeData> optionDataList = new ArrayList<AttributeData>();
+	public List<NMSAttribute> getOptionDataList() {
+		List<NMSAttribute> optionDataList = new ArrayList<>();
 
 		for (CECaller caller : this) {
 			optionDataList.addAll(caller.getResult().getOptionDataList());
