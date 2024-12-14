@@ -1,9 +1,9 @@
 package com.bafmc.customenchantment.feature;
 
-import com.bafmc.bukkit.bafframework.feature.item.CustomEnchantmentItem;
 import com.bafmc.bukkit.feature.item.ItemRegister;
 import com.bafmc.bukkit.module.PluginModule;
 import com.bafmc.customenchantment.CustomEnchantment;
+import com.bafmc.customenchantment.feature.item.CustomEnchantmentItem;
 
 public class FeatureModule extends PluginModule<CustomEnchantment> {
     public FeatureModule(CustomEnchantment plugin) {
