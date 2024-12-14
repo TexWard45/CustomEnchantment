@@ -8,7 +8,7 @@ import com.bafmc.bukkit.utils.Chance;
 import com.bafmc.bukkit.utils.PathUtils;
 import com.bafmc.bukkit.utils.RandomRangeInt;
 import com.bafmc.customenchantment.CustomEnchantment;
-import com.bafmc.customenchantment.enchant.CESimple;
+import com.bafmc.customenchantment.enchant.CEEnchantSimple;
 import com.bafmc.customenchantment.menu.BookUpgradeMenu;
 import com.bafmc.customenchantment.menu.BookUpgradeSettings;
 import com.bafmc.customenchantment.menu.data.BookUpgradeData;
@@ -121,7 +121,7 @@ public class BookUpgradeConfig extends AbstractConfig {
                 int nextEnchantSuccess = config.getInt(PathUtils.of(path, groupName, level, "upgrade-enchant.success"));
                 int nextEnchantDestroy = config.getInt(PathUtils.of(path, groupName, level, "upgrade-enchant.destroy"));
 
-                CESimple nextEnchant = new CESimple(nextEnchantName, nextEnchantLevel, nextEnchantSuccess, nextEnchantDestroy);
+                CEEnchantSimple nextEnchant = new CEEnchantSimple(nextEnchantName, nextEnchantLevel, nextEnchantSuccess, nextEnchantDestroy);
 
                 if (nextEnchant.getCEEnchant() == null) {
                     CustomEnchantment.instance().getLogger().warning("Enchant not found: " + nextEnchantName + " when loading BookUpgradeConfig");

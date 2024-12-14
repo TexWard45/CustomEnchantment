@@ -1,13 +1,15 @@
 package com.bafmc.customenchantment.command;
 
-import com.bafmc.bukkit.command.*;
+import com.bafmc.bukkit.command.AbstractCommand;
+import com.bafmc.bukkit.command.AdvancedCommandBuilder;
+import com.bafmc.bukkit.command.ArgumentType;
+import com.bafmc.bukkit.utils.EquipSlot;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.enchant.CEEnchant;
-import com.bafmc.customenchantment.enchant.CESimple;
-import com.bafmc.customenchantment.item.CEItem;
+import com.bafmc.customenchantment.enchant.CEEnchantSimple;
 import com.bafmc.customenchantment.item.CEWeaponAbstract;
-import org.bukkit.command.CommandSender;
+import com.bafmc.customenchantment.player.CEPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
@@ -23,7 +25,7 @@ public class CommandAddEnchant implements AbstractCommand {
 				.permission("customenchantment.addenchant.other")
 				.subCommand(ArgumentType.PLAYER)
 					.subCommand("<enchant>")
-						.tabCompleter((arg0, arg) -> CustomEnchantment.instance().getCEEnchantMap().getKeys())
+						.tabCompleter((arg0, arg) -> CustomEnchantment.instance().getCeEnchantMap().getKeys())
 						.subCommand("<level>")
 							.tabCompleter((arg0, arg) -> {
                                 String name = arg.get("<enchant>");
@@ -53,25 +55,25 @@ public class CommandAddEnchant implements AbstractCommand {
                                     return true;
                                 }
 
-                                CEItem ceItem = CEAPI.getCEItem(itemStack);
-                                if (!(ceItem instanceof CEWeaponAbstract)) {
+                                CEPlayer cePlayer = CEAPI.getCEPlayer(player);
+                                CEWeaponAbstract weapon = cePlayer.getSlot(EquipSlot.MAINHAND);
+                                if (weapon == null) {
                                     return true;
                                 }
 
-                                CEWeaponAbstract weapon = (CEWeaponAbstract) ceItem;
-                                CESimple ceSimple = null;
+                                CEEnchantSimple ceEnchantSimple = null;
 
                                 try {
-                                    ceSimple = new CESimple(arg.get("<enchant>"), Integer.valueOf(arg.get("<level>")));
+                                    ceEnchantSimple = new CEEnchantSimple(arg.get("<enchant>"), Integer.valueOf(arg.get("<level>")));
                                 } catch (Exception e) {
-                                    ceSimple = new CESimple(arg.get("<enchant>"), 1);
+                                    ceEnchantSimple = new CEEnchantSimple(arg.get("<enchant>"), 1);
                                 }
 
-                                if (ceSimple.getCEEnchant() == null) {
+                                if (ceEnchantSimple.getCEEnchant() == null) {
                                     return true;
                                 }
 
-                                weapon.getWeaponEnchant().forceAddCESimple(ceSimple);
+                                weapon.getWeaponEnchant().forceAddCESimple(ceEnchantSimple);
                                 player.setItemInHand(weapon.exportTo());
                                 return true;
                             })

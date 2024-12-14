@@ -211,9 +211,9 @@ ce-item:
       - "SUCCESS Đổi tên vật phẩm thành công!"
   removeenchantpoint:
     success:
-      - "SUCCESS Rút &5Ngọc đột phá &a ra khỏi vật phẩm thành công!"
+      - "SUCCESS Rút &5Ngọc đột phá&a ra khỏi vật phẩm thành công!"
     empty:
-      - "DANGER Vật phẩm không có &5Ngọc đột phá &a để rút!"
+      - "DANGER Vật phẩm không có &5Ngọc đột phá&a để rút!"
     remove-book-first:
       - "DANGER Rút sách trước khi rút &5Ngọc đột phá!"
   artifact:
@@ -223,3 +223,19 @@ ce-item:
       - "DANGER Hủy kích hoạt toàn bộ Cổ vật do trùng lặp!"
     exceed-use-amount:
       - "DANGER Hủy kích hoạt toàn bộ Cổ vật do vượt quá &n3&c cổ vật được kích hoạt trên thanh công cụ!"
+    swap-cooldown:
+      - "DANGER Hãy tương tác chậm lại!"
+  gemdrill:
+    success:
+      - "SUCCESS Khoan thêm ô ngọc thành công!"
+    max-drill:
+      - "DANGER Vật phẩm đã đạt số lượng ô ngọc tối đa!"
+  gem:
+    success:
+      - "SUCCESS Khảm ngọc vào vật phẩm thành công!"
+    no-suitable-slot:
+      - "DANGER Không có ô ngọc phù hợp để khảm!"
+    not-support-type:
+      - "DANGER Ngọc khảm không hỗ trợ loại trang bị này!"
+    reach-limit-per-item:
+      - "DANGER Chỉ được khảm tối đa &e{limit} &cngọc loại này cho mỗi vật phẩm!"

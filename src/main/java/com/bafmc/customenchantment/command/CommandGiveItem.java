@@ -36,7 +36,7 @@ public class CommandGiveItem implements AbstractCommand {
 
 			List<ItemStack> itemStacks = null;
 
-			itemStacks = CustomEnchantment.instance().getCEItemStorageMap().get(arg.get(2))
+			itemStacks = CustomEnchantment.instance().getCeItemStorageMap().get(arg.get(2))
 					.getItemStacksByParameter(new Parameter(list));
 			
 			if (itemStacks == null) {
@@ -63,10 +63,10 @@ public class CommandGiveItem implements AbstractCommand {
 			String type = arg.get(2);
 
 			if (type.equals("book")) {
-				return CustomEnchantment.instance().getCEEnchantMap().getKeys();
+				return CustomEnchantment.instance().getCeEnchantMap().getKeys();
 			}
 
-			CEItemStorage<?> storage = CustomEnchantment.instance().getCEItemStorageMap().get(arg.get(2));
+			CEItemStorage<?> storage = CustomEnchantment.instance().getCeItemStorageMap().get(arg.get(2));
 			return storage != null ? storage.getKeys() : Arrays.asList("");
 		}
 	};
@@ -214,6 +214,11 @@ public class CommandGiveItem implements AbstractCommand {
 						.subCommand("<amount>").tabCompleter(amountTab)
 						.end().end()
 					.end()
+					.subCommand("removegem")
+						.subCommand("<name>").tabCompleter(nameTab)
+						.subCommand("<amount>").tabCompleter(amountTab)
+						.end().end()
+					.end()
 					.subCommand("eraseenchant")
 						.subCommand("<name>").tabCompleter(nameTab)
 						.subCommand("<amount>").tabCompleter(amountTab)
@@ -230,6 +235,11 @@ public class CommandGiveItem implements AbstractCommand {
 						.end().end()
 					.end()
 					.subCommand("artifact")
+						.subCommand("<name>").tabCompleter(nameTab)
+						.subCommand("<amount>").tabCompleter(amountTab)
+						.end().end()
+					.end()
+					.subCommand("gemdrill")
 						.subCommand("<name>").tabCompleter(nameTab)
 						.subCommand("<amount>").tabCompleter(amountTab)
 						.end().end()

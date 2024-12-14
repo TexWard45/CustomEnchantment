@@ -1,0 +1,458 @@
+rampage:
+  group: supreme
+  display: Rampage
+  description:
+    - "&eGiao tranh liên tục với kẻ địch sẽ khiến"
+    - "&ebản thân bước vào trạng thái điên cuồng"
+    - "&etăng thêm tốc độ đánh và sát thương trong"
+    - "&emột khoảng thời gian"
+  detail-description:
+    - "&eGiao tranh liên tục với kẻ địch sẽ khiến"
+    - "&ebản thân bước vào trạng thái điên cuồng"
+    - "&etăng thêm tốc độ đánh và sát thương trong"
+    - "&emột khoảng thời gian"
+    - ""
+    - "&eThời gian giao tranh tối thiểu: 4 giây"
+    - "&eThời gian hiệu lực: 4 giây"
+    - "&eTốc độ đánh: +33% ATS x Cấp"
+    - "&eSát thương: +33% ATK Cơ bản x Cấp"
+    - ""
+    - "&cKhông thể ép chung với PrimeRampage"
+  applies-description:
+    - Rìu
+  applies:
+    - ALL_AXE
+  max-level: 3
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      first_1:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - NUMBER_STORAGE:SET:rampage_time:8000
+          - "REMOVE_TASK:rampage_combo_start"
+          - "REMOVE_TASK:rampage_combo_start_attack_speed"
+          - "REMOVE_TASK:rampage_combo_start_attack_damage"
+          - "REMOVE_ATTRIBUTE:ATTACK_SPEED:rampage_attack_speed"
+          - "REMOVE_ATTRIBUTE:ATTACK_DAMAGE:rampage_attack_damage"
+        true-condition-break: true
+      first_2:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - NUMBER_STORAGE:SET:rampage_time:8000
+          - "REMOVE_TASK:rampage_combo_start"
+          - "REMOVE_TASK:rampage_combo_start_attack_speed"
+          - "REMOVE_TASK:rampage_combo_start_attack_damage"
+          - "REMOVE_ATTRIBUTE:ATTACK_SPEED:rampage_attack_speed"
+          - "REMOVE_ATTRIBUTE:ATTACK_DAMAGE:rampage_attack_damage"
+        true-condition-break: true
+      attack_reset_time:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - NUMBER_STORAGE:%time%-rampage_time:>:12000
+        effects:
+          - NUMBER_STORAGE:SET:rampage_time:%time%
+          - "NAME=rampage_combo_start,DELAY=80 | MESSAGE:&6&l***Rampage: On***"
+          - "NAME=rampage_combo_start_attack_speed,DELAY=80 | ADD_ATTRIBUTE:ATTACK_SPEED:rampage_attack_speed:0.33:1"
+          - "NAME=rampage_combo_start_attack_damage,DELAY=80 | ADD_ATTRIBUTE:ATTACK_DAMAGE:rampage_attack_damage:0.33:1"
+          - "NAME=rampage_combo_end_attack_speed,DELAY=160 | REMOVE_ATTRIBUTE:ATTACK_SPEED:rampage_attack_speed"
+          - "NAME=rampage_combo_end_attack_damage,DELAY=160 | REMOVE_ATTRIBUTE:ATTACK_DAMAGE:rampage_attack_damage"
+          - "NAME=rampage_combo_end,DELAY=160 | MESSAGE:&7&l***Rampage: Off***"
+        true-condition-break: true
+    "2":
+      first_1:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - NUMBER_STORAGE:SET:rampage_time:8000
+          - "REMOVE_TASK:rampage_combo_start"
+          - "REMOVE_TASK:rampage_combo_start_attack_speed"
+          - "REMOVE_TASK:rampage_combo_start_attack_damage"
+          - "REMOVE_ATTRIBUTE:ATTACK_SPEED:rampage_attack_speed"
+          - "REMOVE_ATTRIBUTE:ATTACK_DAMAGE:rampage_attack_damage"
+        true-condition-break: true
+      first_2:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - NUMBER_STORAGE:SET:rampage_time:8000
+          - "REMOVE_TASK:rampage_combo_start"
+          - "REMOVE_TASK:rampage_combo_start_attack_speed"
+          - "REMOVE_TASK:rampage_combo_start_attack_damage"
+          - "REMOVE_ATTRIBUTE:ATTACK_SPEED:rampage_attack_speed"
+          - "REMOVE_ATTRIBUTE:ATTACK_DAMAGE:rampage_attack_damage"
+        true-condition-break: true
+      attack_reset_time:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - NUMBER_STORAGE:%time%-rampage_time:>:8000
+        effects:
+          - NUMBER_STORAGE:SET:rampage_time:%time%
+          - "NAME=rampage_combo_start,DELAY=80 | MESSAGE:&6&l***Rampage: On***"
+          - "NAME=rampage_combo_start_attack_speed,DELAY=80 | ADD_ATTRIBUTE:ATTACK_SPEED:rampage_attack_speed:0.66:1"
+          - "NAME=rampage_combo_start_attack_damage,DELAY=80 | ADD_ATTRIBUTE:ATTACK_DAMAGE:rampage_attack_damage:0.66:1"
+          - "NAME=rampage_combo_end_attack_speed,DELAY=160 | REMOVE_ATTRIBUTE:ATTACK_SPEED:rampage_attack_speed"
+          - "NAME=rampage_combo_end_attack_damage,DELAY=160 | REMOVE_ATTRIBUTE:ATTACK_DAMAGE:rampage_attack_damage"
+          - "NAME=rampage_combo_end,DELAY=160 | MESSAGE:&7&l***Rampage: Off***"
+        true-condition-break: true
+    "3":
+      first_1:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - NUMBER_STORAGE:SET:rampage_time:8000
+          - "REMOVE_TASK:rampage_combo_start"
+          - "REMOVE_TASK:rampage_combo_start_attack_speed"
+          - "REMOVE_TASK:rampage_combo_start_attack_damage"
+          - "REMOVE_ATTRIBUTE:ATTACK_SPEED:rampage_attack_speed"
+          - "REMOVE_ATTRIBUTE:ATTACK_DAMAGE:rampage_attack_damage"
+        true-condition-break: true
+      first_2:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - NUMBER_STORAGE:SET:rampage_time:8000
+          - "REMOVE_TASK:rampage_combo_start"
+          - "REMOVE_TASK:rampage_combo_start_attack_speed"
+          - "REMOVE_TASK:rampage_combo_start_attack_damage"
+          - "REMOVE_ATTRIBUTE:ATTACK_SPEED:rampage_attack_speed"
+          - "REMOVE_ATTRIBUTE:ATTACK_DAMAGE:rampage_attack_damage"
+        true-condition-break: true
+      attack_reset_time:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - NUMBER_STORAGE:%time%-rampage_time:>:8000
+        effects:
+          - NUMBER_STORAGE:SET:rampage_time:%time%
+          - "NAME=rampage_combo_start,DELAY=80 | MESSAGE:&6&l***Rampage: On***"
+          - "NAME=rampage_combo_start_attack_speed,DELAY=80 | ADD_ATTRIBUTE:ATTACK_SPEED:rampage_attack_speed:0.99:1"
+          - "NAME=rampage_combo_start_attack_damage,DELAY=80 | ADD_ATTRIBUTE:ATTACK_DAMAGE:rampage_attack_damage:0.99:1"
+          - "NAME=rampage_combo_end_attack_speed,DELAY=160 | REMOVE_ATTRIBUTE:ATTACK_SPEED:rampage_attack_speed"
+          - "NAME=rampage_combo_end_attack_damage,DELAY=160 | REMOVE_ATTRIBUTE:ATTACK_DAMAGE:rampage_attack_damage"
+          - "NAME=rampage_combo_end,DELAY=160 | MESSAGE:&7&l***Rampage: Off***"
+        true-condition-break: true
+penetration:
+  group: "supreme"
+  display: "Penetration"
+  description:
+    - "&eCó tỉ lệ giảm giáp đối thủ trong một"
+    - "&ekhoảng thời gian khi bắn trúng"
+  detail-description:
+    - "&eCó tỉ lệ giảm giáp đối thủ trong một"
+    - "&ekhoảng thời gian khi bắn trúng"
+    - ""
+    - "&eGiáp đối thủ: -5% x Cấp"
+    - "&eTỉ lệ kích hoạt: 50%"
+    - "&eThời gian hiệu lực: 4s"
+    - "&eThời gian hồi: 6s"
+  applies-description:
+    - "Cung"
+  applies:
+    - "ALL_BOW"
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 50
+        cooldown: 6000
+        conditions:
+          - "EQUIP_SLOT:MAINHAND"
+          - "TARGET=ENEMY | ENTITY_TYPE:PLAYER"
+        effects:
+          - "TARGET=ENEMY | ADD_ATTRIBUTE:ARMOR:penetration_armor:-0.05:1"
+          - "TARGET=ENEMY,DELAY=80,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:ARMOR:penetration_armor"
+    2:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 50
+        cooldown: 6000
+        conditions:
+          - "EQUIP_SLOT:MAINHAND"
+          - "TARGET=ENEMY | ENTITY_TYPE:PLAYER"
+        effects:
+          - "TARGET=ENEMY | ADD_ATTRIBUTE:ARMOR:penetration_armor:-0.10:1"
+          - "TARGET=ENEMY,DELAY=80,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:ARMOR:penetration_armor"
+    3:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 50
+        cooldown: 6000
+        conditions:
+          - "EQUIP_SLOT:MAINHAND"
+          - "TARGET=ENEMY | ENTITY_TYPE:PLAYER"
+        effects:
+          - "TARGET=ENEMY | ADD_ATTRIBUTE:ARMOR:penetration_armor:-0.15:1"
+          - "TARGET=ENEMY,DELAY=80,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:ARMOR:penetration_armor"
+    4:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 50
+        cooldown: 4000
+        conditions:
+          - "EQUIP_SLOT:MAINHAND"
+          - "TARGET=ENEMY | ENTITY_TYPE:PLAYER"
+        effects:
+          - "TARGET=ENEMY | ADD_ATTRIBUTE:ARMOR:penetration_armor:-0.2:1"
+          - "TARGET=ENEMY,DELAY=80,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:ARMOR:penetration_armor"
+    5:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 50
+        cooldown: 6000
+        conditions:
+          - "EQUIP_SLOT:MAINHAND"
+          - "TARGET=ENEMY | ENTITY_TYPE:PLAYER"
+        effects:
+          - "TARGET=ENEMY | ADD_ATTRIBUTE:ARMOR:penetration_armor:-0.25:1"
+          - "TARGET=ENEMY,DELAY=80,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:ARMOR:penetration_armor"
+# tag_potion: SPEED
+dash:
+  group: "supreme"
+  display: "Dash"
+  description:
+    - "&eCó khả năng lướt tới và tăng sát thương gây ra"
+    - "&etrong một khoảng thời gian khi nhấn Shift"
+  detail-description:
+    - "&eCó khả năng lướt tới và tăng sát thương gây ra"
+    - "&etrong một khoảng thời gian khi nhấn Shift"
+    - ""
+    - "&eSát thương: +10% ATK Cơ bản x Cấp"
+    - "&eThời gian hiệu lực: 3s"
+    - "&eThời gian hồi: 20/16/12/8/4 giây"
+    - ""
+    - "&cKhông thể ép chung với DoubleJump"
+  applies-description:
+    - "Giày"
+  applies:
+    - "ALL_BOOTS"
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "ACTIVE_DASH:1:20000:1_8:EXPLOSION_NORMAL:&cLướt tiếp sau &e{time_left} &cgiây!"
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "DEACTIVE_DASH"
+    2:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "ACTIVE_DASH:1:16000:1_8:EXPLOSION_NORMAL:&cLướt tiếp sau &e{time_left} &cgiây!"
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "DEACTIVE_DASH"
+    3:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "ACTIVE_DASH:1:12000:1_8:EXPLOSION_NORMAL:&cLướt tiếp sau &e{time_left} &cgiây!"
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "DEACTIVE_DASH"
+    4:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "ACTIVE_DASH:1:8000:1_8:EXPLOSION_NORMAL:&cLướt tiếp sau &e{time_left} &cgiây!"
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "DEACTIVE_DASH"
+    5:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "ACTIVE_DASH:1:4000:1_8:EXPLOSION_NORMAL:&cLướt tiếp sau &e{time_left} &cgiây!"
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "DEACTIVE_DASH"
+# tag_potion: SPEED
+doublejump:
+  group: "rare"
+  display: "DoubleJump"
+  description:
+    - "&eCó khả năng nhảy thêm lần nữa"
+    - "&ekhi nhấn Shift trên không"
+  detail-description:
+    - "&eCó khả năng nhảy thêm lần nữa"
+    - "&ekhi nhấn Shift trên không"
+    - ""
+    - "&eThời gian hồi: 20/16/12/8/4 giây"
+    - ""
+    - "&cKhông thể ép chung với Dash"
+  applies-description:
+    - "Giày"
+  applies:
+    - "ALL_BOOTS"
+  enchant-blacklist:
+    - "dash"
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "ACTIVE_DOUBLE_JUMP:1:20000:1_8:EXPLOSION_NORMAL:&cKhinh công tiếp sau &e{time_left} &cgiây!"
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "DEACTIVE_DOUBLE_JUMP"
+    2:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "ACTIVE_DOUBLE_JUMP:1:16000:1_8:PEXPLOSION_NORMAL:&cKhinh công tiếp sau &e{time_left} &cgiây!"
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "DEACTIVE_DOUBLE_JUMP"
+    3:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "ACTIVE_DOUBLE_JUMP:1:12000:1_8:EXPLOSION_NORMAL:&cKhinh công tiếp sau &e{time_left} &cgiây!"
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "DEACTIVE_DOUBLE_JUMP"
+    4:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "ACTIVE_DOUBLE_JUMP:1:8000:1_8:EXPLOSION_NORMAL:&cKhinh công tiếp sau &e{time_left} &cgiây!"
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "DEACTIVE_DOUBLE_JUMP"
+    5:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "ACTIVE_DOUBLE_JUMP:1:4000:1_8:EXPLOSION_NORMAL:&cKhinh công tiếp sau &e{time_left} &cgiây!"
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "DEACTIVE_DOUBLE_JUMP"

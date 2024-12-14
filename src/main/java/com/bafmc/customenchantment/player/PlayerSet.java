@@ -1,7 +1,7 @@
 package com.bafmc.customenchantment.player;
 
 import com.bafmc.customenchantment.enchant.CEEnchant;
-import com.bafmc.customenchantment.enchant.CESimple;
+import com.bafmc.customenchantment.enchant.CEEnchantSimple;
 import com.bafmc.customenchantment.item.CEWeaponAbstract;
 import com.bafmc.bukkit.utils.EquipSlot;
 
@@ -41,9 +41,9 @@ public class PlayerSet extends CEPlayerExpansion {
                 continue;
             }
 
-            List<CESimple> ceSimples = weapon.getWeaponEnchant().getCESimpleList();
-            for (CESimple ceSimple : ceSimples) {
-                CEEnchant ceEnchant = ceSimple.getCEEnchant();
+            List<CEEnchantSimple> ceEnchantSimples = weapon.getWeaponEnchant().getCESimpleList();
+            for (CEEnchantSimple ceEnchantSimple : ceEnchantSimples) {
+                CEEnchant ceEnchant = ceEnchantSimple.getCEEnchant();
                 if (ceEnchant == null) {
                     continue;
                 }
@@ -53,7 +53,7 @@ public class PlayerSet extends CEPlayerExpansion {
                     continue;
                 }
 
-                int level = ceSimple.getLevel();
+                int level = ceEnchantSimple.getLevel();
 
                 addSet(map, slot, setId, level);
                 highestSetLevel.put(setId, Math.max(highestSetLevel.getOrDefault(setId, 0), level));

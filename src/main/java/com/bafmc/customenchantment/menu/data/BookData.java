@@ -1,15 +1,15 @@
 package com.bafmc.customenchantment.menu.data;
 
-import com.bafmc.customenchantment.enchant.CESimple;
+import com.bafmc.customenchantment.enchant.CEEnchantSimple;
 import org.bukkit.inventory.ItemStack;
 
 public class BookData {
     private ItemStack itemStack;
-    private CESimple ceSimple;
+    private CEEnchantSimple ceEnchantSimple;
 
-    public BookData(ItemStack itemStack, CESimple ceSimple) {
+    public BookData(ItemStack itemStack, CEEnchantSimple ceEnchantSimple) {
         this.itemStack = itemStack;
-        this.ceSimple = ceSimple;
+        this.ceEnchantSimple = ceEnchantSimple;
     }
 
     public ItemStack getItemStack() {
@@ -20,12 +20,12 @@ public class BookData {
         this.itemStack = itemStack;
     }
 
-    public CESimple getCESimple() {
-        return ceSimple;
+    public CEEnchantSimple getCESimple() {
+        return ceEnchantSimple;
     }
 
-    public void setCESimple(CESimple ceSimple) {
-        this.ceSimple = ceSimple;
+    public void setCESimple(CEEnchantSimple ceEnchantSimple) {
+        this.ceEnchantSimple = ceEnchantSimple;
     }
 
     public String toString() {

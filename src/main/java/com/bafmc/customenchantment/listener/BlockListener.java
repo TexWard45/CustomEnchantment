@@ -1,8 +1,15 @@
 package com.bafmc.customenchantment.listener;
 
-import java.util.*;
-
+import com.bafmc.bukkit.api.EconomyAPI;
+import com.bafmc.bukkit.utils.InventoryUtils;
+import com.bafmc.bukkit.utils.ItemStackUtils;
+import com.bafmc.customenchantment.CustomEnchantment;
+import com.bafmc.customenchantment.api.CEAPI;
+import com.bafmc.customenchantment.api.MaterialData;
+import com.bafmc.customenchantment.player.CEPlayer;
+import com.bafmc.customenchantment.player.bonus.BlockBonus;
 import com.bafmc.customenchantment.player.mining.AutoSellSpecialMine;
+import com.bafmc.customenchantment.task.BlockTask;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -19,15 +26,7 @@ import org.bukkit.event.block.BlockFromToEvent;
 import org.bukkit.event.entity.EntityExplodeEvent;
 import org.bukkit.inventory.ItemStack;
 
-import com.bafmc.customenchantment.CustomEnchantment;
-import com.bafmc.customenchantment.api.CEAPI;
-import com.bafmc.customenchantment.api.MaterialData;
-import com.bafmc.customenchantment.player.CEPlayer;
-import com.bafmc.customenchantment.player.bonus.BlockBonus;
-import com.bafmc.customenchantment.task.BlockTask;
-import com.bafmc.bukkit.api.EconomyAPI;
-import com.bafmc.bukkit.utils.InventoryUtils;
-import com.bafmc.bukkit.utils.ItemStackUtils;
+import java.util.ListIterator;
 
 public class BlockListener implements Listener {
 	private CustomEnchantment plugin;
@@ -35,7 +34,7 @@ public class BlockListener implements Listener {
 
 	public BlockListener(CustomEnchantment plugin) {
 		this.plugin = plugin;
-		this.blockTask = plugin.getBlockTask();
+		this.blockTask = plugin.getTaskModule().getBlockTask();
 		Bukkit.getPluginManager().registerEvents(this, plugin);
 	}
 

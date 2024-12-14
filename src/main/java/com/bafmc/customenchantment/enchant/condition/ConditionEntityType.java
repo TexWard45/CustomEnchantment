@@ -24,7 +24,7 @@ public class ConditionEntityType extends ConditionHook {
 		if (le == null) {
 			return false;
 		}
-		
+
 		return list.contains(le.getType());
 	}
 	

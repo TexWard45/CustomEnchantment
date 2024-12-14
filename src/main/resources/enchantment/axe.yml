@@ -7,6 +7,12 @@ blessed:
   description:
   - '&eCó tỉ lệ xóa tất cả hiệu ứng xấu trên'
   - '&ebản thân khi tấn công'
+  detail-description:
+  - '&eCó tỉ lệ xóa tất cả hiệu ứng xấu trên'
+  - '&ebản thân khi tấn công'
+  - ''
+  - '&eTỉ lệ kích hoạt: 10% x Cấp'
+  - '&eThời gian hồi: 5s'
   applies-description:
   - Rìu
   applies:
@@ -19,7 +25,7 @@ blessed:
       attack:
         type: ATTACK
         chance: 10
-        cooldown: 3000
+        cooldown: 5000
         conditions:
         - EQUIP_SLOT:MAINHAND
         - TARGET=ENEMY | ENTITY_TYPE:PLAYER
@@ -30,7 +36,7 @@ blessed:
       attack:
         type: ATTACK
         chance: 20
-        cooldown: 3000
+        cooldown: 5000
         conditions:
         - EQUIP_SLOT:MAINHAND
         - TARGET=ENEMY | ENTITY_TYPE:PLAYER
@@ -41,7 +47,29 @@ blessed:
       attack:
         type: ATTACK
         chance: 30
-        cooldown: 3000
+        cooldown: 5000
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+        - REMOVE_POTION:POISON,WITHER,SLOW,WEAKNESS,LEVITATION,HARMING,SLOW_DIGGING,CONFUSION,HUNGER,UNLUCK
+        - 'MESSAGE:&3&l***Blessed: &f&lClear &c&lNegative &f&lEffect&3&l***'
+    '4':
+      attack:
+        type: ATTACK
+        chance: 40
+        cooldown: 5000
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+        - REMOVE_POTION:POISON,WITHER,SLOW,WEAKNESS,LEVITATION,HARMING,SLOW_DIGGING,CONFUSION,HUNGER,UNLUCK
+        - 'MESSAGE:&3&l***Blessed: &f&lClear &c&lNegative &f&lEffect&3&l***'
+    '5':
+      attack:
+        type: ATTACK
+        chance: 50
+        cooldown: 5000
         conditions:
         - EQUIP_SLOT:MAINHAND
         - TARGET=ENEMY | ENTITY_TYPE:PLAYER
@@ -52,9 +80,19 @@ berserk:
   group: epic
   display: Berserk
   description:
-  - '&eCó tỉ lệ nhận thêm sức mạnh nhưng giảm'
+  - '&eCó tỉ lệ nhận thêm sức tấn công nhưng giảm'
   - '&etốc độ đánh trong một khoảng thời gian'
   - '&ekhi tấn công'
+  detail-description:
+  - '&eCó tỉ lệ nhận thêm sức tấn công nhưng giảm'
+  - '&etốc độ đánh trong một khoảng thời gian'
+  - '&ekhi tấn công'
+  - ''
+  - '&eSức tấn công: +2 ATK x Cấp'
+  - '&eTốc độ đánh: -10%/-15%/-20%/-25%/-30%'
+  - '&eThời gian hiệu ứng: 4s'
+  - '&eTỉ lệ kích hoạt: 25%'
+  - '&eThời gian hồi: 5s'
   applies-description:
   - Rìu
   applies:
@@ -66,7 +104,7 @@ berserk:
     '1':
       attack:
         type: ATTACK
-        chance: 5
+        chance: 25
         cooldown: 5000
         conditions:
         - EQUIP_SLOT:MAINHAND
@@ -80,7 +118,7 @@ berserk:
     '2':
       attack:
         type: ATTACK
-        chance: 10
+        chance: 25
         cooldown: 5000
         conditions:
         - EQUIP_SLOT:MAINHAND
@@ -94,29 +132,29 @@ berserk:
     '3':
       attack:
         type: ATTACK
-        chance: 15
-        cooldown: 5000
-        conditions:
-        - EQUIP_SLOT:MAINHAND
-        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
-        effects:
-        - ADD_ATTRIBUTE:ATTACK_DAMAGE:berserk_attack_damage:5:0
-        - ADD_ATTRIBUTE:ATTACK_SPEED:berserk_attack_speed:-0.2:1
-        - 'MESSAGE:&a&l***Berserk: &c&l+5 &c&lATK&e&l, &7&l-20% &e&lATS&e&l&f (0:04)&e&l***'
-        - DELAY=80 | REMOVE_ATTRIBUTE:ATTACK_DAMAGE:berserk_attack_damage
-        - DELAY=80 | REMOVE_ATTRIBUTE:ATTACK_SPEED:berserk_attack_speed
-    '4':
-      attack:
-        type: ATTACK
-        chance: 20
+        chance: 25
         cooldown: 5000
         conditions:
         - EQUIP_SLOT:MAINHAND
         - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
         - ADD_ATTRIBUTE:ATTACK_DAMAGE:berserk_attack_damage:6:0
+        - ADD_ATTRIBUTE:ATTACK_SPEED:berserk_attack_speed:-0.2:1
+        - 'MESSAGE:&a&l***Berserk: &c&l+6 &c&lATK&e&l, &7&l-20% &e&lATS&e&l&f (0:04)&e&l***'
+        - DELAY=80 | REMOVE_ATTRIBUTE:ATTACK_DAMAGE:berserk_attack_damage
+        - DELAY=80 | REMOVE_ATTRIBUTE:ATTACK_SPEED:berserk_attack_speed
+    '4':
+      attack:
+        type: ATTACK
+        chance: 25
+        cooldown: 5000
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+        - ADD_ATTRIBUTE:ATTACK_DAMAGE:berserk_attack_damage:8:0
         - ADD_ATTRIBUTE:ATTACK_SPEED:berserk_attack_speed:-0.25:1
-        - 'MESSAGE:&a&l***Berserk: &c&l+6 &c&lATK&e&l, &7&l-25% &e&lATS&e&l&f (0:04)&e&l***'
+        - 'MESSAGE:&a&l***Berserk: &c&l+8 &c&lATK&e&l, &7&l-25% &e&lATS&e&l&f (0:04)&e&l***'
         - DELAY=80 | REMOVE_ATTRIBUTE:ATTACK_DAMAGE:berserk_attack_damage
         - DELAY=80 | REMOVE_ATTRIBUTE:ATTACK_SPEED:berserk_attack_speed
     '5':
@@ -128,9 +166,9 @@ berserk:
         - EQUIP_SLOT:MAINHAND
         - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-        - ADD_ATTRIBUTE:ATTACK_DAMAGE:berserk_attack_damage:8:0
+        - ADD_ATTRIBUTE:ATTACK_DAMAGE:berserk_attack_damage:10:0
         - ADD_ATTRIBUTE:ATTACK_SPEED:berserk_attack_speed:-0.3:1
-        - 'MESSAGE:&a&l***Berserk: &c&l+8 &c&lATK&e&l, &7&l-30% &e&lATS&e&l&f (0:04)&e&l***'
+        - 'MESSAGE:&a&l***Berserk: &c&l+10 &c&lATK&e&l, &7&l-30% &e&lATS&e&l&f (0:04)&e&l***'
         - DELAY=80 | REMOVE_ATTRIBUTE:ATTACK_DAMAGE:berserk_attack_damage
         - DELAY=80 | REMOVE_ATTRIBUTE:ATTACK_SPEED:berserk_attack_speed
 cursed:
@@ -139,6 +177,14 @@ cursed:
   description:
   - '&eCó tỉ lệ giảm tốc độ đánh của đối thủ'
   - '&etrong một khoảng thời gian khi tấn công'
+  detail-description:
+  - '&eCó tỉ lệ giảm tốc độ đánh của đối thủ'
+  - '&etrong một khoảng thời gian khi tấn công'
+  - ''
+  - '&eTốc độ đánh: -5% x Cấp'
+  - '&eThời gian hiệu ứng: 2s'
+  - '&eTỉ lệ kích hoạt: 25%'
+  - '&eThời gian hồi: 5s'
   applies-description:
   - Rìu
   applies:
@@ -150,8 +196,8 @@ cursed:
     '1':
       attack:
         type: ATTACK
-        chance: 5
-        cooldown: 2000
+        chance: 25
+        cooldown: 5000
         conditions:
         - EQUIP_SLOT:MAINHAND
         - TARGET=ENEMY | ENTITY_TYPE:PLAYER
@@ -163,8 +209,8 @@ cursed:
     '2':
       attack:
         type: ATTACK
-        chance: 10
-        cooldown: 2000
+        chance: 25
+        cooldown: 5000
         conditions:
         - EQUIP_SLOT:MAINHAND
         - TARGET=ENEMY | ENTITY_TYPE:PLAYER
@@ -176,8 +222,8 @@ cursed:
     '3':
       attack:
         type: ATTACK
-        chance: 15
-        cooldown: 2000
+        chance: 25
+        cooldown: 5000
         conditions:
         - EQUIP_SLOT:MAINHAND
         - TARGET=ENEMY | ENTITY_TYPE:PLAYER
@@ -189,8 +235,8 @@ cursed:
     '4':
       attack:
         type: ATTACK
-        chance: 20
-        cooldown: 2000
+        chance: 25
+        cooldown: 5000
         conditions:
         - EQUIP_SLOT:MAINHAND
         - TARGET=ENEMY | ENTITY_TYPE:PLAYER
@@ -203,7 +249,7 @@ cursed:
       attack:
         type: ATTACK
         chance: 25
-        cooldown: 2000
+        cooldown: 5000
         conditions:
         - EQUIP_SLOT:MAINHAND
         - TARGET=ENEMY | ENTITY_TYPE:PLAYER
@@ -218,6 +264,14 @@ dizzy:
   description:
   - '&eCó tỉ lệ khiến đối thủ bị hiệu ứng bối rối'
   - '&etrong một khoảng thời gian khi tấn công'
+  detail-description:
+  - '&eCó tỉ lệ khiến đối thủ bị hiệu ứng bối rối'
+  - '&etrong một khoảng thời gian khi tấn công'
+  - ''
+  - '&eHiệu ứng thuốc: Bối rối'
+  - '&eThời gian hiệu ứng: 4s/5s/6s/7s/8s'
+  - '&eTỉ lệ kích hoạt: 25%'
+  - '&eThời gian hồi: 10s/11s/12s/13s/15s'
   applies-description:
   - Rìu
   applies:
@@ -229,7 +283,7 @@ dizzy:
     '1':
       attack:
         type: ATTACK
-        chance: 5
+        chance: 25
         cooldown: 10000
         conditions:
         - EQUIP_SLOT:MAINHAND
@@ -240,7 +294,7 @@ dizzy:
     '2':
       attack:
         type: ATTACK
-        chance: 10
+        chance: 25
         cooldown: 11000
         conditions:
         - EQUIP_SLOT:MAINHAND
@@ -251,7 +305,7 @@ dizzy:
     '3':
       attack:
         type: ATTACK
-        chance: 15
+        chance: 25
         cooldown: 12000
         conditions:
         - EQUIP_SLOT:MAINHAND
@@ -262,7 +316,7 @@ dizzy:
     '4':
       attack:
         type: ATTACK
-        chance: 20
+        chance: 25
         cooldown: 13000
         conditions:
         - EQUIP_SLOT:MAINHAND
@@ -286,6 +340,12 @@ feedme:
   display: FeedMe
   description:
   - '&eCó tỉ lệ hồi thanh đói khi tấn công'
+  detail-description:
+  - '&eCó tỉ lệ hồi thanh đói khi tấn công'
+  - ''
+  - '&eThức ăn: 1 Thức ăn x Cấp'
+  - '&eTỉ lệ kích hoạt: 100%'
+  - '&eThời gian hồi: 5s'
   applies-description:
   - Rìu
   applies:
@@ -297,64 +357,72 @@ feedme:
     '1':
       attack:
         type: ATTACK
-        chance: 20
+        chance: 100
         cooldown: 5000
         conditions:
         - EQUIP_SLOT:MAINHAND
         - FOOD:<:20
         effects:
         - FOOD:ADD:1
-        - 'MESSAGE:&e&l***FeedMe: &6&l+1 Food&e&l***'
+        - 'MESSAGE:&b&l***FeedMe: &6&l+1 Food&b&l***'
     '2':
       attack:
         type: ATTACK
-        chance: 20
+        chance: 100
         cooldown: 5000
         conditions:
         - EQUIP_SLOT:MAINHAND
         - FOOD:<:20
         effects:
-        - FOOD:ADD:1
-        - 'MESSAGE:&e&l***FeedMe: &6&l+1 Food&e&l***'
+        - FOOD:ADD:2
+        - 'MESSAGE:&b&l***FeedMe: &6&l+2 Food&b&l***'
     '3':
       attack:
         type: ATTACK
-        chance: 30
+        chance: 100
         cooldown: 5000
         conditions:
         - EQUIP_SLOT:MAINHAND
         - FOOD:<:20
         effects:
-        - FOOD:ADD:1
-        - 'MESSAGE:&e&l***FeedMe: &6&l+2 Food&e&l***'
+        - FOOD:ADD:3
+        - 'MESSAGE:&b&l***FeedMe: &6&l+3 Food&b&l***'
     '4':
       attack:
         type: ATTACK
-        chance: 40
+        chance: 100
         cooldown: 5000
         conditions:
         - EQUIP_SLOT:MAINHAND
         - FOOD:<:20
         effects:
-        - FOOD:ADD:1
-        - 'MESSAGE:&e&l***FeedMe: &6&l+2 Food&e&l***'
+        - FOOD:ADD:4
+        - 'MESSAGE:&b&l***FeedMe: &6&l+4 Food&b&l***'
     '5':
       attack:
         type: ATTACK
-        chance: 50
+        chance: 100
         cooldown: 5000
         conditions:
         - EQUIP_SLOT:MAINHAND
         - FOOD:<:20
         effects:
-        - FOOD:ADD:1
-        - 'MESSAGE:&e&l***FeedMe: &6&l+3 Food&e&l***'
+        - FOOD:ADD:5
+        - 'MESSAGE:&b&l***FeedMe: &6&l+5 Food&b&l***'
 rekt:
   group: legendary
   display: Rekt
   description:
   - '&eCó tỉ lệ gây gấp đôi sát thương cơ bản'
   - '&elên đối thủ khi tấn công'
+  detail-description:
+  - '&eCó tỉ lệ gây gấp đôi sát thương cơ bản'
+  - '&elên đối thủ khi tấn công'
+  - ''
+  - '&eTỉ lệ kích hoạt: 8% x Cấp'
+  - '&eThời gian hồi: 1.5s'
+  - ''
+  - '&cKhông thể ép chung với PrimeRekt'
   applies-description:
   - Rìu
   applies:
@@ -367,10 +435,9 @@ rekt:
       attack:
         type: ATTACK
         chance: 8
-        cooldown: 3000
+        cooldown: 1500
         conditions:
         - EQUIP_SLOT:MAINHAND
-        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         options:
         - ATTACK:1.0:1
         effects:
@@ -379,10 +446,9 @@ rekt:
       attack:
         type: ATTACK
         chance: 16
-        cooldown: 3000
+        cooldown: 1500
         conditions:
         - EQUIP_SLOT:MAINHAND
-        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         options:
         - ATTACK:1.0:1
         effects:
@@ -391,10 +457,9 @@ rekt:
       attack:
         type: ATTACK
         chance: 24
-        cooldown: 3000
+        cooldown: 1500
         conditions:
         - EQUIP_SLOT:MAINHAND
-        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         options:
         - ATTACK:1.0:1
         effects:
@@ -403,10 +468,9 @@ rekt:
       attack:
         type: ATTACK
         chance: 32
-        cooldown: 3000
+        cooldown: 1500
         conditions:
         - EQUIP_SLOT:MAINHAND
-        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         options:
         - ATTACK:1.0:1
         effects:
@@ -415,10 +479,9 @@ rekt:
       attack:
         type: ATTACK
         chance: 40
-        cooldown: 3000
+        cooldown: 1500
         conditions:
         - EQUIP_SLOT:MAINHAND
-        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         options:
         - ATTACK:1.0:1
         effects:
@@ -429,6 +492,13 @@ hammer:
   description:
   - '&eCó tỉ lệ làm giảm độ bền giáp của đối thủ'
   - '&ekhi tấn công'
+  detail-description:
+  - '&eCó tỉ lệ làm giảm độ bền giáp của đối thủ'
+  - '&ekhi tấn công'
+  - ''
+  - '&eĐộ bền: 1 x Cấp'
+  - '&eTỉ lệ kích hoạt: 25%'
+  - '&eThời gian hồi: 2s'
   applies-description:
   - Rìu
   applies:
@@ -440,42 +510,42 @@ hammer:
     '1':
       attack:
         type: ATTACK
-        chance: 10
+        chance: 25
         cooldown: 2000
         conditions:
         - EQUIP_SLOT:MAINHAND
         - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-        - TARGET=ENEMY | DURABILITY:REMOVE:HELMET:0->1
-        - TARGET=ENEMY | DURABILITY:REMOVE:CHESTPLATE:0->1
-        - TARGET=ENEMY | DURABILITY:REMOVE:LEGGINGS:0->1
-        - TARGET=ENEMY | DURABILITY:REMOVE:BOOTS:0->1
+        - TARGET=ENEMY | DURABILITY:REMOVE:HELMET:1
+        - TARGET=ENEMY | DURABILITY:REMOVE:CHESTPLATE:1
+        - TARGET=ENEMY | DURABILITY:REMOVE:LEGGINGS:1
+        - TARGET=ENEMY | DURABILITY:REMOVE:BOOTS:1
     '2':
       attack:
         type: ATTACK
-        chance: 15
+        chance: 25
         cooldown: 2000
         conditions:
         - EQUIP_SLOT:MAINHAND
         - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-        - TARGET=ENEMY | DURABILITY:REMOVE:HELMET:0->2
-        - TARGET=ENEMY | DURABILITY:REMOVE:CHESTPLATE:0->2
-        - TARGET=ENEMY | DURABILITY:REMOVE:LEGGINGS:0->2
-        - TARGET=ENEMY | DURABILITY:REMOVE:BOOTS:0->2
+        - TARGET=ENEMY | DURABILITY:REMOVE:HELMET:2
+        - TARGET=ENEMY | DURABILITY:REMOVE:CHESTPLATE:2
+        - TARGET=ENEMY | DURABILITY:REMOVE:LEGGINGS:2
+        - TARGET=ENEMY | DURABILITY:REMOVE:BOOTS:2
     '3':
       attack:
         type: ATTACK
-        chance: 20
+        chance: 25
         cooldown: 2000
         conditions:
         - EQUIP_SLOT:MAINHAND
         - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-        - TARGET=ENEMY | DURABILITY:REMOVE:HELMET:1->2
-        - TARGET=ENEMY | DURABILITY:REMOVE:CHESTPLATE:1->2
-        - TARGET=ENEMY | DURABILITY:REMOVE:LEGGINGS:1->2
-        - TARGET=ENEMY | DURABILITY:REMOVE:BOOTS:1->2
+        - TARGET=ENEMY | DURABILITY:REMOVE:HELMET:3
+        - TARGET=ENEMY | DURABILITY:REMOVE:CHESTPLATE:3
+        - TARGET=ENEMY | DURABILITY:REMOVE:LEGGINGS:3
+        - TARGET=ENEMY | DURABILITY:REMOVE:BOOTS:3
     '4':
       attack:
         type: ATTACK
@@ -485,29 +555,205 @@ hammer:
         - EQUIP_SLOT:MAINHAND
         - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-        - TARGET=ENEMY | DURABILITY:REMOVE:HELMET:1->3
-        - TARGET=ENEMY | DURABILITY:REMOVE:CHESTPLATE:1->3
-        - TARGET=ENEMY | DURABILITY:REMOVE:LEGGINGS:1->3
-        - TARGET=ENEMY | DURABILITY:REMOVE:BOOTS:1->3
+        - TARGET=ENEMY | DURABILITY:REMOVE:HELMET:4
+        - TARGET=ENEMY | DURABILITY:REMOVE:CHESTPLATE:4
+        - TARGET=ENEMY | DURABILITY:REMOVE:LEGGINGS:4
+        - TARGET=ENEMY | DURABILITY:REMOVE:BOOTS:4
     '5':
       attack:
         type: ATTACK
-        chance: 30
+        chance: 25
         cooldown: 2000
         conditions:
         - EQUIP_SLOT:MAINHAND
         - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-        - TARGET=ENEMY | DURABILITY:REMOVE:HELMET:2->4
-        - TARGET=ENEMY | DURABILITY:REMOVE:CHESTPLATE:2->4
-        - TARGET=ENEMY | DURABILITY:REMOVE:LEGGINGS:2->4
-        - TARGET=ENEMY | DURABILITY:REMOVE:BOOTS:2->4
+        - TARGET=ENEMY | DURABILITY:REMOVE:HELMET:5
+        - TARGET=ENEMY | DURABILITY:REMOVE:CHESTPLATE:5
+        - TARGET=ENEMY | DURABILITY:REMOVE:LEGGINGS:5
+        - TARGET=ENEMY | DURABILITY:REMOVE:BOOTS:5
 urchin:
   group: epic
   display: Urchin
   description:
   - '&eCó tỉ lệ gây thêm sát thương và khiến đối thủ'
   - '&ebị hiệu ứng yếu đuối khi tấn công'
+  detail-description:
+  - '&eCó tỉ lệ gây thêm sát thương và khiến đối thủ'
+  - '&ebị hiệu ứng yếu đuối khi tấn công'
+  - ''
+  - '&eSát thương: +2 ATK x Cấp'
+  - '&eHiệu ứng thuốc: Yếu đuối'
+  - '&eCấp độ hiệu ứng: 1/1/2/2/3'
+  - '&eThời gian hiệu ứng: 1s/1s/2s/2s/3s'
+  - '&eTỉ lệ kích hoạt: 25%'
+  - '&eThời gian hồi: 3s'
+  applies-description:
+  - Rìu
+  applies:
+  - ALL_AXE
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    '1':
+      attack:
+        type: ATTACK
+        chance: 25
+        cooldown: 3000
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        options:
+        - ATTACK:2:0
+        effects:
+        - TARGET=ENEMY | ADD_POTION:WEAKNESS:0:20
+    '2':
+      attack:
+        type: ATTACK
+        chance: 25
+        cooldown: 3000
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        options:
+        - ATTACK:4:0
+        effects:
+        - TARGET=ENEMY | ADD_POTION:WEAKNESS:0:40
+    '3':
+      attack:
+        type: ATTACK
+        chance: 25
+        cooldown: 3000
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        options:
+        - ATTACK:6:0
+        effects:
+        - TARGET=ENEMY | ADD_POTION:WEAKNESS:1:40
+    '4':
+      attack:
+        type: ATTACK
+        chance: 25
+        cooldown: 3000
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        options:
+        - ATTACK:8:0
+        effects:
+        - TARGET=ENEMY | ADD_POTION:WEAKNESS:1:60
+    '5':
+      attack:
+        type: ATTACK
+        chance: 25
+        cooldown: 3000
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        options:
+        - ATTACK:10:0
+        effects:
+        - TARGET=ENEMY | ADD_POTION:WEAKNESS:2:60
+sledgehammer:
+  group: legendary
+  display: Sledgehammer
+  description:
+  - '&eCó tỉ lệ gây thêm sát thương và hất văng'
+  - '&eđối thủ khi tấn công với khoảng cách xa'
+  detail-description:
+  - '&eCó tỉ lệ gây thêm sát thương và hất văng'
+  - '&eđối thủ khi tấn công với khoảng cách xa'
+  - ''
+  - '&eSát thương: +2 ATK x Cấp'
+  - '&eKhoảng cách: hơn 2m'
+  - '&eTỉ lệ kích hoạt: 25%'
+  - '&eThời gian hồi: 3s'
+  applies-description:
+  - Rìu
+  applies:
+  - ALL_AXE
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    '1':
+      attack:
+        type: ATTACK
+        chance: 25
+        cooldown: 3000
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        - NUMBER_STORAGE:%distance%:>=:2
+        options:
+        - ATTACK:2:0
+        effects:
+        - TARGET=ENEMY | PULL:xE_-~_zE
+    '2':
+      attack:
+        type: ATTACK
+        chance: 25
+        cooldown: 3000
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        - NUMBER_STORAGE:%distance%:>=:2
+        options:
+        - ATTACK:4:0
+        effects:
+        - TARGET=ENEMY | PULL:xE_-~_zE
+    '3':
+      attack:
+        type: ATTACK
+        chance: 25
+        cooldown: 3000
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        - NUMBER_STORAGE:%distance%:>=:2
+        options:
+        - ATTACK:6:0
+        effects:
+        - TARGET=ENEMY | PULL:xE_-~_zE
+    '4':
+      attack:
+        type: ATTACK
+        chance: 25
+        cooldown: 3000
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        - NUMBER_STORAGE:%distance%:>=:2
+        options:
+        - ATTACK:8:0
+        effects:
+        - TARGET=ENEMY | PULL:xE_-~_zE
+    '5':
+      attack:
+        type: ATTACK
+        chance: 25
+        cooldown: 3000
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        - NUMBER_STORAGE:%distance%:>=:2
+        options:
+        - ATTACK:10:0
+        effects:
+        - TARGET=ENEMY | PULL:xE_-~_zE
+overpower:
+  group: supreme
+  display: Overpower
+  description:
+  - '&eCó tỉ lệ gây choáng lên đối thủ khi tấn công'
+  detail-description:
+  - '&eCó tỉ lệ gây choáng lên đối thủ khi tấn công'
+  - ''
+  - '&eThời gian choáng: 1s'
+  - '&eTỉ lệ kích hoạt: 5% x Cấp'
+  - '&eThời gian hồi: 5s'
   applies-description:
   - Rìu
   applies:
@@ -520,158 +766,66 @@ urchin:
       attack:
         type: ATTACK
         chance: 5
-        cooldown: 2000
+        cooldown: 5000
         conditions:
         - EQUIP_SLOT:MAINHAND
         - TARGET=ENEMY | ENTITY_TYPE:PLAYER
-        options:
-        - ATTACK:2:0
         effects:
-        - TARGET=ENEMY | ADD_POTION:WEAKNESS:0:20
+        - TARGET=ENEMY | DEACTIVE_ABILITY:MOVE:overpower_move
+        - TARGET=ENEMY | DEACTIVE_ABILITY:ATTACK:overpower_attack
+        - 'MESSAGE:&e&l***Overpower: &6&lStun &f(0:01) &7&l> &f&l%enemy_name%&e&l***'
+        - TARGET=ENEMY | MESSAGE:&e&l***&6&lStun &f(0:01) &7&lby &f&l%enemy_name%&e&l***
+        - TARGET=ENEMY,DELAY=20,EFFECT_AFTER_DEAD=true | ACTIVE_ABILITY:MOVE:overpower_move
+        - TARGET=ENEMY,DELAY=20,EFFECT_AFTER_DEAD=true | ACTIVE_ABILITY:ATTACK:overpower_attack
     '2':
       attack:
         type: ATTACK
         chance: 10
-        cooldown: 2000
+        cooldown: 5000
         conditions:
         - EQUIP_SLOT:MAINHAND
         - TARGET=ENEMY | ENTITY_TYPE:PLAYER
-        options:
-        - ATTACK:3:0
         effects:
-        - TARGET=ENEMY | ADD_POTION:WEAKNESS:0:40
+        - TARGET=ENEMY | DEACTIVE_ABILITY:MOVE:overpower_move
+        - TARGET=ENEMY | DEACTIVE_ABILITY:ATTACK:overpower_attack
+        - 'MESSAGE:&e&l***Overpower: &6&lStun &f(0:01) &7&l> &f&l%enemy_name%&e&l***'
+        - TARGET=ENEMY | MESSAGE:&e&l***&6&lStun &f(0:01) &7&lby &f&l%enemy_name%&e&l***
+        - TARGET=ENEMY,DELAY=20,EFFECT_AFTER_DEAD=true | ACTIVE_ABILITY:MOVE:overpower_move
+        - TARGET=ENEMY,DELAY=20,EFFECT_AFTER_DEAD=true | ACTIVE_ABILITY:ATTACK:overpower_attack
     '3':
       attack:
         type: ATTACK
         chance: 15
-        cooldown: 2000
+        cooldown: 5000
         conditions:
         - EQUIP_SLOT:MAINHAND
         - TARGET=ENEMY | ENTITY_TYPE:PLAYER
-        options:
-        - ATTACK:4:0
         effects:
-        - TARGET=ENEMY | ADD_POTION:WEAKNESS:0:40
+        - TARGET=ENEMY | DEACTIVE_ABILITY:MOVE:overpower_move
+        - TARGET=ENEMY | DEACTIVE_ABILITY:ATTACK:overpower_attack
+        - 'MESSAGE:&e&l***Overpower: &6&lStun &f(0:01) &7&l> &f&l%enemy_name%&e&l***'
+        - TARGET=ENEMY | MESSAGE:&e&l***&6&lStun &f(0:01) &7&lby &f&l%enemy_name%&e&l***
+        - TARGET=ENEMY,DELAY=20,EFFECT_AFTER_DEAD=true | ACTIVE_ABILITY:MOVE:overpower_move
+        - TARGET=ENEMY,DELAY=20,EFFECT_AFTER_DEAD=true | ACTIVE_ABILITY:ATTACK:overpower_attack
     '4':
       attack:
         type: ATTACK
         chance: 20
-        cooldown: 2000
+        cooldown: 5000
         conditions:
         - EQUIP_SLOT:MAINHAND
         - TARGET=ENEMY | ENTITY_TYPE:PLAYER
-        options:
-        - ATTACK:5:0
         effects:
-        - TARGET=ENEMY | ADD_POTION:WEAKNESS:1:60
+        - TARGET=ENEMY | DEACTIVE_ABILITY:MOVE:overpower_move
+        - TARGET=ENEMY | DEACTIVE_ABILITY:ATTACK:overpower_attack
+        - 'MESSAGE:&e&l***Overpower: &6&lStun &f(0:01) &7&l> &f&l%enemy_name%&e&l***'
+        - TARGET=ENEMY | MESSAGE:&e&l***&6&lStun &f(0:01) &7&lby &f&l%enemy_name%&e&l***
+        - TARGET=ENEMY,DELAY=20,EFFECT_AFTER_DEAD=true | ACTIVE_ABILITY:MOVE:overpower_move
+        - TARGET=ENEMY,DELAY=20,EFFECT_AFTER_DEAD=true | ACTIVE_ABILITY:ATTACK:overpower_attack
     '5':
       attack:
         type: ATTACK
         chance: 25
-        cooldown: 2000
-        conditions:
-        - EQUIP_SLOT:MAINHAND
-        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
-        options:
-        - ATTACK:6:0
-        effects:
-        - TARGET=ENEMY | ADD_POTION:WEAKNESS:1:60
-sledgehammer:
-  group: legendary
-  display: Sledgehammer
-  description:
-  - '&eCó tỉ lệ gây thêm sát thương và hất văng'
-  - '&eđối thủ khi tấn công với khoảng cách xa'
-  applies-description:
-  - Rìu
-  applies:
-  - ALL_AXE
-  max-level: 5
-  enchant-point: 1
-  valuable: 0
-  levels:
-    '1':
-      attack:
-        type: ATTACK
-        chance: 10
-        cooldown: 3000
-        conditions:
-        - EQUIP_SLOT:MAINHAND
-        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
-        - NUMBER_STORAGE:%distance%:>=:2
-        options:
-        - ATTACK:3:0
-        effects:
-        - TARGET=ENEMY | PULL:xE_-~_zE
-    '2':
-      attack:
-        type: ATTACK
-        chance: 10
-        cooldown: 3000
-        conditions:
-        - EQUIP_SLOT:MAINHAND
-        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
-        - NUMBER_STORAGE:%distance%:>=:2
-        options:
-        - ATTACK:4:0
-        effects:
-        - TARGET=ENEMY | PULL:xE_-~_zE
-    '3':
-      attack:
-        type: ATTACK
-        chance: 10
-        cooldown: 3000
-        conditions:
-        - EQUIP_SLOT:MAINHAND
-        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
-        - NUMBER_STORAGE:%distance%:>=:2
-        options:
-        - ATTACK:5:0
-        effects:
-        - TARGET=ENEMY | PULL:xE_-~_zE
-    '4':
-      attack:
-        type: ATTACK
-        chance: 10
-        cooldown: 3000
-        conditions:
-        - EQUIP_SLOT:MAINHAND
-        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
-        - NUMBER_STORAGE:%distance%:>=:2
-        options:
-        - ATTACK:6:0
-        effects:
-        - TARGET=ENEMY | PULL:xE_-~_zE
-    '5':
-      attack:
-        type: ATTACK
-        chance: 10
-        cooldown: 3000
-        conditions:
-        - EQUIP_SLOT:MAINHAND
-        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
-        - NUMBER_STORAGE:%distance%:>=:2
-        options:
-        - ATTACK:8:0
-        effects:
-        - TARGET=ENEMY | PULL:xE_-~_zE
-overpower:
-  group: supreme
-  display: Overpower
-  description:
-  - '&eCó tỉ lệ gây choáng lên đối thủ khi tấn công'
-  applies-description:
-  - Rìu
-  applies:
-  - ALL_AXE
-  max-level: 5
-  enchant-point: 1
-  valuable: 0
-  levels:
-    '1':
-      attack:
-        type: ATTACK
-        chance: 10
         cooldown: 5000
         conditions:
         - EQUIP_SLOT:MAINHAND
@@ -680,69 +834,9 @@ overpower:
         - TARGET=ENEMY | DEACTIVE_ABILITY:MOVE:overpower_move
         - TARGET=ENEMY | DEACTIVE_ABILITY:ATTACK:overpower_attack
         - 'MESSAGE:&e&l***Overpower: &6&lStun &f(0:01) &7&l> &f&l%enemy_name%&e&l***'
-        - TARGET=ENEMY | MESSAGE:&e&l***&6&lStun &f(0:01) &7&lby &f&l%enemy_name%&e&l***
+        - TARGET=ENEMY | MESSAGE:&e&l***&6&lStun &f(0:01:500) &7&lby &f&l%enemy_name%&e&l***
         - TARGET=ENEMY,DELAY=20,EFFECT_AFTER_DEAD=true | ACTIVE_ABILITY:MOVE:overpower_move
         - TARGET=ENEMY,DELAY=20,EFFECT_AFTER_DEAD=true | ACTIVE_ABILITY:ATTACK:overpower_attack
-    '2':
-      attack:
-        type: ATTACK
-        chance: 10
-        cooldown: 5000
-        conditions:
-        - EQUIP_SLOT:MAINHAND
-        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
-        effects:
-        - TARGET=ENEMY | DEACTIVE_ABILITY:MOVE:overpower_move
-        - TARGET=ENEMY | DEACTIVE_ABILITY:ATTACK:overpower_attack
-        - 'MESSAGE:&e&l***Overpower: &6&lStun &f(0:01) &7&l> &f&l%enemy_name%&e&l***'
-        - TARGET=ENEMY | MESSAGE:&e&l***&6&lStun &f(0:01) &7&lby &f&l%enemy_name%&e&l***
-        - TARGET=ENEMY,DELAY=20,EFFECT_AFTER_DEAD=true | ACTIVE_ABILITY:MOVE:overpower_move
-        - TARGET=ENEMY,DELAY=20,EFFECT_AFTER_DEAD=true | ACTIVE_ABILITY:ATTACK:overpower_attack
-    '3':
-      attack:
-        type: ATTACK
-        chance: 10
-        cooldown: 5000
-        conditions:
-        - EQUIP_SLOT:MAINHAND
-        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
-        effects:
-        - TARGET=ENEMY | DEACTIVE_ABILITY:MOVE:overpower_move
-        - TARGET=ENEMY | DEACTIVE_ABILITY:ATTACK:overpower_attack
-        - 'MESSAGE:&e&l***Overpower: &6&lStun &f(0:01) &7&l> &f&l%enemy_name%&e&l***'
-        - TARGET=ENEMY | MESSAGE:&e&l***&6&lStun &f(0:01) &7&lby &f&l%enemy_name%&e&l***
-        - TARGET=ENEMY,DELAY=20,EFFECT_AFTER_DEAD=true | ACTIVE_ABILITY:MOVE:overpower_move
-        - TARGET=ENEMY,DELAY=20,EFFECT_AFTER_DEAD=true | ACTIVE_ABILITY:ATTACK:overpower_attack
-    '4':
-      attack:
-        type: ATTACK
-        chance: 10
-        cooldown: 5000
-        conditions:
-        - EQUIP_SLOT:MAINHAND
-        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
-        effects:
-        - TARGET=ENEMY | DEACTIVE_ABILITY:MOVE:overpower_move
-        - TARGET=ENEMY | DEACTIVE_ABILITY:ATTACK:overpower_attack
-        - 'MESSAGE:&e&l***Overpower: &6&lStun &f(0:02) &7&l> &f&l%enemy_name%&e&l***'
-        - TARGET=ENEMY | MESSAGE:&e&l***&6&lStun &f(0:02) &7&lby &f&l%enemy_name%&e&l***
-        - TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | ACTIVE_ABILITY:MOVE:overpower_move
-        - TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | ACTIVE_ABILITY:ATTACK:overpower_attack
-    '5':
-      attack:
-        type: ATTACK
-        chance: 10
-        cooldown: 5000
-        conditions:
-        - EQUIP_SLOT:MAINHAND
-        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
-        effects:
-        - TARGET=ENEMY | DEACTIVE_ABILITY:MOVE:overpower_move
-        - TARGET=ENEMY | DEACTIVE_ABILITY:ATTACK:overpower_attack
-        - 'MESSAGE:&e&l***Overpower: &6&lStun &f(0:02) &7&l> &f&l%enemy_name%&e&l***'
-        - TARGET=ENEMY | MESSAGE:&e&l***&6&lStun &f(0:02) &7&lby &f&l%enemy_name%&e&l***
-        - TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | ACTIVE_ABILITY:MOVE:overpower_move
-        - TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | ACTIVE_ABILITY:ATTACK:overpower_attack
 crack:
   group: legendary
   display: Crack
@@ -750,6 +844,14 @@ crack:
   - '&eCó tỉ lệ khóa tất cả phù phép dạng kích hoạt'
   - '&etrên giáp ngực của đối thủ trong một khoảng'
   - '&ethời gian khi tấn công'
+  detail-description:
+  - '&eCó tỉ lệ khóa tất cả phù phép dạng kích hoạt'
+  - '&etrên giáp ngực của đối thủ trong một khoảng'
+  - '&ethời gian khi tấn công'
+  - ''
+  - '&eThời gian hiệu ứng: 2s'
+  - '&eTỉ lệ kích hoạt: 5%/10%/20%'
+  - '&eThời gian hồi: 10s'
   applies-description:
   - Rìu
   applies:
@@ -761,8 +863,8 @@ crack:
     '1':
       attack:
         type: ATTACK
-        chance: 10
-        cooldown: 4000
+        chance: 5
+        cooldown: 10000
         conditions:
         - EQUIP_SLOT:MAINHAND
         - TARGET=ENEMY | ENTITY_TYPE:PLAYER
@@ -775,8 +877,8 @@ crack:
     '2':
       attack:
         type: ATTACK
-        chance: 20
-        cooldown: 4000
+        chance: 10
+        cooldown: 10000
         conditions:
         - EQUIP_SLOT:MAINHAND
         - TARGET=ENEMY | ENTITY_TYPE:PLAYER
@@ -789,8 +891,8 @@ crack:
     '3':
       attack:
         type: ATTACK
-        chance: 30
-        cooldown: 4000
+        chance: 20
+        cooldown: 10000
         conditions:
         - EQUIP_SLOT:MAINHAND
         - TARGET=ENEMY | ENTITY_TYPE:PLAYER
@@ -807,6 +909,16 @@ bleed:
   - '&eCó tỉ lệ gây chảy máu và giảm tốc độ'
   - '&edi chuyển của đối thủ trong một khoảng'
   - '&ethời gian khi tấn công'
+  detail-description:
+  - '&eCó tỉ lệ gây chảy máu và giảm tốc độ'
+  - '&edi chuyển của đối thủ trong một khoảng'
+  - '&ethời gian khi tấn công'
+  - ''
+  - '&eChảy máu mỗi giây: 2 máu'
+  - '&eTốc độ di chuyển: 10% (+5%/cấp)'
+  - '&eThời gian hiệu ứng: 1s x Cấp'
+  - '&eTỉ lệ kích hoạt: 25%'
+  - '&eThời gian hồi: 10s'
   applies-description:
   - Rìu
   applies:
@@ -818,80 +930,87 @@ bleed:
     '1':
       attack:
         type: ATTACK
-        chance: 100
-        cooldown: 3000
+        chance: 25
+        cooldown: 10000
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+        - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:bleed_movement_speed:-0.1:1
+        - TARGET=ENEMY,DELAY=20,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:bleed_movement_speed
+        - TARGET=ENEMY,DELAY=20 | HEALTH:REMOVE:2
+    '2':
+      attack:
+        type: ATTACK
+        chance: 25
+        cooldown: 10000
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+        - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:bleed_movement_speed:-0.15:1
+        - TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:bleed_movement_speed
+        - TARGET=ENEMY,DELAY=20 | HEALTH:REMOVE:2
+        - TARGET=ENEMY,DELAY=40 | HEALTH:REMOVE:2
+    '3':
+      attack:
+        type: ATTACK
+        chance: 25
+        cooldown: 10000
         conditions:
         - EQUIP_SLOT:MAINHAND
         - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
         - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:bleed_movement_speed:-0.2:1
         - TARGET=ENEMY,DELAY=60,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:bleed_movement_speed
-        - TARGET=ENEMY,DELAY=20 | HEALTH:REMOVE:1
-        - TARGET=ENEMY,DELAY=40 | HEALTH:REMOVE:1
-        - TARGET=ENEMY,DELAY=60 | HEALTH:REMOVE:2
-    '2':
-      attack:
-        type: ATTACK
-        chance: 100
-        cooldown: 3000
-        conditions:
-        - EQUIP_SLOT:MAINHAND
-        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
-        effects:
-        - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:bleed_movement_speed:-0.22:1
-        - TARGET=ENEMY,DELAY=60,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:bleed_movement_speed
-        - TARGET=ENEMY,DELAY=20 | HEALTH:REMOVE:1
-        - TARGET=ENEMY,DELAY=40 | HEALTH:REMOVE:1
-        - TARGET=ENEMY,DELAY=60 | HEALTH:REMOVE:2
-    '3':
-      attack:
-        type: ATTACK
-        chance: 100
-        cooldown: 3000
-        conditions:
-        - EQUIP_SLOT:MAINHAND
-        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
-        effects:
-        - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:bleed_movement_speed:-0.24:1
-        - TARGET=ENEMY,DELAY=60,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:bleed_movement_speed
-        - TARGET=ENEMY,DELAY=20 | HEALTH:REMOVE:1
-        - TARGET=ENEMY,DELAY=40 | HEALTH:REMOVE:1
+        - TARGET=ENEMY,DELAY=20 | HEALTH:REMOVE:2
+        - TARGET=ENEMY,DELAY=40 | HEALTH:REMOVE:2
         - TARGET=ENEMY,DELAY=60 | HEALTH:REMOVE:2
     '4':
       attack:
         type: ATTACK
-        chance: 100
-        cooldown: 3000
+        chance: 25
+        cooldown: 10000
         conditions:
         - EQUIP_SLOT:MAINHAND
         - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-        - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:bleed_movement_speed:-0.27:1
-        - TARGET=ENEMY,DELAY=60,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:bleed_movement_speed
+        - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:bleed_movement_speed:-0.25:1
+        - TARGET=ENEMY,DELAY=80,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:bleed_movement_speed
         - TARGET=ENEMY,DELAY=20 | HEALTH:REMOVE:1
         - TARGET=ENEMY,DELAY=40 | HEALTH:REMOVE:1
         - TARGET=ENEMY,DELAY=60 | HEALTH:REMOVE:2
+        - TARGET=ENEMY,DELAY=80 | HEALTH:REMOVE:2
     '5':
       attack:
         type: ATTACK
-        chance: 100
-        cooldown: 3000
+        chance: 25
+        cooldown: 10000
         conditions:
         - EQUIP_SLOT:MAINHAND
         - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
         - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:bleed_movement_speed:-0.3:1
-        - TARGET=ENEMY,DELAY=60,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:bleed_movement_speed
-        - TARGET=ENEMY,DELAY=20 | HEALTH:REMOVE:1
-        - TARGET=ENEMY,DELAY=40 | HEALTH:REMOVE:1
+        - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:bleed_movement_speed
+        - TARGET=ENEMY,DELAY=20 | HEALTH:REMOVE:2
+        - TARGET=ENEMY,DELAY=40 | HEALTH:REMOVE:2
         - TARGET=ENEMY,DELAY=60 | HEALTH:REMOVE:2
+        - TARGET=ENEMY,DELAY=80 | HEALTH:REMOVE:2
+        - TARGET=ENEMY,DELAY=100 | HEALTH:REMOVE:2
 blacksmith:
   group: legendary
   display: Blacksmith
   description:
   - '&eCó tỉ lệ sửa chữa trang bị đang mặc nhưng'
-  - '&enhưng giảm lượng sát thương gây ra khi'
-  - '&etấn công'
+  - '&egiảm lượng sát thương gây ra khi tấn công'
+  detail-description:
+  - '&eCó tỉ lệ sửa chữa trang bị đang mặc nhưng'
+  - '&egiảm lượng sát thương gây ra khi tấn công'
+  - ''
+  - '&eĐộ bền: 2 x Cấp'
+  - '&eSát thương: -5% x Cấp'
+  - '&eTỉ lệ kích hoạt: 50%'
+  - '&eThời gian hồi: 2s'
   applies-description:
   - Rìu
   applies:
@@ -907,11 +1026,10 @@ blacksmith:
         cooldown: 2000
         conditions:
         - EQUIP_SLOT:MAINHAND
-        - ''
         options:
         - ATTACK:-0.05:2
         effects:
-        - DURABILITY:ADD:HELMET,CHESTPLATE,LEGGINGS,BOOTS:1->2
+        - DURABILITY:ADD:HELMET,CHESTPLATE,LEGGINGS,BOOTS:2
     '2':
       attack:
         type: ATTACK
@@ -919,11 +1037,10 @@ blacksmith:
         cooldown: 2000
         conditions:
         - EQUIP_SLOT:MAINHAND
-        - ''
         options:
         - ATTACK:-0.10:2
         effects:
-        - DURABILITY:ADD:HELMET,CHESTPLATE,LEGGINGS,BOOTS:3->4
+        - DURABILITY:ADD:HELMET,CHESTPLATE,LEGGINGS,BOOTS:4
     '3':
       attack:
         type: ATTACK
@@ -931,11 +1048,10 @@ blacksmith:
         cooldown: 2000
         conditions:
         - EQUIP_SLOT:MAINHAND
-        - ''
         options:
         - ATTACK:-0.15:2
         effects:
-        - DURABILITY:ADD:HELMET,CHESTPLATE,LEGGINGS,BOOTS:5->6
+        - DURABILITY:ADD:HELMET,CHESTPLATE,LEGGINGS,BOOTS:6
     '4':
       attack:
         type: ATTACK
@@ -943,11 +1059,10 @@ blacksmith:
         cooldown: 2000
         conditions:
         - EQUIP_SLOT:MAINHAND
-        - ''
         options:
         - ATTACK:-0.20:2
         effects:
-        - DURABILITY:ADD:HELMET,CHESTPLATE,LEGGINGS,BOOTS:7->8
+        - DURABILITY:ADD:HELMET,CHESTPLATE,LEGGINGS,BOOTS:8
     '5':
       attack:
         type: ATTACK
@@ -955,16 +1070,22 @@ blacksmith:
         cooldown: 2000
         conditions:
         - EQUIP_SLOT:MAINHAND
-        - ''
         options:
         - ATTACK:-0.25:2
         effects:
-        - DURABILITY:ADD:HELMET,CHESTPLATE,LEGGINGS,BOOTS:9->10
+        - DURABILITY:ADD:HELMET,CHESTPLATE,LEGGINGS,BOOTS:10
 devour:
   group: legendary
   display: Devour
   description:
   - '&eCó tỉ lệ hút máu đối thủ khi tấn công'
+  detail-description:
+  - '&eCó tỉ lệ hút máu đối thủ khi tấn công'
+  - ''
+  - '&eLượng máu hút: 2 máu x Cấp'
+  - '&eLượng máu hồi: 2 máu x Cấp'
+  - '&eTỉ lệ kích hoạt: 25%'
+  - '&eThời gian hồi: 5s'
   applies-description:
   - Rìu
   applies:
@@ -976,19 +1097,19 @@ devour:
     '1':
       attack:
         type: ATTACK
-        chance: 40
-        cooldown: 3000
+        chance: 25
+        cooldown: 5000
         conditions:
         - EQUIP_SLOT:MAINHAND
         - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-        - HEALTH:ADD:1
-        - TARGET=ENEMY | HEALTH:REMOVE:1
+        - HEALTH:ADD:2
+        - TARGET=ENEMY | HEALTH:REMOVE:2
     '2':
       attack:
         type: ATTACK
-        chance: 30
-        cooldown: 3500
+        chance: 25
+        cooldown: 5000
         conditions:
         - EQUIP_SLOT:MAINHAND
         - TARGET=ENEMY | ENTITY_TYPE:PLAYER
@@ -998,8 +1119,8 @@ devour:
     '3':
       attack:
         type: ATTACK
-        chance: 20
-        cooldown: 4000
+        chance: 25
+        cooldown: 5000
         conditions:
         - EQUIP_SLOT:MAINHAND
         - TARGET=ENEMY | ENTITY_TYPE:PLAYER
@@ -1009,8 +1130,8 @@ devour:
     '4':
       attack:
         type: ATTACK
-        chance: 15
-        cooldown: 4500
+        chance: 25
+        cooldown: 5000
         conditions:
         - EQUIP_SLOT:MAINHAND
         - TARGET=ENEMY | ENTITY_TYPE:PLAYER
@@ -1020,7 +1141,7 @@ devour:
     '5':
       attack:
         type: ATTACK
-        chance: 10
+        chance: 25
         cooldown: 5000
         conditions:
         - EQUIP_SLOT:MAINHAND
@@ -1034,6 +1155,15 @@ pummel:
   description:
   - '&eCó tỉ lệ khiến kẻ địch bị hiệu ứng chậm rãi'
   - '&etrong một khoảng thời gian khi tấn công'
+  detail-description:
+  - '&eCó tỉ lệ khiến kẻ địch bị hiệu ứng chậm rãi'
+  - '&etrong một khoảng thời gian khi tấn công'
+  - ''
+  - '&eHiệu ứng thuốc: Chậm rãi'
+  - '&eCấp độ hiệu ứng: 1/1/2/2/3'
+  - '&eThời gian hiệu ứng: 1s x Cấp'
+  - '&eTỉ lệ kích hoạt: 25%'
+  - '&eThời gian hồi: 5s'
   applies-description:
   - Rìu
   applies:
@@ -1045,8 +1175,8 @@ pummel:
     '1':
       attack:
         type: ATTACK
-        chance: 10
-        cooldown: 3000
+        chance: 25
+        cooldown: 5000
         conditions:
         - EQUIP_SLOT:MAINHAND
         - TARGET=ENEMY | ENTITY_TYPE:PLAYER
@@ -1056,53 +1186,60 @@ pummel:
     '2':
       attack:
         type: ATTACK
-        chance: 15
-        cooldown: 3000
+        chance: 25
+        cooldown: 5000
         conditions:
         - EQUIP_SLOT:MAINHAND
         - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
         - TARGET=ENEMY | ADD_POTION:SLOW:0:40
-        - 'MESSAGE:&a&l***Pummel: &7&lSlowness I &7(0:01)&7&l > &f&l%enemy_name%&a&l***'
+        - 'MESSAGE:&a&l***Pummel: &7&lSlowness I &7(0:02)&7&l > &f&l%enemy_name%&a&l***'
     '3':
       attack:
         type: ATTACK
-        chance: 20
-        cooldown: 3000
+        chance: 25
+        cooldown: 5000
         conditions:
         - EQUIP_SLOT:MAINHAND
         - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
         - TARGET=ENEMY | ADD_POTION:SLOW:1:40
-        - 'MESSAGE:&a&l***Pummel: &7&lSlowness II &7(0:02)&7&l > &f&l%enemy_name%&a&l***'
+        - 'MESSAGE:&a&l***Pummel: &7&lSlowness II &7(0:03)&7&l > &f&l%enemy_name%&a&l***'
     '4':
       attack:
         type: ATTACK
         chance: 25
-        cooldown: 3000
+        cooldown: 5000
         conditions:
         - EQUIP_SLOT:MAINHAND
         - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
         - TARGET=ENEMY | ADD_POTION:SLOW:1:60
-        - 'MESSAGE:&a&l***Pummel: &7&lSlowness II &7(0:03)&7&l > &f&l%enemy_name%&a&l***'
+        - 'MESSAGE:&a&l***Pummel: &7&lSlowness II &7(0:04)&7&l > &f&l%enemy_name%&a&l***'
     '5':
       attack:
         type: ATTACK
-        chance: 30
-        cooldown: 3000
+        chance: 25
+        cooldown: 5000
         conditions:
         - EQUIP_SLOT:MAINHAND
         - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
         - TARGET=ENEMY | ADD_POTION:SLOW:1:80
-        - 'MESSAGE:&a&l***Pummel: &7&lSlowness II &7(0:04)&7&l > &f&l%enemy_name%&a&l***'
+        - 'MESSAGE:&a&l***Pummel: &7&lSlowness III &7(0:05)&7&l > &f&l%enemy_name%&a&l***'
 smite:
   group: rare
   display: Smite
   description:
   - '&eCó tỉ lệ kết liễu ngay quái từ dưới'
   - '&emức máu cơ bản khi tấn công'
+  detail-description:
+  - '&eCó tỉ lệ kết liễu ngay quái từ dưới'
+  - '&emức máu cơ bản khi tấn công'
+  - ''
+  - '&eMức máu cơ bản: 20'
+  - '&eTỉ lệ kích hoạt: 20% (+10%/cấp)'
+  - '&eThời gian hồi: 0.5s'
   applies-description:
   - Rìu
   applies:
@@ -1170,7 +1307,14 @@ dissect:
   group: common
   display: Dissect
   description:
-  - '&eCó tỉ lệ thưởng thêm kinh nghiệm khi giết quái'
+  - '&eThưởng thêm kinh nghiệm người chơi'
+  - '&ekhi giết quái'
+  detail-description:
+  - '&eThưởng thêm kinh nghiệm người chơi'
+  - '&ekhi giết quái'
+  - ''
+  - '&eLượng kinh nghiệm:'
+  - '&e+5% Kinh nghiệm theo Thợ săn quái x Cấp'
   applies-description:
   - Rìu
   applies:
@@ -1187,7 +1331,7 @@ dissect:
         conditions:
         - EQUIP_SLOT:MAINHAND
         effects:
-        - ADD_MOB_BONUS:EXP:dissect_xp_bonus:MOB:0->1:0:25
+        - ADD_MOB_BONUS:MOB_SLAYER_EXP:dissect_xp_bonus:ALL:0.05:0:100
         - 'MESSAGE:&7&l***Dissect: Active&7&l***'
       change_hand:
         type: CHANGE_HAND
@@ -1196,7 +1340,7 @@ dissect:
         conditions:
         - ''
         effects:
-        - REMOVE_MOB_BONUS:EXP:dissect_xp_bonus
+        - REMOVE_MOB_BONUS:MOB_SLAYER_EXP:dissect_xp_bonus
         - 'MESSAGE:&7&l***Dissect: Deactive&7&l***'
     '2':
       hold:
@@ -1206,7 +1350,7 @@ dissect:
         conditions:
         - EQUIP_SLOT:MAINHAND
         effects:
-        - ADD_MOB_BONUS:EXP:dissect_xp_bonus:MOB:0->2:0:25
+        - ADD_MOB_BONUS:MOB_SLAYER_EXP:dissect_xp_bonus:ALL:0.1:0:100
         - 'MESSAGE:&7&l***Dissect: Active&7&l***'
       change_hand:
         type: CHANGE_HAND
@@ -1215,7 +1359,7 @@ dissect:
         conditions:
         - ''
         effects:
-        - REMOVE_MOB_BONUS:EXP:dissect_xp_bonus
+        - REMOVE_MOB_BONUS:MOB_SLAYER_EXP:dissect_xp_bonus
         - 'MESSAGE:&7&l***Dissect: Deactive&7&l***'
     '3':
       hold:
@@ -1225,7 +1369,7 @@ dissect:
         conditions:
         - EQUIP_SLOT:MAINHAND
         effects:
-        - ADD_MOB_BONUS:EXP:dissect_xp_bonus:MOB:0->3:0:25
+        - ADD_MOB_BONUS:MOB_SLAYER_EXP:dissect_xp_bonus:ALL:0.15:0:100
         - 'MESSAGE:&7&l***Dissect: Active&7&l***'
       change_hand:
         type: CHANGE_HAND
@@ -1234,7 +1378,7 @@ dissect:
         conditions:
         - ''
         effects:
-        - REMOVE_MOB_BONUS:EXP:dissect_xp_bonus
+        - REMOVE_MOB_BONUS:MOB_SLAYER_EXP:dissect_xp_bonus
         - 'MESSAGE:&7&l***Dissect: Deactive&7&l***'
     '4':
       hold:
@@ -1244,7 +1388,7 @@ dissect:
         conditions:
         - EQUIP_SLOT:MAINHAND
         effects:
-        - ADD_MOB_BONUS:EXP:dissect_xp_bonus:MOB:1->3:0:25
+        - ADD_MOB_BONUS:MOB_SLAYER_EXP:dissect_xp_bonus:ALL:0.2:0:100
         - 'MESSAGE:&7&l***Dissect: Active&7&l***'
       change_hand:
         type: CHANGE_HAND
@@ -1253,7 +1397,7 @@ dissect:
         conditions:
         - ''
         effects:
-        - REMOVE_MOB_BONUS:EXP:dissect_xp_bonus
+        - REMOVE_MOB_BONUS:MOB_SLAYER_EXP:dissect_xp_bonus
         - 'MESSAGE:&7&l***Dissect: Deactive&7&l***'
     '5':
       hold:
@@ -1263,7 +1407,7 @@ dissect:
         conditions:
         - EQUIP_SLOT:MAINHAND
         effects:
-        - ADD_MOB_BONUS:EXP:dissect_xp_bonus:MOB:1->4:0:25
+        - ADD_MOB_BONUS:MOB_SLAYER_EXP:dissect_xp_bonus:ALL:0.25:0:100
         - 'MESSAGE:&7&l***Dissect: Active&7&l***'
       change_hand:
         type: CHANGE_HAND
@@ -1272,7 +1416,7 @@ dissect:
         conditions:
         - ''
         effects:
-        - REMOVE_MOB_BONUS:EXP:dissect_xp_bonus
+        - REMOVE_MOB_BONUS:MOB_SLAYER_EXP:dissect_xp_bonus
         - 'MESSAGE:&7&l***Dissect: Deactive&7&l***'
     '6':
       hold:
@@ -1282,7 +1426,7 @@ dissect:
         conditions:
         - EQUIP_SLOT:MAINHAND
         effects:
-        - ADD_MOB_BONUS:EXP:dissect_xp_bonus:MOB:1->5:0:25
+        - ADD_MOB_BONUS:MOB_SLAYER_EXP:dissect_xp_bonus:ALL:0.3:0:100
         - 'MESSAGE:&7&l***Dissect: Active&7&l***'
       change_hand:
         type: CHANGE_HAND
@@ -1291,7 +1435,7 @@ dissect:
         conditions:
         - ''
         effects:
-        - REMOVE_MOB_BONUS:EXP:dissect_xp_bonus
+        - REMOVE_MOB_BONUS:MOB_SLAYER_EXP:dissect_xp_bonus
         - 'MESSAGE:&7&l***Dissect: Deactive&7&l***'
     '7':
       hold:
@@ -1301,7 +1445,7 @@ dissect:
         conditions:
         - EQUIP_SLOT:MAINHAND
         effects:
-        - ADD_MOB_BONUS:EXP:dissect_xp_bonus:MOB:2->5:0:25
+        - ADD_MOB_BONUS:MOB_SLAYER_EXP:dissect_xp_bonus:ALL:0.35:0:100
         - 'MESSAGE:&7&l***Dissect: Active&7&l***'
       change_hand:
         type: CHANGE_HAND
@@ -1310,7 +1454,7 @@ dissect:
         conditions:
         - ''
         effects:
-        - REMOVE_MOB_BONUS:EXP:dissect_xp_bonus
+        - REMOVE_MOB_BONUS:MOB_SLAYER_EXP:dissect_xp_bonus
         - 'MESSAGE:&7&l***Dissect: Deactive&7&l***'
     '8':
       hold:
@@ -1320,7 +1464,7 @@ dissect:
         conditions:
         - EQUIP_SLOT:MAINHAND
         effects:
-        - ADD_MOB_BONUS:EXP:dissect_xp_bonus:MOB:2->6:0:25
+        - ADD_MOB_BONUS:MOB_SLAYER_EXP:dissect_xp_bonus:ALL:0.4:0:100
         - 'MESSAGE:&7&l***Dissect: Active&7&l***'
       change_hand:
         type: CHANGE_HAND
@@ -1329,7 +1473,7 @@ dissect:
         conditions:
         - ''
         effects:
-        - REMOVE_MOB_BONUS:EXP:dissect_xp_bonus
+        - REMOVE_MOB_BONUS:MOB_SLAYER_EXP:dissect_xp_bonus
         - 'MESSAGE:&7&l***Dissect: Deactive&7&l***'
     '9':
       hold:
@@ -1339,7 +1483,7 @@ dissect:
         conditions:
         - EQUIP_SLOT:MAINHAND
         effects:
-        - ADD_MOB_BONUS:EXP:dissect_xp_bonus:MOB:3->6:0:25
+        - ADD_MOB_BONUS:MOB_SLAYER_EXP:dissect_xp_bonus:ALL:0.45:0:100
         - 'MESSAGE:&7&l***Dissect: Active&7&l***'
       change_hand:
         type: CHANGE_HAND
@@ -1348,7 +1492,7 @@ dissect:
         conditions:
         - ''
         effects:
-        - REMOVE_MOB_BONUS:EXP:dissect_xp_bonus
+        - REMOVE_MOB_BONUS:MOB_SLAYER_EXP:dissect_xp_bonus
         - 'MESSAGE:&7&l***Dissect: Deactive&7&l***'
     '10':
       hold:
@@ -1358,7 +1502,7 @@ dissect:
         conditions:
         - EQUIP_SLOT:MAINHAND
         effects:
-        - ADD_MOB_BONUS:EXP:dissect_xp_bonus:MOB:4->6:0:25
+        - ADD_MOB_BONUS:MOB_SLAYER_EXP:dissect_xp_bonus:ALL:0.5:0:100
         - 'MESSAGE:&7&l***Dissect: Active&7&l***'
       change_hand:
         type: CHANGE_HAND
@@ -1367,7 +1511,7 @@ dissect:
         conditions:
         - ''
         effects:
-        - REMOVE_MOB_BONUS:EXP:dissect_xp_bonus
+        - REMOVE_MOB_BONUS:MOB_SLAYER_EXP:dissect_xp_bonus
         - 'MESSAGE:&7&l***Dissect: Deactive&7&l***'
 infested:
   group: legendary
@@ -1376,6 +1520,15 @@ infested:
   - '&eCó tỉ lệ gây gấp đôi sát thương cơ bản lên'
   - '&ekẻ địch nhưng đồng thời bản thân cũng bị'
   - '&ethương khi tấn công'
+  detail-description:
+  - '&eCó tỉ lệ gây gấp đôi sát thương cơ bản lên'
+  - '&ekẻ địch nhưng đồng thời bản thân cũng bị'
+  - '&ethương khi tấn công'
+  - ''
+  - '&eSát thương: +100% ATK cơ bản'
+  - '&eLượng máu tổn thất: 10/8/6/4/2'
+  - '&eTỉ lệ kích hoạt: 50%'
+  - '&eThời gian hồi: 3s'
   applies-description:
   - Rìu
   applies:
@@ -1387,7 +1540,7 @@ infested:
     '1':
       attack:
         type: ATTACK
-        chance: 8
+        chance: 50
         cooldown: 3000
         conditions:
         - EQUIP_SLOT:MAINHAND
@@ -1396,12 +1549,12 @@ infested:
         options:
         - ATTACK:1.0:1
         effects:
-        - HEALTH:REMOVE:1
+        - HEALTH:REMOVE:10
         - 'MESSAGE:&6&l***Infested: &c&l+100% ATK&6&l***'
     '2':
       attack:
         type: ATTACK
-        chance: 16
+        chance: 50
         cooldown: 3000
         conditions:
         - EQUIP_SLOT:MAINHAND
@@ -1410,12 +1563,12 @@ infested:
         options:
         - ATTACK:1.0:1
         effects:
-        - HEALTH:REMOVE:1
+        - HEALTH:REMOVE:8
         - 'MESSAGE:&6&l***Infested: &c&l+100% ATK&6&l***'
     '3':
       attack:
         type: ATTACK
-        chance: 24
+        chance: 50
         cooldown: 3000
         conditions:
         - EQUIP_SLOT:MAINHAND
@@ -1424,12 +1577,12 @@ infested:
         options:
         - ATTACK:1.0:1
         effects:
-        - HEALTH:REMOVE:1
+        - HEALTH:REMOVE:6
         - 'MESSAGE:&6&l***Infested: &c&l+100% ATK&6&l***'
     '4':
       attack:
         type: ATTACK
-        chance: 32
+        chance: 50
         cooldown: 3000
         conditions:
         - EQUIP_SLOT:MAINHAND
@@ -1437,12 +1590,12 @@ infested:
         options:
         - ATTACK:1.0:1
         effects:
-        - HEALTH:REMOVE:2
+        - HEALTH:REMOVE:4
         - 'MESSAGE:&6&l***Infested: &c&l+100% ATK&6&l***'
     '5':
       attack:
         type: ATTACK
-        chance: 40
+        chance: 50
         cooldown: 3000
         conditions:
         - EQUIP_SLOT:MAINHAND
@@ -1459,6 +1612,15 @@ hamstring:
   - '&eCó tỉ lệ làm chậm tốc độ di chuyển của'
   - '&ekẻ địch và khiến hắn không thể nhảy lên'
   - '&etrong một khoảng thời gian khi tấn công'
+  detail-description:
+  - '&eCó tỉ lệ làm chậm tốc độ di chuyển của'
+  - '&ekẻ địch và khiến hắn không thể nhảy lên'
+  - '&etrong một khoảng thời gian khi tấn công'
+  - ''
+  - '&eTốc độ di chuyển: -5% (-5%/cấp)'
+  - '&eThời gian hiệu ứng: 1s (+1s/cấp)'
+  - '&eTỉ lệ kích hoạt: 25%'
+  - '&eThời gian hồi: 5s'
   applies-description:
   - Rìu
   applies:
@@ -1470,7 +1632,7 @@ hamstring:
     '1':
       attack:
         type: ATTACK
-        chance: 5
+        chance: 25
         cooldown: 5000
         conditions:
         - EQUIP_SLOT:MAINHAND
@@ -1487,7 +1649,7 @@ hamstring:
     '2':
       attack:
         type: ATTACK
-        chance: 10
+        chance: 25
         cooldown: 5000
         conditions:
         - EQUIP_SLOT:MAINHAND
@@ -1504,7 +1666,7 @@ hamstring:
     '3':
       attack:
         type: ATTACK
-        chance: 15
+        chance: 25
         cooldown: 5000
         conditions:
         - EQUIP_SLOT:MAINHAND
@@ -1521,7 +1683,7 @@ hamstring:
     '4':
       attack:
         type: ATTACK
-        chance: 20
+        chance: 25
         cooldown: 5000
         conditions:
         - EQUIP_SLOT:MAINHAND
@@ -1558,6 +1720,15 @@ divine:
   description:
   - '&eCó tỉ lệ gây sát thương chuẩn lên đối thủ'
   - '&ekhi tấn công'
+  detail-description:
+  - '&eCó tỉ lệ gây sát thương chuẩn lên đối thủ'
+  - '&ekhi tấn công'
+  - ''
+  - '&eSát thương chuẩn: 5% ATK tổng x Cấp'
+  - '&eTỉ lệ kích hoạt: 25%'
+  - '&eThời gian hồi: 3s'
+  - ''
+  - '&cKhông thể ép chung với PrimeDivine'
   applies-description:
   - Rìu
   applies:
@@ -1569,7 +1740,7 @@ divine:
     '1':
       attack:
         type: ATTACK
-        chance: 20
+        chance: 25
         cooldown: 3000
         conditions:
         - EQUIP_SLOT:MAINHAND
@@ -1581,7 +1752,7 @@ divine:
     '2':
       attack:
         type: ATTACK
-        chance: 20
+        chance: 25
         cooldown: 3000
         conditions:
         - EQUIP_SLOT:MAINHAND
@@ -1593,7 +1764,7 @@ divine:
     '3':
       attack:
         type: ATTACK
-        chance: 20
+        chance: 25
         cooldown: 3000
         conditions:
         - EQUIP_SLOT:MAINHAND
@@ -1605,7 +1776,7 @@ divine:
     '4':
       attack:
         type: ATTACK
-        chance: 20
+        chance: 25
         cooldown: 3000
         conditions:
         - EQUIP_SLOT:MAINHAND
@@ -1617,7 +1788,7 @@ divine:
     '5':
       attack:
         type: ATTACK
-        chance: 20
+        chance: 25
         cooldown: 3000
         conditions:
         - EQUIP_SLOT:MAINHAND
@@ -1627,12 +1798,22 @@ divine:
         effects:
         - TARGET=ENEMY | HEALTH:REMOVE:%damage%*25/100
 axswing:
-  group: 'supreme'
-  display: 'AxSwing'
+  group: supreme
+  display: AxSwing
   description:
   - '&eCó tỉ lệ bước vào trạng thái xoay rìu gây'
   - '&esát thương liên tục lên kẻ địch xung quanh'
   - '&etrong một khoảng thời gian khi tấn công'
+  detail-description:
+  - '&eCó tỉ lệ bước vào trạng thái xoay rìu gây'
+  - '&esát thương liên tục lên kẻ địch xung quanh'
+  - '&etrong một khoảng thời gian khi tấn công'
+  - ''
+  - '&eSát thương mỗi giây:'
+  - '&e5 + (5% máu hiện tại kẻ địch x cấp)'
+  - '&eThời gian xoay rìu: 4s'
+  - '&eTỉ lệ kích hoạt: 25%'
+  - '&eThời gian hồi: 10s'
   applies-description:
   - Rìu
   applies:
@@ -1641,153 +1822,171 @@ axswing:
   enchant-point: 1
   valuable: 0
   levels:
-    1:
+    '1':
       attack:
         type: ATTACK
         chance: 25
         cooldown: 10000
         conditions:
-        - ''
+        - EQUIP_SLOT:MAINHAND
         effects:
-        - 'NUMBER_STORAGE:SET:axswing_enable:1'
-        - 'NUMBER_STORAGE:SET:axswing_count:1'
+        - NUMBER_STORAGE:SET:axswing_enable:1
+        - NUMBER_STORAGE:SET:axswing_count:1
       auto:
         type: AUTO
         chance: 100
         cooldown: 0
         effect-now: true
         conditions:
-        - 'NUMBER_STORAGE:axswing_enable:=:1'
-        - 'NUMBER_STORAGE:axswing_count:<=:40'
-        - 'NUMBER_STORAGE:axswing_count%4:=:0'
+        - EQUIP_SLOT:MAINHAND
+        - NUMBER_STORAGE:axswing_enable:=:1
+        - NUMBER_STORAGE:axswing_count:<=:80
+        - NUMBER_STORAGE:axswing_count%4:=:0
         target-filter:
           except-player: true
           except-enemy: false
           min-distance: 0
           max-distance: 3
         target-conditions:
-        - 'CAN_ATTACK'
+        - CAN_ATTACK
         target-effects:
-        - 'TARGET=ENEMY | DEAL_DAMAGE:1+%player_value%*1/100:true:true:true:true:true'
+        - TARGET=ENEMY | DEAL_DAMAGE:1+%player_value%*1/100:true:true:true:true:true
       increment:
         type: AUTO
         chance: 100
         cooldown: 0
         effect-now: true
         conditions:
-        - 'NUMBER_STORAGE:axswing_enable:=:1'
+        - EQUIP_SLOT:MAINHAND
+        - NUMBER_STORAGE:axswing_enable:=:1
         effects:
-        - 'NUMBER_STORAGE:ADD:axswing_count:1'
+        - NUMBER_STORAGE:ADD:axswing_count:1
       end:
         type: AUTO
         chance: 100
         cooldown: 0
         effect-now: true
         conditions:
-        - 'NUMBER_STORAGE:axswing_enable:=:1'
-        - 'NUMBER_STORAGE:axswing_count:>:40'
+        - EQUIP_SLOT:MAINHAND
+        - NUMBER_STORAGE:axswing_enable:=:1
+        - NUMBER_STORAGE:axswing_count:>:80
         effects:
-        - 'NUMBER_STORAGE:SET:axswing_enable:0'
-    2:
+        - NUMBER_STORAGE:SET:axswing_enable:0
+    '2':
       attack:
         type: ATTACK
         chance: 25
         cooldown: 10000
         conditions:
-        - ''
+        - EQUIP_SLOT:MAINHAND
         effects:
-        - 'NUMBER_STORAGE:SET:axswing_enable:1'
-        - 'NUMBER_STORAGE:SET:axswing_count:1'
+        - NUMBER_STORAGE:SET:axswing_enable:1
+        - NUMBER_STORAGE:SET:axswing_count:1
       auto:
         type: AUTO
         chance: 100
         cooldown: 0
         effect-now: true
         conditions:
-        - 'NUMBER_STORAGE:axswing_enable:=:1'
-        - 'NUMBER_STORAGE:axswing_count:<=:40'
-        - 'NUMBER_STORAGE:axswing_count%4:=:0'
+        - EQUIP_SLOT:MAINHAND
+        - NUMBER_STORAGE:axswing_enable:=:1
+        - NUMBER_STORAGE:axswing_count:<=:80
+        - NUMBER_STORAGE:axswing_count%4:=:0
         target-filter:
           except-player: true
           except-enemy: false
           min-distance: 0
           max-distance: 3
         target-conditions:
-        - 'CAN_ATTACK'
+        - CAN_ATTACK
         target-effects:
-        - 'TARGET=ENEMY | DEAL_DAMAGE:1+%player_value%*2/100:true:true:true:true:true'
+        - TARGET=ENEMY | DEAL_DAMAGE:1+%player_value%*2/100:true:true:true:true:true
       increment:
         type: AUTO
         chance: 100
         cooldown: 0
         effect-now: true
         conditions:
-        - 'NUMBER_STORAGE:axswing_enable:=:1'
+        - EQUIP_SLOT:MAINHAND
+        - NUMBER_STORAGE:axswing_enable:=:1
         effects:
-        - 'NUMBER_STORAGE:ADD:axswing_count:1'
+        - NUMBER_STORAGE:ADD:axswing_count:1
       end:
         type: AUTO
         chance: 100
         cooldown: 0
         effect-now: true
         conditions:
-        - 'NUMBER_STORAGE:axswing_enable:=:1'
-        - 'NUMBER_STORAGE:axswing_count:>:40'
+        - EQUIP_SLOT:MAINHAND
+        - NUMBER_STORAGE:axswing_enable:=:1
+        - NUMBER_STORAGE:axswing_count:>:80
         effects:
-        - 'NUMBER_STORAGE:SET:axswing_enable:0'
-    3:
+        - NUMBER_STORAGE:SET:axswing_enable:0
+    '3':
       attack:
         type: ATTACK
-        chance: 25
+        chance: 100
         cooldown: 10000
         conditions:
-        - ''
+        - EQUIP_SLOT:MAINHAND
         effects:
-        - 'NUMBER_STORAGE:SET:axswing_enable:1'
-        - 'NUMBER_STORAGE:SET:axswing_count:1'
+        - NUMBER_STORAGE:SET:axswing_enable:1
+        - NUMBER_STORAGE:SET:axswing_count:1
       auto:
         type: AUTO
         chance: 100
         cooldown: 0
         effect-now: true
         conditions:
-        - 'NUMBER_STORAGE:axswing_enable:=:1'
-        - 'NUMBER_STORAGE:axswing_count:<=:40'
-        - 'NUMBER_STORAGE:axswing_count%4:=:0'
+        - EQUIP_SLOT:MAINHAND
+        - NUMBER_STORAGE:axswing_enable:=:1
+        - NUMBER_STORAGE:axswing_count:<=:80
+        - NUMBER_STORAGE:axswing_count%4:=:0
         target-filter:
           except-player: true
           except-enemy: false
           min-distance: 0
           max-distance: 3
         target-conditions:
-        - 'CAN_ATTACK'
+        - CAN_ATTACK
         target-effects:
-        - 'TARGET=ENEMY | DEAL_DAMAGE:1+%player_value%*3/100:true:true:true:true:true'
+        - TARGET=ENEMY | DEAL_DAMAGE:1+%player_value%*3/100:true:true:true:true:true
       increment:
         type: AUTO
         chance: 100
         cooldown: 0
         effect-now: true
         conditions:
-        - 'NUMBER_STORAGE:axswing_enable:=:1'
+        - EQUIP_SLOT:MAINHAND
+        - NUMBER_STORAGE:axswing_enable:=:1
         effects:
-        - 'NUMBER_STORAGE:ADD:axswing_count:1'
+        - NUMBER_STORAGE:ADD:axswing_count:1
       end:
         type: AUTO
         chance: 100
         cooldown: 0
         effect-now: true
         conditions:
-        - 'NUMBER_STORAGE:axswing_enable:=:1'
-        - 'NUMBER_STORAGE:axswing_count:>:40'
+        - EQUIP_SLOT:MAINHAND
+        - NUMBER_STORAGE:axswing_enable:=:1
+        - NUMBER_STORAGE:axswing_count:>:80
         effects:
-        - 'NUMBER_STORAGE:SET:axswing_enable:0'
+        - NUMBER_STORAGE:SET:axswing_enable:0
 pulverize:
-  group: 'supreme'
-  display: 'Pulverize'
+  group: supreme
+  display: Pulverize
   description:
   - '&eCó tỉ lệ gây thêm sát thương cho kẻ địch'
   - '&evà các kẻ địch lân cận khi tấn công'
+  detail-description:
+  - '&eCó tỉ lệ gây thêm sát thương cho kẻ địch'
+  - '&evà các kẻ địch lân cận khi tấn công'
+  - ''
+  - '&eSát thương: +3 ATK x cấp'
+  - '&eSát thương lan: 2 x cấp'
+  - '&eBán kính: 3m'
+  - '&eTỉ lệ kích hoạt: 25%'
+  - '&eThời gian hồi: 5s'
   applies-description:
   - Rìu
   applies:
@@ -1796,98 +1995,98 @@ pulverize:
   enchant-point: 1
   valuable: 0
   levels:
-    1:
+    '1':
       attack:
         type: ATTACK
         chance: 25
-        cooldown: 4000
+        cooldown: 5000
         conditions:
-        - 'EQUIP_SLOT:MAINHAND'
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         options:
-        - 'ATTACK:3:0'
+        - ATTACK:3:0
         target-filter:
           except-player: true
           except-enemy: false
           min-distance: 0
           max-distance: 3
         target-conditions:
-        - 'CAN_ATTACK'
+        - CAN_ATTACK
         target-effects:
-        - 'TARGET=ENEMY | DEAL_DAMAGE:2:true:true:true:true:true'
-    2:
+        - TARGET=ENEMY | DEAL_DAMAGE:2:true:true:true:true:true
+    '2':
       attack:
         type: ATTACK
         chance: 25
-        cooldown: 4000
+        cooldown: 5000
         conditions:
-        - 'EQUIP_SLOT:MAINHAND'
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         options:
-        - 'ATTACK:6:0'
+        - ATTACK:6:0
         target-filter:
           except-player: true
           except-enemy: false
           min-distance: 0
           max-distance: 3
         target-conditions:
-        - 'CAN_ATTACK'
+        - CAN_ATTACK
         target-effects:
-        - 'TARGET=ENEMY | DEAL_DAMAGE:4:true:true:true:true:true'
-    3:
+        - TARGET=ENEMY | DEAL_DAMAGE:4:true:true:true:true:true
+    '3':
       attack:
         type: ATTACK
         chance: 25
-        cooldown: 4000
+        cooldown: 5000
         conditions:
-        - 'EQUIP_SLOT:MAINHAND'
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         options:
-        - 'ATTACK:9:0'
+        - ATTACK:9:0
         target-filter:
           except-player: true
           except-enemy: false
           min-distance: 0
           max-distance: 3
         target-conditions:
-        - 'CAN_ATTACK'
+        - CAN_ATTACK
         target-effects:
-        - 'TARGET=ENEMY | DEAL_DAMAGE:6:true:true:true:true:true'
-    4:
+        - TARGET=ENEMY | DEAL_DAMAGE:6:true:true:true:true:true
+    '4':
       attack:
         type: ATTACK
         chance: 25
-        cooldown: 4000
+        cooldown: 5000
         conditions:
-        - 'EQUIP_SLOT:MAINHAND'
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         options:
-        - 'ATTACK:12:0'
+        - ATTACK:12:0
         target-filter:
           except-player: true
           except-enemy: false
           min-distance: 0
           max-distance: 3
         target-conditions:
-        - 'CAN_ATTACK'
+        - CAN_ATTACK
         target-effects:
-        - 'TARGET=ENEMY | DEAL_DAMAGE:8:true:true:true:true:true'
-    5:
+        - TARGET=ENEMY | DEAL_DAMAGE:8:true:true:true:true:true
+    '5':
       attack:
         type: ATTACK
         chance: 25
-        cooldown: 4000
+        cooldown: 5000
         conditions:
-        - 'EQUIP_SLOT:MAINHAND'
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         options:
-        - 'ATTACK:15:0'
+        - ATTACK:15:0
         target-filter:
           except-player: true
           except-enemy: false
           min-distance: 0
           max-distance: 3
         target-conditions:
-        - 'CAN_ATTACK'
+        - CAN_ATTACK
         target-effects:
-        - 'TARGET=ENEMY | DEAL_DAMAGE:10:true:true:true:true:true'
+        - TARGET=ENEMY | DEAL_DAMAGE:10:true:true:true:true:true

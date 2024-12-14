@@ -14,7 +14,7 @@ import com.bafmc.custommenu.menu.CMenuView;
 import lombok.Getter;
 import lombok.Setter;
 import com.bafmc.customenchantment.api.CEAPI;
-import com.bafmc.customenchantment.enchant.CESimple;
+import com.bafmc.customenchantment.enchant.CEEnchantSimple;
 import com.bafmc.customenchantment.menu.data.BookData;
 import com.bafmc.customenchantment.menu.data.BookUpgradeAddReason;
 import com.bafmc.customenchantment.menu.data.BookUpgradeConfirmReason;
@@ -31,7 +31,7 @@ import java.util.List;
 import java.util.Map;
 
 public class BookUpgradeMenu extends MenuAbstract {
-    public static final String MENU_NAME = "bookupgrade";
+    public static final String MENU_NAME = "book-upgrade";
     public static final String BOOK_UPGRADE_ITEM = "book-upgrade";
     public static final String BOOK_RESULT_ITEM = "book-result";
     public static final String REMIND_ITEM = "remind";
@@ -53,55 +53,55 @@ public class BookUpgradeMenu extends MenuAbstract {
         super(menuView, player);
     }
 
-    public BookUpgradeAddReason addBook(ItemStack clickedItem, CESimple ceSimple) {
+    public BookUpgradeAddReason addBook(ItemStack clickedItem, CEEnchantSimple ceEnchantSimple) {
         if (hasMainBook()) {
             if (readyToUpgrade) {
                 return BookUpgradeAddReason.NOTHING;
             }else {
-                RandomRangeInt newXpIngredients = settings.getXp(ceSimple);
+                RandomRangeInt newXpIngredients = settings.getXp(ceEnchantSimple);
 
                 if (newXpIngredients == null) {
                     return BookUpgradeAddReason.NOT_XP_BOOK;
                 }
 
-                if (!ceSimple.getName().equals(mainBook.getCESimple().getName())) {
+                if (!ceEnchantSimple.getName().equals(mainBook.getCESimple().getName())) {
                     BookUpgradeData thisBookUpgradeData = getBookUpgradeData();
-                    if (!thisBookUpgradeData.getXpEnchantWhitelist().contains(ceSimple.getName())) {
+                    if (!thisBookUpgradeData.getXpEnchantWhitelist().contains(ceEnchantSimple.getName())) {
                         return BookUpgradeAddReason.DIFFERENT_ENCHANT;
                     }
                 }
 
-                addBookIngredient(clickedItem, ceSimple);
+                addBookIngredient(clickedItem, ceEnchantSimple);
                 updateMenu();
                 return BookUpgradeAddReason.SUCCESS;
             }
         }
 
-        BookUpgradeData bookUpgradeData = settings.getBookUpgradeData(ceSimple.getName(), ceSimple.getLevel());
+        BookUpgradeData bookUpgradeData = settings.getBookUpgradeData(ceEnchantSimple.getName(), ceEnchantSimple.getLevel());
         if (bookUpgradeData == null) {
             return BookUpgradeAddReason.NOT_UPGRADE_BOOK;
         }
 
-        if (ceSimple.getSuccess().getValue() != 100 || ceSimple.getDestroy().getValue() != 0) {
+        if (ceEnchantSimple.getSuccess().getValue() != 100 || ceEnchantSimple.getDestroy().getValue() != 0) {
             return BookUpgradeAddReason.NOT_PERFECT_BOOK;
         }
 
-        setMainBook(clickedItem, ceSimple);
+        setMainBook(clickedItem, ceEnchantSimple);
         updateMenu();
         return BookUpgradeAddReason.SUCCESS;
     }
 
     public BookUpgradeConfirmReason confirmUpgrade() {
         if (hasMainBook() && hasBookIngredients() && !readyToUpgrade) {
-            CESimple ceSimple = mainBook.getCESimple();
+            CEEnchantSimple ceEnchantSimple = mainBook.getCESimple();
             BookUpgradeData bookUpgradeData = getBookUpgradeData();
 
-            int newXp = Math.min(ceSimple.getXp() + randomXp.getValue(), bookUpgradeData.getRequiredXp());
-            ceSimple.setXp(newXp);
+            int newXp = Math.min(ceEnchantSimple.getXp() + randomXp.getValue(), bookUpgradeData.getRequiredXp());
+            ceEnchantSimple.setXp(newXp);
 
-            ItemStack itemStack = CEAPI.getCEBookItemStack(ceSimple);
+            ItemStack itemStack = CEAPI.getCEBookItemStack(ceEnchantSimple);
 
-            this.mainBook = new BookData(itemStack, ceSimple);
+            this.mainBook = new BookData(itemStack, ceEnchantSimple);
             this.clearBookIngredients();
             this.resetXp();
             this.updateMenu();
@@ -245,10 +245,10 @@ public class BookUpgradeMenu extends MenuAbstract {
     }
 
     public void processMainBook() {
-        CESimple ceSimple = mainBook.getCESimple();
-        BookUpgradeData bookUpgradeData = settings.getBookUpgradeData(ceSimple.getName(), ceSimple.getLevel());
+        CEEnchantSimple ceEnchantSimple = mainBook.getCESimple();
+        BookUpgradeData bookUpgradeData = settings.getBookUpgradeData(ceEnchantSimple.getName(), ceEnchantSimple.getLevel());
 
-        int currentMainBookXp = ceSimple.getXp();
+        int currentMainBookXp = ceEnchantSimple.getXp();
         int requiredMainBookXp = bookUpgradeData.getRequiredXp();
 
         readyToUpgrade = currentMainBookXp >= requiredMainBookXp;
@@ -268,8 +268,8 @@ public class BookUpgradeMenu extends MenuAbstract {
                 }
             }
 
-            ItemStack itemStack = CEAPI.getCEBookItemStack(upgradePreview, ceSimple);
-            ItemStackUtils.setItemStack(itemStack, getPreviewBookPlaceholder(ceSimple));
+            ItemStack itemStack = CEAPI.getCEBookItemStack(upgradePreview, ceEnchantSimple);
+            ItemStackUtils.setItemStack(itemStack, getPreviewBookPlaceholder(ceEnchantSimple));
             this.updateSlots(BOOK_RESULT_ITEM, itemStack);
             this.updateSlots(REMIND_ITEM, getItemStack(player, REMIND_XP_ITEM));
         }
@@ -291,7 +291,7 @@ public class BookUpgradeMenu extends MenuAbstract {
         this.updateSlots(REMIND_ITEM, itemStack);
     }
 
-    public Map<String, String> getPreviewBookPlaceholder(CESimple ceSimple) {
+    public Map<String, String> getPreviewBookPlaceholder(CEEnchantSimple ceEnchantSimple) {
         Map<String, String> placeholder = new LinkedHashMap<>();
 
         if (hasBookIngredients()) {
@@ -345,10 +345,10 @@ public class BookUpgradeMenu extends MenuAbstract {
         return builder.toString();
     }
 
-    public void addBookIngredient(ItemStack clickedItem, CESimple ceSimple) {
-        bookIngredients.add(new BookData(clickedItem, ceSimple));
+    public void addBookIngredient(ItemStack clickedItem, CEEnchantSimple ceEnchantSimple) {
+        bookIngredients.add(new BookData(clickedItem, ceEnchantSimple));
 
-        RandomRangeInt newXpIngredients = settings.getXp(ceSimple);
+        RandomRangeInt newXpIngredients = settings.getXp(ceEnchantSimple);
         this.randomXp = new RandomRangeInt(newXpIngredients.getMin() + this.randomXp.getMin(), newXpIngredients.getMax() + this.randomXp.getMax());
     }
 
@@ -357,8 +357,8 @@ public class BookUpgradeMenu extends MenuAbstract {
         updateMenu();
     }
 
-    public void setMainBook(ItemStack itemStack, CESimple ceSimple) {
-        this.mainBook = new BookData(itemStack, ceSimple);
+    public void setMainBook(ItemStack itemStack, CEEnchantSimple ceEnchantSimple) {
+        this.mainBook = new BookData(itemStack, ceEnchantSimple);
     }
 
     public boolean hasMainBook() {

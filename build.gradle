@@ -53,6 +53,7 @@ dependencies {
 
     testImplementation 'cn.dreeam.leaf:leaf-api:1.21.1-R0.1-SNAPSHOT'
     testImplementation 'cn.dreeam.leaf:leaf:1.21.1-R0.1-SNAPSHOT'
+    testImplementation 'com.bafmc:BafFramework:1.0.0'
     testCompileOnly 'org.projectlombok:lombok:1.18.34'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.34'
 

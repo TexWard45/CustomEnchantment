@@ -28,7 +28,7 @@ public class ConditionHold extends ConditionHook {
 		}
 		
 		ItemStack item = player.getPlayer().getItemInHand();
-		
+
 		return list.contains(new MaterialData(item));
 	}
 

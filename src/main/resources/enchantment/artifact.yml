@@ -1,0 +1,42 @@
+critclaws:
+  group: artifact
+  display: "&cCrown of destruction"
+  description:
+    - "&fVương miện của kẻ hủy diệt, gieo rắc sự diệt vong cho kẻ thù"
+    - "&fTăng cường sức mạnh chiến đấu và khả năng phục hồi"
+  detail-description:
+    - "&fVương miện của kẻ hủy diệt, gieo rắc sự diệt vong cho kẻ thù"
+    - "&fTăng cường sức mạnh chiến đấu và khả năng phục hồi"
+  applies-description:
+    - "Thanh công cụ"
+  max-level: 1
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: HOTBAR_HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:HOTBAR"
+        effects:
+          - ADD_FOREVER_POTION:feather_jump:JUMP:0
+          - ADD_CUSTOM_ATTRIBUTE:critclaws:HEALTH_REGENERATION:2:0
+      unequip:
+        type: HOTBAR_CHANGE
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:HOTBAR"
+        effects:
+          - REMOVE_FOREVER_POTION:feather_jump
+          - REMOVE_CUSTOM_ATTRIBUTE:critclaws
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:HOTBAR"
+        effects:
+          - "MESSAGE:ATTACK"

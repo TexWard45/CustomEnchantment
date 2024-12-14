@@ -52,9 +52,15 @@ public class EffectNumberStorage extends EffectHook {
 		key = CEPlaceholder.setPlaceholder(key, CEPlaceholder.getCEFunctionDataPlaceholder(key, data));
 
 		if (!isRemove()) {
-			Map<String, String> placeholder = CEPlaceholder.getCEFunctionDataPlaceholder(value, data);
-			placeholder.putAll(CEPlaceholder.getTemporaryStoragePlaceholder(cePlayer.getTemporaryStorage()));
-			value = CEPlaceholder.setPlaceholder(value, placeholder);
+			Map<String, String> temporaryPlaceholder = CEPlaceholder.getTemporaryStoragePlaceholder(cePlayer.getTemporaryStorage());
+
+			if (temporaryPlaceholder.containsKey(value)) {
+				value = temporaryPlaceholder.get(value);
+			}else {
+				Map<String, String> placeholder = CEPlaceholder.getCEFunctionDataPlaceholder(value, data);
+				placeholder.putAll(temporaryPlaceholder);
+				value = CEPlaceholder.setPlaceholder(value, placeholder);
+			}
 		}
 
 		double number = MathUtils.evalDouble(value);

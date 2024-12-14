@@ -17,7 +17,7 @@ public class CEGroupConfig extends AbstractConfig {
 
 		for (String key : groupKeys) {
 			CEGroup ceGroup = loadCEGroup(key, config.getAdvancedConfigurationSection(key));
-			CustomEnchantment.instance().getCEGroupMap().put(ceGroup.getName(), ceGroup);
+			CustomEnchantment.instance().getCeGroupMap().put(ceGroup.getName(), ceGroup);
 		}
 	}
 

@@ -14,7 +14,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import com.bafmc.customenchantment.item.ApplyReason;
 import com.bafmc.customenchantment.item.ApplyResult;
-import com.bafmc.customenchantment.item.CEEraseEnchant;
+import com.bafmc.customenchantment.item.eraseenchant.CEEraseEnchant;
 import com.bafmc.customenchantment.item.CEItem;
 import com.bafmc.customenchantment.item.CEWeapon;
 import com.bafmc.customenchantment.menu.CEAnvilMenu;

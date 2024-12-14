@@ -47,10 +47,9 @@ public class RangeAttribute extends NMSAttribute implements Cloneable {
 	}
 
 	public RangeAttribute clone() {
-		try {
-			return (RangeAttribute) super.clone();
-		} catch (CloneNotSupportedException e) {
-			return new RangeAttribute(getAttributeType(), amount, getOperation());
-		}
+		RangeAttribute rangeAttribute = (RangeAttribute) super.clone();
+		rangeAttribute.amount = amount.clone();
+		rangeAttribute.chance = chance.clone();
+		return rangeAttribute;
 	}
 }

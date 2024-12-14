@@ -12,7 +12,7 @@ public class CEPlayerExpansionRegister {
 			try {
 				Constructor<?> constructor = clazz.getConstructor(CEPlayer.class);
 				CEPlayerExpansion expansion = (CEPlayerExpansion) constructor.newInstance(cePlayer);
-				cePlayer.addExpantion(expansion);
+				cePlayer.addExpansion(expansion);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

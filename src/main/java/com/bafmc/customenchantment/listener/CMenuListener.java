@@ -15,10 +15,10 @@ import org.bukkit.inventory.ItemStack;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.CustomEnchantmentMessage;
 import com.bafmc.customenchantment.api.CEAPI;
-import com.bafmc.customenchantment.item.CEBook;
+import com.bafmc.customenchantment.item.book.CEBook;
 import com.bafmc.customenchantment.item.CEItem;
-import com.bafmc.customenchantment.menu.BookcraftMenu.BookAddReason;
-import com.bafmc.customenchantment.menu.BookcraftMenu.BookcraftConfirmReason;
+import com.bafmc.customenchantment.menu.BookCraftMenu.BookAddReason;
+import com.bafmc.customenchantment.menu.BookCraftMenu.BookcraftConfirmReason;
 import com.bafmc.customenchantment.menu.CEAnvilMenu.CEAnvilAddReason;
 import com.bafmc.customenchantment.menu.TinkererMenu.TinkererAddReason;
 import com.bafmc.customenchantment.menu.TinkererMenu.TinkererConfirmReason;
@@ -43,8 +43,8 @@ public class CMenuListener implements Listener {
 	public void onMenuOpen(CustomMenuOpenEvent e) {
 		String name = e.getCMenu().getName();
 
-		if (name.equals(BookcraftMenu.MENU_NAME)) {
-			BookcraftMenu.putBookCraftMenu(e.getCPlayer().getPlayer(), e.getCMenuView());
+		if (name.equals(BookCraftMenu.MENU_NAME)) {
+			BookCraftMenu.putBookCraftMenu(e.getCPlayer().getPlayer(), e.getCMenuView());
 		} else if (name.equals(TinkererMenu.MENU_NAME)) {
 			TinkererMenu.putTinkererMenu(e.getCPlayer().getPlayer(), e.getCMenuView());
 		} else if (name.equals(CEAnvilMenu.MENU_NAME)) {
@@ -58,8 +58,8 @@ public class CMenuListener implements Listener {
 	public void onMenuClose(CustomMenuCloseEvent e) {
 		String name = e.getCMenu().getName();
 
-		if (name.equals(BookcraftMenu.MENU_NAME)) {
-			BookcraftMenu.removeBookCraftMenu(e.getCPlayer().getPlayer()).returnItems();
+		if (name.equals(BookCraftMenu.MENU_NAME)) {
+			BookCraftMenu.removeBookCraftMenu(e.getCPlayer().getPlayer()).returnItems();
 		} else if (name.equals(TinkererMenu.MENU_NAME)) {
 			TinkererMenu.removeTinkererMenu(e.getCPlayer().getPlayer()).returnItems();
 		} else if (name.equals(CEAnvilMenu.MENU_NAME)) {
@@ -80,7 +80,7 @@ public class CMenuListener implements Listener {
 		}
 
 		CMenuView cMenuView = cPlayer.getOpenCustomMenu();
-		if (cMenuView.getCMenu().getName().equals(BookcraftMenu.MENU_NAME)) {
+		if (cMenuView.getCMenu().getName().equals(BookCraftMenu.MENU_NAME)) {
 			onBookCraftItemClick(e);
 		} else if (cMenuView.getCMenu().getName().equals(TinkererMenu.MENU_NAME)) {
 			onTinkererItemClick(e);
@@ -128,7 +128,7 @@ public class CMenuListener implements Listener {
 			return;
 		}
 
-		BookcraftMenu bookCraftMenu = BookcraftMenu.getBookCraftMenu(player);
+		BookCraftMenu bookCraftMenu = BookCraftMenu.getBookCraftMenu(player);
 		BookAddReason reason = bookCraftMenu.addBook(clickedItem, ((CEBook) ceItem).getData().getCESimple());
 
 		if (reason == BookAddReason.SUCCESS) {
@@ -190,7 +190,7 @@ public class CMenuListener implements Listener {
 
 	@EventHandler
 	public void onMenuClick(CustomMenuClickEvent e) {
-		if (e.getCMenu().getName().equals(BookcraftMenu.MENU_NAME)) {
+		if (e.getCMenu().getName().equals(BookCraftMenu.MENU_NAME)) {
 			onBookCraftCustomItemClick(e);
 		} else if (e.getCMenu().getName().equals(TinkererMenu.MENU_NAME)) {
 			onTinkererCustomItemClick(e);
@@ -222,7 +222,7 @@ public class CMenuListener implements Listener {
 		Player player = e.getCPlayer().getPlayer();
 		String name = e.getClickedCItem().getName();
 
-		BookcraftMenu bookCraftMenu = BookcraftMenu.getBookCraftMenu(player);
+		BookCraftMenu bookCraftMenu = BookCraftMenu.getBookCraftMenu(player);
 		if (name.equals("book1") || name.equals("book2")) {
 			bookCraftMenu.returnBook(e.getClickedCItem().getName());
 		} else if (name.equals("remind")) {

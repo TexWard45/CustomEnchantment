@@ -18,8 +18,10 @@ import com.bafmc.customenchantment.item.CEWeaponAbstract;
 import com.bafmc.customenchantment.player.*;
 import com.bafmc.customenchantment.player.PlayerAbility.Type;
 import com.bafmc.customenchantment.task.ArrowTask;
+import com.bafmc.customenchantment.utils.DamageUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -45,7 +47,7 @@ public class EntityListener implements Listener {
 
 	public EntityListener(CustomEnchantment plugin) {
 		this.plugin = plugin;
-		this.guardManager = plugin.getGuardManager();
+		this.guardManager = plugin.getGuardModule().getGuardManager();
 
 		Bukkit.getPluginManager().registerEvents(this, plugin);
 	}
@@ -261,7 +263,9 @@ public class EntityListener implements Listener {
 		currentDamage = onArrowPlayerVsPlayer(attacker, defenser, currentDamage, e);
 		currentDamage = onArrowPlayerVsMob(attacker, defenser, currentDamage, e);
 
-		if (currentDamage != defaultDamage)
+		boolean handleArmorPenetration = handleArmorPenetration(attacker, defenser, e);
+
+		if (currentDamage != defaultDamage || handleArmorPenetration)
 			e.setDamage(currentDamage);
 
 		double finalDamage = e.getFinalDamage();
@@ -370,6 +374,8 @@ public class EntityListener implements Listener {
 		}
 
 		Player pAttacker = (Player) attacker;
+		CEPlayer cePlayer = CEAPI.getCEPlayer(pAttacker);
+		cePlayer.getTemporaryStorage().set(TemporaryKey.LAST_COMBAT_TIME, System.currentTimeMillis());
 		LivingEntity eDefenser = (LivingEntity) defenser;
 
 		CEFunctionData data = new CEFunctionData(pAttacker);
@@ -383,7 +389,7 @@ public class EntityListener implements Listener {
 				.setCEFunctionData(data)
 				.call();
 
-		damage = AttributeCalculate.calculate(CEAPI.getCEPlayer(pAttacker), CustomAttributeType.OPTION_ATTACK, damage,
+		damage = AttributeCalculate.calculate(cePlayer, CustomAttributeType.OPTION_ATTACK, damage,
 				result.getOptionDataList());
 		damage = handleCritical(attacker, damage);
 
@@ -398,7 +404,7 @@ public class EntityListener implements Listener {
 				.setCEFunctionData(data)
 				.call();
 
-		return AttributeCalculate.calculate(CEAPI.getCEPlayer(pAttacker), CustomAttributeType.OPTION_ATTACK, damage,
+		return AttributeCalculate.calculate(cePlayer, CustomAttributeType.OPTION_ATTACK, damage,
 				result.getOptionDataList());
 	}
 
@@ -409,6 +415,8 @@ public class EntityListener implements Listener {
 
 		LivingEntity eAttacker = (LivingEntity) attacker;
 		Player pDefenser = (Player) defenser;
+		CEPlayer cePlayer = CEAPI.getCEPlayer(pDefenser);
+		cePlayer.getTemporaryStorage().set(TemporaryKey.LAST_COMBAT_TIME, System.currentTimeMillis());
 
 		CEFunctionData data = new CEFunctionData(pDefenser);
 		data.setEnemyLivingEntity(eAttacker);
@@ -421,7 +429,7 @@ public class EntityListener implements Listener {
 				.setCEFunctionData(data)
 				.call();
 		
-		damage = AttributeCalculate.calculate(CEAPI.getCEPlayer(pDefenser), CustomAttributeType.OPTION_DEFENSE, damage,
+		damage = AttributeCalculate.calculate(cePlayer, CustomAttributeType.OPTION_DEFENSE, damage,
 				result.getOptionDataList());
 		return handleDamageReduction(defenser, damage);
 	}
@@ -433,6 +441,10 @@ public class EntityListener implements Listener {
 
 		Player pAttacker = (Player) attacker;
 		Player pDefenser = (Player) defenser;
+		CEPlayer cePlayerAttacker = CEAPI.getCEPlayer(pAttacker);
+		CEPlayer cePlayerDefenser = CEAPI.getCEPlayer(pDefenser);
+		cePlayerAttacker.getTemporaryStorage().set(TemporaryKey.LAST_COMBAT_TIME, System.currentTimeMillis());
+		cePlayerDefenser.getTemporaryStorage().set(TemporaryKey.LAST_COMBAT_TIME, System.currentTimeMillis());
 
 		CEFunctionData pData = new CEFunctionData(pAttacker);
 		pData.setEnemyPlayer(pDefenser);
@@ -490,6 +502,10 @@ public class EntityListener implements Listener {
 
 		Player pAttacker = (Player) ((Arrow) attacker).getShooter();
 		Player pDefenser = (Player) defenser;
+		CEPlayer cePlayerAttacker = CEAPI.getCEPlayer(pAttacker);
+		CEPlayer cePlayerDefenser = CEAPI.getCEPlayer(pDefenser);
+		cePlayerAttacker.getTemporaryStorage().set(TemporaryKey.LAST_COMBAT_TIME, System.currentTimeMillis());
+		cePlayerDefenser.getTemporaryStorage().set(TemporaryKey.LAST_COMBAT_TIME, System.currentTimeMillis());
 
         boolean isFakeArrow = !mainArrowShootList.contains(attacker.getUniqueId().toString());
 
@@ -548,6 +564,8 @@ public class EntityListener implements Listener {
 		}
 
 		Player pAttacker = (Player) ((Arrow) attacker).getShooter();
+		CEPlayer cePlayer = CEAPI.getCEPlayer(pAttacker);
+		cePlayer.getTemporaryStorage().set(TemporaryKey.LAST_COMBAT_TIME, System.currentTimeMillis());
 		LivingEntity eDefenser = (LivingEntity) defenser;
 
 		CEFunctionData data = new CEFunctionData(pAttacker);
@@ -656,5 +674,27 @@ public class EntityListener implements Listener {
 		}
 
 		player.setHealth(Math.max(Math.min(event.getCurrentValue(), player.getMaxHealth()), 0));
+	}
+
+	public boolean handleArmorPenetration(Entity attacker, Entity defenser, EntityDamageByEntityEvent e) {
+		if (!(attacker instanceof LivingEntity) || !(defenser instanceof LivingEntity)) {
+			return false;
+		}
+
+		if (!(attacker instanceof Player)) {
+			return false;
+		}
+
+		CEPlayer cePlayer = CEAPI.getCEPlayer((Player) attacker);
+		PlayerCustomAttribute attribute = cePlayer.getCustomAttribute();
+
+		int armorPenetration = (int) attribute.getValue(CustomAttributeType.ARMOR_PENETRATION);
+		if (armorPenetration <= 0) {
+			return false;
+		}
+		System.out.println("Armor Penetration: " + armorPenetration);
+
+		e.setOverriddenFunction(EntityDamageEvent.DamageModifier.ARMOR, DamageUtils.getDamageAfterAbsorbFunction((LivingEntity) defenser, (float) e.getDamage(), e.getDamageSource(), 100));
+		return true;
 	}
 }

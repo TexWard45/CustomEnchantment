@@ -11,10 +11,10 @@ weapon-settings:
         0: ""
     gem:
       default-point:
-        ALL_SWORD: 5
-        ALL_AXE: 5
-        ALL_BOW: 5
-        ALL_ARMOR: 3
+        ALL_SWORD: 0
+        ALL_AXE: 0
+        ALL_BOW: 0
+        ALL_ARMOR: 0
     protect-destroy:
       extra-lore:
         -1: "&a▣ Bảo vệ không bị phá hủy &2(&a%amount%&2)"
@@ -65,6 +65,7 @@ weapon-settings:
         LUCK: "&a+ %amount% May mắn"
         FOLLOW_RANGE: "&f+ %amount% Phạm vi đi theo của sinh vật"
         DODGE_CHANCE: "&b+ %amount% Né đòn"
+        PLAYER_ENTITY_INTERACTION_RANGE: "&b+ %amount% Phạm vi tương tác thực thể"
   default-unknown-enchant:
     template: default
     custom-enchant:
@@ -353,43 +354,19 @@ remove-enchant-point:
         - "&elại ngọc"
         - ""
         - "&7&oSử dụng tại /ceanvil"
-    list:
-      1:
-        enchant-point-type: weapon3
-        applies:
-          - "ALL_SWORD"
-          - "ALL_AXE"
-          - "BOW"
-        extra-point-required: 5
-      2:
-        enchant-point-type: weapon2
-        applies:
-          - "ALL_SWORD"
-          - "ALL_AXE"
-          - "BOW"
-        extra-point-required: 3
-      3:
-        enchant-point-type: weapon1
-        applies:
-          - "ALL_SWORD"
-          - "ALL_AXE"
-          - "BOW"
-        extra-point-required: 1
-      4:
-        enchant-point-type: armor3
-        applies:
-          - "ALL_ARMOR"
-        extra-point-required: 5
-      5:
-        enchant-point-type: armor2
-        applies:
-          - "ALL_ARMOR"
-        extra-point-required: 3
-      6:
-        enchant-point-type: armor1
-        applies:
-          - "ALL_ARMOR"
-        extra-point-required: 1
+remove-gem:
+  default:
+    item:
+      type: PAPER
+      glowing: true
+      display: "&d&lGiấy tách ngọc khảm"
+      lore:
+        - ""
+        - "&eCó tác dụng &dtách ngọc khảm đã ép"
+        - "&etương ứng ra khỏi trang bị và hoàn trả"
+        - "&elại ngọc"
+        - ""
+        - "&7&oSử dụng tại /ceanvil"
 lore-format:
   default:
     item:
@@ -1241,7 +1218,7 @@ weapon:
   knight-helmet:
     item:
       type: NETHERITE_HELMET
-      display: "&f&lMũ &c&lHiệp sĩ"
+      display: "&f&lMũ &c&lHiệp sĩ &#9ca3af&l1 ★"
       lore:
         - "&fThuộc bộ trang bị &cHiệp sĩ"
       enchants:
@@ -1257,7 +1234,7 @@ weapon:
   knight-chestplate:
     item:
       type: NETHERITE_CHESTPLATE
-      display: "&f&lGiáp &c&lHiệp sĩ"
+      display: "&f&lGiáp &c&lHiệp sĩ &#9ca3af&l1 ★"
       lore:
         - "&fThuộc bộ trang bị &cHiệp sĩ"
       enchants:
@@ -1273,7 +1250,7 @@ weapon:
   knight-leggings:
     item:
       type: NETHERITE_LEGGINGS
-      display: "&f&lQuần &c&lHiệp sĩ"
+      display: "&f&lQuần &c&lHiệp sĩ &#9ca3af&l1 ★"
       lore:
         - "&fThuộc bộ trang bị &cHiệp sĩ"
       enchants:
@@ -1289,7 +1266,7 @@ weapon:
   knight-boots:
     item:
       type: NETHERITE_BOOTS
-      display: "&f&lỦng &c&lHiệp sĩ"
+      display: "&f&lỦng &c&lHiệp sĩ &#9ca3af&l1 ★"
       lore:
         - "&fThuộc bộ trang bị &cHiệp sĩ"
       enchants:
@@ -1306,7 +1283,7 @@ weapon:
   knight-sword:
     item:
       type: NETHERITE_SWORD
-      display: "&f&lKiếm &c&lHiệp sĩ"
+      display: "&f&lKiếm &c&lHiệp sĩ &#9ca3af&l1 ★"
       lore:
         - "&fThuộc bộ trang bị &cHiệp sĩ"
       enchants:
@@ -1320,7 +1297,7 @@ weapon:
   knight-helmet2:
     item:
       type: NETHERITE_HELMET
-      display: "&f&lMũ &c&lHiệp sĩ &f&l+1"
+      display: "&f&lMũ &c&lHiệp sĩ &#84cc16&l2 ★"
       lore:
         - "&fThuộc bộ trang bị &cHiệp sĩ"
       enchants:
@@ -1336,7 +1313,7 @@ weapon:
   knight-chestplate2:
     item:
       type: NETHERITE_CHESTPLATE
-      display: "&f&lGiáp &c&lHiệp sĩ &f&l+1"
+      display: "&f&lGiáp &c&lHiệp sĩ &#84cc16&l2 ★"
       lore:
         - "&fThuộc bộ trang bị &cHiệp sĩ"
       enchants:
@@ -1352,7 +1329,7 @@ weapon:
   knight-leggings2:
     item:
       type: NETHERITE_LEGGINGS
-      display: "&f&lQuần &c&lHiệp sĩ &f&l+1"
+      display: "&f&lQuần &c&lHiệp sĩ &#84cc16&l2 ★"
       lore:
         - "&fThuộc bộ trang bị &cHiệp sĩ"
       enchants:
@@ -1368,7 +1345,7 @@ weapon:
   knight-boots2:
     item:
       type: NETHERITE_BOOTS
-      display: "&f&lỦng &c&lHiệp sĩ &f&l+1"
+      display: "&f&lỦng &c&lHiệp sĩ &#84cc16&l2 ★"
       lore:
         - "&fThuộc bộ trang bị &cHiệp sĩ"
       enchants:
@@ -1385,7 +1362,7 @@ weapon:
   knight-sword2:
     item:
       type: NETHERITE_SWORD
-      display: "&f&lKiếm &c&lHiệp sĩ &f&l+1"
+      display: "&f&lKiếm &c&lHiệp sĩ &#84cc16&l2 ★"
       lore:
         - "&fThuộc bộ trang bị &cHiệp sĩ"
       enchants:
@@ -1399,7 +1376,7 @@ weapon:
   knight-helmet3:
     item:
       type: NETHERITE_HELMET
-      display: "&f&lMũ &c&lHiệp sĩ &f&l+2"
+      display: "&f&lMũ &c&lHiệp sĩ &#22c55e&l3 ★"
       lore:
         - "&fThuộc bộ trang bị &cHiệp sĩ"
       enchants:
@@ -1415,7 +1392,7 @@ weapon:
   knight-chestplate3:
     item:
       type: NETHERITE_CHESTPLATE
-      display: "&f&lGiáp &c&lHiệp sĩ &f&l+2"
+      display: "&f&lGiáp &c&lHiệp sĩ &#22c55e&l3 ★"
       lore:
         - "&fThuộc bộ trang bị &cHiệp sĩ"
       enchants:
@@ -1431,7 +1408,7 @@ weapon:
   knight-leggings3:
     item:
       type: NETHERITE_LEGGINGS
-      display: "&f&lQuần &c&lHiệp sĩ &f&l+2"
+      display: "&f&lQuần &c&lHiệp sĩ &#22c55e&l3 ★"
       lore:
         - "&fThuộc bộ trang bị &cHiệp sĩ"
       enchants:
@@ -1447,7 +1424,7 @@ weapon:
   knight-boots3:
     item:
       type: NETHERITE_BOOTS
-      display: "&f&lỦng &c&lHiệp sĩ &f&l+2"
+      display: "&f&lỦng &c&lHiệp sĩ &#22c55e&l3 ★"
       lore:
         - "&fThuộc bộ trang bị &cHiệp sĩ"
       enchants:
@@ -1464,7 +1441,7 @@ weapon:
   knight-sword3:
     item:
       type: NETHERITE_SWORD
-      display: "&f&lKiếm &c&lHiệp sĩ &f&l+2"
+      display: "&f&lKiếm &c&lHiệp sĩ &#22c55e&l3 ★"
       lore:
         - "&fThuộc bộ trang bị &cHiệp sĩ"
       enchants:
@@ -1478,7 +1455,7 @@ weapon:
   knight-helmet4:
     item:
       type: NETHERITE_HELMET
-      display: "&f&lMũ &c&lHiệp sĩ &f&l+3"
+      display: "&f&lMũ &c&lHiệp sĩ &#38bdf8&l4 ★"
       lore:
         - "&fThuộc bộ trang bị &cHiệp sĩ"
       enchants:
@@ -1494,7 +1471,7 @@ weapon:
   knight-chestplate4:
     item:
       type: NETHERITE_CHESTPLATE
-      display: "&f&lGiáp &c&lHiệp sĩ &f&l+3"
+      display: "&f&lGiáp &c&lHiệp sĩ &#38bdf8&l4 ★"
       lore:
         - "&fThuộc bộ trang bị &cHiệp sĩ"
       enchants:
@@ -1510,7 +1487,7 @@ weapon:
   knight-leggings4:
     item:
       type: NETHERITE_LEGGINGS
-      display: "&f&lQuần &c&lHiệp sĩ &f&l+3"
+      display: "&f&lQuần &c&lHiệp sĩ &#38bdf8&l4 ★"
       lore:
         - "&fThuộc bộ trang bị &cHiệp sĩ"
       enchants:
@@ -1526,7 +1503,7 @@ weapon:
   knight-boots4:
     item:
       type: NETHERITE_BOOTS
-      display: "&f&lỦng &c&lHiệp sĩ &f&l+3"
+      display: "&f&lỦng &c&lHiệp sĩ &#38bdf8&l4 ★"
       lore:
         - "&fThuộc bộ trang bị &cHiệp sĩ"
       enchants:
@@ -1543,7 +1520,7 @@ weapon:
   knight-sword4:
     item:
       type: NETHERITE_SWORD
-      display: "&f&lKiếm &c&lHiệp sĩ &f&l+3"
+      display: "&f&lKiếm &c&lHiệp sĩ &#38bdf8&l4 ★"
       lore:
         - "&fThuộc bộ trang bị &cHiệp sĩ"
       enchants:
@@ -1557,7 +1534,7 @@ weapon:
   knight-helmet5:
     item:
       type: NETHERITE_HELMET
-      display: "&f&lMũ &c&lHiệp sĩ &f&l+4"
+      display: "&f&lMũ &c&lHiệp sĩ &#fde047&l5 ★"
       lore:
         - "&fThuộc bộ trang bị &cHiệp sĩ"
       enchants:
@@ -1573,7 +1550,7 @@ weapon:
   knight-chestplate5:
     item:
       type: NETHERITE_CHESTPLATE
-      display: "&f&lGiáp &c&lHiệp sĩ &f&l+4"
+      display: "&f&lGiáp &c&lHiệp sĩ &#fde047&l5 ★"
       lore:
         - "&fThuộc bộ trang bị &cHiệp sĩ"
       enchants:
@@ -1589,7 +1566,7 @@ weapon:
   knight-leggings5:
     item:
       type: NETHERITE_LEGGINGS
-      display: "&f&lQuần &c&lHiệp sĩ &f&l+4"
+      display: "&f&lQuần &c&lHiệp sĩ &#fde047&l5 ★"
       lore:
         - "&fThuộc bộ trang bị &cHiệp sĩ"
       enchants:
@@ -1605,7 +1582,7 @@ weapon:
   knight-boots5:
     item:
       type: NETHERITE_BOOTS
-      display: "&f&lỦng &c&lHiệp sĩ &f&l+4"
+      display: "&f&lỦng &c&lHiệp sĩ &#fde047&l5 ★"
       lore:
         - "&fThuộc bộ trang bị &cHiệp sĩ"
       enchants:
@@ -1622,7 +1599,7 @@ weapon:
   knight-sword5:
     item:
       type: NETHERITE_SWORD
-      display: "&f&lKiếm &c&lHiệp sĩ &f&l+4"
+      display: "&f&lKiếm &c&lHiệp sĩ &#fde047&l5 ★"
       lore:
         - "&fThuộc bộ trang bị &cHiệp sĩ"
       enchants:
@@ -1636,7 +1613,7 @@ weapon:
   fighter-helmet:
     item:
       type: NETHERITE_HELMET
-      display: "&f&lMũ &6&lĐấu sĩ"
+      display: "&f&lMũ &6&lĐấu sĩ &#9ca3af&l1 ★"
       lore:
         - "&fThuộc bộ trang bị &6Đấu sĩ"
       enchants:
@@ -1652,7 +1629,7 @@ weapon:
   fighter-chestplate:
     item:
       type: NETHERITE_CHESTPLATE
-      display: "&f&lGiáp &6&lĐấu sĩ"
+      display: "&f&lGiáp &6&lĐấu sĩ &#9ca3af&l1 ★"
       lore:
         - "&fThuộc bộ trang bị &6Đấu sĩ"
       enchants:
@@ -1668,7 +1645,7 @@ weapon:
   fighter-leggings:
     item:
       type: NETHERITE_LEGGINGS
-      display: "&f&lQuần &6&lĐấu sĩ"
+      display: "&f&lQuần &6&lĐấu sĩ &#9ca3af&l1 ★"
       lore:
         - "&fThuộc bộ trang bị &6Đấu sĩ"
       enchants:
@@ -1684,7 +1661,7 @@ weapon:
   fighter-boots:
     item:
       type: NETHERITE_BOOTS
-      display: "&f&lỦng &6&lĐấu sĩ"
+      display: "&f&lỦng &6&lĐấu sĩ &#9ca3af&l1 ★"
       lore:
         - "&fThuộc bộ trang bị &6Đấu sĩ"
       enchants:
@@ -1700,7 +1677,7 @@ weapon:
   fighter-axe:
     item:
       type: NETHERITE_AXE
-      display: "&f&lRìu &6&lĐấu sĩ"
+      display: "&f&lRìu &6&lĐấu sĩ &#9ca3af&l1 ★"
       lore:
         - "&fThuộc bộ trang bị &6Đấu sĩ"
       enchants:
@@ -1714,7 +1691,7 @@ weapon:
   fighter-helmet2:
     item:
       type: NETHERITE_HELMET
-      display: "&f&lMũ &6&lĐấu sĩ &f&l+1"
+      display: "&f&lMũ &6&lĐấu sĩ &#84cc16&l2 ★"
       lore:
         - "&fThuộc bộ trang bị &6Đấu sĩ"
       enchants:
@@ -1730,7 +1707,7 @@ weapon:
   fighter-chestplate2:
     item:
       type: NETHERITE_CHESTPLATE
-      display: "&f&lGiáp &6&lĐấu sĩ &f&l+1"
+      display: "&f&lGiáp &6&lĐấu sĩ &#84cc16&l2 ★"
       lore:
         - "&fThuộc bộ trang bị &6Đấu sĩ"
       enchants:
@@ -1746,7 +1723,7 @@ weapon:
   fighter-leggings2:
     item:
       type: NETHERITE_LEGGINGS
-      display: "&f&lQuần &6&lĐấu sĩ &f&l+1"
+      display: "&f&lQuần &6&lĐấu sĩ &#84cc16&l2 ★"
       lore:
         - "&fThuộc bộ trang bị &6Đấu sĩ"
       enchants:
@@ -1762,7 +1739,7 @@ weapon:
   fighter-boots2:
     item:
       type: NETHERITE_BOOTS
-      display: "&f&lỦng &6&lĐấu sĩ &f&l+1"
+      display: "&f&lỦng &6&lĐấu sĩ &#84cc16&l2 ★"
       lore:
         - "&fThuộc bộ trang bị &6Đấu sĩ"
       enchants:
@@ -1778,7 +1755,7 @@ weapon:
   fighter-axe2:
     item:
       type: NETHERITE_AXE
-      display: "&f&lRìu &6&lĐấu sĩ &f&l+1"
+      display: "&f&lRìu &6&lĐấu sĩ &#84cc16&l2 ★"
       lore:
         - "&fThuộc bộ trang bị &6Đấu sĩ"
       enchants:
@@ -1792,7 +1769,7 @@ weapon:
   fighter-helmet3:
     item:
       type: NETHERITE_HELMET
-      display: "&f&lMũ &6&lĐấu sĩ &f&l+2"
+      display: "&f&lMũ &6&lĐấu sĩ &#22c55e&l3 ★"
       lore:
         - "&fThuộc bộ trang bị &6Đấu sĩ"
       enchants:
@@ -1808,7 +1785,7 @@ weapon:
   fighter-chestplate3:
     item:
       type: NETHERITE_CHESTPLATE
-      display: "&f&lGiáp &6&lĐấu sĩ &f&l+2"
+      display: "&f&lGiáp &6&lĐấu sĩ &#22c55e&l3 ★"
       lore:
         - "&fThuộc bộ trang bị &6Đấu sĩ"
       enchants:
@@ -1824,7 +1801,7 @@ weapon:
   fighter-leggings3:
     item:
       type: NETHERITE_LEGGINGS
-      display: "&f&lQuần &6&lĐấu sĩ &f&l+2"
+      display: "&f&lQuần &6&lĐấu sĩ &#22c55e&l3 ★"
       lore:
         - "&fThuộc bộ trang bị &6Đấu sĩ"
       enchants:
@@ -1840,7 +1817,7 @@ weapon:
   fighter-boots3:
     item:
       type: NETHERITE_BOOTS
-      display: "&f&lỦng &6&lĐấu sĩ &f&l+2"
+      display: "&f&lỦng &6&lĐấu sĩ &#22c55e&l3 ★"
       lore:
         - "&fThuộc bộ trang bị &6Đấu sĩ"
       enchants:
@@ -1856,7 +1833,7 @@ weapon:
   fighter-axe3:
     item:
       type: NETHERITE_AXE
-      display: "&f&lRìu &6&lĐấu sĩ &f&l+2"
+      display: "&f&lRìu &6&lĐấu sĩ &#22c55e&l3 ★"
       lore:
         - "&fThuộc bộ trang bị &6Đấu sĩ"
       enchants:
@@ -1870,7 +1847,7 @@ weapon:
   fighter-helmet4:
     item:
       type: NETHERITE_HELMET
-      display: "&f&lMũ &6&lĐấu sĩ &f&l+3"
+      display: "&f&lMũ &6&lĐấu sĩ &#38bdf8&l4 ★"
       lore:
         - "&fThuộc bộ trang bị &6Đấu sĩ"
       enchants:
@@ -1886,7 +1863,7 @@ weapon:
   fighter-chestplate4:
     item:
       type: NETHERITE_CHESTPLATE
-      display: "&f&lGiáp &6&lĐấu sĩ &f&l+3"
+      display: "&f&lGiáp &6&lĐấu sĩ &#38bdf8&l4 ★"
       lore:
         - "&fThuộc bộ trang bị &6Đấu sĩ"
       enchants:
@@ -1902,7 +1879,7 @@ weapon:
   fighter-leggings4:
     item:
       type: NETHERITE_LEGGINGS
-      display: "&f&lQuần &6&lĐấu sĩ &f&l+3"
+      display: "&f&lQuần &6&lĐấu sĩ &#38bdf8&l4 ★"
       lore:
         - "&fThuộc bộ trang bị &6Đấu sĩ"
       enchants:
@@ -1918,7 +1895,7 @@ weapon:
   fighter-boots4:
     item:
       type: NETHERITE_BOOTS
-      display: "&f&lỦng &6&lĐấu sĩ &f&l+3"
+      display: "&f&lỦng &6&lĐấu sĩ &#38bdf8&l4 ★"
       lore:
         - "&fThuộc bộ trang bị &6Đấu sĩ"
       enchants:
@@ -1934,7 +1911,7 @@ weapon:
   fighter-axe4:
     item:
       type: NETHERITE_AXE
-      display: "&f&lRìu &6&lĐấu sĩ &f&l+3"
+      display: "&f&lRìu &6&lĐấu sĩ &#38bdf8&l4 ★"
       lore:
         - "&fThuộc bộ trang bị &6Đấu sĩ"
       enchants:
@@ -1948,7 +1925,7 @@ weapon:
   fighter-helmet5:
     item:
       type: NETHERITE_HELMET
-      display: "&f&lMũ &6&lĐấu sĩ &f&l+4"
+      display: "&f&lMũ &6&lĐấu sĩ &#fde047&l5 ★"
       lore:
         - "&fThuộc bộ trang bị &6Đấu sĩ"
       enchants:
@@ -1964,7 +1941,7 @@ weapon:
   fighter-chestplate5:
     item:
       type: NETHERITE_CHESTPLATE
-      display: "&f&lGiáp &6&lĐấu sĩ &f&l+4"
+      display: "&f&lGiáp &6&lĐấu sĩ &#fde047&l5 ★"
       lore:
         - "&fThuộc bộ trang bị &6Đấu sĩ"
       enchants:
@@ -1980,7 +1957,7 @@ weapon:
   fighter-leggings5:
     item:
       type: NETHERITE_LEGGINGS
-      display: "&f&lQuần &6&lĐấu sĩ &f&l+4"
+      display: "&f&lQuần &6&lĐấu sĩ &#fde047&l5 ★"
       lore:
         - "&fThuộc bộ trang bị &6Đấu sĩ"
       enchants:
@@ -1996,7 +1973,7 @@ weapon:
   fighter-boots5:
     item:
       type: NETHERITE_BOOTS
-      display: "&f&lỦng &6&lĐấu sĩ &f&l+4"
+      display: "&f&lỦng &6&lĐấu sĩ &#fde047&l5 ★"
       lore:
         - "&fThuộc bộ trang bị &6Đấu sĩ"
       enchants:
@@ -2012,7 +1989,7 @@ weapon:
   fighter-axe5:
     item:
       type: NETHERITE_AXE
-      display: "&f&lRìu &6&lĐấu sĩ &f&l+4"
+      display: "&f&lRìu &6&lĐấu sĩ &#fde047&l5 ★"
       lore:
         - "&fThuộc bộ trang bị &6Đấu sĩ"
       enchants:
@@ -2026,7 +2003,7 @@ weapon:
   archer-helmet:
     item:
       type: NETHERITE_HELMET
-      display: "&f&lMũ &b&lThần tiễn"
+      display: "&f&lMũ &b&lThần tiễn &#9ca3af&l1 ★"
       lore:
         - "&fThuộc bộ trang bị &bThần tiễn"
       enchants:
@@ -2042,7 +2019,7 @@ weapon:
   archer-chestplate:
     item:
       type: NETHERITE_CHESTPLATE
-      display: "&f&lGiáp &b&lThần tiễn"
+      display: "&f&lGiáp &b&lThần tiễn &#9ca3af&l1 ★"
       lore:
         - "&fThuộc bộ trang bị &bThần tiễn"
       enchants:
@@ -2058,7 +2035,7 @@ weapon:
   archer-leggings:
     item:
       type: NETHERITE_LEGGINGS
-      display: "&f&lQuần &b&lThần tiễn"
+      display: "&f&lQuần &b&lThần tiễn &#9ca3af&l1 ★"
       lore:
         - "&fThuộc bộ trang bị &bThần tiễn"
       enchants:
@@ -2074,7 +2051,7 @@ weapon:
   archer-boots:
     item:
       type: NETHERITE_BOOTS
-      display: "&f&lỦng &b&lThần tiễn"
+      display: "&f&lỦng &b&lThần tiễn &#9ca3af&l1 ★"
       lore:
         - "&fThuộc bộ trang bị &bThần tiễn"
       enchants:
@@ -2091,7 +2068,7 @@ weapon:
   archer-bow:
     item:
       type: BOW
-      display: "&f&lCung &b&lThần tiễn"
+      display: "&f&lCung &b&lThần tiễn &#9ca3af&l1 ★"
       lore:
         - "&fThuộc bộ trang bị &bThần tiễn"
       enchants:
@@ -2102,7 +2079,7 @@ weapon:
   archer-helmet2:
     item:
       type: NETHERITE_HELMET
-      display: "&f&lMũ &b&lThần tiễn &f&l+1"
+      display: "&f&lMũ &b&lThần tiễn &#84cc16&l2 ★"
       lore:
         - "&fThuộc bộ trang bị &bThần tiễn"
       enchants:
@@ -2118,7 +2095,7 @@ weapon:
   archer-chestplate2:
     item:
       type: NETHERITE_CHESTPLATE
-      display: "&f&lGiáp &b&lThần tiễn &f&l+1"
+      display: "&f&lGiáp &b&lThần tiễn &#84cc16&l2 ★"
       lore:
         - "&fThuộc bộ trang bị &bThần tiễn"
       enchants:
@@ -2134,7 +2111,7 @@ weapon:
   archer-leggings2:
     item:
       type: NETHERITE_LEGGINGS
-      display: "&f&lQuần &b&lThần tiễn &f&l+1"
+      display: "&f&lQuần &b&lThần tiễn &#84cc16&l2 ★"
       lore:
         - "&fThuộc bộ trang bị &bThần tiễn"
       enchants:
@@ -2150,7 +2127,7 @@ weapon:
   archer-boots2:
     item:
       type: NETHERITE_BOOTS
-      display: "&f&lỦng &b&lThần tiễn &f&l+1"
+      display: "&f&lỦng &b&lThần tiễn &#84cc16&l2 ★"
       lore:
         - "&fThuộc bộ trang bị &bThần tiễn"
       enchants:
@@ -2167,7 +2144,7 @@ weapon:
   archer-bow2:
     item:
       type: BOW
-      display: "&f&lCung &b&lThần tiễn &f&l+1"
+      display: "&f&lCung &b&lThần tiễn &#84cc16&l2 ★"
       lore:
         - "&fThuộc bộ trang bị &bThần tiễn"
       enchants:
@@ -2178,7 +2155,7 @@ weapon:
   archer-helmet3:
     item:
       type: NETHERITE_HELMET
-      display: "&f&lMũ &b&lThần tiễn &f&l+2"
+      display: "&f&lMũ &b&lThần tiễn &#22c55e&l3 ★"
       lore:
         - "&fThuộc bộ trang bị &bThần tiễn"
       enchants:
@@ -2194,7 +2171,7 @@ weapon:
   archer-chestplate3:
     item:
       type: NETHERITE_CHESTPLATE
-      display: "&f&lGiáp &b&lThần tiễn &f&l+2"
+      display: "&f&lGiáp &b&lThần tiễn &#22c55e&l3 ★"
       lore:
         - "&fThuộc bộ trang bị &bThần tiễn"
       enchants:
@@ -2210,7 +2187,7 @@ weapon:
   archer-leggings3:
     item:
       type: NETHERITE_LEGGINGS
-      display: "&f&lQuần &b&lThần tiễn &f&l+2"
+      display: "&f&lQuần &b&lThần tiễn &#22c55e&l3 ★"
       lore:
         - "&fThuộc bộ trang bị &bThần tiễn"
       enchants:
@@ -2226,7 +2203,7 @@ weapon:
   archer-boots3:
     item:
       type: NETHERITE_BOOTS
-      display: "&f&lỦng &b&lThần tiễn &f&l+2"
+      display: "&f&lỦng &b&lThần tiễn &#22c55e&l3 ★"
       lore:
         - "&fThuộc bộ trang bị &bThần tiễn"
       enchants:
@@ -2243,7 +2220,7 @@ weapon:
   archer-bow3:
     item:
       type: BOW
-      display: "&f&lCung &b&lThần tiễn &f&l+2"
+      display: "&f&lCung &b&lThần tiễn &#22c55e&l3 ★"
       lore:
         - "&fThuộc bộ trang bị &bThần tiễn"
       enchants:
@@ -2254,7 +2231,7 @@ weapon:
   archer-helmet4:
     item:
       type: NETHERITE_HELMET
-      display: "&f&lMũ &b&lThần tiễn &f&l+3"
+      display: "&f&lMũ &b&lThần tiễn &#38bdf8&l4 ★"
       lore:
         - "&fThuộc bộ trang bị &bThần tiễn"
       enchants:
@@ -2270,7 +2247,7 @@ weapon:
   archer-chestplate4:
     item:
       type: NETHERITE_CHESTPLATE
-      display: "&f&lGiáp &b&lThần tiễn &f&l+3"
+      display: "&f&lGiáp &b&lThần tiễn &#38bdf8&l4 ★"
       lore:
         - "&fThuộc bộ trang bị &bThần tiễn"
       enchants:
@@ -2286,7 +2263,7 @@ weapon:
   archer-leggings4:
     item:
       type: NETHERITE_LEGGINGS
-      display: "&f&lQuần &b&lThần tiễn &f&l+3"
+      display: "&f&lQuần &b&lThần tiễn &#38bdf8&l4 ★"
       lore:
         - "&fThuộc bộ trang bị &bThần tiễn"
       enchants:
@@ -2302,7 +2279,7 @@ weapon:
   archer-boots4:
     item:
       type: NETHERITE_BOOTS
-      display: "&f&lỦng &b&lThần tiễn &f&l+3"
+      display: "&f&lỦng &b&lThần tiễn &#38bdf8&l4 ★"
       lore:
         - "&fThuộc bộ trang bị &bThần tiễn"
       enchants:
@@ -2319,7 +2296,7 @@ weapon:
   archer-bow4:
     item:
       type: BOW
-      display: "&f&lCung &b&lThần tiễn &f&l+3"
+      display: "&f&lCung &b&lThần tiễn &#38bdf8&l4 ★"
       lore:
         - "&fThuộc bộ trang bị &bThần tiễn"
       enchants:
@@ -2330,7 +2307,7 @@ weapon:
   archer-helmet5:
     item:
       type: NETHERITE_HELMET
-      display: "&f&lMũ &b&lThần tiễn &f&l+4"
+      display: "&f&lMũ &b&lThần tiễn &#fde047&l5 ★"
       lore:
         - "&fThuộc bộ trang bị &bThần tiễn"
       enchants:
@@ -2346,7 +2323,7 @@ weapon:
   archer-chestplate5:
     item:
       type: NETHERITE_CHESTPLATE
-      display: "&f&lGiáp &b&lThần tiễn &f&l+4"
+      display: "&f&lGiáp &b&lThần tiễn &#fde047&l5 ★"
       lore:
         - "&fThuộc bộ trang bị &bThần tiễn"
       enchants:
@@ -2362,7 +2339,7 @@ weapon:
   archer-leggings5:
     item:
       type: NETHERITE_LEGGINGS
-      display: "&f&lQuần &b&lThần tiễn &f&l+4"
+      display: "&f&lQuần &b&lThần tiễn &#fde047&l5 ★"
       lore:
         - "&fThuộc bộ trang bị &bThần tiễn"
       enchants:
@@ -2378,7 +2355,7 @@ weapon:
   archer-boots5:
     item:
       type: NETHERITE_BOOTS
-      display: "&f&lỦng &b&lThần tiễn &f&l+4"
+      display: "&f&lỦng &b&lThần tiễn &#fde047&l5 ★"
       lore:
         - "&fThuộc bộ trang bị &bThần tiễn"
       enchants:
@@ -2395,7 +2372,7 @@ weapon:
   archer-bow5:
     item:
       type: BOW
-      display: "&f&lCung &b&lThần tiễn &f&l+4"
+      display: "&f&lCung &b&lThần tiễn &#fde047&l5 ★"
       lore:
         - "&fThuộc bộ trang bị &bThần tiễn"
       enchants:
@@ -2406,7 +2383,7 @@ weapon:
   assassin-helmet:
     item:
       type: NETHERITE_HELMET
-      display: "&f&lMũ &5&lSát thủ"
+      display: "&f&lMũ &5&lSát thủ &#9ca3af&l1 ★"
       lore:
         - "&fThuộc bộ trang bị &5Sát thủ"
       enchants:
@@ -2422,7 +2399,7 @@ weapon:
   assassin-chestplate:
     item:
       type: NETHERITE_CHESTPLATE
-      display: "&f&lGiáp &5&lSát thủ"
+      display: "&f&lGiáp &5&lSát thủ &#9ca3af&l1 ★"
       lore:
         - "&fThuộc bộ trang bị &5Sát thủ"
       enchants:
@@ -2438,7 +2415,7 @@ weapon:
   assassin-leggings:
     item:
       type: NETHERITE_LEGGINGS
-      display: "&f&lQuần &5&lSát thủ"
+      display: "&f&lQuần &5&lSát thủ &#9ca3af&l1 ★"
       lore:
         - "&fThuộc bộ trang bị &5Sát thủ"
       enchants:
@@ -2454,7 +2431,7 @@ weapon:
   assassin-boots:
     item:
       type: NETHERITE_BOOTS
-      display: "&f&lỦng &5&lSát thủ"
+      display: "&f&lỦng &5&lSát thủ &#9ca3af&l1 ★"
       lore:
         - "&fThuộc bộ trang bị &5Sát thủ"
       enchants:
@@ -2471,7 +2448,7 @@ weapon:
   assassin-sword:
     item:
       type: NETHERITE_SWORD
-      display: "&f&lKiếm &5&lSát thủ"
+      display: "&f&lKiếm &5&lSát thủ &#9ca3af&l1 ★"
       lore:
         - "&fThuộc bộ trang bị &5Sát thủ"
       enchants:
@@ -2481,12 +2458,12 @@ weapon:
       - "assassin 1"
     attributes:
       - "type=ATTACK_DAMAGE,operation=0,amount=12,slot=HAND"
-      - "type=ATTACK_SPEED,operation=0,amount=-2.4,slot=HAND"
-      - "type=ATTACK_SPEED,operation=1,amount=0.2,slot=HAND"
+      - "type=ATTACK_SPEED,name=minecraft:generic.attack_speed,operation=0,amount=-2.4,slot=HAND"
+      - "type=ATTACK_SPEED,name=minecraft:generic.attack_speed2,operation=1,amount=0.2,slot=HAND"
   assassin-helmet2:
     item:
       type: NETHERITE_HELMET
-      display: "&f&lMũ &5&lSát thủ &f&l+1"
+      display: "&f&lMũ &5&lSát thủ &#84cc16&l2 ★"
       lore:
         - "&fThuộc bộ trang bị &5Sát thủ"
       enchants:
@@ -2502,7 +2479,7 @@ weapon:
   assassin-chestplate2:
     item:
       type: NETHERITE_CHESTPLATE
-      display: "&f&lGiáp &5&lSát thủ &f&l+1"
+      display: "&f&lGiáp &5&lSát thủ &#84cc16&l2 ★"
       lore:
         - "&fThuộc bộ trang bị &5Sát thủ"
       enchants:
@@ -2518,7 +2495,7 @@ weapon:
   assassin-leggings2:
     item:
       type: NETHERITE_LEGGINGS
-      display: "&f&lQuần &5&lSát thủ &f&l+1"
+      display: "&f&lQuần &5&lSát thủ &#84cc16&l2 ★"
       lore:
         - "&fThuộc bộ trang bị &5Sát thủ"
       enchants:
@@ -2534,7 +2511,7 @@ weapon:
   assassin-boots2:
     item:
       type: NETHERITE_BOOTS
-      display: "&f&lỦng &5&lSát thủ &f&l+1"
+      display: "&f&lỦng &5&lSát thủ &#84cc16&l2 ★"
       lore:
         - "&fThuộc bộ trang bị &5Sát thủ"
       enchants:
@@ -2551,7 +2528,7 @@ weapon:
   assassin-sword2:
     item:
       type: NETHERITE_SWORD
-      display: "&f&lKiếm &5&lSát thủ &f&l+1"
+      display: "&f&lKiếm &5&lSát thủ &#84cc16&l2 ★"
       lore:
         - "&fThuộc bộ trang bị &5Sát thủ"
       enchants:
@@ -2566,7 +2543,7 @@ weapon:
   assassin-helmet3:
     item:
       type: NETHERITE_HELMET
-      display: "&f&lMũ &5&lSát thủ &f&l+2"
+      display: "&f&lMũ &5&lSát thủ &#22c55e&l3 ★"
       lore:
         - "&fThuộc bộ trang bị &5Sát thủ"
       enchants:
@@ -2582,7 +2559,7 @@ weapon:
   assassin-chestplate3:
     item:
       type: NETHERITE_CHESTPLATE
-      display: "&f&lGiáp &5&lSát thủ &f&l+2"
+      display: "&f&lGiáp &5&lSát thủ &#22c55e&l3 ★"
       lore:
         - "&fThuộc bộ trang bị &5Sát thủ"
       enchants:
@@ -2598,7 +2575,7 @@ weapon:
   assassin-leggings3:
     item:
       type: NETHERITE_LEGGINGS
-      display: "&f&lQuần &5&lSát thủ &f&l+2"
+      display: "&f&lQuần &5&lSát thủ &#22c55e&l3 ★"
       lore:
         - "&fThuộc bộ trang bị &5Sát thủ"
       enchants:
@@ -2614,7 +2591,7 @@ weapon:
   assassin-boots3:
     item:
       type: NETHERITE_BOOTS
-      display: "&f&lỦng &5&lSát thủ &f&l+2"
+      display: "&f&lỦng &5&lSát thủ &#22c55e&l3 ★"
       lore:
         - "&fThuộc bộ trang bị &5Sát thủ"
       enchants:
@@ -2631,7 +2608,7 @@ weapon:
   assassin-sword3:
     item:
       type: NETHERITE_SWORD
-      display: "&f&lKiếm &5&lSát thủ &f&l+2"
+      display: "&f&lKiếm &5&lSát thủ &#22c55e&l3 ★"
       lore:
         - "&fThuộc bộ trang bị &5Sát thủ"
       enchants:
@@ -2641,12 +2618,12 @@ weapon:
       - "assassin 3"
     attributes:
       - "type=ATTACK_DAMAGE,operation=0,amount=12,slot=HAND"
-      - "type=ATTACK_SPEED,operation=0,amount=-2.4,slot=HAND"
-      - "type=ATTACK_SPEED,operation=1,amount=0.6,slot=HAND"
+      - "type=ATTACK_SPEED,name=minecraft:generic.attack_speed,operation=0,amount=-2.4,slot=HAND"
+      - "type=ATTACK_SPEED,name=minecraft:generic.attack_speed2,operation=1,amount=0.6,slot=HAND"
   assassin-helmet4:
     item:
       type: NETHERITE_HELMET
-      display: "&f&lMũ &5&lSát thủ &f&l+3"
+      display: "&f&lMũ &5&lSát thủ &#38bdf8&l4 ★"
       lore:
         - "&fThuộc bộ trang bị &5Sát thủ"
       enchants:
@@ -2662,7 +2639,7 @@ weapon:
   assassin-chestplate4:
     item:
       type: NETHERITE_CHESTPLATE
-      display: "&f&lGiáp &5&lSát thủ &f&l+3"
+      display: "&f&lGiáp &5&lSát thủ &#38bdf8&l4 ★"
       lore:
         - "&fThuộc bộ trang bị &5Sát thủ"
       enchants:
@@ -2678,7 +2655,7 @@ weapon:
   assassin-leggings4:
     item:
       type: NETHERITE_LEGGINGS
-      display: "&f&lQuần &5&lSát thủ &f&l+3"
+      display: "&f&lQuần &5&lSát thủ &#38bdf8&l4 ★"
       lore:
         - "&fThuộc bộ trang bị &5Sát thủ"
       enchants:
@@ -2694,7 +2671,7 @@ weapon:
   assassin-boots4:
     item:
       type: NETHERITE_BOOTS
-      display: "&f&lỦng &5&lSát thủ &f&l+3"
+      display: "&f&lỦng &5&lSát thủ &#38bdf8&l4 ★"
       lore:
         - "&fThuộc bộ trang bị &5Sát thủ"
       enchants:
@@ -2711,7 +2688,7 @@ weapon:
   assassin-sword4:
     item:
       type: NETHERITE_SWORD
-      display: "&f&lKiếm &5&lSát thủ &f&l+3"
+      display: "&f&lKiếm &5&lSát thủ &#38bdf8&l4 ★"
       lore:
         - "&fThuộc bộ trang bị &5Sát thủ"
       enchants:
@@ -2721,12 +2698,12 @@ weapon:
       - "assassin 4"
     attributes:
       - "type=ATTACK_DAMAGE,operation=0,amount=12,slot=HAND"
-      - "type=ATTACK_SPEED,operation=0,amount=-2.4,slot=HAND"
-      - "type=ATTACK_SPEED,operation=1,amount=0.8,slot=HAND"
+      - "type=ATTACK_SPEED,name=minecraft:generic.attack_speed,operation=0,amount=-2.4,slot=HAND"
+      - "type=ATTACK_SPEED,name=minecraft:generic.attack_speed2,operation=1,amount=0.8,slot=HAND"
   assassin-helmet5:
     item:
       type: NETHERITE_HELMET
-      display: "&f&lMũ &5&lSát thủ &f&l+4"
+      display: "&f&lMũ &5&lSát thủ &#fde047&l5 ★"
       lore:
         - "&fThuộc bộ trang bị &5Sát thủ"
       enchants:
@@ -2742,7 +2719,7 @@ weapon:
   assassin-chestplate5:
     item:
       type: NETHERITE_CHESTPLATE
-      display: "&f&lGiáp &5&lSát thủ &f&l+4"
+      display: "&f&lGiáp &5&lSát thủ &#fde047&l5 ★"
       lore:
         - "&fThuộc bộ trang bị &5Sát thủ"
       enchants:
@@ -2758,7 +2735,7 @@ weapon:
   assassin-leggings5:
     item:
       type: NETHERITE_LEGGINGS
-      display: "&f&lQuần &5&lSát thủ &f&l+4"
+      display: "&f&lQuần &5&lSát thủ &#fde047&l5 ★"
       lore:
         - "&fThuộc bộ trang bị &5Sát thủ"
       enchants:
@@ -2774,7 +2751,7 @@ weapon:
   assassin-boots5:
     item:
       type: NETHERITE_BOOTS
-      display: "&f&lỦng &5&lSát thủ &f&l+4"
+      display: "&f&lỦng &5&lSát thủ &#fde047&l5 ★"
       lore:
         - "&fThuộc bộ trang bị &5Sát thủ"
       enchants:
@@ -2791,7 +2768,7 @@ weapon:
   assassin-sword5:
     item:
       type: NETHERITE_SWORD
-      display: "&f&lKiếm &5&lSát thủ &f&l+4"
+      display: "&f&lKiếm &5&lSát thủ &#fde047&l5 ★"
       lore:
         - "&fThuộc bộ trang bị &5Sát thủ"
       enchants:
@@ -2801,12 +2778,12 @@ weapon:
       - "assassin 5"
     attributes:
       - "type=ATTACK_DAMAGE,operation=0,amount=12,slot=HAND"
-      - "type=ATTACK_SPEED,operation=0,amount=-2.4,slot=HAND"
-      - "type=ATTACK_SPEED,operation=1,amount=1.0,slot=HAND"
+      - "type=ATTACK_SPEED,name=minecraft:generic.attack_speed,operation=0,amount=-2.4,slot=HAND"
+      - "type=ATTACK_SPEED,name=minecraft:generic.attack_speed2,operation=1,amount=1.0,slot=HAND"
   miner-pickaxe1:
     item:
       type: NETHERITE_PICKAXE
-      display: "&f&lCúp &6&lThợ mỏ"
+      display: "&f&lCúp &6&lThợ mỏ &#9ca3af&l1 ★"
       lore:
         - "&fThuộc bộ công cụ &6Thợ mỏ"
       enchants:
@@ -2818,7 +2795,7 @@ weapon:
   miner-pickaxe2:
     item:
       type: NETHERITE_PICKAXE
-      display: "&f&lCúp &6&lThợ mỏ &f&l+1"
+      display: "&f&lCúp &6&lThợ mỏ &#84cc16&l2 ★"
       lore:
         - "&fThuộc bộ công cụ &6Thợ mỏ"
       enchants:
@@ -2830,7 +2807,7 @@ weapon:
   miner-pickaxe3:
     item:
       type: NETHERITE_PICKAXE
-      display: "&f&lCúp &6&lThợ mỏ &f&l+2"
+      display: "&f&lCúp &6&lThợ mỏ &#22c55e&l3 ★"
       lore:
         - "&fThuộc bộ công cụ &6Thợ mỏ"
       enchants:
@@ -2842,7 +2819,7 @@ weapon:
   miner-pickaxe4:
     item:
       type: NETHERITE_PICKAXE
-      display: "&f&lCúp &6&lThợ mỏ &f&l+3"
+      display: "&f&lCúp &6&lThợ mỏ &#38bdf8&l4 ★"
       lore:
         - "&fThuộc bộ công cụ &6Thợ mỏ"
       enchants:
@@ -2854,7 +2831,7 @@ weapon:
   miner-pickaxe5:
     item:
       type: NETHERITE_PICKAXE
-      display: "&f&lCúp &6&lThợ mỏ &f&l+4"
+      display: "&f&lCúp &6&lThợ mỏ &#fde047&l5 ★"
       lore:
         - "&fThuộc bộ công cụ &6Thợ mỏ"
       enchants:
@@ -2866,7 +2843,7 @@ weapon:
   lumberjack-axe1:
     item:
       type: NETHERITE_AXE
-      display: "&f&lRìu &9&lTiều phu"
+      display: "&f&lRìu &9&lTiều phu &#9ca3af&l1 ★"
       lore:
         - "&fThuộc bộ công cụ &9Tiều phu"
       enchants:
@@ -2878,7 +2855,7 @@ weapon:
   lumberjack-axe2:
     item:
       type: NETHERITE_AXE
-      display: "&f&lRìu &9&lTiều phu &f&l+1"
+      display: "&f&lRìu &9&lTiều phu &#84cc16&l2 ★"
       lore:
         - "&fThuộc bộ công cụ &9Tiều phu"
       enchants:
@@ -2890,7 +2867,7 @@ weapon:
   lumberjack-axe3:
     item:
       type: NETHERITE_AXE
-      display: "&f&lRìu &9&lTiều phu &f&l+2"
+      display: "&f&lRìu &9&lTiều phu &#22c55e&l3 ★"
       lore:
         - "&fThuộc bộ công cụ &9Tiều phu"
       enchants:
@@ -2902,7 +2879,7 @@ weapon:
   lumberjack-axe4:
     item:
       type: NETHERITE_AXE
-      display: "&f&lRìu &9&lTiều phu &f&l+3"
+      display: "&f&lRìu &9&lTiều phu &#38bdf8&l4 ★"
       lore:
         - "&fThuộc bộ công cụ &9Tiều phu"
       enchants:
@@ -2914,7 +2891,7 @@ weapon:
   lumberjack-axe5:
     item:
       type: NETHERITE_AXE
-      display: "&f&lRìu &9&lTiều phu &f&l+4"
+      display: "&f&lRìu &9&lTiều phu &#fde047&l5 ★"
       lore:
         - "&fThuộc bộ công cụ &9Tiều phu"
       enchants:
@@ -2937,6 +2914,796 @@ weapon:
     attributes:
       - "type=ATTACK_DAMAGE,operation=0,amount=16,slot=HAND"
       - "type=ATTACK_SPEED,operation=0,amount=-2.4,slot=HAND"
+  poseidon-helmet:
+    item:
+      type: NETHERITE_HELMET
+      display: "&f&lMũ &3&lHải thần &#9ca3af&l1 ★"
+      lore:
+        - "&fThuộc bộ trang bị &3Hải thần"
+      enchants:
+        - "PROTECTION_ENVIRONMENTAL 4"
+        - "DURABILITY 3"
+    enchants:
+      - "poseidon 1"
+    attributes:
+      - "type=ARMOR,operation=0,amount=3,slot=HEAD"
+      - "type=ARMOR_TOUGHNESS,operation=0,amount=3,slot=HEAD"
+      - "type=KNOCKBACK_RESISTANCE,operation=0,amount=1,slot=HEAD"
+      - "type=MAX_HEALTH,operation=0,amount=6,slot=HEAD"
+  poseidon-chestplate:
+    item:
+      type: NETHERITE_CHESTPLATE
+      display: "&f&lGiáp &3&lHải thần &#9ca3af&l1 ★"
+      lore:
+        - "&fThuộc bộ trang bị &3Hải thần"
+      enchants:
+        - "PROTECTION_ENVIRONMENTAL 4"
+        - "DURABILITY 3"
+    enchants:
+      - "poseidon 1"
+    attributes:
+      - "type=ARMOR,operation=0,amount=8,slot=CHEST"
+      - "type=ARMOR_TOUGHNESS,operation=0,amount=3,slot=CHEST"
+      - "type=KNOCKBACK_RESISTANCE,operation=0,amount=1,slot=CHEST"
+      - "type=MAX_HEALTH,operation=0,amount=12,slot=CHEST"
+  poseidon-leggings:
+    item:
+      type: NETHERITE_LEGGINGS
+      display: "&f&lQuần &3&lHải thần &#9ca3af&l1 ★"
+      lore:
+        - "&fThuộc bộ trang bị &3Hải thần"
+      enchants:
+        - "PROTECTION_ENVIRONMENTAL 4"
+        - "DURABILITY 3"
+    enchants:
+      - "poseidon 1"
+    attributes:
+      - "type=ARMOR,operation=0,amount=6,slot=LEGS"
+      - "type=ARMOR_TOUGHNESS,operation=0,amount=3,slot=LEGS"
+      - "type=KNOCKBACK_RESISTANCE,operation=0,amount=1,slot=LEGS"
+      - "type=MAX_HEALTH,operation=0,amount=9,slot=LEGS"
+  poseidon-boots:
+    item:
+      type: NETHERITE_BOOTS
+      display: "&f&lỦng &3&lHải thần &#9ca3af&l1 ★"
+      lore:
+        - "&fThuộc bộ trang bị &3Hải thần"
+      enchants:
+        - "PROTECTION_ENVIRONMENTAL 4"
+        - "DURABILITY 3"
+    enchants:
+      - "poseidon 1"
+    attributes:
+      - "type=ARMOR,operation=0,amount=3,slot=FEET"
+      - "type=ARMOR_TOUGHNESS,operation=0,amount=3,slot=FEET"
+      - "type=KNOCKBACK_RESISTANCE,operation=0,amount=1,slot=FEET"
+      - "type=MAX_HEALTH,operation=0,amount=3,slot=FEET"
+  poseidon-trident:
+    item:
+      type: TRIDENT
+      display: "&f&lĐinh ba &3&lHải thần &#9ca3af&l1 ★"
+      lore:
+        - "&fThuộc bộ trang bị &3Hải thần"
+      enchants:
+        - "IMPALING 7"
+        - "LOYALTY 3"
+        - "DURABILITY 3"
+    enchants:
+      - "poseidon 1"
+    attributes:
+      - "type=ATTACK_DAMAGE,operation=0,amount=13,slot=HAND"
+      - "type=ATTACK_SPEED,operation=0,amount=-2.9,slot=HAND"
+  poseidon-helmet2:
+    item:
+      type: NETHERITE_HELMET
+      display: "&f&lMũ &3&lHải thần &#84cc16&l2 ★"
+      lore:
+        - "&fThuộc bộ trang bị &3Hải thần"
+      enchants:
+        - "PROTECTION_ENVIRONMENTAL 4"
+        - "DURABILITY 3"
+    enchants:
+      - "poseidon 2"
+    attributes:
+      - "type=ARMOR,operation=0,amount=3,slot=HEAD"
+      - "type=ARMOR_TOUGHNESS,operation=0,amount=3,slot=HEAD"
+      - "type=KNOCKBACK_RESISTANCE,operation=0,amount=1,slot=HEAD"
+      - "type=MAX_HEALTH,operation=0,amount=8,slot=HEAD"
+  poseidon-chestplate2:
+    item:
+      type: NETHERITE_CHESTPLATE
+      display: "&f&lGiáp &3&lHải thần &#84cc16&l2 ★"
+      lore:
+        - "&fThuộc bộ trang bị &3Hải thần"
+      enchants:
+        - "PROTECTION_ENVIRONMENTAL 4"
+        - "DURABILITY 3"
+    enchants:
+      - "poseidon 2"
+    attributes:
+      - "type=ARMOR,operation=0,amount=8,slot=CHEST"
+      - "type=ARMOR_TOUGHNESS,operation=0,amount=3,slot=CHEST"
+      - "type=KNOCKBACK_RESISTANCE,operation=0,amount=1,slot=CHEST"
+      - "type=MAX_HEALTH,operation=0,amount=16,slot=CHEST"
+  poseidon-leggings2:
+    item:
+      type: NETHERITE_LEGGINGS
+      display: "&f&lQuần &3&lHải thần &#84cc16&l2 ★"
+      lore:
+        - "&fThuộc bộ trang bị &3Hải thần"
+      enchants:
+        - "PROTECTION_ENVIRONMENTAL 4"
+        - "DURABILITY 3"
+    enchants:
+      - "poseidon 2"
+    attributes:
+      - "type=ARMOR,operation=0,amount=6,slot=LEGS"
+      - "type=ARMOR_TOUGHNESS,operation=0,amount=3,slot=LEGS"
+      - "type=KNOCKBACK_RESISTANCE,operation=0,amount=1,slot=LEGS"
+      - "type=MAX_HEALTH,operation=0,amount=12,slot=LEGS"
+  poseidon-boots2:
+    item:
+      type: NETHERITE_BOOTS
+      display: "&f&lỦng &3&lHải thần &#84cc16&l2 ★"
+      lore:
+        - "&fThuộc bộ trang bị &3Hải thần"
+      enchants:
+        - "PROTECTION_ENVIRONMENTAL 4"
+        - "DURABILITY 3"
+    enchants:
+      - "poseidon 2"
+    attributes:
+      - "type=ARMOR,operation=0,amount=3,slot=FEET"
+      - "type=ARMOR_TOUGHNESS,operation=0,amount=3,slot=FEET"
+      - "type=KNOCKBACK_RESISTANCE,operation=0,amount=1,slot=FEET"
+      - "type=MAX_HEALTH,operation=0,amount=4,slot=FEET"
+  poseidon-trident2:
+    item:
+      type: TRIDENT
+      display: "&f&lĐinh ba &3&lHải thần &#84cc16&l2 ★"
+      lore:
+        - "&fThuộc bộ trang bị &3Hải thần"
+      enchants:
+        - "IMPALING 9"
+        - "LOYALTY 3"
+        - "DURABILITY 3"
+    enchants:
+      - "poseidon 2"
+    attributes:
+      - "type=ATTACK_DAMAGE,operation=0,amount=14,slot=HAND"
+      - "type=ATTACK_SPEED,operation=0,amount=-2.9,slot=HAND"
+  poseidon-helmet3:
+    item:
+      type: NETHERITE_HELMET
+      display: "&f&lMũ &3&lHải thần &#22c55e&l3 ★"
+      lore:
+        - "&fThuộc bộ trang bị &3Hải thần"
+      enchants:
+        - "PROTECTION_ENVIRONMENTAL 4"
+        - "DURABILITY 3"
+    enchants:
+      - "poseidon 3"
+    attributes:
+      - "type=ARMOR,operation=0,amount=3,slot=HEAD"
+      - "type=ARMOR_TOUGHNESS,operation=0,amount=3,slot=HEAD"
+      - "type=KNOCKBACK_RESISTANCE,operation=0,amount=1,slot=HEAD"
+      - "type=MAX_HEALTH,operation=0,amount=10,slot=HEAD"
+  poseidon-chestplate3:
+    item:
+      type: NETHERITE_CHESTPLATE
+      display: "&f&lGiáp &3&lHải thần &#22c55e&l3 ★"
+      lore:
+        - "&fThuộc bộ trang bị &3Hải thần"
+      enchants:
+        - "PROTECTION_ENVIRONMENTAL 4"
+        - "DURABILITY 3"
+    enchants:
+      - "poseidon 3"
+    attributes:
+      - "type=ARMOR,operation=0,amount=8,slot=CHEST"
+      - "type=ARMOR_TOUGHNESS,operation=0,amount=3,slot=CHEST"
+      - "type=KNOCKBACK_RESISTANCE,operation=0,amount=1,slot=CHEST"
+      - "type=MAX_HEALTH,operation=0,amount=20,slot=CHEST"
+  poseidon-leggings3:
+    item:
+      type: NETHERITE_LEGGINGS
+      display: "&f&lQuần &3&lHải thần &#22c55e&l3 ★"
+      lore:
+        - "&fThuộc bộ trang bị &3Hải thần"
+      enchants:
+        - "PROTECTION_ENVIRONMENTAL 4"
+        - "DURABILITY 3"
+    enchants:
+      - "poseidon 3"
+    attributes:
+      - "type=ARMOR,operation=0,amount=6,slot=LEGS"
+      - "type=ARMOR_TOUGHNESS,operation=0,amount=3,slot=LEGS"
+      - "type=KNOCKBACK_RESISTANCE,operation=0,amount=1,slot=LEGS"
+      - "type=MAX_HEALTH,operation=0,amount=15,slot=LEGS"
+  poseidon-boots3:
+    item:
+      type: NETHERITE_BOOTS
+      display: "&f&lỦng &3&lHải thần &#22c55e&l3 ★"
+      lore:
+        - "&fThuộc bộ trang bị &3Hải thần"
+      enchants:
+        - "PROTECTION_ENVIRONMENTAL 4"
+        - "DURABILITY 3"
+    enchants:
+      - "poseidon 3"
+    attributes:
+      - "type=ARMOR,operation=0,amount=3,slot=FEET"
+      - "type=ARMOR_TOUGHNESS,operation=0,amount=3,slot=FEET"
+      - "type=KNOCKBACK_RESISTANCE,operation=0,amount=1,slot=FEET"
+      - "type=MAX_HEALTH,operation=0,amount=5,slot=FEET"
+  poseidon-trident3:
+    item:
+      type: TRIDENT
+      display: "&f&lĐinh ba &3&lHải thần &#22c55e&l3 ★"
+      lore:
+        - "&fThuộc bộ trang bị &3Hải thần"
+      enchants:
+        - "IMPALING 11"
+        - "LOYALTY 3"
+        - "DURABILITY 3"
+    enchants:
+      - "poseidon 3"
+    attributes:
+      - "type=ATTACK_DAMAGE,operation=0,amount=14,slot=HAND"
+      - "type=ATTACK_SPEED,operation=0,amount=-2.9,slot=HAND"
+  poseidon-helmet4:
+    item:
+      type: NETHERITE_HELMET
+      display: "&f&lMũ &3&lHải thần &#38bdf8&l4 ★"
+      lore:
+        - "&fThuộc bộ trang bị &3Hải thần"
+      enchants:
+        - "PROTECTION_ENVIRONMENTAL 4"
+        - "DURABILITY 3"
+    enchants:
+      - "poseidon 4"
+    attributes:
+      - "type=ARMOR,operation=0,amount=3,slot=HEAD"
+      - "type=ARMOR_TOUGHNESS,operation=0,amount=3,slot=HEAD"
+      - "type=KNOCKBACK_RESISTANCE,operation=0,amount=1,slot=HEAD"
+      - "type=MAX_HEALTH,operation=0,amount=12,slot=HEAD"
+  poseidon-chestplate4:
+    item:
+      type: NETHERITE_CHESTPLATE
+      display: "&f&lGiáp &3&lHải thần &#38bdf8&l4 ★"
+      lore:
+        - "&fThuộc bộ trang bị &3Hải thần"
+      enchants:
+        - "PROTECTION_ENVIRONMENTAL 4"
+        - "DURABILITY 3"
+    enchants:
+      - "poseidon 4"
+    attributes:
+      - "type=ARMOR,operation=0,amount=8,slot=CHEST"
+      - "type=ARMOR_TOUGHNESS,operation=0,amount=3,slot=CHEST"
+      - "type=KNOCKBACK_RESISTANCE,operation=0,amount=1,slot=CHEST"
+      - "type=MAX_HEALTH,operation=0,amount=24,slot=CHEST"
+  poseidon-leggings4:
+    item:
+      type: NETHERITE_LEGGINGS
+      display: "&f&lQuần &3&lHải thần &#38bdf8&l4 ★"
+      lore:
+        - "&fThuộc bộ trang bị &3Hải thần"
+      enchants:
+        - "PROTECTION_ENVIRONMENTAL 4"
+        - "DURABILITY 3"
+    enchants:
+      - "poseidon 4"
+    attributes:
+      - "type=ARMOR,operation=0,amount=6,slot=LEGS"
+      - "type=ARMOR_TOUGHNESS,operation=0,amount=3,slot=LEGS"
+      - "type=KNOCKBACK_RESISTANCE,operation=0,amount=1,slot=LEGS"
+      - "type=MAX_HEALTH,operation=0,amount=18,slot=LEGS"
+  poseidon-boots4:
+    item:
+      type: NETHERITE_BOOTS
+      display: "&f&lỦng &3&lHải thần &#38bdf8&l4 ★"
+      lore:
+        - "&fThuộc bộ trang bị &3Hải thần"
+      enchants:
+        - "PROTECTION_ENVIRONMENTAL 4"
+        - "DURABILITY 3"
+    enchants:
+      - "poseidon 4"
+    attributes:
+      - "type=ARMOR,operation=0,amount=3,slot=FEET"
+      - "type=ARMOR_TOUGHNESS,operation=0,amount=3,slot=FEET"
+      - "type=KNOCKBACK_RESISTANCE,operation=0,amount=1,slot=FEET"
+      - "type=MAX_HEALTH,operation=0,amount=6,slot=FEET"
+  poseidon-trident4:
+    item:
+      type: TRIDENT
+      display: "&f&lĐinh ba &3&lHải thần &#38bdf8&l4 ★"
+      lore:
+        - "&fThuộc bộ trang bị &3Hải thần"
+      enchants:
+        - "IMPALING 13"
+        - "LOYALTY 3"
+        - "DURABILITY 3"
+    enchants:
+      - "poseidon 3"
+    attributes:
+      - "type=ATTACK_DAMAGE,operation=0,amount=15,slot=HAND"
+      - "type=ATTACK_SPEED,operation=0,amount=-2.9,slot=HAND"
+  poseidon-helmet5:
+    item:
+      type: NETHERITE_HELMET
+      display: "&f&lMũ &3&lHải thần &#fde047&l5 ★"
+      lore:
+        - "&fThuộc bộ trang bị &3Hải thần"
+      enchants:
+        - "PROTECTION_ENVIRONMENTAL 4"
+        - "DURABILITY 3"
+    enchants:
+      - "poseidon 5"
+    attributes:
+      - "type=ARMOR,operation=0,amount=3,slot=HEAD"
+      - "type=ARMOR_TOUGHNESS,operation=0,amount=3,slot=HEAD"
+      - "type=KNOCKBACK_RESISTANCE,operation=0,amount=1,slot=HEAD"
+      - "type=MAX_HEALTH,operation=0,amount=14,slot=HEAD"
+  poseidon-chestplate5:
+    item:
+      type: NETHERITE_CHESTPLATE
+      display: "&f&lGiáp &3&lHải thần &#fde047&l5 ★"
+      lore:
+        - "&fThuộc bộ trang bị &3Hải thần"
+      enchants:
+        - "PROTECTION_ENVIRONMENTAL 4"
+        - "DURABILITY 3"
+    enchants:
+      - "poseidon 5"
+    attributes:
+      - "type=ARMOR,operation=0,amount=8,slot=CHEST"
+      - "type=ARMOR_TOUGHNESS,operation=0,amount=3,slot=CHEST"
+      - "type=KNOCKBACK_RESISTANCE,operation=0,amount=1,slot=CHEST"
+      - "type=MAX_HEALTH,operation=0,amount=28,slot=CHEST"
+  poseidon-leggings5:
+    item:
+      type: NETHERITE_LEGGINGS
+      display: "&f&lQuần &3&lHải thần &#fde047&l5 ★"
+      lore:
+        - "&fThuộc bộ trang bị &3Hải thần"
+      enchants:
+        - "PROTECTION_ENVIRONMENTAL 4"
+        - "DURABILITY 3"
+    enchants:
+      - "poseidon 5"
+    attributes:
+      - "type=ARMOR,operation=0,amount=6,slot=LEGS"
+      - "type=ARMOR_TOUGHNESS,operation=0,amount=3,slot=LEGS"
+      - "type=KNOCKBACK_RESISTANCE,operation=0,amount=1,slot=LEGS"
+      - "type=MAX_HEALTH,operation=0,amount=21,slot=LEGS"
+  poseidon-boots5:
+    item:
+      type: NETHERITE_BOOTS
+      display: "&f&lỦng &3&lHải thần &#fde047&l5 ★"
+      lore:
+        - "&fThuộc bộ trang bị &3Hải thần"
+      enchants:
+        - "PROTECTION_ENVIRONMENTAL 4"
+        - "DURABILITY 3"
+    enchants:
+      - "poseidon 5"
+    attributes:
+      - "type=ARMOR,operation=0,amount=3,slot=FEET"
+      - "type=ARMOR_TOUGHNESS,operation=0,amount=3,slot=FEET"
+      - "type=KNOCKBACK_RESISTANCE,operation=0,amount=1,slot=FEET"
+      - "type=MAX_HEALTH,operation=0,amount=7,slot=FEET"
+  poseidon-trident5:
+    item:
+      type: TRIDENT
+      display: "&f&lĐinh ba &3&lHải thần &#fde047&l5 ★"
+      lore:
+        - "&fThuộc bộ trang bị &3Hải thần"
+      enchants:
+        - "IMPALING 15"
+        - "LOYALTY 3"
+        - "DURABILITY 3"
+    enchants:
+      - "poseidon 5"
+    attributes:
+      - "type=ATTACK_DAMAGE,operation=0,amount=16,slot=HAND"
+      - "type=ATTACK_SPEED,operation=0,amount=-2.9,slot=HAND"
+  reaper-helmet:
+    item:
+      type: NETHERITE_HELMET
+      display: "&f&lMũ &8&lTử thần &#9ca3af&l1 ★"
+      lore:
+        - "&fThuộc bộ trang bị &8Tử thần"
+      enchants:
+        - "PROTECTION_ENVIRONMENTAL 4"
+        - "DURABILITY 3"
+    enchants:
+      - "reaper 1"
+    attributes:
+      - "type=ARMOR,operation=0,amount=3,slot=HEAD"
+      - "type=ARMOR_TOUGHNESS,operation=0,amount=3,slot=HEAD"
+      - "type=KNOCKBACK_RESISTANCE,operation=0,amount=1,slot=HEAD"
+      - "type=MAX_HEALTH,operation=0,amount=2,slot=HEAD"
+  reaper-chestplate:
+    item:
+      type: NETHERITE_CHESTPLATE
+      display: "&f&lGiáp &8&lTử thần &#9ca3af&l1 ★"
+      lore:
+        - "&fThuộc bộ trang bị &8Tử thần"
+      enchants:
+        - "PROTECTION_ENVIRONMENTAL 4"
+        - "DURABILITY 3"
+    enchants:
+      - "reaper 1"
+    attributes:
+      - "type=ARMOR,operation=0,amount=8,slot=CHEST"
+      - "type=ARMOR_TOUGHNESS,operation=0,amount=3,slot=CHEST"
+      - "type=KNOCKBACK_RESISTANCE,operation=0,amount=1,slot=CHEST"
+      - "type=MAX_HEALTH,operation=0,amount=4,slot=CHEST"
+  reaper-leggings:
+    item:
+      type: NETHERITE_LEGGINGS
+      display: "&f&lQuần &8&lTử thần &#9ca3af&l1 ★"
+      lore:
+        - "&fThuộc bộ trang bị &8Tử thần"
+      enchants:
+        - "PROTECTION_ENVIRONMENTAL 4"
+        - "DURABILITY 3"
+    enchants:
+      - "reaper 1"
+    attributes:
+      - "type=ARMOR,operation=0,amount=6,slot=LEGS"
+      - "type=ARMOR_TOUGHNESS,operation=0,amount=3,slot=LEGS"
+      - "type=KNOCKBACK_RESISTANCE,operation=0,amount=1,slot=LEGS"
+      - "type=MAX_HEALTH,operation=0,amount=3,slot=LEGS"
+  reaper-boots:
+    item:
+      type: NETHERITE_BOOTS
+      display: "&f&lỦng &8&lTử thần &#9ca3af&l1 ★"
+      lore:
+        - "&fThuộc bộ trang bị &8Tử thần"
+      enchants:
+        - "PROTECTION_ENVIRONMENTAL 4"
+        - "DURABILITY 3"
+    enchants:
+      - "reaper 1"
+    attributes:
+      - "type=ARMOR,operation=0,amount=3,slot=FEET"
+      - "type=ARMOR_TOUGHNESS,operation=0,amount=3,slot=FEET"
+      - "type=KNOCKBACK_RESISTANCE,operation=0,amount=1,slot=FEET"
+      - "type=MAX_HEALTH,operation=0,amount=1,slot=FEET"
+      - "type=MOVEMENT_SPEED,operation=1,amount=0.12,slot=FEET"
+  reaper-hoe:
+    item:
+      type: NETHERITE_HOE
+      display: "&f&lLưỡi hái &8&lTử thần &#9ca3af&l1 ★"
+      lore:
+        - "&fThuộc bộ trang bị &8Tử thần"
+      enchants:
+        - "DAMAGE_ALL 7"
+        - "DURABILITY 3"
+    enchants:
+      - "reaper 1"
+    attributes:
+      - "type=ATTACK_DAMAGE,operation=0,amount=16,slot=HAND"
+      - "type=ATTACK_SPEED,operation=0,amount=-3.2,slot=HAND"
+  reaper-helmet2:
+    item:
+      type: NETHERITE_HELMET
+      display: "&f&lMũ &8&lTử thần &#84cc16&l2 ★"
+      lore:
+        - "&fThuộc bộ trang bị &8Tử thần"
+      enchants:
+        - "PROTECTION_ENVIRONMENTAL 4"
+        - "DURABILITY 3"
+    enchants:
+      - "reaper 2"
+    attributes:
+      - "type=ARMOR,operation=0,amount=3,slot=HEAD"
+      - "type=ARMOR_TOUGHNESS,operation=0,amount=3,slot=HEAD"
+      - "type=KNOCKBACK_RESISTANCE,operation=0,amount=1,slot=HEAD"
+      - "type=MAX_HEALTH,operation=0,amount=4,slot=HEAD"
+  reaper-chestplate2:
+    item:
+      type: NETHERITE_CHESTPLATE
+      display: "&f&lGiáp &8&lTử thần &#84cc16&l2 ★"
+      lore:
+        - "&fThuộc bộ trang bị &8Tử thần"
+      enchants:
+        - "PROTECTION_ENVIRONMENTAL 4"
+        - "DURABILITY 3"
+    enchants:
+      - "reaper 2"
+    attributes:
+      - "type=ARMOR,operation=0,amount=8,slot=CHEST"
+      - "type=ARMOR_TOUGHNESS,operation=0,amount=3,slot=CHEST"
+      - "type=KNOCKBACK_RESISTANCE,operation=0,amount=1,slot=CHEST"
+      - "type=MAX_HEALTH,operation=0,amount=8,slot=CHEST"
+  reaper-leggings2:
+    item:
+      type: NETHERITE_LEGGINGS
+      display: "&f&lQuần &8&lTử thần &#84cc16&l2 ★"
+      lore:
+        - "&fThuộc bộ trang bị &8Tử thần"
+      enchants:
+        - "PROTECTION_ENVIRONMENTAL 4"
+        - "DURABILITY 3"
+    enchants:
+      - "reaper 2"
+    attributes:
+      - "type=ARMOR,operation=0,amount=6,slot=LEGS"
+      - "type=ARMOR_TOUGHNESS,operation=0,amount=3,slot=LEGS"
+      - "type=KNOCKBACK_RESISTANCE,operation=0,amount=1,slot=LEGS"
+      - "type=MAX_HEALTH,operation=0,amount=6,slot=LEGS"
+  reaper-boots2:
+    item:
+      type: NETHERITE_BOOTS
+      display: "&f&lỦng &8&lTử thần &#84cc16&l2 ★"
+      lore:
+        - "&fThuộc bộ trang bị &8Tử thần"
+      enchants:
+        - "PROTECTION_ENVIRONMENTAL 4"
+        - "DURABILITY 3"
+    enchants:
+      - "reaper 2"
+    attributes:
+      - "type=ARMOR,operation=0,amount=3,slot=FEET"
+      - "type=ARMOR_TOUGHNESS,operation=0,amount=3,slot=FEET"
+      - "type=KNOCKBACK_RESISTANCE,operation=0,amount=1,slot=FEET"
+      - "type=MAX_HEALTH,operation=0,amount=2,slot=FEET"
+      - "type=MOVEMENT_SPEED,operation=1,amount=0.24,slot=FEET"
+  reaper-hoe2:
+    item:
+      type: NETHERITE_HOE
+      display: "&f&lLưỡi hái &8&lTử thần &#84cc16&l2 ★"
+      lore:
+        - "&fThuộc bộ trang bị &8Tử thần"
+      enchants:
+        - "DAMAGE_ALL 9"
+        - "DURABILITY 3"
+    enchants:
+      - "reaper 2"
+    attributes:
+      - "type=ATTACK_DAMAGE,operation=0,amount=17,slot=HAND"
+      - "type=ATTACK_SPEED,operation=0,amount=-3.2,slot=HAND"
+  reaper-helmet3:
+    item:
+      type: NETHERITE_HELMET
+      display: "&f&lMũ &8&lTử thần &#22c55e&l3 ★"
+      lore:
+        - "&fThuộc bộ trang bị &8Tử thần"
+      enchants:
+        - "PROTECTION_ENVIRONMENTAL 4"
+        - "DURABILITY 3"
+    enchants:
+      - "reaper 3"
+    attributes:
+      - "type=ARMOR,operation=0,amount=3,slot=HEAD"
+      - "type=ARMOR_TOUGHNESS,operation=0,amount=3,slot=HEAD"
+      - "type=KNOCKBACK_RESISTANCE,operation=0,amount=1,slot=HEAD"
+      - "type=MAX_HEALTH,operation=0,amount=6,slot=HEAD"
+  reaper-chestplate3:
+    item:
+      type: NETHERITE_CHESTPLATE
+      display: "&f&lGiáp &8&lTử thần &#22c55e&l3 ★"
+      lore:
+        - "&fThuộc bộ trang bị &8Tử thần"
+      enchants:
+        - "PROTECTION_ENVIRONMENTAL 4"
+        - "DURABILITY 3"
+    enchants:
+      - "reaper 3"
+    attributes:
+      - "type=ARMOR,operation=0,amount=8,slot=CHEST"
+      - "type=ARMOR_TOUGHNESS,operation=0,amount=3,slot=CHEST"
+      - "type=KNOCKBACK_RESISTANCE,operation=0,amount=1,slot=CHEST"
+      - "type=MAX_HEALTH,operation=0,amount=12,slot=CHEST"
+  reaper-leggings3:
+    item:
+      type: NETHERITE_LEGGINGS
+      display: "&f&lQuần &8&lTử thần &#22c55e&l3 ★"
+      lore:
+        - "&fThuộc bộ trang bị &8Tử thần"
+      enchants:
+        - "PROTECTION_ENVIRONMENTAL 4"
+        - "DURABILITY 3"
+    enchants:
+      - "reaper 3"
+    attributes:
+      - "type=ARMOR,operation=0,amount=6,slot=LEGS"
+      - "type=ARMOR_TOUGHNESS,operation=0,amount=3,slot=LEGS"
+      - "type=KNOCKBACK_RESISTANCE,operation=0,amount=1,slot=LEGS"
+      - "type=MAX_HEALTH,operation=0,amount=9,slot=LEGS"
+  reaper-boots3:
+    item:
+      type: NETHERITE_BOOTS
+      display: "&f&lỦng &8&lTử thần &#22c55e&l3 ★"
+      lore:
+        - "&fThuộc bộ trang bị &8Tử thần"
+      enchants:
+        - "PROTECTION_ENVIRONMENTAL 4"
+        - "DURABILITY 3"
+    enchants:
+      - "reaper 3"
+    attributes:
+      - "type=ARMOR,operation=0,amount=3,slot=FEET"
+      - "type=ARMOR_TOUGHNESS,operation=0,amount=3,slot=FEET"
+      - "type=KNOCKBACK_RESISTANCE,operation=0,amount=1,slot=FEET"
+      - "type=MAX_HEALTH,operation=0,amount=3,slot=FEET"
+      - "type=MOVEMENT_SPEED,operation=1,amount=0.36,slot=FEET"
+  reaper-hoe3:
+    item:
+      type: NETHERITE_HOE
+      display: "&f&lLưỡi hái &8&lTử thần &#22c55e&l3 ★"
+      lore:
+        - "&fThuộc bộ trang bị &8Tử thần"
+      enchants:
+        - "DAMAGE_ALL 11"
+        - "DURABILITY 3"
+    enchants:
+      - "reaper 3"
+    attributes:
+      - "type=ATTACK_DAMAGE,operation=0,amount=18,slot=HAND"
+      - "type=ATTACK_SPEED,operation=0,amount=-3.2,slot=HAND"
+  reaper-helmet4:
+    item:
+      type: NETHERITE_HELMET
+      display: "&f&lMũ &8&lTử thần &#38bdf8&l4 ★"
+      lore:
+        - "&fThuộc bộ trang bị &8Tử thần"
+      enchants:
+        - "PROTECTION_ENVIRONMENTAL 4"
+        - "DURABILITY 3"
+    enchants:
+      - "reaper 4"
+    attributes:
+      - "type=ARMOR,operation=0,amount=3,slot=HEAD"
+      - "type=ARMOR_TOUGHNESS,operation=0,amount=3,slot=HEAD"
+      - "type=KNOCKBACK_RESISTANCE,operation=0,amount=1,slot=HEAD"
+      - "type=MAX_HEALTH,operation=0,amount=8,slot=HEAD"
+  reaper-chestplate4:
+    item:
+      type: NETHERITE_CHESTPLATE
+      display: "&f&lGiáp &8&lTử thần &#38bdf8&l4 ★"
+      lore:
+        - "&fThuộc bộ trang bị &8Tử thần"
+      enchants:
+        - "PROTECTION_ENVIRONMENTAL 4"
+        - "DURABILITY 3"
+    enchants:
+      - "reaper 4"
+    attributes:
+      - "type=ARMOR,operation=0,amount=8,slot=CHEST"
+      - "type=ARMOR_TOUGHNESS,operation=0,amount=3,slot=CHEST"
+      - "type=KNOCKBACK_RESISTANCE,operation=0,amount=1,slot=CHEST"
+      - "type=MAX_HEALTH,operation=0,amount=16,slot=CHEST"
+  reaper-leggings4:
+    item:
+      type: NETHERITE_LEGGINGS
+      display: "&f&lQuần &8&lTử thần &#38bdf8&l4 ★"
+      lore:
+        - "&fThuộc bộ trang bị &8Tử thần"
+      enchants:
+        - "PROTECTION_ENVIRONMENTAL 4"
+        - "DURABILITY 3"
+    enchants:
+      - "reaper 4"
+    attributes:
+      - "type=ARMOR,operation=0,amount=6,slot=LEGS"
+      - "type=ARMOR_TOUGHNESS,operation=0,amount=3,slot=LEGS"
+      - "type=KNOCKBACK_RESISTANCE,operation=0,amount=1,slot=LEGS"
+      - "type=MAX_HEALTH,operation=0,amount=12,slot=LEGS"
+  reaper-boots4:
+    item:
+      type: NETHERITE_BOOTS
+      display: "&f&lỦng &8&lTử thần &#38bdf8&l4 ★"
+      lore:
+        - "&fThuộc bộ trang bị &8Tử thần"
+      enchants:
+        - "PROTECTION_ENVIRONMENTAL 4"
+        - "DURABILITY 3"
+    enchants:
+      - "reaper 4"
+    attributes:
+      - "type=ARMOR,operation=0,amount=3,slot=FEET"
+      - "type=ARMOR_TOUGHNESS,operation=0,amount=3,slot=FEET"
+      - "type=KNOCKBACK_RESISTANCE,operation=0,amount=1,slot=FEET"
+      - "type=MAX_HEALTH,operation=0,amount=4,slot=FEET"
+      - "type=MOVEMENT_SPEED,operation=1,amount=0.48,slot=FEET"
+  reaper-hoe4:
+    item:
+      type: NETHERITE_HOE
+      display: "&f&lLưỡi hái &8&lTử thần &#38bdf8&l4 ★"
+      lore:
+        - "&fThuộc bộ trang bị &8Tử thần"
+      enchants:
+        - "DAMAGE_ALL 13"
+        - "DURABILITY 3"
+    enchants:
+      - "reaper 4"
+    attributes:
+      - "type=ATTACK_DAMAGE,operation=0,amount=19,slot=HAND"
+      - "type=ATTACK_SPEED,operation=0,amount=-3.2,slot=HAND"
+  reaper-helmet5:
+    item:
+      type: NETHERITE_HELMET
+      display: "&f&lMũ &8&lTử thần &#fde047&l5 ★"
+      lore:
+        - "&fThuộc bộ trang bị &8Tử thần"
+      enchants:
+        - "PROTECTION_ENVIRONMENTAL 4"
+        - "DURABILITY 3"
+    enchants:
+      - "reaper 5"
+    attributes:
+      - "type=ARMOR,operation=0,amount=3,slot=HEAD"
+      - "type=ARMOR_TOUGHNESS,operation=0,amount=3,slot=HEAD"
+      - "type=KNOCKBACK_RESISTANCE,operation=0,amount=1,slot=HEAD"
+      - "type=MAX_HEALTH,operation=0,amount=10,slot=HEAD"
+  reaper-chestplate5:
+    item:
+      type: NETHERITE_CHESTPLATE
+      display: "&f&lGiáp &8&lTử thần &#fde047&l5 ★"
+      lore:
+        - "&fThuộc bộ trang bị &8Tử thần"
+      enchants:
+        - "PROTECTION_ENVIRONMENTAL 4"
+        - "DURABILITY 3"
+    enchants:
+      - "reaper 5"
+    attributes:
+      - "type=ARMOR,operation=0,amount=8,slot=CHEST"
+      - "type=ARMOR_TOUGHNESS,operation=0,amount=3,slot=CHEST"
+      - "type=KNOCKBACK_RESISTANCE,operation=0,amount=1,slot=CHEST"
+      - "type=MAX_HEALTH,operation=0,amount=20,slot=CHEST"
+  reaper-leggings5:
+    item:
+      type: NETHERITE_LEGGINGS
+      display: "&f&lQuần &8&lTử thần &#fde047&l5 ★"
+      lore:
+        - "&fThuộc bộ trang bị &8Tử thần"
+      enchants:
+        - "PROTECTION_ENVIRONMENTAL 4"
+        - "DURABILITY 3"
+    enchants:
+      - "reaper 5"
+    attributes:
+      - "type=ARMOR,operation=0,amount=6,slot=LEGS"
+      - "type=ARMOR_TOUGHNESS,operation=0,amount=3,slot=LEGS"
+      - "type=KNOCKBACK_RESISTANCE,operation=0,amount=1,slot=LEGS"
+      - "type=MAX_HEALTH,operation=0,amount=15,slot=LEGS"
+  reaper-boots5:
+    item:
+      type: NETHERITE_BOOTS
+      display: "&f&lỦng &8&lTử thần &#fde047&l5 ★"
+      lore:
+        - "&fThuộc bộ trang bị &8Tử thần"
+      enchants:
+        - "PROTECTION_ENVIRONMENTAL 4"
+        - "DURABILITY 3"
+    enchants:
+      - "reaper 5"
+    attributes:
+      - "type=ARMOR,operation=0,amount=3,slot=FEET"
+      - "type=ARMOR_TOUGHNESS,operation=0,amount=3,slot=FEET"
+      - "type=KNOCKBACK_RESISTANCE,operation=0,amount=1,slot=FEET"
+      - "type=MAX_HEALTH,operation=0,amount=5,slot=FEET"
+      - "type=MOVEMENT_SPEED,operation=1,amount=0.60,slot=FEET"
+  reaper-hoe5:
+    item:
+      type: NETHERITE_HOE
+      display: "&f&lLưỡi hái &8&lTử thần &#fde047&l5 ★"
+      lore:
+        - "&fThuộc bộ trang bị &8Tử thần"
+      enchants:
+        - "DAMAGE_ALL 15"
+        - "DURABILITY 3"
+    enchants:
+      - "reaper 5"
+    attributes:
+      - "type=ATTACK_DAMAGE,operation=0,amount=20,slot=HAND"
+      - "type=ATTACK_SPEED,operation=0,amount=-3.2,slot=HAND"
 artifact:
   crit-claws:
     item:
@@ -6761,7 +7528,36 @@ mask:
       bold: "&5&l[&f&lIronGolem&5&l] &f&o%display%"
     enchants:
       - irongolem 5
+  test:
+    item:
+      type: PLAYER_HEAD
+      display: "&f&lMặt nạ Thử Nghiệm"
+      lore:
+        - ""
+        - "&eSau khi kết hợp với mũ:"
+        - "&e- Thừa hưởng &ntất cả thông số&e từ mũ"
+        - "&7  (Bao gồm cả phù phép nâng cao)"
+        - "&e- Có thể &ntháo gỡ&e bất cứ lúc nào"
+        - "&7  (Tháo bằng cách nhấp chuột giữa)"
+        - "&e- Thêm thẻ &5[&fIronGolem&5] &etrước tên vật phẩm"
+        - "&7  (Tự động in hoa để phù hợp với tên)"
+      skull-owner: "textures:eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWYzZTI5ZGQ5NDdhMTc3ODk1ZjYxMjFkMjMzMWI2NWFjM2Y4OTZmZGE0YmRkMTE1MTQ5MWU0MGI4MDQ5NTJhNyJ9fX0="
+    display:
+      normal: "&5[&fIronGolem&5] &f&o%display%"
+      bold: "&5&l[&f&lIronGolem&5&l] &f&o%display%"
+    enchants:
+      - irongolem 5
 gem-settings:
+  slot:
+    slot1:
+      priority: 1
+      display: "&#388E3C💎 &#81c784Ô ngọc &#388E3C💎"
+    slot2:
+      priority: 2
+      display: "&#1E88E5💎 &#64B5F6Ô ngọc &#1E88E5💎"
+    slot3:
+      priority: 3
+      display: "&#B71C1C💎 &#d32f2fÔ ngọc &#B71C1C💎"
   levels:
     1:
       color: "&#9ca3af"
@@ -6772,33 +7568,723 @@ gem-settings:
     4:
       color: "&#38bdf8"
     5:
-      color: "&#3b82f6"
-    6:
       color: "&#fde047"
-    7:
+    6:
       color: "&#fb923c"
+    7:
+      color: "&#3b82f6"
     8:
       color: "&#a855f7"
     9:
       color: "&#f9158e"
     10:
       color: "&#e11d48"
-gem:
-  attack-damage:
+gem-drill:
+  all1:
     item:
-      type: DIAMOND
-      display: "&#ff4500&l⚔ &#ff4500&lNgọc Công Kích {level_color}&l{gem_level} ★ &#ff4500&l⚔"
+      type: HOPPER
+      glowing: true
+      display: "&#388E3C&lMáy Khoan Thường"
       lore:
         - ""
-        - "&eKhảm vào trang bị để gia tăng sức tấn công."
+        - "&eDùng để đục lỗ ô ngọc trên trang bị"
         - ""
-        - "&7Khảm vào: &f{gem_applies_description}"
+        - "&eCho phép khảm các loại &#81c784Ngọc Thường"
         - ""
         - "&7&oSử dụng tại /ceanvil"
-    display: "&#ff4500⚔ &#ff4500Ngọc Công Kích {level_color}{gem_level} ★ &#ff4500⚔"
-    applies-description:
-      - Vũ khí
+    slot: slot1
+    max-drill: 5
     applies:
-      - "ALL_AXE"
+      - ALL_SWORD
+      - ALL_AXE
+      - ALL_HOE
+      - ALL_ARMOR
+      - BOW
+      - TRIDENT
+  all2:
+    item:
+      type: HOPPER
+      glowing: true
+      display: "&#1E88E5&lMáy Khoan Tinh Anh"
+      lore:
+        - ""
+        - "&eDùng để đục lỗ ô ngọc trên trang bị"
+        - ""
+        - "&eCho phép khảm các loại &#64B5F6Ngọc Tinh Anh"
+        - "&etrở xuống"
+        - ""
+        - "&7&oSử dụng tại /ceanvil"
+    slot: slot2
+    max-drill: 5
+    applies:
+      - ALL_SWORD
+      - ALL_AXE
+      - ALL_HOE
+      - ALL_ARMOR
+      - BOW
+      - TRIDENT
+  all3:
+    item:
+      type: HOPPER
+      glowing: true
+      display: "&#B71C1C&lMáy Khoan Cổ Đại"
+      lore:
+        - ""
+        - "&eDùng để đục lỗ ô ngọc trên trang bị"
+        - ""
+        - "&eCho phép khảm các loại &#d32f2fNgọc Cổ Đại"
+        - "&etrở xuống"
+        - ""
+        - "&7&oSử dụng tại /ceanvil"
+    slot: slot3
+    max-drill: 5
+    applies:
+      - ALL_SWORD
+      - ALL_AXE
+      - ALL_HOE
+      - ALL_ARMOR
+      - BOW
+      - TRIDENT
+gem:
+  max-health:
+    item:
+      type: END_CRYSTAL
+      glowing: true
+      display: "&#d15fee&l❤ &#d15fee&lNgọc Sinh Mệnh {level_color}&l{gem_level} ★ &#d15fee&l❤"
+      lore:
+        - ""
+        - "&eTăng thêm máu tối đa khi khảm"
+        - ""
+        - "&7Khảm vào &f{gem_applies_description}"
+        - ""
+        - "&7&oSử dụng tại /ceanvil"
+    display: "&#d15fee❤ &#d15feeNgọc Sinh Mệnh {level_color}{gem_level} ★ &#d15fee❤"
+    applies-description:
+      - "Tất cả loại giáp"
+    applies:
+      - "ALL_ARMOR"
+    applies-slot:
+      - "slot1"
+      - "slot2"
+      - "slot3"
+    levels:
+      1:
+        attributes:
+          - "type=MAX_HEALTH,name=max-health,operation=0,amount=1,slot=ARMOR"
+      2:
+        attributes:
+          - "type=MAX_HEALTH,name=max-health,operation=0,amount=2,slot=ARMOR"
+      3:
+        attributes:
+          - "type=MAX_HEALTH,name=max-health,operation=0,amount=3,slot=ARMOR"
+      4:
+        attributes:
+          - "type=MAX_HEALTH,name=max-health,operation=0,amount=4,slot=ARMOR"
+      5:
+        attributes:
+          - "type=MAX_HEALTH,name=max-health,operation=0,amount=5,slot=ARMOR"
+      6:
+        attributes:
+          - "type=MAX_HEALTH,name=max-health,operation=0,amount=6,slot=ARMOR"
+      7:
+        attributes:
+          - "type=MAX_HEALTH,name=max-health,operation=0,amount=7,slot=ARMOR"
+      8:
+        attributes:
+          - "type=MAX_HEALTH,name=max-health,operation=0,amount=8,slot=ARMOR"
+      9:
+        attributes:
+          - "type=MAX_HEALTH,name=max-health,operation=0,amount=9,slot=ARMOR"
+      10:
+        attributes:
+          - "type=MAX_HEALTH,name=max-health,operation=0,amount=10,slot=ARMOR"
+  attack-damage:
+    item:
+      type: BLAZE_POWDER
+      glowing: true
+      display: "&#ff4500&l⚔ &#ff4500&lNgọc Sức Mạnh {level_color}&l{gem_level} ★ &#ff4500&l⚔"
+      lore:
+        - ""
+        - "&eTăng thêm sát thương gây ra khi khảm"
+        - ""
+        - "&7Khảm vào &f{gem_applies_description}"
+        - ""
+        - "&7&oSử dụng tại /ceanvil"
+    display: "&#ff4500⚔ &#ff4500Ngọc Sức Mạnh {level_color}{gem_level} ★ &#ff4500⚔"
+    applies-description:
+      - "Tất cả loại vũ khí"
+    applies:
       - "ALL_SWORD"
+      - "ALL_AXE"
       - "ALL_BOW"
+      - "TRIDENT"
+    applies-slot:
+      - "slot1"
+      - "slot2"
+      - "slot3"
+    levels:
+      1:
+        attributes:
+          - "type=ATTACK_DAMAGE,name=attack-damage,operation=0,amount=0.5,slot=HAND"
+      2:
+        attributes:
+          - "type=ATTACK_DAMAGE,name=attack-damage,operation=0,amount=1,slot=HAND"
+      3:
+        attributes:
+          - "type=ATTACK_DAMAGE,name=attack-damage,operation=0,amount=1.5,slot=HAND"
+      4:
+        attributes:
+          - "type=ATTACK_DAMAGE,name=attack-damage,operation=0,amount=2,slot=HAND"
+      5:
+        attributes:
+          - "type=ATTACK_DAMAGE,name=attack-damage,operation=0,amount=2.5,slot=HAND"
+      6:
+        attributes:
+          - "type=ATTACK_DAMAGE,name=attack-damage,operation=0,amount=3,slot=HAND"
+      7:
+        attributes:
+          - "type=ATTACK_DAMAGE,name=attack-damage,operation=0,amount=3.5,slot=HAND"
+      8:
+        attributes:
+          - "type=ATTACK_DAMAGE,name=attack-damage,operation=0,amount=4,slot=HAND"
+      9:
+        attributes:
+          - "type=ATTACK_DAMAGE,name=attack-damage,operation=0,amount=4.5,slot=HAND"
+      10:
+        attributes:
+          - "type=ATTACK_DAMAGE,name=attack-damage,operation=0,amount=5,slot=HAND"
+  movement-speed:
+    item:
+      type: FEATHER
+      glowing: true
+      display: "&#00bfff&l⚡ &#00bfff&lNgọc Tốc Hành {level_color}&l{gem_level} ★ &#00bfff&l⚡"
+      lore:
+        - ""
+        - "&eTăng thêm tốc độ di chuyển khi khảm"
+        - ""
+        - "&7Khảm vào &f{gem_applies_description}"
+        - ""
+        - "&7&oSử dụng tại /ceanvil"
+    display: "&#00bfff⚡ &#00bfffNgọc Tốc Hành {level_color}{gem_level} ★ &#00bfff⚡"
+    applies-description:
+      - "Giày"
+    applies:
+      - "ALL_BOOTS"
+    applies-slot:
+      - "slot1"
+      - "slot2"
+      - "slot3"
+    levels:
+      1:
+        attributes:
+          - "type=MOVEMENT_SPEED,name=movement-speed,operation=1,amount=0.01,slot=ARMOR"
+      2:
+        attributes:
+          - "type=MOVEMENT_SPEED,name=movement-speed,operation=1,amount=0.02,slot=ARMOR"
+      3:
+        attributes:
+          - "type=MOVEMENT_SPEED,name=movement-speed,operation=1,amount=0.03,slot=ARMOR"
+      4:
+        attributes:
+          - "type=MOVEMENT_SPEED,name=movement-speed,operation=1,amount=0.04,slot=ARMOR"
+      5:
+        attributes:
+          - "type=MOVEMENT_SPEED,name=movement-speed,operation=1,amount=0.05,slot=ARMOR"
+      6:
+        attributes:
+          - "type=MOVEMENT_SPEED,name=movement-speed,operation=1,amount=0.06,slot=ARMOR"
+      7:
+        attributes:
+          - "type=MOVEMENT_SPEED,name=movement-speed,operation=1,amount=0.07,slot=ARMOR"
+      8:
+        attributes:
+          - "type=MOVEMENT_SPEED,name=movement-speed,operation=1,amount=0.08,slot=ARMOR"
+      9:
+        attributes:
+          - "type=MOVEMENT_SPEED,name=movement-speed,operation=1,amount=0.09,slot=ARMOR"
+      10:
+        attributes:
+          - "type=MOVEMENT_SPEED,name=movement-speed,operation=1,amount=0.10,slot=ARMOR"
+  health-regeneration:
+    item:
+      type: APPLE
+      glowing: true
+      display: "&#32cd32&l❤ &#32cd32&lNgọc Hồi Phục {level_color}&l{gem_level} ★ &#32cd32&l❤"
+      lore:
+        - ""
+        - "&eTăng thêm lượng máu hồi phục mỗi giây khi khảm"
+        - ""
+        - "&7Khảm vào &f{gem_applies_description}"
+        - ""
+        - "&7&oSử dụng tại /ceanvil"
+    display: "&#32cd32❤ &#32cd32Ngọc Hồi Phục {level_color}{gem_level} ★ &#32cd32❤"
+    applies-description:
+      - "Tất cả loại giáp"
+    applies:
+      - "ALL_ARMOR"
+    applies-slot:
+      - "slot1"
+      - "slot2"
+      - "slot3"
+    levels:
+      1:
+        attributes:
+          - "type=HEALTH_REGENERATION,name=health-regeneration,operation=0,amount=0.1,slot=ARMOR"
+      2:
+        attributes:
+          - "type=HEALTH_REGENERATION,name=health-regeneration,operation=0,amount=0.2,slot=ARMOR"
+      3:
+        attributes:
+          - "type=HEALTH_REGENERATION,name=health-regeneration,operation=0,amount=0.3,slot=ARMOR"
+      4:
+        attributes:
+          - "type=HEALTH_REGENERATION,name=health-regeneration,operation=0,amount=0.4,slot=ARMOR"
+      5:
+        attributes:
+          - "type=HEALTH_REGENERATION,name=health-regeneration,operation=0,amount=0.5,slot=ARMOR"
+      6:
+        attributes:
+          - "type=HEALTH_REGENERATION,name=health-regeneration,operation=0,amount=0.6,slot=ARMOR"
+      7:
+        attributes:
+          - "type=HEALTH_REGENERATION,name=health-regeneration,operation=0,amount=0.7,slot=ARMOR"
+      8:
+        attributes:
+          - "type=HEALTH_REGENERATION,name=health-regeneration,operation=0,amount=0.8,slot=ARMOR"
+      9:
+        attributes:
+          - "type=HEALTH_REGENERATION,name=health-regeneration,operation=0,amount=0.9,slot=ARMOR"
+      10:
+        attributes:
+          - "type=HEALTH_REGENERATION,name=health-regeneration,operation=0,amount=1,slot=ARMOR"
+  critical-chance:
+    item:
+      type: YELLOW_DYE
+      glowing: true
+      display: "&#ffd700&l🎯 &#ffd700&lNgọc Chí Mạng {level_color}&l{gem_level} ★ &#ffd700&l🎯"
+      lore:
+        - ""
+        - "&eTăng thêm tỉ lệ chí mạng khi khảm"
+        - ""
+        - "&7Khảm vào &f{gem_applies_description}"
+        - ""
+        - "&7&oSử dụng tại /ceanvil"
+    display: "&#ffd700🎯 &#ffd700Ngọc Chí Mạng {level_color}{gem_level} ★ &#ffd700🎯"
+    applies-description:
+      - "Tất cả loại vũ khí"
+    applies:
+      - "ALL_SWORD"
+      - "ALL_AXE"
+      - "ALL_BOW"
+      - "TRIDENT"
+    applies-slot:
+      - "slot1"
+      - "slot2"
+      - "slot3"
+    levels:
+      1:
+        attributes:
+          - "type=CRITICAL_CHANCE,name=critical-chance,operation=0,amount=2,slot=HAND"
+      2:
+        attributes:
+          - "type=CRITICAL_CHANCE,name=critical-chance,operation=0,amount=4,slot=HAND"
+      3:
+        attributes:
+          - "type=CRITICAL_CHANCE,name=critical-chance,operation=0,amount=6,slot=HAND"
+      4:
+        attributes:
+          - "type=CRITICAL_CHANCE,name=critical-chance,operation=0,amount=8,slot=HAND"
+      5:
+        attributes:
+          - "type=CRITICAL_CHANCE,name=critical-chance,operation=0,amount=10,slot=HAND"
+      6:
+        attributes:
+          - "type=CRITICAL_CHANCE,name=critical-chance,operation=0,amount=12,slot=HAND"
+      7:
+        attributes:
+          - "type=CRITICAL_CHANCE,name=critical-chance,operation=0,amount=14,slot=HAND"
+      8:
+        attributes:
+          - "type=CRITICAL_CHANCE,name=critical-chance,operation=0,amount=16,slot=HAND"
+      9:
+        attributes:
+          - "type=CRITICAL_CHANCE,name=critical-chance,operation=0,amount=18,slot=HAND"
+      10:
+        attributes:
+          - "type=CRITICAL_CHANCE,name=critical-chance,operation=0,amount=20,slot=HAND"
+  critical-damage:
+    item:
+      type: FIRE_CHARGE
+      glowing: true
+      display: "&#ff4500&l💥 &#ff4500&lNgọc Cuồng Nộ {level_color}&l{gem_level} ★ &#ff4500&l💥"
+      lore:
+        - ""
+        - "&eTăng thêm sát thương chí mạng khi khảm"
+        - ""
+        - "&7Khảm vào &f{gem_applies_description}"
+        - ""
+        - "&7&oSử dụng tại /ceanvil"
+    display: "&#ff4500💥 &#ff4500Ngọc Cuồng Nộ {level_color}{gem_level} ★ &#ff4500💥"
+    applies-description:
+      - "Tất cả loại vũ khí"
+    applies:
+      - "ALL_SWORD"
+      - "ALL_AXE"
+      - "ALL_BOW"
+      - "TRIDENT"
+    applies-slot:
+      - "slot1"
+      - "slot2"
+      - "slot3"
+    levels:
+      1:
+        attributes:
+          - "type=CRITICAL_DAMAGE,name=critical-damage,operation=0,amount=0.01,slot=HAND"
+      2:
+        attributes:
+          - "type=CRITICAL_DAMAGE,name=critical-damage,operation=0,amount=0.02,slot=HAND"
+      3:
+        attributes:
+          - "type=CRITICAL_DAMAGE,name=critical-damage,operation=0,amount=0.03,slot=HAND"
+      4:
+        attributes:
+          - "type=CRITICAL_DAMAGE,name=critical-damage,operation=0,amount=0.04,slot=HAND"
+      5:
+        attributes:
+          - "type=CRITICAL_DAMAGE,name=critical-damage,operation=0,amount=0.05,slot=HAND"
+      6:
+        attributes:
+          - "type=CRITICAL_DAMAGE,name=critical-damage,operation=0,amount=0.06,slot=HAND"
+      7:
+        attributes:
+          - "type=CRITICAL_DAMAGE,name=critical-damage,operation=0,amount=0.07,slot=HAND"
+      8:
+        attributes:
+          - "type=CRITICAL_DAMAGE,name=critical-damage,operation=0,amount=0.08,slot=HAND"
+      9:
+        attributes:
+          - "type=CRITICAL_DAMAGE,name=critical-damage,operation=0,amount=0.09,slot=HAND"
+      10:
+        attributes:
+          - "type=CRITICAL_DAMAGE,name=critical-damage,operation=0,amount=0.10,slot=HAND"
+  attack-speed:
+    item:
+      type: SUGAR
+      glowing: true
+      display: "&#00FF7F&l&l⚡ &#00FF7F&lNgọc Tốc Đánh {level_color}&l{gem_level} ★ &#00FF7F&l&l⚡"
+      lore:
+        - ""
+        - "&eTăng thêm tốc độ đánh khi khảm"
+        - ""
+        - "&7Khảm vào &f{gem_applies_description}"
+        - ""
+        - "&7&oSử dụng tại /ceanvil"
+    display: "&#00FF7F⚡ &#00FF7FNgọc Tốc Đánh {level_color}{gem_level} ★ &#00FF7F⚡"
+    applies-description:
+      - "Tất cả loại vũ khí"
+    applies:
+      - "ALL_SWORD"
+      - "ALL_AXE"
+      - "ALL_BOW"
+      - "TRIDENT"
+    applies-slot:
+      - "slot1"
+      - "slot2"
+      - "slot3"
+    levels:
+      1:
+        attributes:
+          - "type=ATTACK_SPEED,name=attack-speed,operation=1,amount=0.02,slot=HAND"
+      2:
+        attributes:
+          - "type=ATTACK_SPEED,name=attack-speed,operation=1,amount=0.04,slot=HAND"
+      3:
+        attributes:
+          - "type=ATTACK_SPEED,name=attack-speed,operation=1,amount=0.06,slot=HAND"
+      4:
+        attributes:
+          - "type=ATTACK_SPEED,name=attack-speed,operation=1,amount=0.08,slot=HAND"
+      5:
+        attributes:
+          - "type=ATTACK_SPEED,name=attack-speed,operation=1,amount=0.10,slot=HAND"
+      6:
+        attributes:
+          - "type=ATTACK_SPEED,name=attack-speed,operation=1,amount=0.12,slot=HAND"
+      7:
+        attributes:
+          - "type=ATTACK_SPEED,name=attack-speed,operation=1,amount=0.14,slot=HAND"
+      8:
+        attributes:
+          - "type=ATTACK_SPEED,name=attack-speed,operation=1,amount=0.16,slot=HAND"
+      9:
+        attributes:
+          - "type=ATTACK_SPEED,name=attack-speed,operation=1,amount=0.18,slot=HAND"
+      10:
+        attributes:
+          - "type=ATTACK_SPEED,name=attack-speed,operation=1,amount=0.20,slot=HAND"
+  life-steal:
+    item:
+      type: BEETROOT
+      glowing: true
+      display: "&#8b0000&l🧛 &#8b0000&lNgọc Hút Máu {level_color}&l{gem_level} ★ &#8b0000&l🧛"
+      lore:
+        - ""
+        - "&eTăng thêm hút máu khi khảm"
+        - ""
+        - "&7Khảm vào &f{gem_applies_description}"
+        - ""
+        - "&7&oSử dụng tại /ceanvil"
+    display: "&#8b0000🧛 &#8b0000Ngọc Hút Máu {level_color}{gem_level} ★ &#8b0000🧛"
+    applies-description:
+      - "Tất cả loại vũ khí"
+    applies:
+      - "ALL_SWORD"
+      - "ALL_AXE"
+      - "ALL_BOW"
+      - "TRIDENT"
+    applies-slot:
+      - "slot1"
+      - "slot2"
+      - "slot3"
+    levels:
+      1:
+        attributes:
+          - "type=LIFE_STEAL,name=life-steal,operation=0,amount=0.75,slot=HAND"
+      2:
+        attributes:
+          - "type=LIFE_STEAL,name=life-steal,operation=0,amount=1.5,slot=HAND"
+      3:
+        attributes:
+          - "type=LIFE_STEAL,name=life-steal,operation=0,amount=2.25,slot=HAND"
+      4:
+        attributes:
+          - "type=LIFE_STEAL,name=life-steal,operation=0,amount=3,slot=HAND"
+      5:
+        attributes:
+          - "type=LIFE_STEAL,name=life-steal,operation=0,amount=3.75,slot=HAND"
+      6:
+        attributes:
+          - "type=LIFE_STEAL,name=life-steal,operation=0,amount=4.5,slot=HAND"
+      7:
+        attributes:
+          - "type=LIFE_STEAL,name=life-steal,operation=0,amount=5.25,slot=HAND"
+      8:
+        attributes:
+          - "type=LIFE_STEAL,name=life-steal,operation=0,amount=6,slot=HAND"
+      9:
+        attributes:
+          - "type=LIFE_STEAL,name=life-steal,operation=0,amount=6.75,slot=HAND"
+      10:
+        attributes:
+          - "type=LIFE_STEAL,name=life-steal,operation=0,amount=7.5,slot=HAND"
+  dodge-chance:
+    item:
+      type: RABBIT_FOOT
+      glowing: true
+      display: "&#f59e0b&l💨 &#f59e0b&lNgọc Né Tránh {level_color}&l{gem_level} ★ &#f59e0b&l💨"
+      lore:
+        - ""
+        - "&eTăng thêm tỉ lệ né tránh khi khảm"
+        - ""
+        - "&7Khảm vào &f{gem_applies_description}"
+        - ""
+        - "&7&oSử dụng tại /ceanvil"
+    display: "&#f59e0b💨 &#f59e0bNgọc Né Tránh {level_color}{gem_level} ★ &#f59e0b💨"
+    applies-description:
+      - "Tất cả loại giáp"
+    applies:
+      - "ALL_ARMOR"
+    applies-slot:
+      - "slot1"
+      - "slot2"
+      - "slot3"
+    levels:
+      1:
+        attributes:
+          - "type=DODGE_CHANCE,name=dodge-chance,operation=0,amount=0.25,slot=ARMOR"
+      2:
+        attributes:
+          - "type=DODGE_CHANCE,name=dodge-chance,operation=0,amount=0.5,slot=ARMOR"
+      3:
+        attributes:
+          - "type=DODGE_CHANCE,name=dodge-chance,operation=0,amount=0.75,slot=ARMOR"
+      4:
+        attributes:
+          - "type=DODGE_CHANCE,name=dodge-chance,operation=0,amount=1,slot=ARMOR"
+      5:
+        attributes:
+          - "type=DODGE_CHANCE,name=dodge-chance,operation=0,amount=1.25,slot=ARMOR"
+      6:
+        attributes:
+          - "type=DODGE_CHANCE,name=dodge-chance,operation=0,amount=1.5,slot=ARMOR"
+      7:
+        attributes:
+          - "type=DODGE_CHANCE,name=dodge-chance,operation=0,amount=1.75,slot=ARMOR"
+      8:
+        attributes:
+          - "type=DODGE_CHANCE,name=dodge-chance,operation=0,amount=2,slot=ARMOR"
+      9:
+        attributes:
+          - "type=DODGE_CHANCE,name=dodge-chance,operation=0,amount=2.25,slot=ARMOR"
+      10:
+        attributes:
+          - "type=DODGE_CHANCE,name=dodge-chance,operation=0,amount=2.5,slot=ARMOR"
+  damage-reduction:
+    item:
+      type: RAW_IRON
+      glowing: true
+      display: "&#64748b&l🛡 &#64748b&lNgọc Kháng Cự {level_color}&l{gem_level} ★ &#64748b&l🛡"
+      lore:
+        - ""
+        - "&eTăng nhận giảm sát thương khi khảm"
+        - ""
+        - "&7Khảm vào &f{gem_applies_description}"
+        - ""
+        - "&7&oSử dụng tại /ceanvil"
+    display: "&#64748b🛡 &#64748bNgọc Kháng Cự {level_color}{gem_level} ★ &#64748b🛡"
+    applies-description:
+      - "Tất cả loại giáp"
+    applies:
+      - "ALL_ARMOR"
+    applies-slot:
+      - "slot1"
+      - "slot2"
+      - "slot3"
+    levels:
+      1:
+        attributes:
+          - "type=DAMAGE_REDUCTION,name=damage-reduction,operation=0,amount=0.25,slot=ARMOR"
+      2:
+        attributes:
+          - "type=DAMAGE_REDUCTION,name=damage-reduction,operation=0,amount=0.5,slot=ARMOR"
+      3:
+        attributes:
+          - "type=DAMAGE_REDUCTION,name=damage-reduction,operation=0,amount=0.75,slot=ARMOR"
+      4:
+        attributes:
+          - "type=DAMAGE_REDUCTION,name=damage-reduction,operation=0,amount=1,slot=ARMOR"
+      5:
+        attributes:
+          - "type=DAMAGE_REDUCTION,name=damage-reduction,operation=0,amount=1.25,slot=ARMOR"
+      6:
+        attributes:
+          - "type=DAMAGE_REDUCTION,name=damage-reduction,operation=0,amount=1.5,slot=ARMOR"
+      7:
+        attributes:
+          - "type=DAMAGE_REDUCTION,name=damage-reduction,operation=0,amount=1.75,slot=ARMOR"
+      8:
+        attributes:
+          - "type=DAMAGE_REDUCTION,name=damage-reduction,operation=0,amount=2,slot=ARMOR"
+      9:
+        attributes:
+          - "type=DAMAGE_REDUCTION,name=damage-reduction,operation=0,amount=2.25,slot=ARMOR"
+      10:
+        attributes:
+          - "type=DAMAGE_REDUCTION,name=damage-reduction,operation=0,amount=2.5,slot=ARMOR"
+  armor:
+    item:
+      type: IRON_INGOT
+      glowing: true
+      display: "&#0284c7&l🛡 &#0284c7&lNgọc Giáp Cứng {level_color}&l{gem_level} ★ &#0284c7&l🛡"
+      lore:
+        - ""
+        - "&eTăng thêm giáp khi khảm"
+        - ""
+        - "&7Khảm vào &f{gem_applies_description}"
+        - ""
+        - "&7&oSử dụng tại /ceanvil"
+    display: "&#0284c7🛡 &#0284c7Ngọc Giáp Cứng {level_color}{gem_level} ★ &#0284c7🛡"
+    applies-description:
+      - "Tất cả loại giáp"
+    applies:
+      - "ALL_ARMOR"
+    applies-slot:
+      - "slot1"
+      - "slot2"
+      - "slot3"
+    levels:
+      1:
+        attributes:
+          - "type=ARMOR,name=armor,operation=0,amount=1,slot=ARMOR"
+      2:
+        attributes:
+          - "type=ARMOR,name=armor,operation=0,amount=2,slot=ARMOR"
+      3:
+        attributes:
+          - "type=ARMOR,name=armor,operation=0,amount=3,slot=ARMOR"
+      4:
+        attributes:
+          - "type=ARMOR,name=armor,operation=0,amount=4,slot=ARMOR"
+      5:
+        attributes:
+          - "type=ARMOR,name=armor,operation=0,amount=5,slot=ARMOR"
+      6:
+        attributes:
+          - "type=ARMOR,name=armor,operation=0,amount=6,slot=ARMOR"
+      7:
+        attributes:
+          - "type=ARMOR,name=armor,operation=0,amount=7,slot=ARMOR"
+      8:
+        attributes:
+          - "type=ARMOR,name=armor,operation=0,amount=8,slot=ARMOR"
+      9:
+        attributes:
+          - "type=ARMOR,name=armor,operation=0,amount=9,slot=ARMOR"
+      10:
+        attributes:
+          - "type=ARMOR,name=armor,operation=0,amount=10,slot=ARMOR"
+  armor-penetration:
+    item:
+      type: PRISMARINE_SHARD
+      glowing: true
+      display: "&#00BFFF&l🛡 &#00BFFF&lNgọc Xuyên Giáp {level_color}&l{gem_level} ★ &#00BFFF&l🛡"
+      lore:
+        - ""
+        - "&eTăng thêm xuyên giáp khi khảm"
+        - ""
+        - "&7Khảm vào &f{gem_applies_description}"
+        - ""
+        - "&7&oSử dụng tại /ceanvil"
+    display: "&#00BFFF🛡 &#00BFFFNgọc Xuyên Giáp {level_color}{gem_level} ★ &#00BFFF🛡"
+    applies-description:
+      - "Tất cả loại vũ khí"
+    applies:
+      - "ALL_SWORD"
+      - "ALL_AXE"
+      - "ALL_BOW"
+      - "TRIDENT"
+    applies-slot:
+      - "slot1"
+      - "slot2"
+      - "slot3"
+    levels:
+      1:
+        attributes:
+          - "type=ARMOR_PENETRATION,name=armor-penetration,operation=0,amount=1,slot=HAND"
+      2:
+        attributes:
+          - "type=ARMOR_PENETRATION,name=armor-penetration,operation=0,amount=2,slot=HAND"
+      3:
+        attributes:
+          - "type=ARMOR_PENETRATION,name=armor-penetration,operation=0,amount=3,slot=HAND"
+      4:
+        attributes:
+          - "type=ARMOR_PENETRATION,name=armor-penetration,operation=0,amount=4,slot=HAND"
+      5:
+        attributes:
+          - "type=ARMOR_PENETRATION,name=armor-penetration,operation=0,amount=5,slot=HAND"
+      6:
+        attributes:
+          - "type=ARMOR_PENETRATION,name=armor-penetration,operation=0,amount=6,slot=HAND"
+      7:
+        attributes:
+          - "type=ARMOR_PENETRATION,name=armor-penetration,operation=0,amount=7,slot=HAND"
+      8:
+        attributes:
+          - "type=ARMOR_PENETRATION,name=armor-penetration,operation=0,amount=8,slot=HAND"
+      9:
+        attributes:
+          - "type=ARMOR_PENETRATION,name=armor-penetration,operation=0,amount=9,slot=HAND"
+      10:
+        attributes:
+          - "type=ARMOR_PENETRATION,name=armor-penetration,operation=0,amount=10,slot=HAND"

@@ -1,12 +1,12 @@
 package com.bafmc.customenchantment.task;
 
-import java.util.List;
-
+import com.bafmc.customenchantment.CustomEnchantment;
+import com.bafmc.customenchantment.api.CEAPI;
+import com.bafmc.customenchantment.player.CEPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import com.bafmc.customenchantment.CustomEnchantment;
-import com.bafmc.customenchantment.player.CEPlayer;
+import java.util.List;
 
 public class CEPlayerTask extends BukkitRunnable {
 	private CustomEnchantment plugin;
@@ -16,7 +16,7 @@ public class CEPlayerTask extends BukkitRunnable {
 	}
 
 	public void run() {
-		List<CEPlayer> list = plugin.getCEPlayerMap().getCEPlayers();
+		List<CEPlayer> list = CEAPI.getCEPlayers();
 
 		for (CEPlayer cePlayer : list) {
 			Player player = cePlayer.getPlayer();

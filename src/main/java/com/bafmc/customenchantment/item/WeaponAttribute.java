@@ -1,7 +1,11 @@
 package com.bafmc.customenchantment.item;
 
-import com.bafmc.bukkit.bafframework.nms.*;
+import com.bafmc.bukkit.bafframework.nms.NMSAttribute;
+import com.bafmc.bukkit.bafframework.nms.NMSNBTBase;
+import com.bafmc.bukkit.bafframework.nms.NMSNBTTagCompound;
+import com.bafmc.bukkit.bafframework.nms.NMSNBTTagList;
 import com.bafmc.customenchantment.api.ITrade;
+import com.bafmc.customenchantment.utils.AttributeUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,37 +18,7 @@ public class WeaponAttribute extends CEItemExpansion implements ITrade<NMSNBTTag
 	}
 
 	public void addAttribute(String format) {
-		String[] split = format.split(",");
-
-		NMSAttribute.Builder builder = NMSAttribute.newBuilder();
-		for (String string : split) {
-			try {
-				String[] data = string.split("=");
-
-				String key = data[0];
-				String value = data[1];
-
-				switch (key) {
-				case "type":
-					NMSAttributeType type = NMSAttributeType.valueOf(value);
-					builder.type(type);
-					builder.name(type.getMinecraftId());
-					break;
-				case "operation":
-					builder.operation(NMSAttributeOperation.fromId(Integer.valueOf(value)));
-					break;
-				case "amount":
-					builder.amount(Double.valueOf(value));
-					break;
-				case "slot":
-					builder.slot(NMSAttributeSlot.valueOf(value.toUpperCase()));
-					break;
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-		addAttribute(builder.build());
+		addAttribute(AttributeUtils.createAttribute(format));
 	}
 
 	public void addAttribute(NMSAttribute attribute) {

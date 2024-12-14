@@ -19,7 +19,7 @@ public class UseItemExecute extends ExecuteHook {
 	public void execute(Player player, String value) {
 		List<String> list = StringUtils.split(value, ":", 0);
 
-		CEItem ceItem = CustomEnchantment.instance().getCEItemStorageMap().get(list.get(0))
+		CEItem ceItem = CustomEnchantment.instance().getCeItemStorageMap().get(list.get(0))
 				.getByParameter(new Parameter(list.subList(1, list.size())));
 
 		if (ceItem == null || !(ceItem instanceof CEItemUsable)) {

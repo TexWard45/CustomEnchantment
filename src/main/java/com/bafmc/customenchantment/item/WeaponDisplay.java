@@ -8,9 +8,18 @@ import com.bafmc.bukkit.utils.ColorUtils;
 import com.bafmc.bukkit.utils.NumberUtils;
 import com.bafmc.customenchantment.api.ITrade;
 import com.bafmc.customenchantment.enchant.CEEnchant;
+import com.bafmc.customenchantment.enchant.CEEnchantSimple;
 import com.bafmc.customenchantment.enchant.CEPlaceholder;
-import com.bafmc.customenchantment.enchant.CESimple;
+import com.bafmc.customenchantment.item.gem.CEGem;
+import com.bafmc.customenchantment.item.gem.CEGemData;
+import com.bafmc.customenchantment.item.gem.CEGemSettings;
+import com.bafmc.customenchantment.item.gem.CEGemSimple;
+import com.bafmc.customenchantment.item.gemdrill.CEGemDrill;
+import com.bafmc.customenchantment.item.gemdrill.CEGemDrillData;
+import com.bafmc.customenchantment.item.gemdrill.CEGemDrillSimple;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
@@ -19,6 +28,8 @@ import org.bukkit.inventory.meta.ItemMeta;
 import java.text.DecimalFormat;
 import java.util.*;
 
+@Getter
+@Setter
 public class WeaponDisplay extends CEItemExpansion implements ITrade<NMSNBTTagCompound> {
 	public static final String REMOVE = "__REMOVE__";
 	public static final String BEGIN_LABEL = "Ⓑ";
@@ -26,6 +37,8 @@ public class WeaponDisplay extends CEItemExpansion implements ITrade<NMSNBTTagCo
 	private List<String> beginLore = new ArrayList<String>();
 	private List<String> middleLore = new ArrayList<String>();
 	private List<String> endLore = new ArrayList<String>();
+	private String displayName;
+	private Map<Enchantment, Integer> enchantMap;
 
 	public WeaponDisplay(CEWeaponAbstract ceItem) {
 		super(ceItem);
@@ -87,21 +100,24 @@ public class WeaponDisplay extends CEItemExpansion implements ITrade<NMSNBTTagCo
 				newLore.remove(i);
 			}
 		}
-		
+
 		for (int i = 0; i < newLore.size() - 1; i++) {
 			if (newLore.get(i).contains("blank_lore") && newLore.get(i + 1).isEmpty()) {
 				newLore.remove(i + 1);
+				i--;
 			}
 			
 			if (newLore.get(i).contains("lower_blank_lore") && newLore.get(i + 1).contains("lower_blank_lore")) {
 				newLore.remove(i + 1);
+				i--;
 			}
 			
 			if (newLore.get(i).contains("upper_blank_lore") && newLore.get(i + 1).contains("upper_blank_lore")) {
 				newLore.remove(i + 1);
+				i--;
 			}
 		}
-		
+
 		// Trim
 		while (!newLore.isEmpty() && (newLore.getFirst().isEmpty() || newLore.getFirst().equals("lower_blank_lore"))) {
 			newLore.removeFirst();
@@ -111,6 +127,7 @@ public class WeaponDisplay extends CEItemExpansion implements ITrade<NMSNBTTagCo
 				|| newLore.getLast().equals("upper_blank_lore"))) {
 			newLore.removeLast();
 		}
+
 
 		ListIterator<String> ite = newLore.listIterator();
 		while (ite.hasNext()) {
@@ -128,6 +145,7 @@ public class WeaponDisplay extends CEItemExpansion implements ITrade<NMSNBTTagCo
 		ItemMeta itemMeta = itemStack.getItemMeta();
 
 		applyNewLore(itemStack, itemMeta);
+		applyDisplayName(itemMeta);
 		applyItemFlag(itemMeta);
 
 		itemStack.setItemMeta(itemMeta);
@@ -138,33 +156,49 @@ public class WeaponDisplay extends CEItemExpansion implements ITrade<NMSNBTTagCo
 		itemMeta.setLore(newLore);
 	}
 
+	public void applyDisplayName(ItemMeta itemMeta) {
+		itemMeta.setDisplayName(this.displayName);
+	}
+
 	public void applyItemFlag(ItemMeta itemMeta) {
 		List<ItemFlag> itemFlag = ceItem.getWeaponSettings().getItemFlags();
 		itemMeta.addItemFlags(itemFlag.toArray(new ItemFlag[itemFlag.size()]));
 	}
 
-	public void importFrom(NMSNBTTagCompound source) {
-		if (source == null || source.isEmpty()) {
-			ItemStack itemStack = ceItem.getCurrentItemStack();
-			
-			if (!itemStack.hasItemMeta() || !itemStack.getItemMeta().hasLore()) {
-				return;
-			}
-			List<String> lore = itemStack.getItemMeta().getLore();
+	public void applyEnchant(ItemStack itemStack) {
+		if (enchantMap == null) {
+			return;
+		}
 
-			for (String line : lore) {
-				if (line.startsWith(BEGIN_LABEL)) {
-					this.beginLore.add(line.substring(1));
-				} else if (line.startsWith(END_LABEL)) {
-					this.endLore.add(line.substring(1));
-				} else {
-					this.middleLore.add(line);
+		for (Map.Entry<Enchantment, Integer> entry : enchantMap.entrySet()) {
+			itemStack.addUnsafeEnchantment(entry.getKey(), entry.getValue());
+		}
+	}
+
+	public void importFrom(NMSNBTTagCompound source) {
+		ItemStack itemStack = ceItem.getCurrentItemStack();
+		if (source == null || source.isEmpty()) {
+			if (itemStack.hasItemMeta() && itemStack.getItemMeta().hasLore()) {
+				List<String> lore = itemStack.getItemMeta().getLore();
+
+				for (String line : lore) {
+					if (line.startsWith(BEGIN_LABEL)) {
+						this.beginLore.add(line.substring(1));
+					} else if (line.startsWith(END_LABEL)) {
+						this.endLore.add(line.substring(1));
+					} else {
+						this.middleLore.add(line);
+					}
 				}
 			}
 		} else {
 			this.beginLore = source.getList("begin").getStringList();
 			this.middleLore = source.getList("middle").getStringList();
 			this.endLore = source.getList("end").getStringList();
+		}
+
+		if (itemStack.hasItemMeta() && itemStack.getItemMeta().hasDisplayName()) {
+			this.displayName = itemStack.getItemMeta().getDisplayName();
 		}
 	}
 
@@ -240,11 +274,11 @@ class CustomEnchantLore {
 
 	public List<String> buildLores() {
 		List<String> lore = new ArrayList<String>();
-		List<CESimple> ceSimpleList = ceItem.getWeaponEnchant().getCESimpleListByPriority();
-		for (CESimple ceSimple : ceSimpleList) {
-			Map<String, String> placeholder = CEPlaceholder.getCESimplePlaceholder(ceSimple);
+		List<CEEnchantSimple> ceEnchantSimpleList = ceItem.getWeaponEnchant().getCESimpleListByPriority();
+		for (CEEnchantSimple ceEnchantSimple : ceEnchantSimpleList) {
+			Map<String, String> placeholder = CEPlaceholder.getCESimplePlaceholder(ceEnchantSimple);
 
-			CEEnchant ceEnchant = ceSimple.getCEEnchant();
+			CEEnchant ceEnchant = ceEnchantSimple.getCEEnchant();
 			if (ceEnchant.getCEDisplay().isDisableEnchantLore()) {
 				continue;
 			}
@@ -275,20 +309,41 @@ class GemLore {
 	public List<String> buildLores() {
 		List<String> lore = new ArrayList<>();
 		List<CEGemSimple> gemSimpleList = ceItem.getWeaponGem().getCEGemSimpleList();
+		List<CEGemDrillSimple> availableDrillList = ceItem.getWeaponGem().getAvailableGemDrillList();
 		for (CEGemSimple gemSimple : gemSimpleList) {
 			CEGem ceGem = gemSimple.getCEGem();
-
-			CEGemData ceGemData = ceGem.getData().clone();
-			ceGemData.setLevel(gemSimple.getLevel());
+			CEGemData ceGemData = gemSimple.getCEGemData();
 
 			Map<String, String> placeholder = ceGem.getPlaceholder(ceGemData);
 
-			String display = ceGem.getData().getDisplay();
+			String display = ceGem.getData().getConfigData().getDisplay();
 
 			PlaceholderBuilder builder = PlaceholderBuilder.builder().putAll(placeholder);
 			display = builder.build().apply(display);
 
 			lore.add(display);
+
+			CEGemDrillSimple suitableSlot = ceItem.getWeaponGem().getMinimumSuitableGemDrill(gemSimple, availableDrillList);
+			if (suitableSlot != null) {
+				availableDrillList.remove(suitableSlot);
+			}
+		}
+
+		for (CEGemDrillSimple gemDrillSimple : availableDrillList) {
+			CEGemDrill ceGemDrill = gemDrillSimple.getCEGemDrill();
+			if (ceGemDrill == null) {
+				continue;
+			}
+
+			CEGemDrillData.ConfigData configData = ceGemDrill.getData().getConfigData();
+
+			String slot = configData.getSlot();
+			CEGemSettings.SlotSettings slotSettings = CEGemSettings.getSettings().getSlotSettings(slot);
+			if (slotSettings == null) {
+				continue;
+			}
+
+			lore.add(slotSettings.getDisplay());
 		}
 
 		if (lore.isEmpty()) {

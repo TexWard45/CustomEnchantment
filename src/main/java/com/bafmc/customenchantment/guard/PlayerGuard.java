@@ -30,20 +30,20 @@ public class PlayerGuard {
 		if (guardByNameList.containsKey(guard.getName())) {
 			return;
 		}
-		CustomEnchantment.instance().getGuardManager().addEntityGuard(guard);
+		CustomEnchantment.instance().getGuardModule().getGuardManager().addEntityGuard(guard);
 		guards.put(guard.getEntityInsentient().getEntity().getUniqueId(), guard);
 		guardByNameList.put(guard.getName(), guard);
 	}
 
 	public void removeGuard(Guard guard) {
-		CustomEnchantment.instance().getGuardManager().removeEntityGuard(guard);
+		CustomEnchantment.instance().getGuardModule().getGuardManager().removeEntityGuard(guard);
 		guards.remove(guard.getEntityInsentient().getEntity().getUniqueId());
 		guardByNameList.remove(guard.getName());
 		guard.remove();
 	}
 
 	public void removeGuardByName(String name) {
-		if (name.indexOf("*") != -1) {
+		if (name.contains("*")) {
 			Iterator<String> ite = guardByNameList.keySet().iterator();
 			
 			int index = name.indexOf("*");

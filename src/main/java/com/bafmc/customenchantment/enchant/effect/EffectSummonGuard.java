@@ -1,16 +1,15 @@
 package com.bafmc.customenchantment.enchant.effect;
 
-import org.bukkit.Location;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.EntityType;
-import org.bukkit.entity.Player;
-
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.api.LocationFormat;
 import com.bafmc.customenchantment.enchant.CEFunctionData;
 import com.bafmc.customenchantment.enchant.EffectHook;
 import com.bafmc.customenchantment.guard.Guard;
 import com.bafmc.customenchantment.guard.PlayerGuard;
+import org.bukkit.Location;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Player;
 
 public class EffectSummonGuard extends EffectHook {
 	protected String name;
@@ -50,7 +49,7 @@ public class EffectSummonGuard extends EffectHook {
 			return null;
 		}
 
-		PlayerGuard playerGuard = CustomEnchantment.instance().getGuardManager().getPlayerGuard(player);
+		PlayerGuard playerGuard = CustomEnchantment.instance().getGuardModule().getGuardManager().getPlayerGuard(player);
 
 		String name = this.name.replace("%player%", player.getName());
 

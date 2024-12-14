@@ -1,1946 +1,2522 @@
 # tag_potion: FIRE_RESISTENCE
 burnshield:
-  group: 'epic'
-  display: 'Burnshield'
+  group: epic
+  display: Burnshield
   description:
-  - '&eNhận hiệu ứng kháng lửa khi trang bị'
+    - "&eNhận hiệu ứng kháng lửa khi trang bị"
+  detail-description:
+    - "&eNhận hiệu ứng kháng lửa khi trang bị"
+    - ""
+    - "&eHiệu ứng thuốc: Kháng lửa"
+    - "&eThời gian hiệu ứng: Vĩnh viễn"
   applies-description:
-  - 'Các loại giáp'
+    - Các loại giáp
   applies:
-  - 'ALL_ARMOR'
+    - ALL_ARMOR
   max-level: 1
   enchant-point: 1
   valuable: 0
   levels:
-    1:
+    "1":
       equip:
         type: ARMOR_EQUIP
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - 'ADD_FOREVER_POTION:burnshield:FIRE_RESISTANCE:0'
+          - ADD_FOREVER_POTION:burnshield:FIRE_RESISTANCE:0
       unequip:
         type: ARMOR_UNDRESS
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - 'REMOVE_FOREVER_POTION:burnshield'
+          - REMOVE_FOREVER_POTION:burnshield
 cactus:
-  group: 'legendary'
-  display: 'Cactus'
+  group: legendary
+  display: Cactus
   description:
-  - '&eCó tỉ lệ giảm sát thương nhận vào và'
-  - '&evà gây sát thương lên kẻ địch khi bị'
-  - '&etấn công'
+    - "&eCó tỉ lệ giảm sát thương nhận vào và"
+    - "&evà gây sát thương lên kẻ địch khi bị"
+    - "&etấn công"
+  detail-description:
+    - "&eCó tỉ lệ giảm sát thương nhận vào và"
+    - "&evà gây sát thương lên kẻ địch khi bị"
+    - "&etấn công"
+    - ""
+    - "&eSát thương nhận giảm: -5% ATK Tổng x Cấp"
+    - "&eSát thương gây ra: 0.5 x Cấp"
+    - "&eTỉ lệ kích hoạt: 20%"
+    - "&eThời gian hồi: 4s"
   applies-description:
-  - 'Các loại giáp'
+    - Các loại giáp
   applies:
-  - 'ALL_ARMOR'
+    - ALL_ARMOR
   max-level: 5
   enchant-point: 1
   valuable: 0
   levels:
-    1:
+    "1":
       defense:
         type: DEFENSE
         chance: 20
-        cooldown: 3000
-        conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
-        options:
-        - 'DEFENSE:0.05:2'
-        effects:
-        - 'TARGET=ENEMY | HEALTH:REMOVE:0.25'
-    2:
-      defense:
-        type: DEFENSE
-        chance: 20
-        cooldown: 3000
-        conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
-        options:
-        - 'DEFENSE:0.10:2'
-        effects:
-        - 'TARGET=ENEMY | HEALTH:REMOVE:0.4'
-    3:
-      defense:
-        type: DEFENSE
-        chance: 20
-        cooldown: 3000
-        conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
-        options:
-        - 'DEFENSE:0.15:2'
-        effects:
-        - 'TARGET=ENEMY | HEALTH:REMOVE:0.6'
-    4:
-      defense:
-        type: DEFENSE
-        chance: 20
-        cooldown: 3000
-        conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
-        options:
-        - 'DEFENSE:0.20:2'
-        effects:
-        - 'TARGET=ENEMY | HEALTH:REMOVE:0.8'
-    5:
-      defense:
-        type: DEFENSE
-        chance: 30
-        cooldown: 3000
-        conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
-        options:
-        - 'DEFENSE:0.25:2'
-        effects:
-        - 'TARGET=ENEMY | HEALTH:REMOVE:1'
-# tag_attribute: ATTACK_DAMAGE +
-# tag_attribute: ATTACK_SPEED -
-# tag_attribute: MOVEMENT_SPEED -
-drunk:
-  group: 'epic'
-  display: 'Drunk'
-  description:
-  - '&eNhận thêm sức mạnh nhưng giảm tốc độ đánh'
-  - '&evà tốc độ di chuyển bản thân khi trang bị'
-  applies-description:
-  - 'Các loại giáp'
-  applies:
-  - 'ALL_ARMOR'
-  max-level: 3
-  enchant-point: 1
-  valuable: 0
-  levels:
-    1:
-      equip:
-        type: ARMOR_EQUIP
-        chance: 100
-        cooldown: 0
-        conditions:
-        - ''
-        effects:
-        - 'ADD_ATTRIBUTE:ATTACK_DAMAGE:drunk_attack_damage:0.1:1'
-        - 'ADD_ATTRIBUTE:MOVEMENT_SPEED:drunk_movement_speed:-0.1:1'
-        - 'ADD_ATTRIBUTE:ATTACK_SPEED:drunk_attack_speed:-0.1:1'
-      unequip:
-        type: ARMOR_UNDRESS
-        chance: 100
-        cooldown: 0
-        conditions:
-        - ''
-        effects:
-        - 'REMOVE_ATTRIBUTE:ATTACK_DAMAGE:drunk_attack_damage'
-        - 'REMOVE_ATTRIBUTE:MOVEMENT_SPEED:drunk_movement_speed'
-        - 'REMOVE_ATTRIBUTE:ATTACK_SPEED:drunk_attack_speed'
-    2:
-      equip:
-        type: ARMOR_EQUIP
-        chance: 100
-        cooldown: 0
-        conditions:
-        - ''
-        effects:
-        - 'ADD_ATTRIBUTE:ATTACK_DAMAGE:drunk_attack_damage:0.15:1'
-        - 'ADD_ATTRIBUTE:MOVEMENT_SPEED:drunk_movement_speed:-0.12:1'
-        - 'ADD_ATTRIBUTE:ATTACK_SPEED:drunk_attack_speed:-0.12:1'
-      unequip:
-        type: ARMOR_UNDRESS
-        chance: 100
-        cooldown: 0
-        conditions:
-        - ''
-        effects:
-        - 'REMOVE_ATTRIBUTE:ATTACK_DAMAGE:drunk_attack_damage'
-        - 'REMOVE_ATTRIBUTE:MOVEMENT_SPEED:drunk_movement_speed'
-        - 'REMOVE_ATTRIBUTE:ATTACK_SPEED:drunk_attack_speed'
-    3:
-      equip:
-        type: ARMOR_EQUIP
-        chance: 100
-        cooldown: 0
-        conditions:
-        - ''
-        effects:
-        - 'ADD_ATTRIBUTE:ATTACK_DAMAGE:drunk_attack_damage:0.2:1'
-        - 'ADD_ATTRIBUTE:MOVEMENT_SPEED:drunk_movement_speed:-0.15:1'
-        - 'ADD_ATTRIBUTE:ATTACK_SPEED:drunk_attack_speed:-0.15:1'
-      unequip:
-        type: ARMOR_UNDRESS
-        chance: 100
-        cooldown: 0
-        conditions:
-        - ''
-        effects:
-        - 'REMOVE_ATTRIBUTE:ATTACK_DAMAGE:drunk_attack_damage'
-        - 'REMOVE_ATTRIBUTE:MOVEMENT_SPEED:drunk_movement_speed'
-        - 'REMOVE_ATTRIBUTE:ATTACK_SPEED:drunk_attack_speed'
-enlightened:
-  group: 'legendary'
-  display: 'Enlightened'
-  description:
-  - '&eCó tỉ lệ hồi máu cho bản thân khi bị'
-  - '&etấn công'
-  applies-description:
-  - 'Các loại giáp'
-  applies:
-  - 'ALL_ARMOR'
-  max-level: 5
-  enchant-point: 1
-  valuable: 0
-  levels:
-    1:
-      defense:
-        type: DEFENSE
-        chance: 10
-        cooldown: 2000
-        conditions:
-        - ''
-        effects:
-        - 'HEALTH:ADD:1'
-    2:
-      defense:
-        type: DEFENSE
-        chance: 10
-        cooldown: 2000
-        conditions:
-        - ''
-        effects:
-        - 'HEALTH:ADD:1->2'
-    3:
-      defense:
-        type: DEFENSE
-        chance: 10
-        cooldown: 2000
-        conditions:
-        - ''
-        effects:
-        - 'HEALTH:ADD:1->3'
-    4:
-      defense:
-        type: DEFENSE
-        chance: 10
-        cooldown: 2000
-        conditions:
-        - ''
-        effects:
-        - 'HEALTH:ADD:2->4'
-    5:
-      defense:
-        type: DEFENSE
-        chance: 10
-        cooldown: 2000
-        conditions:
-        - ''
-        effects:
-        - 'HEALTH:ADD:2->5'
-# priority: DEFENSE 9
-savior:
-  group: 'legendary'
-  display: 'Savior'
-  description:
-  - '&eCó tỉ lệ nhận giảm một nửa sát thương'
-  - '&ekhi bị tấn công'
-  applies-description:
-  - 'Các loại giáp'
-  applies:
-  - 'ALL_ARMOR'
-  max-level: 5
-  enchant-point: 1
-  valuable: 0
-  levels:
-    1:
-      attack:
-        type: DEFENSE
-        chance: 5
-        cooldown: 2000
-        conditions:
-        - ''
-        options:
-        - 'DEFENSE:0.5:2'
-    2:
-      attack:
-        type: DEFENSE
-        chance: 10
-        cooldown: 2000
-        conditions:
-        - ''
-        options:
-        - 'DEFENSE:0.5:2'
-    3:
-      attack:
-        type: DEFENSE
-        chance: 15
-        cooldown: 2000
-        conditions:
-        - ''
-        options:
-        - 'DEFENSE:0.5:2'
-    4:
-      attack:
-        type: DEFENSE
-        chance: 20
-        cooldown: 2000
-        conditions:
-        - ''
-        options:
-        - 'DEFENSE:0.5:2'
-    5:
-      attack:
-        type: DEFENSE
-        chance: 25
-        cooldown: 2000
-        conditions:
-        - ''
-        options:
-        - 'DEFENSE:0.5:2'
-# tag_potion: WEAKNESS
-# WEAKNESS: decrease 2 dame per level
-fortify:
-  group: 'rare'
-  display: 'Fortify'
-  description:
-  - '&eCó tỉ lệ khiến kẻ địch nhận hiệu ứng suy yếu'
-  - '&etrong một khoảng thời gian khi bị tấn công'
-  applies-description:
-  - 'Các loại giáp'
-  applies:
-  - 'ALL_ARMOR'
-  max-level: 5
-  enchant-point: 1
-  valuable: 0
-  levels:
-    1:
-      defense:
-        type: DEFENSE
-        chance: 10
-        cooldown: 3000
-        conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
-        effects:
-        - 'TARGET=ENEMY | ADD_POTION:WEAKNESS:0:20'
-    2:
-      defense:
-        type: DEFENSE
-        chance: 10
-        cooldown: 3000
-        conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
-        effects:
-        - 'TARGET=ENEMY | ADD_POTION:WEAKNESS:1:20'
-    3:
-      defense:
-        type: DEFENSE
-        chance: 10
-        cooldown: 3000
-        conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
-        effects:
-        - 'TARGET=ENEMY | ADD_POTION:WEAKNESS:1:40'
-    4:
-      defense:
-        type: DEFENSE
-        chance: 10
-        cooldown: 3000
-        conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
-        effects:
-        - 'TARGET=ENEMY | ADD_POTION:WEAKNESS:2:40'
-    5:
-      defense:
-        type: DEFENSE
-        chance: 10
         cooldown: 4000
         conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+          - EQUIP_SLOT:ARMOR
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        options:
+          - DEFENSE:0.05:2
         effects:
-        - 'TARGET=ENEMY | ADD_POTION:WEAKNESS:2:60'
-# tag_attribute: MOVEMENT_SPEED -
-frozen:
-  group: 'epic'
-  display: 'Frozen'
+          - TARGET=ENEMY | HEALTH:REMOVE:0.5
+    "2":
+      defense:
+        type: DEFENSE
+        chance: 20
+        cooldown: 4000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        options:
+          - DEFENSE:0.10:2
+        effects:
+          - TARGET=ENEMY | HEALTH:REMOVE:1
+    "3":
+      defense:
+        type: DEFENSE
+        chance: 20
+        cooldown: 4000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        options:
+          - DEFENSE:0.15:2
+        effects:
+          - TARGET=ENEMY | HEALTH:REMOVE:1.5
+    "4":
+      defense:
+        type: DEFENSE
+        chance: 20
+        cooldown: 4000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        options:
+          - DEFENSE:0.20:2
+        effects:
+          - TARGET=ENEMY | HEALTH:REMOVE:2
+    "5":
+      defense:
+        type: DEFENSE
+        chance: 30
+        cooldown: 4000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        options:
+          - DEFENSE:0.25:2
+        effects:
+          - TARGET=ENEMY | HEALTH:REMOVE:2.5
+drunk:
+  group: epic
+  display: Drunk
   description:
-  - '&eCó tỉ lệ làm chậm tốc độ di chuyển của'
-  - '&ekẻ địch khi bị tấn công'
+    - "&eNhận thêm sức mạnh nhưng giảm tốc độ đánh"
+    - "&evà tốc độ di chuyển bản thân khi trang bị"
+  detail-description:
+    - "&eNhận thêm sức tấn công nhưng giảm tốc độ đánh"
+    - "&evà tốc độ di chuyển bản thân khi trang bị"
+    - ""
+    - "&eSức tấn công: +10%/+15%/+20%"
+    - "&eTốc độ đánh: -10%/-12%/-15%"
+    - "&eTốc độ di chuyển: -10%/-12%/-15%"
   applies-description:
-  - 'Các loại giáp'
+    - Các loại giáp
   applies:
-  - 'ALL_ARMOR'
+    - ALL_ARMOR
+  max-level: 3
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - ADD_ATTRIBUTE:ATTACK_DAMAGE:drunk_attack_damage:0.1:1
+          - ADD_ATTRIBUTE:MOVEMENT_SPEED:drunk_movement_speed:-0.1:1
+          - ADD_ATTRIBUTE:ATTACK_SPEED:drunk_attack_speed:-0.1:1
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - REMOVE_ATTRIBUTE:ATTACK_DAMAGE:drunk_attack_damage
+          - REMOVE_ATTRIBUTE:MOVEMENT_SPEED:drunk_movement_speed
+          - REMOVE_ATTRIBUTE:ATTACK_SPEED:drunk_attack_speed
+    "2":
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - ADD_ATTRIBUTE:ATTACK_DAMAGE:drunk_attack_damage:0.15:1
+          - ADD_ATTRIBUTE:MOVEMENT_SPEED:drunk_movement_speed:-0.12:1
+          - ADD_ATTRIBUTE:ATTACK_SPEED:drunk_attack_speed:-0.12:1
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - REMOVE_ATTRIBUTE:ATTACK_DAMAGE:drunk_attack_damage
+          - REMOVE_ATTRIBUTE:MOVEMENT_SPEED:drunk_movement_speed
+          - REMOVE_ATTRIBUTE:ATTACK_SPEED:drunk_attack_speed
+    "3":
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - ADD_ATTRIBUTE:ATTACK_DAMAGE:drunk_attack_damage:0.2:1
+          - ADD_ATTRIBUTE:MOVEMENT_SPEED:drunk_movement_speed:-0.15:1
+          - ADD_ATTRIBUTE:ATTACK_SPEED:drunk_attack_speed:-0.15:1
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - REMOVE_ATTRIBUTE:ATTACK_DAMAGE:drunk_attack_damage
+          - REMOVE_ATTRIBUTE:MOVEMENT_SPEED:drunk_movement_speed
+          - REMOVE_ATTRIBUTE:ATTACK_SPEED:drunk_attack_speed
+enlightened:
+  group: legendary
+  display: Enlightened
+  description:
+    - "&eCó tỉ lệ hồi máu cho bản thân khi bị"
+    - "&edính sát thương"
+  detail-description:
+    - "&eCó tỉ lệ hồi máu cho bản thân khi bị"
+    - "&edính sát thương"
+    - ""
+    - "&eLượng máu hồi: 1 x Cấp"
+    - "&eTỉ lệ kích hoạt: 50%"
+    - "&eThời gian hồi: 2s"
+    - ""
+    - "&cKhông thể ép chung với PrimeEnlightened"
+  applies-description:
+    - Các loại giáp
+  applies:
+    - ALL_ARMOR
   max-level: 5
   enchant-point: 1
   valuable: 0
   levels:
-    1:
+    "1":
       defense:
         type: DEFENSE
-        chance: 10
-        cooldown: 3000
+        chance: 50
+        cooldown: 2000
         conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+          - EQUIP_SLOT:ARMOR
         effects:
-        - 'TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:freeze_movement_speed:-0.1:1'
-        - 'TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:freeze_movement_speed'
-    2:
+          - HEALTH:ADD:1
+      arrow_defense:
+        type: ARROW_DEFENSE
+        chance: 50
+        cooldown: 2000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+        effects:
+          - HEALTH:ADD:1
+    "2":
       defense:
         type: DEFENSE
-        chance: 10
-        cooldown: 3000
+        chance: 50
+        cooldown: 2000
         conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+          - EQUIP_SLOT:ARMOR
         effects:
-        - 'TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:freeze_movement_speed:-0.15:1'
-        - 'TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:freeze_movement_speed'
-    3:
+          - HEALTH:ADD:2
+      arrow_defense:
+        type: ARROW_DEFENSE
+        chance: 50
+        cooldown: 2000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+        effects:
+          - HEALTH:ADD:2
+    "3":
       defense:
         type: DEFENSE
-        chance: 10
-        cooldown: 3000
+        chance: 50
+        cooldown: 2000
         conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+          - EQUIP_SLOT:ARMOR
         effects:
-        - 'TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:freeze_movement_speed:-0.2:1'
-        - 'TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:freeze_movement_speed'
-    4:
+          - HEALTH:ADD:3
+      arrow_defense:
+        type: ARROW_DEFENSE
+        chance: 50
+        cooldown: 2000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+        effects:
+          - HEALTH:ADD:3
+    "4":
       defense:
         type: DEFENSE
-        chance: 10
-        cooldown: 3000
+        chance: 50
+        cooldown: 2000
         conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+          - EQUIP_SLOT:ARMOR
         effects:
-        - 'TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:freeze_movement_speed:-0.25:1'
-        - 'TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:freeze_movement_speed'
-    5:
+          - HEALTH:ADD:4
+      arrow_defense:
+        type: ARROW_DEFENSE
+        chance: 50
+        cooldown: 2000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+        effects:
+          - HEALTH:ADD:4
+    "5":
       defense:
         type: DEFENSE
-        chance: 10
-        cooldown: 3000
+        chance: 50
+        cooldown: 2000
         conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+          - EQUIP_SLOT:ARMOR
         effects:
-        - 'TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:freeze_movement_speed:-0.3:1'
-        - 'TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:freeze_movement_speed'
-# tag_durability: AUTO
-hellforged:
-  group: 'supreme'
-  display: 'HellForged'
+          - HEALTH:ADD:5
+      arrow_defense:
+        type: ARROW_DEFENSE
+        chance: 50
+        cooldown: 2000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+        effects:
+          - HEALTH:ADD:5
+savior:
+  group: legendary
+  display: Savior
   description:
-  - '&eCó tỉ lệ sửa chữa vật phẩm khi di chuyển'
+    - "&eCó tỉ lệ nhận giảm một nửa sát thương"
+    - "&ekhi bị tấn công"
+  detail-description:
+    - "&eCó tỉ lệ nhận giảm một nửa sát thương"
+    - "&ekhi bị tấn công"
+    - ""
+    - "&eSát thương nhận giảm: -50% ATK Tổng"
+    - "&eTỉ lệ kích hoạt: 5% x Cấp"
+    - "&eThời gian hồi: 2s"
+    - ""
+    - "&cKhông thể ép chung với PrimeSavior"
   applies-description:
-  - 'Các loại giáp'
+    - Các loại giáp
   applies:
-  - 'ALL_ARMOR'
+    - ALL_ARMOR
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      defense:
+        type: DEFENSE
+        chance: 5
+        cooldown: 2000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+        options:
+          - DEFENSE:0.5:2
+    "2":
+      defense:
+        type: DEFENSE
+        chance: 10
+        cooldown: 2000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+        options:
+          - DEFENSE:0.5:2
+    "3":
+      defense:
+        type: DEFENSE
+        chance: 15
+        cooldown: 2000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+        options:
+          - DEFENSE:0.5:2
+    "4":
+      defense:
+        type: DEFENSE
+        chance: 20
+        cooldown: 2000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+        options:
+          - DEFENSE:0.5:2
+    "5":
+      defense:
+        type: DEFENSE
+        chance: 25
+        cooldown: 2000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+        options:
+          - DEFENSE:0.5:2
+fortify:
+  group: rare
+  display: Fortify
+  description:
+    - "&eCó tỉ lệ khiến kẻ địch nhận hiệu ứng suy yếu"
+    - "&etrong một khoảng thời gian khi bị tấn công"
+  detail-description:
+    - "&eCó tỉ lệ khiến kẻ địch nhận hiệu ứng suy yếu"
+    - "&etrong một khoảng thời gian khi bị tấn công"
+    - ""
+    - "&eHiệu ứng thuốc: Suy yếu"
+    - "&eCấp độ hiệu ứng: 1/1/2/2/3"
+    - "&eThời gian hiệu ứng: 1s x Cấp"
+    - "&eTỉ lệ kích hoạt: 20%"
+    - "&eThời gian hồi: 5s"
+  applies-description:
+    - Các loại giáp
+  applies:
+    - ALL_ARMOR
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      defense:
+        type: DEFENSE
+        chance: 20
+        cooldown: 5000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+          - TARGET=ENEMY | ADD_POTION:WEAKNESS:0:20
+    "2":
+      defense:
+        type: DEFENSE
+        chance: 20
+        cooldown: 5000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+          - TARGET=ENEMY | ADD_POTION:WEAKNESS:1:40
+    "3":
+      defense:
+        type: DEFENSE
+        chance: 20
+        cooldown: 5000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+          - TARGET=ENEMY | ADD_POTION:WEAKNESS:2:60
+    "4":
+      defense:
+        type: DEFENSE
+        chance: 20
+        cooldown: 5000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+          - TARGET=ENEMY | ADD_POTION:WEAKNESS:2:80
+    "5":
+      defense:
+        type: DEFENSE
+        chance: 20
+        cooldown: 5000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+          - TARGET=ENEMY | ADD_POTION:WEAKNESS:3:100
+frozen:
+  group: epic
+  display: Frozen
+  description:
+    - "&eCó tỉ lệ làm chậm tốc độ di chuyển của"
+    - "&ekẻ địch khi bị tấn công"
+  detail-description:
+    - "&eCó tỉ lệ làm chậm tốc độ di chuyển của"
+    - "&ekẻ địch khi bị tấn công"
+    - ""
+    - "&eTốc độ di chuyển: -10% (-5%/cấp)"
+    - "&eThời gian hiệu ứng: 2s"
+    - "&eTỉ lệ kích hoạt: 10%"
+    - "&eThời gian hồi: 3s"
+  applies-description:
+    - Các loại giáp
+  applies:
+    - ALL_ARMOR
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      defense:
+        type: DEFENSE
+        chance: 10
+        cooldown: 3000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+          - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:freeze_movement_speed:-0.1:1
+          - TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:freeze_movement_speed
+    "2":
+      defense:
+        type: DEFENSE
+        chance: 10
+        cooldown: 3000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+          - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:freeze_movement_speed:-0.15:1
+          - TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:freeze_movement_speed
+    "3":
+      defense:
+        type: DEFENSE
+        chance: 10
+        cooldown: 3000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+          - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:freeze_movement_speed:-0.2:1
+          - TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:freeze_movement_speed
+    "4":
+      defense:
+        type: DEFENSE
+        chance: 10
+        cooldown: 3000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+          - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:freeze_movement_speed:-0.25:1
+          - TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:freeze_movement_speed
+    "5":
+      defense:
+        type: DEFENSE
+        chance: 10
+        cooldown: 3000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+          - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:freeze_movement_speed:-0.3:1
+          - TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:freeze_movement_speed
+hellforged:
+  group: supreme
+  display: HellForged
+  description:
+    - "&eCó tỉ lệ sửa chữa vật phẩm khi di chuyển"
+  detail-description:
+    - "&eCó tỉ lệ sửa chữa vật phẩm khi di chuyển"
+    - ""
+    - "&eĐộ bền: 2"
+    - "&eTỉ lệ kích hoạt: 50%"
+    - "&eThời gian hồi: 1s"
+  applies-description:
+    - Các loại giáp
+  applies:
+    - ALL_ARMOR
   max-level: 1
   enchant-point: 1
   valuable: 0
   levels:
-    1:
+    "1":
       move:
         type: MOVE
         chance: 50
-        cooldown: 2000
-        conditions:
-        - ''
+        cooldown: 1000
         effects:
-        - 'DURABILITY:ADD:AUTO:1'
-# tag_potion: INCREASE_DAMAGE
-# tag_attribute: MOVEMENT_SPEED -
-# tag_durability: AUTO
+          - DURABILITY:ADD:AUTO:2
+        conditions:
+          - EQUIP_SLOT:ARMOR
 hulk:
-  group: 'legendary'
-  display: 'Hulk'
+  group: legendary
+  display: Hulk
   description:
-  - '&eNhận thêm máu tối đa và hiệu ứng sức mạnh'
-  - '&enhưng sẽ bị chậm rãi khi trang bị'
+    - "&eNhận thêm máu tối đa và hiệu ứng sức mạnh"
+    - "&enhưng sẽ bị chậm rãi khi trang bị"
+  detail-description:
+    - "&eNhận thêm máu tối đa và hiệu ứng sức mạnh"
+    - "&enhưng sẽ bị chậm rãi khi trang bị"
+    - ""
+    - "&eLượng máu tối đa: 3/6/10"
+    - "&eHiệu ứng thuốc: Sức mạnh"
+    - "&eCấp độ hiệu ứng: 1/2/3"
+    - "&eThời gian hiệu ứng: Vĩnh viễn"
+    - "&eTốc độ di chuyển: -25%"
   applies-description:
-  - 'Các loại giáp'
+    - Các loại giáp
   applies:
-  - 'ALL_ARMOR'
+    - ALL_ARMOR
   max-level: 3
   enchant-point: 1
   valuable: 0
   levels:
-    1:
+    "1":
       equip:
         type: ARMOR_EQUIP
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - 'ADD_FOREVER_POTION:hulk:INCREASE_DAMAGE:0'
-        - 'ADD_ATTRIBUTE:MAX_HEALTH:hulk_max_health:3:0'
-        - 'ADD_ATTRIBUTE:MOVEMENT_SPEED:hulk_heavy_move:-0.3:1'
+          - ADD_FOREVER_POTION:hulk:INCREASE_DAMAGE:0
+          - ADD_ATTRIBUTE:MAX_HEALTH:hulk_max_health:3:0
+          - ADD_ATTRIBUTE:MOVEMENT_SPEED:hulk_heavy_move:-0.25:1
       unequip:
         type: ARMOR_UNDRESS
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - 'REMOVE_FOREVER_POTION:hulk:INCREASE_DAMAGE'
-        - 'REMOVE_ATTRIBUTE:MAX_HEALTH:hulk_max_health'
-        - 'REMOVE_ATTRIBUTE:MOVEMENT_SPEED:hulk_heavy_move'
-    2:
+          - REMOVE_FOREVER_POTION:hulk:INCREASE_DAMAGE
+          - REMOVE_ATTRIBUTE:MAX_HEALTH:hulk_max_health
+          - REMOVE_ATTRIBUTE:MOVEMENT_SPEED:hulk_heavy_move
+    "2":
       equip:
         type: ARMOR_EQUIP
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - 'ADD_FOREVER_POTION:hulk:INCREASE_DAMAGE:1'
-        - 'ADD_ATTRIBUTE:MAX_HEALTH:hulk_max_health:6:0'
-        - 'ADD_ATTRIBUTE:MOVEMENT_SPEED:hulk_heavy_move:-0.3:1'
+          - ADD_FOREVER_POTION:hulk:INCREASE_DAMAGE:1
+          - ADD_ATTRIBUTE:MAX_HEALTH:hulk_max_health:6:0
+          - ADD_ATTRIBUTE:MOVEMENT_SPEED:hulk_heavy_move:-0.25:1
       unequip:
         type: ARMOR_UNDRESS
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - 'REMOVE_FOREVER_POTION:hulk:INCREASE_DAMAGE'
-        - 'REMOVE_ATTRIBUTE:MAX_HEALTH:hulk_max_health'
-        - 'REMOVE_ATTRIBUTE:MOVEMENT_SPEED:hulk_heavy_move'
-    3:
+          - REMOVE_FOREVER_POTION:hulk:INCREASE_DAMAGE
+          - REMOVE_ATTRIBUTE:MAX_HEALTH:hulk_max_health
+          - REMOVE_ATTRIBUTE:MOVEMENT_SPEED:hulk_heavy_move
+    "3":
       equip:
         type: ARMOR_EQUIP
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - 'ADD_FOREVER_POTION:hulk:INCREASE_DAMAGE:2'
-        - 'ADD_ATTRIBUTE:MAX_HEALTH:hulk_max_health:10:0'
-        - 'ADD_ATTRIBUTE:MOVEMENT_SPEED:hulk_heavy_move:-0.3:1'
+          - ADD_FOREVER_POTION:hulk:INCREASE_DAMAGE:2
+          - ADD_ATTRIBUTE:MAX_HEALTH:hulk_max_health:10:0
+          - ADD_ATTRIBUTE:MOVEMENT_SPEED:hulk_heavy_move:-0.25:1
       unequip:
         type: ARMOR_UNDRESS
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - 'REMOVE_FOREVER_POTION:hulk:INCREASE_DAMAGE'
-        - 'REMOVE_ATTRIBUTE:MAX_HEALTH:hulk_max_health'
-        - 'REMOVE_ATTRIBUTE:MOVEMENT_SPEED:hulk_heavy_move'
+          - REMOVE_FOREVER_POTION:hulk:INCREASE_DAMAGE
+          - REMOVE_ATTRIBUTE:MAX_HEALTH:hulk_max_health
+          - REMOVE_ATTRIBUTE:MOVEMENT_SPEED:hulk_heavy_move
 implants:
-  group: 'epic'
-  display: 'Implants'
+  group: epic
+  display: Implants
   description:
-  - '&eCó tỉ lệ hồi thanh đói khi di chuyển'
+    - "&eCó tỉ lệ hồi thanh đói khi di chuyển"
+  detail-description:
+    - "&eCó tỉ lệ hồi thanh đói khi di chuyển"
+    - ""
+    - "&eLượng thức ăn: 1"
+    - "&eTỉ lệ kích hoạt: 10% x Cấp"
+    - "&eThời gian hồi: 3s"
   applies-description:
-  - 'Các loại giáp'
+    - Các loại giáp
   applies:
-  - 'ALL_ARMOR'
+    - ALL_ARMOR
   max-level: 5
   enchant-point: 1
   valuable: 0
   levels:
-    1:
+    "1":
       move:
         type: MOVE
         chance: 10
-        cooldown: 5000
+        cooldown: 3000
         conditions:
-        - 'FOOD:<:19'
+          - EQUIP_SLOT:ARMOR
+          - FOOD:<:19
         effects:
-        - 'FOOD:ADD:1'
-    2:
+          - FOOD:ADD:1
+    "2":
       move:
         type: MOVE
         chance: 20
-        cooldown: 5000
+        cooldown: 3000
         conditions:
-        - 'FOOD:<:19'
+          - EQUIP_SLOT:ARMOR
+          - FOOD:<:19
         effects:
-        - 'FOOD:ADD:1'
-    3:
+          - FOOD:ADD:1
+    "3":
       move:
         type: MOVE
         chance: 30
-        cooldown: 5000
+        cooldown: 3000
         conditions:
-        - 'FOOD:<:19'
+          - EQUIP_SLOT:ARMOR
+          - FOOD:<:19
         effects:
-        - 'FOOD:ADD:1'
-    4:
+          - FOOD:ADD:1
+    "4":
       move:
         type: MOVE
         chance: 40
-        cooldown: 5000
+        cooldown: 3000
         conditions:
-        - 'FOOD:<:19'
+          - EQUIP_SLOT:ARMOR
+          - FOOD:<:19
         effects:
-        - 'FOOD:ADD:1'
-    5:
+          - FOOD:ADD:1
+    "5":
       move:
         type: MOVE
         chance: 50
-        cooldown: 5000
+        cooldown: 3000
         conditions:
-        - 'FOOD:<:19'
+          - EQUIP_SLOT:ARMOR
+          - FOOD:<:19
         effects:
-        - 'FOOD:ADD:1'
-# tag_attribute: MOVEMENT_SPEED -
-# tag_attribute: ATTACK_SPEED -
-# tag_potion: CONFUSION
+          - FOOD:ADD:1
 insomnia:
-  group: 'epic'
-  display: 'Insomnia'
+  group: epic
+  display: Insomnia
   description:
-  - '&eNhận thêm sức mạnh nhưng giảm tốc độ'
-  - '&edi chuyển và tốc độ đánh khi trang bị'
+    - "&eNhận thêm sức tấn công nhưng bị hiệu ứng"
+    - "&ebuồn nôn khi trang bị"
+  detail-description:
+    - "&eNhận thêm sức tấn công nhưng bị hiệu ứng"
+    - "&ebuồn nôn khi trang bị"
+    - ""
+    - "&eSức tấn công: 10%/30%/50%"
+    - "&eHiệu ứng thuốc: Buồn nôn"
+    - "&eThời gian hiệu ứng: Vĩnh viễn"
   applies-description:
-  - 'Các loại giáp'
+    - Các loại giáp
   applies:
-  - 'ALL_ARMOR'
+    - ALL_ARMOR
   max-level: 3
   enchant-point: 1
   valuable: 0
   levels:
-    1:
+    "1":
       equip:
         type: ARMOR_EQUIP
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - 'ADD_ATTRIBUTE:ATTACK_DAMAGE:insomnia_attack_dame:0.1:1'
-        - 'ADD_ATTRIBUTE:MOVEMENT_SPEED:insomnia_movement_speed:-0.1:1'
-        - 'ADD_ATTRIBUTE:ATTACK_SPEED:insomnia_attack_speed:-0.1:1'
+          - ADD_ATTRIBUTE:ATTACK_DAMAGE:insomnia_attack_dame:0.1:1
+          - ADD_FOREVER_POTION:confusion:CONFUSION:0
       unequip:
         type: ARMOR_UNDRESS
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - 'REMOVE_ATTRIBUTE:ATTACK_DAMAGE:insomnia_attack_dame'
-        - 'REMOVE_ATTRIBUTE:MOVEMENT_SPEED:insomnia_movement_speed'
-        - 'REMOVE_ATTRIBUTE:ATTACK_SPEED:insomnia_attack_speed'
-    2:
+          - REMOVE_ATTRIBUTE:ATTACK_DAMAGE:insomnia_attack_dame
+          - REMOVE_FOREVER_POTION:confusion:CONFUSION:0
+    "2":
       equip:
         type: ARMOR_EQUIP
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - 'ADD_ATTRIBUTE:ATTACK_DAMAGE:insomnia_attack_dame:0.3:1'
-        - 'ADD_ATTRIBUTE:MOVEMENT_SPEED:insomnia_movement_speed:-0.15:1'
-        - 'ADD_ATTRIBUTE:ATTACK_SPEED:insomnia_attack_speed:-0.15:1'
+          - ADD_ATTRIBUTE:ATTACK_DAMAGE:insomnia_attack_dame:0.3:1
+          - ADD_FOREVER_POTION:confusion:CONFUSION:0
       unequip:
         type: ARMOR_UNDRESS
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - 'REMOVE_ATTRIBUTE:ATTACK_DAMAGE:insomnia_attack_dame'
-        - 'REMOVE_ATTRIBUTE:MOVEMENT_SPEED:insomnia_movement_speed'
-        - 'REMOVE_ATTRIBUTE:ATTACK_SPEED:insomnia_attack_speed'
-    3:
+          - REMOVE_ATTRIBUTE:ATTACK_DAMAGE:insomnia_attack_dame
+          - REMOVE_FOREVER_POTION:confusion:CONFUSION:0
+    "3":
       equip:
         type: ARMOR_EQUIP
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - 'ADD_ATTRIBUTE:ATTACK_DAMAGE:insomnia_attack_dame:0.5:1'
-        - 'ADD_ATTRIBUTE:MOVEMENT_SPEED:insomnia_movement_speed:-0.25:1'
-        - 'ADD_ATTRIBUTE:ATTACK_SPEED:insomnia_attack_speed:-0.25:1'
+          - ADD_ATTRIBUTE:ATTACK_DAMAGE:insomnia_attack_dame:0.5:1
+          - ADD_FOREVER_POTION:confusion:CONFUSION:0
       unequip:
         type: ARMOR_UNDRESS
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - 'REMOVE_ATTRIBUTE:ATTACK_DAMAGE:insomnia_attack_dame'
-        - 'REMOVE_ATTRIBUTE:MOVEMENT_SPEED:insomnia_movement_speed'
-        - 'REMOVE_ATTRIBUTE:ATTACK_SPEED:insomnia_attack_speed'
+          - REMOVE_ATTRIBUTE:ATTACK_DAMAGE:insomnia_attack_dame
+          - REMOVE_FOREVER_POTION:confusion:CONFUSION:0
 molten:
-  group: 'rare'
-  display: 'Molten'
+  group: rare
+  display: Molten
   description:
-  - '&eCó tỉ lệ làm kẻ địch bị thiêu cháy'
-  - '&ekhi bị tấn công'
+    - "&eCó tỉ lệ làm kẻ địch bị thiêu cháy"
+    - "&ekhi bị tấn công"
+  detail-description:
+    - "&eCó tỉ lệ làm kẻ địch bị thiêu cháy"
+    - "&ekhi bị tấn công"
+    - ""
+    - "&eThời gian thiêu cháy: 2s/3s/4s"
+    - "&eTỉ lệ kích hoạt: 50%"
+    - "&eThời gian hồi: 4s"
   applies-description:
-  - 'Các loại giáp'
+    - Các loại giáp
   applies:
-  - 'ALL_ARMOR'
+    - ALL_ARMOR
   max-level: 3
   enchant-point: 1
   valuable: 0
   levels:
-    1:
-      defense:
-        type: DEFENSE
-        chance: 30
-        cooldown: 3000
-        conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
-        effects:
-        - 'TARGET=ENEMY | ON_FIRE:40'
-    2:
-      defense:
-        type: DEFENSE
-        chance: 40
-        cooldown: 3000
-        conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
-        effects:
-        - 'TARGET=ENEMY | ON_FIRE:50'
-    3:
+    "1":
       defense:
         type: DEFENSE
         chance: 50
-        cooldown: 3500
+        cooldown: 4000
         conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+          - EQUIP_SLOT:ARMOR
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-        - 'TARGET=ENEMY | ON_FIRE:60'
-# tag_attribute: MOVEMENT_SPEED +
-# tag_attribute: ATTACK_DAMAGE +
+          - TARGET=ENEMY | ON_FIRE:40
+    "2":
+      defense:
+        type: DEFENSE
+        chance: 50
+        cooldown: 4000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+          - TARGET=ENEMY | ON_FIRE:60
+    "3":
+      defense:
+        type: DEFENSE
+        chance: 50
+        cooldown: 4000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+          - TARGET=ENEMY | ON_FIRE:80
 ninja:
-  group: 'supreme'
-  display: 'Ninja'
+  group: supreme
+  display: Ninja
   description:
-  - '&eNhận thêm tốc độ di chuyển và sức mạnh'
-  - '&ekhi trang bị'
+    - "&eNhận thêm tốc độ di chuyển và sức tấn công"
+    - "&ekhi trang bị"
+  detail-description:
+    - "&eNhận thêm tốc độ di chuyển và sức tấn công"
+    - "&ekhi trang bị"
+    - ""
+    - "&eTốc độ di chuyển: +10% x Cấp"
+    - "&eSức tấn công: +2 ATK x Cấp"
   applies-description:
-  - 'Các loại giáp'
+    - Các loại giáp
   applies:
-  - 'ALL_ARMOR'
+    - ALL_ARMOR
   max-level: 3
   enchant-point: 1
   valuable: 0
   levels:
-    1:
+    "1":
       equip:
         type: ARMOR_EQUIP
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - 'ADD_ATTRIBUTE:MOVEMENT_SPEED:ninja_movement_speed:0.1:1'
-        - 'ADD_ATTRIBUTE:ATTACK_DAMAGE:ninja_attack_damage:1:0'
+          - ADD_ATTRIBUTE:MOVEMENT_SPEED:ninja_movement_speed:0.1:1
+          - ADD_ATTRIBUTE:ATTACK_DAMAGE:ninja_attack_damage:2:0
       unequip:
         type: ARMOR_UNDRESS
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - 'REMOVE_ATTRIBUTE:MOVEMENT_SPEED:ninja_movement_speed'
-        - 'REMOVE_ATTRIBUTE:ATTACK_DAMAGE:ninja_attack_damage'
-    2:
+          - REMOVE_ATTRIBUTE:MOVEMENT_SPEED:ninja_movement_speed
+          - REMOVE_ATTRIBUTE:ATTACK_DAMAGE:ninja_attack_damage
+    "2":
       equip:
         type: ARMOR_EQUIP
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - 'ADD_ATTRIBUTE:MOVEMENT_SPEED:ninja_movement_speed:0.2:1'
-        - 'ADD_ATTRIBUTE:ATTACK_DAMAGE:ninja_attack_damage:2:0'
+          - ADD_ATTRIBUTE:MOVEMENT_SPEED:ninja_movement_speed:0.2:1
+          - ADD_ATTRIBUTE:ATTACK_DAMAGE:ninja_attack_damage:4:0
       unequip:
         type: ARMOR_UNDRESS
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - 'REMOVE_ATTRIBUTE:MOVEMENT_SPEED:ninja_movement_speed'
-        - 'REMOVE_ATTRIBUTE:ATTACK_DAMAGE:ninja_attack_damage'
-    3:
+          - REMOVE_ATTRIBUTE:MOVEMENT_SPEED:ninja_movement_speed
+          - REMOVE_ATTRIBUTE:ATTACK_DAMAGE:ninja_attack_damage
+    "3":
       equip:
         type: ARMOR_EQUIP
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - 'ADD_ATTRIBUTE:MOVEMENT_SPEED:ninja_movement_speed:0.3:1'
-        - 'ADD_ATTRIBUTE:ATTACK_DAMAGE:ninja_attack_damage:3:0'
+          - ADD_ATTRIBUTE:MOVEMENT_SPEED:ninja_movement_speed:0.3:1
+          - ADD_ATTRIBUTE:ATTACK_DAMAGE:ninja_attack_damage:6:0
       unequip:
         type: ARMOR_UNDRESS
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - 'REMOVE_ATTRIBUTE:MOVEMENT_SPEED:ninja_movement_speed'
-        - 'REMOVE_ATTRIBUTE:ATTACK_DAMAGE:ninja_attack_damage'
+          - REMOVE_ATTRIBUTE:MOVEMENT_SPEED:ninja_movement_speed
+          - REMOVE_ATTRIBUTE:ATTACK_DAMAGE:ninja_attack_damage
 nursery:
-  group: 'supreme'
-  display: 'Nursery'
+  group: supreme
+  display: Nursery
   description:
-  - '&eCó tỉ lệ hồi máu khi di chuyển'
+    - "&eCó tỉ lệ hồi máu khi di chuyển"
+  detail-description:
+    - "&eCó tỉ lệ hồi máu khi di chuyển"
+    - ""
+    - "&eLượng máu hồi: 1/1/2/2/3"
+    - "&eTỉ lệ kích hoạt: 5% x Cấp"
+    - "&eThời gian hồi: 3s"
+    - ""
+    - "&cKhông thể ép chung với PrimeNursery"
   applies-description:
-  - 'Các loại giáp'
+    - Các loại giáp
   applies:
-  - 'ALL_ARMOR'
+    - ALL_ARMOR
   max-level: 5
   enchant-point: 1
   valuable: 0
   levels:
-    1:
+    "1":
       attack:
         type: MOVE
         chance: 5
-        cooldown: 2000
-        conditions:
-        - ''
+        cooldown: 3000
         effects:
-        - 'HEALTH:ADD:1'
-    2:
+          - HEALTH:ADD:1
+        conditions:
+          - EQUIP_SLOT:ARMOR
+    "2":
       move:
         type: MOVE
         chance: 10
-        cooldown: 2000
-        conditions:
-        - ''
+        cooldown: 3000
         effects:
-        - 'HEALTH:ADD:1'
-    3:
+          - HEALTH:ADD:1
+        conditions:
+          - EQUIP_SLOT:ARMOR
+    "3":
       move:
         type: MOVE
         chance: 15
-        cooldown: 2000
-        conditions:
-        - ''
+        cooldown: 3000
         effects:
-        - 'HEALTH:ADD:1'
-    4:
+          - HEALTH:ADD:2
+        conditions:
+          - EQUIP_SLOT:ARMOR
+    "4":
       move:
         type: MOVE
         chance: 20
-        cooldown: 2000
-        conditions:
-        - ''
+        cooldown: 3000
         effects:
-        - 'HEALTH:ADD:2'
-    5:
+          - HEALTH:ADD:2
+        conditions:
+          - EQUIP_SLOT:ARMOR
+    "5":
       move:
         type: MOVE
         chance: 25
-        cooldown: 2000
-        conditions:
-        - ''
+        cooldown: 3000
         effects:
-        - 'HEALTH:ADD:2'
-# tag_potion: HEALTH_BOOST
+          - HEALTH:ADD:3
+        conditions:
+          - EQUIP_SLOT:ARMOR
 overload:
-  group: 'legendary'
-  display: 'Overload'
+  group: legendary
+  display: Overload
   description:
-  - '&eNhận hiệu ứng tăng sinh lực khi trang bị'
+    - "&eNhận hiệu ứng tăng sinh lực khi trang bị"
+  detail-description:
+    - "&eNhận hiệu ứng tăng sinh lực khi trang bị"
+    - ""
+    - "&eHiệu ứng: Tăng sinh lực"
+    - "&eCấp độ hiệu ứng: 1 x Cấp"
+    - "&eThời gian hiệu ứng: Vĩnh viễn"
   applies-description:
-  - 'Các loại giáp'
+    - Các loại giáp
   applies:
-  - 'ALL_ARMOR'
+    - ALL_ARMOR
   max-level: 3
   enchant-point: 1
   valuable: 0
   levels:
-    1:
+    "1":
       equip:
         type: ARMOR_EQUIP
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - 'ADD_FOREVER_POTION:overload:HEALTH_BOOST:0'
+          - ADD_FOREVER_POTION:overload:HEALTH_BOOST:0
       unequip:
         type: ARMOR_UNDRESS
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - 'REMOVE_FOREVER_POTION:overload'
-    2:
+          - REMOVE_FOREVER_POTION:overload
+    "2":
       equip:
         type: ARMOR_EQUIP
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - 'ADD_FOREVER_POTION:overload:HEALTH_BOOST:1'
+          - ADD_FOREVER_POTION:overload:HEALTH_BOOST:1
       unequip:
         type: ARMOR_UNDRESS
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - 'REMOVE_FOREVER_POTION:overload'
-    3:
+          - REMOVE_FOREVER_POTION:overload
+    "3":
       equip:
         type: ARMOR_EQUIP
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - 'ADD_FOREVER_POTION:overload:HEALTH_BOOST:2'
+          - ADD_FOREVER_POTION:overload:HEALTH_BOOST:2
       unequip:
         type: ARMOR_UNDRESS
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - 'REMOVE_FOREVER_POTION:overload'
-# tag_potion: POISON
+          - REMOVE_FOREVER_POTION:overload
+    "4":
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - ADD_FOREVER_POTION:overload:HEALTH_BOOST:3
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - REMOVE_FOREVER_POTION:overload
+    "5":
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - ADD_FOREVER_POTION:overload:HEALTH_BOOST:4
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - REMOVE_FOREVER_POTION:overload
+    "6":
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - ADD_FOREVER_POTION:overload:HEALTH_BOOST:5
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - REMOVE_FOREVER_POTION:overload
+    "7":
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - ADD_FOREVER_POTION:overload:HEALTH_BOOST:6
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - REMOVE_FOREVER_POTION:overload
+    "8":
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - ADD_FOREVER_POTION:overload:HEALTH_BOOST:7
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - REMOVE_FOREVER_POTION:overload
+    "9":
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - ADD_FOREVER_POTION:overload:HEALTH_BOOST:8
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - REMOVE_FOREVER_POTION:overload
+    "10":
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - ADD_FOREVER_POTION:overload:HEALTH_BOOST:9
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - REMOVE_FOREVER_POTION:overload
 paingiver:
-  group: 'epic'
-  display: 'PainGiver'
+  group: epic
+  display: PainGiver
   description:
-  - '&eCó tỉ lệ khiến kẻ địch bị hiệu ứng độc'
-  - '&etrong một khoảng thời gian'
+    - "&eCó tỉ lệ khiến kẻ địch bị hiệu ứng độc"
+    - "&etrong một khoảng thời gian"
+  detail-description:
+    - "&eCó tỉ lệ khiến kẻ địch bị hiệu ứng độc"
+    - "&etrong một khoảng thời gian"
+    - ""
+    - "&eHiệu ứng thuốc: Độc"
+    - "&eCấp độ hiệu ứng: 1/1/2/2/3"
+    - "&eThời gian hiệu ứng: 4s"
+    - "&eTỉ lệ kích hoạt: 50%"
+    - "&eThời gian hồi: 4s"
   applies-description:
-  - 'Các loại giáp'
+    - Các loại giáp
   applies:
-  - 'ALL_ARMOR'
+    - ALL_ARMOR
   max-level: 5
   enchant-point: 1
   valuable: 0
   levels:
-    1:
-      defense:
-        type: DEFENSE
-        chance: 20
-        cooldown: 3000
-        conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
-        effects:
-        - 'TARGET=ENEMY | ADD_POTION:POISON:0:40'
-    2:
-      defense:
-        type: DEFENSE
-        chance: 30
-        cooldown: 3000
-        conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
-        effects:
-        - 'TARGET=ENEMY | ADD_POTION:POISON:1:40'
-    3:
-      defense:
-        type: DEFENSE
-        chance: 40
-        cooldown: 3000
-        conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
-        effects:
-        - 'TARGET=ENEMY | ADD_POTION:POISON:1:40'
-    4:
+    "1":
       defense:
         type: DEFENSE
         chance: 50
-        cooldown: 2500
+        cooldown: 4000
         conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+          - EQUIP_SLOT:ARMOR
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-        - 'TARGET=ENEMY | ADD_POTION:POISON:2:40'
-    5:
+          - TARGET=ENEMY | ADD_POTION:POISON:0:80
+    "2":
       defense:
         type: DEFENSE
         chance: 50
-        cooldown: 2000
+        cooldown: 4000
         conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+          - EQUIP_SLOT:ARMOR
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-        - 'TARGET=ENEMY | ADD_POTION:POISON:2:40'
+          - TARGET=ENEMY | ADD_POTION:POISON:0:80
+    "3":
+      defense:
+        type: DEFENSE
+        chance: 50
+        cooldown: 4000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+          - TARGET=ENEMY | ADD_POTION:POISON:1:80
+    "4":
+      defense:
+        type: DEFENSE
+        chance: 50
+        cooldown: 4000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+          - TARGET=ENEMY | ADD_POTION:POISON:1:80
+    "5":
+      defense:
+        type: DEFENSE
+        chance: 50
+        cooldown: 4000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+          - TARGET=ENEMY | ADD_POTION:POISON:3:80
 recover:
-  group: 'rare'
-  display: 'Recover'
+  group: rare
+  display: Recover
   description:
-  - '&eHồi phục cho bản thân một phần lượng máu'
-  - '&eđã mất khi kết liễu kẻ địch'
+    - "&eHồi phục cho bản thân một phần lượng máu"
+    - "&eđã mất khi kết liễu kẻ địch"
+  detail-description:
+    - "&eHồi phục cho bản thân một phần lượng máu"
+    - "&eđã mất khi kết liễu kẻ địch"
+    - ""
+    - "&eLượng máu hồi: 5% máu đã mất x Cấp"
   applies-description:
-  - 'Các loại giáp'
+    - Các loại giáp
   applies:
-  - 'ALL_ARMOR'
+    - ALL_ARMOR
   max-level: 5
   enchant-point: 1
   valuable: 0
   levels:
-    1:
+    "1":
       kill_player:
         type: KILL_PLAYER
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - EQUIP_SLOT:ARMOR
         effects:
-        - 'HEALTH:ADD:(%player_max_value%-%player_health%)*5/100'
-    2:
+          - HEALTH:ADD:(%player_max_value%-%player_health%)*5/100
+    "2":
       kill_player:
         type: KILL_PLAYER
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - EQUIP_SLOT:ARMOR
         effects:
-        - 'HEALTH:ADD:(%player_max_value%-%player_health%)*10/100'
-    3:
+          - HEALTH:ADD:(%player_max_value%-%player_health%)*10/100
+    "3":
       kill_player:
         type: KILL_PLAYER
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - EQUIP_SLOT:ARMOR
         effects:
-        - 'HEALTH:ADD:(%player_max_value%-%player_health%)*15/100'
-    4:
+          - HEALTH:ADD:(%player_max_value%-%player_health%)*15/100
+    "4":
       kill_player:
         type: KILL_PLAYER
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - EQUIP_SLOT:ARMOR
         effects:
-        - 'HEALTH:ADD:(%player_max_value%-%player_health%)*20/100'
-    5:
+          - HEALTH:ADD:(%player_max_value%-%player_health%)*20/100
+    "5":
       kill_player:
         type: KILL_PLAYER
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - EQUIP_SLOT:ARMOR
         effects:
-        - 'HEALTH:ADD:(%player_max_value%-%player_health%)*25/100'
+          - HEALTH:ADD:(%player_max_value%-%player_health%)*25/100
 rocket:
-  group: 'rare'
-  display: 'Rocket'
+  group: rare
+  display: Rocket
   description:
-  - '&eTự động đẩy ra đằng sau để bỏ trốn'
-  - '&ekhi bị tấn công lúc thấp máu'
+    - "&eTự động đẩy ra đằng sau để bỏ trốn"
+    - "&ekhi bị tấn công lúc thấp máu"
+  detail-description:
+    - "&eTự động đẩy ra đằng sau để bỏ trốn"
+    - "&ekhi bị tấn công lúc thấp máu"
+    - ""
+    - "&eThời gian hồi: 10s (-1s/cấp)"
   applies-description:
-  - 'Các loại giáp'
+    - Các loại giáp
   applies:
-  - 'ALL_ARMOR'
+    - ALL_ARMOR
   max-level: 5
   enchant-point: 1
   valuable: 0
   levels:
-    1:
+    "1":
       defense:
         type: DEFENSE
         chance: 100
         cooldown: 10000
         conditions:
-        - 'HEALTH:<=:10'
+          - EQUIP_SLOT:ARMOR
+          - HEALTH:<=:10
         effects:
-        - 'PULL:xE_1_zE'
-    2:
+          - PULL:xE_1_zE
+    "2":
       defense:
         type: DEFENSE
         chance: 100
         cooldown: 9000
         conditions:
-        - 'HEALTH:<=:10'
+          - EQUIP_SLOT:ARMOR
+          - HEALTH:<=:10
         effects:
-        - 'PULL:xE*1.25_1_zE*1.25'
-    3:
+          - PULL:xE*1.25_1_zE*1.25
+    "3":
       defense:
         type: DEFENSE
         chance: 100
         cooldown: 8000
         conditions:
-        - 'HEALTH:<=:10'
+          - EQUIP_SLOT:ARMOR
+          - HEALTH:<=:10
         effects:
-        - 'PULL:xE*1.5_1_zE*1.5'
-    4:
+          - PULL:xE*1.5_1_zE*1.5
+    "4":
       defense:
         type: DEFENSE
         chance: 100
         cooldown: 7000
         conditions:
-        - 'HEALTH:<=:10'
+          - EQUIP_SLOT:ARMOR
+          - HEALTH:<=:10
         effects:
-        - 'PULL:xE*1.75_1_zE*1.75'
-    5:
+          - PULL:xE*1.75_1_zE*1.75
+    "5":
       defense:
         type: DEFENSE
         chance: 100
-        cooldown: 0
+        cooldown: 6000
         conditions:
-        - 'HEALTH:<=:10'
+          - EQUIP_SLOT:ARMOR
+          - HEALTH:<=:10
         effects:
-        - 'PULL:xE*2_1_zE*2'
-# tag_potion: BLINDNESS
-# tag_attribute: MOVEMENT_SPEED -
+          - PULL:xE*2_1_zE*2
 smokebomb:
-  group: 'legendary'
-  display: 'SmokeBomb'
+  group: legendary
+  display: SmokeBomb
   description:
-  - '&eCó tỉ lệ làm mù và giảm tốc độ di chuyển'
-  - '&ecủa kẻ địch trong một khoảng thời gian'
-  - '&ekhi bị tấn công lúc thấp máu'
+    - "&eCó tỉ lệ làm mù và giảm tốc độ di chuyển"
+    - "&ecủa kẻ địch trong một khoảng thời gian"
+    - "&ekhi bị tấn công lúc thấp máu"
+  detail-description:
+    - "&eCó tỉ lệ làm mù và giảm tốc độ di chuyển"
+    - "&ecủa kẻ địch trong một khoảng thời gian"
+    - "&ekhi bị tấn công lúc thấp máu"
+    - ""
+    - "&eHiệu ứng thuốc: Mù"
+    - "&eTốc độ di chuyển: -10% (-5%/cấp)"
+    - "&eThời gian hiệu ứng: 2s/2s/3s/3s/4s"
+    - "&eThời gian hồi: 5s"
   applies-description:
-  - 'Các loại giáp'
+    - Các loại giáp
   applies:
-  - 'ALL_ARMOR'
+    - ALL_ARMOR
   max-level: 5
   enchant-point: 1
   valuable: 0
   levels:
-    1:
-      defense:
-        type: DEFENSE
-        chance: 10
-        cooldown: 4000
-        conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
-        - 'HEALTH:<=:10'
-        effects:
-        - 'TARGET=ENEMY | ADD_POTION:BLINDNESS:0:40'
-        - 'TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:smokebomb_movement_speed:-0.1:1'
-        - 'TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:smokebomb_movement_speed'
-    2:
-      defense:
-        type: DEFENSE
-        chance: 10
-        cooldown: 4000
-        conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
-        - 'HEALTH:<=:10'
-        effects:
-        - 'TARGET=ENEMY | ADD_POTION:BLINDNESS:0:40'
-        - 'TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:smokebomb_movement_speed:-0.15:1'
-        - 'TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:smokebomb_movement_speed'
-    3:
-      defense:
-        type: DEFENSE
-        chance: 10
-        cooldown: 4000
-        conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
-        - 'HEALTH:<=:10'
-        effects:
-        - 'TARGET=ENEMY | ADD_POTION:BLINDNESS:0:60'
-        - 'TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:smokebomb_movement_speed:-0.2:1'
-        - 'TARGET=ENEMY,DELAY=60,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:smokebomb_movement_speed'
-    4:
-      defense:
-        type: DEFENSE
-        chance: 15
-        cooldown: 4000
-        conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
-        - 'HEALTH:<=:10'
-        effects:
-        - 'TARGET=ENEMY | ADD_POTION:BLINDNESS:0:60'
-        - 'TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:smokebomb_movement_speed:-0.25:1'
-        - 'TARGET=ENEMY,DELAY=60,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:smokebomb_movement_speed'
-    5:
+    "1":
       defense:
         type: DEFENSE
         chance: 20
-        cooldown: 4000
+        cooldown: 5000
         conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
-        - 'HEALTH:<=:10'
+          - EQUIP_SLOT:ARMOR
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - HEALTH:<=:10
         effects:
-        - 'TARGET=ENEMY | ADD_POTION:BLINDNESS:0:80'
-        - 'TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:smokebomb_movement_speed:-0.3:1'
-        - 'TARGET=ENEMY,DELAY=80,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:smokebomb_movement_speed'
+          - TARGET=ENEMY | ADD_POTION:BLINDNESS:0:40
+          - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:smokebomb_movement_speed:-0.1:1
+          - TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:smokebomb_movement_speed
+    "2":
+      defense:
+        type: DEFENSE
+        chance: 20
+        cooldown: 5000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - HEALTH:<=:10
+        effects:
+          - TARGET=ENEMY | ADD_POTION:BLINDNESS:0:40
+          - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:smokebomb_movement_speed:-0.15:1
+          - TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:smokebomb_movement_speed
+    "3":
+      defense:
+        type: DEFENSE
+        chance: 20
+        cooldown: 5000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - HEALTH:<=:10
+        effects:
+          - TARGET=ENEMY | ADD_POTION:BLINDNESS:0:60
+          - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:smokebomb_movement_speed:-0.2:1
+          - TARGET=ENEMY,DELAY=60,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:smokebomb_movement_speed
+    "4":
+      defense:
+        type: DEFENSE
+        chance: 20
+        cooldown: 5000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - HEALTH:<=:10
+        effects:
+          - TARGET=ENEMY | ADD_POTION:BLINDNESS:0:60
+          - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:smokebomb_movement_speed:-0.25:1
+          - TARGET=ENEMY,DELAY=60,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:smokebomb_movement_speed
+    "5":
+      defense:
+        type: DEFENSE
+        chance: 20
+        cooldown: 5000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - HEALTH:<=:10
+        effects:
+          - TARGET=ENEMY | ADD_POTION:BLINDNESS:0:80
+          - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:smokebomb_movement_speed:-0.3:1
+          - TARGET=ENEMY,DELAY=80,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:smokebomb_movement_speed
 stormcaller:
-  group: 'rare'
-  display: 'StormCaller'
+  group: rare
+  display: StormCaller
   description:
-  - '&eCó tỉ lệ đánh sét lên kẻ địch'
-  - '&ekhi bị tấn công'
+    - "&eCó tỉ lệ đánh sét lên kẻ địch"
+    - "&ekhi bị tấn công"
+  detail-description:
+    - "&eCó tỉ lệ đánh sét lên kẻ địch"
+    - "&ekhi bị tấn công"
+    - ""
+    - "&eTỉ lệ kích hoạt: 10% x Cấp"
+    - "&eThời gian hồi: 3s"
   applies-description:
-  - 'Các loại giáp'
+    - Các loại giáp
   applies:
-  - 'ALL_ARMOR'
+    - ALL_ARMOR
   max-level: 5
   enchant-point: 1
   valuable: 0
   levels:
-    1:
+    "1":
       defense:
         type: DEFENSE
         chance: 10
         cooldown: 3000
         conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+          - EQUIP_SLOT:ARMOR
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-        - 'TARGET=ENEMY | LIGHTNING:~_~_~_~'
-    2:
+          - TARGET=ENEMY | LIGHTNING:~_~_~_~
+    "2":
       defense:
         type: DEFENSE
         chance: 20
         cooldown: 3000
         conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+          - EQUIP_SLOT:ARMOR
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-        - 'TARGET=ENEMY | LIGHTNING:~_~_~_~'
-    3:
+          - TARGET=ENEMY | LIGHTNING:~_~_~_~
+    "3":
       defense:
         type: DEFENSE
         chance: 30
         cooldown: 3000
         conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+          - EQUIP_SLOT:ARMOR
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-        - 'TARGET=ENEMY | LIGHTNING:~_~_~_~'
-    4:
+          - TARGET=ENEMY | LIGHTNING:~_~_~_~
+    "4":
       defense:
         type: DEFENSE
         chance: 40
         cooldown: 3000
         conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+          - EQUIP_SLOT:ARMOR
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-        - 'TARGET=ENEMY | LIGHTNING:~_~_~_~'
-    5:
+          - TARGET=ENEMY | LIGHTNING:~_~_~_~
+    "5":
       defense:
         type: DEFENSE
         chance: 50
         cooldown: 3000
         conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+          - EQUIP_SLOT:ARMOR
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-        - 'TARGET=ENEMY | LIGHTNING:~_~_~_~'
+          - TARGET=ENEMY | LIGHTNING:~_~_~_~
 trickster:
-  group: 'epic'
-  display: 'Trickster'
+  group: epic
+  display: Trickster
   description:
-  - '&eCó tỉ lệ chặn đòn đánh và dịch chuyển'
-  - '&era đằng sau kẻ địch khi bị tấn công'
+    - "&eCó tỉ lệ chặn đòn đánh và dịch chuyển"
+    - "&era đằng sau kẻ địch khi bị tấn công"
+  detail-description:
+    - "&eCó tỉ lệ chặn đòn đánh và dịch chuyển"
+    - "&era đằng sau kẻ địch khi bị tấn công"
+    - ""
+    - "&eTỉ lệ kích hoạt: 30%"
+    - "&eThời gian hồi: 6s (-0.5s/cấp)"
   applies-description:
-  - 'Các loại giáp'
+    - Các loại giáp
   applies:
-  - 'ALL_ARMOR'
+    - ALL_ARMOR
   max-level: 5
   enchant-point: 1
   valuable: 0
   levels:
-    1:
+    "1":
       defense:
         type: DEFENSE
         chance: 30
         cooldown: 6000
         conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+          - EQUIP_SLOT:ARMOR
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         options:
-        - 'DEFENSE:1:2'
+          - DEFENSE:1:2
         effects:
-        - 'PACKET_PARTICLE:CLOUD:10:500:~_~_~+1_~:0.5_0.5_0.5:0.1:12'
-        - 'TELEPORT:~_xE+4*sin(eyawP+90)_yE_zE+4*cos(eyawP+90)_yawP+180_pitchP'
-    2:
+          - PACKET_PARTICLE:CLOUD:10:500:~_~_~+1_~:0.5_0.5_0.5:0.1:12
+          - TELEPORT:~_xE+4*sin(eyawP+90)_yE_zE+4*cos(eyawP+90)_yawP+180_pitchP
+    "2":
       defense:
         type: DEFENSE
         chance: 30
         cooldown: 5500
         conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+          - EQUIP_SLOT:ARMOR
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         options:
-        - 'DEFENSE:1:2'
+          - DEFENSE:1:2
         effects:
-        - 'PACKET_PARTICLE:CLOUD:10:500:~_~_~+1_~:0.5_0.5_0.5:0.1:14'
-        - 'TELEPORT:~_xE+4*sin(eyawP+90)_yE_zE+4*cos(eyawP+90)_yawP+180_pitchP'
-    3:
+          - PACKET_PARTICLE:CLOUD:10:500:~_~_~+1_~:0.5_0.5_0.5:0.1:14
+          - TELEPORT:~_xE+4*sin(eyawP+90)_yE_zE+4*cos(eyawP+90)_yawP+180_pitchP
+    "3":
       defense:
         type: DEFENSE
         chance: 30
         cooldown: 5000
         conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+          - EQUIP_SLOT:ARMOR
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         options:
-        - 'DEFENSE:1:2'
+          - DEFENSE:1:2
         effects:
-        - 'PACKET_PARTICLE:CLOUD:10:500:~_~_~+1_~:0.5_0.5_0.5:0.1:16'
-        - 'TELEPORT:~_xE+4*sin(eyawP+90)_yE_zE+4*cos(eyawP+90)_yawP+180_pitchP'
-    4:
+          - PACKET_PARTICLE:CLOUD:10:500:~_~_~+1_~:0.5_0.5_0.5:0.1:16
+          - TELEPORT:~_xE+4*sin(eyawP+90)_yE_zE+4*cos(eyawP+90)_yawP+180_pitchP
+    "4":
       defense:
         type: DEFENSE
         chance: 30
         cooldown: 4500
         conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+          - EQUIP_SLOT:ARMOR
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         options:
-        - 'DEFENSE:1:2'
+          - DEFENSE:1:2
         effects:
-        - 'PACKET_PARTICLE:CLOUD:10:500:~_~_~+1_~:0.5_0.5_0.5:0.1:18'
-        - 'TELEPORT:~_xE+4*sin(eyawP+90)_yE_zE+4*cos(eyawP+90)_yawP+180_pitchP'
-    5:
+          - PACKET_PARTICLE:CLOUD:10:500:~_~_~+1_~:0.5_0.5_0.5:0.1:18
+          - TELEPORT:~_xE+4*sin(eyawP+90)_yE_zE+4*cos(eyawP+90)_yawP+180_pitchP
+    "5":
       defense:
         type: DEFENSE
         chance: 30
         cooldown: 4000
         conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+          - EQUIP_SLOT:ARMOR
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         options:
-        - 'DEFENSE:1:2'
+          - DEFENSE:1:2
         effects:
-        - 'PACKET_PARTICLE:CLOUD:10:500:~_~_~+1_~:0.5_0.5_0.5:0.1:20'
-        - 'TELEPORT:~_xE+4*sin(eyawP+90)_yE_zE+4*cos(eyawP+90)_yawP+180_pitchP'
-# tag_durability: AUTO
+          - PACKET_PARTICLE:CLOUD:10:500:~_~_~+1_~:0.5_0.5_0.5:0.1:20
+          - TELEPORT:~_xE+4*sin(eyawP+90)_yE_zE+4*cos(eyawP+90)_yawP+180_pitchP
 valor:
-  group: 'supreme'
-  display: 'Valor'
+  group: supreme
+  display: Valor
   description:
-  - '&eCó tỉ lệ tăng độ bền giáp và giảm'
-  - '&esát thương nhận vào khi bị tấn công'
+    - "&eCó tỉ lệ tăng độ bền giáp và giảm"
+    - "&esát thương nhận vào khi bị tấn công"
+  detail-description:
+    - "&eCó tỉ lệ tăng độ bền giáp và giảm"
+    - "&esát thương nhận vào khi bị tấn công"
+    - ""
+    - "&eĐộ bền: 10"
+    - "&eSát thương nhận giảm: -5% ATK Tổng x Cấp"
+    - "&eTỉ lệ kích hoạt: 25%"
+    - "&eThời gian hồi: 4s"
+    - ""
+    - "&cKhông thể ép chung với PrimeValor"
   applies-description:
-  - 'Các loại giáp'
+    - Các loại giáp
   applies:
-  - 'ALL_ARMOR'
+    - ALL_ARMOR
   max-level: 5
   enchant-point: 1
   valuable: 0
   levels:
-    1:
+    "1":
       defense:
         type: DEFENSE
         chance: 25
         cooldown: 4000
         conditions:
-        - ''
+          - EQUIP_SLOT:ARMOR
         options:
-        - 'DEFENSE:0.15:2'
+          - DEFENSE:0.5:2
         effects:
-        - 'DURABILITY:ADD:AUTO:5'
-    2:
+          - DURABILITY:ADD:AUTO:10
+    "2":
       defense:
         type: DEFENSE
         chance: 25
-        cooldown: 3500
+        cooldown: 4000
         conditions:
-        - ''
+          - EQUIP_SLOT:ARMOR
         options:
-        - 'DEFENSE:0.2:2'
+          - DEFENSE:0.1:2
         effects:
-        - 'DURABILITY:ADD:AUTO:5'
-    3:
+          - DURABILITY:ADD:AUTO:10
+    "3":
       defense:
         type: DEFENSE
         chance: 25
-        cooldown: 3000
+        cooldown: 4000
         conditions:
-        - ''
+          - EQUIP_SLOT:ARMOR
         options:
-        - 'DEFENSE:0.25:2'
+          - DEFENSE:0.15:2
         effects:
-        - 'DURABILITY:ADD:AUTO:5'
-    4:
+          - DURABILITY:ADD:AUTO:10
+    "4":
       defense:
         type: DEFENSE
         chance: 25
-        cooldown: 2500
+        cooldown: 4000
         conditions:
-        - ''
+          - EQUIP_SLOT:ARMOR
         options:
-        - 'DEFENSE:0.3:2'
+          - DEFENSE:0.2:2
         effects:
-        - 'DURABILITY:ADD:AUTO:5'
-    5:
+          - DURABILITY:ADD:AUTO:10
+    "5":
+      defense:
+        type: DEFENSE
+        chance: 25
+        cooldown: 4000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+        options:
+          - DEFENSE:0.25:2
+        effects:
+          - DURABILITY:ADD:AUTO:10
+voodoo:
+  group: legendary
+  display: Voodoo
+  description:
+    - "&eCó tỉ lệ khiến kẻ địch bị suy yếu sức mạnh"
+    - "&etrong một khoảng thời gian khi bị tấn công"
+  detail-description:
+    - "&eCó tỉ lệ khiến kẻ địch bị suy yếu sức mạnh"
+    - "&etrong một khoảng thời gian khi bị tấn công"
+    - ""
+    - "&eSát thương: -5% x Cấp"
+    - "&eTỉ lệ kích hoạt: 20%"
+    - "&eThời gian hiệu lực: 2s"
+    - "&eThời gian hồi: 4s"
+  applies-description:
+    - Các loại giáp
+  applies:
+    - ALL_ARMOR
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: DEFENSE
+        chance: 20
+        cooldown: 4000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+          - TARGET=ENEMY | ADD_ATTRIBUTE:ATTACK_DAMAGE:voodoo_attack_damage:-0.05:1
+          - TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:ATTACK_DAMAGE:voodoo_attack_damage
+    "2":
+      equip:
+        type: DEFENSE
+        chance: 20
+        cooldown: 4000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+          - TARGET=ENEMY | ADD_ATTRIBUTE:ATTACK_DAMAGE:voodoo_attack_damage:-0.1:1
+          - TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:ATTACK_DAMAGE:voodoo_attack_damage
+    "3":
+      equip:
+        type: DEFENSE
+        chance: 20
+        cooldown: 4000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+          - TARGET=ENEMY | ADD_ATTRIBUTE:ATTACK_DAMAGE:voodoo_attack_damage:-0.15:1
+          - TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:ATTACK_DAMAGE:voodoo_attack_damage
+    "4":
+      equip:
+        type: DEFENSE
+        chance: 20
+        cooldown: 4000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+          - TARGET=ENEMY | ADD_ATTRIBUTE:ATTACK_DAMAGE:voodoo_attack_damage:-0.2:1
+          - TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:ATTACK_DAMAGE:voodoo_attack_damage
+    "5":
+      equip:
+        type: DEFENSE
+        chance: 20
+        cooldown: 4000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+          - TARGET=ENEMY | ADD_ATTRIBUTE:ATTACK_DAMAGE:voodoo_attack_damage:-0.25:1
+          - TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:ATTACK_DAMAGE:voodoo_attack_damage
+durable:
+  group: common
+  display: Durable
+  description:
+    - "&eCó tỉ lệ tăng độ bền giáp khi bị tấn công"
+  detail-description:
+    - "&eCó tỉ lệ tăng độ bền giáp khi bị tấn công"
+    - ""
+    - "&eĐộ bền: 1 x Cấp"
+    - "&eTỉ lệ kích hoạt: 5% (+2%/cấp)"
+    - "&eThời gian hồi: 2s"
+  applies-description:
+    - Các loại giáp
+  applies:
+    - ALL_ARMOR
+  max-level: 10
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
       defense:
         type: DEFENSE
         chance: 25
         cooldown: 2000
         conditions:
-        - ''
-        options:
-        - 'DEFENSE:0.35:2'
+          - EQUIP_SLOT:ARMOR
         effects:
-        - 'DURABILITY:ADD:AUTO:5'
-# tag_attribute: ATTACK_DAMAGE -
-voodoo:
-  group: 'legendary'
-  display: 'Voodoo'
-  description:
-  - '&eCó tỉ lệ khiến kẻ địch bị suy yếu sức mạnh'
-  - '&etrong một khoảng thời gian khi bị tấn công'
-  applies-description:
-  - 'Các loại giáp'
-  applies:
-  - 'ALL_ARMOR'
-  max-level: 5
-  enchant-point: 1
-  valuable: 0
-  levels:
-    1:
-      equip:
-        type: DEFENSE
-        chance: 20
-        cooldown: 4000
-        conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
-        effects:
-        - 'TARGET=ENEMY | ADD_ATTRIBUTE:ATTACK_DAMAGE:voodoo_attack_damage:-0.1:1'
-        - 'TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:ATTACK_DAMAGE:voodoo_attack_damage'
-    2:
-      equip:
-        type: DEFENSE
-        chance: 20
-        cooldown: 4000
-        conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
-        effects:
-        - 'TARGET=ENEMY | ADD_ATTRIBUTE:ATTACK_DAMAGE:voodoo_attack_damage:-0.15:1'
-        - 'TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:ATTACK_DAMAGE:voodoo_attack_damage'
-    3:
-      equip:
-        type: DEFENSE
-        chance: 20
-        cooldown: 4000
-        conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
-        effects:
-        - 'TARGET=ENEMY | ADD_ATTRIBUTE:ATTACK_DAMAGE:voodoo_attack_damage:-0.2:1'
-        - 'TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:ATTACK_DAMAGE:voodoo_attack_damage'
-    4:
-      equip:
-        type: DEFENSE
-        chance: 20
-        cooldown: 4000
-        conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
-        effects:
-        - 'TARGET=ENEMY | ADD_ATTRIBUTE:ATTACK_DAMAGE:voodoo_attack_damage:-0.25:1'
-        - 'TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:ATTACK_DAMAGE:voodoo_attack_damage'
-    5:
-      equip:
-        type: DEFENSE
-        chance: 20
-        cooldown: 4000
-        conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
-        effects:
-        - 'TARGET=ENEMY | ADD_ATTRIBUTE:ATTACK_DAMAGE:voodoo_attack_damage:-0.3:1'
-        - 'TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:ATTACK_DAMAGE:voodoo_attack_damage'
-# tag_durability: AUTO
-durable:
-  group: 'common'
-  display: 'Durable'
-  description:
-  - '&eCó tỉ lệ tăng độ bền giáp khi bị tấn công'
-  applies-description:
-  - 'Các loại giáp'
-  applies:
-  - 'ALL_ARMOR'
-  max-level: 10
-  enchant-point: 1
-  valuable: 0
-  levels:
-    1:
-      defense:
-        type: DEFENSE
-        chance: 5
-        cooldown: 1000
-        conditions:
-        - ''
-        effects:
-        - 'DURABILITY:ADD:AUTO:1'
-    2:
-      defense:
-        type: DEFENSE
-        chance: 7
-        cooldown: 1000
-        conditions:
-        - ''
-        effects:
-        - 'DURABILITY:ADD:AUTO:1'
-    3:
-      defense:
-        type: DEFENSE
-        chance: 9
-        cooldown: 1000
-        conditions:
-        - ''
-        effects:
-        - 'DURABILITY:ADD:AUTO:1'
-    4:
-      defense:
-        type: DEFENSE
-        chance: 11
-        cooldown: 1000
-        conditions:
-        - ''
-        effects:
-        - 'DURABILITY:ADD:AUTO:1'
-    5:
-      defense:
-        type: DEFENSE
-        chance: 13
-        cooldown: 1000
-        conditions:
-        - ''
-        effects:
-        - 'DURABILITY:ADD:AUTO:2'
-    6:
-      defense:
-        type: DEFENSE
-        chance: 15
-        cooldown: 1000
-        conditions:
-        - ''
-        effects:
-        - 'DURABILITY:ADD:AUTO:2'
-    7:
-      defense:
-        type: DEFENSE
-        chance: 17
-        cooldown: 1000
-        conditions:
-        - ''
-        effects:
-        - 'DURABILITY:ADD:AUTO:2'
-    8:
-      defense:
-        type: DEFENSE
-        chance: 20
-        cooldown: 1000
-        conditions:
-        - ''
-        effects:
-        - 'DURABILITY:ADD:AUTO:3'
-    9:
-      defense:
-        type: DEFENSE
-        chance: 22
-        cooldown: 1000
-        conditions:
-        - ''
-        effects:
-        - 'DURABILITY:ADD:AUTO:3'
-    10:
+          - DURABILITY:ADD:AUTO:1
+    "2":
       defense:
         type: DEFENSE
         chance: 25
-        cooldown: 1000
+        cooldown: 2000
         conditions:
-        - ''
+          - EQUIP_SLOT:ARMOR
         effects:
-        - 'DURABILITY:ADD:AUTO:4'
+          - DURABILITY:ADD:AUTO:2
+    "3":
+      defense:
+        type: DEFENSE
+        chance: 25
+        cooldown: 2000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+        effects:
+          - DURABILITY:ADD:AUTO:3
+    "4":
+      defense:
+        type: DEFENSE
+        chance: 25
+        cooldown: 2000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+        effects:
+          - DURABILITY:ADD:AUTO:4
+    "5":
+      defense:
+        type: DEFENSE
+        chance: 25
+        cooldown: 2000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+        effects:
+          - DURABILITY:ADD:AUTO:5
+    "6":
+      defense:
+        type: DEFENSE
+        chance: 25
+        cooldown: 2000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+        effects:
+          - DURABILITY:ADD:AUTO:6
+    "7":
+      defense:
+        type: DEFENSE
+        chance: 25
+        cooldown: 2000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+        effects:
+          - DURABILITY:ADD:AUTO:7
+    "8":
+      defense:
+        type: DEFENSE
+        chance: 25
+        cooldown: 2000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+        effects:
+          - DURABILITY:ADD:AUTO:8
+    "9":
+      defense:
+        type: DEFENSE
+        chance: 25
+        cooldown: 2000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+        effects:
+          - DURABILITY:ADD:AUTO:9
+    "10":
+      defense:
+        type: DEFENSE
+        chance: 25
+        cooldown: 2000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+        effects:
+          - DURABILITY:ADD:AUTO:10
 hearty:
-  group: 'event'
-  display: 'Hearty'
+  group: event
+  display: Hearty
   description:
-  - '&eCó tỉ lệ nhận hồi máu trong một khoảng'
-  - '&ethời gian khi bị tấn công'
+    - "&eCó tỉ lệ nhận hồi máu trong một khoảng"
+    - "&ethời gian khi bị dính sát thương"
+  detail-description:
+    - "&eCó tỉ lệ nhận hồi máu trong một khoảng"
+    - "&ethời gian khi bị dính sát thương"
+    - ""
+    - "&eTổng lượng máu hồi: 16"
+    - "&eThời gian hồi máu: 20s/10s/5s/2.5s"
+    - "&eTỉ lệ kích hoạt: 20%"
+    - "&eThời gian hồi: 14s/12s/10s/8s"
   applies-description:
-  - 'Các loại giáp'
+    - Các loại giáp
   applies:
-  - 'ALL_ARMOR'
+    - ALL_ARMOR
   max-level: 4
   enchant-point: 1
   valuable: 0
   levels:
-    1:
+    "1":
+      defense:
+        type: DEFENSE
+        chance: 20
+        cooldown: 14000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+        effects:
+          - DELAY=25 | HEALTH:ADD:1
+          - DELAY=50 | HEALTH:ADD:1
+          - DELAY=75 | HEALTH:ADD:1
+          - DELAY=100 | HEALTH:ADD:1
+          - DELAY=125 | HEALTH:ADD:1
+          - DELAY=150 | HEALTH:ADD:1
+          - DELAY=175 | HEALTH:ADD:1
+          - DELAY=200 | HEALTH:ADD:1
+          - DELAY=225 | HEALTH:ADD:1
+          - DELAY=250 | HEALTH:ADD:1
+          - DELAY=275 | HEALTH:ADD:1
+          - DELAY=300 | HEALTH:ADD:1
+          - DELAY=325 | HEALTH:ADD:1
+          - DELAY=350 | HEALTH:ADD:1
+          - DELAY=375 | HEALTH:ADD:1
+          - DELAY=400 | HEALTH:ADD:1
+      arrow_defense:
+        type: ARROW_DEFENSE
+        chance: 20
+        cooldown: 14000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+        effects:
+          - DELAY=25 | HEALTH:ADD:1
+          - DELAY=50 | HEALTH:ADD:1
+          - DELAY=75 | HEALTH:ADD:1
+          - DELAY=100 | HEALTH:ADD:1
+          - DELAY=125 | HEALTH:ADD:1
+          - DELAY=150 | HEALTH:ADD:1
+          - DELAY=175 | HEALTH:ADD:1
+          - DELAY=200 | HEALTH:ADD:1
+          - DELAY=225 | HEALTH:ADD:1
+          - DELAY=250 | HEALTH:ADD:1
+          - DELAY=275 | HEALTH:ADD:1
+          - DELAY=300 | HEALTH:ADD:1
+          - DELAY=325 | HEALTH:ADD:1
+          - DELAY=350 | HEALTH:ADD:1
+          - DELAY=375 | HEALTH:ADD:1
+          - DELAY=400 | HEALTH:ADD:1
+    "2":
+      defense:
+        type: DEFENSE
+        chance: 20
+        cooldown: 12000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+        effects:
+          - DELAY=12 | HEALTH:ADD:1
+          - DELAY=25 | HEALTH:ADD:1
+          - DELAY=37 | HEALTH:ADD:1
+          - DELAY=50 | HEALTH:ADD:1
+          - DELAY=62 | HEALTH:ADD:1
+          - DELAY=75 | HEALTH:ADD:1
+          - DELAY=87 | HEALTH:ADD:1
+          - DELAY=100 | HEALTH:ADD:1
+          - DELAY=112 | HEALTH:ADD:1
+          - DELAY=125 | HEALTH:ADD:1
+          - DELAY=137 | HEALTH:ADD:1
+          - DELAY=150 | HEALTH:ADD:1
+          - DELAY=162 | HEALTH:ADD:1
+          - DELAY=175 | HEALTH:ADD:1
+          - DELAY=187 | HEALTH:ADD:1
+          - DELAY=200 | HEALTH:ADD:1
+      arrow_defense:
+        type: ARROW_DEFENSE
+        chance: 20
+        cooldown: 12000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+        effects:
+          - DELAY=12 | HEALTH:ADD:1
+          - DELAY=25 | HEALTH:ADD:1
+          - DELAY=37 | HEALTH:ADD:1
+          - DELAY=50 | HEALTH:ADD:1
+          - DELAY=62 | HEALTH:ADD:1
+          - DELAY=75 | HEALTH:ADD:1
+          - DELAY=87 | HEALTH:ADD:1
+          - DELAY=100 | HEALTH:ADD:1
+          - DELAY=112 | HEALTH:ADD:1
+          - DELAY=125 | HEALTH:ADD:1
+          - DELAY=137 | HEALTH:ADD:1
+          - DELAY=150 | HEALTH:ADD:1
+          - DELAY=162 | HEALTH:ADD:1
+          - DELAY=175 | HEALTH:ADD:1
+          - DELAY=187 | HEALTH:ADD:1
+          - DELAY=200 | HEALTH:ADD:1
+    "3":
       defense:
         type: DEFENSE
         chance: 20
         cooldown: 10000
         conditions:
-        - ''
+          - EQUIP_SLOT:ARMOR
         effects:
-        - 'DELAY=25 | HEALTH:ADD:1'
-        - 'DELAY=50 | HEALTH:ADD:1'
-        - 'DELAY=75 | HEALTH:ADD:1'
-        - 'DELAY=100 | HEALTH:ADD:1'
-        - 'DELAY=125 | HEALTH:ADD:1'
-        - 'DELAY=150 | HEALTH:ADD:1'
-        - 'DELAY=175 | HEALTH:ADD:1'
-        - 'DELAY=200 | HEALTH:ADD:1'
-        - 'DELAY=225 | HEALTH:ADD:1'
-        - 'DELAY=250 | HEALTH:ADD:1'
-        - 'DELAY=275 | HEALTH:ADD:1'
-        - 'DELAY=300 | HEALTH:ADD:1'
-        - 'DELAY=325 | HEALTH:ADD:1'
-        - 'DELAY=350 | HEALTH:ADD:1'
-        - 'DELAY=375 | HEALTH:ADD:1'
-        - 'DELAY=400 | HEALTH:ADD:1'
-    2:
+          - DELAY=6 | HEALTH:ADD:1
+          - DELAY=12 | HEALTH:ADD:1
+          - DELAY=18 | HEALTH:ADD:1
+          - DELAY=25 | HEALTH:ADD:1
+          - DELAY=31 | HEALTH:ADD:1
+          - DELAY=37 | HEALTH:ADD:1
+          - DELAY=43 | HEALTH:ADD:1
+          - DELAY=50 | HEALTH:ADD:1
+          - DELAY=56 | HEALTH:ADD:1
+          - DELAY=62 | HEALTH:ADD:1
+          - DELAY=68 | HEALTH:ADD:1
+          - DELAY=75 | HEALTH:ADD:1
+          - DELAY=81 | HEALTH:ADD:1
+          - DELAY=87 | HEALTH:ADD:1
+          - DELAY=93 | HEALTH:ADD:1
+          - DELAY=100 | HEALTH:ADD:1
+      arrow_defense:
+        type: ARROW_DEFENSE
+        chance: 20
+        cooldown: 10000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+        effects:
+          - DELAY=6 | HEALTH:ADD:1
+          - DELAY=12 | HEALTH:ADD:1
+          - DELAY=18 | HEALTH:ADD:1
+          - DELAY=25 | HEALTH:ADD:1
+          - DELAY=31 | HEALTH:ADD:1
+          - DELAY=37 | HEALTH:ADD:1
+          - DELAY=43 | HEALTH:ADD:1
+          - DELAY=50 | HEALTH:ADD:1
+          - DELAY=56 | HEALTH:ADD:1
+          - DELAY=62 | HEALTH:ADD:1
+          - DELAY=68 | HEALTH:ADD:1
+          - DELAY=75 | HEALTH:ADD:1
+          - DELAY=81 | HEALTH:ADD:1
+          - DELAY=87 | HEALTH:ADD:1
+          - DELAY=93 | HEALTH:ADD:1
+          - DELAY=100 | HEALTH:ADD:1
+    "4":
       defense:
         type: DEFENSE
         chance: 20
-        cooldown: 9000
+        cooldown: 8000
         conditions:
-        - ''
+          - EQUIP_SLOT:ARMOR
         effects:
-        - 'DELAY=12 | HEALTH:ADD:1'
-        - 'DELAY=25 | HEALTH:ADD:1'
-        - 'DELAY=37 | HEALTH:ADD:1'
-        - 'DELAY=50 | HEALTH:ADD:1'
-        - 'DELAY=62 | HEALTH:ADD:1'
-        - 'DELAY=75 | HEALTH:ADD:1'
-        - 'DELAY=87 | HEALTH:ADD:1'
-        - 'DELAY=100 | HEALTH:ADD:1'
-        - 'DELAY=112 | HEALTH:ADD:1'
-        - 'DELAY=125 | HEALTH:ADD:1'
-        - 'DELAY=137 | HEALTH:ADD:1'
-        - 'DELAY=150 | HEALTH:ADD:1'
-        - 'DELAY=162 | HEALTH:ADD:1'
-        - 'DELAY=175 | HEALTH:ADD:1'
-        - 'DELAY=187 | HEALTH:ADD:1'
-        - 'DELAY=200 | HEALTH:ADD:1'
-    3:
-      defense:
-        type: DEFENSE
+          - DELAY=3 | HEALTH:ADD:1
+          - DELAY=6 | HEALTH:ADD:1
+          - DELAY=9 | HEALTH:ADD:1
+          - DELAY=12 | HEALTH:ADD:1
+          - DELAY=15 | HEALTH:ADD:1
+          - DELAY=18 | HEALTH:ADD:1
+          - DELAY=21 | HEALTH:ADD:1
+          - DELAY=25 | HEALTH:ADD:1
+          - DELAY=28 | HEALTH:ADD:1
+          - DELAY=31 | HEALTH:ADD:1
+          - DELAY=34 | HEALTH:ADD:1
+          - DELAY=37 | HEALTH:ADD:1
+          - DELAY=40 | HEALTH:ADD:1
+          - DELAY=43 | HEALTH:ADD:1
+          - DELAY=46 | HEALTH:ADD:1
+          - DELAY=50 | HEALTH:ADD:1
+      arrow_defense:
+        type: ARROW_DEFENSE
         chance: 20
-        cooldown: 7500
+        cooldown: 8000
         conditions:
-        - ''
+          - EQUIP_SLOT:ARMOR
         effects:
-        - 'DELAY=6 | HEALTH:ADD:1'
-        - 'DELAY=12 | HEALTH:ADD:1'
-        - 'DELAY=18 | HEALTH:ADD:1'
-        - 'DELAY=25 | HEALTH:ADD:1'
-        - 'DELAY=31 | HEALTH:ADD:1'
-        - 'DELAY=37 | HEALTH:ADD:1'
-        - 'DELAY=43 | HEALTH:ADD:1'
-        - 'DELAY=50 | HEALTH:ADD:1'
-        - 'DELAY=56 | HEALTH:ADD:1'
-        - 'DELAY=62 | HEALTH:ADD:1'
-        - 'DELAY=68 | HEALTH:ADD:1'
-        - 'DELAY=75 | HEALTH:ADD:1'
-        - 'DELAY=81 | HEALTH:ADD:1'
-        - 'DELAY=87 | HEALTH:ADD:1'
-        - 'DELAY=93 | HEALTH:ADD:1'
-        - 'DELAY=100 | HEALTH:ADD:1'
-    4:
-      defense:
-        type: DEFENSE
-        chance: 20
-        cooldown: 6000
-        conditions:
-        - ''
-        effects:
-        - 'DELAY=3 | HEALTH:ADD:1'
-        - 'DELAY=6 | HEALTH:ADD:1'
-        - 'DELAY=9 | HEALTH:ADD:1'
-        - 'DELAY=12 | HEALTH:ADD:1'
-        - 'DELAY=15 | HEALTH:ADD:1'
-        - 'DELAY=18 | HEALTH:ADD:1'
-        - 'DELAY=21 | HEALTH:ADD:1'
-        - 'DELAY=25 | HEALTH:ADD:1'
-        - 'DELAY=28 | HEALTH:ADD:1'
-        - 'DELAY=31 | HEALTH:ADD:1'
-        - 'DELAY=34 | HEALTH:ADD:1'
-        - 'DELAY=37 | HEALTH:ADD:1'
-        - 'DELAY=40 | HEALTH:ADD:1'
-        - 'DELAY=43 | HEALTH:ADD:1'
-        - 'DELAY=46 | HEALTH:ADD:1'
-        - 'DELAY=50 | HEALTH:ADD:1'
+          - DELAY=3 | HEALTH:ADD:1
+          - DELAY=6 | HEALTH:ADD:1
+          - DELAY=9 | HEALTH:ADD:1
+          - DELAY=12 | HEALTH:ADD:1
+          - DELAY=15 | HEALTH:ADD:1
+          - DELAY=18 | HEALTH:ADD:1
+          - DELAY=21 | HEALTH:ADD:1
+          - DELAY=25 | HEALTH:ADD:1
+          - DELAY=28 | HEALTH:ADD:1
+          - DELAY=31 | HEALTH:ADD:1
+          - DELAY=34 | HEALTH:ADD:1
+          - DELAY=37 | HEALTH:ADD:1
+          - DELAY=40 | HEALTH:ADD:1
+          - DELAY=43 | HEALTH:ADD:1
+          - DELAY=46 | HEALTH:ADD:1
+          - DELAY=50 | HEALTH:ADD:1
 absorb:
-  group: 'event'
-  display: 'Absorb'
+  group: event
+  display: Absorb
   description:
-  - '&eCó tỉ lệ nhận tim vàng dựa trên lượng'
-  - '&esát thương gây ra bởi kẻ địch'
+    - "&eCó tỉ lệ nhận tim vàng dựa trên lượng"
+    - "&esát thương gây ra bởi kẻ địch"
+  detail-description:
+    - "&eCó tỉ lệ nhận tim vàng dựa trên lượng"
+    - "&esát thương gây ra bởi kẻ địch"
+    - ""
+    - "&eTỉ lệ chuyển hóa sát thương thành tim vàng:"
+    - "&e10% x Cấp"
+    - "&eTỉ lệ kích hoạt: 20%"
+    - "&eThời gian hồi: 4s"
   applies-description:
-  - 'Các loại giáp'
+    - Các loại giáp
   applies:
-  - 'ALL_ARMOR'
+    - ALL_ARMOR
   max-level: 5
   enchant-point: 1
   valuable: 0
   levels:
-    1:
+    "1":
       defense:
         type: DEFENSE
         chance: 20
         cooldown: 4000
         conditions:
-        - ''
+          - EQUIP_SLOT:ARMOR
         effects:
-        - 'ABSORPTION_HEART:ADD:%damage%*10/100:20'
-    2:
+          - ABSORPTION_HEART:ADD:%damage%*10/100:20
+    "2":
       defense:
         type: DEFENSE
         chance: 20
         cooldown: 4000
         conditions:
-        - ''
+          - EQUIP_SLOT:ARMOR
         effects:
-        - 'ABSORPTION_HEART:ADD:%damage%*20/100:20'
-    3:
+          - ABSORPTION_HEART:ADD:%damage%*20/100:20
+    "3":
       defense:
         type: DEFENSE
         chance: 20
         cooldown: 4000
         conditions:
-        - ''
+          - EQUIP_SLOT:ARMOR
         effects:
-        - 'ABSORPTION_HEART:ADD:%damage%*30/100:20'
-    4:
+          - ABSORPTION_HEART:ADD:%damage%*30/100:20
+    "4":
       defense:
         type: DEFENSE
         chance: 20
         cooldown: 4000
         conditions:
-        - ''
+          - EQUIP_SLOT:ARMOR
         effects:
-        - 'ABSORPTION_HEART:ADD:%damage%*40/100:20'
-    5:
+          - ABSORPTION_HEART:ADD:%damage%*40/100:20
+    "5":
       defense:
         type: DEFENSE
         chance: 20
         cooldown: 4000
         conditions:
-        - ''
+          - EQUIP_SLOT:ARMOR
         effects:
-        - 'ABSORPTION_HEART:ADD:%damage%*50/100:20'
+          - ABSORPTION_HEART:ADD:%damage%*50/100:20
 vitality:
-  group: 'legendary'
-  display: 'Vitality'
+  group: legendary
+  display: Vitality
   description:
-  - '&eNhận hiệu ứng hấp thụ khi trang bị'
+    - "&eNhận hiệu ứng hấp thụ khi trang bị"
+  detail-description:
+    - "&eNhận hiệu ứng hấp thụ khi trang bị"
+    - ""
+    - "&eHiệu ứng: Hấp thụ"
+    - "&eCấp độ hiệu ứng: 1/2/3"
+    - "&eThời gian hiệu ứng: Vĩnh viễn"
+    - "&eThời gian hồi: 30s"
   applies-description:
-  - 'Các loại giáp'
+    - Các loại giáp
   applies:
-  - 'ALL_ARMOR'
+    - ALL_ARMOR
   max-level: 3
   enchant-point: 1
   valuable: 0
   levels:
-    1:
+    "1":
       equip:
         type: ARMOR_EQUIP
         chance: 100
         cooldown: 30000
         conditions:
-        - ''
+          - ""
         effects:
-        - 'ADD_FOREVER_POTION:vitality:ABSORPTION:0'
+          - ADD_FOREVER_POTION:vitality:ABSORPTION:0
       unequip:
         type: ARMOR_UNDRESS
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - 'REMOVE_FOREVER_POTION:vitality'
-    2:
+          - REMOVE_FOREVER_POTION:vitality
+    "2":
       equip:
         type: ARMOR_EQUIP
         chance: 100
         cooldown: 30000
         conditions:
-        - ''
+          - ""
         effects:
-        - 'ADD_FOREVER_POTION:vitality:ABSORPTION:1'
+          - ADD_FOREVER_POTION:vitality:ABSORPTION:1
       unequip:
         type: ARMOR_UNDRESS
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - 'REMOVE_FOREVER_POTION:vitality'
-    3:
+          - REMOVE_FOREVER_POTION:vitality
+    "3":
       equip:
         type: ARMOR_EQUIP
         chance: 100
         cooldown: 30000
         conditions:
-        - ''
+          - ""
         effects:
-        - 'ADD_FOREVER_POTION:vitality:ABSORPTION:2'
+          - ADD_FOREVER_POTION:vitality:ABSORPTION:2
       unequip:
         type: ARMOR_UNDRESS
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - 'REMOVE_FOREVER_POTION:vitality'
+          - REMOVE_FOREVER_POTION:vitality
 guzzle:
-  group: 'epic'
-  display: 'Guzzle'
+  group: epic
+  display: Guzzle
   description:
-  - '&eCó tỉ lệ chuyển hóa nhanh thức ăn thành máu'
-  - '&ekhi bị tấn công lúc thấp máu'
+    - "&eCó tỉ lệ chuyển hóa nhanh thức ăn thành máu"
+    - "&ekhi bị tấn công lúc thấp máu"
+  detail-description:
+    - "&eCó tỉ lệ chuyển hóa nhanh thức ăn thành máu"
+    - "&ekhi bị tấn công lúc thấp máu"
+    - ""
+    - "&eLượng máu kích hoạt: dưới 50%"
+    - "&eLượng thức ăn tiêu hao: 1"
+    - "&eLượng máu hồi: 1 x Cấp"
+    - "&eTỉ lệ kích hoạt: 25%"
+    - "&eThời gian hồi: 2s"
   applies-description:
-  - 'Các loại giáp'
+    - Các loại giáp
   applies:
-  - 'ALL_ARMOR'
+    - ALL_ARMOR
   max-level: 5
   enchant-point: 1
   valuable: 0
   levels:
-    1:
-      defense:
-        type: DEFENSE
-        chance: 5
-        cooldown: 2000
-        conditions:
-        - 'FOOD:>:0'
-        - 'HEALTH_PERCENT:<:50'
-        effects:
-        - 'FOOD:REMOVE:1'
-        - 'HEALTH:ADD:1'
-    2:
-      defense:
-        type: DEFENSE
-        chance: 10
-        cooldown: 2000
-        conditions:
-        - 'FOOD:>:0'
-        - 'HEALTH_PERCENT:<:50'
-        effects:
-        - 'FOOD:REMOVE:1'
-        - 'HEALTH:ADD:2'
-    3:
-      defense:
-        type: DEFENSE
-        chance: 15
-        cooldown: 2000
-        conditions:
-        - 'FOOD:>:0'
-        - 'HEALTH_PERCENT:<:50'
-        effects:
-        - 'FOOD:REMOVE:1'
-        - 'HEALTH:ADD:3'
-    4:
-      defense:
-        type: DEFENSE
-        chance: 20
-        cooldown: 2000
-        conditions:
-        - 'FOOD:>:0'
-        - 'HEALTH_PERCENT:<:50'
-        effects:
-        - 'FOOD:REMOVE:1'
-        - 'HEALTH:ADD:4'
-    5:
+    "1":
       defense:
         type: DEFENSE
         chance: 25
         cooldown: 2000
         conditions:
-        - 'FOOD:>:0'
-        - 'HEALTH_PERCENT:<:50'
+          - EQUIP_SLOT:ARMOR
+          - FOOD:>:0
+          - HEALTH_PERCENT:<:50
         effects:
-        - 'FOOD:REMOVE:1'
-        - 'HEALTH:ADD:5'
+          - FOOD:REMOVE:1
+          - HEALTH:ADD:1
+    "2":
+      defense:
+        type: DEFENSE
+        chance: 25
+        cooldown: 2000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+          - FOOD:>:0
+          - HEALTH_PERCENT:<:50
+        effects:
+          - FOOD:REMOVE:1
+          - HEALTH:ADD:2
+    "3":
+      defense:
+        type: DEFENSE
+        chance: 25
+        cooldown: 2000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+          - FOOD:>:0
+          - HEALTH_PERCENT:<:50
+        effects:
+          - FOOD:REMOVE:1
+          - HEALTH:ADD:3
+    "4":
+      defense:
+        type: DEFENSE
+        chance: 25
+        cooldown: 2000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+          - FOOD:>:0
+          - HEALTH_PERCENT:<:50
+        effects:
+          - FOOD:REMOVE:1
+          - HEALTH:ADD:4
+    "5":
+      defense:
+        type: DEFENSE
+        chance: 25
+        cooldown: 2000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+          - FOOD:>:0
+          - HEALTH_PERCENT:<:50
+        effects:
+          - FOOD:REMOVE:1
+          - HEALTH:ADD:5
 sunfire:
-  group: 'legendary'
-  display: 'Sunfire'
+  group: legendary
+  display: Sunfire
   description:
-  - '&eGây cháy theo phần trăm máu hiện tại'
-  - '&ecủa mỗi kẻ địch cạnh bên khi trang bị'
+    - "&eGây cháy theo phần trăm máu hiện tại"
+    - "&ecủa mỗi kẻ địch cạnh bên khi trang bị"
+  detail-description:
+    - "&eGây cháy theo phần trăm máu hiện tại"
+    - "&ecủa mỗi kẻ địch cạnh bên khi trang bị"
+    - ""
+    - "&eSát thương mỗi giây:"
+    - "&eCấp I: 0.25 + 1% máu hiện tại kẻ địch"
+    - "&eCấp II: 0.5 + 1% máu hiện tại kẻ địch"
+    - "&eCấp III: 1 + 1% máu hiện tại kẻ địch"
+    - "&eKhoảng cách yêu cầu: dưới 2.5m"
   applies-description:
-  - 'Các loại giáp'
+    - Các loại giáp
   applies:
-  - 'ALL_ARMOR'
+    - ALL_ARMOR
   max-level: 3
   enchant-point: 1
   valuable: 0
   levels:
-    1:
+    "1":
       equip:
         type: ARMOR_EQUIP
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - 'NUMBER_STORAGE:SET:sunfire_enable:1'
+          - NUMBER_STORAGE:SET:sunfire_enable:1
       auto:
         type: AUTO
         chance: 100
         cooldown: 1000
         conditions:
-        - 'NUMBER_STORAGE:sunfire_enable:=:1'
+          - EQUIP_SLOT:ARMOR
+          - NUMBER_STORAGE:sunfire_enable:=:1
         target-filter:
           except-player: true
           except-enemy: false
           min-distance: 0
           max-distance: 2.5
         target-conditions:
-        - 'CAN_ATTACK'
+          - CAN_ATTACK
         target-effects:
-        - 'TARGET=ENEMY | ON_FIRE:40'
-        - 'TARGET=ENEMY | DEAL_DAMAGE:0.25+%player_value%*1/100:true:true:true:true:true'
+          - TARGET=ENEMY | ON_FIRE:40
+          - TARGET=ENEMY | DEAL_DAMAGE:0.25+%player_value%*5/100:false:true:true:true:true
       unequip:
         type: ARMOR_UNDRESS
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - 'NUMBER_STORAGE:SET:sunfire_enable:0'
-    2:
+          - NUMBER_STORAGE:SET:sunfire_enable:0
+    "2":
       equip:
         type: ARMOR_EQUIP
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - 'NUMBER_STORAGE:SET:sunfire_enable:1'
+          - NUMBER_STORAGE:SET:sunfire_enable:1
       auto:
         type: AUTO
         chance: 100
         cooldown: 1000
         conditions:
-        - 'NUMBER_STORAGE:sunfire_enable:=:1'
+          - EQUIP_SLOT:ARMOR
+          - NUMBER_STORAGE:sunfire_enable:=:1
         target-filter:
           except-player: true
           except-enemy: false
           min-distance: 0
           max-distance: 2.5
         target-conditions:
-        - 'CAN_ATTACK'
+          - CAN_ATTACK
         target-effects:
-        - 'TARGET=ENEMY | ON_FIRE:40'
-        - 'TARGET=ENEMY | DEAL_DAMAGE:0.5+%player_value%*1/100:true:true:true:true:true'
+          - TARGET=ENEMY | ON_FIRE:40
+          - TARGET=ENEMY | DEAL_DAMAGE:0.5+%player_value%*7.5/100:false:true:true:true:true
       unequip:
         type: ARMOR_UNDRESS
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - 'NUMBER_STORAGE:SET:sunfire_enable:0'
-    3:
+          - NUMBER_STORAGE:SET:sunfire_enable:0
+    "3":
       equip:
         type: ARMOR_EQUIP
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - 'NUMBER_STORAGE:SET:sunfire_enable:1'
+          - NUMBER_STORAGE:SET:sunfire_enable:1
       auto:
         type: AUTO
         chance: 100
         cooldown: 1000
         conditions:
-        - 'NUMBER_STORAGE:sunfire_enable:=:1'
+          - EQUIP_SLOT:ARMOR
+          - NUMBER_STORAGE:sunfire_enable:=:1
         target-filter:
           except-player: true
           except-enemy: false
           min-distance: 0
           max-distance: 2.5
         target-conditions:
-        - 'CAN_ATTACK'
+          - CAN_ATTACK
         target-effects:
-        - 'TARGET=ENEMY | ON_FIRE:40'
-        - 'TARGET=ENEMY | DEAL_DAMAGE:1+%player_value%*1/100:true:true:true:true:true'
+          - TARGET=ENEMY | ON_FIRE:40
+          - TARGET=ENEMY | DEAL_DAMAGE:1+%player_value%*10/100:false:true:true:true:true
       unequip:
         type: ARMOR_UNDRESS
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - 'NUMBER_STORAGE:SET:sunfire_enable:0'
+          - NUMBER_STORAGE:SET:sunfire_enable:0
+    "4":
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - NUMBER_STORAGE:SET:sunfire_enable:1
+      auto:
+        type: AUTO
+        chance: 100
+        cooldown: 1000
+        conditions:
+          - EQUIP_SLOT:ARMOR
+          - NUMBER_STORAGE:sunfire_enable:=:1
+        target-filter:
+          except-player: true
+          except-enemy: false
+          min-distance: 0
+          max-distance: 10.0
+        target-conditions:
+          - CAN_ATTACK
+        target-effects:
+          - TARGET=ENEMY | ON_FIRE:40
+          - TARGET=ENEMY | DEAL_DAMAGE:30+%player_value%*75/100:false:true:true:true:true
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - NUMBER_STORAGE:SET:sunfire_enable:0
+testarmor:
+  group: supreme
+  display: Ninja
+  description:
+    - "&eNhận thêm tốc độ di chuyển và sức tấn công"
+    - "&ekhi trang bị"
+  detail-description:
+    - "&eNhận thêm tốc độ di chuyển và sức tấn công"
+    - "&ekhi trang bị"
+    - ""
+    - "&eTốc độ di chuyển: +10% x Cấp"
+    - "&eSức tấn công: +2 ATK x Cấp"
+  applies-description:
+    - Các loại giáp
+  applies:
+    - ALL_ARMOR
+  max-level: 3
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - ADD_ATTRIBUTE:ARMOR:ninja_movement_speed:25:0
+          - ADD_ATTRIBUTE:ARMOR_TOUGHNESS:ninja_attack_damage:12:0
+          - ADD_ATTRIBUTE:MAX_HEALTH:max_health:200:0
+          - ADD_CUSTOM_ATTRIBUTE:regen:HEALTH_REGENERATION:10:0
+      unequip:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - REMOVE_ATTRIBUTE:ARMOR:ninja_movement_speed
+          - REMOVE_ATTRIBUTE:ARMOR_TOUGHNESS:ninja_attack_damage
+          - REMOVE_ATTRIBUTE:MAX_HEALTH:max_health
+          - REMOVE_CUSTOM_ATTRIBUTE:regen

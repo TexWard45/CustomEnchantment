@@ -22,7 +22,7 @@ public class GuardListener implements Listener {
 
 	public GuardListener(CustomEnchantment plugin) {
 		this.plugin = plugin;
-		this.guardManager = plugin.getGuardManager();
+		this.guardManager = plugin.getGuardModule().getGuardManager();
 
 		Bukkit.getPluginManager().registerEvents(this, plugin);
 	}

@@ -3,44 +3,50 @@ package com.bafmc.customenchantment.api;
 import com.bafmc.bukkit.utils.EquipSlot;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.enchant.CEEnchant;
+import com.bafmc.customenchantment.enchant.CEEnchantSimple;
 import com.bafmc.customenchantment.enchant.CEGroup;
-import com.bafmc.customenchantment.enchant.CESimple;
 import com.bafmc.customenchantment.guard.PlayerGuard;
-import com.bafmc.customenchantment.item.*;
+import com.bafmc.customenchantment.item.CEItem;
+import com.bafmc.customenchantment.item.CEItemRegister;
+import com.bafmc.customenchantment.item.CEItemType;
+import com.bafmc.customenchantment.item.CEWeaponAbstract;
+import com.bafmc.customenchantment.item.book.CEBookStorage;
+import com.bafmc.customenchantment.item.gem.CEGemStorage;
 import com.bafmc.customenchantment.player.CEPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.Arrays;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class CEAPI {
 	public static CEPlayer getCEPlayer(Player player) {
-		return CustomEnchantment.instance().getCEPlayerMap().getCEPlayer(player);
+		return CEPlayer.getCePlayerMap().getCEPlayer(player);
+	}
+
+	public static List<CEPlayer> getCEPlayers() {
+		return CEPlayer.getCePlayerMap().getCEPlayers();
 	}
 
 	public static PlayerGuard getPlayerGuard(Player player) {
-		return CustomEnchantment.instance().getGuardManager().getPlayerGuard(player);
+		return CustomEnchantment.instance().getGuardModule().getGuardManager().getPlayerGuard(player);
 	}
 
 	public static CEEnchant getCEEnchant(String name) {
-		return CustomEnchantment.instance().getCEEnchantMap().get(name);
+		return CustomEnchantment.instance().getCeEnchantMap().get(name);
 	}
 
 	public static CEGroup getCEGroup(String name) {
-		return CustomEnchantment.instance().getCEGroupMap().get(name);
+		return CustomEnchantment.instance().getCeGroupMap().get(name);
 	}
 
-	public static ItemStack getCEBookItemStack(CESimple ceSimple) {
-		return ((CEBookStorage) CustomEnchantment.instance().getCEItemStorageMap().get(CEItemType.BOOK))
-				.getCEBook(ceSimple).exportTo();
+	public static ItemStack getCEBookItemStack(CEEnchantSimple ceEnchantSimple) {
+		return ((CEBookStorage) CustomEnchantment.instance().getCeItemStorageMap().get(CEItemType.BOOK))
+				.getCEBook(ceEnchantSimple).exportTo();
 	}
 
-	public static ItemStack getCEBookItemStack(String type, CESimple ceSimple) {
-		return ((CEBookStorage) CustomEnchantment.instance().getCEItemStorageMap().get(CEItemType.BOOK))
-				.getCEBook(type, ceSimple).exportTo();
+	public static ItemStack getCEBookItemStack(String type, CEEnchantSimple ceEnchantSimple) {
+		return ((CEBookStorage) CustomEnchantment.instance().getCeItemStorageMap().get(CEItemType.BOOK))
+				.getCEBook(type, ceEnchantSimple).exportTo();
 	}
 
 	public static boolean isCEItem(ItemStack itemStack) {
@@ -56,7 +62,7 @@ public class CEAPI {
 	}
 
 	public static CEItem getCEItemByStorage(String type, String pattern) {
-		return CustomEnchantment.instance().getCEItemStorageMap().get(type).get(pattern);
+		return CustomEnchantment.instance().getCeItemStorageMap().get(type).get(pattern);
 	}
 
 	public static CEItem getCEItem(ItemStack itemStack) {
@@ -64,13 +70,23 @@ public class CEAPI {
 	}
 
 	public static ItemStack getVanillaItemStack(String key) {
-		return ((VanillaItemStorage) CustomEnchantment.instance().getCEItemStorageMap().get(CEItemType.STORAGE))
+		return CustomEnchantment.instance().getCeItemStorageMap().get(CEItemType.STORAGE)
 				.getItemStackByParameter(new Parameter(Arrays.asList(key)));
 	}
 
 	public static List<ItemStack> getVanillaItemStacks(String key) {
-		return ((VanillaItemStorage) CustomEnchantment.instance().getCEItemStorageMap().get(CEItemType.STORAGE))
+		return CustomEnchantment.instance().getCeItemStorageMap().get(CEItemType.STORAGE)
 				.getItemStacksByParameter(new Parameter(Arrays.asList(key)));
+	}
+
+	public static ItemStack getGemItemStack(String key, int level) {
+		List<String> list = new ArrayList<>();
+		list.add(key);
+		list.add(String.valueOf(level));
+
+		Parameter parameter = new Parameter(list);
+
+		return ((CEGemStorage) CustomEnchantment.instance().getCeItemStorageMap().get(CEItemType.GEM)).getByParameter(parameter).exportTo();
 	}
 
 	public static Map<EquipSlot, CEWeaponAbstract> getCEWeaponMap(Player player) {

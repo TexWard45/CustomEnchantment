@@ -5,7 +5,7 @@ import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.CustomEnchantmentMessage;
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.item.CEItemType;
-import com.bafmc.customenchantment.item.CENameTag;
+import com.bafmc.customenchantment.item.nametag.CENameTag;
 import com.bafmc.customenchantment.player.CEPlayer;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
@@ -19,7 +19,7 @@ public class CommandNameTag implements AbstractCommand {
 
 	private AdvancedTabCompleter typeTab = new AdvancedTabCompleter() {
 		public List<String> onTabComplete(CommandSender arg0, Argument arg1) {
-			return CustomEnchantment.instance().getCEItemStorageMap().get(CEItemType.NAME_TAG).getKeys();
+			return CustomEnchantment.instance().getCeItemStorageMap().get(CEItemType.NAME_TAG).getKeys();
 		}
 	}; 
 	
@@ -59,7 +59,7 @@ public class CommandNameTag implements AbstractCommand {
 				return true;
 			}
 			
-			CENameTag nameTag = (CENameTag) CustomEnchantment.instance().getCEItemStorageMap().get(CEItemType.NAME_TAG).get(arg.get("<type>"));
+			CENameTag nameTag = (CENameTag) CustomEnchantment.instance().getCeItemStorageMap().get(CEItemType.NAME_TAG).get(arg.get("<type>"));
 			display = nameTag.getNewDisplay(display);
 			
 			String stripDisplay = ChatColor.stripColor(display);
@@ -80,7 +80,7 @@ public class CommandNameTag implements AbstractCommand {
 			if (player == null) {
 				return true;
 			}
-			CENameTag nameTag = (CENameTag) CustomEnchantment.instance().getCEItemStorageMap().get(CEItemType.NAME_TAG).get(arg.get("<type>"));
+			CENameTag nameTag = (CENameTag) CustomEnchantment.instance().getCeItemStorageMap().get(CEItemType.NAME_TAG).get(arg.get("<type>"));
 			String display = nameTag.getNewDisplay(arg.getToEnd("<display>"));
 			
 			String stripDisplay = ChatColor.stripColor(display);
@@ -106,7 +106,7 @@ public class CommandNameTag implements AbstractCommand {
 			if (player == null) {
 				return true;
 			}
-			CENameTag nameTag = (CENameTag) CustomEnchantment.instance().getCEItemStorageMap().get(CEItemType.NAME_TAG).get(arg.get("<type>"));
+			CENameTag nameTag = (CENameTag) CustomEnchantment.instance().getCeItemStorageMap().get(CEItemType.NAME_TAG).get(arg.get("<type>"));
 			String display = nameTag.getNewDisplay(arg.getToEnd("<display>"));
 			
 			String stripDisplay = ChatColor.stripColor(display);

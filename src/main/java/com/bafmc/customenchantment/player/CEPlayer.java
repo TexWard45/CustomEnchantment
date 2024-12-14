@@ -1,6 +1,7 @@
 package com.bafmc.customenchantment.player;
 
 import com.bafmc.bukkit.utils.EquipSlot;
+import com.bafmc.customenchantment.CEPlayerMap;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.item.CEWeapon;
 import com.bafmc.customenchantment.item.CEWeaponAbstract;
@@ -13,6 +14,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class CEPlayer implements ICEPlayerEvent {
+	private static CEPlayerMap cePlayerMap;
 	private ConcurrentHashMap<Class<? extends CEPlayerExpansion>, CEPlayerExpansion> map = new ConcurrentHashMap<Class<? extends CEPlayerExpansion>, CEPlayerExpansion>();
 	private ConcurrentHashMap<EquipSlot, CEWeaponAbstract> slotMap = new ConcurrentHashMap<>();
 	private ConcurrentHashMap<EquipSlot, Boolean> disableSlotMap = new ConcurrentHashMap<>();
@@ -35,6 +37,14 @@ public class CEPlayer implements ICEPlayerEvent {
 	@Setter
     @Getter
     private boolean fullChance;
+
+	public static CEPlayerMap getCePlayerMap() {
+		if (cePlayerMap == null) {
+			cePlayerMap = new CEPlayerMap();
+		}
+
+		return cePlayerMap;
+	}
 
 	public CEPlayer(Player player) {
 		this.player = player;
@@ -70,7 +80,7 @@ public class CEPlayer implements ICEPlayerEvent {
 	 * 
 	 */
 	public void register() {
-		CustomEnchantment.instance().getCEPlayerMap().registerCEPlayer(this);
+		getCePlayerMap().registerCEPlayer(this);
 		this.register = true;
 	}
 
@@ -79,7 +89,7 @@ public class CEPlayer implements ICEPlayerEvent {
 	 * 
 	 */
 	public void unregister() {
-		CustomEnchantment.instance().getCEPlayerMap().unregisterCEPlayer(this);
+		getCePlayerMap().unregisterCEPlayer(this);
 		this.register = false;
 	}
 
@@ -92,7 +102,7 @@ public class CEPlayer implements ICEPlayerEvent {
 		return player.isOnline();
 	}
 
-    public void addExpantion(CEPlayerExpansion expansion) {
+    public void addExpansion(CEPlayerExpansion expansion) {
 		map.put(expansion.getClass(), expansion);
 	}
 
@@ -140,6 +150,10 @@ public class CEPlayer implements ICEPlayerEvent {
 		return (PlayerTemporaryStorage) getExpansion(PlayerTemporaryStorage.class);
 	}
 
+	public PlayerArtifact getArtifact() {
+		return (PlayerArtifact) getExpansion(PlayerArtifact.class);
+	}
+
 	public PlayerMobBonus getMobBonus() {
 		return (PlayerMobBonus) getExpansion(PlayerMobBonus.class);
 	}
@@ -154,6 +168,10 @@ public class CEPlayer implements ICEPlayerEvent {
 	
 	public PlayerNameTag getNameTag() {
 		return (PlayerNameTag) getExpansion(PlayerNameTag.class);
+	}
+
+	public PlayerGem getGem() {
+		return (PlayerGem) getExpansion(PlayerGem.class);
 	}
 
     public void updateSlot() {

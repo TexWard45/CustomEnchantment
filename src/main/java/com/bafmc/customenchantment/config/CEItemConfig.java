@@ -1,18 +1,77 @@
 package com.bafmc.customenchantment.config;
 
+import com.bafmc.bukkit.bafframework.nms.NMSAttribute;
 import com.bafmc.bukkit.bafframework.nms.NMSAttributeType;
 import com.bafmc.bukkit.config.AdvancedConfigurationSection;
+import com.bafmc.bukkit.config.AdvancedFileConfiguration;
 import com.bafmc.bukkit.utils.EnumUtils;
 import com.bafmc.bukkit.utils.SparseMap;
 import com.bafmc.bukkit.utils.StringUtils;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.api.MaterialList;
-import com.bafmc.customenchantment.enchant.CESimple;
+import com.bafmc.customenchantment.enchant.CEEnchantSimple;
 import com.bafmc.customenchantment.item.*;
+import com.bafmc.customenchantment.item.artifact.CEArtifact;
+import com.bafmc.customenchantment.item.artifact.CEArtifactData;
+import com.bafmc.customenchantment.item.artifact.CEArtifactStorage;
+import com.bafmc.customenchantment.item.banner.CEBanner;
+import com.bafmc.customenchantment.item.banner.CEBannerData;
+import com.bafmc.customenchantment.item.banner.CEBannerStorage;
+import com.bafmc.customenchantment.item.book.CEBook;
+import com.bafmc.customenchantment.item.book.CEBookStorage;
+import com.bafmc.customenchantment.item.enchantpoint.CEEnchantPoint;
+import com.bafmc.customenchantment.item.enchantpoint.CEEnchantPointData;
+import com.bafmc.customenchantment.item.enchantpoint.CEEnchantPointStorage;
+import com.bafmc.customenchantment.item.eraseenchant.CEEraseEnchant;
+import com.bafmc.customenchantment.item.eraseenchant.CEEraseEnchantData;
+import com.bafmc.customenchantment.item.eraseenchant.CEEraseEnchantStorage;
+import com.bafmc.customenchantment.item.gem.CEGem;
+import com.bafmc.customenchantment.item.gem.CEGemData;
+import com.bafmc.customenchantment.item.gem.CEGemSettings;
+import com.bafmc.customenchantment.item.gem.CEGemStorage;
+import com.bafmc.customenchantment.item.gemdrill.CEGemDrill;
+import com.bafmc.customenchantment.item.gemdrill.CEGemDrillData;
+import com.bafmc.customenchantment.item.gemdrill.CEGemDrillStorage;
+import com.bafmc.customenchantment.item.increaseratebook.CEIncreaseRateBook;
+import com.bafmc.customenchantment.item.increaseratebook.CEIncreaseRateBookData;
+import com.bafmc.customenchantment.item.increaseratebook.CEIncreaseRateBookStorage;
+import com.bafmc.customenchantment.item.loreformat.CELoreFormat;
+import com.bafmc.customenchantment.item.loreformat.CELoreFormatData;
+import com.bafmc.customenchantment.item.loreformat.CELoreFormatStorage;
+import com.bafmc.customenchantment.item.mask.CEMask;
+import com.bafmc.customenchantment.item.mask.CEMaskData;
+import com.bafmc.customenchantment.item.mask.CEMaskStorage;
+import com.bafmc.customenchantment.item.nametag.CENameTag;
+import com.bafmc.customenchantment.item.nametag.CENameTagData;
+import com.bafmc.customenchantment.item.nametag.CENameTagStorage;
+import com.bafmc.customenchantment.item.protectdead.CEProtectDead;
+import com.bafmc.customenchantment.item.protectdead.CEProtectDeadData;
+import com.bafmc.customenchantment.item.protectdead.CEProtectDeadStorage;
+import com.bafmc.customenchantment.item.protectdestroy.CEProtectDestroy;
+import com.bafmc.customenchantment.item.protectdestroy.CEProtectDestroyData;
+import com.bafmc.customenchantment.item.protectdestroy.CEProtectDestroyStorage;
+import com.bafmc.customenchantment.item.randombook.CERandomBook;
+import com.bafmc.customenchantment.item.randombook.CERandomBookData;
+import com.bafmc.customenchantment.item.randombook.CERandomBookFilter;
+import com.bafmc.customenchantment.item.randombook.CERandomBookStorage;
+import com.bafmc.customenchantment.item.removeenchant.CERemoveEnchant;
+import com.bafmc.customenchantment.item.removeenchant.CERemoveEnchantData;
+import com.bafmc.customenchantment.item.removeenchant.CERemoveEnchantStorage;
+import com.bafmc.customenchantment.item.removeenchantpoint.CERemoveEnchantPoint;
+import com.bafmc.customenchantment.item.removeenchantpoint.CERemoveEnchantPointData;
+import com.bafmc.customenchantment.item.removeenchantpoint.CERemoveEnchantPointStorage;
+import com.bafmc.customenchantment.item.removegem.CERemoveGem;
+import com.bafmc.customenchantment.item.removegem.CERemoveGemData;
+import com.bafmc.customenchantment.item.removegem.CERemoveGemStorage;
+import com.bafmc.customenchantment.item.removeprotectdead.CERemoveProtectDead;
+import com.bafmc.customenchantment.item.removeprotectdead.CERemoveProtectDeadData;
+import com.bafmc.customenchantment.item.removeprotectdead.CERemoveProtectDeadStorage;
+import com.bafmc.customenchantment.utils.AttributeUtils;
 import org.apache.commons.lang3.Validate;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 
+import java.io.File;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -38,6 +97,8 @@ public class CEItemConfig extends AbstractConfig {
 		loadCEBannerStorage();
         loadCELoreFormatStorage();
 		loadCEGemStorage();
+		loadCEGemDrillStorage();
+		loadCERemoveGemStorage();
 	}
 
 	public void loadWeaponSettingsMap() {
@@ -201,12 +262,12 @@ public class CEItemConfig extends AbstractConfig {
 			}
 		}
 
-		CustomEnchantment.instance().getCEItemStorageMap().put(CEItemType.BOOK, storage);
+		CustomEnchantment.instance().getCeItemStorageMap().put(CEItemType.BOOK, storage);
 	}
 
 	public void loadCEProtectDeadStorage() {
 		CEProtectDeadStorage storage = new CEProtectDeadStorage();
-		CustomEnchantment.instance().getCEItemStorageMap().put(CEItemType.PROTECT_DEAD, storage);
+		CustomEnchantment.instance().getCeItemStorageMap().put(CEItemType.PROTECT_DEAD, storage);
 
 		for (String pattern : config.getKeySection("protect-dead", false)) {
 			String path = "protect-dead." + pattern;
@@ -225,7 +286,7 @@ public class CEItemConfig extends AbstractConfig {
 	
 	public void loadCERemoveProtectDeadStorage() {
 		CERemoveProtectDeadStorage storage = new CERemoveProtectDeadStorage();
-		CustomEnchantment.instance().getCEItemStorageMap().put(CEItemType.REMOVE_PROTECT_DEAD, storage);
+		CustomEnchantment.instance().getCeItemStorageMap().put(CEItemType.REMOVE_PROTECT_DEAD, storage);
 
 		for (String pattern : config.getKeySection("remove-protect-dead", false)) {
 			String path = "remove-protect-dead." + pattern;
@@ -243,7 +304,7 @@ public class CEItemConfig extends AbstractConfig {
 
     public void loadCELoreFormatStorage() {
         CELoreFormatStorage storage = new CELoreFormatStorage();
-        CustomEnchantment.instance().getCEItemStorageMap().put(CEItemType.LORE_FORMAT, storage);
+        CustomEnchantment.instance().getCeItemStorageMap().put(CEItemType.LORE_FORMAT, storage);
 
         for (String pattern : config.getKeySection("lore-format", false)) {
             String path = "lore-format." + pattern;
@@ -261,7 +322,7 @@ public class CEItemConfig extends AbstractConfig {
 
     public void loadCERemoveEnchantPointStorage() {
         CERemoveEnchantPointStorage storage = new CERemoveEnchantPointStorage();
-        CustomEnchantment.instance().getCEItemStorageMap().put(CEItemType.REMOVE_ENCHANT_POINT, storage);
+        CustomEnchantment.instance().getCeItemStorageMap().put(CEItemType.REMOVE_ENCHANT_POINT, storage);
 
         for (String pattern : config.getKeySection("remove-enchant-point", false)) {
             String path = "remove-enchant-point." + pattern;
@@ -270,31 +331,34 @@ public class CEItemConfig extends AbstractConfig {
 
             CERemoveEnchantPoint ceItem = new CERemoveEnchantPoint(itemStack);
             CERemoveEnchantPointData data = new CERemoveEnchantPointData();
-
-            List<CERemoveEnchantPointData.Data> dataList = new ArrayList<>();
             data.setPattern(pattern);
-
-            for (String key : config.getKeySection(path + ".list", false)) {
-                String keyPath = path + ".list." + key;
-
-                CERemoveEnchantPointData.Data listData = new CERemoveEnchantPointData.Data();
-                listData.setEnchantPointType(config.getString(keyPath + ".enchant-point-type"));
-                listData.setAppliesMaterialList(MaterialList.getMaterialList(config.getStringList(keyPath + ".applies")));
-                listData.setExtraPointRequired(config.getInt(keyPath + ".extra-point-required"));
-
-                dataList.add(listData);
-            }
-
-            data.setDataList(dataList);
 
             ceItem.setData(data);
             storage.put(pattern, ceItem);
         }
     }
 
+	public void loadCERemoveGemStorage() {
+		CERemoveGemStorage storage = new CERemoveGemStorage();
+		CustomEnchantment.instance().getCeItemStorageMap().put(CEItemType.REMOVE_GEM, storage);
+
+		for (String pattern : config.getKeySection("remove-gem", false)) {
+			String path = "remove-gem." + pattern;
+
+			ItemStack itemStack = config.getItemStack(path + ".item");
+
+			CERemoveGem ceItem = new CERemoveGem(itemStack);
+			CERemoveGemData data = new CERemoveGemData();
+			data.setPattern(pattern);
+
+			ceItem.setData(data);
+			storage.put(pattern, ceItem);
+		}
+	}
+
 	public void loadCEProtectDestroyStorage() {
 		CEProtectDestroyStorage storage = new CEProtectDestroyStorage();
-		CustomEnchantment.instance().getCEItemStorageMap().put(CEItemType.PROTECT_DESTROY, storage);
+		CustomEnchantment.instance().getCeItemStorageMap().put(CEItemType.PROTECT_DESTROY, storage);
 
 		for (String pattern : config.getKeySection("protect-destroy", false)) {
 			String path = "protect-destroy." + pattern;
@@ -313,7 +377,7 @@ public class CEItemConfig extends AbstractConfig {
 
 	public void loadCENameTagStorage() {
 		CENameTagStorage storage = new CENameTagStorage();
-		CustomEnchantment.instance().getCEItemStorageMap().put(CEItemType.NAME_TAG, storage);
+		CustomEnchantment.instance().getCeItemStorageMap().put(CEItemType.NAME_TAG, storage);
 
 		for (String pattern : config.getKeySection("name-tag", false)) {
 			String path = "name-tag." + pattern;
@@ -336,7 +400,7 @@ public class CEItemConfig extends AbstractConfig {
 
 	public void loadCEEnchantPointStorage() {
 		CEEnchantPointStorage storage = new CEEnchantPointStorage();
-		CustomEnchantment.instance().getCEItemStorageMap().put(CEItemType.ENCHANT_POINT, storage);
+		CustomEnchantment.instance().getCeItemStorageMap().put(CEItemType.ENCHANT_POINT, storage);
 
 		for (String pattern : config.getKeySection("enchant-point", false)) {
 			String path = "enchant-point." + pattern;
@@ -356,7 +420,7 @@ public class CEItemConfig extends AbstractConfig {
 
 	public void loadCEIncreaseRateBookStorage() {
 		CEIncreaseRateBookStorage storage = new CEIncreaseRateBookStorage();
-		CustomEnchantment.instance().getCEItemStorageMap().put(CEItemType.INCREASE_RATE_BOOK, storage);
+		CustomEnchantment.instance().getCeItemStorageMap().put(CEItemType.INCREASE_RATE_BOOK, storage);
 
 		for (String pattern : config.getKeySection("increase-rate-book", false)) {
 			String path = "increase-rate-book." + pattern;
@@ -376,7 +440,7 @@ public class CEItemConfig extends AbstractConfig {
 
 	public void loadCERandomBookStorage() {
 		CERandomBookStorage storage = new CERandomBookStorage();
-		CustomEnchantment.instance().getCEItemStorageMap().put(CEItemType.RANDOM_BOOK, storage);
+		CustomEnchantment.instance().getCeItemStorageMap().put(CEItemType.RANDOM_BOOK, storage);
 
 		for (String pattern : config.getKeySection("random-book", false)) {
 			String path = "random-book." + pattern;
@@ -397,7 +461,7 @@ public class CEItemConfig extends AbstractConfig {
 
 	public void loadCERemoveEnchantStorage() {
 		CERemoveEnchantStorage storage = new CERemoveEnchantStorage();
-		CustomEnchantment.instance().getCEItemStorageMap().put(CEItemType.REMOVE_ENCHANT, storage);
+		CustomEnchantment.instance().getCeItemStorageMap().put(CEItemType.REMOVE_ENCHANT, storage);
 
 		for (String pattern : config.getKeySection("remove-enchant", false)) {
 			String path = "remove-enchant." + pattern;
@@ -412,10 +476,10 @@ public class CEItemConfig extends AbstractConfig {
 			storage.put(pattern, ceItem);
 		}
 	}
-	
+
 	public void loadCEEraseEnchantStorage() {
 		CEEraseEnchantStorage storage = new CEEraseEnchantStorage();
-		CustomEnchantment.instance().getCEItemStorageMap().put(CEItemType.EARSE_ENCHANT, storage);
+		CustomEnchantment.instance().getCeItemStorageMap().put(CEItemType.EARSE_ENCHANT, storage);
 
 		for (String pattern : config.getKeySection("erase-enchant", false)) {
 			String path = "erase-enchant." + pattern;
@@ -433,7 +497,7 @@ public class CEItemConfig extends AbstractConfig {
 
 	public void loadCEMaskStorage() {
 		CEMaskStorage storage = new CEMaskStorage();
-		CustomEnchantment.instance().getCEItemStorageMap().put(CEItemType.MASK, storage);
+		CustomEnchantment.instance().getCeItemStorageMap().put(CEItemType.MASK, storage);
 
 		for (String pattern : config.getKeySection("mask", false)) {
 			String path = "mask." + pattern;
@@ -452,7 +516,7 @@ public class CEItemConfig extends AbstractConfig {
 					enchantName = enchantFormat;
 				}
 
-				ceItem.getWeaponEnchant().addCESimple(new CESimple(enchantName, level));
+				ceItem.getWeaponEnchant().addCESimple(new CEEnchantSimple(enchantName, level));
 			}
 
 			String normalDisplay = config.getStringColor(path + ".display.normal");
@@ -467,10 +531,10 @@ public class CEItemConfig extends AbstractConfig {
 			storage.put(pattern, ceItem);
 		}
 	}
-	
+
 	public void loadCEWeaponStorage() {
 		CEWeaponStorage storage = new CEWeaponStorage();
-		CustomEnchantment.instance().getCEItemStorageMap().put(CEItemType.WEAPON, storage);
+		CustomEnchantment.instance().getCeItemStorageMap().put(CEItemType.WEAPON, storage);
 
 		for (String pattern : config.getKeySection("weapon", false)) {
 			String path = "weapon." + pattern;
@@ -489,9 +553,9 @@ public class CEItemConfig extends AbstractConfig {
 					enchantName = enchantFormat;
 				}
 
-				ceItem.getWeaponEnchant().addCESimple(new CESimple(enchantName, level));
+				ceItem.getWeaponEnchant().addCESimple(new CEEnchantSimple(enchantName, level));
 			}
-			
+
 			for (String attributeFormat : config.getStringList(path + ".attributes")) {
 				ceItem.getWeaponAttribute().addAttribute(attributeFormat);
 			}
@@ -506,10 +570,25 @@ public class CEItemConfig extends AbstractConfig {
 
 	public void loadCEArtifactStorage() {
 		CEArtifactStorage storage = new CEArtifactStorage();
-		CustomEnchantment.instance().getCEItemStorageMap().put(CEItemType.ARTIFACT, storage);
+		CustomEnchantment.instance().getCeItemStorageMap().put(CEItemType.ARTIFACT, storage);
 
-		for (String pattern : config.getKeySection("artifact", false)) {
-			String path = "artifact." + pattern;
+		if (config.isSet("artifact")) {
+			loadCEArtifactStorage(storage, config.getAdvancedConfigurationSection("artifact"));
+		}
+
+		for (File file : CustomEnchantment.instance().getArtifactFolder().listFiles()) {
+			if (!file.getName().endsWith(".yml")) {
+				continue;
+			}
+
+			AdvancedConfigurationSection config = new AdvancedFileConfiguration(file);
+			loadCEArtifactStorage(storage, config);
+		}
+	}
+
+	public void loadCEArtifactStorage(CEArtifactStorage storage, AdvancedConfigurationSection config) {
+		for (String pattern : config.getKeySection("", false)) {
+			String path = pattern;
 
 			ItemStack itemStack = config.getItemStack(path + ".item", true, true);
 			CEArtifact ceItem = new CEArtifact(itemStack);
@@ -525,7 +604,7 @@ public class CEItemConfig extends AbstractConfig {
 					enchantName = enchantFormat;
 				}
 
-				ceItem.getWeaponEnchant().addCESimple(new CESimple(enchantName, level));
+				ceItem.getWeaponEnchant().addCESimple(new CEEnchantSimple(enchantName, level));
 			}
 
 			for (String attributeFormat : config.getStringList(path + ".attributes")) {
@@ -542,7 +621,7 @@ public class CEItemConfig extends AbstractConfig {
 
 	public void loadCEBannerStorage() {
 		CEBannerStorage storage = new CEBannerStorage();
-		CustomEnchantment.instance().getCEItemStorageMap().put(CEItemType.BANNER, storage);
+		CustomEnchantment.instance().getCeItemStorageMap().put(CEItemType.BANNER, storage);
 
 		for (String pattern : config.getKeySection("banner", false)) {
 			String path = "banner." + pattern;
@@ -561,7 +640,7 @@ public class CEItemConfig extends AbstractConfig {
 					enchantName = enchantFormat;
 				}
 
-				ceItem.getWeaponEnchant().addCESimple(new CESimple(enchantName, level));
+				ceItem.getWeaponEnchant().addCESimple(new CEEnchantSimple(enchantName, level));
 			}
 
 			String normalDisplay = config.getStringColor(path + ".display.normal");
@@ -582,7 +661,8 @@ public class CEItemConfig extends AbstractConfig {
 	}
 
 	public CEGemSettings loadGemSettings(AdvancedConfigurationSection config) {
-		Map<Integer, CEGemSettings.GemLevelSettings> map = new HashMap<>();
+		Map<Integer, CEGemSettings.GemLevelSettings> gemLevelSettingsMap = new HashMap<>();
+		Map<String, CEGemSettings.SlotSettings> slotSettingsMap = new HashMap<>();
 
 		for (String key : config.getKeySection("levels", false)) {
 			try {
@@ -590,29 +670,91 @@ public class CEItemConfig extends AbstractConfig {
 				String color = config.getString("levels." + key + ".color");
 
 				CEGemSettings.GemLevelSettings settings = new CEGemSettings.GemLevelSettings(color);
-				map.put(level, settings);
+				gemLevelSettingsMap.put(level, settings);
 			} catch (Exception e) {
 				e.printStackTrace();
             }
 		}
 
-		return new CEGemSettings(map);
+		for (String key : config.getKeySection("slot", false)) {
+			try {
+				String slot = key;
+				int priority = config.getInt("slot." + key + ".priority");
+				String display = config.getString("slot." + key + ".display");
+
+				CEGemSettings.SlotSettings settings = new CEGemSettings.SlotSettings(priority, display);
+				slotSettingsMap.put(slot, settings);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+		return new CEGemSettings(gemLevelSettingsMap, slotSettingsMap);
 	}
 
 	public void loadCEGemStorage() {
 		CEGemStorage storage = new CEGemStorage();
-		CustomEnchantment.instance().getCEItemStorageMap().put(CEItemType.GEM, storage);
+		CustomEnchantment.instance().getCeItemStorageMap().put(CEItemType.GEM, storage);
 
 		for (String pattern : config.getKeySection("gem", false)) {
 			String path = "gem." + pattern;
 
 			ItemStack itemStack = config.getItemStack(path + ".item", false, false);
 			CEGem ceItem = new CEGem(itemStack);
-			CEGemData data = new CEGemData();
-			data.setPattern(pattern);
-			data.setDisplay(config.getString(path + ".display"));
-			data.setAppliesMaterialList(MaterialList.getMaterialList(config.getStringList("applies")));
-			data.setAppliesDescription(config.getStringList(path + ".applies-description"));
+
+			String display = config.getStringColor(path + ".display");
+			MaterialList appliesMaterialList = MaterialList.getMaterialList(config.getStringList(path + ".applies"));
+			List<String> appliesDescription = config.getStringList(path + ".applies-description");
+			List<String> appliesSlot = config.getStringList(path + ".applies-slot");
+			Map<Integer, List<NMSAttribute>> attributeMap = loadGemAttributeMap(config.getAdvancedConfigurationSection(path + ".levels"));
+			int limitPerItem = config.getInt(path + ".limit-per-item");
+
+			CEGemData.ConfigData configData = new CEGemData.ConfigData(display, appliesMaterialList, appliesDescription, appliesSlot, attributeMap, limitPerItem);
+			CEGemData data = new CEGemData(pattern, configData);
+			ceItem.setData(data);
+
+			storage.put(pattern, ceItem);
+		}
+	}
+
+	public Map<Integer, List<NMSAttribute>> loadGemAttributeMap(AdvancedConfigurationSection config) {
+		Map<Integer, List<NMSAttribute>> map = new HashMap<>();
+
+		for (String key : config.getKeys(false)) {
+			try {
+				int level = Integer.parseInt(key);
+				List<NMSAttribute> list = new ArrayList<>();
+
+				for (String attributeFormat : config.getStringList(key + ".attributes")) {
+					NMSAttribute attribute = AttributeUtils.createAttribute(attributeFormat, "gem-");
+					list.add(attribute);
+				}
+
+				map.put(level, list);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+		return map;
+	}
+
+	public void loadCEGemDrillStorage() {
+		CEGemDrillStorage storage = new CEGemDrillStorage();
+		CustomEnchantment.instance().getCeItemStorageMap().put(CEItemType.GEM_DRILL, storage);
+
+		for (String pattern : config.getKeySection("gem-drill", false)) {
+			String path = "gem-drill." + pattern;
+
+			ItemStack itemStack = config.getItemStack(path + ".item");
+			CEGemDrill ceItem = new CEGemDrill(itemStack);
+
+			int maxDrill = config.getInt(path + ".max-drill");
+			MaterialList applies = MaterialList.getMaterialList(config.getStringList(path + ".applies"));
+			String slot = config.getString(path + ".slot");
+
+			CEGemDrillData.ConfigData configData = new CEGemDrillData.ConfigData(maxDrill, applies, slot);
+			CEGemDrillData data = new CEGemDrillData(pattern, configData);
 			ceItem.setData(data);
 
 			storage.put(pattern, ceItem);

@@ -94,7 +94,7 @@ public class EffectSummonCustomGuard extends EffectHook {
 			return null;
 		}
 
-		PlayerGuard playerGuard = CustomEnchantment.instance().getGuardManager().getPlayerGuard(player);
+		PlayerGuard playerGuard = CustomEnchantment.instance().getGuardModule().getGuardManager().getPlayerGuard(player);
 
 		String name = this.name.replace("%player%", player.getName()).replace("%random_id%",
 				"" + System.nanoTime());

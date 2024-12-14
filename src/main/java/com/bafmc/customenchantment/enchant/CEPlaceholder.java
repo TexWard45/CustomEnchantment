@@ -11,6 +11,8 @@ import org.bukkit.entity.Player;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class CEPlaceholder {
 	public static String setPlaceholder(String string, Map<String, String> map) {
@@ -21,7 +23,7 @@ public class CEPlaceholder {
 	}
 
 	public static Map<String, String> getTemporaryStoragePlaceholder(PlayerTemporaryStorage storage) {
-		HashMap<String, String> map = new HashMap<String, String>();
+		Map<String, String> map = new LinkedHashMap<>();
 
 		if (storage == null) {
 			return map;
@@ -39,7 +41,7 @@ public class CEPlaceholder {
 
 		if (data.getPlayer() != null) {
 			Player player = data.getPlayer();
-			if (text.indexOf("%player_name%") != -1) {
+			if (text.contains("%player_name%")) {
 				map.put("%player_name%", player.getName());
 				map.put("%player%", player.getName());
 			}
@@ -47,14 +49,14 @@ public class CEPlaceholder {
 
 		if (data.getLivingEntity() != null) {
 			LivingEntity entity = data.getLivingEntity();
-			if (text.indexOf("%player_health%") != -1) {
+			if (text.contains("%player_health%")) {
 				map.put("%player_health%", String.valueOf(entity.getHealth()));
 			}
 		}
 
 		if (data.getEnemyPlayer() != null) {
 			Player enemy = data.getEnemyPlayer();
-			if (text.indexOf("%enemy_name%") != -1) {
+			if (text.contains("%enemy_name%")) {
 				map.put("%enemy_name%", enemy.getName());
 				map.put("%enemy%", enemy.getName());
 			}
@@ -62,12 +64,12 @@ public class CEPlaceholder {
 
 		if (data.getEnemyLivingEntity() != null) {
 			LivingEntity entity = data.getEnemyLivingEntity();
-			if (text.indexOf("%enemy_health%") != -1) {
+			if (text.contains("%enemy_health%")) {
 				map.put("%enemy_health%", String.valueOf(entity.getHealth()));
 			}
 		}
 
-		if (data.getLivingEntity() != null && data.getEnemyLivingEntity() != null && text.indexOf("%distance%") != -1) {
+		if (data.getLivingEntity() != null && data.getEnemyLivingEntity() != null && text.contains("%distance%")) {
 			if (!data.getLivingEntity().getWorld().equals(data.getEnemyLivingEntity().getWorld())) {
 				map.put("%distance%", String.valueOf(99999));
 			} else {
@@ -76,24 +78,42 @@ public class CEPlaceholder {
 			}
 		}
 
-		if (text.indexOf("%damage%") != -1) {
+		if (text.contains("%damage%")) {
 			map.put("%damage%", String.valueOf(data.get("damage")));
 		}
 
-		if (text.indexOf("%time%") != -1) {
+		if (text.contains("%damage_")) {
+			// Pattern to match placeholders like %damage_x%, where x is any number
+			Pattern pattern = Pattern.compile("%damage_(\\d+)%");
+			Matcher matcher = pattern.matcher(text);
+
+			while (matcher.find()) {
+				// Extract the number from the placeholder (e.g., "5" in "%damage_5%")
+				int percentage = Integer.parseInt(matcher.group(1));
+
+				// Calculate the damage based on the percentage
+				double calculatedDamage = (double) data.get("damage") * percentage / 100;
+
+				// Create the placeholder string and store the formatted damage in the map
+				String placeholder = matcher.group(0); // e.g., "%damage_5%"
+				map.put(placeholder, StringUtils.formatNumber(calculatedDamage));
+			}
+		}
+
+		if (text.contains("%time%")) {
 			map.put("%time%", String.valueOf(System.currentTimeMillis()));
 		}
 
 		return map;
 	}
 
-	public static Map<String, String> getCESimplePlaceholder(CESimple ceSimple) {
-		CEEnchant ce = ceSimple.getCEEnchant();
-		int level = ceSimple.getLevel();
-		double success = ceSimple.getSuccess().getValue();
-		double destroy = ceSimple.getDestroy().getValue();
-        int xp = ceSimple.getXp();
-        int requiredXp = getEnchantRequiredXp(ceSimple);
+	public static Map<String, String> getCESimplePlaceholder(CEEnchantSimple ceEnchantSimple) {
+		CEEnchant ce = ceEnchantSimple.getCEEnchant();
+		int level = ceEnchantSimple.getLevel();
+		double success = ceEnchantSimple.getSuccess().getValue();
+		double destroy = ceEnchantSimple.getDestroy().getValue();
+        int xp = ceEnchantSimple.getXp();
+        int requiredXp = getEnchantRequiredXp(ceEnchantSimple);
 
         CEGroup ceGroup = ce.getCEGroup();
 
@@ -131,12 +151,12 @@ public class CEPlaceholder {
 		map.put("%enchant_description%", description);
 		map.put("%enchant_detail_description%", detailDescription);
 		map.put("%enchant_applies_description%", appliesDescription);
-        map.put("%enchant_progress%", getEnchantProgress(ceSimple));
+        map.put("%enchant_progress%", getEnchantProgress(ceEnchantSimple));
 		return map;
 	}
 
-    public static int getEnchantRequiredXp(CESimple ceSimple) {
-        BookUpgradeData bookUpgradeData = BookUpgradeMenu.getSettings().getBookUpgradeData(ceSimple.getName(), ceSimple.getLevel());
+    public static int getEnchantRequiredXp(CEEnchantSimple ceEnchantSimple) {
+        BookUpgradeData bookUpgradeData = BookUpgradeMenu.getSettings().getBookUpgradeData(ceEnchantSimple.getName(), ceEnchantSimple.getLevel());
         if (bookUpgradeData == null) {
             return 0;
         }
@@ -144,8 +164,8 @@ public class CEPlaceholder {
         return bookUpgradeData.getRequiredXp();
     }
 
-    public static String getEnchantProgress(CESimple ceSimple) {
-        BookUpgradeData bookUpgradeData = BookUpgradeMenu.getSettings().getBookUpgradeData(ceSimple.getName(), ceSimple.getLevel());
+    public static String getEnchantProgress(CEEnchantSimple ceEnchantSimple) {
+        BookUpgradeData bookUpgradeData = BookUpgradeMenu.getSettings().getBookUpgradeData(ceEnchantSimple.getName(), ceEnchantSimple.getLevel());
         if (bookUpgradeData == null) {
             StringBuilder builder = new StringBuilder();
             for (int i = 0; i < 10; i++) {
@@ -154,7 +174,7 @@ public class CEPlaceholder {
             return builder.toString();
         }
 
-        int xp = ceSimple.getXp();
+        int xp = ceEnchantSimple.getXp();
         int requiredXp = bookUpgradeData.getRequiredXp();
         int progress = (int) Math.floor((double) xp / requiredXp * 10);
 

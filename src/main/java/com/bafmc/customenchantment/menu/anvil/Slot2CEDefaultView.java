@@ -1,7 +1,7 @@
 package com.bafmc.customenchantment.menu.anvil;
 
 import com.bafmc.customenchantment.api.CEAPI;
-import com.bafmc.customenchantment.enchant.CESimple;
+import com.bafmc.customenchantment.enchant.CEEnchantSimple;
 import com.bafmc.customenchantment.item.ApplyReason;
 import com.bafmc.customenchantment.item.CEItem;
 import com.bafmc.customenchantment.item.CEWeapon;
@@ -19,7 +19,7 @@ public class Slot2CEDefaultView extends AnvilSlot2View<Slot2CEDefaultView> {
 	public class EnchantData {
 		private int page = 1;
 		private int maxPage = 1;
-		private List<CESimple> removeEnchantList = new ArrayList<CESimple>();
+		private List<CEEnchantSimple> removeEnchantList = new ArrayList<CEEnchantSimple>();
 
 		public int getPage() {
 			return page;
@@ -41,11 +41,11 @@ public class Slot2CEDefaultView extends AnvilSlot2View<Slot2CEDefaultView> {
 			this.maxPage = maxPage;
 		}
 
-		public List<CESimple> getRemoveEnchantList() {
+		public List<CEEnchantSimple> getRemoveEnchantList() {
 			return removeEnchantList;
 		}
 
-		public void setEnchantList(List<CESimple> removeEnchantList) {
+		public void setEnchantList(List<CEEnchantSimple> removeEnchantList) {
 			this.removeEnchantList = removeEnchantList;
 		}
 	}
@@ -80,7 +80,7 @@ public class Slot2CEDefaultView extends AnvilSlot2View<Slot2CEDefaultView> {
 		CEItem ceItem1 = menu.getItemData1().getCEItem();
 
 		CEWeapon weapon = (CEWeapon) ceItem1;
-		List<CESimple> list = getEnchantList(weapon.getWeaponEnchant().getCESimpleList(), dataConfig.getStringList("default-view.enchant-group"));
+		List<CEEnchantSimple> list = getEnchantList(weapon.getWeaponEnchant().getCESimpleList(), dataConfig.getStringList("default-view.enchant-group"));
 
 		enchantData.setEnchantList(list);
 		enchantData.setMaxPage((int) Math.ceil(list.size() / 5d));
@@ -88,12 +88,12 @@ public class Slot2CEDefaultView extends AnvilSlot2View<Slot2CEDefaultView> {
 		updateEnchant();
 	}
 
-    public List<CESimple> getEnchantList(List<CESimple> list, List<String> groups) {
-        List<CESimple> newList = new ArrayList<CESimple>();
+    public List<CEEnchantSimple> getEnchantList(List<CEEnchantSimple> list, List<String> groups) {
+        List<CEEnchantSimple> newList = new ArrayList<CEEnchantSimple>();
 
-        for (CESimple ceSimple : list) {
-            if (groups.contains(ceSimple.getCEEnchant().getGroupName())) {
-                newList.add(ceSimple);
+        for (CEEnchantSimple ceEnchantSimple : list) {
+            if (groups.contains(ceEnchantSimple.getCEEnchant().getGroupName())) {
+                newList.add(ceEnchantSimple);
             }
         }
 
@@ -141,7 +141,7 @@ public class Slot2CEDefaultView extends AnvilSlot2View<Slot2CEDefaultView> {
 
 	public void updateEnchant() {
 		int page = enchantData.getPage();
-		List<CESimple> list = enchantData.getRemoveEnchantList();
+		List<CEEnchantSimple> list = enchantData.getRemoveEnchantList();
 
 		for (int i = 0 + (page - 1) * 5; i < (page - 1) * 5 + 5; i++) {
 			if (i >= list.size()) {

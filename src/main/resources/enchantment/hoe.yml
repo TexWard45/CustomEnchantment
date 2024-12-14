@@ -1,201 +1,233 @@
 # adjust
 deathscythe:
-  group: 'supreme'
-  display: 'DeathScythe'
+  group: supreme
+  display: DeathScythe
   description:
   - '&eCó tỉ lệ bạo kích cực mạnh và tăng tốc độ'
   - '&edi chuyển cho bản thân trong một khoảng'
   - '&ethời gian khi tấn công'
+  detail-description:
+  - '&eCó tỉ lệ bạo kích cực mạnh và tăng tốc độ'
+  - '&edi chuyển cho bản thân trong một khoảng'
+  - '&ethời gian khi tấn công'
+  - ''
+  - '&eSát thương: +20 ATK'
+  - '&eTốc độ di chuyển: +30% x Cấp'
+  - '&eThời gian tăng tốc: 1.5s'
+  - '&eTỉ lệ kích hoạt: 25%'
+  - '&eThời gian hồi: 2s'
   applies-description:
-  - 'Cuốc'
+  - Cuốc
   applies:
-  - 'ALL_HOE'
+  - ALL_HOE
   max-level: 3
   enchant-point: 1
   valuable: 0
   levels:
-    1:
+    '1':
       attack:
         type: ATTACK
-        chance: 30
+        chance: 25
         cooldown: 2000
         conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        - EQUIP_SLOT:MAINHAND
         optionals:
-        - 'ATTACK:10:0'
+        - ATTACK:10:0
         effects:
-        - 'ADD_ATTRIBUTE:MOVEMENT_SPEED:deathscythe_movement_speed:0.3:1'
-        - 'DELAY=30 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:deathscythe_movement_speed'
-    2:
+        - ADD_ATTRIBUTE:MOVEMENT_SPEED:deathscythe_movement_speed:0.3:1
+        - DELAY=30 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:deathscythe_movement_speed
+    '2':
       attack:
         type: ATTACK
-        chance: 30
+        chance: 25
         cooldown: 2000
         conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        - EQUIP_SLOT:MAINHAND
         optionals:
-        - 'ATTACK:12:0'
+        - ATTACK:15:0
         effects:
-        - 'ADD_ATTRIBUTE:MOVEMENT_SPEED:deathscythe_movement_speed:0.4:1'
-        - 'DELAY=30 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:deathscythe_movement_speed'
-    3:
+        - ADD_ATTRIBUTE:MOVEMENT_SPEED:deathscythe_movement_speed:0.6:1
+        - DELAY=30 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:deathscythe_movement_speed
+    '3':
       attack:
         type: ATTACK
-        chance: 30
+        chance: 25
         cooldown: 2000
         conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        - EQUIP_SLOT:MAINHAND
         optionals:
-        - 'ATTACK:15:0'
+        - ATTACK:20:0
         effects:
-        - 'ADD_ATTRIBUTE:MOVEMENT_SPEED:deathscythe_movement_speed:0.5:1'
-        - 'DELAY=30 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:deathscythe_movement_speed'
-# FieldProtector
+        - ADD_ATTRIBUTE:MOVEMENT_SPEED:deathscythe_movement_speed:0.9:1
+        - DELAY=30 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:deathscythe_movement_speed
 fieldprot:
-  group: 'rare'
-  display: 'FieldProt'
+  group: rare
+  display: FieldProt
   description:
   - '&eCó tỉ lệ hất văng đối thủ ra xa'
   - '&ekhi tấn công'
+  detail-description:
+  - '&eCó tỉ lệ hất văng đối thủ ra xa'
+  - '&ekhi tấn công'
+  - ''
+  - '&eTỉ lệ kích hoạt: 10% x Cấp'
+  - '&eThời gian hồi: 7s'
   applies-description:
-  - 'Cuốc'
+  - Cuốc
   applies:
-  - 'ALL_HOE'
+  - ALL_HOE
   max-level: 5
   enchant-point: 1
   valuable: 0
   levels:
-    1:
+    '1':
       attack:
         type: ATTACK
         chance: 10
         cooldown: 7000
         conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-        - 'TARGET=ENEMY | PULL:xE*1.5_yE*1.5_zE*1.5'
-    2:
+        - TARGET=ENEMY | PULL:xE*1.5_yE*1.5_zE*1.5
+    '2':
       attack:
         type: ATTACK
         chance: 20
         cooldown: 7000
         conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-        - 'TARGET=ENEMY | PULL:xE*1.5_yE*1.5_zE*1.5'
-    3:
+        - TARGET=ENEMY | PULL:xE*1.5_yE*1.5_zE*1.5
+    '3':
       attack:
         type: ATTACK
         chance: 30
         cooldown: 7000
         conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-        - 'TARGET=ENEMY | PULL:xE*1.5_yE*1.5_zE*1.5'
-    4:
+        - TARGET=ENEMY | PULL:xE*1.5_yE*1.5_zE*1.5
+    '4':
       attack:
         type: ATTACK
         chance: 40
         cooldown: 7000
         conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-        - 'TARGET=ENEMY | PULL:xE*1.5_yE*1.5_zE*1.5'
-    5:
+        - TARGET=ENEMY | PULL:xE*1.5_yE*1.5_zE*1.5
+    '5':
       attack:
         type: ATTACK
         chance: 50
         cooldown: 7000
         conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-        - 'TARGET=ENEMY | PULL:xE*1.5_yE*1.5_zE*1.5'
+        - TARGET=ENEMY | PULL:xE*1.5_yE*1.5_zE*1.5
 rush:
-  group: 'legendary'
-  display: 'Rush'
+  group: legendary
+  display: Rush
   description:
   - '&eGiúp tăng tốc độ di chuyển và tốc độ'
   - '&eđánh khi cầm vật phẩm'
+  detail-description:
+  - '&eGiúp tăng tốc độ di chuyển và tốc độ'
+  - '&eđánh khi cầm vật phẩm'
+  - ''
+  - '&eTốc độ di chuyển: 10%/15%/20%'
+  - '&eTốc độ đánh: 10%/15%/20%'
   applies-description:
-  - 'Cuốc'
+  - Cuốc
   applies:
-  - 'ALL_HOE'
+  - ALL_HOE
   max-level: 3
   enchant-point: 1
   valuable: 0
   levels:
-    1:
+    '1':
       hold:
         type: HOLD
         chance: 100
         cooldown: 0
         conditions:
-        - 'EQUIP_SLOT:MAINHAND'
+        - EQUIP_SLOT:MAINHAND
         effects:
-        - 'ADD_ATTRIBUTE:MOVEMENT_SPEED:rush_movement_speed:0.1:1'
-        - 'ADD_ATTRIBUTE:ATTACK_SPEED:rush_attack_speed:0.1:1'
+        - ADD_ATTRIBUTE:MOVEMENT_SPEED:rush_movement_speed:0.1:1
+        - ADD_ATTRIBUTE:ATTACK_SPEED:rush_attack_speed:0.1:1
       change_hand:
         type: CHANGE_HAND
         chance: 100
         cooldown: 0
         conditions:
-        - 'EQUIP_SLOT:MAINHAND'
+        - EQUIP_SLOT:MAINHAND
         effects:
-        - 'REMOVE_ATTRIBUTE:MOVEMENT_SPEED:rush_movement_speed'
-        - 'REMOVE_ATTRIBUTE:ATTACK_SPEED:rush_attack_speed'
-    2:
+        - REMOVE_ATTRIBUTE:MOVEMENT_SPEED:rush_movement_speed
+        - REMOVE_ATTRIBUTE:ATTACK_SPEED:rush_attack_speed
+    '2':
       hold:
         type: HOLD
         chance: 100
         cooldown: 0
         conditions:
-        - 'EQUIP_SLOT:MAINHAND'
+        - EQUIP_SLOT:MAINHAND
         effects:
-        - 'ADD_ATTRIBUTE:MOVEMENT_SPEED:rush_movement_speed:0.15:1'
-        - 'ADD_ATTRIBUTE:ATTACK_SPEED:rush_attack_speed:0.15:1'
+        - ADD_ATTRIBUTE:MOVEMENT_SPEED:rush_movement_speed:0.15:1
+        - ADD_ATTRIBUTE:ATTACK_SPEED:rush_attack_speed:0.15:1
       change_hand:
         type: CHANGE_HAND
         chance: 100
         cooldown: 0
         conditions:
-        - 'EQUIP_SLOT:MAINHAND'
+        - EQUIP_SLOT:MAINHAND
         effects:
-        - 'REMOVE_ATTRIBUTE:MOVEMENT_SPEED:rush_movement_speed'
-        - 'REMOVE_ATTRIBUTE:ATTACK_SPEED:rush_attack_speed'
-    3:
+        - REMOVE_ATTRIBUTE:MOVEMENT_SPEED:rush_movement_speed
+        - REMOVE_ATTRIBUTE:ATTACK_SPEED:rush_attack_speed
+    '3':
       hold:
         type: HOLD
         chance: 100
         cooldown: 0
         conditions:
-        - 'EQUIP_SLOT:MAINHAND'
+        - EQUIP_SLOT:MAINHAND
         effects:
-        - 'ADD_ATTRIBUTE:MOVEMENT_SPEED:rush_movement_speed:0.2:1'
-        - 'ADD_ATTRIBUTE:ATTACK_SPEED:rush_attack_speed:0.2:1'
+        - ADD_ATTRIBUTE:MOVEMENT_SPEED:rush_movement_speed:0.2:1
+        - ADD_ATTRIBUTE:ATTACK_SPEED:rush_attack_speed:0.2:1
       change_hand:
         type: CHANGE_HAND
         chance: 100
         cooldown: 0
         conditions:
-        - 'EQUIP_SLOT:MAINHAND'
+        - EQUIP_SLOT:MAINHAND
         effects:
-        - 'REMOVE_ATTRIBUTE:MOVEMENT_SPEED:rush_movement_speed'
-        - 'REMOVE_ATTRIBUTE:ATTACK_SPEED:rush_attack_speed'
+        - REMOVE_ATTRIBUTE:MOVEMENT_SPEED:rush_movement_speed
+        - REMOVE_ATTRIBUTE:ATTACK_SPEED:rush_attack_speed
 peasant:
-  group: 'common'
-  display: 'Peasant'
+  group: common
+  display: Peasant
   description:
   - '&eNhận thêm tiền và kinh nghiệm khi'
-  - '&ethu hoạch'
+  - '&ethu hoạch nông sản'
+  detail-description:
+  - '&eNhận thêm tiền và kinh nghiệm khi'
+  - '&ethu hoạch nông sản'
+  - ''
+  - '&eLượng tiền: 1 x Cấp'
+  - '&eLượng kinh nghiệm: 1 x Cấp'
   applies-description:
-  - 'Cuốc'
+  - Cuốc
   applies:
-  - 'ALL_HOE'
+  - ALL_HOE
   max-level: 10
   enchant-point: 1
   valuable: 0
   levels:
-    1:
+    '1':
       hold:
         type: HOLD
         chance: 100
@@ -203,8 +235,8 @@ peasant:
         conditions:
         - ''
         effects:
-        - 'ADD_BLOCK_BONUS:MONEY:peasant_money_bonus:ALL_FARM_FULL_STAGE:0.1:0:100'
-        - 'ADD_BLOCK_BONUS:EXP:peasant_xp_bonus:ALL_FARM_FULL_STAGE:1:0:100'
+        - ADD_BLOCK_BONUS:MONEY:peasant_money_bonus:ALL_FARM_FULL_STAGE:2:0:100
+        - ADD_BLOCK_BONUS:EXP:peasant_xp_bonus:ALL_FARM_FULL_STAGE:2:0:100
       change_hand:
         type: CHANGE_HAND
         chance: 100
@@ -212,9 +244,9 @@ peasant:
         conditions:
         - ''
         effects:
-        - 'REMOVE_BLOCK_BONUS:MONEY:peasant_money_bonus'
-        - 'REMOVE_BLOCK_BONUS:EXP:peasant_xp_bonus'
-    2:
+        - REMOVE_BLOCK_BONUS:MONEY:peasant_money_bonus
+        - REMOVE_BLOCK_BONUS:EXP:peasant_xp_bonus
+    '2':
       hold:
         type: HOLD
         chance: 100
@@ -222,8 +254,8 @@ peasant:
         conditions:
         - ''
         effects:
-        - 'ADD_BLOCK_BONUS:MONEY:peasant_money_bonus:ALL_FARM_FULL_STAGE:0.2:0:100'
-        - 'ADD_BLOCK_BONUS:EXP:peasant_xp_bonus:ALL_FARM_FULL_STAGE:1:0:100'
+        - ADD_BLOCK_BONUS:MONEY:peasant_money_bonus:ALL_FARM_FULL_STAGE:4:0:100
+        - ADD_BLOCK_BONUS:EXP:peasant_xp_bonus:ALL_FARM_FULL_STAGE:4:0:100
       change_hand:
         type: CHANGE_HAND
         chance: 100
@@ -231,9 +263,9 @@ peasant:
         conditions:
         - ''
         effects:
-        - 'REMOVE_BLOCK_BONUS:MONEY:peasant_money_bonus'
-        - 'REMOVE_BLOCK_BONUS:EXP:peasant_xp_bonus'
-    3:
+        - REMOVE_BLOCK_BONUS:MONEY:peasant_money_bonus
+        - REMOVE_BLOCK_BONUS:EXP:peasant_xp_bonus
+    '3':
       hold:
         type: HOLD
         chance: 100
@@ -241,8 +273,8 @@ peasant:
         conditions:
         - ''
         effects:
-        - 'ADD_BLOCK_BONUS:MONEY:peasant_money_bonus:ALL_FARM_FULL_STAGE:0.3:0:100'
-        - 'ADD_BLOCK_BONUS:EXP:peasant_xp_bonus:ALL_FARM_FULL_STAGE:1:0:100'
+        - ADD_BLOCK_BONUS:MONEY:peasant_money_bonus:ALL_FARM_FULL_STAGE:6:0:100
+        - ADD_BLOCK_BONUS:EXP:peasant_xp_bonus:ALL_FARM_FULL_STAGE:6:0:100
       change_hand:
         type: CHANGE_HAND
         chance: 100
@@ -250,9 +282,9 @@ peasant:
         conditions:
         - ''
         effects:
-        - 'REMOVE_BLOCK_BONUS:MONEY:peasant_money_bonus'
-        - 'REMOVE_BLOCK_BONUS:EXP:peasant_xp_bonus'
-    4:
+        - REMOVE_BLOCK_BONUS:MONEY:peasant_money_bonus
+        - REMOVE_BLOCK_BONUS:EXP:peasant_xp_bonus
+    '4':
       hold:
         type: HOLD
         chance: 100
@@ -260,8 +292,8 @@ peasant:
         conditions:
         - ''
         effects:
-        - 'ADD_BLOCK_BONUS:MONEY:peasant_money_bonus:ALL_FARM_FULL_STAGE:0.4:0:100'
-        - 'ADD_BLOCK_BONUS:EXP:peasant_xp_bonus:ALL_FARM_FULL_STAGE:2:0:100'
+        - ADD_BLOCK_BONUS:MONEY:peasant_money_bonus:ALL_FARM_FULL_STAGE:8:0:100
+        - ADD_BLOCK_BONUS:EXP:peasant_xp_bonus:ALL_FARM_FULL_STAGE:8:0:100
       change_hand:
         type: CHANGE_HAND
         chance: 100
@@ -269,9 +301,9 @@ peasant:
         conditions:
         - ''
         effects:
-        - 'REMOVE_BLOCK_BONUS:MONEY:peasant_money_bonus'
-        - 'REMOVE_BLOCK_BONUS:EXP:peasant_xp_bonus'
-    5:
+        - REMOVE_BLOCK_BONUS:MONEY:peasant_money_bonus
+        - REMOVE_BLOCK_BONUS:EXP:peasant_xp_bonus
+    '5':
       hold:
         type: HOLD
         chance: 100
@@ -279,8 +311,8 @@ peasant:
         conditions:
         - ''
         effects:
-        - 'ADD_BLOCK_BONUS:MONEY:peasant_money_bonus:ALL_FARM_FULL_STAGE:0.5:0:100'
-        - 'ADD_BLOCK_BONUS:EXP:peasant_xp_bonus:ALL_FARM_FULL_STAGE:2:0:100'
+        - ADD_BLOCK_BONUS:MONEY:peasant_money_bonus:ALL_FARM_FULL_STAGE:10:0:100
+        - ADD_BLOCK_BONUS:EXP:peasant_xp_bonus:ALL_FARM_FULL_STAGE:10:0:100
       change_hand:
         type: CHANGE_HAND
         chance: 100
@@ -288,9 +320,9 @@ peasant:
         conditions:
         - ''
         effects:
-        - 'REMOVE_BLOCK_BONUS:MONEY:peasant_money_bonus'
-        - 'REMOVE_BLOCK_BONUS:EXP:peasant_xp_bonus'
-    6:
+        - REMOVE_BLOCK_BONUS:MONEY:peasant_money_bonus
+        - REMOVE_BLOCK_BONUS:EXP:peasant_xp_bonus
+    '6':
       hold:
         type: HOLD
         chance: 100
@@ -298,8 +330,8 @@ peasant:
         conditions:
         - ''
         effects:
-        - 'ADD_BLOCK_BONUS:MONEY:peasant_money_bonus:ALL_FARM_FULL_STAGE:0.6:0:100'
-        - 'ADD_BLOCK_BONUS:EXP:peasant_xp_bonus:ALL_FARM_FULL_STAGE:2:0:100'
+        - ADD_BLOCK_BONUS:MONEY:peasant_money_bonus:ALL_FARM_FULL_STAGE:12:0:100
+        - ADD_BLOCK_BONUS:EXP:peasant_xp_bonus:ALL_FARM_FULL_STAGE:12:0:100
       change_hand:
         type: CHANGE_HAND
         chance: 100
@@ -307,9 +339,9 @@ peasant:
         conditions:
         - ''
         effects:
-        - 'REMOVE_BLOCK_BONUS:MONEY:peasant_money_bonus'
-        - 'REMOVE_BLOCK_BONUS:EXP:peasant_xp_bonus'
-    7:
+        - REMOVE_BLOCK_BONUS:MONEY:peasant_money_bonus
+        - REMOVE_BLOCK_BONUS:EXP:peasant_xp_bonus
+    '7':
       hold:
         type: HOLD
         chance: 100
@@ -317,8 +349,8 @@ peasant:
         conditions:
         - ''
         effects:
-        - 'ADD_BLOCK_BONUS:MONEY:peasant_money_bonus:ALL_FARM_FULL_STAGE:0.7:0:100'
-        - 'ADD_BLOCK_BONUS:EXP:peasant_xp_bonus:ALL_FARM_FULL_STAGE:3:0:100'
+        - ADD_BLOCK_BONUS:MONEY:peasant_money_bonus:ALL_FARM_FULL_STAGE:14:0:100
+        - ADD_BLOCK_BONUS:EXP:peasant_xp_bonus:ALL_FARM_FULL_STAGE:14:0:100
       change_hand:
         type: CHANGE_HAND
         chance: 100
@@ -326,9 +358,9 @@ peasant:
         conditions:
         - ''
         effects:
-        - 'REMOVE_BLOCK_BONUS:MONEY:peasant_money_bonus'
-        - 'REMOVE_BLOCK_BONUS:EXP:peasant_xp_bonus'
-    8:
+        - REMOVE_BLOCK_BONUS:MONEY:peasant_money_bonus
+        - REMOVE_BLOCK_BONUS:EXP:peasant_xp_bonus
+    '8':
       hold:
         type: HOLD
         chance: 100
@@ -336,8 +368,8 @@ peasant:
         conditions:
         - ''
         effects:
-        - 'ADD_BLOCK_BONUS:MONEY:peasant_money_bonus:ALL_FARM_FULL_STAGE:0.8:0:100'
-        - 'ADD_BLOCK_BONUS:EXP:peasant_xp_bonus:ALL_FARM_FULL_STAGE:3:0:100'
+        - ADD_BLOCK_BONUS:MONEY:peasant_money_bonus:ALL_FARM_FULL_STAGE:16:0:100
+        - ADD_BLOCK_BONUS:EXP:peasant_xp_bonus:ALL_FARM_FULL_STAGE:16:0:100
       change_hand:
         type: CHANGE_HAND
         chance: 100
@@ -345,9 +377,9 @@ peasant:
         conditions:
         - ''
         effects:
-        - 'REMOVE_BLOCK_BONUS:MONEY:peasant_money_bonus'
-        - 'REMOVE_BLOCK_BONUS:EXP:peasant_xp_bonus'
-    9:
+        - REMOVE_BLOCK_BONUS:MONEY:peasant_money_bonus
+        - REMOVE_BLOCK_BONUS:EXP:peasant_xp_bonus
+    '9':
       hold:
         type: HOLD
         chance: 100
@@ -355,8 +387,8 @@ peasant:
         conditions:
         - ''
         effects:
-        - 'ADD_BLOCK_BONUS:MONEY:peasant_money_bonus:ALL_FARM_FULL_STAGE:0.9:0:100'
-        - 'ADD_BLOCK_BONUS:EXP:peasant_xp_bonus:ALL_FARM_FULL_STAGE:3:0:100'
+        - ADD_BLOCK_BONUS:MONEY:peasant_money_bonus:ALL_FARM_FULL_STAGE:18:0:100
+        - ADD_BLOCK_BONUS:EXP:peasant_xp_bonus:ALL_FARM_FULL_STAGE:18:0:100
       change_hand:
         type: CHANGE_HAND
         chance: 100
@@ -364,9 +396,9 @@ peasant:
         conditions:
         - ''
         effects:
-        - 'REMOVE_BLOCK_BONUS:MONEY:peasant_money_bonus'
-        - 'REMOVE_BLOCK_BONUS:EXP:peasant_xp_bonus'
-    10:
+        - REMOVE_BLOCK_BONUS:MONEY:peasant_money_bonus
+        - REMOVE_BLOCK_BONUS:EXP:peasant_xp_bonus
+    '10':
       hold:
         type: HOLD
         chance: 100
@@ -374,8 +406,8 @@ peasant:
         conditions:
         - ''
         effects:
-        - 'ADD_BLOCK_BONUS:MONEY:peasant_money_bonus:ALL_FARM_FULL_STAGE:1:0:100'
-        - 'ADD_BLOCK_BONUS:EXP:peasant_xp_bonus:ALL_FARM_FULL_STAGE:4:0:100'
+        - ADD_BLOCK_BONUS:MONEY:peasant_money_bonus:ALL_FARM_FULL_STAGE:20:0:100
+        - ADD_BLOCK_BONUS:EXP:peasant_xp_bonus:ALL_FARM_FULL_STAGE:20:0:100
       change_hand:
         type: CHANGE_HAND
         chance: 100
@@ -383,68 +415,89 @@ peasant:
         conditions:
         - ''
         effects:
-        - 'REMOVE_BLOCK_BONUS:MONEY:peasant_money_bonus'
-        - 'REMOVE_BLOCK_BONUS:EXP:peasant_xp_bonus'
+        - REMOVE_BLOCK_BONUS:MONEY:peasant_money_bonus
+        - REMOVE_BLOCK_BONUS:EXP:peasant_xp_bonus
 aghast:
-  group: 'event'
-  display: 'Aghast'
+  group: event
+  display: Aghast
   description:
   - '&eCó tỉ lệ làm kẻ địch bị mù và bối rối'
   - '&etrong một khoảng thời gian khi tấn công'
+  detail-description:
+  - '&eCó tỉ lệ làm kẻ địch bị mù và bối rối'
+  - '&etrong một khoảng thời gian khi tấn công'
+  - ''
+  - '&eHiệu ứng thuốc: Mù, bối rối'
+  - '&eThời gian hiệu ứng: 10s'
+  - '&eTỉ lệ kích hoạt: 5%/10%/20%'
+  - '&eThời gian hồi: 10s'
   applies-description:
-  - 'Cuốc'
+  - Cuốc
   applies:
-  - 'ALL_HOE'
+  - ALL_HOE
   max-level: 5
   enchant-point: 1
   valuable: 0
   levels:
-    1:
+    '1':
+      attack:
+        type: ATTACK
+        chance: 5
+        cooldown: 10000
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+        - TARGET=ENEMY | ADD_POTION:CONFUSION:0:200
+        - TARGET=ENEMY | ADD_POTION:BLINDNESS:0:200
+    '2':
       attack:
         type: ATTACK
         chance: 10
-        cooldown: 6000
+        cooldown: 10000
         conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-        - 'TARGET=ENEMY | ADD_POTION:CONFUSION:0:200'
-        - 'TARGET=ENEMY | ADD_POTION:BLINDNESS:0:100'
-    2:
+        - TARGET=ENEMY | ADD_POTION:CONFUSION:0:200
+        - TARGET=ENEMY | ADD_POTION:BLINDNESS:0:200
+    '3':
       attack:
         type: ATTACK
         chance: 20
-        cooldown: 6000
+        cooldown: 10000
         conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-        - 'TARGET=ENEMY | ADD_POTION:CONFUSION:0:200'
-        - 'TARGET=ENEMY | ADD_POTION:BLINDNESS:0:120'
-    3:
-      attack:
-        type: ATTACK
-        chance: 30
-        cooldown: 6000
-        conditions:
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
-        effects:
-        - 'TARGET=ENEMY | ADD_POTION:CONFUSION:0:200'
-        - 'TARGET=ENEMY | ADD_POTION:BLINDNESS:0:140'
+        - TARGET=ENEMY | ADD_POTION:CONFUSION:0:200
+        - TARGET=ENEMY | ADD_POTION:BLINDNESS:0:200
 bloodthief:
-  group: 'supreme'
-  display: 'BloodThief'
+  group: supreme
+  display: BloodThief
   description:
   - '&eCó tỉ lệ đánh cắp máu của kẻ địch và hồi phục'
   - '&emột phần lượng máu đã mất của bản thân trong'
   - '&ekhoảng thời gian khi tấn công'
+  detail-description:
+  - '&eCó tỉ lệ đánh cắp máu của kẻ địch và hồi phục'
+  - '&emột phần lượng máu đã mất của bản thân trong'
+  - '&ekhoảng thời gian khi tấn công'
+  - ''
+  - '&eLượng máu đánh cắp: 2 x Cấp'
+  - '&eLượng máu hồi mỗi giây: 2.5% máu đã mất (+2.5%/cấp)'
+  - '&eThời gian hiệu ứng: 2s'
+  - '&eTỉ lệ kích hoạt: 25%'
+  - '&eThời gian hồi: 5s'
   applies-description:
-  - 'Cuốc'
+  - Cuốc
   applies:
-  - 'ALL_HOE'
+  - ALL_HOE
   max-level: 5
   enchant-point: 1
   valuable: 0
   levels:
-    1:
+    '1':
       attack:
         type: ATTACK
         chance: 25
@@ -453,13 +506,13 @@ bloodthief:
         - EQUIP_SLOT:MAINHAND
         - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-        - 'TARGET=ENEMY | HEALTH:REMOVE:2'
-        - 'DELAY=8 | HEALTH:ADD:(%player_max_value%-%player_value%)*1/100'
-        - 'DELAY=16 | HEALTH:ADD:(%player_max_value%-%player_value%)*1/100'
-        - 'DELAY=24 | HEALTH:ADD:(%player_max_value%-%player_value%)*1/100'
-        - 'DELAY=32 | HEALTH:ADD:(%player_max_value%-%player_value%)*1/100'
-        - 'DELAY=40 | HEALTH:ADD:(%player_max_value%-%player_value%)*1/100'
-    2:
+        - TARGET=ENEMY | HEALTH:REMOVE:2
+        - DELAY=8 | HEALTH:ADD:(%player_max_value%-%player_value%)*1/100
+        - DELAY=16 | HEALTH:ADD:(%player_max_value%-%player_value%)*1/100
+        - DELAY=24 | HEALTH:ADD:(%player_max_value%-%player_value%)*1/100
+        - DELAY=32 | HEALTH:ADD:(%player_max_value%-%player_value%)*1/100
+        - DELAY=40 | HEALTH:ADD:(%player_max_value%-%player_value%)*1/100
+    '2':
       attack:
         type: ATTACK
         chance: 25
@@ -468,13 +521,13 @@ bloodthief:
         - EQUIP_SLOT:MAINHAND
         - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-        - 'TARGET=ENEMY | HEALTH:REMOVE:4'
-        - 'DELAY=8 | HEALTH:ADD:(%player_max_value%-%player_value%)*2/100'
-        - 'DELAY=16 | HEALTH:ADD:(%player_max_value%-%player_value%)*2/100'
-        - 'DELAY=24 | HEALTH:ADD:(%player_max_value%-%player_value%)*2/100'
-        - 'DELAY=32 | HEALTH:ADD:(%player_max_value%-%player_value%)*2/100'
-        - 'DELAY=40 | HEALTH:ADD:(%player_max_value%-%player_value%)*2/100'
-    3:
+        - TARGET=ENEMY | HEALTH:REMOVE:4
+        - DELAY=8 | HEALTH:ADD:(%player_max_value%-%player_value%)*2/100
+        - DELAY=16 | HEALTH:ADD:(%player_max_value%-%player_value%)*2/100
+        - DELAY=24 | HEALTH:ADD:(%player_max_value%-%player_value%)*2/100
+        - DELAY=32 | HEALTH:ADD:(%player_max_value%-%player_value%)*2/100
+        - DELAY=40 | HEALTH:ADD:(%player_max_value%-%player_value%)*2/100
+    '3':
       attack:
         type: ATTACK
         chance: 25
@@ -483,13 +536,13 @@ bloodthief:
         - EQUIP_SLOT:MAINHAND
         - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-        - 'TARGET=ENEMY | HEALTH:REMOVE:6'
-        - 'DELAY=8 | HEALTH:ADD:(%player_max_value%-%player_value%)*3/100'
-        - 'DELAY=16 | HEALTH:ADD:(%player_max_value%-%player_value%)*3/100'
-        - 'DELAY=24 | HEALTH:ADD:(%player_max_value%-%player_value%)*3/100'
-        - 'DELAY=32 | HEALTH:ADD:(%player_max_value%-%player_value%)*3/100'
-        - 'DELAY=40 | HEALTH:ADD:(%player_max_value%-%player_value%)*3/100'
-    4:
+        - TARGET=ENEMY | HEALTH:REMOVE:6
+        - DELAY=8 | HEALTH:ADD:(%player_max_value%-%player_value%)*3/100
+        - DELAY=16 | HEALTH:ADD:(%player_max_value%-%player_value%)*3/100
+        - DELAY=24 | HEALTH:ADD:(%player_max_value%-%player_value%)*3/100
+        - DELAY=32 | HEALTH:ADD:(%player_max_value%-%player_value%)*3/100
+        - DELAY=40 | HEALTH:ADD:(%player_max_value%-%player_value%)*3/100
+    '4':
       attack:
         type: ATTACK
         chance: 25
@@ -498,13 +551,13 @@ bloodthief:
         - EQUIP_SLOT:MAINHAND
         - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-        - 'TARGET=ENEMY | HEALTH:REMOVE:8'
-        - 'DELAY=8 | HEALTH:ADD:(%player_max_value%-%player_value%)*4/100'
-        - 'DELAY=16 | HEALTH:ADD:(%player_max_value%-%player_value%)*4/100'
-        - 'DELAY=24 | HEALTH:ADD:(%player_max_value%-%player_value%)*4/100'
-        - 'DELAY=32 | HEALTH:ADD:(%player_max_value%-%player_value%)*4/100'
-        - 'DELAY=40 | HEALTH:ADD:(%player_max_value%-%player_value%)*4/100'
-    5:
+        - TARGET=ENEMY | HEALTH:REMOVE:8
+        - DELAY=8 | HEALTH:ADD:(%player_max_value%-%player_value%)*4/100
+        - DELAY=16 | HEALTH:ADD:(%player_max_value%-%player_value%)*4/100
+        - DELAY=24 | HEALTH:ADD:(%player_max_value%-%player_value%)*4/100
+        - DELAY=32 | HEALTH:ADD:(%player_max_value%-%player_value%)*4/100
+        - DELAY=40 | HEALTH:ADD:(%player_max_value%-%player_value%)*4/100
+    '5':
       attack:
         type: ATTACK
         chance: 25
@@ -513,73 +566,78 @@ bloodthief:
         - EQUIP_SLOT:MAINHAND
         - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-        - 'TARGET=ENEMY | HEALTH:REMOVE:10'
-        - 'DELAY=8 | HEALTH:ADD:(%player_max_value%-%player_value%)*5/100'
-        - 'DELAY=16 | HEALTH:ADD:(%player_max_value%-%player_value%)*5/100'
-        - 'DELAY=24 | HEALTH:ADD:(%player_max_value%-%player_value%)*5/100'
-        - 'DELAY=32 | HEALTH:ADD:(%player_max_value%-%player_value%)*5/100'
-        - 'DELAY=40 | HEALTH:ADD:(%player_max_value%-%player_value%)*5/100'
+        - TARGET=ENEMY | HEALTH:REMOVE:10
+        - DELAY=8 | HEALTH:ADD:(%player_max_value%-%player_value%)*5/100
+        - DELAY=16 | HEALTH:ADD:(%player_max_value%-%player_value%)*5/100
+        - DELAY=24 | HEALTH:ADD:(%player_max_value%-%player_value%)*5/100
+        - DELAY=32 | HEALTH:ADD:(%player_max_value%-%player_value%)*5/100
+        - DELAY=40 | HEALTH:ADD:(%player_max_value%-%player_value%)*5/100
 ravage:
-  group: 'supreme'
-  display: 'Ravage'
+  group: supreme
+  display: Ravage
   description:
   - '&eCó tỉ lệ gây thêm sát thương theo phần trăm'
   - '&emáu hiện tại của kẻ địch khi tấn công'
+  detail-description:
+  - '&eCó tỉ lệ gây thêm sát thương theo phần trăm'
+  - '&emáu hiện tại của kẻ địch khi tấn công'
+  - ''
+  - '&eSát thương: 5% Máu hiện tại kẻ địch x Cấp'
   applies-description:
-  - 'Cuốc'
+  - Cuốc
   applies:
-  - 'ALL_HOE'
+  - ALL_HOE
   max-level: 5
   enchant-point: 1
   valuable: 0
   levels:
-    1:
+    '1':
       attack:
         type: ATTACK
         chance: 25
         cooldown: 4000
         conditions:
-        - 'EQUIP_SLOT:MAINHAND'
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-        - 'TARGET=ENEMY | DEAL_DAMAGE:%player_value%*5/100:true:true:true:true:true'
-    2:
+        - TARGET=ENEMY | DEAL_DAMAGE:%player_value%*5/100:true:true:true:true:true
+    '2':
       attack:
         type: ATTACK
         chance: 25
         cooldown: 4000
         conditions:
-        - 'EQUIP_SLOT:MAINHAND'
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-        - 'TARGET=ENEMY | DEAL_DAMAGE:%player_value%*10/100:true:true:true:true:true'
-    3:
+        - TARGET=ENEMY | DEAL_DAMAGE:%player_value%*10/100:true:true:true:true:true
+    '3':
       attack:
         type: ATTACK
         chance: 25
         cooldown: 4000
         conditions:
-        - 'EQUIP_SLOT:MAINHAND'
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-        - 'TARGET=ENEMY | DEAL_DAMAGE:%player_value%*15/100:true:true:true:true:true'
-    4:
+        - TARGET=ENEMY | DEAL_DAMAGE:%player_value%*15/100:true:true:true:true:true
+    '4':
       attack:
         type: ATTACK
         chance: 25
         cooldown: 4000
         conditions:
-        - 'EQUIP_SLOT:MAINHAND'
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-        - 'TARGET=ENEMY | DEAL_DAMAGE:%player_value%*20/100:true:true:true:true:true'
-    5:
+        - TARGET=ENEMY | DEAL_DAMAGE:%player_value%*20/100:true:true:true:true:true
+    '5':
       attack:
         type: ATTACK
         chance: 25
         cooldown: 4000
         conditions:
-        - 'EQUIP_SLOT:MAINHAND'
-        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-        - 'TARGET=ENEMY | DEAL_DAMAGE:%player_value%*25/100:true:true:true:true:true'
+        - TARGET=ENEMY | DEAL_DAMAGE:%player_value%*25/100:true:true:true:true:true

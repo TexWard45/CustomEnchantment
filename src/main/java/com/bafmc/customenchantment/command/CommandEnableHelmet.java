@@ -2,7 +2,7 @@ package com.bafmc.customenchantment.command;
 
 import com.bafmc.bukkit.command.*;
 import com.bafmc.customenchantment.api.CEAPI;
-import com.bafmc.customenchantment.item.CEBanner;
+import com.bafmc.customenchantment.item.banner.CEBanner;
 import com.bafmc.customenchantment.item.CEItem;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;

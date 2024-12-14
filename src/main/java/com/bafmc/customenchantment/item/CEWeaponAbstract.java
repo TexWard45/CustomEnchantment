@@ -56,7 +56,7 @@ public abstract class CEWeaponAbstract<T extends CEItemData> extends CEItem<T> {
 		this.weaponEnchant.importFrom(tag.getList("enchant"));
 
 		this.weaponGem = new WeaponGem(this);
-		this.weaponGem.importFrom(tag.getList("gem"));
+		this.weaponGem.importFrom(tag.getCompound("gem"));
 
 		this.weaponDisplay = new WeaponDisplay(this);
 		this.weaponDisplay.importFrom(tag.getCompound("lore"));
@@ -87,21 +87,29 @@ public abstract class CEWeaponAbstract<T extends CEItemData> extends CEItem<T> {
 		NMSNBTTagList enchantTag = weaponEnchant.exportTo();
 		if (enchantTag != null) {
 			tag.set("enchant", enchantTag);
+		}else {
+			tag.remove("enchant");
 		}
 
-		NMSNBTTagList gemTag = weaponGem.exportTo();
+		NMSNBTTagCompound gemTag = weaponGem.exportTo();
 		if (gemTag != null) {
 			tag.set("gem", gemTag);
+		}else {
+			tag.remove("gem");
 		}
 
 		NMSNBTTagCompound loreTag = weaponDisplay.exportTo();
 		if (loreTag != null) {
 			tag.set("lore", loreTag);
+		}else {
+			tag.remove("lore");
 		}
 
 		NMSNBTTagCompound dataTag = weaponData.exportTo();
 		if (dataTag != null) {
 			tag.set("data", dataTag);
+		}else {
+			tag.remove("data");
 		}
 
 		updateTimeModifierTag(tag);
@@ -120,8 +128,10 @@ public abstract class CEWeaponAbstract<T extends CEItemData> extends CEItem<T> {
 
 		itemStackNMS.setCompound(tag);
 		itemStackNMS.setRepairCost(repairCost);
-		itemStackNMS.setAttribute(weaponAttribute.exportTo());
-		
+		if (attributeTag != null) {
+			itemStackNMS.setAttribute(attributeTag);
+		}
+
 		ItemStack itemStack = itemStackNMS.getNewItemStack();
 
 		// Apply new display item

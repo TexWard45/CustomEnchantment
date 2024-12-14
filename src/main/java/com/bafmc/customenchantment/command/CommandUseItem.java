@@ -28,7 +28,7 @@ public class CommandUseItem implements AbstractCommand {
 
 			List<String> list = new ArrayList<String>(Arrays.asList(arg.getToEnd(3)));
 
-			CEItem ceItem = CustomEnchantment.instance().getCEItemStorageMap().get(arg.get("$type"))
+			CEItem ceItem = CustomEnchantment.instance().getCeItemStorageMap().get(arg.get("$type"))
 					.getByParameter(new Parameter(list));
 			
 			if (ceItem == null || !(ceItem instanceof CEItemUsable)) {

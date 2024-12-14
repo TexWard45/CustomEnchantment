@@ -1,13 +1,12 @@
 package com.bafmc.customenchantment.enchant.effect;
 
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.entity.LivingEntity;
-
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.api.LocationFormat;
 import com.bafmc.customenchantment.enchant.CEFunctionData;
 import com.bafmc.customenchantment.enchant.EffectHook;
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.entity.LivingEntity;
 
 public class EffectSetBlock extends EffectHook {
 	private Material material;
@@ -39,6 +38,6 @@ public class EffectSetBlock extends EffectHook {
 		LocationFormat locationFormat = new LocationFormat(this.locationFormat);
 		Location location = locationFormat.getLocation(player, enemy);
 
-		CustomEnchantment.instance().getBlockTask().setBlock(location, material, duration);
+		CustomEnchantment.instance().getTaskModule().getBlockTask().setBlock(location, material, duration);
 	}
 }

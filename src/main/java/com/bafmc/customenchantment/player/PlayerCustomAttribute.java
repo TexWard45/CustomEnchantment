@@ -62,7 +62,6 @@ public class PlayerCustomAttribute extends CEPlayerExpansion {
 
 		Map<EquipSlot, CEWeaponAbstract> slotMap = cePlayer.getSlotMap();
 		AttributeMapData data = AttributeMapData.builder()
-				.cePlayer(cePlayer)
 				.slotMap(slotMap)
 				.build();
 

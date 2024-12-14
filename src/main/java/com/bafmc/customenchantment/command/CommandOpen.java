@@ -3,8 +3,12 @@ package com.bafmc.customenchantment.command;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
+import com.bafmc.bukkit.bafframework.utils.SkullUtils;
+import com.bafmc.bukkit.utils.ItemStackBuilder;
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
@@ -12,9 +16,9 @@ import org.bukkit.inventory.Inventory;
 import com.bafmc.customenchantment.CEEnchantMap;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.enchant.CEEnchant;
-import com.bafmc.customenchantment.enchant.CESimple;
-import com.bafmc.customenchantment.item.CEBook;
-import com.bafmc.customenchantment.item.CEBookStorage;
+import com.bafmc.customenchantment.enchant.CEEnchantSimple;
+import com.bafmc.customenchantment.item.book.CEBook;
+import com.bafmc.customenchantment.item.book.CEBookStorage;
 import com.bafmc.customenchantment.item.CEItem;
 import com.bafmc.customenchantment.item.CEItemStorage;
 import com.bafmc.customenchantment.item.CEItemType;
@@ -45,7 +49,7 @@ public class CommandOpen implements AbstractCommand {
 
 			Inventory inventory = Bukkit.createInventory(null, 54, "Storage");
 
-			CEItemStorage storage = CustomEnchantment.instance().getCEItemStorageMap().get(CEItemType.STORAGE);
+			CEItemStorage storage = CustomEnchantment.instance().getCeItemStorageMap().get(CEItemType.STORAGE);
 			CEItem[] ceItemArr = (CEItem[]) storage.values().toArray(new CEItem[storage.size()]);
 
 			int from = (page - 1) * 54;
@@ -53,6 +57,46 @@ public class CommandOpen implements AbstractCommand {
 
 			for (int i = 0; i < len; i++) {
 				inventory.setItem(i, ItemStackUtils.getItemStackWithPlaceholder(ceItemArr[from + i].exportTo(), player));
+			}
+
+			player.openInventory(inventory);
+			return true;
+		}
+	};
+
+	private AdvancedCommandExecutor headExecutor = new AdvancedCommandExecutor() {
+		public boolean onCommand(CommandSender sender, Argument arg) {
+			Player player = arg.getPlayer();
+			if (player == null) {
+				return true;
+			}
+
+			int page = 1;
+
+			try {
+				page = Integer.valueOf(arg.get("<page>"));
+			}catch(Exception e) {
+
+			}
+
+			Inventory inventory = Bukkit.createInventory(null, 54, "Head");
+
+			Set<String> skullList = SkullUtils.getSkullOwners();
+
+			int from = (page - 1) * 54;
+			int len = skullList.size() - from > 54 ? 54 : skullList.size() - from;
+
+			for (int i = 0; i < len; i++) {
+				String skullOwnerId = (String) skullList.toArray()[from + i];
+				String skullOwner = SkullUtils.getSkullOwner(skullOwnerId);
+
+				ItemStackBuilder builder = ItemStackBuilder.create();
+				builder.setMaterial(Material.PLAYER_HEAD);
+				builder.setAmount(1);
+				builder.setDisplay(skullOwnerId);
+				builder.setSkullOwner(skullOwner);
+
+				inventory.setItem(i, builder.getItemStack());
 			}
 
 			player.openInventory(inventory);
@@ -78,7 +122,7 @@ public class CommandOpen implements AbstractCommand {
 
 				Inventory inventory = Bukkit.createInventory(null, 54, type);
 
-				CEItemStorage storage = CustomEnchantment.instance().getCEItemStorageMap().get(type);
+				CEItemStorage storage = CustomEnchantment.instance().getCeItemStorageMap().get(type);
 				CEItem[] ceItemArr = (CEItem[]) storage.values().toArray(new CEItem[storage.size()]);
 
 				int from = (page - 1) * 54;
@@ -105,9 +149,9 @@ public class CommandOpen implements AbstractCommand {
 
 			Inventory inventory = Bukkit.createInventory(null, 54, "Storage");
 
-			CEEnchantMap map = CustomEnchantment.instance().getCEEnchantMap();
+			CEEnchantMap map = CustomEnchantment.instance().getCeEnchantMap();
 
-			CEBookStorage storage = (CEBookStorage) CustomEnchantment.instance().getCEItemStorageMap()
+			CEBookStorage storage = (CEBookStorage) CustomEnchantment.instance().getCeItemStorageMap()
 					.get(CEItemType.BOOK);
 
 			List<String> ceList = new ArrayList<String>(map.keySet());
@@ -126,7 +170,7 @@ public class CommandOpen implements AbstractCommand {
 
 				ceList.add(enchant.getName());
 
-				CEBook book = storage.getCEBook(new CESimple(enchant.getName(), 1, 100, 0));
+				CEBook book = storage.getCEBook(new CEEnchantSimple(enchant.getName(), 1, 100, 0));
 
 				inventory.setItem(i, ItemStackUtils.getItemStackWithPlaceholder(book.exportTo(), player));
 				i++;
@@ -139,8 +183,22 @@ public class CommandOpen implements AbstractCommand {
 	
 	private AdvancedTabCompleter storageTab = new AdvancedTabCompleter() {
 		public List<String> onTabComplete(CommandSender arg0, Argument arg1) {
-			CEItemStorage storage = CustomEnchantment.instance().getCEItemStorageMap().get(CEItemType.STORAGE);
+			CEItemStorage storage = CustomEnchantment.instance().getCeItemStorageMap().get(CEItemType.STORAGE);
 			int maxPage = (int) Math.ceil(storage.size() / 54d);
+
+			List<String> list = new ArrayList<String>();
+			for (int i = 1; i <= maxPage; i++) {
+				list.add("" + i);
+			}
+
+			return list;
+		}
+	};
+
+	private AdvancedTabCompleter headTab = new AdvancedTabCompleter() {
+		public List<String> onTabComplete(CommandSender arg0, Argument arg1) {
+			Set<String> skullList = SkullUtils.getSkullOwners();
+			int maxPage = (int) Math.ceil(skullList.size() / 54d);
 
 			List<String> list = new ArrayList<String>();
 			for (int i = 1; i <= maxPage; i++) {
@@ -154,7 +212,7 @@ public class CommandOpen implements AbstractCommand {
 	public AdvancedTabCompleter getOpenTab(String type) {
 		return new AdvancedTabCompleter() {
 			public List<String> onTabComplete(CommandSender arg0, Argument arg1) {
-				CEItemStorage<? extends CEItem>  storage = CustomEnchantment.instance().getCEItemStorageMap()
+				CEItemStorage<? extends CEItem>  storage = CustomEnchantment.instance().getCeItemStorageMap()
 						.get(type);
 				int maxPage = (int) Math.ceil(storage.size() / 54d);
 
@@ -170,7 +228,7 @@ public class CommandOpen implements AbstractCommand {
 
 	private AdvancedTabCompleter groupTab = new  AdvancedTabCompleter() {
 		public List<String> onTabComplete(CommandSender arg0, Argument arg1) {
-			return new ArrayList<String>(CustomEnchantment.instance().getCEGroupMap().keySet());
+			return new ArrayList<String>(CustomEnchantment.instance().getCeGroupMap().keySet());
 		}
 	};
 
@@ -183,6 +241,12 @@ public class CommandOpen implements AbstractCommand {
 						.subCommand("<page>")
 							.tabCompleter(storageTab)
 							.commandExecutor(storageExecutor)
+						.end()
+					.end()
+					.subCommand("head")
+						.subCommand("<page>")
+							.tabCompleter(headTab)
+							.commandExecutor(headExecutor)
 						.end()
 					.end()
 					.subCommand("mask")

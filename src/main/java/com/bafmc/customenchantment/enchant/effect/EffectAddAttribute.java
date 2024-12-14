@@ -1,5 +1,6 @@
 package com.bafmc.customenchantment.enchant.effect;
 
+import com.bafmc.bukkit.utils.AttributeUtils;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeModifier.Operation;
 import org.bukkit.entity.Player;
@@ -36,6 +37,4 @@ public class EffectAddAttribute extends EffectHook {
 
 		cePlayer.getVanillaAttribute().addAttribute(attribute, name, amount, operation);
 	}
-	
-	
 }

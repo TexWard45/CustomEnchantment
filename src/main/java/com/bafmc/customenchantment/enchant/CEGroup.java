@@ -76,7 +76,7 @@ public class CEGroup {
 
 	public List<String> getEnchantNameList() {
 		List<String> enchants = new ArrayList<String>();
-		for (CEEnchant enchant : CustomEnchantment.instance().getCEEnchantMap().values()) {
+		for (CEEnchant enchant : CustomEnchantment.instance().getCeEnchantMap().values()) {
 			if (name.equals(enchant.getGroupName())) {
 				enchants.add(enchant.getName());
 			}
@@ -86,7 +86,7 @@ public class CEGroup {
 
 	public List<CEEnchant> getEnchantList() {
 		List<CEEnchant> enchants = new ArrayList<CEEnchant>();
-		for (CEEnchant enchant : CustomEnchantment.instance().getCEEnchantMap().values()) {
+		for (CEEnchant enchant : CustomEnchantment.instance().getCeEnchantMap().values()) {
 			if (name.equals(enchant.getGroupName())) {
 				enchants.add(enchant);
 			}

@@ -84,7 +84,7 @@ public class AutoSellSpecialMine extends AbstractSpecialMine {
             updateTopStatistic(player, shopItem, price);
         }
 
-        ShopManager.addTotalSell(shopItem.getName(), shopItem.getSellPrice(), itemStack.getAmount());
+        ShopManager.addTotalSell(shopItem, itemStack.getAmount());
         EconomyAPI.giveMoney(player, price);
         return itemStack;
     }

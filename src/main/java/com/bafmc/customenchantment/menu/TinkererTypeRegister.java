@@ -3,8 +3,8 @@ package com.bafmc.customenchantment.menu;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.bafmc.customenchantment.enchant.CESimple;
-import com.bafmc.customenchantment.item.CEBook;
+import com.bafmc.customenchantment.enchant.CEEnchantSimple;
+import com.bafmc.customenchantment.item.book.CEBook;
 import com.bafmc.customenchantment.item.CEItem;
 
 public class TinkererTypeRegister {
@@ -17,8 +17,8 @@ public class TinkererTypeRegister {
 					return null;
 				}
 				CEBook ceBook = (CEBook) ceItem;
-				CESimple ceSimple = ceBook.getData().getCESimple();
-				return "book." + ceSimple.getCEEnchant().getGroupName() + "." + ceSimple.getLevel();
+				CEEnchantSimple ceEnchantSimple = ceBook.getData().getCESimple();
+				return "book." + ceEnchantSimple.getCEEnchant().getGroupName() + "." + ceEnchantSimple.getLevel();
 			}
 		});
 	}

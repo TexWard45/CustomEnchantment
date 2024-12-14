@@ -2,7 +2,7 @@ package com.bafmc.customenchantment.menu.anvil;
 
 import com.bafmc.customenchantment.item.ApplyReason;
 import com.bafmc.customenchantment.item.ApplyResult;
-import com.bafmc.customenchantment.item.CEBook;
+import com.bafmc.customenchantment.item.book.CEBook;
 import com.bafmc.customenchantment.item.CEItem;
 import com.bafmc.customenchantment.menu.CEAnvilMenu;
 

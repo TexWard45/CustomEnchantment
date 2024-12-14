@@ -1,10 +1,9 @@
 package com.bafmc.customenchantment.item;
 
-import org.bukkit.inventory.ItemStack;
-
+import com.bafmc.bukkit.config.AdvancedFileConfiguration;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.api.Parameter;
-import com.bafmc.bukkit.config.AdvancedFileConfiguration;
+import org.bukkit.inventory.ItemStack;
 
 public class VanillaItemStorage extends CEItemStorage<CEItem<? extends CEItemData>> {
 	/**
@@ -12,13 +11,8 @@ public class VanillaItemStorage extends CEItemStorage<CEItem<? extends CEItemDat
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private AdvancedFileConfiguration config;
 	private AdvancedFileConfiguration saveConfig;
 
-	public void setConfig(AdvancedFileConfiguration config) {
-		this.config = config;
-	}
-	
 	public void setSaveConfig(AdvancedFileConfiguration config) {
 		this.saveConfig = config;
 	}
@@ -30,14 +24,14 @@ public class VanillaItemStorage extends CEItemStorage<CEItem<? extends CEItemDat
 	}
 	
 	public void removeItem(String key) {
-		this.config.set(key, null);
-		this.config.save();
+		this.saveConfig.set(key, null);
+		this.saveConfig.save();
 		super.remove(key);
 	}
 
 	@SuppressWarnings("unchecked")
 	public CEItem<? extends CEItemData> getByParameter(Parameter parameter) {
 		String name = parameter.getString(0);
-		return CustomEnchantment.instance().getCEItemStorageMap().get(CEItemType.STORAGE).get(name);
+		return CustomEnchantment.instance().getCeItemStorageMap().get(CEItemType.STORAGE).get(name);
 	}
 }

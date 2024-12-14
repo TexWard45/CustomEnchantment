@@ -14,16 +14,18 @@ import com.bafmc.customenchantment.enchant.CECallerBuilder;
 import com.bafmc.customenchantment.enchant.CEFunctionData;
 import com.bafmc.customenchantment.enchant.CEType;
 import com.bafmc.customenchantment.event.CEPlayerStatsModifyEvent;
-import com.bafmc.customenchantment.feature.DashFeature;
-import com.bafmc.customenchantment.feature.DoubleJumpFeature;
+import com.bafmc.customenchantment.feature.other.DashFeature;
+import com.bafmc.customenchantment.feature.other.DoubleJumpFeature;
 import com.bafmc.customenchantment.item.CEItem;
 import com.bafmc.customenchantment.item.CEItemUsable;
 import com.bafmc.customenchantment.item.CEWeaponAbstract;
+import com.bafmc.customenchantment.item.VanillaItem;
 import com.bafmc.customenchantment.player.*;
 import com.bafmc.customenchantment.player.PlayerAbility.Type;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -73,18 +75,10 @@ public class PlayerListener implements Listener {
 				.setWeaponMap(CEAPI.getCEWeaponMap(player, EquipSlot.ARMOR_ARRAY))
 				.call();
 
-		if (CustomEnchantment.instance().getArtifactTask().updateArtifact(player)) {
-			CECallerBuilder
-					.build(player)
-					.setCEType(CEType.CHANGE_HAND)
-					.setWeaponMap(CEAPI.getCEWeaponMap(player, EquipSlot.HAND_ARRAY))
-					.call();
-		}
-
 		CECallerBuilder
 				.build(player)
-				.setCEType(CEType.HOTBAR_CHANGE)
-				.setWeaponMap(CEAPI.getCEWeaponMap(player, EquipSlot.HOTBAR_ARRAY))
+				.setCEType(CEType.CHANGE_HAND)
+				.setWeaponMap(CEAPI.getCEWeaponMap(player, EquipSlot.HAND_ARRAY))
 				.call();
 
 		CECallerBuilder
@@ -98,18 +92,6 @@ public class PlayerListener implements Listener {
 				.setCEType(CEType.HOLD)
 				.setWeaponMap(CEAPI.getCEWeaponMap(player, EquipSlot.HAND_ARRAY))
 				.call();
-
-		CECallerBuilder
-				.build(player)
-				.setCEType(CEType.HOTBAR_HOLD)
-				.setWeaponMap(CEAPI.getCEWeaponMap(player, EquipSlot.HOTBAR_ARRAY))
-				.call();
-
-//		CEAPI.callCEList(player, CEType.ARMOR_UNDRESS, armorMap);
-//		CEAPI.callCEList(player, CEType.CHANGE_HAND, handMap);
-//
-//		CEAPI.callCEList(player, CEType.ARMOR_EQUIP, armorMap);
-//		CEAPI.callCEList(player, CEType.HOLD, handMap);
 	}
 
 	@EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
@@ -128,13 +110,6 @@ public class PlayerListener implements Listener {
 				.build(player)
 				.setCEType(CEType.CHANGE_HAND)
 				.setWeaponMap(CEAPI.getCEWeaponMap(player, EquipSlot.HAND_ARRAY))
-				.setExecuteLater(false)
-				.call();
-
-		CECallerBuilder
-				.build(player)
-				.setCEType(CEType.HOTBAR_CHANGE)
-				.setWeaponMap(CEAPI.getCEWeaponMap(player, EquipSlot.HOTBAR_ARRAY))
 				.setExecuteLater(false)
 				.call();
 
@@ -159,13 +134,6 @@ public class PlayerListener implements Listener {
 					.setWeaponMap(CEAPI.getCEWeaponMap(player, EquipSlot.HAND_ARRAY))
 					.setExecuteLater(false)
 					.call();
-
-			CECallerBuilder
-					.build(player)
-					.setCEType(CEType.HOTBAR_CHANGE)
-					.setWeaponMap(CEAPI.getCEWeaponMap(player, EquipSlot.HOTBAR_ARRAY))
-					.setExecuteLater(false)
-					.call();
 		} else if (CustomEnchantment.instance().getMainConfig().isEnchantDisableLocation(e.getFrom())) {
 			CECallerBuilder
 					.build(player)
@@ -180,15 +148,6 @@ public class PlayerListener implements Listener {
 					.setWeaponMap(CEAPI.getCEWeaponMap(player, EquipSlot.HAND_ARRAY))
 					.setExecuteLater(false)
 					.call();
-
-			if (CustomEnchantment.instance().getArtifactTask().updateArtifact(player)) {
-				CECallerBuilder
-						.build(player)
-						.setCEType(CEType.HOTBAR_HOLD)
-						.setWeaponMap(CEAPI.getCEWeaponMap(player, EquipSlot.HOTBAR_ARRAY))
-						.setExecuteLater(false)
-						.call();
-			}
 		}
 	}
 
@@ -217,14 +176,13 @@ public class PlayerListener implements Listener {
 		CEPlayer cePlayer = CEAPI.getCEPlayer(player);
 		EquipSlot slot = e.getEquipSlot();
 
-		ItemStack oldItemStack = e.getOldItemStack();
-		CEWeaponAbstract ceOldWeapon = CEWeaponAbstract.getCEWeapon(oldItemStack);
+		CEWeaponAbstract ceOldWeapon = cePlayer.getSlot(slot);
 		// Call on old equip
 		if (ceOldWeapon != null) {
 			Map<EquipSlot, CEWeaponAbstract> map = CEAPI.getCEWeaponMap(player);
 			map.put(slot, ceOldWeapon);
-			
-			CEType ceType = null;
+
+			CEType ceType;
 
 			if (slot.isArmor()) {
 				ceType = CEType.ARMOR_UNDRESS;
@@ -234,23 +192,31 @@ public class PlayerListener implements Listener {
 				ceType = CEType.CHANGE_HAND;
 			}
 
-			CECallerBuilder
-					.build(player)
-					.setCEType(ceType)
-					.setWeaponMap(map)
-					.setActiveEquipSlot(slot)
-					.call();
+			if (ceType != CEType.HOTBAR_CHANGE) {
+				CECallerBuilder
+						.build(player)
+						.setCEType(ceType)
+						.setWeaponMap(map)
+						.setActiveEquipSlot(slot)
+						.call();
+			}
 		}
 
 		ItemStack newItemStack = e.getNewItemStack();
-		CEWeaponAbstract ceNewWeapon = CEWeaponAbstract.getCEWeapon(newItemStack);
-		cePlayer.setSlot(slot, ceNewWeapon);
+		CEWeaponAbstract ceNewWeapon = null;
+		if (newItemStack != null && newItemStack.getType() != Material.AIR) {
+			ceNewWeapon = CEWeaponAbstract.getCEWeapon(newItemStack);
+			cePlayer.setSlot(slot, ceNewWeapon);
+		}else {
+			cePlayer.setSlot(slot, null);
+		}
+
 		// Call on new equip
 		if (ceNewWeapon != null) {
 			Map<EquipSlot, CEWeaponAbstract> map = CEAPI.getCEWeaponMap(player);
 			map.put(slot, ceNewWeapon);
 			
-			CEType ceType = null;
+			CEType ceType;
 
 			if (slot.isArmor()) {
 				ceType = CEType.ARMOR_EQUIP;
@@ -260,7 +226,7 @@ public class PlayerListener implements Listener {
 				ceType = CEType.HOLD;
 			}
 
-			if (ceType != CEType.HOTBAR_HOLD || (CustomEnchantment.instance().getArtifactTask().updateArtifact(player))) {
+			if (ceType != CEType.HOTBAR_HOLD) {
 				CECallerBuilder
 						.build(player)
 						.setCEType(ceType)
@@ -269,6 +235,31 @@ public class PlayerListener implements Listener {
 						.call();
 			}
 		}
+	}
+
+	public CEWeaponAbstract getRelativeCEWeapon(CEPlayer cePlayer, EquipSlot slot, ItemStack itemStack) {
+		if (slot != EquipSlot.MAINHAND && !slot.isHotbar()) {
+			return CEWeaponAbstract.getCEWeapon(itemStack);
+		}
+
+		int heldItemSlot = cePlayer.getPlayer().getInventory().getHeldItemSlot();
+		if (slot == EquipSlot.MAINHAND) {
+			CEWeaponAbstract currentWeapon = cePlayer.getSlot(EquipSlot.getHotbar(heldItemSlot));
+			if (currentWeapon != null && currentWeapon.getDefaultItemStack().isSimilar(itemStack)) {
+				return currentWeapon;
+			}
+		}else {
+			int hotbarSlot = EquipSlot.getSlot(slot);
+
+			if (hotbarSlot == heldItemSlot) {
+				CEWeaponAbstract currentWeapon = cePlayer.getSlot(EquipSlot.MAINHAND);
+				if (currentWeapon != null) {
+					return currentWeapon;
+				}
+			}
+		}
+
+		return CEWeaponAbstract.getCEWeapon(itemStack);
 	}
 
 	@EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
@@ -336,6 +327,13 @@ public class PlayerListener implements Listener {
 	public void onItemConsume(PlayerItemConsumeEvent e) {
 		Player player = e.getPlayer();
 		ItemStack itemStack = e.getItem().clone();
+
+		CEItem ceItem = CEAPI.getCEItem(itemStack);
+		System.out.println(ceItem);
+		if (ceItem instanceof VanillaItem) {
+			e.setCancelled(true);
+			return;
+		}
 
 		CEFunctionData data = new CEFunctionData(player);
 		data.setItemConsume(itemStack);

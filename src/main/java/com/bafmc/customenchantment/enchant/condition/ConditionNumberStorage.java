@@ -34,13 +34,21 @@ public class ConditionNumberStorage extends ConditionHook {
 		Map<String, String> storagePlaceholder = CEPlaceholder
 				.getTemporaryStoragePlaceholder(cePlayer.getTemporaryStorage());
 
-		Map<String, String> map1 = CEPlaceholder.getCEFunctionDataPlaceholder(compare1, data);
-		map1.putAll(storagePlaceholder);
-		compare1 = CEPlaceholder.setPlaceholder(compare1, map1);
+		if (storagePlaceholder.containsKey(compare1)) {
+			compare1 = storagePlaceholder.get(compare1);
+		}else {
+			Map<String, String> map1 = CEPlaceholder.getCEFunctionDataPlaceholder(compare1, data);
+			map1.putAll(storagePlaceholder);
+			compare1 = CEPlaceholder.setPlaceholder(compare1, map1);
+		}
 
-		Map<String, String> map2 = CEPlaceholder.getCEFunctionDataPlaceholder(compare2, data);
-		map2.putAll(storagePlaceholder);
-		compare2 = CEPlaceholder.setPlaceholder(compare2, map2);
+		if (storagePlaceholder.containsKey(compare2)) {
+			compare2 = storagePlaceholder.get(compare2);
+		}else {
+			Map<String, String> map2 = CEPlaceholder.getCEFunctionDataPlaceholder(compare2, data);
+			map2.putAll(storagePlaceholder);
+			compare2 = CEPlaceholder.setPlaceholder(compare2, map2);
+		}
 
 		// Compare
 		double compareNumber1 = 0;

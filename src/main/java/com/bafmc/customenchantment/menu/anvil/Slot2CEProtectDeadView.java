@@ -3,7 +3,7 @@ package com.bafmc.customenchantment.menu.anvil;
 import com.bafmc.customenchantment.item.ApplyReason;
 import com.bafmc.customenchantment.item.ApplyResult;
 import com.bafmc.customenchantment.item.CEItem;
-import com.bafmc.customenchantment.item.CEProtectDead;
+import com.bafmc.customenchantment.item.protectdead.CEProtectDead;
 import com.bafmc.customenchantment.menu.CEAnvilMenu;
 
 public class Slot2CEProtectDeadView extends AnvilSlot2View<Slot2CEProtectDeadView> {
@@ -25,9 +25,9 @@ public class Slot2CEProtectDeadView extends AnvilSlot2View<Slot2CEProtectDeadVie
 
 		CEItem ceItem1 = menu.getItemData1().getCEItem();
 		CEItem ceItem2 = menu.getItemData2().getCEItem();
-		CEProtectDead enchantPoint = (CEProtectDead) ceItem2;
+		CEProtectDead protectDead = (CEProtectDead) ceItem2;
 
-		ApplyReason reason = enchantPoint.testApplyByMenuTo(ceItem1);
+		ApplyReason reason = protectDead.testApplyByMenuTo(ceItem1);
 
 		if (reason.getResult() == ApplyResult.SUCCESS) {
 			menu.updateSlots("preview3", reason.getSource().exportTo());
@@ -44,9 +44,9 @@ public class Slot2CEProtectDeadView extends AnvilSlot2View<Slot2CEProtectDeadVie
 
 	public ApplyReason apply(CEItem ceItem1, CEItem ceItem2) {
 		if (ceItem2 instanceof CEProtectDead) {
-			CEProtectDead enchantPoint = (CEProtectDead) ceItem2;
+			CEProtectDead protectDead = (CEProtectDead) ceItem2;
 
-			return enchantPoint.applyByMenuTo(ceItem1);
+			return protectDead.applyByMenuTo(ceItem1);
 		}
 		return ApplyReason.NOTHING;
 	}

@@ -1,32 +1,27 @@
 package com.bafmc.customenchantment.enchant;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import com.bafmc.customenchantment.command.CommandDebugCE;
-import org.bukkit.entity.Player;
-
+import com.bafmc.bukkit.utils.EquipSlot;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.api.CEAPI;
+import com.bafmc.customenchantment.command.CommandDebugCE;
 import com.bafmc.customenchantment.item.CEWeaponAbstract;
 import com.bafmc.customenchantment.player.CEPlayer;
-import com.bafmc.bukkit.utils.EquipSlot;
+import org.bukkit.entity.Player;
+
+import java.util.*;
 
 public class CECaller {
 	private HashMap<EquipSlot, List<String>> slotEnchantsChanceMap = new HashMap<EquipSlot, List<String>>();
 	private CEType ceType;
 	private CEPlayer caller;
 	private CEFunctionData data;
-	private List<CESimple> ceSimpleList;
+	private List<CEEnchantSimple> ceEnchantSimpleList;
 	private List<EquipSlot> equipSlotList;
 	private boolean byPassCooldown;
 	private CECallerResult result;
 	private EquipSlot equipSlot;
 	private EquipSlot activeEquipSlot;
-	private CESimple ceSimple;
+	private CEEnchantSimple ceEnchantSimple;
 	private CEEnchant ceEnchant;
 	private CEFunction ceFunction;
 	private Map<EquipSlot, CEWeaponAbstract> weaponMap;
@@ -69,13 +64,14 @@ public class CECaller {
 	 * 
 	 */
 	public CECaller callEquipSlot() {
-		if (ceSimpleList != null) {
-			for (CESimple ceSimple : ceSimpleList) {
-				setCESimple(ceSimple).callCE();
+		if (ceEnchantSimpleList != null) {
+			for (CEEnchantSimple ceEnchantSimple : ceEnchantSimpleList) {
+				setCESimple(ceEnchantSimple).callCE();
 			}
 		} else {
 			callCE();
 		}
+		callGem();
 		return this;
 	}
 
@@ -84,12 +80,12 @@ public class CECaller {
 	 * 
 	 */
 	public CECaller callCE() {
-		CEEnchant ce = ceSimple.getCEEnchant();
+		CEEnchant ce = ceEnchantSimple.getCEEnchant();
 		if (ce == null) {
 			return this;
 		}
 
-		CELevel ceLevel = ce.getCELevel(ceSimple.getLevel());
+		CELevel ceLevel = ce.getCELevel(ceEnchantSimple.getLevel());
 		if (ceLevel == null) {
 			return this;
 		}
@@ -181,7 +177,7 @@ public class CECaller {
 		}
 
 		if (CommandDebugCE.getTogglePlayers().contains(caller.getPlayer().getName())) {
-			System.out.println(caller.getPlayer().getName() + " is calling " + ceEnchant.getName() + " level " + ceSimple.getLevel() + " function " + ceFunction.getName() + " slot " + equipSlot);
+			System.out.println(caller.getPlayer().getName() + " is calling " + ceEnchant.getName() + " level " + ceEnchantSimple.getLevel() + " function " + ceFunction.getName() + " slot " + equipSlot);
 		}
 
 		// Execute effect
@@ -210,6 +206,24 @@ public class CECaller {
 		}
 
 		return StepAction.valueOf(ceFunction.isTrueConditionBreak(), stepAction);
+	}
+
+	private static List<EquipSlot> gemEquipSlotWhiteList = Arrays.asList(EquipSlot.HELMET, EquipSlot.CHESTPLATE, EquipSlot.LEGGINGS, EquipSlot.BOOTS, EquipSlot.MAINHAND, EquipSlot.OFFHAND, EquipSlot.HOTBAR_1, EquipSlot.HOTBAR_2, EquipSlot.HOTBAR_3, EquipSlot.HOTBAR_4, EquipSlot.HOTBAR_5, EquipSlot.HOTBAR_6, EquipSlot.HOTBAR_7, EquipSlot.HOTBAR_8, EquipSlot.HOTBAR_9);
+	private static List<CEType> equipTypeList = Arrays.asList(CEType.ARMOR_EQUIP, CEType.HOLD, CEType.HOTBAR_HOLD);
+	private static List<CEType> upequipTypeList = Arrays.asList(CEType.ARMOR_UNDRESS, CEType.CHANGE_HAND, CEType.HOTBAR_CHANGE);
+	public void callGem() {
+		if (!gemEquipSlotWhiteList.contains(equipSlot)) {
+			return;
+		}
+		if (activeEquipSlot != null && equipSlot != activeEquipSlot) {
+			return;
+		}
+		if (equipTypeList.contains(ceType)) {
+			caller.getGem().handleAttributeActivation(equipSlot, weaponMap.get(equipSlot));
+		}
+		if (upequipTypeList.contains(ceType)) {
+			caller.getGem().handleAttributeDeactivation(equipSlot, weaponMap.get(equipSlot));
+		}
 	}
 
 	public void executeEffect(Effect effect, CEFunctionData data) {
@@ -334,21 +348,21 @@ public class CECaller {
 		return this;
 	}
 
-	public List<CESimple> getCESimpleList() {
-		return ceSimpleList;
+	public List<CEEnchantSimple> getCESimpleList() {
+		return ceEnchantSimpleList;
 	}
 
 	public CECaller setCESimpleList(CEWeaponAbstract ceItem) {
 		if (ceItem == null) {
-			this.ceSimpleList = new ArrayList<CESimple>();
+			this.ceEnchantSimpleList = new ArrayList<CEEnchantSimple>();
 		} else {
-			this.ceSimpleList = ceItem.getWeaponEnchant().getCESimpleList();
+			this.ceEnchantSimpleList = ceItem.getWeaponEnchant().getCESimpleList();
 		}
 		return this;
 	}
 
-	public CECaller setCESimpleList(List<CESimple> ceSimpleList) {
-		this.ceSimpleList = ceSimpleList;
+	public CECaller setCESimpleList(List<CEEnchantSimple> ceEnchantSimpleList) {
+		this.ceEnchantSimpleList = ceEnchantSimpleList;
 		return this;
 	}
 
@@ -406,12 +420,12 @@ public class CECaller {
 		return this;
 	}
 
-	public CESimple getCESimple() {
-		return ceSimple;
+	public CEEnchantSimple getCESimple() {
+		return ceEnchantSimple;
 	}
 
-	public CECaller setCESimple(CESimple ceSimple) {
-		this.ceSimple = ceSimple;
+	public CECaller setCESimple(CEEnchantSimple ceEnchantSimple) {
+		this.ceEnchantSimple = ceEnchantSimple;
 		return this;
 	}
 

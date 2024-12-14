@@ -6,7 +6,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 import com.bafmc.customenchantment.api.CEAPI;
-import com.bafmc.customenchantment.item.CEBanner;
+import com.bafmc.customenchantment.item.banner.CEBanner;
 import com.bafmc.customenchantment.item.CEItem;
 import com.bafmc.bukkit.command.AbstractCommand;
 import com.bafmc.bukkit.command.AdvancedCommandBuilder;

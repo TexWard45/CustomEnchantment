@@ -1,18 +1,17 @@
 package com.bafmc.customenchantment.player.mining;
 
-import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
-
+import com.bafmc.bukkit.utils.Chance;
+import com.bafmc.customenchantment.CustomEnchantment;
+import com.bafmc.customenchantment.player.PlayerSpecialMining;
+import com.bafmc.customenchantment.task.SpecialMiningTask;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-import com.bafmc.customenchantment.CustomEnchantment;
-import com.bafmc.customenchantment.player.PlayerSpecialMining;
-import com.bafmc.customenchantment.task.SpecialMiningTask;
-import com.bafmc.bukkit.utils.Chance;
+import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class ExplosionSpecialMine extends AbstractSpecialMine {
 
@@ -140,7 +139,7 @@ public class ExplosionSpecialMine extends AbstractSpecialMine {
 		Player player = data.getPlayer();
 		Block block = data.getBlock();
 
-		SpecialMiningTask task = CustomEnchantment.instance().getSpecialMiningTask();
+		SpecialMiningTask task = CustomEnchantment.instance().getTaskModule().getSpecialMiningTask();
 		Explosion exp = this.explosion.getHighestExplosion();
 		data.setDropItem(exp.isDrop());
 

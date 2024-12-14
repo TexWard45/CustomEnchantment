@@ -42,7 +42,7 @@ public class CEEnchant {
 	}
 
 	public CEGroup getCEGroup() {
-		return CustomEnchantment.instance().getCEGroupMap().get(groupName);
+		return CustomEnchantment.instance().getCeGroupMap().get(groupName);
 	}
 
 	public int getMaxLevel() {

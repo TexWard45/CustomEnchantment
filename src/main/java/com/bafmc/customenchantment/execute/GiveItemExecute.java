@@ -25,7 +25,7 @@ public class GiveItemExecute extends ExecuteHook {
 		if (list.get(0).equals("storage")) {
 			itemStacks = CEAPI.getVanillaItemStacks(list.get(1));
 		} else {
-			itemStacks = CustomEnchantment.instance().getCEItemStorageMap().get(list.get(0))
+			itemStacks = CustomEnchantment.instance().getCeItemStorageMap().get(list.get(0))
 					.getItemStacksByParameter(new Parameter(list.subList(1, list.size())));
 		}
 

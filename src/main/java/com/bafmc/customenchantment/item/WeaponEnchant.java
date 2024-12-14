@@ -2,7 +2,7 @@ package com.bafmc.customenchantment.item;
 
 import com.bafmc.customenchantment.api.ITrade;
 import com.bafmc.customenchantment.enchant.CEEnchant;
-import com.bafmc.customenchantment.enchant.CESimple;
+import com.bafmc.customenchantment.enchant.CEEnchantSimple;
 import com.bafmc.customenchantment.enchant.Priority;
 import com.bafmc.bukkit.bafframework.nms.NMSNBTBase;
 import com.bafmc.bukkit.bafframework.nms.NMSNBTTagList;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WeaponEnchant extends CEItemExpansion implements ITrade<NMSNBTTagList> {
-	private List<CESimple> ceSimpleList = new ArrayList<CESimple>();
+	private List<CEEnchantSimple> ceEnchantSimpleList = new ArrayList<CEEnchantSimple>();
 
 	public WeaponEnchant(CEWeaponAbstract ceItem) {
 		super(ceItem);
@@ -22,17 +22,17 @@ public class WeaponEnchant extends CEItemExpansion implements ITrade<NMSNBTTagLi
 		return getCESimple(name) != null;
 	}
 
-    public boolean hasEnchantBlacklist(CESimple ceSimple) {
-        List<String> enchantBlacklist = ceSimple.getCEEnchant().getEnchantBlacklist();
+    public boolean hasEnchantBlacklist(CEEnchantSimple ceEnchantSimple) {
+        List<String> enchantBlacklist = ceEnchantSimple.getCEEnchant().getEnchantBlacklist();
 
-        for (CESimple otherCESimple : ceSimpleList) {
-            CEEnchant otherCEEnchant = otherCESimple.getCEEnchant();
+        for (CEEnchantSimple otherCEEnchantSimple : ceEnchantSimpleList) {
+            CEEnchant otherCEEnchant = otherCEEnchantSimple.getCEEnchant();
 
-            if (otherCEEnchant.getEnchantBlacklist().contains(ceSimple.getName())) {
+            if (otherCEEnchant.getEnchantBlacklist().contains(ceEnchantSimple.getName())) {
                 return true;
             }
 
-            if (enchantBlacklist.contains(otherCESimple.getName())) {
+            if (enchantBlacklist.contains(otherCEEnchantSimple.getName())) {
                 return true;
             }
         }
@@ -40,46 +40,46 @@ public class WeaponEnchant extends CEItemExpansion implements ITrade<NMSNBTTagLi
         return false;
     }
 
-    public CESimple getEnchantBlacklist(CESimple ceSimple) {
-        List<String> enchantBlacklist = ceSimple.getCEEnchant().getEnchantBlacklist();
-        for (CESimple otherCESimple : ceSimpleList) {
-            CEEnchant otherCEEnchant = otherCESimple.getCEEnchant();
+    public CEEnchantSimple getEnchantBlacklist(CEEnchantSimple ceEnchantSimple) {
+        List<String> enchantBlacklist = ceEnchantSimple.getCEEnchant().getEnchantBlacklist();
+        for (CEEnchantSimple otherCEEnchantSimple : ceEnchantSimpleList) {
+            CEEnchant otherCEEnchant = otherCEEnchantSimple.getCEEnchant();
 
-            if (otherCEEnchant.getEnchantBlacklist().contains(ceSimple.getName())) {
-                return otherCESimple;
+            if (otherCEEnchant.getEnchantBlacklist().contains(ceEnchantSimple.getName())) {
+                return otherCEEnchantSimple;
             }
 
-            if (enchantBlacklist.contains(otherCESimple.getName())) {
-                return otherCESimple;
+            if (enchantBlacklist.contains(otherCEEnchantSimple.getName())) {
+                return otherCEEnchantSimple;
             }
         }
 
         return null;
     }
 
-	public void addCESimple(CESimple ceSimple) {
-		if (!containsCESimple(ceSimple.getName())) {
-			ceSimpleList.add(ceSimple);
+	public void addCESimple(CEEnchantSimple ceEnchantSimple) {
+		if (!containsCESimple(ceEnchantSimple.getName())) {
+			ceEnchantSimpleList.add(ceEnchantSimple);
 		}
 	}
 
-	public void forceAddCESimple(CESimple ceSimple) {
-		removeCESimple(ceSimple.getName());
-		addCESimple(ceSimple);
+	public void forceAddCESimple(CEEnchantSimple ceEnchantSimple) {
+		removeCESimple(ceEnchantSimple.getName());
+		addCESimple(ceEnchantSimple);
 	}
 
 	public void removeCESimple(String name) {
 		int index = indexOf(name);
 
 		if (index != -1) {
-			ceSimpleList.remove(index);
+			ceEnchantSimpleList.remove(index);
 		}
 	}
 
-	public CESimple getCESimple(String name) {
-		for (CESimple ceSimple : ceSimpleList) {
-			if (ceSimple.getName().equals(name)) {
-				return ceSimple;
+	public CEEnchantSimple getCESimple(String name) {
+		for (CEEnchantSimple ceEnchantSimple : ceEnchantSimpleList) {
+			if (ceEnchantSimple.getName().equals(name)) {
+				return ceEnchantSimple;
 			}
 		}
 		return null;
@@ -87,8 +87,8 @@ public class WeaponEnchant extends CEItemExpansion implements ITrade<NMSNBTTagLi
 
 	public int indexOf(String name) {
 		int i = 0;
-		for (CESimple ceSimple : ceSimpleList) {
-			if (ceSimple.getName().equals(name)) {
+		for (CEEnchantSimple ceEnchantSimple : ceEnchantSimpleList) {
+			if (ceEnchantSimple.getName().equals(name)) {
 				return i;
 			}
 			i++;
@@ -98,42 +98,42 @@ public class WeaponEnchant extends CEItemExpansion implements ITrade<NMSNBTTagLi
 	
 	public int getTotalEnchantPoint() {
 		int point = 0;
-		for (CESimple ceSimple : ceSimpleList) {
-			point += ceSimple.getCEEnchant().getEnchantPoint();
+		for (CEEnchantSimple ceEnchantSimple : ceEnchantSimpleList) {
+			point += ceEnchantSimple.getCEEnchant().getEnchantPoint();
 		}
 		return point;
 	}
 
-	public boolean isEnoughEnchantPointForNextCE(CESimple ceSimple) {
-		return getTotalEnchantPoint() + ceSimple.getCEEnchant().getEnchantPoint() <= ceItem.getWeaponData().getTotalEnchantPoint();
+	public boolean isEnoughEnchantPointForNextCE(CEEnchantSimple ceEnchantSimple) {
+		return getTotalEnchantPoint() + ceEnchantSimple.getCEEnchant().getEnchantPoint() <= ceItem.getWeaponData().getTotalEnchantPoint();
 	}
 
-	public List<CESimple> getCESimpleList() {
-		return new ArrayList<CESimple>(ceSimpleList);
+	public List<CEEnchantSimple> getCESimpleList() {
+		return new ArrayList<>(ceEnchantSimpleList);
 	}
 
-	public List<CESimple> getCESimpleListByPriority() {
-		List<CESimple> ceSimpleList = getCESimpleList();
-		List<CESimple> newCESimpleList = new ArrayList<CESimple>();
+	public List<CEEnchantSimple> getCESimpleListByPriority() {
+		List<CEEnchantSimple> ceEnchantSimpleList = getCESimpleList();
+		List<CEEnchantSimple> newCEEnchantSimpleList = new ArrayList<CEEnchantSimple>();
 
 		for (Priority priority : Priority.HIGH_TO_LOW) {
-			for (int i = 0; i < ceSimpleList.size(); i++) {
-				CESimple ceSimple = ceSimpleList.get(i);
-				CEEnchant ceEnchant = ceSimple.getCEEnchant();
+			for (int i = 0; i < ceEnchantSimpleList.size(); i++) {
+				CEEnchantSimple ceEnchantSimple = ceEnchantSimpleList.get(i);
+				CEEnchant ceEnchant = ceEnchantSimple.getCEEnchant();
 				
 				if (ceEnchant != null && ceEnchant.getCEGroup().getPriority() == priority) {
-					newCESimpleList.add(ceSimpleList.remove(i--));
+					newCEEnchantSimpleList.add(ceEnchantSimpleList.remove(i--));
 				}
 			}
 		}
 
-		return newCESimpleList;
+		return newCEEnchantSimpleList;
 	}
 
 	public List<String> getCESimpleNameList() {
 		List<String> list = new ArrayList<String>();
-		for (CESimple ceSimple : ceSimpleList) {
-			list.add(ceSimple.getName());
+		for (CEEnchantSimple ceEnchantSimple : ceEnchantSimpleList) {
+			list.add(ceEnchantSimple.getName());
 		}
 		return list;
 	}
@@ -151,20 +151,20 @@ public class WeaponEnchant extends CEItemExpansion implements ITrade<NMSNBTTagLi
 
 			value = ((NMSNBTTagString) value).getData();
 
-			CESimple ceSimple = new CESimple(value.toString());
-			ceSimpleList.add(ceSimple);
+			CEEnchantSimple ceEnchantSimple = new CEEnchantSimple(value.toString());
+			ceEnchantSimpleList.add(ceEnchantSimple);
 		}
 	}
 
 	public NMSNBTTagList exportTo() {
-		if (ceSimpleList.isEmpty()) {
+		if (ceEnchantSimpleList.isEmpty()) {
 			return null;
 		}
 
 		NMSNBTTagList list = new NMSNBTTagList();
 
-		for (CESimple ceSimple : ceSimpleList) {
-			list.addString(ceSimple.toLine());
+		for (CEEnchantSimple ceEnchantSimple : ceEnchantSimpleList) {
+			list.addString(ceEnchantSimple.toLine());
 		}
 
 		return list;

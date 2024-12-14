@@ -37,6 +37,9 @@ public class MainConfig implements IConfigurationLoader {
 	@Path("max-artifact-use-count")
 	@Getter
 	private int maxArtifactUseCount = 3;
+	@Path("combat-time")
+	@Getter
+	private int combatTime = 10000;
 
 	@Override
 	public void loadConfig(String s, ConfigurationSection configurationSection) {

@@ -16,7 +16,7 @@ public class CommandRemoveItem implements AbstractCommand {
 				return true;
 			}
 
-			VanillaItemStorage storage = (VanillaItemStorage) CustomEnchantment.instance().getCEItemStorageMap()
+			VanillaItemStorage storage = (VanillaItemStorage) CustomEnchantment.instance().getCeItemStorageMap()
 					.get(CEItemType.STORAGE);
 			storage.removeItem(arg.get("<name>"));
 			return true;

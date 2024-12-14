@@ -10,6 +10,7 @@ public class TemporaryKey {
     public static final String MULTIPLE_ARROW_COOLDOWN = "multiple_arrow_cooldown";
 	public static final String BOW_POWER = "bow_power";
 	public static final String LAST_MOVE_TIME = "last_move_time";
+    public static final String LAST_COMBAT_TIME = "last_combat_time";
     public static final String IN_AIR = "in_air";
 	public static final String LAST_CALL_MOVE_TIME = "last_call_move_time";
 	public static final String MINING_TELEPATHY_ENABLE = "mining_telepathy_enable";

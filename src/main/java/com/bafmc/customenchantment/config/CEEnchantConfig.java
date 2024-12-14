@@ -24,7 +24,7 @@ public class CEEnchantConfig extends AbstractConfig {
 
 		for (String key : enchantKeys) {
 			CEEnchant ceEnchant = loadCEEnchant(key, config.getAdvancedConfigurationSection(key));
-			CustomEnchantment.instance().getCEEnchantMap().put(ceEnchant.getName(), ceEnchant);
+			CustomEnchantment.instance().getCeEnchantMap().put(ceEnchant.getName(), ceEnchant);
 		}
 	}
 

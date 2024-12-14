@@ -6,15 +6,12 @@ import com.bafmc.bukkit.bafframework.nms.NMSNBTTagList;
 import com.bafmc.bukkit.bafframework.utils.MaterialUtils;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.api.CEAPI;
-import com.bafmc.customenchantment.enchant.CESimple;
+import com.bafmc.customenchantment.enchant.CEEnchantSimple;
 import com.bafmc.customenchantment.item.CEUnifyWeapon.Target;
 import com.bafmc.customenchantment.nms.CECraftItemStackNMS;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public abstract class CEUnify<T extends CEUnifyData> extends CEWeaponAbstract<T> {
 	protected CEUnifyWeapon unifyWeapon;
@@ -39,7 +36,7 @@ public abstract class CEUnify<T extends CEUnifyData> extends CEWeaponAbstract<T>
 
 		String pattern = tag.getString(CENBT.PATTERN);
 
-		CEUnify item = (CEUnify) CustomEnchantment.instance().getCEItemStorageMap().get(type).get(pattern);
+		CEUnify item = (CEUnify) CustomEnchantment.instance().getCeItemStorageMap().get(type).get(pattern);
 
 		if (item != null) {
 			setData((T) item.getData());
@@ -83,8 +80,8 @@ public abstract class CEUnify<T extends CEUnifyData> extends CEWeaponAbstract<T>
 		unifyWeapon.setItemStack(Target.WEAPON, defaultItemStack);
 		unifyWeapon.setItemStack(Target.UNIFY, unifyItemStack);
 
-		for (CESimple ceSimple : enchant.getCESimpleList()) {
-			this.getWeaponEnchant().addCESimple(ceSimple);
+		for (CEEnchantSimple ceEnchantSimple : enchant.getCESimpleList()) {
+			this.getWeaponEnchant().addCESimple(ceEnchantSimple);
 		}
 
 		updateArmorAttribute(defaultItemStack, this.getCraftItemStack());

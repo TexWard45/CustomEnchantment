@@ -4,10 +4,10 @@ import com.bafmc.customenchantment.CustomEnchantment;
 import lombok.Getter;
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.api.Pair;
-import com.bafmc.customenchantment.enchant.CESimple;
-import com.bafmc.customenchantment.item.CEBook;
+import com.bafmc.customenchantment.enchant.CEEnchantSimple;
+import com.bafmc.customenchantment.item.book.CEBook;
 import com.bafmc.customenchantment.item.CEItem;
-import com.bafmc.customenchantment.menu.BookcraftMenu;
+import com.bafmc.customenchantment.menu.BookCraftMenu;
 import com.bafmc.customenchantment.menu.data.BookData;
 import com.bafmc.custommenu.menu.CItem;
 import com.bafmc.bukkit.utils.InventoryUtils;
@@ -29,28 +29,28 @@ public class FastCraft {
     private int minLevel, maxLevel, pos;
     private Player player;
     //
-    private BookcraftMenu bookcraftMenu;
+    private BookCraftMenu bookcraftMenu;
 
-    public FastCraft(BookcraftMenu bookcraftMenu) {
+    public FastCraft(BookCraftMenu bookcraftMenu) {
         this.bookcraftMenu = bookcraftMenu;
     }
 
     //FastCraft Zone
-    private boolean compareCeBook(CESimple ceSimple1, CESimple ceSimple2) {
+    private boolean compareCeBook(CEEnchantSimple ceEnchantSimple1, CEEnchantSimple ceEnchantSimple2) {
         //true -> equal, false -> different
-        if(!ceSimple1.getName().equals(ceSimple2.getName())){
+        if(!ceEnchantSimple1.getName().equals(ceEnchantSimple2.getName())){
             return false;
         }
 
-        if(ceSimple1.getLevel() != ceSimple2.getLevel()){
+        if(ceEnchantSimple1.getLevel() != ceEnchantSimple2.getLevel()){
             return false;
         }
 
-        if(ceSimple1.getSuccess().getValue() != ceSimple2.getSuccess().getValue()){
+        if(ceEnchantSimple1.getSuccess().getValue() != ceEnchantSimple2.getSuccess().getValue()){
             return false;
         }
 
-        if(ceSimple1.getDestroy().getValue() != ceSimple2.getDestroy().getValue()){
+        if(ceEnchantSimple1.getDestroy().getValue() != ceEnchantSimple2.getDestroy().getValue()){
             return false;
         }
 
@@ -84,13 +84,13 @@ public class FastCraft {
         }
     }
 
-    public BookcraftMenu.BookcraftConfirmReason confirmUpgradeFastCraft() {
+    public BookCraftMenu.BookcraftConfirmReason confirmUpgradeFastCraft() {
         Player player = bookcraftMenu.getPlayer();
         List<BookData> list = bookcraftMenu.getList();
         String groupName = list.get(0).getCESimple().getCEEnchant().getGroupName();
 
         if (!CustomEnchantment.instance().getBookCraftConfig().payMoney(player, groupName, (double)(this.cntBook.get(this.pos)))) {
-            return BookcraftMenu.BookcraftConfirmReason.NOT_ENOUGH_MONEY;
+            return BookCraftMenu.BookcraftConfirmReason.NOT_ENOUGH_MONEY;
         }
 
         //Return CE in book1-slot and update menu
@@ -111,22 +111,22 @@ public class FastCraft {
         this.bookHighLevel = null;
         this.cntBook.clear();
 
-        return BookcraftMenu.BookcraftConfirmReason.SUCCESS;
+        return BookCraftMenu.BookcraftConfirmReason.SUCCESS;
     }
 
     private BookData upgradeBookData(BookData book1, BookData book2){
-        CESimple ceSimple1 = book1.getCESimple();
-        int success1 = ceSimple1.getSuccess().getValue();
-        int destroy1 = ceSimple1.getDestroy().getValue();
+        CEEnchantSimple ceEnchantSimple1 = book1.getCESimple();
+        int success1 = ceEnchantSimple1.getSuccess().getValue();
+        int destroy1 = ceEnchantSimple1.getDestroy().getValue();
 
-        CESimple ceSimple2 = book2.getCESimple();
-        int success2 = ceSimple2.getSuccess().getValue();
-        int destroy2 = ceSimple2.getDestroy().getValue();
+        CEEnchantSimple ceEnchantSimple2 = book2.getCESimple();
+        int success2 = ceEnchantSimple2.getSuccess().getValue();
+        int destroy2 = ceEnchantSimple2.getDestroy().getValue();
 
-        CESimple ceSimpleResult = new CESimple(ceSimple1.getName(), ceSimple1.getLevel() + 1,
+        CEEnchantSimple ceEnchantSimpleResult = new CEEnchantSimple(ceEnchantSimple1.getName(), ceEnchantSimple1.getLevel() + 1,
                 Math.max(success1, success2), Math.min(destroy1, destroy2));
 
-        return new BookData(CEAPI.getCEBookItemStack(ceSimpleResult), ceSimpleResult);
+        return new BookData(CEAPI.getCEBookItemStack(ceEnchantSimpleResult), ceEnchantSimpleResult);
     }
 
     private void addBookFastCraft(int level, int amount){
@@ -155,24 +155,24 @@ public class FastCraft {
         //Sort choose high success %
         Collections.sort(this.array.get(level), compare1);
         BookData bookData = this.array.get(level).get(0).getKey();
-        CESimple ceSimple = bookData.getCESimple();
+        CEEnchantSimple ceEnchantSimple = bookData.getCESimple();
         this.demoBook.get(level).add(bookData);
-        int success1 = ceSimple.getSuccess().getValue();
-        int destroy1 = ceSimple.getDestroy().getValue();
+        int success1 = ceEnchantSimple.getSuccess().getValue();
+        int destroy1 = ceEnchantSimple.getDestroy().getValue();
 
         //Sort choose low destroy %
         Collections.sort(this.array.get(level), compare2);
         bookData = this.array.get(level).get(0).getKey();
-        ceSimple = bookData.getCESimple();
+        ceEnchantSimple = bookData.getCESimple();
         this.demoBook.get(level).add(bookData);
-        int success2 = ceSimple.getSuccess().getValue();
-        int destroy2 = ceSimple.getDestroy().getValue();
+        int success2 = ceEnchantSimple.getSuccess().getValue();
+        int destroy2 = ceEnchantSimple.getDestroy().getValue();
 
         //Create and push CE result into array
-        CESimple ceSimpleResult = new CESimple(ceSimple.getName(),level + 1,
+        CEEnchantSimple ceEnchantSimpleResult = new CEEnchantSimple(ceEnchantSimple.getName(),level + 1,
                 Math.max(success1, success2), Math.min(destroy1, destroy2));
         for(int i = 0 ; i < amount ; ++i){
-            this.array.get(level + 1).add(new Pair<BookData, Integer>(new BookData(CEAPI.getCEBookItemStack(ceSimpleResult), ceSimpleResult), 1));
+            this.array.get(level + 1).add(new Pair<BookData, Integer>(new BookData(CEAPI.getCEBookItemStack(ceEnchantSimpleResult), ceEnchantSimpleResult), 1));
         }
     }
 

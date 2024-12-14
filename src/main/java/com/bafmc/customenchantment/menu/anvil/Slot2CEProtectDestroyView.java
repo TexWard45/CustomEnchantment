@@ -3,7 +3,7 @@ package com.bafmc.customenchantment.menu.anvil;
 import com.bafmc.customenchantment.item.ApplyReason;
 import com.bafmc.customenchantment.item.ApplyResult;
 import com.bafmc.customenchantment.item.CEItem;
-import com.bafmc.customenchantment.item.CEProtectDestroy;
+import com.bafmc.customenchantment.item.protectdestroy.CEProtectDestroy;
 import com.bafmc.customenchantment.menu.CEAnvilMenu;
 
 public class Slot2CEProtectDestroyView extends AnvilSlot2View<Slot2CEProtectDestroyView> {
@@ -25,9 +25,9 @@ public class Slot2CEProtectDestroyView extends AnvilSlot2View<Slot2CEProtectDest
 
 		CEItem ceItem1 = menu.getItemData1().getCEItem();
 		CEItem ceItem2 = menu.getItemData2().getCEItem();
-		CEProtectDestroy enchantPoint = (CEProtectDestroy) ceItem2;
+		CEProtectDestroy protectDestroy = (CEProtectDestroy) ceItem2;
 
-		ApplyReason reason = enchantPoint.testApplyByMenuTo(ceItem1);
+		ApplyReason reason = protectDestroy.testApplyByMenuTo(ceItem1);
 
 		if (reason.getResult() == ApplyResult.SUCCESS) {
 			menu.updateSlots("preview3", reason.getSource().exportTo());
@@ -44,9 +44,9 @@ public class Slot2CEProtectDestroyView extends AnvilSlot2View<Slot2CEProtectDest
 
 	public ApplyReason apply(CEItem ceItem1, CEItem ceItem2) {
 		if (ceItem2 instanceof CEProtectDestroy) {
-			CEProtectDestroy enchantPoint = (CEProtectDestroy) ceItem2;
+			CEProtectDestroy protectDestroy = (CEProtectDestroy) ceItem2;
 
-			return enchantPoint.applyByMenuTo(ceItem1);
+			return protectDestroy.applyByMenuTo(ceItem1);
 		}
 		return ApplyReason.NOTHING;
 	}

@@ -20,10 +20,19 @@ public class CustomAttributeType extends NMSAttributeType {
 	public static final CustomAttributeType CRITICAL_DAMAGE = (CustomAttributeType) (new CustomAttributeType("CRITICAL_DAMAGE", "custom:player.critical_damage", 2)).register();
 	// Player will regenerate health every second.
 	public static final CustomAttributeType HEALTH_REGENERATION = (CustomAttributeType) (new CustomAttributeType("HEALTH_REGENERATION", "custom:player.health_regeneration", 0)).register();
+	// Player will regenerate health every second by a certain percentage between 0 and 100.
+	public static final CustomAttributeType HEALTH_REGENERATION_PERCENT = (CustomAttributeType) (new CustomAttributeType("HEALTH_REGENERATION_PERCENT", "custom:player.health_regeneration_percent", 0)).register();
 	// The player will take less damage from attacks by a certain percentage between 0 and 100.
 	public static final CustomAttributeType DAMAGE_REDUCTION = (CustomAttributeType) (new CustomAttributeType("DAMAGE_REDUCTION", "custom:player.damage_reduction", 0)).register();
 	// Life steal is a percentage of the damage dealt to the enemy that is returned to the player as health by a certain percentage between 0 and 100.
 	public static final CustomAttributeType LIFE_STEAL = (CustomAttributeType) (new CustomAttributeType("LIFE_STEAL", "custom:player.life_steal", 0)).register();
+	// Armor penetration is a percentage of the enemy's armor that is ignored by the player's attack by a certain percentage between 0 and 100.
+	public static final CustomAttributeType ARMOR_PENETRATION = (CustomAttributeType) (new CustomAttributeType("ARMOR_PENETRATION", "custom:player.armor_penetration", 0)).register();
+	// The player will have a chance to resist the slow effect by a certain percentage between 0 and 100.
+	public static final CustomAttributeType SLOW_RESISTANCE = (CustomAttributeType) (new CustomAttributeType("SLOW_RESISTANCE", "custom:player.slow_resistance", 0)).register();
+	// The player will have a chance to resist the stun/slow effect by a certain percentage between 0 and 100.
+	public static final CustomAttributeType MAGIC_RESISTANCE = (CustomAttributeType) (new CustomAttributeType("MAGIC_RESISTANCE", "custom:player.magic_resistance", 0)).register();
+
 	private int baseValue;
 
 	public CustomAttributeType(String type, String minecraftId, int baseValue) {
@@ -32,5 +41,9 @@ public class CustomAttributeType extends NMSAttributeType {
 	}
 
 	public static void init() {
+	}
+
+	public static CustomAttributeType[] getValues() {
+		return new CustomAttributeType[] {OPTION_ATTACK, OPTION_DEFENSE, OPTION_POWER, STAT_EXP, STAT_FOOD, STAT_HEALTH, STAT_OXYGEN, STAT_ABSORPTION_HEART, DODGE_CHANCE, CRITICAL_CHANCE, CRITICAL_DAMAGE, HEALTH_REGENERATION, DAMAGE_REDUCTION, LIFE_STEAL, ARMOR_PENETRATION};
 	}
 }

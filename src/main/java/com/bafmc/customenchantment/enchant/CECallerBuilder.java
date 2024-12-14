@@ -42,7 +42,7 @@ public class CECallerBuilder {
 		HashMap<EquipSlot, List<String>> slotEnchantChanceMap = new HashMap<EquipSlot, List<String>>();
 
 		Map<EquipSlot, CEWeaponAbstract> weaponMap = getWeaponMap();
-		
+
 		CEFunctionData data = getCEFunctionData();
 		
 		for (EquipSlot slot : weaponMap.keySet()) {

@@ -2,6 +2,8 @@ package com.bafmc.customenchantment.item;
 
 import java.util.List;
 
+import com.bafmc.customenchantment.item.banner.CEBanner;
+import com.bafmc.customenchantment.item.mask.CEMask;
 import org.bukkit.inventory.ItemStack;
 
 import com.bafmc.customenchantment.CustomEnchantment;
@@ -33,7 +35,7 @@ public class CEWeapon extends CEWeaponAbstract<CEWeaponData> {
 
 		String pattern = tag.getString(CENBT.PATTERN);
 
-		CEWeapon item = (CEWeapon) CustomEnchantment.instance().getCEItemStorageMap().get(type).get(pattern);
+		CEWeapon item = (CEWeapon) CustomEnchantment.instance().getCeItemStorageMap().get(type).get(pattern);
 
 		if (item != null) {
 			setData(item.getData());

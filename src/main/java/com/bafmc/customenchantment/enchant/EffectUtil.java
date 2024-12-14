@@ -1,11 +1,12 @@
 package com.bafmc.customenchantment.enchant;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import com.bafmc.bukkit.utils.AttributeUtils;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeModifier.Operation;
 import org.bukkit.potion.PotionEffectType;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class EffectUtil {
 	public static List<PotionEffectType> getPotionEffectList(String format) {
@@ -39,28 +40,6 @@ public class EffectUtil {
 	}
 
 	public static Attribute getAttributeType(String type) {
-		switch (type) {
-		case "ATTACK_DAMAGE":
-			return Attribute.GENERIC_ATTACK_DAMAGE;
-		case "ATTACK_SPEED":
-			return Attribute.GENERIC_ATTACK_SPEED;
-		case "FOLLOW_RANGE":
-			return Attribute.GENERIC_FOLLOW_RANGE;
-		case "KNOCKBACK_RESISTANCE":
-			return Attribute.GENERIC_KNOCKBACK_RESISTANCE;
-		case "LUCK":
-			return Attribute.GENERIC_LUCK;
-		case "MAX_HEALTH":
-			return Attribute.GENERIC_MAX_HEALTH;
-		case "ARMOR":
-			return Attribute.GENERIC_ARMOR;
-		case "ARMOR_TOUGHNESS":
-			return Attribute.GENERIC_ARMOR_TOUGHNESS;
-		case "MOVEMENT_SPEED":
-			return Attribute.GENERIC_MOVEMENT_SPEED;
-		case "FLYING_SPEED":
-			return Attribute.GENERIC_FLYING_SPEED;
-		}
-		return null;
+		return AttributeUtils.getAttribute(type);
 	}
 }

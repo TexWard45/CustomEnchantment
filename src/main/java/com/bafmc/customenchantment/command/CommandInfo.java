@@ -1,10 +1,11 @@
 package com.bafmc.customenchantment.command;
 
+import com.bafmc.bukkit.bafframework.nms.NMSAttributeType;
 import com.bafmc.bukkit.command.*;
 import com.bafmc.customenchantment.api.CEAPI;
+import com.bafmc.customenchantment.attribute.CustomAttributeType;
 import com.bafmc.customenchantment.player.CEPlayer;
 import com.bafmc.customenchantment.player.PlayerVanillaAttribute;
-import de.tr7zw.nbtapi.NBTItem;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeModifier;
 import org.bukkit.command.CommandSender;
@@ -38,10 +39,10 @@ public class CommandInfo implements AbstractCommand {
 									sender.sendMessage(modifier.getName() + " " + modifier.getAmount() + " " + modifier.getOperation());
 								}
 							}
+							for (CustomAttributeType type : CustomAttributeType.getValues()) {
+								sender.sendMessage(type.getType() + " " + cePlayer.getCustomAttribute().getValue(type));
+							}
 							sender.sendMessage("== End ==");
-
-							NBTItem nbtItem = new NBTItem(player.getInventory().getItemInMainHand());
-							System.out.println(nbtItem.getKeys());
 							return true;
 						}
 					})

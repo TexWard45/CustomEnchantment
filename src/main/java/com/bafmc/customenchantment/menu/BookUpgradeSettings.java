@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import com.bafmc.customenchantment.enchant.CESimple;
+import com.bafmc.customenchantment.enchant.CEEnchantSimple;
 import com.bafmc.customenchantment.menu.data.BookUpgradeData;
 import com.bafmc.customenchantment.menu.data.BookUpgradeLevelData;
 import com.bafmc.customenchantment.menu.data.RequiredXpGroup;
@@ -33,14 +33,14 @@ public class BookUpgradeSettings {
         return xpGroupMap.get(groupName) != null ? xpGroupMap.get(groupName) : xpGroupMap.get("default");
     }
 
-    public RandomRangeInt getXp(CESimple ceSimple) {
-        BookUpgradeData bookUpgradeData = getBookUpgradeData(ceSimple.getName(), ceSimple.getLevel());
+    public RandomRangeInt getXp(CEEnchantSimple ceEnchantSimple) {
+        BookUpgradeData bookUpgradeData = getBookUpgradeData(ceEnchantSimple.getName(), ceEnchantSimple.getLevel());
 
         if (bookUpgradeData != null) {
             return bookUpgradeData.getXp();
         }
 
-        return getXp(ceSimple.getCEEnchant().getGroupName(), ceSimple.getLevel());
+        return getXp(ceEnchantSimple.getCEEnchant().getGroupName(), ceEnchantSimple.getLevel());
     }
 
     public RandomRangeInt getXp(String groupName, int level) {

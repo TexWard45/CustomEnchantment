@@ -9,6 +9,7 @@ import com.bafmc.customenchantment.CustomEnchantmentMessage;
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.item.*;
 import com.bafmc.customenchantment.item.CEUnifyWeapon.Target;
+import com.bafmc.customenchantment.item.nametag.CENameTag;
 import com.destroystokyo.paper.event.inventory.PrepareGrindstoneEvent;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -247,7 +248,7 @@ public class InventoryListener implements Listener {
 		if (!(clickType == ClickType.LEFT) && inventoryAction == InventoryAction.SWAP_WITH_CURSOR && rawSlot >= 0
 				&& !exceptSlot.contains(rawSlot)) {
 			onCEItemInventory(e);
-		} else if (clickType == ClickType.RIGHT && cursor.getType() == Material.AIR) {
+		} else if ((clickType == ClickType.MIDDLE || clickType == ClickType.SHIFT_RIGHT) && cursor.getType() == Material.AIR) {
 			onMaskInventory(e);
 		}
 	}

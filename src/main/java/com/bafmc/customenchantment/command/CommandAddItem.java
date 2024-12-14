@@ -29,7 +29,7 @@ public class CommandAddItem implements AbstractCommand {
 									return true;
 								}
 
-								VanillaItemStorage storage = (VanillaItemStorage) CustomEnchantment.instance().getCEItemStorageMap()
+								VanillaItemStorage storage = (VanillaItemStorage) CustomEnchantment.instance().getCeItemStorageMap()
 										.get(CEItemType.STORAGE);
 								storage.putItem(arg.get("<item>"), itemStack);
 								return true;

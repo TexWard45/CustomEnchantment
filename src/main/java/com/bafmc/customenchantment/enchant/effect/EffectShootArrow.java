@@ -46,8 +46,6 @@ public class EffectShootArrow extends EffectHook {
 		Location spawnLocation = new LocationFormat(spawnLocationFormat).getLocation(player, enemy);
 		Location destinationLocation = new LocationFormat(destinationLocationFormat).getLocation(player, enemy);
 
-		data.getEquipSlot();
-
 		final int veloX = destinationLocation.getBlockX() - spawnLocation.getBlockX(),
 				veloY = destinationLocation.getBlockY() - spawnLocation.getBlockY(),
 				veloZ = destinationLocation.getBlockZ() - spawnLocation.getBlockZ();

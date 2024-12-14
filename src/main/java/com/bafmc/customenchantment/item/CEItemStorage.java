@@ -8,6 +8,7 @@ import org.bukkit.inventory.ItemStack;
 import com.bafmc.customenchantment.api.Parameter;
 import com.bafmc.bukkit.utils.RandomRangeInt;
 import com.bafmc.bukkit.utils.StorageMap;
+import org.bukkit.inventory.meta.ItemMeta;
 
 public abstract class CEItemStorage<T extends CEItem<? extends CEItemData>> extends StorageMap<T> {
 	/**

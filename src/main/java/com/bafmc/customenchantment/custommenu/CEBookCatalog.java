@@ -7,7 +7,7 @@ import com.bafmc.customenchantment.CEEnchantMap;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.enchant.CEEnchant;
-import com.bafmc.customenchantment.enchant.CESimple;
+import com.bafmc.customenchantment.enchant.CEEnchantSimple;
 import com.bafmc.custommenu.menu.Catalog;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -51,7 +51,7 @@ public class CEBookCatalog extends Catalog {
 		List<String> ceBlacklist = config.getStringList("ce-blacklist");
 
 		this.list = new ArrayList<CEBookData>();
-		CEEnchantMap map = CustomEnchantment.instance().getCEEnchantMap();
+		CEEnchantMap map = CustomEnchantment.instance().getCeEnchantMap();
 
 		List<String> ceNameList = new ArrayList<String>();
 		for (CEEnchant enchant : map.values()) {
@@ -76,7 +76,7 @@ public class CEBookCatalog extends Catalog {
 		for (String ceName : ceNameList) {
 			CEEnchant enchant = CEAPI.getCEEnchant(ceName);
 			
-			ItemStack itemStack = CEAPI.getCEBookItemStack(ceBookType, new CESimple(enchant.getName(), 1, 100, 0));
+			ItemStack itemStack = CEAPI.getCEBookItemStack(ceBookType, new CEEnchantSimple(enchant.getName(), 1, 100, 0));
 			ItemMeta meta = itemStack.getItemMeta();
             String originDisplay = meta.getDisplayName();
 			String display = originDisplay;

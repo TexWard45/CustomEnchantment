@@ -1,587 +1,92 @@
 package com.bafmc.customenchantment;
 
-import com.bafmc.bukkit.command.AdvancedCommandBuilder;
-import com.bafmc.bukkit.command.AdvancedCommandExecutor;
-import com.bafmc.bukkit.command.Argument;
-import com.bafmc.bukkit.config.AdvancedFileConfiguration;
-import com.bafmc.bukkit.utils.ConfigUtils;
-import com.bafmc.bukkit.utils.FileUtils;
-import com.bafmc.customenchantment.api.CEAPI;
-import com.bafmc.customenchantment.attribute.CustomAttributeType;
-import com.bafmc.customenchantment.command.CommandNameTag;
-import com.bafmc.customenchantment.command.CustomEnchantmentCommand;
-import com.bafmc.customenchantment.config.*;
-import com.bafmc.customenchantment.custommenu.CEBookCatalog;
-import com.bafmc.customenchantment.custommenu.CustomEnchantmentItemDisplaySetup;
-import com.bafmc.customenchantment.custommenu.CustomEnchantmentTradeItemCompare;
-import com.bafmc.customenchantment.database.Database;
+import com.bafmc.bukkit.BafPlugin;
+import com.bafmc.customenchantment.attribute.AttributeModule;
+import com.bafmc.customenchantment.command.CommandModule;
+import com.bafmc.customenchantment.config.BookCraftConfig;
+import com.bafmc.customenchantment.config.ConfigModule;
+import com.bafmc.customenchantment.config.MainConfig;
+import com.bafmc.customenchantment.custommenu.CustomMenuModule;
+import com.bafmc.customenchantment.database.DatabaseModule;
 import com.bafmc.customenchantment.enchant.EffectTaskSeparate;
-import com.bafmc.customenchantment.enchant.condition.*;
-import com.bafmc.customenchantment.enchant.effect.*;
-import com.bafmc.customenchantment.execute.GiveItemExecute;
-import com.bafmc.customenchantment.execute.GiveVoucherItemExecute;
-import com.bafmc.customenchantment.execute.UseItemExecute;
-import com.bafmc.customenchantment.filter.FilterRegister;
-import com.bafmc.customenchantment.guard.GuardManager;
-import com.bafmc.customenchantment.item.*;
-import com.bafmc.customenchantment.listener.*;
-import com.bafmc.customenchantment.menu.BookUpgradeMenu;
-import com.bafmc.customenchantment.menu.BookcraftMenu;
-import com.bafmc.customenchantment.menu.CEAnvilMenu;
-import com.bafmc.customenchantment.menu.anvil.*;
-import com.bafmc.customenchantment.placeholder.CustomEnchantmentPlaceholder;
-import com.bafmc.customenchantment.player.*;
-import com.bafmc.customenchantment.player.attribute.AttributeMapRegister;
-import com.bafmc.customenchantment.player.mining.*;
-import com.bafmc.customenchantment.task.*;
-import com.bafmc.custommenu.api.CustomMenuAPI;
+import com.bafmc.customenchantment.enchant.EnchantModule;
+import com.bafmc.customenchantment.execute.ExecuteModule;
+import com.bafmc.customenchantment.feature.FeatureModule;
+import com.bafmc.customenchantment.filter.FilterModule;
+import com.bafmc.customenchantment.guard.GuardModule;
+import com.bafmc.customenchantment.item.ItemModule;
+import com.bafmc.customenchantment.listener.ListenerModule;
+import com.bafmc.customenchantment.menu.MenuModule;
+import com.bafmc.customenchantment.placeholder.PlaceholderModule;
+import com.bafmc.customenchantment.player.PlayerModule;
+import com.bafmc.customenchantment.task.TaskModule;
 import lombok.Getter;
-import org.bukkit.Bukkit;
+import lombok.Setter;
 import org.bukkit.OfflinePlayer;
-import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
-import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.scheduler.BukkitRunnable;
 
 import java.io.File;
 
 @Getter
-public class CustomEnchantment extends JavaPlugin implements Listener {
+@Setter
+public class CustomEnchantment extends BafPlugin implements Listener {
 	private static CustomEnchantment instance;
-	private CEPlayerMap cePlayerMap;
 	private CEEnchantMap ceEnchantMap;
 	private CEGroupMap ceGroupMap;
 	private CEItemStorageMap ceItemStorageMap;
-	private EffectExecuteTask asyncEffectExecuteTask;
-	private EffectExecuteTask effectExecuteTask;
-	private CECallerTask ceCallerTask;
-	private CEArtifactTask artifactTask;
-	private RecalculateAttributeTask attributeTask;
-	private RegenerationTask regenerationTask;
-	private CEPlayerTask cePlayerTask;
-	private SpecialMiningTask specialMiningTask;
-	private GuardManager guardManager;
-	private GuardTask guardTask;
-	private BlockTask blockTask;
-    private ArrowTask arrowTask;
-	private Database database;
 	private MainConfig mainConfig;
 	private BookCraftConfig bookCraftConfig;
+	private AttributeModule attributeModule;
+	private FilterModule filterModule;
+	private CommandModule commandModule;
+	private EnchantModule enchantModule;
+	private ItemModule itemModule;
+	private PlayerModule playerModule;
+	private ExecuteModule executeModule;
+	private TaskModule taskModule;
+	private CustomMenuModule customMenuModule;
+	private ListenerModule listenerModule;
+	private DatabaseModule databaseModule;
+	private MenuModule menuModule;
+	private PlaceholderModule placeholderModule;
+	private GuardModule guardModule;
+	private ConfigModule configModule;
+	private FeatureModule featureModule;
 
 	@Override
 	public void onEnable() {
 		CustomEnchantment.instance = this;
 
-		setup();
+		super.onEnable();
 	}
 
-	@Override
-	public void onDisable() {
-		this.asyncEffectExecuteTask.cancel();
-		this.effectExecuteTask.cancel();
-		this.cePlayerTask.cancel();
-		this.specialMiningTask.cancel();
-		this.guardTask.cancel();
-		this.blockTask.cancel();
-		this.database.disconnect();
-		unregisterCMenu();
-	}
-
-	public void registerCMenu() {
-		if (Bukkit.getPluginManager().isPluginEnabled("CustomMenu")) {
-			CustomMenuAPI.registerPlugin(this, getMenuFolder());
-		}
-	}
-
-	public void unregisterCMenu() {
-		if (Bukkit.getPluginManager().isPluginEnabled("CustomMenu")) {
-			CustomMenuAPI.unregisterPlugin(this);
-		}
-	}
-
-	public void setup() {
-		setupCustomAttribute();
-        setupFilter();
-		setupCommand();
-		setupTradeItemCompare();
-		setupCEItem();
-		setupCEPlayerExpansion();
-		setupPlayerSpecialMining();
-		setupExecute();
-		setupFile();
-		setupEffect();
-		setupCondition();
-		setupConfig();
-		setupTask();
-		setupPlayers();
-		setupGuard();
-		setupListener();
-		setupDatabase();
-		setupMenu();
-		setupCatalog();
-
-        Bukkit.getScheduler().runTask(this, () -> setupPlaceholders());
-
-		Bukkit.getScheduler().runTaskAsynchronously(this, () -> {
-			registerCMenu();
-		});
-	}
-
-	public void setupCustomAttribute() {
-		CustomAttributeType.init();
-		AttributeMapRegister.init();
-	}
-
-    public void setupFilter() {
-        FilterRegister.register();
-    }
-
-	public void setupCommand() {
-		AdvancedCommandBuilder builder = AdvancedCommandBuilder.builder().plugin(this).rootCommand("customenchantment");
-
-		new CustomEnchantmentCommand(this).onRegister(builder);
-
-		builder.build();
-
-		AdvancedCommandBuilder bookCraftBuilder = AdvancedCommandBuilder.builder().plugin(this).rootCommand("bookcraft");
-		bookCraftBuilder.commandExecutor(new AdvancedCommandExecutor() {
-			public boolean onCommand(CommandSender sender, Argument arg) {
-				if (!(sender instanceof Player)) {
-					return true;
-				}
-				Player player = (Player) sender;
-				CustomMenuAPI.getCPlayer(player).openCustomMenu(BookcraftMenu.MENU_NAME, true);
-				return true;
-			}
-		}).end();
-		bookCraftBuilder.build();
-
-        AdvancedCommandBuilder bookUpgradeBuilder = AdvancedCommandBuilder.builder().plugin(this).rootCommand("bookupgrade");
-        bookUpgradeBuilder.commandExecutor(new AdvancedCommandExecutor() {
-            public boolean onCommand(CommandSender sender, Argument arg) {
-                if (!(sender instanceof Player)) {
-                    return true;
-                }
-                Player player = (Player) sender;
-                CustomMenuAPI.getCPlayer(player).openCustomMenu(BookUpgradeMenu.MENU_NAME, true);
-                return true;
-            }
-        }).end();
-        bookUpgradeBuilder.build();
-
-		AdvancedCommandBuilder tinkererBuilder = AdvancedCommandBuilder.builder().plugin(this).rootCommand("tinkerer");
-		tinkererBuilder.commandExecutor(new AdvancedCommandExecutor() {
-			public boolean onCommand(CommandSender sender, Argument arg) {
-				if (!(sender instanceof Player)) {
-					return true;
-				}
-				Player player = (Player) sender;
-				CustomMenuAPI.getCPlayer(player).openCustomMenu("tinkerer", true);
-				return true;
-			}
-		}).end();
-		tinkererBuilder.build();
-
-		AdvancedCommandBuilder anvilBuilder = AdvancedCommandBuilder.builder().plugin(this).rootCommand("ceanvil");
-		anvilBuilder.commandExecutor(new AdvancedCommandExecutor() {
-			public boolean onCommand(CommandSender sender, Argument arg) {
-				if (!(sender instanceof Player)) {
-					return true;
-				}
-				Player player = (Player) sender;
-				CustomMenuAPI.getCPlayer(player).openCustomMenu("ce-anvil", true);
-				return true;
-			}
-		}).end();
-		anvilBuilder.build();
-
-		AdvancedCommandBuilder nameTagBuilder = AdvancedCommandBuilder.builder().plugin(this).rootCommand("nametag");
-		new CommandNameTag().onRegister(nameTagBuilder);
-		nameTagBuilder.build();
-	}
-
-	public void setupMenu() {
-		CEAnvilMenu.registerView1(CEItemType.WEAPON, Slot1CEWeaponView.class);
-        CEAnvilMenu.registerView2("default", Slot2CEDefaultView.class);
-		CEAnvilMenu.registerView2(CEItemType.REMOVE_ENCHANT, Slot2CERemoveEnchantView.class);
-		CEAnvilMenu.registerView2(CEItemType.ENCHANT_POINT, Slot2CEEnchantPointView.class);
-		CEAnvilMenu.registerView2(CEItemType.BOOK, Slot2CEBookView.class);
-		CEAnvilMenu.registerView2(CEItemType.PROTECT_DEAD, Slot2CEProtectDeadView.class);
-		CEAnvilMenu.registerView2(CEItemType.REMOVE_PROTECT_DEAD, Slot2CERemoveProtectDeadView.class);
-        CEAnvilMenu.registerView2(CEItemType.LORE_FORMAT, Slot2CELoreFormatView.class);
-        CEAnvilMenu.registerView2(CEItemType.REMOVE_ENCHANT_POINT, Slot2CERemoveEnchantPointView.class);
-		CEAnvilMenu.registerView2(CEItemType.PROTECT_DESTROY, Slot2CEProtectDestroyView.class);
-		CEAnvilMenu.registerView2(CEItemType.EARSE_ENCHANT, Slot2CEEraseEnchantView.class);
-	}
-
-	public void setupDatabase() {
-		FileUtils.createFile(getDatabaseFile());
-
-		this.database = new Database(getDatabaseFile());
-		this.database.connect();
-		this.database.init();
-
-		CustomEnchantmentDebug.log("Success connect and init database!");
-	}
-
-	public void setupCEItem() {
-		new CEArtifactFactory().register();
-		new CEMaskFactory().register();
-		new CEBannerFactory().register();
-		new CEWeaponFactory().register();
-		new CEBookFactory().register();
-		new CEProtectDeadFactory().register();
-		new CEGemFactory().register();
-		new CERemoveProtectDeadFactory().register();
-		new CEProtectDestroyFactory().register();
-		new CENameTagFactory().register();
-		new CEEnchantPointFactory().register();
-		new CEIncreaseRateBookFactory().register();
-		new CERandomBookFactory().register();
-		new CERemoveEnchantFactory().register();
-		new CERemoveEnchantPointFactory().register();
-		new CEEraseEnchantFactory().register();
-		new CELoreFormatFactory().register();
-	}
-
-	public void setupCEPlayerExpansion() {
-		CEPlayerExpansionRegister.register(PlayerStorage.class);
-		CEPlayerExpansionRegister.register(PlayerTemporaryStorage.class);
-		CEPlayerExpansionRegister.register(PlayerVanillaAttribute.class);
-		CEPlayerExpansionRegister.register(PlayerCustomAttribute.class);
-		CEPlayerExpansionRegister.register(PlayerPotion.class);
-        CEPlayerExpansionRegister.register(PlayerSet.class);
-		CEPlayerExpansionRegister.register(PlayerCECooldown.class);
-		CEPlayerExpansionRegister.register(PlayerCEManager.class);
-		CEPlayerExpansionRegister.register(PlayerAbility.class);
-		CEPlayerExpansionRegister.register(PlayerMobBonus.class);
-		CEPlayerExpansionRegister.register(PlayerBlockBonus.class);
-		CEPlayerExpansionRegister.register(PlayerSpecialMining.class);
-		CEPlayerExpansionRegister.register(PlayerNameTag.class);
-	}
-	
-	public void setupPlayerSpecialMining() {
-		PlayerSpecialMiningRegister.register(BlockDropBonusSpecialMine.class);
-		PlayerSpecialMiningRegister.register(ExplosionSpecialMine.class);
-		PlayerSpecialMiningRegister.register(FurnaceSpecialMine.class);
-		PlayerSpecialMiningRegister.register(TelepathySpecialMine.class);
-		PlayerSpecialMiningRegister.register(AutoSellSpecialMine.class);
-	}
-
-	public void setupExecute() {
-		new GiveItemExecute().register();
-		new UseItemExecute().register();
-
-		if (Bukkit.getPluginManager().isPluginEnabled("Vouchers")) {
-			new GiveVoucherItemExecute().register();
-		}
-	}
-
-	public void setupFile() {
-		FileUtils.createFolder(getGeneralDataFolder());
-		FileUtils.createFolder(getPlayerDataFolder());
-		FileUtils.createFolder(getEnchantFolder());
-
-		ConfigUtils.setupResource(this, "/enchantment/armor.yml",
-				new File(getEnchantFolder(), File.separator + "armor.yml"));
-		ConfigUtils.setupResource(this, "/enchantment/axe.yml",
-				new File(getEnchantFolder(), File.separator + "axe.yml"));
-		ConfigUtils.setupResource(this, "/enchantment/boots.yml",
-				new File(getEnchantFolder(), File.separator + "boots.yml"));
-		ConfigUtils.setupResource(this, "/enchantment/bow.yml",
-				new File(getEnchantFolder(), File.separator + "bow.yml"));
-		ConfigUtils.setupResource(this, "/enchantment/chestplate.yml",
-				new File(getEnchantFolder(), File.separator + "chestplate.yml"));
-		ConfigUtils.setupResource(this, "/enchantment/helmet.yml",
-				new File(getEnchantFolder(), File.separator + "helmet.yml"));
-		ConfigUtils.setupResource(this, "/enchantment/hoe.yml",
-				new File(getEnchantFolder(), File.separator + "hoe.yml"));
-		ConfigUtils.setupResource(this, "/enchantment/leggings.yml",
-				new File(getEnchantFolder(), File.separator + "leggings.yml"));
-		ConfigUtils.setupResource(this, "/enchantment/mask.yml",
-				new File(getEnchantFolder(), File.separator + "mask.yml"));
-		ConfigUtils.setupResource(this, "/enchantment/mix.yml",
-				new File(getEnchantFolder(), File.separator + "mix.yml"));
-		ConfigUtils.setupResource(this, "/enchantment/pickaxe.yml",
-				new File(getEnchantFolder(), File.separator + "pickaxe.yml"));
-		ConfigUtils.setupResource(this, "/enchantment/set.yml",
-				new File(getEnchantFolder(), File.separator + "set.yml"));
-		ConfigUtils.setupResource(this, "/enchantment/space.yml",
-				new File(getEnchantFolder(), File.separator + "space.yml"));
-		ConfigUtils.setupResource(this, "/enchantment/sword.yml",
-				new File(getEnchantFolder(), File.separator + "sword.yml"));
-		ConfigUtils.setupResource(this, "/bookcraft.yml", new File(getDataFolder(), File.separator + "bookcraft.yml"));
-		ConfigUtils.setupResource(this, "/groups.yml", new File(getDataFolder(), File.separator + "groups.yml"));
-		ConfigUtils.setupResource(this, "/items.yml", new File(getDataFolder(), File.separator + "items.yml"));
-		ConfigUtils.setupResource(this, "/messages.yml", new File(getDataFolder(), File.separator + "messages.yml"));
-		ConfigUtils.setupResource(this, "/tinkerer.yml", new File(getDataFolder(), File.separator + "tinkerer.yml"));
-		ConfigUtils.setupResource(this, "/vanilla-items.yml",
-				new File(getDataFolder(), File.separator + "vanilla-items.yml"));
-	}
-
-	public void setupTradeItemCompare() {
-		if (Bukkit.getPluginManager().isPluginEnabled("CustomMenu")) {
-			new CustomEnchantmentTradeItemCompare().register();
-			new CustomEnchantmentItemDisplaySetup().register();
-		}
-	}
-
-	public void setupEffect() {
-		new EffectAddForeverPotion().register();
-		new EffectRemovePotion().register();
-		new EffectAddPotion().register();
-		new EffectRemoveForeverPotion().register();
-		new EffectMessage().register();
-		new EffectRemoveTask().register();
-		new EffectEnableMultipleArrow().register();
-		new EffectDisableMultipleArrow().register();
-		new EffectAddAttribute().register();
-		new EffectRemoveAttribute().register();
-		new EffectHealth().register();
-		new EffectFood().register();
-		new EffectExp().register();
-		new EffectOxygen().register();
-		new EffectAbsorptionHeart().register();
-		new EffectDurability().register();
-		new EffectOnFire().register();
-		new EffectPull().register();
-		new EffectLightning().register();
-		new EffectTeleport().register();
-		new EffectPacketParticle().register();
-		new EffectActiveAbility().register();
-		new EffectDeactiveAbility().register();
-        new EffectActiveDash().register();
-        new EffectDeactiveDash().register();
-        new EffectActiveDoubleJump().register();
-        new EffectDeactiveDoubleJump().register();
-		new EffectActiveEquipSlot().register();
-		new EffectDeactiveEquipSlot().register();
-		new EffectAddMobBonus().register();
-		new EffectRemoveMobBonus().register();
-		new EffectAddBlockBonus().register();
-		new EffectRemoveBlockBonus().register();
-		new EffectPacketRedstoneParticle().register();
-		new EffectExplosion().register();
-		new EffectPlaySound().register();
-		new EffectNumberStorage().register();
-		new EffectTextStorage().register();
-		new EffectAddCustomAttribute().register();
-		new EffectRemoveCustomAttribute().register();
-		new EffectAddFurnaceMining().register();
-		new EffectRemoveFurnaceMining().register();
-		new EffectAddExplosionMining().register();
-		new EffectRemoveExplosionMining().register();
-		new EffectAddRandomPotion().register();
-		new EffectRemoveRandomPotion().register();
-		new EffectAddBlockDropBonusMining().register();
-		new EffectRemoveBlockDropBonusMining().register();
-		new EffectEnableTelepathy().register();
-		new EffectDisableTelepathy().register();
-		new EffectFixedPull().register();
-		new EffectSummonGuard().register();
-		new EffectSummonBabyZombieGuard().register();
-		new EffectRemoveGuard().register();
-		new EffectSetBlock().register();
-		new EffectAdvancedMessage().register();
-		new EffectDealDamage().register();
-		new EffectSetFlight().register();
-		new EffectShootArrow().register();
-		new EffectSummonCustomGuard().register();
-		new EffectEnableAutoSell().register();
-		new EffectDisableAutoSell().register();
-        new EffectBlockForeverPotion().register();
-        new EffectUnblockForeverPotion().register();
-	}
-
-	public void setupCondition() {
-		new ConditionEquipSlot().register();
-		new ConditionEntityType().register();
-		new ConditionExp().register();
-		new ConditionFood().register();
-		new ConditionFoodPercent().register();
-		new ConditionHasEnemy().register();
-		new ConditionHealth().register();
-		new ConditionHealthPercent().register();
-		new ConditionHold().register();
-		new ConditionLevel().register();
-		new ConditionOxygen().register();
-		new ConditionOxygenPercent().register();
-		new ConditionNumberStorage().register();
-		new ConditionTextStorage().register();
-		new ConditionDamageCause().register();
-		new ConditionHasDamageCause().register();
-		new ConditionOnFire().register();
-		new ConditionItemConsume().register();
-		new ConditionOutOfSight().register();
-		new ConditionCanAttack().register();
-		new ConditionFactionRelation().register();
-		new ConditionAllowFlight().register();
-		new ConditionInFactionTerriority().register();
-		new ConditionHasNearbyEnemy().register();
-		new ConditionInCombat().register();
-		new ConditionOnGround().register();
-		new ConditionActiveEquipSlot().register();
-		new ConditionOnlyActiveEquip().register();
-        new ConditionFakeSource().register();
-	}
-
-	public void setupListener() {
-		new PlayerListener(this);
-		new InventoryListener(this);
-		new EntityListener(this);
-		new BlockListener(this);
-		new CEProtectDeadListener(this);
-		new GuardListener(this);
-		new BannerListener(this);
-
-		if (Bukkit.getPluginManager().isPluginEnabled("StackMob")) {
-			new MobStackDeathListener(this);
-		} else {
-			new MobDeathListener(this);
-		}
-
-		if (Bukkit.getPluginManager().isPluginEnabled("CustomMenu")) {
-			new CMenuListener(this);
-		}
-
-		if (Bukkit.getPluginManager().isPluginEnabled("mcMMO")) {
-			new McMMOListener(this);
-		}
-	}
-
-	public void setupConfig() {
-		FileUtils.createFile(getGroupFile());
-		FileUtils.createFile(getItemFile());
-		FileUtils.createFile(getVanillaItemFile());
-		FileUtils.createFile(getSaveItemFile());
-		FileUtils.createFile(getBookCraftFile());
-        FileUtils.createFile(getBookUpgradeFile());
-        FileUtils.createFile(getBookUpgradeFolder());
-		FileUtils.createFile(getTinkererFile());
-		FileUtils.createFile(getMessagesFile());
-		FileUtils.createFolder(getEnchantFolder());
-		FileUtils.createFolder(getMenuFolder());
-
-		this.ceEnchantMap = new CEEnchantMap();
-		this.ceGroupMap = new CEGroupMap();
-		this.ceItemStorageMap = new CEItemStorageMap();
-
-		CustomEnchantmentMessage.setConfig(new AdvancedFileConfiguration(getMessagesFile()));
-
-		saveDefaultConfig();
-		reloadConfig();
-
-		AdvancedFileConfiguration mainConfig = new AdvancedFileConfiguration(getConfigFile());
-		this.mainConfig = mainConfig.get(MainConfig.class);
-
-		CEGroupConfig groupConfig = new CEGroupConfig();
-		groupConfig.loadConfig(getGroupFile());
-
-		CEEnchantConfig enchantConfig = new CEEnchantConfig();
-		enchantConfig.loadConfig(getEnchantFolder());
-
-		CEItemConfig ceItemConfig = new CEItemConfig();
-		ceItemConfig.loadConfig(getItemFile());
-
-		VanillaItemConfig vanillaItemConfig = new VanillaItemConfig();
-		vanillaItemConfig.loadConfig(getVanillaItemFile());
-
-		AdvancedFileConfiguration bookCraftConfig = new AdvancedFileConfiguration(getBookCraftFile());
-		this.bookCraftConfig = bookCraftConfig.get(BookCraftConfig.class);
-
-        BookUpgradeConfig bookUpgradeConfig = new BookUpgradeConfig();
-        bookUpgradeConfig.loadConfig(getBookUpgradeFile());
-        bookUpgradeConfig.loadConfig(getBookUpgradeFolder());
-
-		TinkererConfig tinkererConfig = new TinkererConfig();
-		tinkererConfig.loadConfig(getTinkererFile());
-	}
-
-	public void setupTask() {
-		this.asyncEffectExecuteTask = new EffectExecuteTask(true);
-		this.asyncEffectExecuteTask.runTaskTimerAsynchronously(this, 0, 1);
-
-		this.effectExecuteTask = new EffectExecuteTask(false);
-		this.effectExecuteTask.runTaskTimer(this, 0, 1);
-
-		this.cePlayerTask = new CEPlayerTask(this);
-		this.cePlayerTask.runTaskTimer(this, 0, 20);
-
-		this.ceCallerTask = new CECallerTask(this);
-		this.ceCallerTask.runTaskTimer(this, 0, 1);
-
-		this.artifactTask = new CEArtifactTask(this);
-		this.artifactTask.runTaskTimer(this, 0, 20);
-
-		this.attributeTask = new RecalculateAttributeTask(this);
-		this.attributeTask.runTaskTimerAsynchronously(this, 0, 20);
-
-		this.regenerationTask = new RegenerationTask(this);
-		this.regenerationTask.runTaskTimer(this, 0, 4);
-		
-		this.specialMiningTask = new SpecialMiningTask(this);
-		this.specialMiningTask.runTaskTimer(this, 0, 1);
-
-		this.blockTask = new BlockTask(this);
-		this.blockTask.runTaskTimer(this, 0, 1);
-
-        this.arrowTask = new ArrowTask();
-        this.arrowTask.runTaskTimer(this, 0, 20);
-
-		new BukkitRunnable() {
-			public void run() {
-				for (CEPlayer cePlayer : getCEPlayerMap().getCEPlayers()) {
-					cePlayer.getStorage().getConfig().save();
-				}
-			}
-		}.runTaskTimerAsynchronously(instance, 0, 20 * 60 * 15);
-	}
-
-	public void setupPlayers() {
-		this.cePlayerMap = new CEPlayerMap();
-
-		new BukkitRunnable() {
-			public void run() {
-				for (Player player : Bukkit.getOnlinePlayers()) {
-					CEPlayer cePlayer = CEAPI.getCEPlayer(player);
-					cePlayer.onJoin();
-				}
-			}
-		}.runTaskAsynchronously(this);
-	}
-
-    public void setupPlaceholders() {
-        if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) {
-            new CustomEnchantmentPlaceholder().register();
-        }
-    }
-
-	public void setupGuard() {
-		this.guardManager = new GuardManager();
-		this.guardTask = new GuardTask(this);
-		this.guardTask.runTaskTimer(this, 0, 20);
-	}
-
-	public void setupCatalog() {
-		if (Bukkit.getPluginManager().isPluginEnabled("CustomMenu")) {
-			new CEBookCatalog().register();
-		}
+	public void registerModules() {
+		registerModule(new FeatureModule(this));
+		registerModule(new CustomMenuModule(this));
+		registerModule(new AttributeModule(this));
+		registerModule(new FilterModule(this));
+		registerModule(new CommandModule(this));
+		registerModule(new ItemModule(this));
+		registerModule(new PlayerModule(this));
+		registerModule(new ExecuteModule(this));
+		registerModule(new EnchantModule(this));
+		registerModule(new ConfigModule(this));
+		registerModule(new TaskModule(this));
+		registerModule(new ListenerModule(this));
+		registerModule(new DatabaseModule(this));
+		registerModule(new MenuModule(this));
+		registerModule(new PlaceholderModule(this));
+		registerModule(new GuardModule(this));
 	}
 
 	public void addEffectTask(EffectTaskSeparate effectTask) {
-		this.asyncEffectExecuteTask.addEffectDataList(effectTask.getEffectAsyncList());
-		this.effectExecuteTask.addEffectDataList(effectTask.getEffectList());
-	}
-
-	public void removeEffectTask(CEPlayer caller, String name) {
-		this.asyncEffectExecuteTask.removeEffectData(caller, name);
-		this.effectExecuteTask.removeEffectData(caller, name);
+		getTaskModule().getAsyncEffectExecuteTask().addEffectDataList(effectTask.getEffectAsyncList());
+		getTaskModule().getEffectExecuteTask().addEffectDataList(effectTask.getEffectList());
 	}
 
 	public void removeEffectTask(String playerName, String name) {
-		this.asyncEffectExecuteTask.removeEffectData(playerName, name);
-		this.effectExecuteTask.removeEffectData(playerName, name);
+		getTaskModule().getAsyncEffectExecuteTask().removeEffectData(playerName, name);
+		getTaskModule().getEffectExecuteTask().removeEffectData(playerName, name);
 	}
 
 	public File getGeneralDataFolder() {
@@ -616,12 +121,12 @@ public class CustomEnchantment extends JavaPlugin implements Listener {
 		return new File(getDataFolder(), "items.yml");
 	}
 
-	public File getVanillaItemFile() {
-		return new File(getDataFolder(), "vanilla-items.yml");
+	public File getStorageItemFolder() {
+		return new File(getDataFolder(), "storage");
 	}
 
 	public File getSaveItemFile() {
-		return new File(getDataFolder(), "save-items.yml");
+		return new File(getStorageItemFolder(), "save-items.yml");
 	}
 
 	public File getBookCraftFile() {
@@ -644,47 +149,15 @@ public class CustomEnchantment extends JavaPlugin implements Listener {
 		return new File(getDataFolder(), "enchantment");
 	}
 
+	public File getArtifactFolder() {
+		return new File(getDataFolder(), "artifact");
+	}
+
 	public File getMenuFolder() {
 		return new File(getDataFolder(), "menu");
 	}
 
-	public CEPlayerMap getCEPlayerMap() {
-		return cePlayerMap;
-	}
-
-	public CEEnchantMap getCEEnchantMap() {
-		return ceEnchantMap;
-	}
-
-	public CEGroupMap getCEGroupMap() {
-		return ceGroupMap;
-	}
-
-	public CEItemStorageMap getCEItemStorageMap() {
-		return ceItemStorageMap;
-	}
-
-	public SpecialMiningTask getSpecialMiningTask() {
-		return specialMiningTask;
-	}
-
-	public GuardManager getGuardManager() {
-		return guardManager;
-	}
-
-	public GuardTask getGuardTask() {
-		return guardTask;
-	}
-
-	public BlockTask getBlockTask() {
-		return blockTask;
-	}
-
-	public Database getDatabase() {
-		return database;
-	}
-
-	public static CustomEnchantment instance() {
+    public static CustomEnchantment instance() {
 		return instance;
 	}
 }

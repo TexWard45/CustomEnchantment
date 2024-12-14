@@ -1,55 +1,62 @@
 package com.bafmc.customenchantment.menu.anvil;
 
-import com.bafmc.customenchantment.item.ApplyReason;
-import com.bafmc.customenchantment.item.ApplyResult;
-import com.bafmc.customenchantment.item.CEItem;
-import com.bafmc.customenchantment.item.CERemoveEnchantPoint;
+import com.bafmc.customenchantment.api.CEAPI;
+import com.bafmc.customenchantment.item.*;
+import com.bafmc.customenchantment.item.enchantpoint.CEEnchantPointSimple;
+import com.bafmc.customenchantment.item.removeenchantpoint.CERemoveEnchantPoint;
 import com.bafmc.customenchantment.menu.CEAnvilMenu;
+import org.bukkit.inventory.ItemStack;
 
-public class Slot2CERemoveEnchantPointView extends AnvilSlot2View<Slot2CERemoveEnchantPointView> {
+import java.util.ArrayList;
+import java.util.List;
+
+public class Slot2CERemoveEnchantPointView extends AnvilSlot2ListView<Slot2CERemoveEnchantPointView, CEEnchantPointSimple> {
 
 	public Slot2CERemoveEnchantPointView(CEAnvilMenu anvilMenu) {
 		super(anvilMenu);
 	}
 
-	public Slot2CERemoveEnchantPointView instance(CEAnvilMenu anvilMenu) {
-		return new Slot2CERemoveEnchantPointView(anvilMenu);
+	public String getConfirmRemoveName() {
+		return "confirm-remove-enchant-point";
 	}
 
 	public boolean isSuitable(CEItem ceItem) {
 		return ceItem instanceof CERemoveEnchantPoint;
 	}
 
-	public void updateView() {
-		CEAnvilMenu menu = getAnvilMenu();
-
-		CEItem ceItem1 = menu.getItemData1().getCEItem();
-		CEItem ceItem2 = menu.getItemData2().getCEItem();
-		CERemoveEnchantPoint removeEnchantPoint = (CERemoveEnchantPoint) ceItem2;
-
-		ApplyReason reason = removeEnchantPoint.testApplyByMenuTo(ceItem1);
-
-		if (reason.getResult() == ApplyResult.SUCCESS) {
-			menu.updateSlots("preview3", reason.getSource().exportTo());
-			menu.updateSlots("preview4", removeEnchantPoint.getEnchantPointItem(ceItem1));
-		}else {
-			menu.updateSlots("preview3", null);
-			menu.updateSlots("preview4", null);
+	@Override
+	public ItemStack getDisplayItem(CEEnchantPointSimple ceEnchantPointSimple) {
+		CEItem ceItem = CEAPI.getCEItemByStorage(CEItemType.ENCHANT_POINT, ceEnchantPointSimple.getPattern());
+		if (ceItem == null) {
+			return null;
 		}
+		return ceItem.exportTo();
 	}
 
-	public void updateConfirm() {
-		CEAnvilMenu menu = getAnvilMenu();
+	@Override
+	public ApplyReason getApplyReason(CEItem ceItem1, CEItem ceItem2, CEEnchantPointSimple ceEnchantPointSimple) {
+		if (!(ceItem2 instanceof CERemoveEnchantPoint removeEnchantPoint)) {
+			return ApplyReason.NOTHING;
+		}
 
-		menu.updateSlots("confirm", menu.getItemStack(null, "confirm-remove-enchant-point"));
+		return removeEnchantPoint.applyByMenuTo(ceItem1, ceEnchantPointSimple);
 	}
 
-	public ApplyReason apply(CEItem ceItem1, CEItem ceItem2) {
-		if (ceItem2 instanceof CERemoveEnchantPoint) {
-			CERemoveEnchantPoint removeEnchantPoint = (CERemoveEnchantPoint) ceItem2;
-
-			return removeEnchantPoint.applyByMenuTo(ceItem1);
+	@Override
+	public List<CEEnchantPointSimple> getList(CEItem ceItem1, CEItem ceItem2) {
+		if (!(ceItem1 instanceof CEWeapon weapon)) {
+			return new ArrayList<>();
 		}
-		return ApplyReason.NOTHING;
+
+		if (!(ceItem2 instanceof CERemoveEnchantPoint removeEnchantPoint)) {
+			return new ArrayList<>();
+		}
+
+		return removeEnchantPoint.getList(weapon.getWeaponData().getExtraEnchantPointList());
+	}
+
+	@Override
+	public Slot2CERemoveEnchantPointView instance(CEAnvilMenu anvilMenu) {
+		return new Slot2CERemoveEnchantPointView(anvilMenu);
 	}
 }
