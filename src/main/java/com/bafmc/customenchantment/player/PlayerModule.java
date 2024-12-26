@@ -16,6 +16,7 @@ public class PlayerModule extends PluginModule<CustomEnchantment> {
 
     public void setupPlayerExpansions() {
         CEPlayerExpansionRegister.register(PlayerStorage.class);
+        CEPlayerExpansionRegister.register(PlayerEquipment.class);
         CEPlayerExpansionRegister.register(PlayerTemporaryStorage.class);
         CEPlayerExpansionRegister.register(PlayerVanillaAttribute.class);
         CEPlayerExpansionRegister.register(PlayerCustomAttribute.class);

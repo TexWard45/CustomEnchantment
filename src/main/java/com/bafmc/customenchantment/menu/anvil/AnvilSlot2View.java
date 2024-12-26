@@ -2,7 +2,6 @@ package com.bafmc.customenchantment.menu.anvil;
 
 import com.bafmc.customenchantment.item.ApplyReason;
 import com.bafmc.customenchantment.item.CEItem;
-import com.bafmc.customenchantment.menu.CEAnvilMenu;
 
 public abstract class AnvilSlot2View<T extends AnvilSlot2View> {
 	private CEAnvilMenu anvilMenu;

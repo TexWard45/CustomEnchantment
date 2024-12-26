@@ -1,4 +1,4 @@
-package com.bafmc.customenchantment.menu;
+package com.bafmc.customenchantment.menu.tinkerer;
 
 import java.util.ArrayList;
 import java.util.List;

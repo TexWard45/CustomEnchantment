@@ -1,4 +1,4 @@
-package com.bafmc.customenchantment.menu;
+package com.bafmc.customenchantment.menu.tinkerer;
 
 import com.bafmc.customenchantment.item.CEItem;
 

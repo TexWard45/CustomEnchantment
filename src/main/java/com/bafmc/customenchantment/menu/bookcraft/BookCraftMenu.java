@@ -1,11 +1,11 @@
-package com.bafmc.customenchantment.menu;
+package com.bafmc.customenchantment.menu.bookcraft;
 
 import com.bafmc.bukkit.utils.InventoryUtils;
 import com.bafmc.bukkit.utils.ItemStackUtils;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.enchant.CEEnchantSimple;
-import com.bafmc.customenchantment.menu.bookcraft.FastCraft;
+import com.bafmc.customenchantment.menu.MenuAbstract;
 import com.bafmc.customenchantment.menu.data.BookData;
 import com.bafmc.custommenu.menu.CItem;
 import com.bafmc.custommenu.menu.CMenuView;

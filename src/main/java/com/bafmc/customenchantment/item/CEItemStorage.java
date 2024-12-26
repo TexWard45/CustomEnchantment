@@ -30,7 +30,7 @@ public abstract class CEItemStorage<T extends CEItem<? extends CEItemData>> exte
 			amount = new RandomRangeInt(parameter.getString(parameter.size() - 1, "1")).getValue();
 		}
 		amount = Math.max(amount, 1);
-		
+
 		ItemStack itemStack = ceItem.exportTo();
         itemStack = ItemStackUtils.getItemStackWithPlaceholder(itemStack, null);
         itemStack = ItemStackUtils.updateColorToItemStack(itemStack);

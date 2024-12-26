@@ -1,4 +1,4 @@
-package com.bafmc.customenchantment.menu.data;
+package com.bafmc.customenchantment.menu.bookupgrade.data;
 
 import com.bafmc.bukkit.feature.requirement.RequirementList;
 import lombok.AllArgsConstructor;

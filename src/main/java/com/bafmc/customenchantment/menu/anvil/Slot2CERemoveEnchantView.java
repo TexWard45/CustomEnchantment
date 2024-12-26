@@ -6,7 +6,6 @@ import com.bafmc.customenchantment.item.ApplyReason;
 import com.bafmc.customenchantment.item.CEItem;
 import com.bafmc.customenchantment.item.removeenchant.CERemoveEnchant;
 import com.bafmc.customenchantment.item.CEWeapon;
-import com.bafmc.customenchantment.menu.CEAnvilMenu;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;

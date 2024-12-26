@@ -1,0 +1,176 @@
+# &#94a3b8Cổ Vật Thường
+# Số Lượng: 13
+deadtwig:
+  item:
+    type: DEAD_BUSH
+    display: "&#8d6e63&lCành Cây Khô"
+    glowing: true
+    lore:
+      - "Ⓑ&#94a3b8Cổ Vật Thường"
+      - "Ⓑ"
+      - "&eKhi tấn công bằng tay không:"
+      - "&7» &7Gây thêm sát thương cho mục tiêu"
+  enchants:
+    - "lifependant 1"
+rustyblade:
+  item:
+    type: STONE_SWORD
+    display: "&#bdbdbd&lLưỡi Dao Cũ Kỹ"
+    glowing: true
+    lore:
+      - "Ⓑ&#94a3b8Cổ Vật Thường"
+      - "Ⓑ"
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm sức tấn công"
+  enchants:
+    - "lifependant 1"
+  attributes:
+    - "type=ATTACK_DAMAGE,operation=0,amount=0,slot=HAND"
+crackedglassshard:
+  item:
+    type: GLASS_PANE
+    display: "&#eeeeee&lMảnh Kính Nứt"
+    glowing: true
+    lore:
+      - "Ⓑ&#94a3b8Cổ Vật Thường"
+      - "Ⓑ"
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm tỉ lệ chí mạng"
+  enchants:
+    - "lifependant 1"
+tatteredboots:
+  item:
+    type: LEATHER_BOOTS
+    display: "&#ff9100&lGiày Da"
+    glowing: true
+    lore:
+      - "Ⓑ&#94a3b8Cổ Vật Thường"
+      - "Ⓑ"
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm tốc độ di chuyển"
+  enchants:
+    - "lifependant 1"
+  attributes:
+    - "type=ARMOR,operation=0,amount=0,slot=FEET"
+rabbithide:
+  item:
+    type: RABBIT_HIDE
+    display: "&#cddc39&lDa Thỏ Rừng"
+    glowing: true
+    lore:
+      - "Ⓑ&#94a3b8Cổ Vật Thường"
+      - "Ⓑ"
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm tỉ lệ né tránh"
+  enchants:
+    - "lifependant 1"
+fang:
+  item:
+    type: IRON_NUGGET
+    display: "&#d32f2f&lRăng Nanh"
+    glowing: true
+    lore:
+      - "Ⓑ&#94a3b8Cổ Vật Thường"
+      - "Ⓑ"
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm hút máu"
+  enchants:
+    - "lifependant 1"
+steelbelt:
+  item:
+    type: IRON_INGOT
+    display: "&#e0e0e0&lĐai Lưng Thép"
+    glowing: true
+    lore:
+      - "Ⓑ&#94a3b8Cổ Vật Thường"
+      - "Ⓑ"
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm máu tối đa"
+  enchants:
+    - "lifependant 1"
+  attributes:
+    - "type=ARMOR,operation=0,amount=0,slot=FEET"
+ironarrow:
+  item:
+    type: ARROW
+    display: "&#e0e0e0&lMũi Tên Sắt"
+    glowing: true
+    lore:
+      - "Ⓑ&#94a3b8Cổ Vật Thường"
+      - "Ⓑ"
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm sát thương gây ra từ cung tên"
+  enchants:
+    - "lifependant 1"
+  attributes:
+    - "type=ARMOR,operation=0,amount=0,slot=FEET"
+yellowsand:
+  item:
+    type: SAND
+    display: "&#fff176&lHạt Cát Vàng"
+    glowing: true
+    lore:
+      - "Ⓑ&#94a3b8Cổ Vật Thường"
+      - "Ⓑ"
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm tim vàng tối đa"
+  enchants:
+    - "lifependant 1"
+  attributes:
+    - "type=ARMOR,operation=0,amount=0,slot=FEET"
+wornstone:
+  item:
+    type: STONE
+    display: "&#78909c&lHòn Đá Mòn"
+    glowing: true
+    lore:
+      - "Ⓑ&#94a3b8Cổ Vật Thường"
+      - "Ⓑ"
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm giáp"
+  enchants:
+    - "lifependant 1"
+  attributes:
+    - "type=ARMOR,operation=0,amount=0,slot=FEET"
+bentblade:
+  item:
+    type: IRON_SWORD
+    display: "&#eceff1&lLưỡi Gươm Cong"
+    glowing: true
+    lore:
+      - "Ⓑ&#94a3b8Cổ Vật Thường"
+      - "Ⓑ"
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm tốc độ đánh"
+  enchants:
+    - "lifependant 1"
+  attributes:
+    - "type=ATTACK_DAMAGE,operation=0,amount=0,slot=HAND"
+chainchestplate:
+  item:
+    type: CHAINMAIL_CHESTPLATE
+    display: "&#cfd8dc&lGiáp Xích"
+    glowing: true
+    lore:
+      - "Ⓑ&#94a3b8Cổ Vật Thường"
+      - "Ⓑ"
+      - "&eKhi trang bị:"
+      - "&7» &7Giảm sát thương từ cung tên"
+  enchants:
+    - "lifependant 1"
+  attributes:
+    - "type=ARMOR,operation=0,amount=0,slot=CHEST"
+herballeaves:
+  item:
+    type: OAK_LEAVES
+    display: "&#00e676&lLá Thảo Dược"
+    glowing: true
+    lore:
+      - "Ⓑ&#94a3b8Cổ Vật Thường"
+      - "Ⓑ"
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm lượng máu hồi phục mỗi giây"
+  enchants:
+    - "lifependant 1"
+  attributes:
+    - "type=ARMOR,operation=0,amount=0,slot=CHEST"

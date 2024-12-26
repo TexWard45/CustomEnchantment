@@ -1,0 +1,187 @@
+# &#22c55eCổ Vật Hiếm
+# Số Lượng: 12
+eternalbread:
+  item:
+    type: BREAD
+    display: "&#ffd740&lBánh Mì Vĩnh Cửu"
+    glowing: true
+    lore:
+      - "Ⓑ&#22c55eCổ Vật Hiếm"
+      - "Ⓑ"
+      - "&eKhi trang bị:"
+      - "&7» &7Nhận hiệu ứng thuốc bão hòa"
+  enchants:
+    - "lifependant 1"
+destructionmask:
+  item:
+    type: LEATHER_HELMET
+    color: "#673ab7"
+    display: "&#673ab7&lMặt Nạ Hủy Diệt"
+    glowing: true
+    flags:
+      - "HIDE_DYE"
+    lore:
+      - "Ⓑ&#22c55eCổ Vật Hiếm"
+      - "Ⓑ"
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm sức tấn công"
+      - ""
+      - "&eKhi tấn công:"
+      - "&7» &7Gây thêm sát thương lên mục tiêu thấp máu"
+  enchants:
+    - "lifependant 1"
+  attributes:
+    - "type=ARMOR,operation=0,amount=0,slot=HEAD"
+steelaxe:
+  item:
+    type: IRON_AXE
+    display: "&#607d8b&lRìu Thép"
+    glowing: true
+    lore:
+      - "Ⓑ&#22c55eCổ Vật Hiếm"
+      - "Ⓑ"
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm xuyên giáp"
+  enchants:
+    - "lifependant 1"
+  attributes:
+    - "type=ARMOR,operation=0,amount=0,slot=HEAD"
+poisondagger:
+  item:
+    type: STONE_SWORD
+    display: "&#8bc34a&lDao Găm Độc"
+    glowing: true
+    lore:
+      - "Ⓑ&#22c55eCổ Vật Hiếm"
+      - "Ⓑ"
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm sức tấn công"
+      - ""
+      - "&eKhi tấn công:"
+      - "&7» &7Gây hiệu ứng thuốc độc cho mục tiêu"
+      - "&7trong một khoảng thời gian"
+  enchants:
+    - "lifependant 1"
+  attributes:
+    - "type=ATTACK_DAMAGE,operation=0,amount=0,slot=HAND"
+junglelog:
+  item:
+    type: JUNGLE_LOG
+    display: "&#006A67&lMảnh Gỗ Rừng"
+    glowing: true
+    lore:
+      - "Ⓑ&#22c55eCổ Vật Hiếm"
+      - "Ⓑ"
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm giáp"
+      - ""
+      - "&eKhi bị tấn công:"
+      - "&7» &7Nhận giảm sát thương mỗi khoảng thời gian"
+  enchants:
+    - "lifependant 1"
+torch:
+  item:
+    type: TORCH
+    display: "&#E3651D&lNgọn Đuốc"
+    glowing: true
+    lore:
+      - "Ⓑ&#22c55eCổ Vật Hiếm"
+      - "Ⓑ"
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm máu tối đa và lượng máu hồi phục"
+      - "&7mỗi giây"
+  enchants:
+    - "lifependant 1"
+waterbottle:
+  item:
+    type: POTION
+    display: "&3&lNước Tinh Khiết"
+    glowing: true
+    flags:
+      - "HIDE_ADDITIONAL_TOOLTIP"
+    lore:
+      - "Ⓑ&#22c55eCổ Vật Hiếm"
+      - "Ⓑ"
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm tỉ lệ kháng khống chế"
+  enchants:
+    - "lifependant 1"
+speedboots:
+  item:
+    type: IRON_BOOTS
+    display: "&e&lGiày Tốc Độ"
+    glowing: true
+    flags:
+      - "HIDE_ADDITIONAL_TOOLTIP"
+    lore:
+      - "Ⓑ&#22c55eCổ Vật Hiếm"
+      - "Ⓑ"
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm tốc độ di chuyển"
+      - ""
+      - "&eKhi ngoài giao tranh:"
+      - "&7» &7Tăng thêm tốc độ di chuyển"
+  enchants:
+    - "lifependant 1"
+  attributes:
+    - "type=ARMOR,operation=0,amount=0,slot=FEET"
+honeycomb:
+  item:
+    type: HONEYCOMB
+    display: "&6&lMật Ong Hảo Hạng"
+    glowing: true
+    flags:
+      - "HIDE_ADDITIONAL_TOOLTIP"
+    lore:
+      - "Ⓑ&#22c55eCổ Vật Hiếm"
+      - "Ⓑ"
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm tim vàng tối đa"
+      - ""
+      - "&eKhi bị tấn công:"
+      - "&7» &7Nhận tim vàng"
+  enchants:
+    - "lifependant 1"
+  attributes:
+    - "type=ARMOR,operation=0,amount=0,slot=FEET"
+trainsword:
+  item:
+    type: WOODEN_SWORD
+    display: "&#ef5350&lKiếm Tập Luyện"
+    glowing: true
+    lore:
+      - "Ⓑ&#22c55eCổ Vật Hiếm"
+      - "Ⓑ"
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm sức tấn công và tốc độ đánh"
+  enchants:
+    - "lifependant 1"
+  attributes:
+    - "type=ATTACK_DAMAGE,operation=0,amount=0,slot=HAND"
+drybone:
+  item:
+    type: BONE
+    display: "&#9e9e9e&lXương Khô"
+    glowing: true
+    lore:
+      - "Ⓑ&#22c55eCổ Vật Hiếm"
+      - "Ⓑ"
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm sức tấn công và tỉ lệ chí mạng"
+  enchants:
+    - "lifependant 1"
+bandage:
+  item:
+    type: WHITE_CARPET
+    display: "&#ff7043&lMiếng Băng Gạt"
+    glowing: true
+    lore:
+      - "Ⓑ&#22c55eCổ Vật Hiếm"
+      - "Ⓑ"
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm máu tối đa"
+      - ""
+      - "&eKhi đứng im:"
+      - "&7» &7Tăng thêm lượng hồi phục mỗi giây"
+  enchants:
+    - "lifependant 1"

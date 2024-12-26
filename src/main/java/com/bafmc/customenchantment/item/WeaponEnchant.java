@@ -58,6 +58,10 @@ public class WeaponEnchant extends CEItemExpansion implements ITrade<NMSNBTTagLi
     }
 
 	public void addCESimple(CEEnchantSimple ceEnchantSimple) {
+		if (ceEnchantSimple.getName() == null) {
+			return;
+		}
+
 		if (!containsCESimple(ceEnchantSimple.getName())) {
 			ceEnchantSimpleList.add(ceEnchantSimple);
 		}

@@ -29,7 +29,7 @@ public class CommandRemoveGem implements AbstractCommand {
                             }
 
                             CEPlayer cePlayer = CEAPI.getCEPlayer(player);
-                            CEWeaponAbstract weapon = cePlayer.getSlot(EquipSlot.MAINHAND);
+                            CEWeaponAbstract weapon = cePlayer.getEquipment().getSlot(EquipSlot.MAINHAND);
                             if (weapon == null) {
                                 return Arrays.asList("");
                             }
@@ -62,7 +62,7 @@ public class CommandRemoveGem implements AbstractCommand {
                                 return true;
                             }
 
-                            CEWeaponAbstract weapon = cePlayer.getSlot(EquipSlot.MAINHAND);
+                            CEWeaponAbstract weapon = cePlayer.getEquipment().getSlot(EquipSlot.MAINHAND);
                             if (weapon == null) {
                                 return true;
                             }

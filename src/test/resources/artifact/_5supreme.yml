@@ -1,0 +1,203 @@
+# &#f97316Cổ Vật Tối Thượng
+# Số lượng: 11
+crimsonscythe:
+  item:
+    type: NETHERITE_HOE
+    display: "<GRADIENT:d50000>&lLiềm Huyết Nguyệt</GRADIENT:6200ea>"
+    glowing: true
+    lore:
+      - "Ⓑ&#f97316Cổ Vật Tối Thượng"
+      - "Ⓑ"
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm sức tấn công và hút máu"
+      - "&7» &7Đòn đánh được cường hóa gây một phần sát thương chuẩn,"
+      - "&7tăng tầm tấn công và hút máu mỗi khoảng thời gian, tấn công"
+      - "&7khi đòn đánh chưa được cường hóa sẽ thiết lập lại thời gian"
+  enchants:
+    - "lifependant 1"
+  attributes:
+    - "type=ATTACK_DAMAGE,operation=0,amount=0,slot=HAND"
+triplecrystal:
+  item:
+    type: PRISMARINE_CRYSTALS
+    display: "<GRADIENT:00b0ff>&lTam Thủy Tinh Thể</GRADIENT:84ffff>"
+    glowing: true
+    lore:
+      - "Ⓑ&#f97316Cổ Vật Tối Thượng"
+      - "Ⓑ"
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm sức tấn công, tốc độ đánh và tốc độ"
+      - "&7di chuyển"
+      - ""
+      - "&eKhi tấn công:"
+      - "&7» &7Mỗi đòn đánh thứ ba sẽ gây thêm sát thương, hồi máu"
+      - "&7và một phần sát thương đó sẽ là sát thương chuẩn"
+  enchants:
+    - "lifependant 1"
+assassinationletter:
+  item:
+    type: MAP
+    display: "<GRADIENT:607d8b>&lMật Thư Ám Sát</GRADIENT:b0bec5>"
+    glowing: true
+    lore:
+      - "Ⓑ&#f97316Cổ Vật Tối Thượng"
+      - "Ⓑ"
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm sức tấn công, tốc độ đánh và tốc độ di chuyển"
+      - "&7» &7Tự động chọn một kẻ địch ngẫu nhiên trong tầm, tấn công"
+      - "&7kẻ địch này sẽ giúp bạn nhận thêm sát thương, tốc độ đánh và"
+      - "&7tốc độ di chuyển, chọn kẻ địch khác nếu kẻ địch được chọn"
+      - "&7trước đó đã bị kết liễu hoặc di chuyển quá xa"
+      - ""
+      - "&eKhi kết liễu kẻ địch được chọn:"
+      - "&7» &7Tăng mạnh sát thương, tốc độ đánh và tốc độ di chuyển"
+      - "&7trong một khoảng thời gian"
+  enchants:
+    - "lifependant 1"
+demonheart:
+  item:
+    type: FERMENTED_SPIDER_EYE
+    display: "<GRADIENT:d50000>&lTrái Tim Quỷ</GRADIENT:ff1744>"
+    glowing: true
+    lore:
+      - "Ⓑ&#f97316Cổ Vật Tối Thượng"
+      - "Ⓑ"
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm máu tối đa và hút máu"
+      - ""
+      - "&eKhi bị tấn công:"
+      - "&7» &7Chuyển hóa một phần sát thương nhận được"
+      - "&7thành máu"
+  enchants:
+    - "lifependant 1"
+bladeofhatred:
+  item:
+    type: NETHERITE_SWORD
+    display: "<GRADIENT:8B0000>&lThanh Gươm Hận Thù</GRADIENT:FF4500>"
+    glowing: true
+    lore:
+      - "Ⓑ&#f97316Cổ Vật Tối Thượng"
+      - "Ⓑ"
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm sức tấn công"
+      - ""
+      - "&eKhi tấn công:"
+      - "&7» &7Tăng sát thương khi tấn công cùng một mục tiêu"
+      - "&7nhiều lần, tấn công mục tiêu khác sẽ mất hiệu lực"
+  enchants:
+    - "lifependant 1"
+  attributes:
+    - "type=ATTACK_DAMAGE,operation=0,amount=0,slot=HAND"
+executioneraxe:
+  item:
+    type: NETHERITE_AXE
+    display: "<GRADIENT:2196f3>&lRìu Hành Quyết</GRADIENT:FFD700>"
+    glowing: true
+    lore:
+      - "Ⓑ&#f97316Cổ Vật Tối Thượng"
+      - "Ⓑ"
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm sức tấn công và xuyên giáp"
+      - ""
+      - "&eKhi tấn công:"
+      - "&7» &7Giảm giáp đối thủ trong một khoảng thời gian"
+  enchants:
+    - "lifependant 1"
+  attributes:
+    - "type=ATTACK_DAMAGE,operation=0,amount=0,slot=HAND"
+demonpact:
+  item:
+    type: PAPER
+    display: "<GRADIENT:6a1b9a>&lGiao Ước Quỷ Dữ</GRADIENT:ad1457>"
+    glowing: true
+    lore:
+      - "Ⓑ&#f97316Cổ Vật Tối Thượng"
+      - "Ⓑ"
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm sức tấn công nhưng giảm máu tối đa"
+      - "&7và lượng giáp"
+      - ""
+      - "&eKhi tấn công:"
+      - "&7» &7Tăng thêm sức tấn công dựa theo lượng máu đã mất"
+  enchants:
+    - "lifependant 1"
+  attributes:
+    - "type=ATTACK_DAMAGE,operation=0,amount=0,slot=HAND"
+thunderaxe:
+  item:
+    type: GOLDEN_AXE
+    display: "<GRADIENT:ffea00>&lRìu Lôi Thần</GRADIENT:ffff8d>"
+    glowing: true
+    lore:
+      - "Ⓑ&#f97316Cổ Vật Tối Thượng"
+      - "Ⓑ"
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm tỉ lệ chí mạng và sát thương chí mạng"
+      - ""
+      - "&eKhi tấn công:"
+      - "&7» &7Gọi sét và làm choáng kẻ địch mỗi khoảng thời gian"
+  enchants:
+    - "lifependant 1"
+  attributes:
+    - "type=ATTACK_DAMAGE,operation=0,amount=0,slot=HAND"
+werewolf:
+  item:
+    type: PLAYER_HEAD
+    display: "<GRADIENT:696969>&lĐầu Ma Sói</GRADIENT:8B0000>"
+    skull-owner: "textures:eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjBjN2Y4ODUzMjZiYTA5NDljMzE2Njk2ZDE5ZDUzMDgyYjk5NGU5YjQ4Y2FkNjY3MzU1OGRkNmM1YmNhYjQ5In19fQ=="
+    glowing: true
+    lore:
+      - "Ⓑ&#f97316Cổ Vật Tối Thượng"
+      - "Ⓑ"
+      - "&eKhi ban đêm:"
+      - "&7» &7Tăng thêm sức tấn công, tốc độ đánh, tốc độ di chuyển"
+      - "&7và hút máu"
+      - ""
+      - "&eKhi tấn công ban đêm:"
+      - "&7» &7Đòn đánh được cường hóa gia tăng chắc chắn chí mạng"
+      - "&7mỗi khoảng thời gian"
+  enchants:
+    - "lifependant 1"
+focusedarmor:
+  item:
+    type: NETHERITE_CHESTPLATE
+    display: "<GRADIENT:7c4dff>&lGiáp Định Tâm</GRADIENT:448aff>"
+    skull-owner: "textures:eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjBjN2Y4ODUzMjZiYTA5NDljMzE2Njk2ZDE5ZDUzMDgyYjk5NGU5YjQ4Y2FkNjY3MzU1OGRkNmM1YmNhYjQ5In19fQ=="
+    glowing: true
+    lore:
+      - "Ⓑ&#f97316Cổ Vật Tối Thượng"
+      - "Ⓑ"
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm máu tối đa, giáp và giảm sát thương"
+      - ""
+      - "&eKhi bị tấn công:"
+      - "&7» &7Nhận sát thương từ mọi nguồn sẽ tích lũy điểm"
+      - "&7cộng dồn, mỗi điểm cộng sẽ tăng thêm giáp và giảm"
+      - "&7sát thương trong một khoảng thời gian"
+  enchants:
+    - "lifependant 1"
+  attributes:
+    - "type=ARMOR,operation=0,amount=0,slot=CHEST"
+torchflower:
+  item:
+    type: TORCHFLOWER
+    display: "<GRADIENT:00e676>&lHoa Đuốc</GRADIENT:ffc400> <GRADIENT:ffc400>&lÁnh Sáng</GRADIENT:ff3d00> "
+    skull-owner: "textures:eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjBjN2Y4ODUzMjZiYTA5NDljMzE2Njk2ZDE5ZDUzMDgyYjk5NGU5YjQ4Y2FkNjY3MzU1OGRkNmM1YmNhYjQ5In19fQ=="
+    glowing: true
+    lore:
+      - "Ⓑ&#f97316Cổ Vật Tối Thượng"
+      - "Ⓑ"
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm máu tối đa, tim vàng tối đa"
+      - "&7và tốc độ di chuyển"
+      - ""
+      - "&eKhi trên nửa thanh máu:"
+      - "&7» &7Tăng sức tấn công và tốc độ đánh"
+      - ""
+      - "&eKhi dưới nửa thanh máu:"
+      - "&7» &7Hồi máu tức thì và nhận tim vàng"
+      - "&7mỗi khi tấn công"
+  enchants:
+    - "lifependant 1"
+  attributes:
+    - "type=ARMOR,operation=0,amount=0,slot=CHEST"

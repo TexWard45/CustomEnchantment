@@ -1,11 +1,13 @@
 package com.bafmc.customenchantment.player;
 
+import com.bafmc.bukkit.utils.EquipSlot;
 import com.bafmc.customenchantment.enchant.CEEnchant;
 import com.bafmc.customenchantment.enchant.CEEnchantSimple;
 import com.bafmc.customenchantment.item.CEWeaponAbstract;
-import com.bafmc.bukkit.utils.EquipSlot;
 
-import java.util.*;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 public class PlayerSet extends CEPlayerExpansion {
 	public PlayerSet(CEPlayer cePlayer) {
@@ -23,7 +25,7 @@ public class PlayerSet extends CEPlayerExpansion {
 	}
 
     public void onUpdate() {
-        Map<EquipSlot, CEWeaponAbstract> slotMap = cePlayer.getSlotMap();
+        Map<EquipSlot, CEWeaponAbstract> slotMap = cePlayer.getEquipment().getSlotMap();
 
         PlayerTemporaryStorage storage = cePlayer.getTemporaryStorage();
 

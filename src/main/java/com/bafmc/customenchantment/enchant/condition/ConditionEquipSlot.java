@@ -35,6 +35,13 @@ public class ConditionEquipSlot extends ConditionHook {
 			return true;
 		}
 
+		if (equipSlotCompare == EquipSlot.EXTRA_SLOT && (current == EquipSlot.EXTRA_SLOT_1 || current == EquipSlot.EXTRA_SLOT_2
+				|| current == EquipSlot.EXTRA_SLOT_3 || current == EquipSlot.EXTRA_SLOT_4 || current == EquipSlot.EXTRA_SLOT_5
+				|| current == EquipSlot.EXTRA_SLOT_6 || current == EquipSlot.EXTRA_SLOT_7 || current == EquipSlot.EXTRA_SLOT_8
+				|| current == EquipSlot.EXTRA_SLOT_9)) {
+			return true;
+		}
+
 		return current == equipSlotCompare;
 	}
 

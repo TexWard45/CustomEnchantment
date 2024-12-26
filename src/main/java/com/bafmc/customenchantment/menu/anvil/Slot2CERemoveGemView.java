@@ -6,7 +6,6 @@ import com.bafmc.customenchantment.item.CEWeapon;
 import com.bafmc.customenchantment.item.gem.CEGem;
 import com.bafmc.customenchantment.item.gem.CEGemSimple;
 import com.bafmc.customenchantment.item.removegem.CERemoveGem;
-import com.bafmc.customenchantment.menu.CEAnvilMenu;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;

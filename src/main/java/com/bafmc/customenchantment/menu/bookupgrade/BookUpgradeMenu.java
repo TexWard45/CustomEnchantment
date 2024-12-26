@@ -1,4 +1,4 @@
-package com.bafmc.customenchantment.menu;
+package com.bafmc.customenchantment.menu.bookupgrade;
 
 import com.bafmc.bukkit.api.PlaceholderAPI;
 import com.bafmc.bukkit.bafframework.api.BafFrameworkAPI;
@@ -10,15 +10,16 @@ import com.bafmc.bukkit.feature.requirement.AbstractRequirement;
 import com.bafmc.bukkit.feature.requirement.RequirementList;
 import com.bafmc.bukkit.utils.InventoryUtils;
 import com.bafmc.bukkit.utils.ItemStackUtils;
+import com.bafmc.customenchantment.menu.MenuAbstract;
 import com.bafmc.custommenu.menu.CMenuView;
 import lombok.Getter;
 import lombok.Setter;
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.enchant.CEEnchantSimple;
 import com.bafmc.customenchantment.menu.data.BookData;
-import com.bafmc.customenchantment.menu.data.BookUpgradeAddReason;
-import com.bafmc.customenchantment.menu.data.BookUpgradeConfirmReason;
-import com.bafmc.customenchantment.menu.data.BookUpgradeData;
+import com.bafmc.customenchantment.menu.bookupgrade.data.BookUpgradeAddReason;
+import com.bafmc.customenchantment.menu.bookupgrade.data.BookUpgradeConfirmReason;
+import com.bafmc.customenchantment.menu.bookupgrade.data.BookUpgradeData;
 import com.bafmc.customenchantment.player.CEPlayer;
 import com.bafmc.bukkit.utils.RandomRangeInt;
 import com.bafmc.bukkit.utils.StringUtils;

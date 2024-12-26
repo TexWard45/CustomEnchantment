@@ -1,10 +1,11 @@
-package com.bafmc.customenchantment.menu;
+package com.bafmc.customenchantment.menu.tinkerer;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
+import com.bafmc.customenchantment.menu.MenuAbstract;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
@@ -72,7 +73,6 @@ public class TinkererMenu extends MenuAbstract {
 		public void setReward(TinkererReward reward) {
 			this.reward = reward;
 		}
-
 	}
 
 	private List<TinkererData> list = new ArrayList<TinkererData>();

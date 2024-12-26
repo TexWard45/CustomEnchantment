@@ -9,12 +9,12 @@ import com.bafmc.bukkit.utils.PathUtils;
 import com.bafmc.bukkit.utils.RandomRangeInt;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.enchant.CEEnchantSimple;
-import com.bafmc.customenchantment.menu.BookUpgradeMenu;
-import com.bafmc.customenchantment.menu.BookUpgradeSettings;
-import com.bafmc.customenchantment.menu.data.BookUpgradeData;
-import com.bafmc.customenchantment.menu.data.BookUpgradeLevelData;
-import com.bafmc.customenchantment.menu.data.RequiredXpGroup;
-import com.bafmc.customenchantment.menu.data.XpGroup;
+import com.bafmc.customenchantment.menu.bookupgrade.BookUpgradeMenu;
+import com.bafmc.customenchantment.menu.bookupgrade.BookUpgradeSettings;
+import com.bafmc.customenchantment.menu.bookupgrade.data.BookUpgradeData;
+import com.bafmc.customenchantment.menu.bookupgrade.data.BookUpgradeLevelData;
+import com.bafmc.customenchantment.menu.bookupgrade.data.RequiredXpGroup;
+import com.bafmc.customenchantment.menu.bookupgrade.data.XpGroup;
 
 import java.util.LinkedHashMap;
 import java.util.List;

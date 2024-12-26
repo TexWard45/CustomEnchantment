@@ -17,7 +17,6 @@ import com.bafmc.customenchantment.item.ApplyResult;
 import com.bafmc.customenchantment.item.eraseenchant.CEEraseEnchant;
 import com.bafmc.customenchantment.item.CEItem;
 import com.bafmc.customenchantment.item.CEWeapon;
-import com.bafmc.customenchantment.menu.CEAnvilMenu;
 import com.bafmc.bukkit.utils.ColorUtils;
 import com.bafmc.bukkit.utils.ItemStackUtils;
 

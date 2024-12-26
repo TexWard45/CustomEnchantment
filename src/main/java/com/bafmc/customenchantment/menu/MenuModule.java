@@ -3,7 +3,12 @@ package com.bafmc.customenchantment.menu;
 import com.bafmc.bukkit.module.PluginModule;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.item.CEItemType;
+import com.bafmc.customenchantment.listener.CMenuListener;
 import com.bafmc.customenchantment.menu.anvil.*;
+import com.bafmc.customenchantment.menu.bookcraft.BookCraftMenuListener;
+import com.bafmc.customenchantment.menu.bookupgrade.BookUpgradeMenuListener;
+import com.bafmc.customenchantment.menu.equipment.EquipmentMenuListener;
+import com.bafmc.customenchantment.menu.tinkerer.TinkererMenuListener;
 
 public class MenuModule extends PluginModule<CustomEnchantment> {
     public MenuModule(CustomEnchantment plugin) {
@@ -25,5 +30,12 @@ public class MenuModule extends PluginModule<CustomEnchantment> {
         CEAnvilMenu.registerView2(CEItemType.EARSE_ENCHANT, Slot2CEEraseEnchantView.class);
         CEAnvilMenu.registerView2(CEItemType.GEM, Slot2CEGemView.class);
         CEAnvilMenu.registerView2(CEItemType.GEM_DRILL, Slot2CEGemDrillView.class);
+
+        CMenuListener.registerMenuListener(new BookCraftMenuListener());
+        CMenuListener.registerMenuListener(new TinkererMenuListener());
+        CMenuListener.registerMenuListener(new CEAnvilMenuListener());
+        CMenuListener.registerMenuListener(new BookUpgradeMenuListener());
+        CMenuListener.registerMenuListener(new EquipmentMenuListener());
+
     }
 }

@@ -1,4 +1,4 @@
-package com.bafmc.customenchantment.menu;
+package com.bafmc.customenchantment.menu.tinkerer;
 
 import com.bafmc.bukkit.feature.execute.Execute;
 import org.bukkit.inventory.ItemStack;

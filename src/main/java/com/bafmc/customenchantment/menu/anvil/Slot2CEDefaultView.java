@@ -5,7 +5,6 @@ import com.bafmc.customenchantment.enchant.CEEnchantSimple;
 import com.bafmc.customenchantment.item.ApplyReason;
 import com.bafmc.customenchantment.item.CEItem;
 import com.bafmc.customenchantment.item.CEWeapon;
-import com.bafmc.customenchantment.menu.CEAnvilMenu;
 import com.bafmc.bukkit.config.AdvancedConfigurationSection;
 import org.bukkit.inventory.ItemStack;
 

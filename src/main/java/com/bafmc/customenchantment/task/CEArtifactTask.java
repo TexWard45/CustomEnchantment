@@ -47,10 +47,14 @@ public class CEArtifactTask extends PlayerPerTickTask {
         Map<EquipSlot, CEWeaponAbstract> hotbarSlotMap = new LinkedHashMap<>();
         List<String> uniqueArtifactList = new ArrayList<>();
 
-        for (EquipSlot equipSlot : EquipSlot.HOTBAR_ARRAY) {
-            CEItem ceItem = cePlayer.getSlot(equipSlot, false);
+        for (EquipSlot equipSlot : EquipSlot.EXTRA_SLOT_ARRAY) {
+            CEItem ceItem = cePlayer.getEquipment().getSlot(equipSlot, false);
 
             if (!(ceItem instanceof CEArtifact)) {
+                continue;
+            }
+
+            if (ceItem.getData() == null) {
                 continue;
             }
 
@@ -100,7 +104,7 @@ public class CEArtifactTask extends PlayerPerTickTask {
         if (!artifactDiff.getNotExistsArtifactMap().isEmpty()) {
             CECallerBuilder
                     .build(player)
-                    .setCEType(CEType.HOTBAR_CHANGE)
+                    .setCEType(CEType.EXTRA_SLOT_UNEQUIP)
                     .setWeaponMap(artifactDiff.getNotExistsArtifactMap())
                     .call();
 
@@ -112,7 +116,7 @@ public class CEArtifactTask extends PlayerPerTickTask {
         if (artifactDiff.isDifferent()) {
             CECallerBuilder
                 .build(player)
-                .setCEType(CEType.HOTBAR_HOLD)
+                .setCEType(CEType.EXTRA_SLOT_EQUIP)
                 .setWeaponMap(artifactDiff.getOnlyDifferentArtifactMap())
                 .call();
 
@@ -156,7 +160,7 @@ public class CEArtifactTask extends PlayerPerTickTask {
         if (!artifactMap.isEmpty()) {
             CECallerBuilder
                     .build(player)
-                    .setCEType(CEType.HOTBAR_CHANGE)
+                    .setCEType(CEType.EXTRA_SLOT_UNEQUIP)
                     .setWeaponMap(artifactMap)
                     .call();
 

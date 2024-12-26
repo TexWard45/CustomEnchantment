@@ -94,7 +94,7 @@ public class CEAPI {
 
 		Map<EquipSlot, CEWeaponAbstract> map = new LinkedHashMap<EquipSlot, CEWeaponAbstract>();
 		for (EquipSlot slot : EquipSlot.ALL_ARRAY) {
-			CEWeaponAbstract weapon = cePlayer.getSlot(slot);
+			CEWeaponAbstract weapon = cePlayer.getEquipment().getSlot(slot);
 			if (weapon == null) {
 				continue;
 			}
@@ -108,7 +108,7 @@ public class CEAPI {
 
 		Map<EquipSlot, CEWeaponAbstract> map = new LinkedHashMap<>();
 		for (EquipSlot slot : slots) {
-			CEWeaponAbstract weapon = cePlayer.getSlot(slot);
+			CEWeaponAbstract weapon = cePlayer.getEquipment().getSlot(slot);
 			if (weapon == null) {
 				continue;
 			}

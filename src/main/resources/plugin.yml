@@ -28,3 +28,7 @@ commands:
   nametag:
     description: Nametag for CustomEnchantment item
     usage: /<command>
+  equipment:
+    description: Equipment for CustomEnchantment item
+    usage: /<command>
+    aliases: [e, equip]

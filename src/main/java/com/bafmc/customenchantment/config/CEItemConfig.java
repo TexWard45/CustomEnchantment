@@ -592,27 +592,16 @@ public class CEItemConfig extends AbstractConfig {
 
 			ItemStack itemStack = config.getItemStack(path + ".item", true, true);
 			CEArtifact ceItem = new CEArtifact(itemStack);
-			for (String enchantFormat : config.getStringList(path + ".enchants")) {
-				String enchantName = null;
-				int level = 1;
-
-				int spaceIndex = enchantFormat.indexOf(" ");
-				if (spaceIndex != -1) {
-					enchantName = enchantFormat.substring(0, spaceIndex);
-					level = Integer.parseInt(enchantFormat.substring(spaceIndex + 1, enchantFormat.length()));
-				} else {
-					enchantName = enchantFormat;
-				}
-
-				ceItem.getWeaponEnchant().addCESimple(new CEEnchantSimple(enchantName, level));
-			}
 
 			for (String attributeFormat : config.getStringList(path + ".attributes")) {
 				ceItem.getWeaponAttribute().addAttribute(attributeFormat);
 			}
 
-			CEArtifactData data = new CEArtifactData();
-			data.setPattern(pattern);
+			String group = config.getStringColor(path + ".group");
+			String enchant = config.getStringColor(path + ".enchant");
+			CEArtifactData.ConfigData configData = new CEArtifactData.ConfigData(group, enchant);
+
+			CEArtifactData data = new CEArtifactData(pattern, configData);
 			ceItem.setData(data);
 
 			storage.put(pattern, ceItem);

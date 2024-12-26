@@ -6,9 +6,9 @@ import java.util.concurrent.ConcurrentHashMap;
 import com.bafmc.bukkit.feature.execute.Execute;
 import org.bukkit.inventory.ItemStack;
 
-import com.bafmc.customenchantment.menu.TinkererMenu;
-import com.bafmc.customenchantment.menu.TinkererReward;
-import com.bafmc.customenchantment.menu.TinkererSettings;
+import com.bafmc.customenchantment.menu.tinkerer.TinkererMenu;
+import com.bafmc.customenchantment.menu.tinkerer.TinkererReward;
+import com.bafmc.customenchantment.menu.tinkerer.TinkererSettings;
 import com.bafmc.bukkit.config.AdvancedConfigurationSection;
 import com.bafmc.bukkit.utils.StringUtils;
 

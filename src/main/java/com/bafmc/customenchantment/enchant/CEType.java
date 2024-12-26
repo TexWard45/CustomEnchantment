@@ -18,6 +18,8 @@ public class CEType {
 	public static final CEType CHANGE_HAND = new CEType("CHANGE_HAND").register();
 	public static final CEType HOTBAR_HOLD = new CEType("HOTBAR_HOLD").register();
 	public static final CEType HOTBAR_CHANGE = new CEType("HOTBAR_CHANGE").register();
+	public static final CEType EXTRA_SLOT_EQUIP = new CEType("EXTRA_SLOT_EQUIP").register();
+	public static final CEType EXTRA_SLOT_UNEQUIP = new CEType("EXTRA_SLOT_UNEQUIP").register();
 	public static final CEType KILL_PLAYER = new CEType("KILL_PLAYER").register();
 	public static final CEType DEATH = new CEType("DEATH").register();
 	public static final CEType ARMOR_EQUIP = new CEType("ARMOR_EQUIP").register();

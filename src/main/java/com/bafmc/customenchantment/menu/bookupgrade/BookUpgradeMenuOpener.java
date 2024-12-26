@@ -1,4 +1,4 @@
-package com.bafmc.customenchantment.menu;
+package com.bafmc.customenchantment.menu.bookupgrade;
 
 import com.bafmc.custommenu.menu.CMenuView;
 import org.bukkit.entity.Player;

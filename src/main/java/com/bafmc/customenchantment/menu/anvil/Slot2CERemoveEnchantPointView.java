@@ -4,7 +4,6 @@ import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.item.*;
 import com.bafmc.customenchantment.item.enchantpoint.CEEnchantPointSimple;
 import com.bafmc.customenchantment.item.removeenchantpoint.CERemoveEnchantPoint;
-import com.bafmc.customenchantment.menu.CEAnvilMenu;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;

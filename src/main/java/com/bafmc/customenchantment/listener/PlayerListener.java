@@ -176,7 +176,7 @@ public class PlayerListener implements Listener {
 		CEPlayer cePlayer = CEAPI.getCEPlayer(player);
 		EquipSlot slot = e.getEquipSlot();
 
-		CEWeaponAbstract ceOldWeapon = cePlayer.getSlot(slot);
+		CEWeaponAbstract ceOldWeapon = cePlayer.getEquipment().getSlot(slot);
 		// Call on old equip
 		if (ceOldWeapon != null) {
 			Map<EquipSlot, CEWeaponAbstract> map = CEAPI.getCEWeaponMap(player);
@@ -206,9 +206,9 @@ public class PlayerListener implements Listener {
 		CEWeaponAbstract ceNewWeapon = null;
 		if (newItemStack != null && newItemStack.getType() != Material.AIR) {
 			ceNewWeapon = CEWeaponAbstract.getCEWeapon(newItemStack);
-			cePlayer.setSlot(slot, ceNewWeapon);
+			cePlayer.getEquipment().setSlot(slot, ceNewWeapon);
 		}else {
-			cePlayer.setSlot(slot, null);
+			cePlayer.getEquipment().setSlot(slot, null);
 		}
 
 		// Call on new equip
@@ -244,7 +244,7 @@ public class PlayerListener implements Listener {
 
 		int heldItemSlot = cePlayer.getPlayer().getInventory().getHeldItemSlot();
 		if (slot == EquipSlot.MAINHAND) {
-			CEWeaponAbstract currentWeapon = cePlayer.getSlot(EquipSlot.getHotbar(heldItemSlot));
+			CEWeaponAbstract currentWeapon = cePlayer.getEquipment().getSlot(EquipSlot.getHotbar(heldItemSlot));
 			if (currentWeapon != null && currentWeapon.getDefaultItemStack().isSimilar(itemStack)) {
 				return currentWeapon;
 			}
@@ -252,7 +252,7 @@ public class PlayerListener implements Listener {
 			int hotbarSlot = EquipSlot.getSlot(slot);
 
 			if (hotbarSlot == heldItemSlot) {
-				CEWeaponAbstract currentWeapon = cePlayer.getSlot(EquipSlot.MAINHAND);
+				CEWeaponAbstract currentWeapon = cePlayer.getEquipment().getSlot(EquipSlot.MAINHAND);
 				if (currentWeapon != null) {
 					return currentWeapon;
 				}

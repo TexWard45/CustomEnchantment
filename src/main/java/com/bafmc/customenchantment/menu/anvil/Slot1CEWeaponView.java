@@ -2,7 +2,6 @@ package com.bafmc.customenchantment.menu.anvil;
 
 import com.bafmc.customenchantment.item.CEItem;
 import com.bafmc.customenchantment.item.CEWeapon;
-import com.bafmc.customenchantment.menu.CEAnvilMenu;
 
 public class Slot1CEWeaponView extends AnvilSlot1View<Slot1CEWeaponView> {
 

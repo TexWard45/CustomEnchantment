@@ -55,7 +55,8 @@ public class CEGem extends CEItem<CEGemData> {
 		}
 
 		ItemStack itemStack = setItemStack(itemStackNMS.getNewItemStack(), getPlaceholder(data));
-		return ItemStackUtils.updateColorToItemStack(itemStack);
+		itemStack = ItemStackUtils.updateColorToItemStack(itemStack);
+		return itemStack;
 	}
 
 	public static ItemStack setItemStack(ItemStack itemStack, Map<String, String> placeholder) {
@@ -80,9 +81,16 @@ public class CEGem extends CEItem<CEGemData> {
 
 	public Map<String, String> getPlaceholder(CEGemData data) {
 		Map<String, String> map = new HashMap<>();
+
+		if (data.getLevel() <= 0) {
+			return map;
+		}
+
 		map.put("{gem_applies_description}", StringUtils.toString(data.getConfigData().getAppliesDescription()));
 		map.put("{gem_level}", String.valueOf(data.getLevel()));
 		map.put("{level_color}", CEGemSettings.getSettings().getGemLevelSettings(data.getLevel()).getColor());
+		// Fix auto replace bold color
+		map.put("{level_color_bold}", CEGemSettings.getSettings().getGemLevelSettings(data.getLevel()).getColor() + "&l");
 		return map;
 	}
 

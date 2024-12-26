@@ -4,7 +4,6 @@ import com.bafmc.customenchantment.item.ApplyReason;
 import com.bafmc.customenchantment.item.ApplyResult;
 import com.bafmc.customenchantment.item.CEItem;
 import com.bafmc.customenchantment.item.gemdrill.CEGemDrill;
-import com.bafmc.customenchantment.menu.CEAnvilMenu;
 
 public class Slot2CEGemDrillView extends AnvilSlot2View<Slot2CEGemDrillView> {
 

@@ -1,3 +1,4 @@
+import com.bafmc.bukkit.utils.ExpUtils;
 import org.bukkit.entity.EntityType;
 import org.junit.jupiter.api.Test;
 
@@ -104,12 +105,12 @@ public class MainTest {
 //        System.out.println(levelCountMap);
 //    }
 //
-//    @Test
-//    public void onLevel() {
-//        for (int i = 1; i < 20; i++) {
-//            System.out.println(i * 40 + " " + ExpUtils.getExpToLevel(i * 40));
-//        }
-//    }
+    @Test
+    public void onLevel() {
+        for (int i = 1; i < 50; i++) {
+            System.out.println(i * 80 + " " + ExpUtils.getExpToLevel(i * 80));
+        }
+    }
 
     @Test
     public void onMask() {

@@ -4,7 +4,6 @@ import com.bafmc.bukkit.utils.ItemStackUtils;
 import com.bafmc.customenchantment.item.ApplyReason;
 import com.bafmc.customenchantment.item.ApplyResult;
 import com.bafmc.customenchantment.item.CEItem;
-import com.bafmc.customenchantment.menu.CEAnvilMenu;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.inventory.ItemStack;

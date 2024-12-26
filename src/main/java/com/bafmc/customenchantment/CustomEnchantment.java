@@ -61,22 +61,22 @@ public class CustomEnchantment extends BafPlugin implements Listener {
 	}
 
 	public void registerModules() {
-		registerModule(new FeatureModule(this));
-		registerModule(new CustomMenuModule(this));
-		registerModule(new AttributeModule(this));
-		registerModule(new FilterModule(this));
-		registerModule(new CommandModule(this));
-		registerModule(new ItemModule(this));
-		registerModule(new PlayerModule(this));
-		registerModule(new ExecuteModule(this));
-		registerModule(new EnchantModule(this));
-		registerModule(new ConfigModule(this));
-		registerModule(new TaskModule(this));
-		registerModule(new ListenerModule(this));
-		registerModule(new DatabaseModule(this));
-		registerModule(new MenuModule(this));
-		registerModule(new PlaceholderModule(this));
-		registerModule(new GuardModule(this));
+		registerModule((this.featureModule = new FeatureModule(this)));
+		registerModule((this.customMenuModule = new CustomMenuModule(this)));
+		registerModule((this.attributeModule = new AttributeModule(this)));
+		registerModule((this.filterModule = new FilterModule(this)));
+		registerModule((this.commandModule = new CommandModule(this)));
+		registerModule((this.itemModule = new ItemModule(this)));
+		registerModule((this.playerModule = new PlayerModule(this)));
+		registerModule((this.executeModule = new ExecuteModule(this)));
+		registerModule((this.enchantModule = new EnchantModule(this)));
+		registerModule((this.configModule = new ConfigModule(this)));
+		registerModule((this.taskModule = new TaskModule(this)));
+		registerModule((this.guardModule = new GuardModule(this)));
+		registerModule((this.databaseModule = new DatabaseModule(this)));
+		registerModule((this.menuModule = new MenuModule(this)));
+		registerModule((this.placeholderModule = new PlaceholderModule(this)));
+		registerModule((this.listenerModule = new ListenerModule(this)));
 	}
 
 	public void addEffectTask(EffectTaskSeparate effectTask) {

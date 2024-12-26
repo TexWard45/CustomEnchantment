@@ -4,7 +4,6 @@ import com.bafmc.customenchantment.item.ApplyReason;
 import com.bafmc.customenchantment.item.ApplyResult;
 import com.bafmc.customenchantment.item.CEItem;
 import com.bafmc.customenchantment.item.protectdead.CEProtectDead;
-import com.bafmc.customenchantment.menu.CEAnvilMenu;
 
 public class Slot2CEProtectDeadView extends AnvilSlot2View<Slot2CEProtectDeadView> {
 

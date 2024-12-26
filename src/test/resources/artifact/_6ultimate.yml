@@ -1,0 +1,96 @@
+# &#ef4444Cổ Vật Chiến Thần
+# Số lượng: 5
+doombringer:
+  item:
+    type: GOLDEN_SWORD
+    display: "<GRADIENT:d50000>&lKiếm Tử Thần</GRADIENT:ff3d00>"
+    glowing: true
+    lore:
+      - "Ⓑ&#ef4444Cổ Vật Chiến Thần"
+      - "Ⓑ"
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm phần trăm sức tấn công"
+      - ""
+      - "&eKhi tấn công:"
+      - "&7» &7Kết liễu kẻ địch dưới một mức máu nhất định"
+  enchants:
+    - "lifependant 1"
+  attributes:
+    - "type=ATTACK_DAMAGE,operation=0,amount=0,slot=HAND"
+cursedchain:
+  item:
+    type: CHAIN
+    display: "<GRADIENT:455a64>&lSợi Xích Nguyền Rủa</GRADIENT:78909c>"
+    glowing: true
+    lore:
+      - "Ⓑ&#ef4444Cổ Vật Chiến Thần"
+      - "Ⓑ"
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm tỉ lệ chí mạng và sát thương chí mạng"
+      - ""
+      - "&eKhi tấn công:"
+      - "&7» &7Thiết lập khế ước với kẻ địch vừa bị bạn tấn công,"
+      - "&7kẻ địch di chuyển càng xa sẽ càng bị làm chậm cho đến"
+      - "&7khi liên kết bị phá vỡ do khoảng cách giữa bạn và kẻ địch"
+      - "&7quá xa hoặc khi bạn tấn công kẻ địch khác"
+  enchants:
+    - "lifependant 1"
+  attributes:
+    - "type=ATTACK_DAMAGE,operation=0,amount=0,slot=HAND"
+soulofrevival:
+  item:
+    type: TOTEM_OF_UNDYING
+    display: "<GRADIENT:fdd835>&lLinh Hồn Phục Sinh</GRADIENT:1de9b6> "
+    glowing: true
+    lore:
+      - "Ⓑ&#ef4444Cổ Vật Chiến Thần"
+      - "Ⓑ"
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm máu tối đa và tim vàng tối đa"
+      - ""
+      - "&eKhi thấp máu:"
+      - "&7» &7Hồi toàn bộ máu và tim vàng"
+  enchants:
+    - "lifependant 1"
+bloodarmor:
+  item:
+    type: LEATHER_CHESTPLATE
+    color: "#00c853"
+    display: "<GRADIENT:00c853>&lGiáp Máu</GRADIENT:64dd17> <GRADIENT:64dd17>&lCổ Đại</GRADIENT:aeea00>"
+    flags:
+      - "HIDE_DYE"
+    glowing: true
+    lore:
+      - "Ⓑ&#ef4444Cổ Vật Chiến Thần"
+      - "Ⓑ"
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm phần trăm máu tối đa"
+      - "&7» &7Nhận lượng hồi phục theo phần trăm"
+      - "&7máu tối đa mỗi giây"
+      - ""
+      - "&eKhi ngoài giao tranh:"
+      - "&7» &7Lập tức hồi đầy thanh máu"
+  enchants:
+    - "bloodarmor 1"
+  attributes:
+    - "type=ARMOR,operation=0,amount=0,slot=CHEST"
+goldenapple:
+  item:
+    type: GOLDEN_APPLE
+    display: "<GRADIENT:ff9100>&lTáo Hoàng Kim</GRADIENT:ffff00>"
+    glowing: true
+    lore:
+      - "Ⓑ&#ef4444Cổ Vật Chiến Thần"
+      - "Ⓑ"
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm máu tối đa, tim vàng tối đa, kháng khống chế"
+      - "&7và kháng làm chậm"
+      - ""
+      - "&eKhi ăn táo vàng:"
+      - "&7» &7Nhận miễn khống chế, miễn làm chậm, tăng mạnh tốc độ"
+      - "&7hồi máu và xóa mọi hiệu ứng thuốc bất lợi trong một khoảng"
+      - "&7thời gian"
+  enchants:
+    - "lifependant 1"
+  attributes:
+    - "type=ATTACK_DAMAGE,operation=0,amount=0,slot=HAND"

@@ -50,10 +50,13 @@ public class FurnaceSpecialMine extends AbstractSpecialMine {
 		public List<ItemStack> applyFurnace(List<ItemStack> items) {
 			for (ItemStack item : items) {
 				switch (item.getType()) {
-				case IRON_ORE:
+				case RAW_COPPER:
+					item.setType(Material.COPPER_INGOT);
+					break;
+				case RAW_IRON:
 					item.setType(Material.IRON_INGOT);
 					break;
-				case GOLD_ORE:
+				case RAW_GOLD:
 					item.setType(Material.GOLD_INGOT);
 					break;
 				default:

@@ -1,8 +1,8 @@
 package com.bafmc.customenchantment.enchant;
 
 import com.bafmc.bukkit.utils.NumberUtils;
-import com.bafmc.customenchantment.menu.BookUpgradeMenu;
-import com.bafmc.customenchantment.menu.data.BookUpgradeData;
+import com.bafmc.customenchantment.menu.bookupgrade.BookUpgradeMenu;
+import com.bafmc.customenchantment.menu.bookupgrade.data.BookUpgradeData;
 import com.bafmc.customenchantment.player.PlayerTemporaryStorage;
 import com.bafmc.bukkit.utils.StringUtils;
 import org.bukkit.entity.LivingEntity;

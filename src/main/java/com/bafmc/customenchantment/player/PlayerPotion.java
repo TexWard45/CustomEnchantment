@@ -126,7 +126,7 @@ public class PlayerPotion extends CEPlayerExpansion {
 		if (highestAmplifier == -1) {
 			player.removePotionEffect(type);
 		} else {
-			player.addPotionEffect(new PotionEffect(type, Integer.MAX_VALUE, highestAmplifier), true);
+			player.addPotionEffect(new PotionEffect(type, PotionEffect.INFINITE_DURATION, highestAmplifier), true);
 		}
 	}
 

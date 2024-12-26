@@ -70,7 +70,11 @@ public class EffectExecuteTask extends BukkitRunnable {
 
 			boolean executeOnce = forceExecute || instant || (onlyDelay && canActiveDelay);
 			if (executeOnce) {
-				list.remove(i);
+				try {
+					list.remove(i);
+				}catch (Exception e) {
+					e.printStackTrace();
+				}
 			} else {
 				effectData.tick();
 				i++;

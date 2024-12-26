@@ -5,8 +5,8 @@ import com.bafmc.bukkit.command.AdvancedCommandExecutor;
 import com.bafmc.bukkit.command.Argument;
 import com.bafmc.bukkit.module.PluginModule;
 import com.bafmc.customenchantment.CustomEnchantment;
-import com.bafmc.customenchantment.menu.BookCraftMenu;
-import com.bafmc.customenchantment.menu.BookUpgradeMenu;
+import com.bafmc.customenchantment.menu.bookcraft.BookCraftMenu;
+import com.bafmc.customenchantment.menu.bookupgrade.BookUpgradeMenu;
 import com.bafmc.custommenu.api.CustomMenuAPI;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -74,6 +74,19 @@ public class CommandModule extends PluginModule<CustomEnchantment> {
             }
         }).end();
         anvilBuilder.build();
+
+        AdvancedCommandBuilder equipment = AdvancedCommandBuilder.builder().plugin(getPlugin()).rootCommand("equipment");
+        equipment.commandExecutor(new AdvancedCommandExecutor() {
+            public boolean onCommand(CommandSender sender, Argument arg) {
+                if (!(sender instanceof Player)) {
+                    return true;
+                }
+                Player player = (Player) sender;
+                CustomMenuAPI.getCPlayer(player).openCustomMenu("equipment", true);
+                return true;
+            }
+        }).end();
+        equipment.build();
 
         AdvancedCommandBuilder nameTagBuilder = AdvancedCommandBuilder.builder().plugin(getPlugin()).rootCommand("nametag");
         new CommandNameTag().onRegister(nameTagBuilder);

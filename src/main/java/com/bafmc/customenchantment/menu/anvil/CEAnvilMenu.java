@@ -1,13 +1,11 @@
-package com.bafmc.customenchantment.menu;
+package com.bafmc.customenchantment.menu.anvil;
 
 import com.bafmc.customenchantment.CustomEnchantmentLog;
 import com.bafmc.customenchantment.CustomEnchantmentMessage;
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.item.ApplyReason;
 import com.bafmc.customenchantment.item.CEItem;
-import com.bafmc.customenchantment.menu.anvil.AnvilSlot1View;
-import com.bafmc.customenchantment.menu.anvil.AnvilSlot2View;
-import com.bafmc.customenchantment.menu.anvil.Slot2CEDefaultView;
+import com.bafmc.customenchantment.menu.MenuAbstract;
 import com.bafmc.custommenu.menu.CMenuView;
 import com.bafmc.bukkit.utils.InventoryUtils;
 import com.bafmc.bukkit.utils.ItemStackUtils;
@@ -69,10 +67,6 @@ public class CEAnvilMenu extends MenuAbstract {
 
 	public enum CEAnvilAddReason {
 		SUCCESS, ALREADY_HAS_SLOT1, ALREADY_HAS_SLOT2, NOT_SUITABLE;
-	}
-
-	public enum CEAnvilConfirmReason {
-		SUCCESS, NOT_ENOUGH_MONEY, NOT_ENOUGH_BOOK;
 	}
 
 	public class ItemData {

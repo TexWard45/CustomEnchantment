@@ -90,7 +90,7 @@ public class CommandGiveItem implements AbstractCommand {
 		}
 	};
 
-	private AdvancedTabCompleter gemLevelTab = new AdvancedTabCompleter() {
+	private AdvancedTabCompleter levelTab = new AdvancedTabCompleter() {
 		public List<String> onTabComplete(CommandSender sender, Argument arg) {
 			return Arrays.asList("1", "2", "3", "4", "5", "6", "7", "8", "9", "10");
 		}
@@ -173,7 +173,7 @@ public class CommandGiveItem implements AbstractCommand {
 					.end()
 					.subCommand("gem")
 						.subCommand("<name>").tabCompleter(nameTab)
-						.subCommand("<level>").tabCompleter(gemLevelTab)
+						.subCommand("<level>").tabCompleter(levelTab)
 						.subCommand("<amount>").tabCompleter(amountTab)
 						.end().end().end()
 					.end()
@@ -236,8 +236,9 @@ public class CommandGiveItem implements AbstractCommand {
 					.end()
 					.subCommand("artifact")
 						.subCommand("<name>").tabCompleter(nameTab)
+						.subCommand("<level>").tabCompleter(levelTab)
 						.subCommand("<amount>").tabCompleter(amountTab)
-						.end().end()
+						.end().end().end()
 					.end()
 					.subCommand("gemdrill")
 						.subCommand("<name>").tabCompleter(nameTab)

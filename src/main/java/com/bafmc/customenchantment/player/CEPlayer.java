@@ -1,23 +1,15 @@
 package com.bafmc.customenchantment.player;
 
-import com.bafmc.bukkit.utils.EquipSlot;
 import com.bafmc.customenchantment.CEPlayerMap;
-import com.bafmc.customenchantment.CustomEnchantment;
-import com.bafmc.customenchantment.item.CEWeapon;
-import com.bafmc.customenchantment.item.CEWeaponAbstract;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.entity.Player;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.*;
 
 public class CEPlayer implements ICEPlayerEvent {
 	private static CEPlayerMap cePlayerMap;
-	private ConcurrentHashMap<Class<? extends CEPlayerExpansion>, CEPlayerExpansion> map = new ConcurrentHashMap<Class<? extends CEPlayerExpansion>, CEPlayerExpansion>();
-	private ConcurrentHashMap<EquipSlot, CEWeaponAbstract> slotMap = new ConcurrentHashMap<>();
-	private ConcurrentHashMap<EquipSlot, Boolean> disableSlotMap = new ConcurrentHashMap<>();
+	private Map<Class<? extends CEPlayerExpansion>, CEPlayerExpansion> map = new LinkedHashMap<>();
 	@Getter
     private Player player;
     @Getter
@@ -60,7 +52,6 @@ public class CEPlayer implements ICEPlayerEvent {
 			expansion.onJoin();
 		}
 		this.register();
-		this.updateSlot();
 	}
 
 	/**
@@ -68,11 +59,12 @@ public class CEPlayer implements ICEPlayerEvent {
 	 * 
 	 */
 	public void onQuit() {
-		for (CEPlayerExpansion expansion : map.values()) {
+		List<CEPlayerExpansion> expansions = new ArrayList<>(map.values());
+		Collections.reverse(expansions);
+		for (CEPlayerExpansion expansion : expansions) {
 			expansion.onQuit();
 		}
 		this.unregister();
-		this.slotMap.clear();
 	}
 
 	/**
@@ -174,67 +166,7 @@ public class CEPlayer implements ICEPlayerEvent {
 		return (PlayerGem) getExpansion(PlayerGem.class);
 	}
 
-    public void updateSlot() {
-		for (EquipSlot slot : EquipSlot.ALL_ARRAY) {
-			CEWeaponAbstract weapon = CEWeapon.getCEWeapon(slot.getItemStack(player));
-			if (weapon == null) {
-				continue;
-			}
-			setSlot(slot, weapon);
-		}
-	}
-
-	public CEWeaponAbstract getSlot(EquipSlot slot) {
-		return getSlot(slot, true);
-	}
-
-	public CEWeaponAbstract getSlot(EquipSlot slot, boolean check) {
-		if (!slotMap.containsKey(slot)) {
-			return null;
-		}
-		if (check && disableSlotMap.containsKey(slot)) {
-			return null;
-		}
-		return slotMap.get(slot);
-	}
-
-	public void setSlot(EquipSlot slot, CEWeaponAbstract weapon) {
-		if (weapon != null) {
-			slotMap.put(slot, weapon);
-		} else {
-			slotMap.remove(slot);
-		}
-
-        getSet().onUpdate();
-	}
-
-	public void setDisableSlot(EquipSlot slot, boolean disable) {
-		if (disable) {
-			disableSlotMap.put(slot, true);
-		} else {
-			disableSlotMap.remove(slot);
-		}
-	}
-
-	public boolean isDisableSlot(EquipSlot slot) {
-		return disableSlotMap.containsKey(slot);
-	}
-
-    public Map<EquipSlot, CEWeaponAbstract> getSlotMap() {
-		return getSlotMap(true);
-    }
-
-	public Map<EquipSlot, CEWeaponAbstract> getSlotMap(boolean check) {
-		if (!check) {
-			return new LinkedHashMap<>(slotMap);
-		}
-		Map<EquipSlot, CEWeaponAbstract> map = new LinkedHashMap<>();
-		for (EquipSlot slot : slotMap.keySet()) {
-			if (disableSlotMap.containsKey(slot)) {
-				continue;
-			}
-			map.put(slot, slotMap.get(slot));
-		}
-		return map;
+	public PlayerEquipment getEquipment() {
+		return (PlayerEquipment) getExpansion(PlayerEquipment.class);
 	}
 }

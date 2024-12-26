@@ -56,7 +56,7 @@ public class CommandAddEnchant implements AbstractCommand {
                                 }
 
                                 CEPlayer cePlayer = CEAPI.getCEPlayer(player);
-                                CEWeaponAbstract weapon = cePlayer.getSlot(EquipSlot.MAINHAND);
+                                CEWeaponAbstract weapon = cePlayer.getEquipment().getSlot(EquipSlot.MAINHAND);
                                 if (weapon == null) {
                                     return true;
                                 }

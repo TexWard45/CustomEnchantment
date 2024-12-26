@@ -73,6 +73,18 @@ command:
       - "&eLấy mã màu hex ở &fhttps://htmlcolorcodes.com/color-picker/"
       - "&eLiên hệ ngay Admin nếu có thắc mắc về việc đặt tên màu!"
 menu:
+  equipment:
+    add-equipment:
+      success:
+        - "SUCCESS Trang bị Cổ vật thành công!"
+      max-artifact:
+        - "DANGER Đã đạt số lượng Cổ vật tối đa có thể trang bị!"
+      duplicate-artifact:
+        - "DANGER Cổ vật bị trùng lặp!"
+      no-artifact-slot:
+        - "DANGER Không có ô trang bị Cổ vật!"
+      not-support-item:
+        - "DANGER Không hỗ trợ trang bị loại vật phẩm này!"
   bookcraft:
     add-book:
       success: ""

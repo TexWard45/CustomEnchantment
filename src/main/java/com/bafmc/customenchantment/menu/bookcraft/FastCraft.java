@@ -7,7 +7,6 @@ import com.bafmc.customenchantment.api.Pair;
 import com.bafmc.customenchantment.enchant.CEEnchantSimple;
 import com.bafmc.customenchantment.item.book.CEBook;
 import com.bafmc.customenchantment.item.CEItem;
-import com.bafmc.customenchantment.menu.BookCraftMenu;
 import com.bafmc.customenchantment.menu.data.BookData;
 import com.bafmc.custommenu.menu.CItem;
 import com.bafmc.bukkit.utils.InventoryUtils;
