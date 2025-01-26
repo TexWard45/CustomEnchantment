@@ -2,7 +2,6 @@ package com.bafmc.customenchantment.custommenu;
 
 import com.bafmc.bukkit.api.PlaceholderAPI;
 import com.bafmc.bukkit.config.AdvancedConfigurationSection;
-import com.bafmc.bukkit.utils.ItemStackUtils;
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.enchant.CEEnchantSimple;
 import com.bafmc.customenchantment.item.*;
@@ -105,7 +104,21 @@ public class CustomEnchantmentTradeItemCompare extends TradeItemCompare {
 		WeaponDisplay resultWeaponDisplay = resultWeapon.getWeaponDisplay();
 		WeaponDisplay currentWeaponDisplay = currentWeapon.getWeaponDisplay();
 
-		if (currentWeaponDisplay.getDisplayName() != null) {
+		String currentDisplayName = currentWeaponDisplay.getDisplayName();
+		String defaultDisplayName = null;
+
+		CEItemData data = currentWeapon.getData();
+		if (data != null) {
+			String pattern = data.getPattern();
+
+			CEItem defaultWeapon = CEAPI.getCEItemByStorage(CEItemType.WEAPON, pattern);
+			if (defaultWeapon instanceof CEWeaponAbstract defaultWeaponAbstract) {
+				WeaponDisplay defaultWeaponDisplay = defaultWeaponAbstract.getWeaponDisplay();
+				defaultDisplayName = defaultWeaponDisplay.getDisplayName();
+			}
+		}
+
+		if (currentDisplayName != null && !currentDisplayName.equals(defaultDisplayName)) {
 			resultWeaponDisplay.setDisplayName(currentWeaponDisplay.getDisplayName());
 		}
 
@@ -163,6 +176,8 @@ public class CustomEnchantmentTradeItemCompare extends TradeItemCompare {
 		weapon1.clearRepairCost();
 		weapon2.clearTimeModifier();
 		weapon2.clearRepairCost();
+		weapon1.clearPattern();
+		weapon2.clearPattern();
 
 		if (weapon1.getWeaponAttribute().equals(weapon2.getWeaponAttribute())) {
 			weapon1.clearAttribute();
@@ -172,7 +187,6 @@ public class CustomEnchantmentTradeItemCompare extends TradeItemCompare {
         ItemStack weaponItemStack1 = weapon1.exportTo();
         ItemStack weaponItemStack2 = weapon2.exportTo();
         if (Bukkit.getPluginManager().isPluginEnabled("FindItem")) {
-
             UniqueItem uniqueItem = new UniqueItem(weaponItemStack1);
             if (uniqueItem.getId() != null) {
                 uniqueItem.deleteLoreFormat();

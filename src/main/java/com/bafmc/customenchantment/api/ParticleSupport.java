@@ -14,8 +14,11 @@ public class ParticleSupport {
 
 	public void send(Player target, Particle particle, float x, float y, float z, float offsetX,
 			float offsetY, float offsetZ, float particleData, int count, boolean force) {
-		ParticleOptions particleOptions = CraftParticle.createParticleParam(particle, particleData);
-		send(target, particleOptions, x, y, z, offsetX, offsetY, offsetZ, count, force);
+		try {
+			ParticleOptions particleOptions = CraftParticle.createParticleParam(particle, particleData);
+			send(target, particleOptions, x, y, z, offsetX, offsetY, offsetZ, count, force);
+		}catch (Exception e) {
+		}
 	}
 
 	public void send(Player target, ParticleOptions e, float x, float y, float z, float offsetX,

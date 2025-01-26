@@ -1,12 +1,14 @@
-critclaws:
+greencompound:
   group: artifact
-  display: "&cCrown of destruction"
+  display: "Green Compound"
   description:
-    - "&fVương miện của kẻ hủy diệt, gieo rắc sự diệt vong cho kẻ thù"
-    - "&fTăng cường sức mạnh chiến đấu và khả năng phục hồi"
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm máu tối đa, giáp và kích thước"
+    - "&7bù lại giảm tốc độ di chuyển"
   detail-description:
-    - "&fVương miện của kẻ hủy diệt, gieo rắc sự diệt vong cho kẻ thù"
-    - "&fTăng cường sức mạnh chiến đấu và khả năng phục hồi"
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm máu tối đa, giáp và kích thước"
+    - "&7bù lại giảm tốc độ di chuyển"
   applies-description:
     - "Thanh công cụ"
   max-level: 1
@@ -15,28 +17,150 @@ critclaws:
   levels:
     "1":
       equip:
-        type: HOTBAR_HOLD
+        type: EXTRA_SLOT_EQUIP
         chance: 100
         cooldown: 0
         conditions:
-          - "EQUIP_SLOT:HOTBAR"
+          - "EQUIP_SLOT:EXTRA_SLOT"
         effects:
-          - ADD_FOREVER_POTION:feather_jump:JUMP:0
-          - ADD_CUSTOM_ATTRIBUTE:critclaws:HEALTH_REGENERATION:2:0
+          - ADD_ATTRIBUTE:MAX_HEALTH:greencompound_max_health:10:0
+          - ADD_ATTRIBUTE:ARMOR:greencompound_armor:5:0
+          - ADD_ATTRIBUTE:SCALE:greencompound_scale:0.25:1
+          - ADD_ATTRIBUTE:MOVEMENT_SPEED:greencompound_movement_speed:-0.25:2
       unequip:
-        type: HOTBAR_CHANGE
+        type: EXTRA_SLOT_UNEQUIP
         chance: 100
         cooldown: 0
         conditions:
-          - "EQUIP_SLOT:HOTBAR"
+          - "EQUIP_SLOT:EXTRA_SLOT"
         effects:
-          - REMOVE_FOREVER_POTION:feather_jump
-          - REMOVE_CUSTOM_ATTRIBUTE:critclaws
-      attack:
-        type: ATTACK
+          - REMOVE_ATTRIBUTE:MAX_HEALTH:greencompound_max_health
+          - REMOVE_ATTRIBUTE:SCALE:greencompound_scale
+          - REMOVE_ATTRIBUTE:ARMOR:greencompound_armor
+          - REMOVE_ATTRIBUTE:MOVEMENT_SPEED:greencompound_movement_speed
+graycompound:
+  group: artifact
+  display: "Gray Compound"
+  description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm máu tối đa, giáp và kích thước"
+    - "&7bù lại giảm tốc độ di chuyển"
+  detail-description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm máu tối đa, giáp và kích thước"
+    - "&7bù lại giảm tốc độ di chuyển"
+  applies-description:
+    - "Thanh công cụ"
+  max-level: 1
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: EXTRA_SLOT_EQUIP
         chance: 100
         cooldown: 0
         conditions:
-          - "EQUIP_SLOT:HOTBAR"
+          - "EQUIP_SLOT:EXTRA_SLOT"
         effects:
-          - "MESSAGE:ATTACK"
+          - ADD_ATTRIBUTE:MAX_HEALTH:graycompound_max_health:10:0
+          - ADD_ATTRIBUTE:ARMOR:graycompound_armor:5:0
+          - ADD_ATTRIBUTE:SCALE:graycompound_scale:-0.25:1
+          - ADD_ATTRIBUTE:MOVEMENT_SPEED:graycompound_movement_speed:0.25:2
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:MAX_HEALTH:graycompound_max_health
+          - REMOVE_ATTRIBUTE:SCALE:graycompound_scale
+          - REMOVE_ATTRIBUTE:ARMOR:graycompound_armor
+          - REMOVE_ATTRIBUTE:MOVEMENT_SPEED:graycompound_movement_speed
+bloodarmor:
+  group: artifact
+  display: "Blood Armor"
+  description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm phần trăm máu tối đa"
+    - "&7» &7Nhận lượng hồi phục theo phần trăm"
+    - "&7máu tối đa mỗi giây"
+    - ""
+    - "&eKhi ngoài giao tranh:"
+    - "&7» &7Lập tức hồi đầy thanh máu"
+  detail-description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm phần trăm máu tối đa"
+    - "&7» &7Nhận lượng hồi phục theo phần trăm"
+    - "&7máu tối đa mỗi giây"
+    - ""
+    - "&eKhi ngoài giao tranh:"
+    - "&7» &7Lập tức hồi đầy thanh máu"
+  applies-description:
+    - "Thanh công cụ"
+  max-level: 1
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:MAX_HEALTH:bloodarmor_max_health:0.2:2
+          - ADD_CUSTOM_ATTRIBUTE:bloodarmor_health_regeneration_percent:HEALTH_REGENERATION_PERCENT:2.5:0
+          - ADD_CUSTOM_ATTRIBUTE:bloodarmor_slow_resistance:SLOW_RESISTANCE:50:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:MAX_HEALTH:bloodarmor_max_health
+          - REMOVE_CUSTOM_ATTRIBUTE:bloodarmor_health_regeneration_percent
+          - REMOVE_CUSTOM_ATTRIBUTE:bloodarmor_slow_resistance
+      auto:
+        type: AUTO
+        chance: 100
+        cooldown: 1000
+        conditions:
+          - "NEGATIVE=true | IN_COMBAT"
+        effects:
+          - "HEALTH:SET:%player_max_value%"
+eternalbread:
+  group: artifact
+  display: "Eternal Bread"
+  description:
+    - "&eKhi trang bị:"
+    - "&7» &7Nhận hiệu ứng thuốc bão hòa"
+  detail-description:
+    - "&eKhi trang bị:"
+    - "&7» &7Nhận hiệu ứng thuốc bão hòa"
+  applies-description:
+    - "Thanh công cụ"
+  max-level: 1
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_FOREVER_POTION:eternalbread:SATURATION:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_FOREVER_POTION:eternalbread

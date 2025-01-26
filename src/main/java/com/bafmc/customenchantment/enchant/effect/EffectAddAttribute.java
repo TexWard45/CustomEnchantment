@@ -1,15 +1,14 @@
 package com.bafmc.customenchantment.enchant.effect;
 
-import com.bafmc.bukkit.utils.AttributeUtils;
-import org.bukkit.attribute.Attribute;
-import org.bukkit.attribute.AttributeModifier.Operation;
-import org.bukkit.entity.Player;
-
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.enchant.CEFunctionData;
 import com.bafmc.customenchantment.enchant.EffectHook;
 import com.bafmc.customenchantment.enchant.EffectUtil;
 import com.bafmc.customenchantment.player.CEPlayer;
+import com.bafmc.customenchantment.task.SlowResistanceTask;
+import org.bukkit.attribute.Attribute;
+import org.bukkit.attribute.AttributeModifier.Operation;
+import org.bukkit.entity.Player;
 
 public class EffectAddAttribute extends EffectHook {
 	private Attribute attribute;
@@ -36,5 +35,13 @@ public class EffectAddAttribute extends EffectHook {
 		CEPlayer cePlayer = CEAPI.getCEPlayer(player);
 
 		cePlayer.getVanillaAttribute().addAttribute(attribute, name, amount, operation);
+
+		if (attribute == Attribute.GENERIC_MOVEMENT_SPEED) {
+			SlowResistanceTask.update(player);
+		}
+	}
+
+	public boolean isAsync() {
+		return false;
 	}
 }

@@ -1,7 +1,7 @@
 zombie:
   group: mask
   display: Zombie
-  custom-display-lore: "&2%enchant_display% %enchant_level%"
+  custom-display-lore: "&#2e7d32%enchant_display% %enchant_level%"
   description:
     - "&eCấp I:"
     - "&7- Triệu hồi Zombie thường khi bị tấn công"
@@ -29,13 +29,13 @@ zombie:
       - "&a+ Có tỉ lệ gây hiệu ứng đói cho đối thủ khi"
       - "&a  tấn công"
     "4":
-      - "&e7 Triệu hồi Zombie thường khi bị tấn công"
+      - "&e* Triệu hồi Zombie thường khi bị tấn công"
       - "&a+ Triệu hồi Zombie con khi bị tấn công"
       - "&e* Có tỉ lệ gây hiệu ứng đói cho đối thủ khi"
       - "&e  tấn công"
       - "&e  (Tăng thêm sức mạnh cho hiệu ứng)"
     "5":
-      - "&e7 Triệu hồi Zombie thường khi bị tấn công"
+      - "&e* Triệu hồi Zombie thường khi bị tấn công"
       - "&e* Triệu hồi Zombie con khi bị tấn công"
       - "&e  (Tăng thêm số lượng triệu hồi)"
       - "&e* Có tỉ lệ gây hiệu ứng đói cho đối thủ khi"
@@ -184,7 +184,7 @@ zombie:
 pig:
   group: mask
   display: Pig
-  custom-display-lore: "&d%enchant_display% %enchant_level%"
+  custom-display-lore: "&#e040fb%enchant_display% %enchant_level%"
   description:
     - "&eCấp I:"
     - "&7- Tiêu thụ thịt heo chín sẽ nhận"
@@ -313,7 +313,7 @@ pig:
 chicken:
   group: mask
   display: Chicken
-  custom-display-lore: "&f%enchant_display% %enchant_level%"
+  custom-display-lore: "&#ffd600%enchant_display% %enchant_level%"
   description:
     - "&eCấp I:"
     - "&7- Nhận giảm sát thương khi rơi"
@@ -400,7 +400,7 @@ chicken:
 sheep:
   group: mask
   display: Sheep
-  custom-display-lore: "&#dbdbdb%enchant_display% %enchant_level%"
+  custom-display-lore: "&#78909c%enchant_display% %enchant_level%"
   description:
     - "&eCấp I:"
     - "&7- Tiêu thụ thịt cừu chín sẽ nhận"
@@ -530,7 +530,7 @@ sheep:
 cavespider:
   group: mask
   display: CaveSpider
-  custom-display-lore: "&9%enchant_display% %enchant_level%"
+  custom-display-lore: "&#304ffe%enchant_display% %enchant_level%"
   description:
     - "&eCấp I:"
     - "&7- Miễn nhiễm sát thương dính độc"
@@ -695,7 +695,7 @@ cavespider:
 cow:
   group: mask
   display: Cow
-  custom-display-lore: "&#858585%enchant_display% %enchant_level%"
+  custom-display-lore: "&#8d6e63%enchant_display% %enchant_level%"
   description:
     - "&eCấp I:"
     - "&7- Tiêu thụ thịt bò chín sẽ loại bỏ tất"
@@ -813,7 +813,7 @@ cow:
 ocelot:
   group: mask
   display: Ocelot
-  custom-display-lore: "&#f1cd77%enchant_display% %enchant_level%"
+  custom-display-lore: "&#ffca28%enchant_display% %enchant_level%"
   description:
     - "&eCấp I:"
     - "&7- Gây thêm sát thương khi tấn công kẻ địch"
@@ -955,7 +955,7 @@ ocelot:
 wolf:
   group: mask
   display: Wolf
-  custom-display-lore: "&#d2cfcf%enchant_display% %enchant_level%"
+  custom-display-lore: "&#94a3b8%enchant_display% %enchant_level%"
   description:
     - "&eCấp I:"
     - "&7- Triệu hồi Wolf khi bị tấn công"
@@ -1152,7 +1152,7 @@ wolf:
 bat:
   group: mask
   display: Bat
-  custom-display-lore: "&8%enchant_display% %enchant_level%"
+  custom-display-lore: "&#455a64%enchant_display% %enchant_level%"
   description:
     - "&eCấp I:"
     - "&7- Nhận hiệu ứng nhìn trong bóng tối khi"
@@ -1336,7 +1336,7 @@ bat:
 spider:
   group: mask
   display: Spider
-  custom-display-lore: "&5%enchant_display% %enchant_level%"
+  custom-display-lore: "&#9c27b0%enchant_display% %enchant_level%"
   description:
     - "&eCấp I:"
     - "&7- Miễn nhiễm sát thương dính độc"
@@ -1493,7 +1493,7 @@ spider:
 rabbit:
   group: mask
   display: Rabbit
-  custom-display-lore: "&#8a8a8a%enchant_display% %enchant_level%"
+  custom-display-lore: "&#ff4081%enchant_display% %enchant_level%"
   description:
     - "&eCấp I:"
     - "&7- Nhận hiệu ứng nhảy cao khi trang bị"
@@ -1610,7 +1610,7 @@ rabbit:
 llama:
   group: mask
   display: Llama
-  custom-display-lore: "&#f5e1b7%enchant_display% %enchant_level%"
+  custom-display-lore: "&#ffd740%enchant_display% %enchant_level%"
   description:
     - "&eCấp I:"
     - "&7- Có tỉ lệ gây thêm sát thương và khiến"
@@ -1722,7 +1722,7 @@ llama:
 squid:
   group: mask
   display: Squid
-  custom-display-lore: "&b%enchant_display% %enchant_level%"
+  custom-display-lore: "&#00b0ff%enchant_display% %enchant_level%"
   description:
     - "&eCấp I:"
     - "&7- Nhận hiệu ứng thở dưới nước khi trang bị"
@@ -1908,7 +1908,7 @@ squid:
 mooshroom:
   group: mask
   display: Mooshroom
-  custom-display-lore: "&#be0000%enchant_display% %enchant_level%"
+  custom-display-lore: "&#ff5252%enchant_display% %enchant_level%"
   description:
     - "&eCấp I:"
     - "&7- Tiêu thụ súp nấm sẽ loại bỏ tất"
@@ -2021,7 +2021,7 @@ mooshroom:
 skeleton:
   group: mask
   display: Skeleton
-  custom-display-lore: "&#a1a1a1%enchant_display% %enchant_level%"
+  custom-display-lore: "&#b0bec5%enchant_display% %enchant_level%"
   description:
     - "&eCấp I:"
     - "&7- Tăng lực bắn của cung khi cầm vật phẩm"
@@ -2295,7 +2295,7 @@ parrot:
 fox:
   group: mask
   display: Fox
-  custom-display-lore: "&#f68a1d%enchant_display% %enchant_level%"
+  custom-display-lore: "&#e65100%enchant_display% %enchant_level%"
   description:
     - "&eCấp I:"
     - "&7- Nhận thêm tốc độ di chuyển khi có người chơi"
@@ -2898,7 +2898,7 @@ turtle:
 stray:
   group: mask
   display: Stray
-  custom-display-lore: "&#63787e%enchant_display% %enchant_level%"
+  custom-display-lore: "&#90a4ae%enchant_display% %enchant_level%"
   description:
     - "&eCấp I:"
     - "&7- Có tỉ lệ gây thêm sát thương khi bắn trúng"
@@ -3032,7 +3032,7 @@ stray:
 blaze:
   group: mask
   display: Blaze
-  custom-display-lore: "&6%enchant_display% %enchant_level%"
+  custom-display-lore: "&#f97316%enchant_display% %enchant_level%"
   description:
     - "&eCấp I:"
     - "&7- Nhận hiệu ứng kháng lửa khi trang bị"
@@ -3256,7 +3256,7 @@ blaze:
 horse:
   group: mask
   display: Horse
-  custom-display-lore: "&e%enchant_display% %enchant_level%"
+  custom-display-lore: "&#ffff00%enchant_display% %enchant_level%"
   description:
     - "&eCấp I:"
     - "&7- Nhận thêm tốc độ di chuyển khi trang bị"
@@ -3373,7 +3373,7 @@ horse:
 bee:
   group: mask
   display: Bee
-  custom-display-lore: "&#fbd367%enchant_display% %enchant_level%"
+  custom-display-lore: "&#ffea00%enchant_display% %enchant_level%"
   description:
     - "&eCấp I:"
     - "&7- Có tỉ lệ triệu hồi Bee khi bị tấn công"
@@ -3487,7 +3487,7 @@ bee:
 panda:
   group: mask
   display: Panda
-  custom-display-lore: "&#e4e4e4%enchant_display% %enchant_level%"
+  custom-display-lore: "&#00c853%enchant_display% %enchant_level%"
   description:
     - "&eCấp I:"
     - "&7- Triệu hồi Panda khi bị tấn công"
@@ -3612,7 +3612,7 @@ panda:
 endermite:
   group: mask
   display: Endermite
-  custom-display-lore: "&5%enchant_display% %enchant_level%"
+  custom-display-lore: "&#6a1b9a%enchant_display% %enchant_level%"
   description:
     - "&eCấp I:"
     - "&7- Triệu hồi Endermite mỗi khi bị tấn công"
@@ -3740,7 +3740,7 @@ endermite:
 piglin:
   group: mask
   display: Piglin
-  custom-display-lore: "&#efb884%enchant_display% %enchant_level%"
+  custom-display-lore: "&#ff4081%enchant_display% %enchant_level%"
   description:
     - "&eCấp I:"
     - "&7- Nhận thêm sức tấn công và tốc độ đánh"
@@ -4193,7 +4193,7 @@ piglin:
 dolphin:
   group: mask
   display: Dolphin
-  custom-display-lore: "&#06b6d4%enchant_display% %enchant_level%"
+  custom-display-lore: "&#00e5ff%enchant_display% %enchant_level%"
   description:
     - "&eCấp I:"
     - "&7- Nhận hiệu ứng thở dưới nước khi trang bị"
@@ -4322,7 +4322,7 @@ dolphin:
 pillager:
   group: mask
   display: Pillager
-  custom-display-lore: "&#939e9e%enchant_display% %enchant_level%"
+  custom-display-lore: "&#3d5afe%enchant_display% %enchant_level%"
   description:
     - "&eCấp I:"
     - "&7- Tăng lực bắn của nỏ khi cầm vật phẩm"
@@ -4366,7 +4366,7 @@ pillager:
 creeper:
   group: mask
   display: Creeper
-  custom-display-lore: "&a%enchant_display% %enchant_level%"
+  custom-display-lore: "&#55ff55%enchant_display% %enchant_level%"
   description:
     - "&eCấp I:"
     - "&7- Miễn nhiễm sát thương từ vụ nổ"
@@ -4555,7 +4555,7 @@ creeper:
 hoglin:
   group: mask
   display: Hoglin
-  custom-display-lore: "&#e59e73%enchant_display% %enchant_level%"
+  custom-display-lore: "&#ab47bc%enchant_display% %enchant_level%"
   description:
     - "&eCấp I:"
     - "&7- Nhận kháng bật lùi và hiệu ứng kháng lửa"
@@ -5169,7 +5169,7 @@ phantom:
 strider:
   group: mask
   display: Strider
-  custom-display-lore: "&#ac3d3d%enchant_display% %enchant_level%"
+  custom-display-lore: "&#be123c%enchant_display% %enchant_level%"
   description:
     - "&eCấp I:"
     - "&7- Nhận hiệu ứng kháng lửa khi trang bị"
@@ -5393,7 +5393,7 @@ strider:
 polarbear:
   group: mask
   display: PolarBear
-  custom-display-lore: "&f%enchant_display% %enchant_level%"
+  custom-display-lore: "&#f5f5f5%enchant_display% %enchant_level%"
   description:
     - "&eCấp I:"
     - "&7- Có tỉ lệ gây choáng khi tấn công"
@@ -5692,7 +5692,7 @@ ravager:
 witch:
   group: mask
   display: Witch
-  custom-display-lore: "&2%enchant_display% %enchant_level%"
+  custom-display-lore: "&#6366f1%enchant_display% %enchant_level%"
   description:
     - "&eCấp I:"
     - "&7- Có tỉ lệ gây ngẫu nhiên một hiệu ứng"
@@ -5916,7 +5916,7 @@ witch:
 guardian:
   group: mask
   display: Guardian
-  custom-display-lore: "&3%enchant_display% %enchant_level%"
+  custom-display-lore: "&#06b6d4%enchant_display% %enchant_level%"
   description:
     - "&eCấp I:"
     - "&7- Nhận hiệu ứng thở dưới nước khi"
@@ -6107,7 +6107,7 @@ guardian:
 enderman:
   group: mask
   display: Enderman
-  custom-display-lore: "&#7e22ce%enchant_display% %enchant_level%"
+  custom-display-lore: "&#c026d3%enchant_display% %enchant_level%"
   description:
     - "&eCấp I:"
     - "&7- Nhận giảm sát thương từ cung tên khi"
@@ -6354,7 +6354,7 @@ ghast:
 irongolem:
   group: mask
   display: IronGolem
-  custom-display-lore: "&#c4bcb7%enchant_display% %enchant_level%"
+  custom-display-lore: "&#64748b%enchant_display% %enchant_level%"
   description:
     - "&eCấp I:"
     - "&7- Nhận thêm sức mạnh khi trang bị"
@@ -6566,7 +6566,7 @@ irongolem:
 camel:
   group: mask
   display: Camel
-  custom-display-lore: "&#e6ab49%enchant_display% %enchant_level%"
+  custom-display-lore: "&#ffab40%enchant_display% %enchant_level%"
   description:
     - "&eCấp I:"
     - "&7- Máu càng thấp, nhận giảm sát thương càng nhiều"
@@ -6651,7 +6651,7 @@ allay:
 armadillo:
   group: mask
   display: Armadillo
-  custom-display-lore: "&#b47a75%enchant_display% %enchant_level%"
+  custom-display-lore: "&#795548%enchant_display% %enchant_level%"
   description:
     - "&eCấp I:"
     - "&7- Nhận thêm giáp cứng khi trang bị"
@@ -6696,7 +6696,7 @@ armadillo:
 sniffer:
   group: mask
   display: Sniffer
-  custom-display-lore: "&#7f2118%enchant_display% %enchant_level%"
+  custom-display-lore: "&#e53935%enchant_display% %enchant_level%"
   description:
     - "&eCấp I:"
     - "&7- Nhận thêm tim vàng tối đa khi trang bị"
@@ -6742,7 +6742,7 @@ sniffer:
 bogged:
   group: mask
   display: Bogged
-  custom-display-lore: "&#6b7d44%enchant_display% %enchant_level%"
+  custom-display-lore: "&#827717%enchant_display% %enchant_level%"
   description:
     - "&eCấp I:"
     - "&7- Có tỉ lệ gây thêm sát thương khi bắn trúng"
@@ -6783,7 +6783,7 @@ bogged:
 vindicator:
   group: mask
   display: Vindicator
-  custom-display-lore: "&#939e9e%enchant_display% %enchant_level%"
+  custom-display-lore: "&#546e7a%enchant_display% %enchant_level%"
   description:
     - "&eCấp I:"
     - "&7- Tăng sức tấn công khi cầm rìu"
@@ -6834,7 +6834,7 @@ vindicator:
 axolotl:
   group: mask
   display: Axolotl
-  custom-display-lore: "&#f8bfe0%enchant_display% %enchant_level%"
+  custom-display-lore: "&#d500f9%enchant_display% %enchant_level%"
   description:
     - "&eCấp I:"
     - "&7- Tăng chỉ số hồi phục khi trang bị"
@@ -6876,7 +6876,7 @@ axolotl:
 slime:
   group: mask
   display: Slime
-  custom-display-lore: "&a%enchant_display% %enchant_level%"
+  custom-display-lore: "&#22c55e%enchant_display% %enchant_level%"
   description:
     - "&eCấp I:"
     - "&7- Tăng thêm máu tối đa khi trang bị"
@@ -6922,7 +6922,7 @@ slime:
 magmacube:
   group: mask
   display: MagmaCube
-  custom-display-lore: "&4%enchant_display% %enchant_level%"
+  custom-display-lore: "&#dd2c00%enchant_display% %enchant_level%"
   description:
     - "&eCấp I:"
     - "&7- Tăng thêm tim vàng tối đa khi trang bị"
@@ -7036,7 +7036,7 @@ breeze:
 goat:
   group: mask
   display: Goat
-  custom-display-lore: "&#e7e4db%enchant_display% %enchant_level%"
+  custom-display-lore: "&#e0e0e0%enchant_display% %enchant_level%"
   description:
     - "&eCấp I:"
     - "&7- Tăng tốc độ chạy trong một khoảng thời gian và"
@@ -7081,7 +7081,7 @@ goat:
 frog:
   group: mask
   display: Frog
-  custom-display-lore: "&#e28656%enchant_display% %enchant_level%"
+  custom-display-lore: "&#c0ca33%enchant_display% %enchant_level%"
   description:
     - "&eCấp I:"
     - "&7- Nhấn Shift sẽ bật nhảy về phía trước, tăng thêm sát thương"

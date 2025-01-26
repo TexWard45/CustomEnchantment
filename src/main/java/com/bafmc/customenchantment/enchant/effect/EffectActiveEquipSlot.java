@@ -32,6 +32,6 @@ public class EffectActiveEquipSlot extends EffectHook {
 		}
 
 		CEPlayer cePlayer = CEAPI.getCEPlayer(player);
-		cePlayer.getCEManager().setCancelSlot(slot, name, false);
+		cePlayer.getCEManager().setCancelSlot(slot, name, false, 0);
 	}
 }

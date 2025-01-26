@@ -1,14 +1,14 @@
 package com.bafmc.customenchantment.enchant.condition;
 
-import java.util.Map;
-
+import com.bafmc.bukkit.utils.MathUtils;
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.api.CompareOperation;
 import com.bafmc.customenchantment.enchant.CEFunctionData;
 import com.bafmc.customenchantment.enchant.CEPlaceholder;
 import com.bafmc.customenchantment.enchant.ConditionHook;
 import com.bafmc.customenchantment.player.CEPlayer;
-import com.bafmc.bukkit.utils.MathUtils;
+
+import java.util.Map;
 
 public class ConditionNumberStorage extends ConditionHook {
 	private String compare1;
@@ -21,27 +21,46 @@ public class ConditionNumberStorage extends ConditionHook {
 
 	public void setup(String[] args) {
 		this.compare1 = args[0];
-		this.operation = CompareOperation.getOperation(args[1]);
-		this.compare2 = args[2];
+		if (args.length > 1) {
+			this.operation = CompareOperation.getOperation(args[1]);
+			this.compare2 = args[2];
+		}
 	}
 
 	@Override
 	public boolean match(CEFunctionData data) {
 		String compare1 = this.compare1;
-		String compare2 = this.compare2;
 
 		CEPlayer cePlayer = data.getPlayer() != null ? CEAPI.getCEPlayer(data.getPlayer()) : null;
-		Map<String, String> storagePlaceholder = CEPlaceholder
-				.getTemporaryStoragePlaceholder(cePlayer.getTemporaryStorage());
+		if (cePlayer == null) {
+			return false;
+		}
+
+		Map<String, String> storagePlaceholder = CEPlaceholder.getTemporaryStoragePlaceholder(cePlayer.getTemporaryStorage());
 
 		if (storagePlaceholder.containsKey(compare1)) {
+			if (this.operation == null) {
+				return true;
+			}
+
 			compare1 = storagePlaceholder.get(compare1);
 		}else {
 			Map<String, String> map1 = CEPlaceholder.getCEFunctionDataPlaceholder(compare1, data);
+			compare1 = CEPlaceholder.setPlaceholder(compare1, map1);
+
+			if (this.operation == null && storagePlaceholder.containsKey(compare1)) {
+				return true;
+			}
+
 			map1.putAll(storagePlaceholder);
 			compare1 = CEPlaceholder.setPlaceholder(compare1, map1);
 		}
 
+		if (this.operation == null) {
+			return false;
+		}
+
+		String compare2 = this.compare2;
 		if (storagePlaceholder.containsKey(compare2)) {
 			compare2 = storagePlaceholder.get(compare2);
 		}else {

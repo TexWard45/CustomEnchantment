@@ -4,6 +4,7 @@ import com.bafmc.bukkit.bafframework.nms.NMSAttribute;
 import com.bafmc.customenchantment.api.MaterialList;
 import com.bafmc.customenchantment.item.CEItemData;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,8 +20,11 @@ public class CEGemData extends CEItemData implements Cloneable {
 
 	@AllArgsConstructor
 	@Getter
+	@Builder
 	public static class ConfigData {
 		private String display;
+		private String itemDisplay;
+		private List<String> itemLore;
 		private MaterialList appliesMaterialList;
 		private List<String> appliesDescription;
 		private List<String> appliesSlot;

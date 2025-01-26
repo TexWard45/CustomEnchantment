@@ -1,13 +1,13 @@
 package com.bafmc.customenchantment.menu;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import com.bafmc.custommenu.menu.CItem;
+import com.bafmc.custommenu.menu.CMenuView;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-import com.bafmc.custommenu.menu.CItem;
-import com.bafmc.custommenu.menu.CMenuView;
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class MenuAbstract {
 	protected CMenuView menuView;
@@ -20,7 +20,7 @@ public abstract class MenuAbstract {
 	
 	public void updateSlots(String itemName, ItemStack itemStack) {
 		for (Integer slot : getSlots(itemName)) {
-			if (itemStack == null) {
+			if (itemStack == null || itemStack.getType() == Material.AIR) {
 				menuView.removeTemporaryItem(slot);
 			} else {
 				menuView.setTemporaryItem(slot, itemStack);

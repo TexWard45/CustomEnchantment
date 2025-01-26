@@ -73,18 +73,6 @@ command:
       - "&eLấy mã màu hex ở &fhttps://htmlcolorcodes.com/color-picker/"
       - "&eLiên hệ ngay Admin nếu có thắc mắc về việc đặt tên màu!"
 menu:
-  equipment:
-    add-equipment:
-      success:
-        - "SUCCESS Trang bị Cổ vật thành công!"
-      max-artifact:
-        - "DANGER Đã đạt số lượng Cổ vật tối đa có thể trang bị!"
-      duplicate-artifact:
-        - "DANGER Cổ vật bị trùng lặp!"
-      no-artifact-slot:
-        - "DANGER Không có ô trang bị Cổ vật!"
-      not-support-item:
-        - "DANGER Không hỗ trợ trang bị loại vật phẩm này!"
   bookcraft:
     add-book:
       success: ""
@@ -123,6 +111,29 @@ menu:
         - "SUCCESS Đột phá sách thành công!"
       fail-chance:
         - "DANGER Đột phá thất bại!"
+  artifactupgrade:
+    add-item:
+      max-level:
+        - "DANGER Cổ vật đã đạt cấp độ tối đa!"
+      add-selected-artifact:
+        - "SUCCESS Chọn Cổ vật thành công!"
+      max-ingredient:
+        - "DANGER Số lượng nguyên liệu đã đạt giới hạn!"
+      add-ingredient:
+        - "SUCCESS Chọn nguyên liệu thành công!"
+      not-artifact:
+        - "DANGER Vật phẩm này không phải là Cổ vật!"
+      not-ingredient:
+        - "DANGER Nguyên liệu không phù hợp!"
+    confirm:
+      fail-chance:
+        - "DANGER Nâng cấp thất bại!"
+      success:
+        - "SUCCESS Nâng cấp thành công!"
+      no-ingredient:
+        - "DANGER Không có nguyên liệu để nâng cấp!"
+      no-selected-artifact:
+        - "DANGER Không có Cổ vật nào được chọn!"
   tinkerer:
     add-tinkerer:
       success: ""
@@ -144,6 +155,31 @@ menu:
         - "DANGER Hãy tháo trang bị đã chọn trước đó!"
       already-has-slot2:
         - "DANGER Hãy tháo vật phẩm đã chọn trước đó!"
+  equipment:
+    return-item:
+      no-empty-slot:
+        - "DANGER Không thể tháo vật phẩm khi kho đồ đầy!"
+    add-equipment:
+      success:
+        - "SUCCESS Trang bị thành công!"
+      undress-first:
+        - "DANGER Hãy tháo trang bị trước!"
+      add-artifact:
+        - "SUCCESS Trang bị Cổ vật thành công!"
+      max-artifact:
+        - "DANGER Vượt quá số lượng Cổ vật có thể trang bị!"
+      duplicate-artifact:
+        - "DANGER Cổ vật bị trùng lặp!"
+      no-artifact-slot:
+        - "DANGER Không có ô trang bị Cổ vật!"
+      not-support-item:
+        - "DANGER Không hỗ trợ trang bị loại vật phẩm này!"
+      add-protect-dead:
+        - "SUCCESS Trang bị Bùa bảo vệ thành công!"
+      exceed-protect-dead:
+        - "DANGER Vượt quá số lượng Bùa bảo vệ có thể trang bị!"
+      different-protect-dead:
+        - "DANGER Không cùng loại Bùa bảo vệ!"
 ce-item:
   book:
     success:
@@ -185,6 +221,8 @@ ce-item:
       - "SUCCESS Ép &6Ngọc bảo vệ &athành công!"
     enchanted:
       - "DANGER Vật phẩm đã được ép &6Ngọc bảo vệ &ctrước đó!"
+    use-advanced:
+      - "DANGER Đã sử dụng &#09bb5f&lBùa bảo vệ &cđể giữ vật phẩm và kinh nghiệm! Còn lại &e{amount} &cBùa bảo vệ!"
   removeprotectdead:
     success:
       - "SUCCESS Tách &6Ngọc bảo vệ &athành công!"
@@ -228,20 +266,29 @@ ce-item:
       - "DANGER Vật phẩm không có &5Ngọc đột phá&a để rút!"
     remove-book-first:
       - "DANGER Rút sách trước khi rút &5Ngọc đột phá!"
+  removegem:
+    success:
+      - "SUCCESS Rút &dNgọc khảm &ara khỏi vật phẩm thành công!"
+    not-choose:
+      - "DANGER Cần chọn ngọc cần tách khỏi trang bị!"
   artifact:
     active:
-      - "SUCCESS Kích hoạt Cổ vật thành công!"
+      - "SUCCESS Kích hoạt Cổ vật {display}&a!"
+    deactive:
+      - "DANGER Hủy kích hoạt Cổ vật {display}&c!"
     duplicate:
       - "DANGER Hủy kích hoạt toàn bộ Cổ vật do trùng lặp!"
     exceed-use-amount:
-      - "DANGER Hủy kích hoạt toàn bộ Cổ vật do vượt quá &n3&c cổ vật được kích hoạt trên thanh công cụ!"
+      - "DANGER Hủy kích hoạt toàn bộ Cổ vật do vượt quá &n5&c cổ vật được kích hoạt!"
     swap-cooldown:
-      - "DANGER Hãy tương tác chậm lại!"
+      - "DANGER Bạn tương tác quá nhanh! Hãy tương tác chậm lại!"
   gemdrill:
     success:
-      - "SUCCESS Khoan thêm ô ngọc thành công!"
+      - "SUCCESS Đục lỗ ô ngọc thành công!"
     max-drill:
       - "DANGER Vật phẩm đã đạt số lượng ô ngọc tối đa!"
+    fail-chance:
+      - "DANGER Đục lỗ ô ngọc thất bại!"
   gem:
     success:
       - "SUCCESS Khảm ngọc vào vật phẩm thành công!"

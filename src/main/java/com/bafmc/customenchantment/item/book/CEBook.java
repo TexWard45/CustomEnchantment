@@ -152,6 +152,7 @@ public class CEBook extends CEItem<CEBookData> {
 		}
 
 		ceItem = CEWeapon.getCEWeapon(ceItem.getDefaultItemStack());
+		((CEWeapon) ceItem).setWeaponSettingsName("default");
 		
 		CEWeaponAbstract ceWeapon = (CEWeaponAbstract) ceItem;
 		WeaponEnchant enchant = ceWeapon.getWeaponEnchant();

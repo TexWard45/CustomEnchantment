@@ -1,21 +1,20 @@
 package com.bafmc.customenchantment.enchant.effect;
 
-import java.util.Map;
-
-import com.bafmc.customenchantment.attribute.CustomAttributeType;
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
-import org.bukkit.scheduler.BukkitRunnable;
-
+import com.bafmc.bukkit.utils.RandomRange;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.api.CEAPI;
+import com.bafmc.customenchantment.attribute.CustomAttributeType;
 import com.bafmc.customenchantment.enchant.CEFunctionData;
 import com.bafmc.customenchantment.enchant.CEPlaceholder;
 import com.bafmc.customenchantment.enchant.EffectHook;
 import com.bafmc.customenchantment.enchant.ModifyType;
 import com.bafmc.customenchantment.event.CEPlayerStatsModifyEvent;
 import com.bafmc.customenchantment.player.CEPlayer;
-import com.bafmc.bukkit.utils.RandomRange;
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
+import org.bukkit.scheduler.BukkitRunnable;
+
+import java.util.Map;
 
 public class EffectHealth extends EffectHook {
 	private ModifyType modifyType;
@@ -36,7 +35,14 @@ public class EffectHealth extends EffectHook {
 			return;
 		}
 
+		if (player.isDead()) {
+			return;
+		}
+
 		CEPlayer cePlayer = CEAPI.getCEPlayer(player);
+		if (cePlayer.getDeathTime() != data.getDeathTime()) {
+			return;
+		}
 
 		String format = this.format;
 		Map<String, String> map = CEPlaceholder.getCEFunctionDataPlaceholder(format, data);
@@ -48,42 +54,18 @@ public class EffectHealth extends EffectHook {
 
 		format = CEPlaceholder.setPlaceholder(format, map);
 
-		double defaultValue = player.getHealth();
-		double currentValue = new RandomRange(format).getValue();
+		double currentValue = player.getHealth();
+		double changeValue = new RandomRange(format).getValue();
 
-		CEPlayerStatsModifyEvent event = new CEPlayerStatsModifyEvent(cePlayer, CustomAttributeType.STAT_HEALTH, modifyType,
-				defaultValue, currentValue);
+		CEPlayerStatsModifyEvent event = new CEPlayerStatsModifyEvent(cePlayer, CustomAttributeType.STAT_HEALTH, modifyType, currentValue, changeValue);
 		Bukkit.getPluginManager().callEvent(event);
 
 		if (event.isCancelled()) {
 			return;
 		}
 
-		defaultValue = event.getDefaultValue();
-		currentValue = event.getCurrentValue();
-		modifyType = event.getModifyType();
+		double newValue = Math.max(0, event.getFinalValue());
 
-		double newValue = 0;
-
-		switch (modifyType) {
-		case ADD:
-			newValue = defaultValue + currentValue;
-			break;
-		case REMOVE:
-			newValue = defaultValue - currentValue;
-			if (newValue < 0) {
-				newValue = 0;
-			}
-			break;
-		case SET:
-			newValue = currentValue;
-			break;
-		}
-
-		if (cePlayer.getDeathTime() != data.getDeathTime() || player.isDead()) {
-			return;
-		}
-		
 		if (newValue <= 0) {
 			cePlayer.setDeathTimeBefore(true);
 			cePlayer.setDeathTime(cePlayer.getDeathTime() + 1);

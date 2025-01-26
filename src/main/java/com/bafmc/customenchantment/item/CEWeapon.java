@@ -1,17 +1,17 @@
 package com.bafmc.customenchantment.item;
 
-import java.util.List;
-
-import com.bafmc.customenchantment.item.banner.CEBanner;
-import com.bafmc.customenchantment.item.mask.CEMask;
-import org.bukkit.inventory.ItemStack;
-
+import com.bafmc.bukkit.bafframework.nms.NMSNBTTagCompound;
+import com.bafmc.bukkit.utils.MaterialUtils;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.api.MaterialData;
 import com.bafmc.customenchantment.api.MaterialList;
+import com.bafmc.customenchantment.item.banner.CEBanner;
+import com.bafmc.customenchantment.item.mask.CEMask;
 import com.bafmc.customenchantment.nms.CECraftItemStackNMS;
-import com.bafmc.bukkit.utils.MaterialUtils;
-import com.bafmc.bukkit.bafframework.nms.NMSNBTTagCompound;
+import org.bukkit.inventory.ItemFlag;
+import org.bukkit.inventory.ItemStack;
+
+import java.util.List;
 
 public class CEWeapon extends CEWeaponAbstract<CEWeaponData> {
 	private static MaterialList materialWhitelist = new MaterialList();
@@ -53,7 +53,16 @@ public class CEWeapon extends CEWeaponAbstract<CEWeaponData> {
 		}
 
 		itemStackNMS.setCETag(tag);
-		return itemStackNMS.getNewItemStack();
+		itemStack = itemStackNMS.getNewItemStack();
+
+		if (CustomEnchantment.instance().getMainConfig().isUnbreakableArmorEnable()) {
+			if (!itemStack.isUnbreakable()) {
+				itemStack.setUnbreakable(true);
+				itemStack.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+			}
+		}
+
+		return itemStack;
 	}
 
 	public boolean isMatchType(String type) {

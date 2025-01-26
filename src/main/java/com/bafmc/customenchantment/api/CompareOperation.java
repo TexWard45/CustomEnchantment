@@ -33,6 +33,8 @@ public enum CompareOperation {
 			return arg0 >= arg1;
 		case SMALLEREQUALS:
 			return arg0 <= arg1;
+		case NOT_EQUALS:
+			return arg0 != arg1;
 		default:
 			return false;
 		}
@@ -52,6 +54,8 @@ public enum CompareOperation {
 			return arg0 >= arg1;
 		case SMALLEREQUALS:
 			return arg0 <= arg1;
+		case NOT_EQUALS:
+			return arg0 != arg1;
 		default:
 			return false;
 		}

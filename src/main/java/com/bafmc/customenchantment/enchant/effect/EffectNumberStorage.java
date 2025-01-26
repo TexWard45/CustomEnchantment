@@ -1,16 +1,15 @@
 package com.bafmc.customenchantment.enchant.effect;
 
-import java.util.Map;
-
-import org.bukkit.entity.Player;
-
+import com.bafmc.bukkit.utils.MathUtils;
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.enchant.CEFunctionData;
 import com.bafmc.customenchantment.enchant.CEPlaceholder;
 import com.bafmc.customenchantment.enchant.EffectHook;
 import com.bafmc.customenchantment.player.CEPlayer;
 import com.bafmc.customenchantment.player.PlayerTemporaryStorage;
-import com.bafmc.bukkit.utils.MathUtils;
+import org.bukkit.entity.Player;
+
+import java.util.Map;
 
 public class EffectNumberStorage extends EffectHook {
 	public enum Type {
@@ -56,11 +55,15 @@ public class EffectNumberStorage extends EffectHook {
 
 			if (temporaryPlaceholder.containsKey(value)) {
 				value = temporaryPlaceholder.get(value);
-			}else {
+			} else {
 				Map<String, String> placeholder = CEPlaceholder.getCEFunctionDataPlaceholder(value, data);
 				placeholder.putAll(temporaryPlaceholder);
 				value = CEPlaceholder.setPlaceholder(value, placeholder);
 			}
+		}
+
+		if (value == null) {
+			return;
 		}
 
 		double number = MathUtils.evalDouble(value);

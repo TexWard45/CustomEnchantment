@@ -17,24 +17,22 @@ public class CommandAddItem implements AbstractCommand {
 				.permission("customenchantment.additem.other")
 				.subCommand(ArgumentType.PLAYER)
 					.subCommand("<item>")
-						.commandExecutor(new AdvancedCommandExecutor() {
-							public boolean onCommand(CommandSender sender, Argument arg) {
-								Player player = arg.getPlayer();
-								if (player == null) {
-									return true;
-								}
+						.commandExecutor((sender, arg) -> {
+                            Player player = arg.getPlayer();
+                            if (player == null) {
+                                return true;
+                            }
 
-								ItemStack itemStack = player.getItemInHand();
-								if (itemStack == null || itemStack.getType() == Material.AIR) {
-									return true;
-								}
+                            ItemStack itemStack = player.getItemInHand();
+                            if (itemStack == null || itemStack.getType() == Material.AIR) {
+                                return true;
+                            }
 
-								VanillaItemStorage storage = (VanillaItemStorage) CustomEnchantment.instance().getCeItemStorageMap()
-										.get(CEItemType.STORAGE);
-								storage.putItem(arg.get("<item>"), itemStack);
-								return true;
-							}
-						})
+                            VanillaItemStorage storage = (VanillaItemStorage) CustomEnchantment.instance().getCeItemStorageMap()
+                                    .get(CEItemType.STORAGE);
+                            storage.putItem(arg.get("<item>"), itemStack);
+                            return true;
+                        })
 					.end()
 				.end()
 			.end();

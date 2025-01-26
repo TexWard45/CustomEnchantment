@@ -15,4 +15,5 @@ public class CENBT {
 	public static final String SUCCESS = "success";
 	public static final String DESTROY = "destroy";
 	public static final String POINT = "point";
+	public static final String ID = "id";
 }

@@ -4,6 +4,7 @@ import com.bafmc.bukkit.utils.ItemStackUtils;
 import com.bafmc.bukkit.utils.RandomRangeInt;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.api.Parameter;
+import com.bafmc.customenchantment.item.CEItem;
 import com.bafmc.customenchantment.item.CEItemStorage;
 import com.bafmc.customenchantment.item.CEItemType;
 import org.bukkit.inventory.ItemStack;
@@ -19,18 +20,29 @@ public class CEGemStorage extends CEItemStorage<CEGem> {
 
 	public CEGem getByParameter(Parameter parameter) {
 		String name = parameter.getString(0);
-		return (CEGem) CustomEnchantment.instance().getCeItemStorageMap().get(CEItemType.GEM).get(name);
+
+		CEItem ceItem = CustomEnchantment.instance().getCeItemStorageMap().get(CEItemType.GEM).get(name);
+		if (ceItem == null) {
+			return null;
+		}
+
+		ItemStack itemStack = ceItem.exportTo();
+
+		int level = 1;
+		if (parameter.size() <= 3) {
+			level = parameter.getInteger(1, 1);
+		}
+
+		// Clone itemStack to avoid modifying the original itemStack
+		CEGem ceGem = new CEGem(itemStack);
+		ceGem.getData().setLevel(level);
+		return ceGem;
 	}
 
 	public List<ItemStack> getItemStacksByParameter(Parameter parameter) {
 		CEGem ceItem = getByParameter(parameter);
 		if (ceItem == null) {
 			return null;
-		}
-
-		int level = 1;
-		if (parameter.size() <= 3) {
-			level = parameter.getInteger(1, 1);
 		}
 
 		int amount = 1;
@@ -42,10 +54,6 @@ public class CEGemStorage extends CEItemStorage<CEGem> {
 		ItemStack itemStack = ceItem.exportTo();
 
 		// Clone itemStack to avoid modifying the original itemStack
-		CEGem newGem = new CEGem(itemStack);
-		newGem.getData().setLevel(level);
-		itemStack = newGem.exportTo();
-
 		itemStack = ItemStackUtils.getItemStackWithPlaceholder(itemStack, null);
 		itemStack = ItemStackUtils.updateColorToItemStack(itemStack);
 		return ItemStackUtils.getItemStacks(itemStack, amount);

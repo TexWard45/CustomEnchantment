@@ -7,6 +7,7 @@ import com.bafmc.bukkit.feature.placeholder.PlaceholderBuilder;
 import com.bafmc.bukkit.utils.ColorUtils;
 import com.bafmc.bukkit.utils.NumberUtils;
 import com.bafmc.customenchantment.api.ITrade;
+import com.bafmc.customenchantment.attribute.CustomAttributeType;
 import com.bafmc.customenchantment.enchant.CEEnchant;
 import com.bafmc.customenchantment.enchant.CEEnchantSimple;
 import com.bafmc.customenchantment.enchant.CEPlaceholder;
@@ -321,6 +322,11 @@ class GemLore {
 			PlaceholderBuilder builder = PlaceholderBuilder.builder().putAll(placeholder);
 			display = builder.build().apply(display);
 
+			String customDisplay = settings.getCustomGemLore();
+			builder = PlaceholderBuilder.builder().put("%gem_display%", display);
+
+			display = builder.build().apply(customDisplay);
+
 			lore.add(display);
 
 			CEGemDrillSimple suitableSlot = ceItem.getWeaponGem().getMinimumSuitableGemDrill(gemSimple, availableDrillList);
@@ -343,7 +349,11 @@ class GemLore {
 				continue;
 			}
 
-			lore.add(slotSettings.getDisplay());
+			String customDisplay = settings.getCustomGemLore();
+			PlaceholderBuilder builder = PlaceholderBuilder.builder().put("%gem_display%", slotSettings.getDisplay());
+
+			String display = builder.build().apply(customDisplay);
+			lore.add(display);
 		}
 
 		if (lore.isEmpty()) {
@@ -450,7 +460,12 @@ class AttributeLore {
 					if (amount == 0) {
 						continue;
 					}
-					currentLore.add(typeMap.get(type).replace("%amount%", format.format(amount)));
+
+					if (type instanceof CustomAttributeType customAttributeType && customAttributeType.isPercent()) {
+						currentLore.add(typeMap.get(type).replace("%amount%", format.format(amount) + "%"));
+					}else {
+						currentLore.add(typeMap.get(type).replace("%amount%", format.format(amount)));
+					}
 				}
 
 				if (attributes.hasAttributeType(type, slot, NMSAttributeOperation.MULTIPLY_PERCENTAGE)) {

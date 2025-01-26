@@ -1,10 +1,11 @@
 package com.bafmc.customenchantment.enchant;
 
 import com.bafmc.bukkit.utils.NumberUtils;
+import com.bafmc.bukkit.utils.StringUtils;
+import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.menu.bookupgrade.BookUpgradeMenu;
 import com.bafmc.customenchantment.menu.bookupgrade.data.BookUpgradeData;
 import com.bafmc.customenchantment.player.PlayerTemporaryStorage;
-import com.bafmc.bukkit.utils.StringUtils;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 
@@ -17,7 +18,13 @@ import java.util.regex.Pattern;
 public class CEPlaceholder {
 	public static String setPlaceholder(String string, Map<String, String> map) {
 		for (String key : map.keySet()) {
-			string = string.replace(key, map.get(key));
+			try {
+				string = string.replace(key, map.get(key));
+			}catch (Exception e) {
+				CustomEnchantment.instance().getLogger().warning("Placeholder value is null: " + key + " in " + string);
+				e.printStackTrace();
+				return null;
+			}
 		}
 		return string;
 	}
@@ -61,6 +68,14 @@ public class CEPlaceholder {
 				map.put("%enemy%", enemy.getName());
 			}
 		}
+
+		if (data.getEnemyLivingEntity() != null) {
+			LivingEntity entity = data.getEnemyLivingEntity();
+			if (text.contains("%entity_name%")) {
+				map.put("%entity_name%", entity.getName());
+			}
+		}
+
 
 		if (data.getEnemyLivingEntity() != null) {
 			LivingEntity entity = data.getEnemyLivingEntity();

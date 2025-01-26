@@ -6,10 +6,7 @@ import com.bafmc.customenchantment.enchant.CEEnchant;
 import com.bafmc.customenchantment.enchant.CEEnchantSimple;
 import com.bafmc.customenchantment.enchant.CEGroup;
 import com.bafmc.customenchantment.guard.PlayerGuard;
-import com.bafmc.customenchantment.item.CEItem;
-import com.bafmc.customenchantment.item.CEItemRegister;
-import com.bafmc.customenchantment.item.CEItemType;
-import com.bafmc.customenchantment.item.CEWeaponAbstract;
+import com.bafmc.customenchantment.item.*;
 import com.bafmc.customenchantment.item.book.CEBookStorage;
 import com.bafmc.customenchantment.item.gem.CEGemStorage;
 import com.bafmc.customenchantment.player.CEPlayer;
@@ -57,6 +54,10 @@ public class CEAPI {
 		return CEItemRegister.isCEItem(itemStack, type);
 	}
 
+	public static CEItemStorage getCEItemStorage(String type) {
+		return CustomEnchantment.instance().getCeItemStorageMap().get(type);
+	}
+
 	public static CEItem getCEItem(ItemStack itemStack, String type) {
 		return CEItemRegister.getCEItem(itemStack, type);
 	}
@@ -85,8 +86,7 @@ public class CEAPI {
 		list.add(String.valueOf(level));
 
 		Parameter parameter = new Parameter(list);
-
-		return ((CEGemStorage) CustomEnchantment.instance().getCeItemStorageMap().get(CEItemType.GEM)).getByParameter(parameter).exportTo();
+		return (CustomEnchantment.instance().getCeItemStorageMap().get(CEItemType.GEM)).getItemStacksByParameter(parameter).get(0);
 	}
 
 	public static Map<EquipSlot, CEWeaponAbstract> getCEWeaponMap(Player player) {

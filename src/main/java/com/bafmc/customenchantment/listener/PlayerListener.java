@@ -52,15 +52,20 @@ public class PlayerListener implements Listener {
 
 	@EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
 	public void onStatsChange(CEPlayerStatsModifyEvent e) {
+		if (e.getChangeValue() == e.getCurrentValue()) {
+			return;
+		}
+
 		CEPlayer cePlayer = e.getCEPlayer();
 
 		PlayerCustomAttribute attribute = cePlayer.getCustomAttribute();
 
 		CustomAttributeType type = e.getStatsType();
-		double value = e.getCurrentValue();
-		double newValue = attribute.getValue(type, value);
 
-		e.setValue(newValue);
+		double changeValue = e.getChangeValue();
+		double newChangeValue = attribute.getValue(type, changeValue);
+
+		e.setValue(newChangeValue);
 	}
 
 	@EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
@@ -329,7 +334,6 @@ public class PlayerListener implements Listener {
 		ItemStack itemStack = e.getItem().clone();
 
 		CEItem ceItem = CEAPI.getCEItem(itemStack);
-		System.out.println(ceItem);
 		if (ceItem instanceof VanillaItem) {
 			e.setCancelled(true);
 			return;

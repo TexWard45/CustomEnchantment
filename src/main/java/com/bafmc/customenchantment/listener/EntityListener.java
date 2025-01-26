@@ -1,5 +1,6 @@
 package com.bafmc.customenchantment.listener;
 
+import com.bafmc.bukkit.bafframework.nms.NMSAttribute;
 import com.bafmc.bukkit.utils.EquipSlot;
 import com.bafmc.bukkit.utils.RandomRange;
 import com.bafmc.bukkit.utils.RandomUtils;
@@ -14,6 +15,7 @@ import com.bafmc.customenchantment.event.CEPlayerStatsModifyEvent;
 import com.bafmc.customenchantment.guard.Guard;
 import com.bafmc.customenchantment.guard.GuardManager;
 import com.bafmc.customenchantment.guard.PlayerGuard;
+import com.bafmc.customenchantment.item.CEItem;
 import com.bafmc.customenchantment.item.CEWeaponAbstract;
 import com.bafmc.customenchantment.player.*;
 import com.bafmc.customenchantment.player.PlayerAbility.Type;
@@ -21,16 +23,13 @@ import com.bafmc.customenchantment.task.ArrowTask;
 import com.bafmc.customenchantment.utils.DamageUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
-import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
-import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.event.entity.EntityDamageEvent;
+import org.bukkit.event.entity.*;
 import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
-import org.bukkit.event.entity.ProjectileHitEvent;
-import org.bukkit.event.entity.ProjectileLaunchEvent;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.util.Vector;
 
@@ -58,6 +57,24 @@ public class EntityListener implements Listener {
         mainArrowShootList.remove(uuid);
     }
 
+	@EventHandler
+	public void onEntityResurrect(EntityResurrectEvent e) {
+		if (e.getEntity() instanceof Player player) {
+			for (EquipSlot equipSlot : EquipSlot.HAND_ARRAY) {
+				ItemStack itemStack = equipSlot.getItemStack(player);
+				if (itemStack == null || itemStack.getType() != Material.TOTEM_OF_UNDYING) {
+					continue;
+				}
+
+				CEItem ceItem = CEAPI.getCEItem(itemStack);
+				if (ceItem != null ) {
+					e.setCancelled(true);
+					break;
+				}
+			}
+		}
+	}
+
 	@EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
 	public void onProjectile(ProjectileLaunchEvent e) {
 		Projectile projectile = e.getEntity();
@@ -66,7 +83,7 @@ public class EntityListener implements Listener {
 		}
 
 		// Setup variable
-		Player player = (Player) ((Arrow) projectile).getShooter();
+		Player player = (Player) projectile.getShooter();
 		CEPlayer cePlayer = CEAPI.getCEPlayer(player);
 		PlayerTemporaryStorage storage = cePlayer.getTemporaryStorage();
 
@@ -178,7 +195,7 @@ public class EntityListener implements Listener {
 				.setCEType(CEType.UNKNOWN_DEFENSE)
 				.setCEFunctionData(data)
 				.call();
-		
+
 		if (!result.getOptionDataList().isEmpty()) {
 			e.setDamage(AttributeCalculate.calculate(CEAPI.getCEPlayer(pDefenser), CustomAttributeType.OPTION_DEFENSE, damage,
 					result.getOptionDataList()));
@@ -263,9 +280,7 @@ public class EntityListener implements Listener {
 		currentDamage = onArrowPlayerVsPlayer(attacker, defenser, currentDamage, e);
 		currentDamage = onArrowPlayerVsMob(attacker, defenser, currentDamage, e);
 
-		boolean handleArmorPenetration = handleArmorPenetration(attacker, defenser, e);
-
-		if (currentDamage != defaultDamage || handleArmorPenetration)
+		if (currentDamage != defaultDamage)
 			e.setDamage(currentDamage);
 
 		double finalDamage = e.getFinalDamage();
@@ -279,7 +294,7 @@ public class EntityListener implements Listener {
 			CEPlayer cePlayer = CEAPI.getCEPlayer(player);
 
 			if (cePlayer.isDebugMode()) {
-				attacker.sendMessage("Before " + new DecimalFormat("#.##").format(defaultDamage) + " | After "
+				System.out.println("Before " + new DecimalFormat("#.##").format(defaultDamage) + " | After "
 						+ new DecimalFormat("#.##").format(currentDamage) + " | Final "
 						+ new DecimalFormat("#.##").format(e.getFinalDamage()));
 			}
@@ -316,6 +331,12 @@ public class EntityListener implements Listener {
 						+ new DecimalFormat("#.##").format(e.getFinalDamage()));
 			}
 		}
+
+		System.out.println("START");
+		for (EntityDamageEvent.DamageModifier modifier : EntityDamageEvent.DamageModifier.values()) {
+			System.out.println(modifier.name() + " " + e.getDamage(modifier));
+		}
+		System.out.println("END");
 	}
 
 	public boolean isLivingEntity(Entity entity) {
@@ -404,8 +425,14 @@ public class EntityListener implements Listener {
 				.setCEFunctionData(data)
 				.call();
 
-		return AttributeCalculate.calculate(cePlayer, CustomAttributeType.OPTION_ATTACK, damage,
+		damage = AttributeCalculate.calculate(cePlayer, CustomAttributeType.OPTION_ATTACK, damage,
 				result.getOptionDataList());
+
+		if (handleArmorPenetration(pAttacker, defenser, e, result.getOptionDataList())) {
+			e.setDamage(damage);
+		}
+
+		return damage;
 	}
 
 	public double onMobVsPlayer(Entity attacker, Entity defenser, double damage, EntityDamageByEntityEvent e) {
@@ -431,7 +458,8 @@ public class EntityListener implements Listener {
 		
 		damage = AttributeCalculate.calculate(cePlayer, CustomAttributeType.OPTION_DEFENSE, damage,
 				result.getOptionDataList());
-		return handleDamageReduction(defenser, damage);
+		damage = handleDamageReduction(defenser, damage);
+		return damage;
 	}
 
 	public double onPlayerVsPlayer(Entity attacker, Entity defenser, double damage, EntityDamageByEntityEvent e) {
@@ -485,13 +513,19 @@ public class EntityListener implements Listener {
 				.setCEFunctionData(pData)
 				.call();
 
-		return AttributeCalculate.calculate(CEAPI.getCEPlayer(pAttacker), CustomAttributeType.OPTION_ATTACK, damage,
+		damage = AttributeCalculate.calculate(CEAPI.getCEPlayer(pAttacker), CustomAttributeType.OPTION_ATTACK, damage,
 				pResult.getOptionDataList());
+
+		if (handleArmorPenetration(pAttacker, pDefenser, e, pResult.getOptionDataList())) {
+			e.setDamage(damage);
+		}
+
+		return damage;
 	}
 
-	public double onArrowPlayerVsPlayer(Entity attacker, Entity defenser, double damage, EntityDamageByEntityEvent e) {
+	public double onArrowPlayerVsPlayer(Entity attacker, Entity defender, double damage, EntityDamageByEntityEvent e) {
 		if (!(attacker instanceof Arrow) || !(((Arrow) attacker).getShooter() instanceof Player)
-				|| !(defenser instanceof Player)) {
+				|| !(defender instanceof Player)) {
 			return damage;
 		}
 
@@ -501,7 +535,7 @@ public class EntityListener implements Listener {
 		}
 
 		Player pAttacker = (Player) ((Arrow) attacker).getShooter();
-		Player pDefenser = (Player) defenser;
+		Player pDefenser = (Player) defender;
 		CEPlayer cePlayerAttacker = CEAPI.getCEPlayer(pAttacker);
 		CEPlayer cePlayerDefenser = CEAPI.getCEPlayer(pDefenser);
 		cePlayerAttacker.getTemporaryStorage().set(TemporaryKey.LAST_COMBAT_TIME, System.currentTimeMillis());
@@ -542,19 +576,22 @@ public class EntityListener implements Listener {
 
 		double finalDamage = AttributeCalculate.calculate(CEAPI.getCEPlayer(pDefenser), CustomAttributeType.OPTION_DEFENSE, damage,
                 eResult.getOptionDataList());
-		finalDamage = handleDamageReduction(defenser, finalDamage);
+		finalDamage = handleDamageReduction(defender, finalDamage);
 
         if (attacker.hasMetadata("ce_multi_arrow_damage_ratio")) {
             finalDamage *= attacker.getMetadata("ce_multi_arrow_damage_ratio").get(0).asDouble();
-            return finalDamage;
         }
 
-        return finalDamage;
+		if (handleArmorPenetration(pAttacker, pDefenser, e, pResult.getOptionDataList())) {
+			e.setDamage(finalDamage);
+		}
+
+		return finalDamage;
 	}
 
-	public double onArrowPlayerVsMob(Entity attacker, Entity defenser, double damage, EntityDamageByEntityEvent e) {
+	public double onArrowPlayerVsMob(Entity attacker, Entity defender, double damage, EntityDamageByEntityEvent e) {
 		if (!(attacker instanceof Arrow) || !(((Arrow) attacker).getShooter() instanceof Player)
-				|| !(defenser instanceof LivingEntity) || defenser instanceof Player) {
+				|| !(defender instanceof LivingEntity) || defender instanceof Player) {
 			return damage;
 		}
 
@@ -566,7 +603,7 @@ public class EntityListener implements Listener {
 		Player pAttacker = (Player) ((Arrow) attacker).getShooter();
 		CEPlayer cePlayer = CEAPI.getCEPlayer(pAttacker);
 		cePlayer.getTemporaryStorage().set(TemporaryKey.LAST_COMBAT_TIME, System.currentTimeMillis());
-		LivingEntity eDefenser = (LivingEntity) defenser;
+		LivingEntity eDefenser = (LivingEntity) defender;
 
 		CEFunctionData data = new CEFunctionData(pAttacker);
 		data.setEnemyLivingEntity(eDefenser);
@@ -584,7 +621,13 @@ public class EntityListener implements Listener {
 		
 		damage = AttributeCalculate.calculate(CEAPI.getCEPlayer(pAttacker), CustomAttributeType.OPTION_ATTACK, damage,
 				result.getOptionDataList());
-		return handleCritical(attacker, damage);
+		damage = handleCritical(attacker, damage);
+
+		if (handleArmorPenetration(pAttacker, eDefenser, e, result.getOptionDataList())) {
+			e.setDamage(damage);
+		}
+
+		return damage;
 	}
 
 	public Player getPlayer(Entity entity) {
@@ -673,11 +716,11 @@ public class EntityListener implements Listener {
 			return;
 		}
 
-		player.setHealth(Math.max(Math.min(event.getCurrentValue(), player.getMaxHealth()), 0));
+		player.setHealth(Math.max(Math.min(event.getChangeValue(), player.getMaxHealth()), 0));
 	}
 
-	public boolean handleArmorPenetration(Entity attacker, Entity defenser, EntityDamageByEntityEvent e) {
-		if (!(attacker instanceof LivingEntity) || !(defenser instanceof LivingEntity)) {
+	public boolean handleArmorPenetration(Entity attacker, Entity defender, EntityDamageByEntityEvent e, List<NMSAttribute> list) {
+		if (!(attacker instanceof LivingEntity) || !(defender instanceof LivingEntity)) {
 			return false;
 		}
 
@@ -688,13 +731,14 @@ public class EntityListener implements Listener {
 		CEPlayer cePlayer = CEAPI.getCEPlayer((Player) attacker);
 		PlayerCustomAttribute attribute = cePlayer.getCustomAttribute();
 
-		int armorPenetration = (int) attribute.getValue(CustomAttributeType.ARMOR_PENETRATION);
+		double armorPenetration = attribute.getValue(CustomAttributeType.ARMOR_PENETRATION);
+		armorPenetration = AttributeCalculate.calculate(cePlayer, CustomAttributeType.OPTION_ARMOR_PENETRATION, armorPenetration, list);
+
 		if (armorPenetration <= 0) {
 			return false;
 		}
-		System.out.println("Armor Penetration: " + armorPenetration);
 
-		e.setOverriddenFunction(EntityDamageEvent.DamageModifier.ARMOR, DamageUtils.getDamageAfterAbsorbFunction((LivingEntity) defenser, (float) e.getDamage(), e.getDamageSource(), 100));
+		e.setOverriddenFunction(EntityDamageEvent.DamageModifier.ARMOR, DamageUtils.getDamageAfterAbsorbFunction((LivingEntity) defender, (float) e.getDamage(), e.getDamageSource(), (int) armorPenetration));
 		return true;
 	}
 }

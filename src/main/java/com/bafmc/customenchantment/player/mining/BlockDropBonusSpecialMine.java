@@ -95,6 +95,10 @@ public class BlockDropBonusSpecialMine extends AbstractSpecialMine {
 						continue;
 					}
 
+					if (bonus.getAmount() <= 0) {
+						continue;
+					}
+
 					MaterialList data = bonus.require;
 					MaterialData reward = bonus.reward;
 					int amountItemSame = 0;

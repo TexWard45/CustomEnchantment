@@ -5,6 +5,7 @@ import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.item.CEItemType;
 import com.bafmc.customenchantment.listener.CMenuListener;
 import com.bafmc.customenchantment.menu.anvil.*;
+import com.bafmc.customenchantment.menu.artifactupgrade.ArtifactUpgradeMenuListener;
 import com.bafmc.customenchantment.menu.bookcraft.BookCraftMenuListener;
 import com.bafmc.customenchantment.menu.bookupgrade.BookUpgradeMenuListener;
 import com.bafmc.customenchantment.menu.equipment.EquipmentMenuListener;
@@ -36,6 +37,6 @@ public class MenuModule extends PluginModule<CustomEnchantment> {
         CMenuListener.registerMenuListener(new CEAnvilMenuListener());
         CMenuListener.registerMenuListener(new BookUpgradeMenuListener());
         CMenuListener.registerMenuListener(new EquipmentMenuListener());
-
+        CMenuListener.registerMenuListener(new ArtifactUpgradeMenuListener());
     }
 }

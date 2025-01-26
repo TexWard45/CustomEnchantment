@@ -13,7 +13,7 @@ public class PlayerCEManager extends CEPlayerExpansion {
 
 	public void onJoin() {
 		for (EquipSlot equipSlot : EquipSlot.ALL_ARRAY) {
-			map.put(equipSlot, new CancelManager());
+			map.put(equipSlot, new CancelManager(this));
 		}
 	}
 
@@ -21,8 +21,8 @@ public class PlayerCEManager extends CEPlayerExpansion {
 
 	}
 
-	public void setCancelSlot(EquipSlot slot, String unique, boolean cancel) {
-		map.get(slot).setCancel(unique, cancel);
+	public void setCancelSlot(EquipSlot slot, String unique, boolean cancel, long duration) {
+		map.get(slot).setCancel(unique, cancel, duration);
 	}
 
 	public boolean isCancelSlot(EquipSlot slot) {

@@ -36,6 +36,7 @@ dependencies {
     compileOnly 'com.bafmc:ItemDropManager:1.0.0'
     compileOnly 'com.bafmc:TopStatistic:1.0.0'
     compileOnly 'com.bafmc:PlaceholderAPIAddon:1.0.0'
+    compileOnly 'com.bafmc:MythicMobsAddon:1.0.0'
     compileOnly 'com.earth2me:Essentials:2.20.1'
     compileOnly 'org.black_ixx:PlayerPoints:3.2.7'
     compileOnly 'com.massivecraft:Factions:1.6.9.5'

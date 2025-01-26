@@ -35,15 +35,6 @@ public class PlayerEquipment extends CEPlayerExpansion {
         playerEquipSlot.addAll(List.of(EquipSlot.ARMOR_ARRAY));
         playerEquipSlot.addAll(List.of(EquipSlot.HOTBAR_ARRAY));
 
-        for (EquipSlot slot : playerEquipSlot) {
-            CEWeaponAbstract weapon = getSlot(slot);
-            if (weapon == null) {
-                getCEPlayer().getStorage().getConfig().set("equipment." + slot.name(), null);
-            }else {
-                getCEPlayer().getStorage().getConfig().set("equipment." + slot.name(), weapon.getDefaultItemStack());
-            }
-        }
-
         List<EquipSlot> configEquipSlot = new ArrayList<>();
         configEquipSlot.addAll(List.of(EquipSlot.EXTRA_SLOT_ARRAY));
         for (EquipSlot slot : configEquipSlot) {
@@ -122,12 +113,20 @@ public class PlayerEquipment extends CEPlayerExpansion {
     }
 
     public void setSlot(EquipSlot slot, CEWeaponAbstract weapon) {
+        setSlot(slot, weapon, false);
+    }
+
+    public void setSlot(EquipSlot slot, CEWeaponAbstract weapon, boolean updateConfig) {
         if (weapon != null) {
             slotMap.put(slot, weapon);
-            getCEPlayer().getStorage().getConfig().set("equipment." + slot.name(), weapon.getDefaultItemStack());
+            if (updateConfig) {
+                getCEPlayer().getStorage().getConfig().set("equipment." + slot.name(), weapon.getDefaultItemStack());
+            }
         } else {
             slotMap.remove(slot);
-            getCEPlayer().getStorage().getConfig().set("equipment." + slot.name(), null);
+            if (updateConfig) {
+                getCEPlayer().getStorage().getConfig().set("equipment." + slot.name(), null);
+            }
         }
 
         getCEPlayer().getSet().onUpdate();

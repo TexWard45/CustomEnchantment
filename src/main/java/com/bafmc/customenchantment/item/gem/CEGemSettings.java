@@ -35,6 +35,10 @@ public class CEGemSettings {
         return gemLevelSettingsMap.get(level);
     }
 
+    public boolean containsGemLevelSettings(int level) {
+        return gemLevelSettingsMap.containsKey(level);
+    }
+
     public SlotSettings getSlotSettings(String slot) {
         return slotSettingsMap.get(slot);
     }

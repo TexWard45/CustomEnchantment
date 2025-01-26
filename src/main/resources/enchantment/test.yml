@@ -29,6 +29,34 @@ wind:
         effects:
           - WIND_CHARGE:~_~_~_~:~_xE_yE_zE:1:0
           - MESSAGE:EFFECT
+    2:
+      attack:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        effects:
+          - DELAY=10 | ADD_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed:-0.09:2
+          - DELAY=20,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed
+          - DELAY=20 | ADD_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed:-0.18:2
+          - DELAY=30,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed
+          - DELAY=30 | ADD_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed:-0.27:2
+          - DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed
+          - DELAY=40 | ADD_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed:-0.36:2
+          - DELAY=50,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed
+          - DELAY=50 | ADD_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed:-0.45:2
+          - DELAY=60,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed
+          - DELAY=60 | ADD_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed:-0.54:2
+          - DELAY=70,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed
+          - DELAY=70 | ADD_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed:-0.63:2
+          - DELAY=80,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed
+          - DELAY=80 | ADD_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed:-0.72:2
+          - DELAY=90,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed
+          - DELAY=90 | ADD_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed:-0.81:2
+          - DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed
+          - DELAY=100 | ADD_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed:-0.9:2
+          - DELAY=150,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed
 texward:
   group: mask
   display: TexWard

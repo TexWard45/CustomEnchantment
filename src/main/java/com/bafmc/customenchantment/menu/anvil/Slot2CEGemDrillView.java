@@ -1,9 +1,13 @@
 package com.bafmc.customenchantment.menu.anvil;
 
-import com.bafmc.customenchantment.item.ApplyReason;
-import com.bafmc.customenchantment.item.ApplyResult;
-import com.bafmc.customenchantment.item.CEItem;
+import com.bafmc.bukkit.feature.placeholder.PlaceholderBuilder;
+import com.bafmc.bukkit.utils.ItemStackUtils;
+import com.bafmc.bukkit.utils.StringUtils;
+import com.bafmc.customenchantment.item.*;
 import com.bafmc.customenchantment.item.gemdrill.CEGemDrill;
+import org.bukkit.inventory.ItemStack;
+
+import java.util.Map;
 
 public class Slot2CEGemDrillView extends AnvilSlot2View<Slot2CEGemDrillView> {
 
@@ -38,7 +42,39 @@ public class Slot2CEGemDrillView extends AnvilSlot2View<Slot2CEGemDrillView> {
 	public void updateConfirm() {
 		CEAnvilMenu menu = getAnvilMenu();
 
-		menu.updateSlots("confirm", menu.getItemStack(null, "confirm-gem-drill"));
+		CEWeapon ceWeapon = (CEWeapon) getAnvilMenu().getItemData1().getCEItem();
+		CEGemDrill gemDrill = (CEGemDrill) getAnvilMenu().getItemData2().getCEItem();
+
+		WeaponGem weaponGem = ceWeapon.getWeaponGem();
+
+		int drillSize = weaponGem.getDrillSize();
+		if (drillSize >= gemDrill.getData().getConfigData().getMaxDrill()) {
+			menu.updateSlots("confirm", menu.getItemStack(null, "confirm-gem-drill-max"));
+		}else {
+			int nextDrillSlot = drillSize + 1;
+
+			boolean maxChance = true;
+			Map<Integer, Double> slotChance = gemDrill.getData().getConfigData().getSlotChance();
+
+
+			double chance = slotChance.getOrDefault(nextDrillSlot, 100.0);
+			if (chance < 100) {
+				maxChance = false;
+			}
+
+			if (chance < 100) {
+				PlaceholderBuilder builder = PlaceholderBuilder.builder().put("{chance}", StringUtils.formatNumber(chance));
+
+				ItemStack itemStack = menu.getItemStack(null, "confirm-gem-drill-with-chance");
+				itemStack = ItemStackUtils.getItemStack(itemStack, builder.build());
+
+				menu.updateSlots("confirm", itemStack);
+			}
+
+			if (maxChance) {
+				menu.updateSlots("confirm", menu.getItemStack(null, "confirm-gem-drill"));
+			}
+		}
 	}
 
 	public ApplyReason apply(CEItem ceItem1, CEItem ceItem2) {

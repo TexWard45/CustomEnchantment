@@ -2,10 +2,7 @@ package com.bafmc.customenchantment.config;
 
 import com.bafmc.bukkit.config.AdvancedFileConfiguration;
 import com.bafmc.customenchantment.CustomEnchantment;
-import com.bafmc.customenchantment.item.CEItemData;
-import com.bafmc.customenchantment.item.CEItemType;
-import com.bafmc.customenchantment.item.VanillaItem;
-import com.bafmc.customenchantment.item.VanillaItemStorage;
+import com.bafmc.customenchantment.item.*;
 
 import java.io.File;
 
@@ -24,12 +21,12 @@ public class VanillaItemConfig {
 			if (file.getName().endsWith(".yml")) {
 				AdvancedFileConfiguration fileConfig = new AdvancedFileConfiguration(file);
 				for (String key : fileConfig.getKeys(false)) {
+					boolean weapon = fileConfig.getBoolean(key + ".weapon", false);
+					boolean origin = file.getName().equals("save-items.yml");
+
 					VanillaItem item = new VanillaItem(fileConfig.getItemStack(key, true, true));
-					item.setData(new CEItemData() {
-						public String getPattern() {
-							return key;
-						}
-					});
+					VanillaItemData data = new VanillaItemData(key, weapon, origin);
+					item.setData(data);
 					storage.put(key, item);
 				}
 			}

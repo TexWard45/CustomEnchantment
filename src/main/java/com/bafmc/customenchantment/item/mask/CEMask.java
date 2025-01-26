@@ -1,13 +1,12 @@
 package com.bafmc.customenchantment.item.mask;
 
+import com.bafmc.bukkit.bafframework.nms.NMSNBTTagCompound;
+import com.bafmc.bukkit.utils.MaterialUtils;
+import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.item.*;
 import com.bafmc.customenchantment.item.banner.CEBanner;
 import org.bukkit.ChatColor;
 import org.bukkit.inventory.ItemStack;
-
-import com.bafmc.customenchantment.CustomEnchantment;
-import com.bafmc.bukkit.utils.MaterialUtils;
-import com.bafmc.bukkit.bafframework.nms.NMSNBTTagCompound;
 
 public class CEMask extends CEUnify<CEMaskData> {
 
@@ -33,7 +32,6 @@ public class CEMask extends CEUnify<CEMaskData> {
 	
 	public void updateTimeModifierTag(NMSNBTTagCompound tag) {
 	}
-
 
 	public String getWeaponSettingsName() {
 		return getUnifyWeapon().isSet() ? "mask-" + super.getWeaponSettingsName() + "-unify" : "mask-" + super.getWeaponSettingsName();

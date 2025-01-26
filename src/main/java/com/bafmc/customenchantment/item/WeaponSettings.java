@@ -48,6 +48,8 @@ public class WeaponSettings {
     private Map<String, String> attributeSlotMap;
 	@Getter
 	private Map<MaterialList, Integer> gemPointMap;
+	@Getter
+	private String customGemLore;
 
     public String getEnchantPointLore(int index) {
 		return enchantPointLore.containsKey(index) ? enchantPointLore.get(index) : enchantPointLore.get(-1);

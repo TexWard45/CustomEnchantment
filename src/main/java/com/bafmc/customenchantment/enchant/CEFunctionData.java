@@ -1,8 +1,8 @@
 package com.bafmc.customenchantment.enchant;
 
-import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
-
+import com.bafmc.bukkit.utils.EquipSlot;
+import com.bafmc.customenchantment.api.CEAPI;
+import com.bafmc.customenchantment.item.CEWeaponAbstract;
 import org.apache.commons.lang3.Validate;
 import org.bukkit.Location;
 import org.bukkit.entity.LivingEntity;
@@ -10,12 +10,14 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 import org.bukkit.inventory.ItemStack;
 
-import com.bafmc.customenchantment.api.CEAPI;
-import com.bafmc.customenchantment.item.CEWeaponAbstract;
-import com.bafmc.bukkit.utils.EquipSlot;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class CEFunctionData implements Cloneable {
 	private ConcurrentHashMap<String, Object> map = new ConcurrentHashMap<String, Object>();
+	private List<String> generatedPrefixList = new ArrayList<>();
 	private Target target = Target.PLAYER;
 
 	public CEFunctionData(Player player) {
@@ -32,6 +34,18 @@ public class CEFunctionData implements Cloneable {
 
 	public int getDeathTime() {
 		return target == Target.PLAYER ? (int) get("death_time") : (int) get("enemy_death_time");
+	}
+
+	public String getNextPrefix(String prefix, int index) {
+		if (index < generatedPrefixList.size()) {
+			return prefix + generatedPrefixList.get(index);
+		}
+
+		for (int i = generatedPrefixList.size(); i <= index; i++) {
+			generatedPrefixList.add(String.valueOf(System.nanoTime()));
+		}
+
+		return prefix + generatedPrefixList.get(index);
 	}
 
 	public CEFunctionData setPlayer(Player player) {

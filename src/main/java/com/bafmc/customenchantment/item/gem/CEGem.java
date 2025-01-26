@@ -1,6 +1,7 @@
 package com.bafmc.customenchantment.item.gem;
 
 import com.bafmc.bukkit.bafframework.nms.NMSNBTTagCompound;
+import com.bafmc.bukkit.feature.placeholder.Placeholder;
 import com.bafmc.bukkit.feature.placeholder.PlaceholderBuilder;
 import com.bafmc.bukkit.utils.ItemStackUtils;
 import com.bafmc.bukkit.utils.StringUtils;
@@ -13,7 +14,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class CEGem extends CEItem<CEGemData> {
@@ -54,29 +54,22 @@ public class CEGem extends CEItem<CEGemData> {
 			itemStackNMS.setCETag(tag);
 		}
 
-		ItemStack itemStack = setItemStack(itemStackNMS.getNewItemStack(), getPlaceholder(data));
+		Placeholder placeholder = Placeholder.of(getPlaceholder(data));
+
+		ItemStack itemStack = itemStackNMS.getNewItemStack();
+		ItemMeta itemMeta = itemStack.getItemMeta();
+		// Fix duplicate display name and lore
+		if (getData().getConfigData().getItemDisplay() != null) {
+			itemMeta.setDisplayName(placeholder.apply(getData().getConfigData().getItemDisplay()));
+		}
+
+		if (getData().getConfigData().getItemLore() != null) {
+			itemMeta.setLore(placeholder.apply(getData().getConfigData().getItemLore()));
+		}
+
+		itemStack.setItemMeta(itemMeta);
 		itemStack = ItemStackUtils.updateColorToItemStack(itemStack);
 		return itemStack;
-	}
-
-	public static ItemStack setItemStack(ItemStack itemStack, Map<String, String> placeholder) {
-		if (!itemStack.hasItemMeta()) {
-			return itemStack;
-		} else {
-			ItemMeta meta = itemStack.getItemMeta();
-			if (meta.hasDisplayName()) {
-				String displayName = meta.getDisplayName();
-				meta.setDisplayName(StringUtils.replaceToList(displayName, placeholder).get(0));
-			}
-
-			if (meta.hasLore()) {
-				List<String> lore = meta.getLore();
-				meta.setLore(StringUtils.replaceToList(lore, placeholder));
-			}
-
-			itemStack.setItemMeta(meta);
-			return itemStack;
-		}
 	}
 
 	public Map<String, String> getPlaceholder(CEGemData data) {
@@ -88,9 +81,16 @@ public class CEGem extends CEItem<CEGemData> {
 
 		map.put("{gem_applies_description}", StringUtils.toString(data.getConfigData().getAppliesDescription()));
 		map.put("{gem_level}", String.valueOf(data.getLevel()));
-		map.put("{level_color}", CEGemSettings.getSettings().getGemLevelSettings(data.getLevel()).getColor());
-		// Fix auto replace bold color
-		map.put("{level_color_bold}", CEGemSettings.getSettings().getGemLevelSettings(data.getLevel()).getColor() + "&l");
+
+		if (CEGemSettings.getSettings().containsGemLevelSettings(data.getLevel())) {
+			map.put("{level_color}", CEGemSettings.getSettings().getGemLevelSettings(data.getLevel()).getColor());
+			// Fix auto replace bold color
+			map.put("{level_color_bold}", CEGemSettings.getSettings().getGemLevelSettings(data.getLevel()).getColor() + "&l");
+		}else {
+			map.put("{level_color}", "");
+			map.put("{level_color_bold}", "");
+		}
+
 		return map;
 	}
 
@@ -133,11 +133,12 @@ public class CEGem extends CEItem<CEGemData> {
 	}
 	
 	public ApplyReason testApplyByMenuTo(CEItem ceItem) {
-		if (!(ceItem instanceof CEWeapon)) {
+		if (!(ceItem instanceof CEWeapon weapon)) {
 			return ApplyReason.NOTHING;
 		}
-		
+
 		ceItem = CEWeapon.getCEWeapon(ceItem.getDefaultItemStack());
+		((CEWeapon) ceItem).setWeaponSettingsName("default");
 
 		CEWeaponAbstract ceWeapon = (CEWeaponAbstract) ceItem;
 		WeaponGem data = ceWeapon.getWeaponGem();

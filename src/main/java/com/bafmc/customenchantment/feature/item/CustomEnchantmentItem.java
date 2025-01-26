@@ -20,7 +20,14 @@ public class CustomEnchantmentItem extends AbstractItem {
         String type = argumentLine.getString(0);
         ArgumentLine argParameter = new ArgumentLine(argumentLine.toString(), 1);
         Parameter parameter = Parameter.fromArgumentLine(argParameter);
-        return CustomEnchantment.instance().getCeItemStorageMap().get(type).getItemStacksByParameter(parameter).get(0);
+
+        try {
+            return CustomEnchantment.instance().getCeItemStorageMap().get(type).getItemStacksByParameter(parameter).get(0);
+        } catch (Exception e) {
+            CustomEnchantment.instance().getLogger().warning("Item not found: " + type + " " + parameter);
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Override

@@ -7,6 +7,7 @@ import java.util.Set;
 
 import com.bafmc.bukkit.bafframework.utils.SkullUtils;
 import com.bafmc.bukkit.utils.ItemStackBuilder;
+import com.bafmc.customenchantment.item.artifact.CEArtifact;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
@@ -120,6 +121,13 @@ public class CommandOpen implements AbstractCommand {
 					
 				}
 
+				int level = 1;
+				try {
+					level = Integer.valueOf(arg.get("<level>"));
+				}catch (Exception e) {
+
+				}
+
 				Inventory inventory = Bukkit.createInventory(null, 54, type);
 
 				CEItemStorage storage = CustomEnchantment.instance().getCeItemStorageMap().get(type);
@@ -129,7 +137,14 @@ public class CommandOpen implements AbstractCommand {
 				int len = storage.size() - from > 54 ? 54 : storage.size() - from;
 
 				for (int i = 0; i < len; i++) {
-					inventory.setItem(i, ItemStackUtils.getItemStackWithPlaceholder(ceItemArr[from + i].exportTo(), player));
+					CEItem ceItem = ceItemArr[from + i];
+
+					if (ceItem instanceof CEArtifact ceArtifact) {
+						ceArtifact.getData().setLevel(level);
+						inventory.setItem(i, ItemStackUtils.getItemStackWithPlaceholder(ceArtifact.exportTo(), player));
+					}else {
+						inventory.setItem(i, ItemStackUtils.getItemStackWithPlaceholder(ceItemArr[from + i].exportTo(), player));
+					}
 				}
 
 				player.openInventory(inventory);
@@ -263,8 +278,10 @@ public class CommandOpen implements AbstractCommand {
 					.end()
 					.subCommand("artifact")
 						.subCommand("<page>")
-							.tabCompleter(getOpenTab(CEItemType.ARTIFACT))
-							.commandExecutor(getOpenExecutor(CEItemType.ARTIFACT))
+							.subCommand("<level>")
+								.tabCompleterUntilNextTab(getOpenTab(CEItemType.ARTIFACT))
+								.commandExecutorUntilNextCommand(getOpenExecutor(CEItemType.ARTIFACT))
+							.end()
 						.end()
 					.end()
 					.subCommand("book")

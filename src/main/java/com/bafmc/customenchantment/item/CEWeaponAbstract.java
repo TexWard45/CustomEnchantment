@@ -26,6 +26,7 @@ public abstract class CEWeaponAbstract<T extends CEItemData> extends CEItem<T> {
     @Getter
     protected String weaponSettingsName;
 	private int repairCost;
+	private boolean removePattern;
 
 	public CEWeaponAbstract(String type, ItemStack itemStack) {
 		super(type, itemStack);
@@ -112,6 +113,10 @@ public abstract class CEWeaponAbstract<T extends CEItemData> extends CEItem<T> {
 			tag.remove("data");
 		}
 
+		if (removePattern) {
+			tag.remove(CENBT.PATTERN);
+		}
+
 		updateTimeModifierTag(tag);
 
 		if (!tag.isEmpty()) {
@@ -159,6 +164,10 @@ public abstract class CEWeaponAbstract<T extends CEItemData> extends CEItem<T> {
 	
 	public void clearAttribute() {
 		this.weaponAttribute.clearAttribute();
+	}
+
+	public void clearPattern() {
+		this.removePattern = true;
 	}
 
 	public void setType(String type) {

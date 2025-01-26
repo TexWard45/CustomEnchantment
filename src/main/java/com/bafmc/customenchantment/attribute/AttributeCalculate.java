@@ -2,10 +2,12 @@ package com.bafmc.customenchantment.attribute;
 
 import com.bafmc.bukkit.bafframework.nms.NMSAttribute;
 import com.bafmc.bukkit.bafframework.nms.NMSAttributeOperation;
+import com.bafmc.bukkit.bafframework.nms.NMSAttributeType;
 import com.bafmc.customenchantment.player.CEPlayer;
 import org.bukkit.attribute.AttributeModifier;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class AttributeCalculate {
@@ -18,7 +20,8 @@ public class AttributeCalculate {
 		List<NMSAttribute> newList = new ArrayList<>();
 
 		for (NMSAttribute data : list) {
-			if (!data.getAttributeType().equals(type)) {
+			NMSAttributeType dataType = data.getAttributeType();
+			if (dataType == null || !dataType.equals(type)) {
 				continue;
 			}
 			newList.add(data);
@@ -84,11 +87,20 @@ public class AttributeCalculate {
 				}
 			}
 		}
+
 		return amount;
 	}
 
-	public static double calculateAttributeModifier(double amount, List<AttributeModifier> list){
+	public static double calculateAttributeModifier(double amount, Collection<AttributeModifier> list){
+		return calculateAttributeModifier(amount, list, false);
+	}
+
+	public static double calculateAttributeModifier(double amount, Collection<AttributeModifier> list, boolean noNegative) {
 		for (AttributeModifier data : list) {
+			if (data.getAmount() < 0 && noNegative) {
+				continue;
+			}
+
 			if (data.getOperation() == AttributeModifier.Operation.ADD_NUMBER) {
 				amount += data.getAmount();
 			}
@@ -96,27 +108,21 @@ public class AttributeCalculate {
 
 		double p = 1;
 		for (AttributeModifier data : list) {
+			if (data.getAmount() < 0 && noNegative) {
+				continue;
+			}
+
 			if (data.getOperation() == AttributeModifier.Operation.ADD_SCALAR) {
 				p += data.getAmount();
 			}
 		}
 		amount *= p;
 
-//		double newAmount = 0;
-//		boolean has = false;
-//		for (AttributeModifier data : list) {
-//			if (data.getOperation() == Operation.SET_NUMBER) {
-//				if (!data.hasChance() || data.getChance().work()) {
-//					newAmount = Math.max(newAmount, data.getAmount());
-//					has = true;
-//				}
-//			}
-//		}
-//		if (has) {
-//			amount = newAmount;
-//		}
-
 		for (AttributeModifier data : list) {
+			if (data.getAmount() < 0 && noNegative) {
+				continue;
+			}
+
 			if (data.getOperation() == AttributeModifier.Operation.MULTIPLY_SCALAR_1) {
 				amount *= (1 + data.getAmount());
 			}

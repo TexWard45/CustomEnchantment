@@ -2,8 +2,10 @@ package com.bafmc.customenchantment.config;
 
 import com.bafmc.bukkit.bafframework.nms.NMSAttribute;
 import com.bafmc.bukkit.bafframework.nms.NMSAttributeType;
+import com.bafmc.bukkit.bafframework.utils.MaterialUtils;
 import com.bafmc.bukkit.config.AdvancedConfigurationSection;
 import com.bafmc.bukkit.config.AdvancedFileConfiguration;
+import com.bafmc.bukkit.feature.placeholder.PlaceholderBuilder;
 import com.bafmc.bukkit.utils.EnumUtils;
 import com.bafmc.bukkit.utils.SparseMap;
 import com.bafmc.bukkit.utils.StringUtils;
@@ -41,6 +43,7 @@ import com.bafmc.customenchantment.item.loreformat.CELoreFormatStorage;
 import com.bafmc.customenchantment.item.mask.CEMask;
 import com.bafmc.customenchantment.item.mask.CEMaskData;
 import com.bafmc.customenchantment.item.mask.CEMaskStorage;
+import com.bafmc.customenchantment.item.mask.group.CEArtifactGroup;
 import com.bafmc.customenchantment.item.nametag.CENameTag;
 import com.bafmc.customenchantment.item.nametag.CENameTagData;
 import com.bafmc.customenchantment.item.nametag.CENameTagStorage;
@@ -70,6 +73,7 @@ import com.bafmc.customenchantment.utils.AttributeUtils;
 import org.apache.commons.lang3.Validate;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 import java.io.File;
 import java.util.*;
@@ -126,6 +130,7 @@ public class CEItemConfig extends AbstractConfig {
 
 	public WeaponSettings loadWeaponSettings(AdvancedConfigurationSection config, AdvancedConfigurationSection alternativeConfig) {
 		int enchantPoint = config.getInt("custom-enchant.default-point", alternativeConfig.getInt("custom-enchant.default-point"));
+		String customGemLore = config.getStringColor("gem.default-lore", alternativeConfig.getString("gem.default-lore"));
 		Map<MaterialList, Integer> gemPointMap = loadGemPointMap(config.getAdvancedConfigurationSection("gem.default-point"), alternativeConfig.getAdvancedConfigurationSection("gem.default-point"));
 		String vanillaEnchantLore = config.getStringColor("vanilla-enchant.default-lore", alternativeConfig.getString("vanilla-enchant.default-lore"));
 		String customEnchantLore = config.getStringColor("custom-enchant.default-lore", alternativeConfig.getString("custom-enchant.default-lore"));
@@ -151,6 +156,7 @@ public class CEItemConfig extends AbstractConfig {
 
 		return WeaponSettings.builder()
 				.enchantPoint(enchantPoint)
+				.customGemLore(customGemLore)
 				.vanillaEnchantLore(vanillaEnchantLore)
 				.customEnchantLore(customEnchantLore)
 				.enchantPointLore(enchantPointLore)
@@ -217,13 +223,13 @@ public class CEItemConfig extends AbstractConfig {
 		}
 
 		for (String key : keys) {
-			String attributeType = String.valueOf(key);
+			String slot = String.valueOf(key);
 
-			if (attributeType == null) {
+			if (slot == null) {
 				continue;
 			}
 
-			map.put(attributeType, config.getStringColor(key, alternativeConfig.getStringColor(key)));
+			map.put(slot, config.getStringColor(key, alternativeConfig.getStringColor(key)));
 		}
 		return map;
 	}
@@ -278,6 +284,7 @@ public class CEItemConfig extends AbstractConfig {
 			data.setPattern(pattern);
 			data.setExtraPoint(config.getInt(path + ".extra-point"));
 			data.setMaxPoint(config.getInt(path + ".max-point"));
+			data.setAdvancedMode(config.getBoolean(path + ".advanced-mode"));
 			ceItem.setData(data);
 
 			storage.put(pattern, ceItem);
@@ -590,16 +597,37 @@ public class CEItemConfig extends AbstractConfig {
 		for (String pattern : config.getKeySection("", false)) {
 			String path = pattern;
 
+			String group = config.getStringColor(path + ".group");
+			String enchant = config.getStringColor(path + ".enchant");
+
+			CEArtifactGroup artifactGroup = CustomEnchantment.instance().getCeArtifactGroupMap().get(group);
+
 			ItemStack itemStack = config.getItemStack(path + ".item", true, true);
+			ItemMeta itemMeta = itemStack.getItemMeta();
+			if (artifactGroup.getItemDisplay() != null) {
+				PlaceholderBuilder placeholderBuilder = PlaceholderBuilder.builder();
+				placeholderBuilder.put("{item_display}", itemMeta.hasDisplayName() ? itemMeta.getDisplayName() : "");
+
+				String itemDisplay = artifactGroup.getItemDisplay();
+				itemMeta.setDisplayName(placeholderBuilder.build().apply(itemDisplay));
+			}
+
+			if (artifactGroup.getItemLore() != null) {
+				PlaceholderBuilder placeholderBuilder = PlaceholderBuilder.builder();
+				placeholderBuilder.put("{item_lore}", itemMeta.hasLore() ? itemMeta.getLore() : new ArrayList<>());
+				itemMeta.setLore(placeholderBuilder.build().apply(artifactGroup.getItemLore()));
+			}
+			itemStack.setItemMeta(itemMeta);
+
 			CEArtifact ceItem = new CEArtifact(itemStack);
 
 			for (String attributeFormat : config.getStringList(path + ".attributes")) {
 				ceItem.getWeaponAttribute().addAttribute(attributeFormat);
 			}
 
-			String group = config.getStringColor(path + ".group");
-			String enchant = config.getStringColor(path + ".enchant");
-			CEArtifactData.ConfigData configData = new CEArtifactData.ConfigData(group, enchant);
+			int maxLevel = config.getInt(path + ".max-level");
+
+			CEArtifactData.ConfigData configData = new CEArtifactData.ConfigData(group, enchant, maxLevel);
 
 			CEArtifactData data = new CEArtifactData(pattern, configData);
 			ceItem.setData(data);
@@ -698,7 +726,19 @@ public class CEItemConfig extends AbstractConfig {
 			Map<Integer, List<NMSAttribute>> attributeMap = loadGemAttributeMap(config.getAdvancedConfigurationSection(path + ".levels"));
 			int limitPerItem = config.getInt(path + ".limit-per-item");
 
-			CEGemData.ConfigData configData = new CEGemData.ConfigData(display, appliesMaterialList, appliesDescription, appliesSlot, attributeMap, limitPerItem);
+			ItemMeta itemMeta = itemStack.getItemMeta();
+			String displayName = itemMeta.hasDisplayName() ? itemMeta.getDisplayName() : MaterialUtils.getDisplayName(itemStack.getType());
+			List<String> lore = itemMeta.hasLore() ? itemMeta.getLore() : new ArrayList<>();
+
+			CEGemData.ConfigData configData = CEGemData.ConfigData.builder()
+					.display(display)
+					.appliesMaterialList(appliesMaterialList)
+					.appliesDescription(appliesDescription)
+					.appliesSlot(appliesSlot)
+					.nmsAttributeLevelMap(attributeMap)
+					.limitPerItem(limitPerItem)
+					.itemDisplay(displayName)
+					.itemLore(lore).build();
 			CEGemData data = new CEGemData(pattern, configData);
 			ceItem.setData(data);
 
@@ -741,8 +781,12 @@ public class CEItemConfig extends AbstractConfig {
 			int maxDrill = config.getInt(path + ".max-drill");
 			MaterialList applies = MaterialList.getMaterialList(config.getStringList(path + ".applies"));
 			String slot = config.getString(path + ".slot");
+			Map<Integer, Double> slotChance = new LinkedHashMap<>();
+			for (String key : config.getKeySection(path + ".slot-chance", false)) {
+				slotChance.put(Integer.parseInt(key), config.getDouble(path + ".slot-chance." + key));
+			}
 
-			CEGemDrillData.ConfigData configData = new CEGemDrillData.ConfigData(maxDrill, applies, slot);
+			CEGemDrillData.ConfigData configData = new CEGemDrillData.ConfigData(maxDrill, applies, slot, slotChance);
 			CEGemDrillData data = new CEGemDrillData(pattern, configData);
 			ceItem.setData(data);
 

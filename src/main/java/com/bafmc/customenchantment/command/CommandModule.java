@@ -5,6 +5,7 @@ import com.bafmc.bukkit.command.AdvancedCommandExecutor;
 import com.bafmc.bukkit.command.Argument;
 import com.bafmc.bukkit.module.PluginModule;
 import com.bafmc.customenchantment.CustomEnchantment;
+import com.bafmc.customenchantment.menu.artifactupgrade.ArtifactUpgradeMenu;
 import com.bafmc.customenchantment.menu.bookcraft.BookCraftMenu;
 import com.bafmc.customenchantment.menu.bookupgrade.BookUpgradeMenu;
 import com.bafmc.custommenu.api.CustomMenuAPI;
@@ -48,6 +49,19 @@ public class CommandModule extends PluginModule<CustomEnchantment> {
             }
         }).end();
         bookUpgradeBuilder.build();
+
+        AdvancedCommandBuilder artifactUpgradeBuilder = AdvancedCommandBuilder.builder().plugin(getPlugin()).rootCommand("artifactupgrade");
+        artifactUpgradeBuilder.commandExecutor(new AdvancedCommandExecutor() {
+            public boolean onCommand(CommandSender sender, Argument arg) {
+                if (!(sender instanceof Player)) {
+                    return true;
+                }
+                Player player = (Player) sender;
+                CustomMenuAPI.getCPlayer(player).openCustomMenu(ArtifactUpgradeMenu.MENU_NAME, true);
+                return true;
+            }
+        }).end();
+        artifactUpgradeBuilder.build();
 
         AdvancedCommandBuilder tinkererBuilder = AdvancedCommandBuilder.builder().plugin(getPlugin()).rootCommand("tinkerer");
         tinkererBuilder.commandExecutor(new AdvancedCommandExecutor() {

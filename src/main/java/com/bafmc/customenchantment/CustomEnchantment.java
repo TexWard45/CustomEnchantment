@@ -15,6 +15,7 @@ import com.bafmc.customenchantment.feature.FeatureModule;
 import com.bafmc.customenchantment.filter.FilterModule;
 import com.bafmc.customenchantment.guard.GuardModule;
 import com.bafmc.customenchantment.item.ItemModule;
+import com.bafmc.customenchantment.item.mask.group.CEArtifactGroupMap;
 import com.bafmc.customenchantment.listener.ListenerModule;
 import com.bafmc.customenchantment.menu.MenuModule;
 import com.bafmc.customenchantment.placeholder.PlaceholderModule;
@@ -34,6 +35,7 @@ public class CustomEnchantment extends BafPlugin implements Listener {
 	private CEEnchantMap ceEnchantMap;
 	private CEGroupMap ceGroupMap;
 	private CEItemStorageMap ceItemStorageMap;
+	private CEArtifactGroupMap ceArtifactGroupMap;
 	private MainConfig mainConfig;
 	private BookCraftConfig bookCraftConfig;
 	private AttributeModule attributeModule;
@@ -117,6 +119,10 @@ public class CustomEnchantment extends BafPlugin implements Listener {
 		return new File(getDataFolder(), "groups.yml");
 	}
 
+	public File getArtifactGroupFile() {
+		return new File(getDataFolder(), "artifact-groups.yml");
+	}
+
 	public File getItemFile() {
 		return new File(getDataFolder(), "items.yml");
 	}
@@ -151,6 +157,10 @@ public class CustomEnchantment extends BafPlugin implements Listener {
 
 	public File getArtifactFolder() {
 		return new File(getDataFolder(), "artifact");
+	}
+
+	public File getArtifactUpgradeFile() {
+		return new File(getDataFolder(), "artifact-upgrade.yml");
 	}
 
 	public File getMenuFolder() {

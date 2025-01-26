@@ -61,8 +61,8 @@ public class EffectAbsorptionHeart extends EffectHook {
 			return;
 		}
 
-		defaultValue = event.getDefaultValue();
-		currentValue = event.getCurrentValue();
+		defaultValue = event.getCurrentValue();
+		currentValue = event.getChangeValue();
 		modifyType = event.getModifyType();
 
 		switch (modifyType) {

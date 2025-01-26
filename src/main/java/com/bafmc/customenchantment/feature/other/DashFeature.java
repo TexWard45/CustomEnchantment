@@ -9,7 +9,7 @@ import org.bukkit.util.Vector;
 public class DashFeature {
     public static void dash(Player player, double power, String particle) {
         Vector direction = player.getLocation().getDirection();
-        direction.multiply(1.5 * power);
+        direction.multiply(1.25 * power);
         direction.setY(0);
 
         player.setVelocity(direction);

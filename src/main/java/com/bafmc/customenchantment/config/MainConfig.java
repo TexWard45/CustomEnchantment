@@ -4,7 +4,6 @@ import com.bafmc.bukkit.config.IConfigurationLoader;
 import com.bafmc.bukkit.config.annotation.Configuration;
 import com.bafmc.bukkit.config.annotation.Path;
 import com.bafmc.bukkit.config.annotation.ValueType;
-import com.bafmc.bukkit.utils.StringUtils;
 import com.bafmc.customenchantment.api.EntityTypeList;
 import com.bafmc.customenchantment.api.MaterialList;
 import com.bafmc.customenchantment.item.CEWeapon;
@@ -40,6 +39,15 @@ public class MainConfig implements IConfigurationLoader {
 	@Path("combat-time")
 	@Getter
 	private int combatTime = 10000;
+	@Path("unbreakable-armor.enable")
+	@Getter
+	private boolean unbreakableArmorEnable = true;
+	@Path("unbreakable-armor.player-per-tick")
+	@Getter
+	private int unbreakableArmorPlayerPerTick = 1;
+	@Path("unbreakable-armor.tick-interval")
+	@Getter
+	private int unbreakableArmorTickInterval = 20;
 
 	@Override
 	public void loadConfig(String s, ConfigurationSection configurationSection) {

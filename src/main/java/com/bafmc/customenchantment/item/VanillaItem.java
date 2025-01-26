@@ -5,7 +5,7 @@ import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.nms.CECraftItemStackNMS;
 import org.bukkit.inventory.ItemStack;
 
-public class VanillaItem extends CEItem<CEItemData> {
+public class VanillaItem extends CEItem<VanillaItemData> {
 	public VanillaItem(ItemStack itemStack) {
 		super(CEItemType.STORAGE, itemStack);
 	}
@@ -23,7 +23,11 @@ public class VanillaItem extends CEItem<CEItemData> {
 		}
 	}
 
-	public ItemStack exportTo(CEItemData data) {
+	public ItemStack exportTo(VanillaItemData data) {
+		if (data.isOrigin()) {
+			return getDefaultItemStack().clone();
+		}
+
 		CECraftItemStackNMS itemStackNMS = new CECraftItemStackNMS(getDefaultItemStack());
 		NMSNBTTagCompound tag = new NMSNBTTagCompound();
 
@@ -34,6 +38,11 @@ public class VanillaItem extends CEItem<CEItemData> {
 			itemStackNMS.setCETag(tag);
 		}
 
-		return getItemStackWithPlaceholder(itemStackNMS.getNewItemStack(), data);
+		if (getData().isWeapon()) {
+			ItemStack itemStack = getItemStackWithPlaceholder(itemStackNMS.getNewItemStack(), data);
+			return new CEWeapon(itemStack).exportTo();
+		}
+
+		return itemStackNMS.getNewItemStack();
 	}
 }

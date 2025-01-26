@@ -59,7 +59,10 @@ public class EnchantModule extends PluginModule<CustomEnchantment> {
         new EffectDisableMultipleArrow().register();
         new EffectAddAttribute().register();
         new EffectRemoveAttribute().register();
+        new EffectAddAutoAttribute().register();
+        new EffectRemoveAutoAttribute().register();
         new EffectHealth().register();
+        new EffectTrueDamage().register();
         new EffectFood().register();
         new EffectExp().register();
         new EffectOxygen().register();

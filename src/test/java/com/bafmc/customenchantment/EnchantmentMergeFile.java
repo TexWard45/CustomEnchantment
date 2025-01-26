@@ -16,6 +16,10 @@ public class EnchantmentMergeFile {
         AdvancedFileConfiguration mergeConfig = new AdvancedFileConfiguration(mergeFile);
 
         for (File file : folder.listFiles()) {
+            if (file.getName().equals("all.yml")) {
+                continue;
+            }
+
             AdvancedFileConfiguration config = new AdvancedFileConfiguration(file);
 
             Set<String> keys = config.getKeys(false);

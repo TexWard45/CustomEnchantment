@@ -11,12 +11,16 @@ public class CEArtifactData extends CEItemData implements Cloneable {
     @Getter
     @Setter
     private int level;
+    @Getter
+    @Setter
+    private String id;
 
     @AllArgsConstructor
     @Getter
     public static class ConfigData {
         private String group;
         private String enchant;
+        private int maxLevel;
     }
 
     public CEArtifactData() {

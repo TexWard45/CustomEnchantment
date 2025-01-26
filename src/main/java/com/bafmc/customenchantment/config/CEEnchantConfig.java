@@ -281,7 +281,10 @@ public class CEEnchantConfig extends AbstractConfig {
 			}
 
 			try {
-				list.add(loadOptionData(line));
+				RangeAttribute attribute = loadOptionData(line);
+				if (attribute != null) {
+					list.add(attribute);
+				}
 			} catch (Exception e) {
 				CustomEnchantmentDebug.warn("Error option at line: " + line);
 				e.printStackTrace();
@@ -301,6 +304,10 @@ public class CEEnchantConfig extends AbstractConfig {
 		}
 
 		NMSAttributeType attributeType = NMSAttributeType.valueOf(type);
+		if (attributeType == null) {
+			CustomEnchantmentDebug.warn("Error option type: " + type + " at line: " + line);
+			return null;
+		}
 
 		double amount = Double.valueOf(parameters.get(1));
 		if (attributeType.equals(CustomAttributeType.OPTION_DEFENSE)) {

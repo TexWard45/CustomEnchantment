@@ -2519,15 +2519,17 @@ testarmor:
         - REMOVE_ATTRIBUTE:ARMOR_TOUGHNESS:ninja_attack_damage
         - REMOVE_ATTRIBUTE:MAX_HEALTH:max_health
         - REMOVE_CUSTOM_ATTRIBUTE:regen
-critclaws:
+greencompound:
   group: artifact
-  display: '&cCrown of destruction'
+  display: Green Compound
   description:
-  - '&fVương miện của kẻ hủy diệt, gieo rắc sự diệt vong cho kẻ thù'
-  - '&fTăng cường sức mạnh chiến đấu và khả năng phục hồi'
+  - '&eKhi trang bị:'
+  - '&7» &7Tăng thêm máu tối đa, giáp và kích thước'
+  - '&7bù lại giảm tốc độ di chuyển'
   detail-description:
-  - '&fVương miện của kẻ hủy diệt, gieo rắc sự diệt vong cho kẻ thù'
-  - '&fTăng cường sức mạnh chiến đấu và khả năng phục hồi'
+  - '&eKhi trang bị:'
+  - '&7» &7Tăng thêm máu tối đa, giáp và kích thước'
+  - '&7bù lại giảm tốc độ di chuyển'
   applies-description:
   - Thanh công cụ
   max-level: 1
@@ -2536,31 +2538,153 @@ critclaws:
   levels:
     '1':
       equip:
-        type: HOTBAR_HOLD
+        type: EXTRA_SLOT_EQUIP
         chance: 100
         cooldown: 0
         conditions:
-        - EQUIP_SLOT:HOTBAR
+        - EQUIP_SLOT:EXTRA_SLOT
         effects:
-        - ADD_FOREVER_POTION:feather_jump:JUMP:0
-        - ADD_CUSTOM_ATTRIBUTE:critclaws:HEALTH_REGENERATION:2:0
+        - ADD_ATTRIBUTE:MAX_HEALTH:greencompound_max_health:10:0
+        - ADD_ATTRIBUTE:ARMOR:greencompound_armor:5:0
+        - ADD_ATTRIBUTE:SCALE:greencompound_scale:0.25:1
+        - ADD_ATTRIBUTE:MOVEMENT_SPEED:greencompound_movement_speed:-0.25:2
       unequip:
-        type: HOTBAR_CHANGE
+        type: EXTRA_SLOT_UNEQUIP
         chance: 100
         cooldown: 0
         conditions:
-        - EQUIP_SLOT:HOTBAR
+        - EQUIP_SLOT:EXTRA_SLOT
         effects:
-        - REMOVE_FOREVER_POTION:feather_jump
-        - REMOVE_CUSTOM_ATTRIBUTE:critclaws
-      attack:
-        type: ATTACK
+        - REMOVE_ATTRIBUTE:MAX_HEALTH:greencompound_max_health
+        - REMOVE_ATTRIBUTE:SCALE:greencompound_scale
+        - REMOVE_ATTRIBUTE:ARMOR:greencompound_armor
+        - REMOVE_ATTRIBUTE:MOVEMENT_SPEED:greencompound_movement_speed
+graycompound:
+  group: artifact
+  display: Gray Compound
+  description:
+  - '&eKhi trang bị:'
+  - '&7» &7Tăng thêm máu tối đa, giáp và kích thước'
+  - '&7bù lại giảm tốc độ di chuyển'
+  detail-description:
+  - '&eKhi trang bị:'
+  - '&7» &7Tăng thêm máu tối đa, giáp và kích thước'
+  - '&7bù lại giảm tốc độ di chuyển'
+  applies-description:
+  - Thanh công cụ
+  max-level: 1
+  enchant-point: 1
+  valuable: 0
+  levels:
+    '1':
+      equip:
+        type: EXTRA_SLOT_EQUIP
         chance: 100
         cooldown: 0
         conditions:
-        - EQUIP_SLOT:HOTBAR
+        - EQUIP_SLOT:EXTRA_SLOT
         effects:
-        - MESSAGE:ATTACK
+        - ADD_ATTRIBUTE:MAX_HEALTH:graycompound_max_health:10:0
+        - ADD_ATTRIBUTE:ARMOR:graycompound_armor:5:0
+        - ADD_ATTRIBUTE:SCALE:graycompound_scale:-0.25:1
+        - ADD_ATTRIBUTE:MOVEMENT_SPEED:graycompound_movement_speed:0.25:2
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:EXTRA_SLOT
+        effects:
+        - REMOVE_ATTRIBUTE:MAX_HEALTH:graycompound_max_health
+        - REMOVE_ATTRIBUTE:SCALE:graycompound_scale
+        - REMOVE_ATTRIBUTE:ARMOR:graycompound_armor
+        - REMOVE_ATTRIBUTE:MOVEMENT_SPEED:graycompound_movement_speed
+bloodarmor:
+  group: artifact
+  display: Blood Armor
+  description:
+  - '&eKhi trang bị:'
+  - '&7» &7Tăng thêm phần trăm máu tối đa'
+  - '&7» &7Nhận lượng hồi phục theo phần trăm'
+  - '&7máu tối đa mỗi giây'
+  - ''
+  - '&eKhi ngoài giao tranh:'
+  - '&7» &7Lập tức hồi đầy thanh máu'
+  detail-description:
+  - '&eKhi trang bị:'
+  - '&7» &7Tăng thêm phần trăm máu tối đa'
+  - '&7» &7Nhận lượng hồi phục theo phần trăm'
+  - '&7máu tối đa mỗi giây'
+  - ''
+  - '&eKhi ngoài giao tranh:'
+  - '&7» &7Lập tức hồi đầy thanh máu'
+  applies-description:
+  - Thanh công cụ
+  max-level: 1
+  enchant-point: 1
+  valuable: 0
+  levels:
+    '1':
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:EXTRA_SLOT
+        effects:
+        - ADD_ATTRIBUTE:MAX_HEALTH:bloodarmor_max_health:0.2:2
+        - ADD_CUSTOM_ATTRIBUTE:bloodarmor_health_regeneration_percent:HEALTH_REGENERATION_PERCENT:2.5:0
+        - ADD_CUSTOM_ATTRIBUTE:bloodarmor_slow_resistance:SLOW_RESISTANCE:50:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:EXTRA_SLOT
+        effects:
+        - REMOVE_ATTRIBUTE:MAX_HEALTH:bloodarmor_max_health
+        - REMOVE_CUSTOM_ATTRIBUTE:bloodarmor_health_regeneration_percent
+        - REMOVE_CUSTOM_ATTRIBUTE:bloodarmor_slow_resistance
+      auto:
+        type: AUTO
+        chance: 100
+        cooldown: 1000
+        conditions:
+        - NEGATIVE=true | IN_COMBAT
+        effects:
+        - HEALTH:SET:%player_max_value%
+eternalbread:
+  group: artifact
+  display: Eternal Bread
+  description:
+  - '&eKhi trang bị:'
+  - '&7» &7Nhận hiệu ứng thuốc bão hòa'
+  detail-description:
+  - '&eKhi trang bị:'
+  - '&7» &7Nhận hiệu ứng thuốc bão hòa'
+  applies-description:
+  - Thanh công cụ
+  max-level: 1
+  enchant-point: 1
+  valuable: 0
+  levels:
+    '1':
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:EXTRA_SLOT
+        effects:
+        - ADD_FOREVER_POTION:eternalbread:SATURATION:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:EXTRA_SLOT
+        effects:
+        - REMOVE_FOREVER_POTION:eternalbread
 blessed:
   group: legendary
   display: Blessed
@@ -4650,6 +4774,169 @@ pulverize:
         - CAN_ATTACK
         target-effects:
         - TARGET=ENEMY | DEAL_DAMAGE:10:true:true:true:true:true
+rampage:
+  group: supreme
+  display: Rampage
+  description:
+  - '&eGiao tranh liên tục với kẻ địch sẽ khiến'
+  - '&ebản thân bước vào trạng thái điên cuồng'
+  - '&etăng thêm tốc độ đánh và sát thương trong'
+  - '&emột khoảng thời gian'
+  detail-description:
+  - '&eGiao tranh liên tục với kẻ địch sẽ khiến'
+  - '&ebản thân bước vào trạng thái điên cuồng'
+  - '&etăng thêm tốc độ đánh và sát thương trong'
+  - '&emột khoảng thời gian'
+  - ''
+  - '&eThời gian giao tranh tối thiểu: 4 giây'
+  - '&eThời gian hiệu lực: 4 giây'
+  - '&eTốc độ đánh: +33% ATS x Cấp'
+  - '&eSát thương: +33% ATK Cơ bản x Cấp'
+  - ''
+  - '&cKhông thể ép chung với PrimeRampage'
+  applies-description:
+  - Rìu
+  applies:
+  - ALL_AXE
+  max-level: 3
+  enchant-point: 1
+  valuable: 0
+  levels:
+    '1':
+      first_1:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - NUMBER_STORAGE:SET:rampage_time:8000
+        - REMOVE_TASK:rampage_combo_start
+        - REMOVE_TASK:rampage_combo_start_attack_speed
+        - REMOVE_TASK:rampage_combo_start_attack_damage
+        - REMOVE_ATTRIBUTE:ATTACK_SPEED:rampage_attack_speed
+        - REMOVE_ATTRIBUTE:ATTACK_DAMAGE:rampage_attack_damage
+        true-condition-break: true
+      first_2:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - NUMBER_STORAGE:SET:rampage_time:8000
+        - REMOVE_TASK:rampage_combo_start
+        - REMOVE_TASK:rampage_combo_start_attack_speed
+        - REMOVE_TASK:rampage_combo_start_attack_damage
+        - REMOVE_ATTRIBUTE:ATTACK_SPEED:rampage_attack_speed
+        - REMOVE_ATTRIBUTE:ATTACK_DAMAGE:rampage_attack_damage
+        true-condition-break: true
+      attack_reset_time:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - NUMBER_STORAGE:%time%-rampage_time:>:12000
+        effects:
+        - NUMBER_STORAGE:SET:rampage_time:%time%
+        - 'NAME=rampage_combo_start,DELAY=80 | MESSAGE:&6&l***Rampage: On***'
+        - NAME=rampage_combo_start_attack_speed,DELAY=80 | ADD_ATTRIBUTE:ATTACK_SPEED:rampage_attack_speed:0.33:1
+        - NAME=rampage_combo_start_attack_damage,DELAY=80 | ADD_ATTRIBUTE:ATTACK_DAMAGE:rampage_attack_damage:0.33:1
+        - NAME=rampage_combo_end_attack_speed,DELAY=160 | REMOVE_ATTRIBUTE:ATTACK_SPEED:rampage_attack_speed
+        - NAME=rampage_combo_end_attack_damage,DELAY=160 | REMOVE_ATTRIBUTE:ATTACK_DAMAGE:rampage_attack_damage
+        - 'NAME=rampage_combo_end,DELAY=160 | MESSAGE:&7&l***Rampage: Off***'
+        true-condition-break: true
+    '2':
+      first_1:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - NUMBER_STORAGE:SET:rampage_time:8000
+        - REMOVE_TASK:rampage_combo_start
+        - REMOVE_TASK:rampage_combo_start_attack_speed
+        - REMOVE_TASK:rampage_combo_start_attack_damage
+        - REMOVE_ATTRIBUTE:ATTACK_SPEED:rampage_attack_speed
+        - REMOVE_ATTRIBUTE:ATTACK_DAMAGE:rampage_attack_damage
+        true-condition-break: true
+      first_2:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - NUMBER_STORAGE:SET:rampage_time:8000
+        - REMOVE_TASK:rampage_combo_start
+        - REMOVE_TASK:rampage_combo_start_attack_speed
+        - REMOVE_TASK:rampage_combo_start_attack_damage
+        - REMOVE_ATTRIBUTE:ATTACK_SPEED:rampage_attack_speed
+        - REMOVE_ATTRIBUTE:ATTACK_DAMAGE:rampage_attack_damage
+        true-condition-break: true
+      attack_reset_time:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - NUMBER_STORAGE:%time%-rampage_time:>:8000
+        effects:
+        - NUMBER_STORAGE:SET:rampage_time:%time%
+        - 'NAME=rampage_combo_start,DELAY=80 | MESSAGE:&6&l***Rampage: On***'
+        - NAME=rampage_combo_start_attack_speed,DELAY=80 | ADD_ATTRIBUTE:ATTACK_SPEED:rampage_attack_speed:0.66:1
+        - NAME=rampage_combo_start_attack_damage,DELAY=80 | ADD_ATTRIBUTE:ATTACK_DAMAGE:rampage_attack_damage:0.66:1
+        - NAME=rampage_combo_end_attack_speed,DELAY=160 | REMOVE_ATTRIBUTE:ATTACK_SPEED:rampage_attack_speed
+        - NAME=rampage_combo_end_attack_damage,DELAY=160 | REMOVE_ATTRIBUTE:ATTACK_DAMAGE:rampage_attack_damage
+        - 'NAME=rampage_combo_end,DELAY=160 | MESSAGE:&7&l***Rampage: Off***'
+        true-condition-break: true
+    '3':
+      first_1:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - NUMBER_STORAGE:SET:rampage_time:8000
+        - REMOVE_TASK:rampage_combo_start
+        - REMOVE_TASK:rampage_combo_start_attack_speed
+        - REMOVE_TASK:rampage_combo_start_attack_damage
+        - REMOVE_ATTRIBUTE:ATTACK_SPEED:rampage_attack_speed
+        - REMOVE_ATTRIBUTE:ATTACK_DAMAGE:rampage_attack_damage
+        true-condition-break: true
+      first_2:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - NUMBER_STORAGE:SET:rampage_time:8000
+        - REMOVE_TASK:rampage_combo_start
+        - REMOVE_TASK:rampage_combo_start_attack_speed
+        - REMOVE_TASK:rampage_combo_start_attack_damage
+        - REMOVE_ATTRIBUTE:ATTACK_SPEED:rampage_attack_speed
+        - REMOVE_ATTRIBUTE:ATTACK_DAMAGE:rampage_attack_damage
+        true-condition-break: true
+      attack_reset_time:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - NUMBER_STORAGE:%time%-rampage_time:>:8000
+        effects:
+        - NUMBER_STORAGE:SET:rampage_time:%time%
+        - 'NAME=rampage_combo_start,DELAY=80 | MESSAGE:&6&l***Rampage: On***'
+        - NAME=rampage_combo_start_attack_speed,DELAY=80 | ADD_ATTRIBUTE:ATTACK_SPEED:rampage_attack_speed:0.99:1
+        - NAME=rampage_combo_start_attack_damage,DELAY=80 | ADD_ATTRIBUTE:ATTACK_DAMAGE:rampage_attack_damage:0.99:1
+        - NAME=rampage_combo_end_attack_speed,DELAY=160 | REMOVE_ATTRIBUTE:ATTACK_SPEED:rampage_attack_speed
+        - NAME=rampage_combo_end_attack_damage,DELAY=160 | REMOVE_ATTRIBUTE:ATTACK_DAMAGE:rampage_attack_damage
+        - 'NAME=rampage_combo_end,DELAY=160 | MESSAGE:&7&l***Rampage: Off***'
+        true-condition-break: true
 feather:
   group: legendary
   display: Feather
@@ -5035,6 +5322,227 @@ sanguine:
         - DELAY=40 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:sanguine_movement_speed
         - DELAY=40 | REMOVE_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed
         true-condition-break: true
+dash:
+  group: supreme
+  display: Dash
+  description:
+  - '&eCó khả năng lướt tới và tăng sát thương gây ra'
+  - '&etrong một khoảng thời gian khi nhấn Shift'
+  detail-description:
+  - '&eCó khả năng lướt tới và tăng sát thương gây ra'
+  - '&etrong một khoảng thời gian khi nhấn Shift'
+  - ''
+  - '&eSát thương: +10% ATK Cơ bản x Cấp'
+  - '&eThời gian hiệu lực: 3s'
+  - '&eThời gian hồi: 20/16/12/8/4 giây'
+  - ''
+  - '&cKhông thể ép chung với DoubleJump'
+  applies-description:
+  - Giày
+  applies:
+  - ALL_BOOTS
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    '1':
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - ACTIVE_DASH:1:20000:1_8:EXPLOSION_NORMAL:&cLướt tiếp sau &e{time_left} &cgiây!
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - DEACTIVE_DASH
+    '2':
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - ACTIVE_DASH:1:16000:1_8:EXPLOSION_NORMAL:&cLướt tiếp sau &e{time_left} &cgiây!
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - DEACTIVE_DASH
+    '3':
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - ACTIVE_DASH:1:12000:1_8:EXPLOSION_NORMAL:&cLướt tiếp sau &e{time_left} &cgiây!
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - DEACTIVE_DASH
+    '4':
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - ACTIVE_DASH:1:8000:1_8:EXPLOSION_NORMAL:&cLướt tiếp sau &e{time_left} &cgiây!
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - DEACTIVE_DASH
+    '5':
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - ACTIVE_DASH:1:4000:1_8:EXPLOSION_NORMAL:&cLướt tiếp sau &e{time_left} &cgiây!
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - DEACTIVE_DASH
+doublejump:
+  group: rare
+  display: DoubleJump
+  description:
+  - '&eCó khả năng nhảy thêm lần nữa'
+  - '&ekhi nhấn Shift trên không'
+  detail-description:
+  - '&eCó khả năng nhảy thêm lần nữa'
+  - '&ekhi nhấn Shift trên không'
+  - ''
+  - '&eThời gian hồi: 20/16/12/8/4 giây'
+  - ''
+  - '&cKhông thể ép chung với Dash'
+  applies-description:
+  - Giày
+  applies:
+  - ALL_BOOTS
+  enchant-blacklist:
+  - dash
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    '1':
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - ACTIVE_DOUBLE_JUMP:1:20000:1_8:EXPLOSION_NORMAL:&cKhinh công tiếp sau &e{time_left}
+          &cgiây!
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - DEACTIVE_DOUBLE_JUMP
+    '2':
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - ACTIVE_DOUBLE_JUMP:1:16000:1_8:PEXPLOSION_NORMAL:&cKhinh công tiếp sau &e{time_left}
+          &cgiây!
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - DEACTIVE_DOUBLE_JUMP
+    '3':
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - ACTIVE_DOUBLE_JUMP:1:12000:1_8:EXPLOSION_NORMAL:&cKhinh công tiếp sau &e{time_left}
+          &cgiây!
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - DEACTIVE_DOUBLE_JUMP
+    '4':
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - ACTIVE_DOUBLE_JUMP:1:8000:1_8:EXPLOSION_NORMAL:&cKhinh công tiếp sau &e{time_left}
+          &cgiây!
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - DEACTIVE_DOUBLE_JUMP
+    '5':
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - ACTIVE_DOUBLE_JUMP:1:4000:1_8:EXPLOSION_NORMAL:&cKhinh công tiếp sau &e{time_left}
+          &cgiây!
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - DEACTIVE_DOUBLE_JUMP
 fairyelf:
   group: supreme
   display: FairyElf
@@ -5573,6 +6081,9 @@ freeze:
   group: epic
   display: Freeze
   description:
+  - '&eCó tỉ lệ làm chậm tốc độ di chuyển'
+  - '&ecủa đối thủ khi bắn trúng'
+  detail-description:
   - '&eCó tỉ lệ làm chậm tốc độ di chuyển'
   - '&ecủa đối thủ khi bắn trúng'
   - ''
@@ -6238,6 +6749,83 @@ creatine:
         - TARGET=ENEMY | ADD_ATTRIBUTE:ATTACK_DAMAGE:creatine_attack_damage:0.25:1
         - TARGET=ENEMY,DELAY=200,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:creatine_movement_speed
         - TARGET=ENEMY,DELAY=200,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:ATTACK_DAMAGE:creatine_attack_damage
+penetration:
+  group: supreme
+  display: Penetration
+  description:
+  - '&eCó tỉ lệ giảm giáp đối thủ trong một'
+  - '&ekhoảng thời gian khi bắn trúng'
+  detail-description:
+  - '&eCó tỉ lệ giảm giáp đối thủ trong một'
+  - '&ekhoảng thời gian khi bắn trúng'
+  - ''
+  - '&eGiáp đối thủ: -5% x Cấp'
+  - '&eTỉ lệ kích hoạt: 50%'
+  - '&eThời gian hiệu lực: 4s'
+  - '&eThời gian hồi: 6s'
+  applies-description:
+  - Cung
+  applies:
+  - ALL_BOW
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    '1':
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 50
+        cooldown: 6000
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+        - TARGET=ENEMY | ADD_ATTRIBUTE:ARMOR:penetration_armor:-0.05:1
+        - TARGET=ENEMY,DELAY=80,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:ARMOR:penetration_armor
+    '2':
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 50
+        cooldown: 6000
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+        - TARGET=ENEMY | ADD_ATTRIBUTE:ARMOR:penetration_armor:-0.10:1
+        - TARGET=ENEMY,DELAY=80,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:ARMOR:penetration_armor
+    '3':
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 50
+        cooldown: 6000
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+        - TARGET=ENEMY | ADD_ATTRIBUTE:ARMOR:penetration_armor:-0.15:1
+        - TARGET=ENEMY,DELAY=80,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:ARMOR:penetration_armor
+    '4':
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 50
+        cooldown: 4000
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+        - TARGET=ENEMY | ADD_ATTRIBUTE:ARMOR:penetration_armor:-0.2:1
+        - TARGET=ENEMY,DELAY=80,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:ARMOR:penetration_armor
+    '5':
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 50
+        cooldown: 6000
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+        - TARGET=ENEMY | ADD_ATTRIBUTE:ARMOR:penetration_armor:-0.25:1
+        - TARGET=ENEMY,DELAY=80,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:ARMOR:penetration_armor
 stoneplate:
   group: legendary
   display: Stoneplate
@@ -7992,7 +8580,7 @@ defusing:
 zombie:
   group: mask
   display: Zombie
-  custom-display-lore: '&2%enchant_display% %enchant_level%'
+  custom-display-lore: '&#2e7d32%enchant_display% %enchant_level%'
   description:
   - '&eCấp I:'
   - '&7- Triệu hồi Zombie thường khi bị tấn công'
@@ -8020,13 +8608,13 @@ zombie:
     - '&a+ Có tỉ lệ gây hiệu ứng đói cho đối thủ khi'
     - '&a  tấn công'
     '4':
-    - '&e7 Triệu hồi Zombie thường khi bị tấn công'
+    - '&e* Triệu hồi Zombie thường khi bị tấn công'
     - '&a+ Triệu hồi Zombie con khi bị tấn công'
     - '&e* Có tỉ lệ gây hiệu ứng đói cho đối thủ khi'
     - '&e  tấn công'
     - '&e  (Tăng thêm sức mạnh cho hiệu ứng)'
     '5':
-    - '&e7 Triệu hồi Zombie thường khi bị tấn công'
+    - '&e* Triệu hồi Zombie thường khi bị tấn công'
     - '&e* Triệu hồi Zombie con khi bị tấn công'
     - '&e  (Tăng thêm số lượng triệu hồi)'
     - '&e* Có tỉ lệ gây hiệu ứng đói cho đối thủ khi'
@@ -8175,7 +8763,7 @@ zombie:
 pig:
   group: mask
   display: Pig
-  custom-display-lore: '&d%enchant_display% %enchant_level%'
+  custom-display-lore: '&#e040fb%enchant_display% %enchant_level%'
   description:
   - '&eCấp I:'
   - '&7- Tiêu thụ thịt heo chín sẽ nhận'
@@ -8304,7 +8892,7 @@ pig:
 chicken:
   group: mask
   display: Chicken
-  custom-display-lore: '&f%enchant_display% %enchant_level%'
+  custom-display-lore: '&#ffd600%enchant_display% %enchant_level%'
   description:
   - '&eCấp I:'
   - '&7- Nhận giảm sát thương khi rơi'
@@ -8391,7 +8979,7 @@ chicken:
 sheep:
   group: mask
   display: Sheep
-  custom-display-lore: '&#dbdbdb%enchant_display% %enchant_level%'
+  custom-display-lore: '&#78909c%enchant_display% %enchant_level%'
   description:
   - '&eCấp I:'
   - '&7- Tiêu thụ thịt cừu chín sẽ nhận'
@@ -8521,7 +9109,7 @@ sheep:
 cavespider:
   group: mask
   display: CaveSpider
-  custom-display-lore: '&9%enchant_display% %enchant_level%'
+  custom-display-lore: '&#304ffe%enchant_display% %enchant_level%'
   description:
   - '&eCấp I:'
   - '&7- Miễn nhiễm sát thương dính độc'
@@ -8686,7 +9274,7 @@ cavespider:
 cow:
   group: mask
   display: Cow
-  custom-display-lore: '&#858585%enchant_display% %enchant_level%'
+  custom-display-lore: '&#8d6e63%enchant_display% %enchant_level%'
   description:
   - '&eCấp I:'
   - '&7- Tiêu thụ thịt bò chín sẽ loại bỏ tất'
@@ -8804,7 +9392,7 @@ cow:
 ocelot:
   group: mask
   display: Ocelot
-  custom-display-lore: '&#f1cd77%enchant_display% %enchant_level%'
+  custom-display-lore: '&#ffca28%enchant_display% %enchant_level%'
   description:
   - '&eCấp I:'
   - '&7- Gây thêm sát thương khi tấn công kẻ địch'
@@ -8946,7 +9534,7 @@ ocelot:
 wolf:
   group: mask
   display: Wolf
-  custom-display-lore: '&#d2cfcf%enchant_display% %enchant_level%'
+  custom-display-lore: '&#94a3b8%enchant_display% %enchant_level%'
   description:
   - '&eCấp I:'
   - '&7- Triệu hồi Wolf khi bị tấn công'
@@ -9143,7 +9731,7 @@ wolf:
 bat:
   group: mask
   display: Bat
-  custom-display-lore: '&8%enchant_display% %enchant_level%'
+  custom-display-lore: '&#455a64%enchant_display% %enchant_level%'
   description:
   - '&eCấp I:'
   - '&7- Nhận hiệu ứng nhìn trong bóng tối khi'
@@ -9327,7 +9915,7 @@ bat:
 spider:
   group: mask
   display: Spider
-  custom-display-lore: '&5%enchant_display% %enchant_level%'
+  custom-display-lore: '&#9c27b0%enchant_display% %enchant_level%'
   description:
   - '&eCấp I:'
   - '&7- Miễn nhiễm sát thương dính độc'
@@ -9484,7 +10072,7 @@ spider:
 rabbit:
   group: mask
   display: Rabbit
-  custom-display-lore: '&#8a8a8a%enchant_display% %enchant_level%'
+  custom-display-lore: '&#ff4081%enchant_display% %enchant_level%'
   description:
   - '&eCấp I:'
   - '&7- Nhận hiệu ứng nhảy cao khi trang bị'
@@ -9601,7 +10189,7 @@ rabbit:
 llama:
   group: mask
   display: Llama
-  custom-display-lore: '&#f5e1b7%enchant_display% %enchant_level%'
+  custom-display-lore: '&#ffd740%enchant_display% %enchant_level%'
   description:
   - '&eCấp I:'
   - '&7- Có tỉ lệ gây thêm sát thương và khiến'
@@ -9713,7 +10301,7 @@ llama:
 squid:
   group: mask
   display: Squid
-  custom-display-lore: '&b%enchant_display% %enchant_level%'
+  custom-display-lore: '&#00b0ff%enchant_display% %enchant_level%'
   description:
   - '&eCấp I:'
   - '&7- Nhận hiệu ứng thở dưới nước khi trang bị'
@@ -9899,7 +10487,7 @@ squid:
 mooshroom:
   group: mask
   display: Mooshroom
-  custom-display-lore: '&#be0000%enchant_display% %enchant_level%'
+  custom-display-lore: '&#ff5252%enchant_display% %enchant_level%'
   description:
   - '&eCấp I:'
   - '&7- Tiêu thụ súp nấm sẽ loại bỏ tất'
@@ -10012,7 +10600,7 @@ mooshroom:
 skeleton:
   group: mask
   display: Skeleton
-  custom-display-lore: '&#a1a1a1%enchant_display% %enchant_level%'
+  custom-display-lore: '&#b0bec5%enchant_display% %enchant_level%'
   description:
   - '&eCấp I:'
   - '&7- Tăng lực bắn của cung khi cầm vật phẩm'
@@ -10286,7 +10874,7 @@ parrot:
 fox:
   group: mask
   display: Fox
-  custom-display-lore: '&#f68a1d%enchant_display% %enchant_level%'
+  custom-display-lore: '&#e65100%enchant_display% %enchant_level%'
   description:
   - '&eCấp I:'
   - '&7- Nhận thêm tốc độ di chuyển khi có người chơi'
@@ -10889,7 +11477,7 @@ turtle:
 stray:
   group: mask
   display: Stray
-  custom-display-lore: '&#63787e%enchant_display% %enchant_level%'
+  custom-display-lore: '&#90a4ae%enchant_display% %enchant_level%'
   description:
   - '&eCấp I:'
   - '&7- Có tỉ lệ gây thêm sát thương khi bắn trúng'
@@ -11023,7 +11611,7 @@ stray:
 blaze:
   group: mask
   display: Blaze
-  custom-display-lore: '&6%enchant_display% %enchant_level%'
+  custom-display-lore: '&#f97316%enchant_display% %enchant_level%'
   description:
   - '&eCấp I:'
   - '&7- Nhận hiệu ứng kháng lửa khi trang bị'
@@ -11247,7 +11835,7 @@ blaze:
 horse:
   group: mask
   display: Horse
-  custom-display-lore: '&e%enchant_display% %enchant_level%'
+  custom-display-lore: '&#ffff00%enchant_display% %enchant_level%'
   description:
   - '&eCấp I:'
   - '&7- Nhận thêm tốc độ di chuyển khi trang bị'
@@ -11364,7 +11952,7 @@ horse:
 bee:
   group: mask
   display: Bee
-  custom-display-lore: '&#fbd367%enchant_display% %enchant_level%'
+  custom-display-lore: '&#ffea00%enchant_display% %enchant_level%'
   description:
   - '&eCấp I:'
   - '&7- Có tỉ lệ triệu hồi Bee khi bị tấn công'
@@ -11478,7 +12066,7 @@ bee:
 panda:
   group: mask
   display: Panda
-  custom-display-lore: '&#e4e4e4%enchant_display% %enchant_level%'
+  custom-display-lore: '&#00c853%enchant_display% %enchant_level%'
   description:
   - '&eCấp I:'
   - '&7- Triệu hồi Panda khi bị tấn công'
@@ -11603,7 +12191,7 @@ panda:
 endermite:
   group: mask
   display: Endermite
-  custom-display-lore: '&5%enchant_display% %enchant_level%'
+  custom-display-lore: '&#6a1b9a%enchant_display% %enchant_level%'
   description:
   - '&eCấp I:'
   - '&7- Triệu hồi Endermite mỗi khi bị tấn công'
@@ -11731,7 +12319,7 @@ endermite:
 piglin:
   group: mask
   display: Piglin
-  custom-display-lore: '&#efb884%enchant_display% %enchant_level%'
+  custom-display-lore: '&#ff4081%enchant_display% %enchant_level%'
   description:
   - '&eCấp I:'
   - '&7- Nhận thêm sức tấn công và tốc độ đánh'
@@ -12184,7 +12772,7 @@ piglin:
 dolphin:
   group: mask
   display: Dolphin
-  custom-display-lore: '&#06b6d4%enchant_display% %enchant_level%'
+  custom-display-lore: '&#00e5ff%enchant_display% %enchant_level%'
   description:
   - '&eCấp I:'
   - '&7- Nhận hiệu ứng thở dưới nước khi trang bị'
@@ -12313,7 +12901,7 @@ dolphin:
 pillager:
   group: mask
   display: Pillager
-  custom-display-lore: '&#939e9e%enchant_display% %enchant_level%'
+  custom-display-lore: '&#3d5afe%enchant_display% %enchant_level%'
   description:
   - '&eCấp I:'
   - '&7- Tăng lực bắn của nỏ khi cầm vật phẩm'
@@ -12357,7 +12945,7 @@ pillager:
 creeper:
   group: mask
   display: Creeper
-  custom-display-lore: '&a%enchant_display% %enchant_level%'
+  custom-display-lore: '&#55ff55%enchant_display% %enchant_level%'
   description:
   - '&eCấp I:'
   - '&7- Miễn nhiễm sát thương từ vụ nổ'
@@ -12546,7 +13134,7 @@ creeper:
 hoglin:
   group: mask
   display: Hoglin
-  custom-display-lore: '&#e59e73%enchant_display% %enchant_level%'
+  custom-display-lore: '&#ab47bc%enchant_display% %enchant_level%'
   description:
   - '&eCấp I:'
   - '&7- Nhận kháng bật lùi và hiệu ứng kháng lửa'
@@ -13160,7 +13748,7 @@ phantom:
 strider:
   group: mask
   display: Strider
-  custom-display-lore: '&#ac3d3d%enchant_display% %enchant_level%'
+  custom-display-lore: '&#be123c%enchant_display% %enchant_level%'
   description:
   - '&eCấp I:'
   - '&7- Nhận hiệu ứng kháng lửa khi trang bị'
@@ -13384,7 +13972,7 @@ strider:
 polarbear:
   group: mask
   display: PolarBear
-  custom-display-lore: '&f%enchant_display% %enchant_level%'
+  custom-display-lore: '&#f5f5f5%enchant_display% %enchant_level%'
   description:
   - '&eCấp I:'
   - '&7- Có tỉ lệ gây choáng khi tấn công'
@@ -13683,7 +14271,7 @@ ravager:
 witch:
   group: mask
   display: Witch
-  custom-display-lore: '&2%enchant_display% %enchant_level%'
+  custom-display-lore: '&#6366f1%enchant_display% %enchant_level%'
   description:
   - '&eCấp I:'
   - '&7- Có tỉ lệ gây ngẫu nhiên một hiệu ứng'
@@ -13776,7 +14364,7 @@ witch:
 guardian:
   group: mask
   display: Guardian
-  custom-display-lore: '&3%enchant_display% %enchant_level%'
+  custom-display-lore: '&#06b6d4%enchant_display% %enchant_level%'
   description:
   - '&eCấp I:'
   - '&7- Nhận hiệu ứng thở dưới nước khi'
@@ -13967,7 +14555,7 @@ guardian:
 enderman:
   group: mask
   display: Enderman
-  custom-display-lore: '&#7e22ce%enchant_display% %enchant_level%'
+  custom-display-lore: '&#c026d3%enchant_display% %enchant_level%'
   description:
   - '&eCấp I:'
   - '&7- Nhận giảm sát thương từ cung tên khi'
@@ -14214,7 +14802,7 @@ ghast:
 irongolem:
   group: mask
   display: IronGolem
-  custom-display-lore: '&#c4bcb7%enchant_display% %enchant_level%'
+  custom-display-lore: '&#64748b%enchant_display% %enchant_level%'
   description:
   - '&eCấp I:'
   - '&7- Nhận thêm sức mạnh khi trang bị'
@@ -14426,7 +15014,7 @@ irongolem:
 camel:
   group: mask
   display: Camel
-  custom-display-lore: '&#e6ab49%enchant_display% %enchant_level%'
+  custom-display-lore: '&#ffab40%enchant_display% %enchant_level%'
   description:
   - '&eCấp I:'
   - '&7- Máu càng thấp, nhận giảm sát thương càng nhiều'
@@ -14511,7 +15099,7 @@ allay:
 armadillo:
   group: mask
   display: Armadillo
-  custom-display-lore: '&#b47a75%enchant_display% %enchant_level%'
+  custom-display-lore: '&#795548%enchant_display% %enchant_level%'
   description:
   - '&eCấp I:'
   - '&7- Nhận thêm giáp cứng khi trang bị'
@@ -14556,7 +15144,7 @@ armadillo:
 sniffer:
   group: mask
   display: Sniffer
-  custom-display-lore: '&#7f2118%enchant_display% %enchant_level%'
+  custom-display-lore: '&#e53935%enchant_display% %enchant_level%'
   description:
   - '&eCấp I:'
   - '&7- Nhận thêm tim vàng tối đa khi trang bị'
@@ -14602,7 +15190,7 @@ sniffer:
 bogged:
   group: mask
   display: Bogged
-  custom-display-lore: '&#6b7d44%enchant_display% %enchant_level%'
+  custom-display-lore: '&#827717%enchant_display% %enchant_level%'
   description:
   - '&eCấp I:'
   - '&7- Có tỉ lệ gây thêm sát thương khi bắn trúng'
@@ -14643,7 +15231,7 @@ bogged:
 vindicator:
   group: mask
   display: Vindicator
-  custom-display-lore: '&#939e9e%enchant_display% %enchant_level%'
+  custom-display-lore: '&#546e7a%enchant_display% %enchant_level%'
   description:
   - '&eCấp I:'
   - '&7- Tăng sức tấn công khi cầm rìu'
@@ -14694,7 +15282,7 @@ vindicator:
 axolotl:
   group: mask
   display: Axolotl
-  custom-display-lore: '&#f8bfe0%enchant_display% %enchant_level%'
+  custom-display-lore: '&#d500f9%enchant_display% %enchant_level%'
   description:
   - '&eCấp I:'
   - '&7- Tăng chỉ số hồi phục khi trang bị'
@@ -14736,7 +15324,7 @@ axolotl:
 slime:
   group: mask
   display: Slime
-  custom-display-lore: '&a%enchant_display% %enchant_level%'
+  custom-display-lore: '&#22c55e%enchant_display% %enchant_level%'
   description:
   - '&eCấp I:'
   - '&7- Tăng thêm máu tối đa khi trang bị'
@@ -14782,7 +15370,7 @@ slime:
 magmacube:
   group: mask
   display: MagmaCube
-  custom-display-lore: '&4%enchant_display% %enchant_level%'
+  custom-display-lore: '&#dd2c00%enchant_display% %enchant_level%'
   description:
   - '&eCấp I:'
   - '&7- Tăng thêm tim vàng tối đa khi trang bị'
@@ -14896,7 +15484,7 @@ breeze:
 goat:
   group: mask
   display: Goat
-  custom-display-lore: '&#e7e4db%enchant_display% %enchant_level%'
+  custom-display-lore: '&#e0e0e0%enchant_display% %enchant_level%'
   description:
   - '&eCấp I:'
   - '&7- Tăng tốc độ chạy trong một khoảng thời gian và'
@@ -14941,7 +15529,7 @@ goat:
 frog:
   group: mask
   display: Frog
-  custom-display-lore: '&#e28656%enchant_display% %enchant_level%'
+  custom-display-lore: '&#c0ca33%enchant_display% %enchant_level%'
   description:
   - '&eCấp I:'
   - '&7- Nhấn Shift sẽ bật nhảy về phía trước, tăng thêm sát thương'
@@ -16469,467 +17057,6 @@ moonlight:
         options:
         - ATTACK:20:3
         true-condition-break: true
-rampage:
-  group: supreme
-  display: Rampage
-  description:
-  - '&eGiao tranh liên tục với kẻ địch sẽ khiến'
-  - '&ebản thân bước vào trạng thái điên cuồng'
-  - '&etăng thêm tốc độ đánh và sát thương trong'
-  - '&emột khoảng thời gian'
-  detail-description:
-  - '&eGiao tranh liên tục với kẻ địch sẽ khiến'
-  - '&ebản thân bước vào trạng thái điên cuồng'
-  - '&etăng thêm tốc độ đánh và sát thương trong'
-  - '&emột khoảng thời gian'
-  - ''
-  - '&eThời gian giao tranh tối thiểu: 4 giây'
-  - '&eThời gian hiệu lực: 4 giây'
-  - '&eTốc độ đánh: +33% ATS x Cấp'
-  - '&eSát thương: +33% ATK Cơ bản x Cấp'
-  - ''
-  - '&cKhông thể ép chung với PrimeRampage'
-  applies-description:
-  - Rìu
-  applies:
-  - ALL_AXE
-  max-level: 3
-  enchant-point: 1
-  valuable: 0
-  levels:
-    '1':
-      first_1:
-        type: HOLD
-        chance: 100
-        cooldown: 0
-        conditions:
-        - ''
-        effects:
-        - NUMBER_STORAGE:SET:rampage_time:8000
-        - REMOVE_TASK:rampage_combo_start
-        - REMOVE_TASK:rampage_combo_start_attack_speed
-        - REMOVE_TASK:rampage_combo_start_attack_damage
-        - REMOVE_ATTRIBUTE:ATTACK_SPEED:rampage_attack_speed
-        - REMOVE_ATTRIBUTE:ATTACK_DAMAGE:rampage_attack_damage
-        true-condition-break: true
-      first_2:
-        type: CHANGE_HAND
-        chance: 100
-        cooldown: 0
-        conditions:
-        - ''
-        effects:
-        - NUMBER_STORAGE:SET:rampage_time:8000
-        - REMOVE_TASK:rampage_combo_start
-        - REMOVE_TASK:rampage_combo_start_attack_speed
-        - REMOVE_TASK:rampage_combo_start_attack_damage
-        - REMOVE_ATTRIBUTE:ATTACK_SPEED:rampage_attack_speed
-        - REMOVE_ATTRIBUTE:ATTACK_DAMAGE:rampage_attack_damage
-        true-condition-break: true
-      attack_reset_time:
-        type: ATTACK
-        chance: 100
-        cooldown: 0
-        conditions:
-        - EQUIP_SLOT:MAINHAND
-        - NUMBER_STORAGE:%time%-rampage_time:>:12000
-        effects:
-        - NUMBER_STORAGE:SET:rampage_time:%time%
-        - 'NAME=rampage_combo_start,DELAY=80 | MESSAGE:&6&l***Rampage: On***'
-        - NAME=rampage_combo_start_attack_speed,DELAY=80 | ADD_ATTRIBUTE:ATTACK_SPEED:rampage_attack_speed:0.33:1
-        - NAME=rampage_combo_start_attack_damage,DELAY=80 | ADD_ATTRIBUTE:ATTACK_DAMAGE:rampage_attack_damage:0.33:1
-        - NAME=rampage_combo_end_attack_speed,DELAY=160 | REMOVE_ATTRIBUTE:ATTACK_SPEED:rampage_attack_speed
-        - NAME=rampage_combo_end_attack_damage,DELAY=160 | REMOVE_ATTRIBUTE:ATTACK_DAMAGE:rampage_attack_damage
-        - 'NAME=rampage_combo_end,DELAY=160 | MESSAGE:&7&l***Rampage: Off***'
-        true-condition-break: true
-    '2':
-      first_1:
-        type: HOLD
-        chance: 100
-        cooldown: 0
-        conditions:
-        - ''
-        effects:
-        - NUMBER_STORAGE:SET:rampage_time:8000
-        - REMOVE_TASK:rampage_combo_start
-        - REMOVE_TASK:rampage_combo_start_attack_speed
-        - REMOVE_TASK:rampage_combo_start_attack_damage
-        - REMOVE_ATTRIBUTE:ATTACK_SPEED:rampage_attack_speed
-        - REMOVE_ATTRIBUTE:ATTACK_DAMAGE:rampage_attack_damage
-        true-condition-break: true
-      first_2:
-        type: CHANGE_HAND
-        chance: 100
-        cooldown: 0
-        conditions:
-        - ''
-        effects:
-        - NUMBER_STORAGE:SET:rampage_time:8000
-        - REMOVE_TASK:rampage_combo_start
-        - REMOVE_TASK:rampage_combo_start_attack_speed
-        - REMOVE_TASK:rampage_combo_start_attack_damage
-        - REMOVE_ATTRIBUTE:ATTACK_SPEED:rampage_attack_speed
-        - REMOVE_ATTRIBUTE:ATTACK_DAMAGE:rampage_attack_damage
-        true-condition-break: true
-      attack_reset_time:
-        type: ATTACK
-        chance: 100
-        cooldown: 0
-        conditions:
-        - EQUIP_SLOT:MAINHAND
-        - NUMBER_STORAGE:%time%-rampage_time:>:8000
-        effects:
-        - NUMBER_STORAGE:SET:rampage_time:%time%
-        - 'NAME=rampage_combo_start,DELAY=80 | MESSAGE:&6&l***Rampage: On***'
-        - NAME=rampage_combo_start_attack_speed,DELAY=80 | ADD_ATTRIBUTE:ATTACK_SPEED:rampage_attack_speed:0.66:1
-        - NAME=rampage_combo_start_attack_damage,DELAY=80 | ADD_ATTRIBUTE:ATTACK_DAMAGE:rampage_attack_damage:0.66:1
-        - NAME=rampage_combo_end_attack_speed,DELAY=160 | REMOVE_ATTRIBUTE:ATTACK_SPEED:rampage_attack_speed
-        - NAME=rampage_combo_end_attack_damage,DELAY=160 | REMOVE_ATTRIBUTE:ATTACK_DAMAGE:rampage_attack_damage
-        - 'NAME=rampage_combo_end,DELAY=160 | MESSAGE:&7&l***Rampage: Off***'
-        true-condition-break: true
-    '3':
-      first_1:
-        type: HOLD
-        chance: 100
-        cooldown: 0
-        conditions:
-        - ''
-        effects:
-        - NUMBER_STORAGE:SET:rampage_time:8000
-        - REMOVE_TASK:rampage_combo_start
-        - REMOVE_TASK:rampage_combo_start_attack_speed
-        - REMOVE_TASK:rampage_combo_start_attack_damage
-        - REMOVE_ATTRIBUTE:ATTACK_SPEED:rampage_attack_speed
-        - REMOVE_ATTRIBUTE:ATTACK_DAMAGE:rampage_attack_damage
-        true-condition-break: true
-      first_2:
-        type: CHANGE_HAND
-        chance: 100
-        cooldown: 0
-        conditions:
-        - ''
-        effects:
-        - NUMBER_STORAGE:SET:rampage_time:8000
-        - REMOVE_TASK:rampage_combo_start
-        - REMOVE_TASK:rampage_combo_start_attack_speed
-        - REMOVE_TASK:rampage_combo_start_attack_damage
-        - REMOVE_ATTRIBUTE:ATTACK_SPEED:rampage_attack_speed
-        - REMOVE_ATTRIBUTE:ATTACK_DAMAGE:rampage_attack_damage
-        true-condition-break: true
-      attack_reset_time:
-        type: ATTACK
-        chance: 100
-        cooldown: 0
-        conditions:
-        - EQUIP_SLOT:MAINHAND
-        - NUMBER_STORAGE:%time%-rampage_time:>:8000
-        effects:
-        - NUMBER_STORAGE:SET:rampage_time:%time%
-        - 'NAME=rampage_combo_start,DELAY=80 | MESSAGE:&6&l***Rampage: On***'
-        - NAME=rampage_combo_start_attack_speed,DELAY=80 | ADD_ATTRIBUTE:ATTACK_SPEED:rampage_attack_speed:0.99:1
-        - NAME=rampage_combo_start_attack_damage,DELAY=80 | ADD_ATTRIBUTE:ATTACK_DAMAGE:rampage_attack_damage:0.99:1
-        - NAME=rampage_combo_end_attack_speed,DELAY=160 | REMOVE_ATTRIBUTE:ATTACK_SPEED:rampage_attack_speed
-        - NAME=rampage_combo_end_attack_damage,DELAY=160 | REMOVE_ATTRIBUTE:ATTACK_DAMAGE:rampage_attack_damage
-        - 'NAME=rampage_combo_end,DELAY=160 | MESSAGE:&7&l***Rampage: Off***'
-        true-condition-break: true
-penetration:
-  group: supreme
-  display: Penetration
-  description:
-  - '&eCó tỉ lệ giảm giáp đối thủ trong một'
-  - '&ekhoảng thời gian khi bắn trúng'
-  detail-description:
-  - '&eCó tỉ lệ giảm giáp đối thủ trong một'
-  - '&ekhoảng thời gian khi bắn trúng'
-  - ''
-  - '&eGiáp đối thủ: -5% x Cấp'
-  - '&eTỉ lệ kích hoạt: 50%'
-  - '&eThời gian hiệu lực: 4s'
-  - '&eThời gian hồi: 6s'
-  applies-description:
-  - Cung
-  applies:
-  - ALL_BOW
-  max-level: 5
-  enchant-point: 1
-  valuable: 0
-  levels:
-    '1':
-      arrow_hit:
-        type: ARROW_HIT
-        chance: 50
-        cooldown: 6000
-        conditions:
-        - EQUIP_SLOT:MAINHAND
-        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
-        effects:
-        - TARGET=ENEMY | ADD_ATTRIBUTE:ARMOR:penetration_armor:-0.05:1
-        - TARGET=ENEMY,DELAY=80,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:ARMOR:penetration_armor
-    '2':
-      arrow_hit:
-        type: ARROW_HIT
-        chance: 50
-        cooldown: 6000
-        conditions:
-        - EQUIP_SLOT:MAINHAND
-        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
-        effects:
-        - TARGET=ENEMY | ADD_ATTRIBUTE:ARMOR:penetration_armor:-0.10:1
-        - TARGET=ENEMY,DELAY=80,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:ARMOR:penetration_armor
-    '3':
-      arrow_hit:
-        type: ARROW_HIT
-        chance: 50
-        cooldown: 6000
-        conditions:
-        - EQUIP_SLOT:MAINHAND
-        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
-        effects:
-        - TARGET=ENEMY | ADD_ATTRIBUTE:ARMOR:penetration_armor:-0.15:1
-        - TARGET=ENEMY,DELAY=80,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:ARMOR:penetration_armor
-    '4':
-      arrow_hit:
-        type: ARROW_HIT
-        chance: 50
-        cooldown: 4000
-        conditions:
-        - EQUIP_SLOT:MAINHAND
-        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
-        effects:
-        - TARGET=ENEMY | ADD_ATTRIBUTE:ARMOR:penetration_armor:-0.2:1
-        - TARGET=ENEMY,DELAY=80,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:ARMOR:penetration_armor
-    '5':
-      arrow_hit:
-        type: ARROW_HIT
-        chance: 50
-        cooldown: 6000
-        conditions:
-        - EQUIP_SLOT:MAINHAND
-        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
-        effects:
-        - TARGET=ENEMY | ADD_ATTRIBUTE:ARMOR:penetration_armor:-0.25:1
-        - TARGET=ENEMY,DELAY=80,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:ARMOR:penetration_armor
-dash:
-  group: supreme
-  display: Dash
-  description:
-  - '&eCó khả năng lướt tới và tăng sát thương gây ra'
-  - '&etrong một khoảng thời gian khi nhấn Shift'
-  detail-description:
-  - '&eCó khả năng lướt tới và tăng sát thương gây ra'
-  - '&etrong một khoảng thời gian khi nhấn Shift'
-  - ''
-  - '&eSát thương: +10% ATK Cơ bản x Cấp'
-  - '&eThời gian hiệu lực: 3s'
-  - '&eThời gian hồi: 20/16/12/8/4 giây'
-  - ''
-  - '&cKhông thể ép chung với DoubleJump'
-  applies-description:
-  - Giày
-  applies:
-  - ALL_BOOTS
-  max-level: 5
-  enchant-point: 1
-  valuable: 0
-  levels:
-    '1':
-      equip:
-        type: ARMOR_EQUIP
-        chance: 100
-        cooldown: 0
-        conditions:
-        - ''
-        effects:
-        - ACTIVE_DASH:1:20000:1_8:EXPLOSION_NORMAL:&cLướt tiếp sau &e{time_left} &cgiây!
-      unequip:
-        type: ARMOR_UNDRESS
-        chance: 100
-        cooldown: 0
-        conditions:
-        - ''
-        effects:
-        - DEACTIVE_DASH
-    '2':
-      equip:
-        type: ARMOR_EQUIP
-        chance: 100
-        cooldown: 0
-        conditions:
-        - ''
-        effects:
-        - ACTIVE_DASH:1:16000:1_8:EXPLOSION_NORMAL:&cLướt tiếp sau &e{time_left} &cgiây!
-      unequip:
-        type: ARMOR_UNDRESS
-        chance: 100
-        cooldown: 0
-        conditions:
-        - ''
-        effects:
-        - DEACTIVE_DASH
-    '3':
-      equip:
-        type: ARMOR_EQUIP
-        chance: 100
-        cooldown: 0
-        conditions:
-        - ''
-        effects:
-        - ACTIVE_DASH:1:12000:1_8:EXPLOSION_NORMAL:&cLướt tiếp sau &e{time_left} &cgiây!
-      unequip:
-        type: ARMOR_UNDRESS
-        chance: 100
-        cooldown: 0
-        conditions:
-        - ''
-        effects:
-        - DEACTIVE_DASH
-    '4':
-      equip:
-        type: ARMOR_EQUIP
-        chance: 100
-        cooldown: 0
-        conditions:
-        - ''
-        effects:
-        - ACTIVE_DASH:1:8000:1_8:EXPLOSION_NORMAL:&cLướt tiếp sau &e{time_left} &cgiây!
-      unequip:
-        type: ARMOR_UNDRESS
-        chance: 100
-        cooldown: 0
-        conditions:
-        - ''
-        effects:
-        - DEACTIVE_DASH
-    '5':
-      equip:
-        type: ARMOR_EQUIP
-        chance: 100
-        cooldown: 0
-        conditions:
-        - ''
-        effects:
-        - ACTIVE_DASH:1:4000:1_8:EXPLOSION_NORMAL:&cLướt tiếp sau &e{time_left} &cgiây!
-      unequip:
-        type: ARMOR_UNDRESS
-        chance: 100
-        cooldown: 0
-        conditions:
-        - ''
-        effects:
-        - DEACTIVE_DASH
-doublejump:
-  group: rare
-  display: DoubleJump
-  description:
-  - '&eCó khả năng nhảy thêm lần nữa'
-  - '&ekhi nhấn Shift trên không'
-  detail-description:
-  - '&eCó khả năng nhảy thêm lần nữa'
-  - '&ekhi nhấn Shift trên không'
-  - ''
-  - '&eThời gian hồi: 20/16/12/8/4 giây'
-  - ''
-  - '&cKhông thể ép chung với Dash'
-  applies-description:
-  - Giày
-  applies:
-  - ALL_BOOTS
-  enchant-blacklist:
-  - dash
-  max-level: 5
-  enchant-point: 1
-  valuable: 0
-  levels:
-    '1':
-      equip:
-        type: ARMOR_EQUIP
-        chance: 100
-        cooldown: 0
-        conditions:
-        - ''
-        effects:
-        - ACTIVE_DOUBLE_JUMP:1:20000:1_8:EXPLOSION_NORMAL:&cKhinh công tiếp sau &e{time_left}
-          &cgiây!
-      unequip:
-        type: ARMOR_UNDRESS
-        chance: 100
-        cooldown: 0
-        conditions:
-        - ''
-        effects:
-        - DEACTIVE_DOUBLE_JUMP
-    '2':
-      equip:
-        type: ARMOR_EQUIP
-        chance: 100
-        cooldown: 0
-        conditions:
-        - ''
-        effects:
-        - ACTIVE_DOUBLE_JUMP:1:16000:1_8:PEXPLOSION_NORMAL:&cKhinh công tiếp sau &e{time_left}
-          &cgiây!
-      unequip:
-        type: ARMOR_UNDRESS
-        chance: 100
-        cooldown: 0
-        conditions:
-        - ''
-        effects:
-        - DEACTIVE_DOUBLE_JUMP
-    '3':
-      equip:
-        type: ARMOR_EQUIP
-        chance: 100
-        cooldown: 0
-        conditions:
-        - ''
-        effects:
-        - ACTIVE_DOUBLE_JUMP:1:12000:1_8:EXPLOSION_NORMAL:&cKhinh công tiếp sau &e{time_left}
-          &cgiây!
-      unequip:
-        type: ARMOR_UNDRESS
-        chance: 100
-        cooldown: 0
-        conditions:
-        - ''
-        effects:
-        - DEACTIVE_DOUBLE_JUMP
-    '4':
-      equip:
-        type: ARMOR_EQUIP
-        chance: 100
-        cooldown: 0
-        conditions:
-        - ''
-        effects:
-        - ACTIVE_DOUBLE_JUMP:1:8000:1_8:EXPLOSION_NORMAL:&cKhinh công tiếp sau &e{time_left}
-          &cgiây!
-      unequip:
-        type: ARMOR_UNDRESS
-        chance: 100
-        cooldown: 0
-        conditions:
-        - ''
-        effects:
-        - DEACTIVE_DOUBLE_JUMP
-    '5':
-      equip:
-        type: ARMOR_EQUIP
-        chance: 100
-        cooldown: 0
-        conditions:
-        - ''
-        effects:
-        - ACTIVE_DOUBLE_JUMP:1:4000:1_8:EXPLOSION_NORMAL:&cKhinh công tiếp sau &e{time_left}
-          &cgiây!
-      unequip:
-        type: ARMOR_UNDRESS
-        chance: 100
-        cooldown: 0
-        conditions:
-        - ''
-        effects:
-        - DEACTIVE_DOUBLE_JUMP
 autosmelt:
   group: rare
   display: AutoSmelt
@@ -19682,9 +19809,9 @@ fighter:
         cooldown: 0
         conditions:
         - NUMBER_STORAGE:set_fighter_armor_point:>=:4
+        - NUMBER_STORAGE:set_fighter_mainweapon_point:=:0
         effects:
-        - 'NAME=fighter_full_armor,DELAY=10 | MESSAGE:&e&l***Fighter: &f&lFull Armor
-          &e&l+ &f&lWeapon&e&l***'
+        - 'NAME=fighter_full_armor,DELAY=10 | MESSAGE:&e&l***Fighter: &f&lFull Armor&e&l***'
       defaultEquipFullWithWeaponMessage:
         type: ARMOR_EQUIP
         chance: 100
@@ -19885,6 +20012,7 @@ knight:
         cooldown: 0
         conditions:
         - NUMBER_STORAGE:set_knight_armor_point:>=:4
+        - NUMBER_STORAGE:set_knight_mainweapon_point:=:0
         effects:
         - 'NAME=knight_full_armor,DELAY=10 | MESSAGE:&c&l***Knight: &f&lFull Armor&c&l***'
       defaultEquipFullWithWeaponMessage:
@@ -20079,6 +20207,7 @@ archer:
         cooldown: 0
         conditions:
         - NUMBER_STORAGE:set_archer_armor_point:>=:4
+        - NUMBER_STORAGE:set_archer_mainweapon_point:=:0
         effects:
         - 'NAME=archer_full_armor,DELAY=10 | MESSAGE:&b&l***Archer: &f&lFull Armor&b&l***'
       defaultEquipFullWithWeaponMessage:
@@ -20295,6 +20424,7 @@ assassin:
         cooldown: 0
         conditions:
         - NUMBER_STORAGE:set_assassin_armor_point:>=:4
+        - NUMBER_STORAGE:set_assassin_mainweapon_point:=:0
         effects:
         - 'NAME=assassin_full_armor,DELAY=10 | MESSAGE:&5&l***Assassin: &f&lFull Armor&5&l***'
       defaultEquipFullWithWeaponMessage:
@@ -20478,7 +20608,7 @@ poseidon:
   custom-display-lore: '&3%enchant_display% %enchant_level%'
   description:
   - '&7Đủ 4 món giáp:'
-  - '&7- Nhận hiệu ứng thở dưới nước'
+  - '&7- Nhận hiệu ứng thở dưới nước và hiệu ứng ân huệ của cá heo'
   - '&7- Có tỉ lệ nhận thêm hồi phục trong một khoảng'
   - '&7thời gian khi bị tấn công'
   - '&7Đủ 4 món giáp + kiếm:'
@@ -20504,6 +20634,7 @@ poseidon:
         cooldown: 0
         conditions:
         - NUMBER_STORAGE:set_poseidon_armor_point:>=:4
+        - NUMBER_STORAGE:set_poseidon_mainweapon_point:=:0
         effects:
         - 'NAME=poseidon_full_armor,DELAY=10 | MESSAGE:&3&l***Poseidon: &f&lFull Armor&3&l***'
       defaultEquipFullWithWeaponMessage:
@@ -20534,7 +20665,8 @@ poseidon:
         conditions:
         - NUMBER_STORAGE:set_poseidon_level:=:1
         effects:
-        - ADD_FOREVER_POTION:mermaid:WATER_BREATHING:0
+        - ADD_FOREVER_POTION:poseidon_mermaid:WATER_BREATHING:0
+        - ADD_FOREVER_POTION:poseidon_dolphin_grace:DOLPHINS_GRACE:0
       unequip:
         type: ARMOR_UNDRESS
         chance: 100
@@ -20542,7 +20674,8 @@ poseidon:
         conditions:
         - NUMBER_STORAGE:set_poseidon_level:=:1
         effects:
-        - REMOVE_FOREVER_POTION:mermaid
+        - REMOVE_FOREVER_POTION:poseidon_mermaid
+        - REMOVE_FOREVER_POTION:poseidon_dolphin_grace
       defense:
         type: DEFENSE
         chance: 25
@@ -20582,7 +20715,8 @@ poseidon:
         conditions:
         - NUMBER_STORAGE:set_poseidon_level:=:1
         effects:
-        - ADD_FOREVER_POTION:mermaid:WATER_BREATHING:0
+        - ADD_FOREVER_POTION:poseidon_mermaid:WATER_BREATHING:0
+        - ADD_FOREVER_POTION:poseidon_dolphin_grace:DOLPHINS_GRACE:0
       unequip:
         type: ARMOR_UNDRESS
         chance: 100
@@ -20590,7 +20724,8 @@ poseidon:
         conditions:
         - NUMBER_STORAGE:set_poseidon_level:=:1
         effects:
-        - REMOVE_FOREVER_POTION:mermaid
+        - REMOVE_FOREVER_POTION:poseidon_mermaid
+        - REMOVE_FOREVER_POTION:poseidon_dolphin_grace
       defense:
         type: DEFENSE
         chance: 25
@@ -20630,7 +20765,8 @@ poseidon:
         conditions:
         - NUMBER_STORAGE:set_poseidon_level:=:1
         effects:
-        - ADD_FOREVER_POTION:mermaid:WATER_BREATHING:0
+        - ADD_FOREVER_POTION:poseidon_mermaid:WATER_BREATHING:0
+        - ADD_FOREVER_POTION:poseidon_dolphin_grace:DOLPHINS_GRACE:0
       unequip:
         type: ARMOR_UNDRESS
         chance: 100
@@ -20638,7 +20774,8 @@ poseidon:
         conditions:
         - NUMBER_STORAGE:set_poseidon_level:=:1
         effects:
-        - REMOVE_FOREVER_POTION:mermaid
+        - REMOVE_FOREVER_POTION:poseidon_mermaid
+        - REMOVE_FOREVER_POTION:poseidon_dolphin_grace
       defense:
         type: DEFENSE
         chance: 25
@@ -20678,7 +20815,8 @@ poseidon:
         conditions:
         - NUMBER_STORAGE:set_poseidon_level:=:1
         effects:
-        - ADD_FOREVER_POTION:mermaid:WATER_BREATHING:0
+        - ADD_FOREVER_POTION:poseidon_mermaid:WATER_BREATHING:0
+        - ADD_FOREVER_POTION:poseidon_dolphin_grace:DOLPHINS_GRACE:0
       unequip:
         type: ARMOR_UNDRESS
         chance: 100
@@ -20686,7 +20824,8 @@ poseidon:
         conditions:
         - NUMBER_STORAGE:set_poseidon_level:=:1
         effects:
-        - REMOVE_FOREVER_POTION:mermaid
+        - REMOVE_FOREVER_POTION:poseidon_mermaid
+        - REMOVE_FOREVER_POTION:poseidon_dolphin_grace
       defense:
         type: DEFENSE
         chance: 25
@@ -20726,7 +20865,8 @@ poseidon:
         conditions:
         - NUMBER_STORAGE:set_poseidon_level:=:1
         effects:
-        - ADD_FOREVER_POTION:mermaid:WATER_BREATHING:0
+        - ADD_FOREVER_POTION:poseidon_mermaid:WATER_BREATHING:0
+        - ADD_FOREVER_POTION:poseidon_dolphin_grace:DOLPHINS_GRACE:0
       unequip:
         type: ARMOR_UNDRESS
         chance: 100
@@ -20734,7 +20874,8 @@ poseidon:
         conditions:
         - NUMBER_STORAGE:set_poseidon_level:=:1
         effects:
-        - REMOVE_FOREVER_POTION:mermaid
+        - REMOVE_FOREVER_POTION:poseidon_mermaid
+        - REMOVE_FOREVER_POTION:poseidon_dolphin_grace
       defense:
         type: DEFENSE
         chance: 25
@@ -20796,6 +20937,7 @@ reaper:
         cooldown: 0
         conditions:
         - NUMBER_STORAGE:set_reaper_armor_point:>=:4
+        - NUMBER_STORAGE:set_reaper_mainweapon_point:=:0
         effects:
         - 'NAME=reaper_full_armor,DELAY=10 | MESSAGE:&8&l***Reaper: &f&lFull Armor&8&l***'
       defaultEquipFullWithWeaponMessage:
@@ -24306,6 +24448,34 @@ wind:
         effects:
         - WIND_CHARGE:~_~_~_~:~_xE_yE_zE:1:0
         - MESSAGE:EFFECT
+    '2':
+      attack:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        effects:
+        - DELAY=10 | ADD_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed:-0.09:2
+        - DELAY=20,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed
+        - DELAY=20 | ADD_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed:-0.18:2
+        - DELAY=30,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed
+        - DELAY=30 | ADD_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed:-0.27:2
+        - DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed
+        - DELAY=40 | ADD_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed:-0.36:2
+        - DELAY=50,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed
+        - DELAY=50 | ADD_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed:-0.45:2
+        - DELAY=60,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed
+        - DELAY=60 | ADD_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed:-0.54:2
+        - DELAY=70,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed
+        - DELAY=70 | ADD_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed:-0.63:2
+        - DELAY=80,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed
+        - DELAY=80 | ADD_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed:-0.72:2
+        - DELAY=90,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed
+        - DELAY=90 | ADD_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed:-0.81:2
+        - DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed
+        - DELAY=100 | ADD_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed:-0.9:2
+        - DELAY=150,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed
 texward:
   group: mask
   display: TexWard
@@ -24352,3 +24522,211 @@ texward:
         - CAN_ATTACK
         target-effects:
         - TARGET=ENEMY | ADD_POTION:GLOWING:10:30
+veinminer:
+  group: supreme
+  display: VeinMiner
+  description:
+  - '&eCó tỉ lệ phá vỡ các khối quặng'
+  - '&ecùng loại liên kề nhau khi đào'
+  detail-description:
+  - '&eCó tỉ lệ phá vỡ các khối quặng'
+  - '&ecùng loại liên kề nhau khi đào'
+  applies-description:
+  - Cúp
+  applies:
+  - ALL_PICKAXE
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+hasten:
+  group: legendary
+  display: Hasten
+  description:
+  - '&eCó tỉ lệ nhận hiệu ứng vội vàng trong'
+  - '&emột khoảng thời gian khi đào quặng'
+  detail-description:
+  - '&eCó tỉ lệ nhận hiệu ứng vội vàng trong'
+  - '&emột khoảng thời gian khi đào quặng'
+  applies-description:
+  - Cúp
+  applies:
+  - ALL_PICKAXE
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+planter:
+  group: epic
+  display: Planter
+  description:
+  - '&eCó cơ hội gieo hạt giống phù hợp trên'
+  - '&ethanh công cụ vào kích thước 3x3 ô đất'
+  detail-description:
+  - '&eCó cơ hội gieo hạt giống phù hợp trên'
+  - '&ethanh công cụ vào kích thước 3x3 ô đất'
+  applies-description:
+  - Cuốc
+  applies:
+  - ALL_HOE
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+harvest:
+  group: epic
+  display: Harvest
+  description:
+  - '&eCó cơ hội thu hoạch nông sản'
+  - '&etrên kích thước 3x3 ô đất'
+  detail-description:
+  - '&eCó cơ hội thu hoạch nông sản'
+  - '&etrên kích thước 3x3 ô đất'
+  applies-description:
+  - Cuốc
+  applies:
+  - ALL_HOE
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+jellylegs:
+  group: rare
+  display: JellyLegs
+  description:
+  - '&eCó tỉ lệ chặn toàn bộ sát thương'
+  - '&esau khi rơi'
+  detail-description:
+  - '&eCó tỉ lệ chặn toàn bộ sát thương'
+  - '&esau khi rơi'
+  applies-description:
+  - Giày
+  applies:
+  - ALL_BOOTS
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+slash:
+  group: legendary
+  display: Slash
+  description:
+  - '&eCó tỉ lệ gây chảy máu kẻ địch trong'
+  - '&emột khoảng thời gian khi tấn công'
+  detail-description:
+  - '&eCó tỉ lệ gây chảy máu kẻ địch trong'
+  - '&emột khoảng thời gian khi tấn công'
+  applies-description:
+  - Đinh ba
+  applies:
+  - TRIDENT
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+hydraulic:
+  group: supreme
+  display: Hydraulic
+  description:
+  - '&eMỗi lần tấn công sẽ tích lũy giảm giáp'
+  - '&etrên mỗi kẻ địch trong một khoảng thời gian'
+  detail-description:
+  - '&eMỗi lần tấn công sẽ tích lũy giảm giáp'
+  - '&etrên mỗi kẻ địch trong một khoảng thời gian'
+  applies-description:
+  - Đinh ba
+  applies:
+  - TRIDENT
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+frostbite:
+  group: supreme
+  display: Frostbite
+  description:
+  - '&eCó tỉ lệ làm choáng và làm chậm kẻ địch'
+  - '&etrong một khoảng thời gian khi tấn công'
+  detail-description:
+  - '&eCó tỉ lệ làm choáng và làm chậm kẻ địch'
+  - '&etrong một khoảng thời gian khi tấn công'
+  applies-description:
+  - Đinh ba
+  applies:
+  - TRIDENT
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+thrust:
+  group: supreme
+  display: Thrust
+  description:
+  - '&eĐòn đánh luôn được cường hóa gây thêm'
+  - '&esát thương, làm chậm và đẩy lùi đối phương'
+  detail-description:
+  - '&eĐòn đánh luôn được cường hóa gây thêm'
+  - '&esát thương, làm chậm và đẩy lùi đối phương'
+  applies-description:
+  - Đinh ba
+  applies:
+  - TRIDENT
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+lunge:
+  group: legendary
+  display: Lunge
+  description:
+  - '&eMỗi khi lướt, đòn đánh tiếp theo được'
+  - '&ecường hóa gây thêm sát thương và làm chậm'
+  detail-description:
+  - '&eMỗi khi lướt, đòn đánh tiếp theo được'
+  - '&ecường hóa gây thêm sát thương và làm chậm'
+  applies-description:
+  - Đinh ba
+  applies:
+  - TRIDENT
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+godpiercer:
+  group: supreme
+  display: Godpiercer
+  description:
+  - '&eĐòn tấn công luôn gây một lượng'
+  - '&esát thương chuẩn nhất định'
+  detail-description:
+  - '&eĐòn tấn công luôn gây một lượng'
+  - '&esát thương chuẩn nhất định'
+  applies-description:
+  - Đinh ba
+  applies:
+  - TRIDENT
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+threshold:
+  group: supreme
+  display: Threshold
+  description:
+  - '&eKết liễu mục tiêu dưới ngưỡng máu nhất định'
+  detail-description:
+  - '&eKết liễu mục tiêu dưới ngưỡng máu nhất định'
+  applies-description:
+  - Cuốc
+  applies:
+  - ALL_HOE
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+deathhunt:
+  group: legendary
+  display: DeathHunt
+  description:
+  - '&eTăng thêm tốc độ di chuyển và sát thương'
+  - '&egây ra khi có kẻ địch gần đó dưới ngưỡng máu'
+  - '&enhất định'
+  detail-description:
+  - '&eTăng thêm tốc độ di chuyển và sát thương'
+  - '&egây ra khi có kẻ địch gần đó dưới ngưỡng máu'
+  - '&enhất định'
+  applies-description:
+  - Cuốc
+  applies:
+  - ALL_HOE
+  max-level: 5
+  enchant-point: 1
+  valuable: 0

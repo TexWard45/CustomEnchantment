@@ -15,7 +15,7 @@ public class PlayerAbility extends CEPlayerExpansion {
 
 	public void onJoin() {
 		for (Type type : Type.values()) {
-			map.put(type, new CancelManager());
+			map.put(type, new CancelManager(this));
 		}
 	}
 
@@ -23,13 +23,13 @@ public class PlayerAbility extends CEPlayerExpansion {
 
 	}
 
-	public void setCancel(Type type, String unique, boolean cancel) {
+	public void setCancel(Type type, String unique, boolean cancel, long duration) {
         CancelManager cancelManager = map.get(type);
         if (cancelManager == null) {
             return;
         }
 
-        cancelManager.setCancel(unique, cancel);
+        cancelManager.setCancel(unique, cancel, duration);
 	}
 
 	public boolean isCancel(Type type) {

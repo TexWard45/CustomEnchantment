@@ -1,5 +1,6 @@
 package com.bafmc.customenchantment.nms;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.level.pathfinder.Path;
@@ -28,7 +29,7 @@ public class EntityInsentientNMS {
 	}
 
 	public void moveTo(Location location) {
-		Path path = entityInsentient.getNavigation().createPath(location.getX(), location.getY(), location.getZ(), 0);
+		Path path = entityInsentient.getNavigation().createPath(BlockPos.containing(location.getX(), location.getY(), location.getZ()), 0);
 		entityInsentient.getNavigation().moveTo(path, speed);
 	}
 

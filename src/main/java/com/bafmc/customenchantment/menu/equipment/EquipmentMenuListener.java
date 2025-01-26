@@ -36,9 +36,11 @@ public class EquipmentMenuListener extends MenuListenerAbstract {
         String name = e.getClickedCItem().getName();
 
         EquipmentMenu menu = EquipmentMenu.getMenu(player);
-        if (name.equals("artifact")) {
-            menu.returnItem(e.getSlot());
+        if (menu.isInUpdateMenu()) {
+            e.setCancelled(true);
+            return;
         }
+        menu.returnItem(name, e.getSlot());
     }
 
     @Override
@@ -50,18 +52,14 @@ public class EquipmentMenuListener extends MenuListenerAbstract {
             return;
         }
 
-        CEItem ceItem = CEAPI.getCEItem(clickedItem);
-        if (ceItem == null) {
+        EquipmentMenu menu = EquipmentMenu.getMenu(player);
+        if (menu.isInUpdateMenu()) {
+            e.setCancelled(true);
             return;
         }
 
-        EquipmentMenu menu = EquipmentMenu.getMenu(player);
-
-        EquipmentMenu.EquipmentAddReason reason = menu.addItem(clickedItem, ceItem);
-
-        if (reason == EquipmentMenu.EquipmentAddReason.ADD_ARTIFACT) {
-            e.setCurrentItem(null);
-        }
+        CEItem ceItem = CEAPI.getCEItem(clickedItem);
+        EquipmentMenu.EquipmentAddReason reason = menu.addItem(e, clickedItem, ceItem);
 
         CustomEnchantmentMessage.send(player, "menu.equipment.add-equipment." + EnumUtils.toConfigStyle(reason));
     }

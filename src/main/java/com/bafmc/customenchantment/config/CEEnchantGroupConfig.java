@@ -10,7 +10,7 @@ import com.bafmc.bukkit.utils.GaussianRandomRangeInt;
 import com.bafmc.bukkit.utils.RandomRangeInt;
 import com.bafmc.bukkit.utils.SparseMap;
 
-public class CEGroupConfig extends AbstractConfig {
+public class CEEnchantGroupConfig extends AbstractConfig {
 
 	protected void loadConfig() {
 		Set<String> groupKeys = config.getKeys(false);
@@ -35,19 +35,5 @@ public class CEGroupConfig extends AbstractConfig {
         boolean craft = config.getBoolean("craft");
 
 		return new CEGroup(name, display, enchantDisplay, bookDisplay, prefix, disableEnchantLore, success, destroy, valuable, priority, craft);
-	}
-
-	public SparseMap<String> loadLevels(AdvancedConfigurationSection config) {
-		SparseMap<String> map = new SparseMap<String>();
-
-		for (String levelKey : config.getKeys(false)) {
-			try {
-				map.put(Integer.valueOf(levelKey), config.getString(levelKey));
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-
-		return map;
 	}
 }

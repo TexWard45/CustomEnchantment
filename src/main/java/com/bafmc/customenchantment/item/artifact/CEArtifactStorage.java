@@ -6,7 +6,6 @@ import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.api.Parameter;
 import com.bafmc.customenchantment.item.CEItemStorage;
 import com.bafmc.customenchantment.item.CEItemType;
-import com.bafmc.customenchantment.item.gem.CEGem;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.List;
@@ -52,4 +51,17 @@ public class CEArtifactStorage extends CEItemStorage<CEArtifact> {
 		return ItemStackUtils.getItemStacks(itemStack, amount);
 	}
 
+	public ItemStack getItemStackByParameter(String name, int level, int amount) {
+		CEArtifact ceArtifact = (CEArtifact) CustomEnchantment.instance().getCeItemStorageMap().get(CEItemType.ARTIFACT).get(name);
+		ItemStack itemStack = ceArtifact.exportTo();
+
+		// Clone itemStack to avoid modifying the original itemStack
+		CEArtifact newArtifact = new CEArtifact(itemStack);
+		newArtifact.getData().setLevel(level);
+		itemStack = newArtifact.exportTo();
+
+		itemStack = ItemStackUtils.getItemStackWithPlaceholder(itemStack, null);
+		itemStack = ItemStackUtils.updateColorToItemStack(itemStack);
+		return ItemStackUtils.getItemStacks(itemStack, amount).get(0);
+	}
 }

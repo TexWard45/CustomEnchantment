@@ -38,15 +38,15 @@ public class BookUpgradeMenuListener extends MenuListenerAbstract {
         Player player = e.getCPlayer().getPlayer();
         String name = e.getClickedCItem().getName();
 
-        BookUpgradeMenu bookUpgradeMenu = BookUpgradeMenuOpener.getBookUpgradeMenu(player);
+        BookUpgradeMenu menu = BookUpgradeMenuOpener.getBookUpgradeMenu(player);
         if (name.equals("book-upgrade")) {
-            bookUpgradeMenu.returnBook();
-            bookUpgradeMenu.updateMenu();
+            menu.returnBook();
+            menu.updateMenu();
         } else if (name.equals("ingredient-preview")) {
-            bookUpgradeMenu.returnBookIngredients(e.getSlot());
-            bookUpgradeMenu.updateMenu();
+            menu.returnBookIngredients(e.getSlot());
+            menu.updateMenu();
         } else if (name.startsWith("remind")) {
-            BookUpgradeConfirmReason reason = bookUpgradeMenu.confirmUpgrade();
+            BookUpgradeConfirmReason reason = menu.confirmUpgrade();
             CustomEnchantmentMessage.send(player, "menu.bookupgrade.confirm." + EnumUtils.toConfigStyle(reason));
         }
     }
@@ -65,8 +65,8 @@ public class BookUpgradeMenuListener extends MenuListenerAbstract {
             return;
         }
 
-        BookUpgradeMenu bookUpgradeMenu = BookUpgradeMenuOpener.getBookUpgradeMenu(player);
-        BookUpgradeAddReason reason = bookUpgradeMenu.addBook(clickedItem, ((CEBook) ceItem).getData().getCESimple());
+        BookUpgradeMenu menu = BookUpgradeMenuOpener.getBookUpgradeMenu(player);
+        BookUpgradeAddReason reason = menu.addBook(clickedItem, ((CEBook) ceItem).getData().getCESimple());
 
         if (reason == BookUpgradeAddReason.SUCCESS) {
             e.setCurrentItem(null);

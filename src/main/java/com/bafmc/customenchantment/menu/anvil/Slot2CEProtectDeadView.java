@@ -16,7 +16,10 @@ public class Slot2CEProtectDeadView extends AnvilSlot2View<Slot2CEProtectDeadVie
 	}
 
 	public boolean isSuitable(CEItem ceItem) {
-		return ceItem instanceof CEProtectDead;
+		if (ceItem instanceof CEProtectDead protectDead) {
+			return !protectDead.getData().isAdvancedMode();
+		}
+		return false;
 	}
 
 	public void updateView() {

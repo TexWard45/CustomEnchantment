@@ -1,9 +1,15 @@
 package com.bafmc.customenchantment.listener;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ListIterator;
-
+import com.bafmc.bukkit.feature.placeholder.PlaceholderBuilder;
+import com.bafmc.bukkit.utils.EnumUtils;
+import com.bafmc.bukkit.utils.InventoryUtils;
+import com.bafmc.customenchantment.CustomEnchantment;
+import com.bafmc.customenchantment.CustomEnchantmentMessage;
+import com.bafmc.customenchantment.api.CEAPI;
+import com.bafmc.customenchantment.item.CEWeaponAbstract;
+import com.bafmc.customenchantment.player.CEPlayer;
+import com.bafmc.customenchantment.player.PlayerStorage;
+import com.bafmc.customenchantment.utils.StorageUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -13,11 +19,9 @@ import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.inventory.ItemStack;
 
-import com.bafmc.customenchantment.CustomEnchantment;
-import com.bafmc.customenchantment.api.CEAPI;
-import com.bafmc.customenchantment.item.CEWeaponAbstract;
-import com.bafmc.customenchantment.player.CEPlayer;
-import com.bafmc.bukkit.utils.InventoryUtils;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ListIterator;
 
 public class CEProtectDeadListener implements Listener {
 	private CustomEnchantment plugin;
@@ -36,23 +40,42 @@ public class CEProtectDeadListener implements Listener {
 
 		CEPlayer cePlayer = CEAPI.getCEPlayer(e.getEntity());
 
-		List<ItemStack> keepItems = new ArrayList<ItemStack>();
-		ListIterator<ItemStack> ite = e.getDrops().listIterator();
-		
-		while (ite.hasNext()) {
-			ItemStack itemStack = ite.next();
+		List<ItemStack> keepItems = new ArrayList<>();
 
-			CEWeaponAbstract weapon = CEWeaponAbstract.getCEWeapon(itemStack);
-			if (weapon == null) {
-				continue;
+		boolean removeAdvancedProtectDead;
+		PlayerStorage storage = cePlayer.getStorage();
+		removeAdvancedProtectDead = StorageUtils.getProtectDeadAmount(storage) > 0;
+
+		if (removeAdvancedProtectDead) {
+			if (!e.getDrops().isEmpty() || e.getDroppedExp() > 0) {
+				StorageUtils.useProtectDead(storage);
+
+				int amountLeft = StorageUtils.getProtectDeadAmount(storage);
+				PlaceholderBuilder placeholderBuilder = PlaceholderBuilder.builder().put("{amount}", amountLeft);
+				CustomEnchantmentMessage.send(e.getPlayer(), "ce-item.protectdead.use-advanced", placeholderBuilder.build());
+
+				e.getDrops().clear();
 			}
 
-			int protectDead = weapon.getWeaponData().getExtraProtectDead();
-			
-			if (protectDead > 0) {
-				weapon.getWeaponData().setExtraProtectDead(protectDead - 1);
-				keepItems.add(weapon.exportTo());
-				ite.remove();
+			e.setKeepInventory(true);
+			e.setKeepLevel(true);
+		} else {
+			ListIterator<ItemStack> ite = e.getDrops().listIterator();
+			while (ite.hasNext()) {
+				ItemStack itemStack = ite.next();
+
+				CEWeaponAbstract weapon = CEWeaponAbstract.getCEWeapon(itemStack);
+				if (weapon == null) {
+					continue;
+				}
+
+				int protectDead = weapon.getWeaponData().getExtraProtectDead();
+
+				if (protectDead > 0) {
+					weapon.getWeaponData().setExtraProtectDead(protectDead - 1);
+					keepItems.add(weapon.exportTo());
+					ite.remove();
+				}
 			}
 		}
 

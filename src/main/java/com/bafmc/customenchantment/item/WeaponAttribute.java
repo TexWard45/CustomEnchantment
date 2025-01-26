@@ -1,11 +1,9 @@
 package com.bafmc.customenchantment.item;
 
-import com.bafmc.bukkit.bafframework.nms.NMSAttribute;
-import com.bafmc.bukkit.bafframework.nms.NMSNBTBase;
-import com.bafmc.bukkit.bafframework.nms.NMSNBTTagCompound;
-import com.bafmc.bukkit.bafframework.nms.NMSNBTTagList;
+import com.bafmc.bukkit.bafframework.nms.*;
 import com.bafmc.customenchantment.api.ITrade;
 import com.bafmc.customenchantment.utils.AttributeUtils;
+import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,6 +55,19 @@ public class WeaponAttribute extends CEItemExpansion implements ITrade<NMSNBTTag
 
 		for (NMSAttribute attribute : this.attributeList) {
 			list.add(attribute.getData());
+		}
+
+		if (list.isEmpty()) {
+			this.attributeList = new ArrayList<NMSAttribute>();
+			ItemStack itemStack = ceItem.getDefaultItemStack();
+
+			INMSAttributeItem attributeItem = NMSManager.getAttributesProvider().getNMSAttributeItem();
+
+			for (NMSNBTBase base : attributeItem.getNMSNBTTagList(itemStack).getList()) {
+				NMSAttribute attribute = new NMSAttribute((NMSNBTTagCompound) base);
+				this.attributeList.add(attribute);
+				list.add(attribute.getData());
+			}
 		}
 
 		return list.isEmpty() ? null : list;

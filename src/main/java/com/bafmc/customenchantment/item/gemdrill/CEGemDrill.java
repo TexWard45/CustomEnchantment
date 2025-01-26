@@ -1,6 +1,7 @@
 package com.bafmc.customenchantment.item.gemdrill;
 
 import com.bafmc.bukkit.bafframework.nms.NMSNBTTagCompound;
+import com.bafmc.bukkit.utils.Chance;
 import com.bafmc.bukkit.utils.ItemStackUtils;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.api.MaterialData;
@@ -67,6 +68,17 @@ public class CEGemDrill extends CEItem<CEGemDrillData> {
 			return new ApplyReason("max-drill", ApplyResult.CANCEL);
 		}
 
+		int nextDrillSlot = weaponGem.getDrillSize() + 1;
+
+		if (configData.getSlotChance().containsKey(nextDrillSlot)) {
+			double chanceValue = configData.getSlotChance().get(nextDrillSlot);
+
+			Chance chance = new Chance(chanceValue);
+			if (!chance.work()) {
+				return new ApplyReason("fail-chance", ApplyResult.FAIL);
+			}
+		}
+
 		weaponGem.addCEGemDrillSimple(new CEGemDrillSimple(getData().getPattern()));
 
 		ApplyReason reason = new ApplyReason("success", ApplyResult.SUCCESS);
@@ -77,11 +89,12 @@ public class CEGemDrill extends CEItem<CEGemDrillData> {
 	}
 	
 	public ApplyReason testApplyByMenuTo(CEItem ceItem) {
-		if (!(ceItem instanceof CEWeapon)) {
+		if (!(ceItem instanceof CEWeapon weapon)) {
 			return ApplyReason.NOTHING;
 		}
-		
+
 		ceItem = CEWeapon.getCEWeapon(ceItem.getDefaultItemStack());
+		((CEWeapon) ceItem).setWeaponSettingsName("default");
 
 		CEGemDrillData.ConfigData configData = getData().getConfigData();
 		if (!configData.getApplies().contains(new MaterialData(ceItem.getDefaultItemStack()))) {

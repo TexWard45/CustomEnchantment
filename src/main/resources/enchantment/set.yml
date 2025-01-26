@@ -27,8 +27,9 @@ fighter: # key
         cooldown: 0
         conditions:
           - "NUMBER_STORAGE:set_fighter_armor_point:>=:4"
+          - "NUMBER_STORAGE:set_fighter_mainweapon_point:=:0"
         effects:
-          - "NAME=fighter_full_armor,DELAY=10 | MESSAGE:&e&l***Fighter: &f&lFull Armor &e&l+ &f&lWeapon&e&l***"
+          - "NAME=fighter_full_armor,DELAY=10 | MESSAGE:&e&l***Fighter: &f&lFull Armor&e&l***"
       defaultEquipFullWithWeaponMessage:
         type: ARMOR_EQUIP
         chance: 100
@@ -227,6 +228,7 @@ knight:
         cooldown: 0
         conditions:
           - "NUMBER_STORAGE:set_knight_armor_point:>=:4"
+          - "NUMBER_STORAGE:set_knight_mainweapon_point:=:0"
         effects:
           - "NAME=knight_full_armor,DELAY=10 | MESSAGE:&c&l***Knight: &f&lFull Armor&c&l***"
       defaultEquipFullWithWeaponMessage:
@@ -419,6 +421,7 @@ archer:
         cooldown: 0
         conditions:
           - "NUMBER_STORAGE:set_archer_armor_point:>=:4"
+          - "NUMBER_STORAGE:set_archer_mainweapon_point:=:0"
         effects:
           - "NAME=archer_full_armor,DELAY=10 | MESSAGE:&b&l***Archer: &f&lFull Armor&b&l***"
       defaultEquipFullWithWeaponMessage:
@@ -633,6 +636,7 @@ assassin:
         cooldown: 0
         conditions:
           - "NUMBER_STORAGE:set_assassin_armor_point:>=:4"
+          - "NUMBER_STORAGE:set_assassin_mainweapon_point:=:0"
         effects:
           - "NAME=assassin_full_armor,DELAY=10 | MESSAGE:&5&l***Assassin: &f&lFull Armor&5&l***"
       defaultEquipFullWithWeaponMessage:
@@ -814,7 +818,7 @@ poseidon:
   custom-display-lore: "&3%enchant_display% %enchant_level%"
   description:
     - "&7Đủ 4 món giáp:"
-    - "&7- Nhận hiệu ứng thở dưới nước"
+    - "&7- Nhận hiệu ứng thở dưới nước và hiệu ứng ân huệ của cá heo"
     - "&7- Có tỉ lệ nhận thêm hồi phục trong một khoảng"
     - "&7thời gian khi bị tấn công"
     - "&7Đủ 4 món giáp + kiếm:"
@@ -840,6 +844,7 @@ poseidon:
         cooldown: 0
         conditions:
           - "NUMBER_STORAGE:set_poseidon_armor_point:>=:4"
+          - "NUMBER_STORAGE:set_poseidon_mainweapon_point:=:0"
         effects:
           - "NAME=poseidon_full_armor,DELAY=10 | MESSAGE:&3&l***Poseidon: &f&lFull Armor&3&l***"
       defaultEquipFullWithWeaponMessage:
@@ -868,7 +873,8 @@ poseidon:
         conditions:
           - "NUMBER_STORAGE:set_poseidon_level:=:1"
         effects:
-          - ADD_FOREVER_POTION:mermaid:WATER_BREATHING:0
+          - ADD_FOREVER_POTION:poseidon_mermaid:WATER_BREATHING:0
+          - ADD_FOREVER_POTION:poseidon_dolphin_grace:DOLPHINS_GRACE:0
       unequip:
         type: ARMOR_UNDRESS
         chance: 100
@@ -876,7 +882,8 @@ poseidon:
         conditions:
           - "NUMBER_STORAGE:set_poseidon_level:=:1"
         effects:
-          - REMOVE_FOREVER_POTION:mermaid
+          - REMOVE_FOREVER_POTION:poseidon_mermaid
+          - REMOVE_FOREVER_POTION:poseidon_dolphin_grace
       defense:
         type: DEFENSE
         chance: 25
@@ -916,7 +923,8 @@ poseidon:
         conditions:
           - "NUMBER_STORAGE:set_poseidon_level:=:1"
         effects:
-          - ADD_FOREVER_POTION:mermaid:WATER_BREATHING:0
+          - ADD_FOREVER_POTION:poseidon_mermaid:WATER_BREATHING:0
+          - ADD_FOREVER_POTION:poseidon_dolphin_grace:DOLPHINS_GRACE:0
       unequip:
         type: ARMOR_UNDRESS
         chance: 100
@@ -924,7 +932,8 @@ poseidon:
         conditions:
           - "NUMBER_STORAGE:set_poseidon_level:=:1"
         effects:
-          - REMOVE_FOREVER_POTION:mermaid
+          - REMOVE_FOREVER_POTION:poseidon_mermaid
+          - REMOVE_FOREVER_POTION:poseidon_dolphin_grace
       defense:
         type: DEFENSE
         chance: 25
@@ -964,7 +973,8 @@ poseidon:
         conditions:
           - "NUMBER_STORAGE:set_poseidon_level:=:1"
         effects:
-          - ADD_FOREVER_POTION:mermaid:WATER_BREATHING:0
+          - ADD_FOREVER_POTION:poseidon_mermaid:WATER_BREATHING:0
+          - ADD_FOREVER_POTION:poseidon_dolphin_grace:DOLPHINS_GRACE:0
       unequip:
         type: ARMOR_UNDRESS
         chance: 100
@@ -972,7 +982,8 @@ poseidon:
         conditions:
           - "NUMBER_STORAGE:set_poseidon_level:=:1"
         effects:
-          - REMOVE_FOREVER_POTION:mermaid
+          - REMOVE_FOREVER_POTION:poseidon_mermaid
+          - REMOVE_FOREVER_POTION:poseidon_dolphin_grace
       defense:
         type: DEFENSE
         chance: 25
@@ -1012,7 +1023,8 @@ poseidon:
         conditions:
           - "NUMBER_STORAGE:set_poseidon_level:=:1"
         effects:
-          - ADD_FOREVER_POTION:mermaid:WATER_BREATHING:0
+          - ADD_FOREVER_POTION:poseidon_mermaid:WATER_BREATHING:0
+          - ADD_FOREVER_POTION:poseidon_dolphin_grace:DOLPHINS_GRACE:0
       unequip:
         type: ARMOR_UNDRESS
         chance: 100
@@ -1020,7 +1032,8 @@ poseidon:
         conditions:
           - "NUMBER_STORAGE:set_poseidon_level:=:1"
         effects:
-          - REMOVE_FOREVER_POTION:mermaid
+          - REMOVE_FOREVER_POTION:poseidon_mermaid
+          - REMOVE_FOREVER_POTION:poseidon_dolphin_grace
       defense:
         type: DEFENSE
         chance: 25
@@ -1060,7 +1073,8 @@ poseidon:
         conditions:
           - "NUMBER_STORAGE:set_poseidon_level:=:1"
         effects:
-          - ADD_FOREVER_POTION:mermaid:WATER_BREATHING:0
+          - ADD_FOREVER_POTION:poseidon_mermaid:WATER_BREATHING:0
+          - ADD_FOREVER_POTION:poseidon_dolphin_grace:DOLPHINS_GRACE:0
       unequip:
         type: ARMOR_UNDRESS
         chance: 100
@@ -1068,7 +1082,8 @@ poseidon:
         conditions:
           - "NUMBER_STORAGE:set_poseidon_level:=:1"
         effects:
-          - REMOVE_FOREVER_POTION:mermaid
+          - REMOVE_FOREVER_POTION:poseidon_mermaid
+          - REMOVE_FOREVER_POTION:poseidon_dolphin_grace
       defense:
         type: DEFENSE
         chance: 25
@@ -1130,6 +1145,7 @@ reaper:
         cooldown: 0
         conditions:
           - "NUMBER_STORAGE:set_reaper_armor_point:>=:4"
+          - "NUMBER_STORAGE:set_reaper_mainweapon_point:=:0"
         effects:
           - "NAME=reaper_full_armor,DELAY=10 | MESSAGE:&8&l***Reaper: &f&lFull Armor&8&l***"
       defaultEquipFullWithWeaponMessage:

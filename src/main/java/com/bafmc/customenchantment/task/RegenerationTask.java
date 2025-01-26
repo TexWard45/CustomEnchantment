@@ -32,6 +32,10 @@ public class RegenerationTask extends BukkitRunnable {
     }
 
     public void run(Player player) {
+        if (player.isDead()) {
+            return;
+        }
+
         if (lastRegeneration.containsKey(player.getUniqueId().toString())) {
             long lastRegen = lastRegeneration.get(player.getUniqueId().toString());
             long currentTime = System.currentTimeMillis();
@@ -41,33 +45,34 @@ public class RegenerationTask extends BukkitRunnable {
                 ratio = 1;
             }
 
+            double currentValue = player.getHealth();
+            double maxHealth = player.getMaxHealth();
+            if (currentValue == maxHealth) {
+                return;
+            }
+
             CEPlayer cePlayer = CEAPI.getCEPlayer(player);
 
             double healRegeneration = cePlayer.getCustomAttribute().getValue(CustomAttributeType.HEALTH_REGENERATION) * ratio;
             if (healRegeneration > 0) {
-                double defaultValue = player.getHealth();
-                double currentValue = player.getHealth() + healRegeneration;
-
-                CEPlayerStatsModifyEvent event = new CEPlayerStatsModifyEvent(cePlayer, CustomAttributeType.STAT_HEALTH, ModifyType.ADD,
-                        defaultValue, currentValue, false);
+                CEPlayerStatsModifyEvent event = new CEPlayerStatsModifyEvent(cePlayer, CustomAttributeType.STAT_HEALTH, ModifyType.ADD, currentValue, healRegeneration, false);
                 Bukkit.getPluginManager().callEvent(event);
 
                 if (!event.isCancelled()) {
-                    player.setHealth(Math.max(Math.min(player.getMaxHealth(), event.getCurrentValue()), 0));
+                    player.setHealth(Math.max(Math.min(maxHealth, event.getFinalValue()), 0));
                 }
             }
 
             double healthRegenerationPercent = cePlayer.getCustomAttribute().getValue(CustomAttributeType.HEALTH_REGENERATION_PERCENT) * ratio;
             if (healthRegenerationPercent > 0) {
-                double defaultValue = player.getHealth();
-                double currentValue = player.getHealth() + player.getMaxHealth() * healthRegenerationPercent / 100;
+                double changeValue = maxHealth * healthRegenerationPercent / 100;
 
                 CEPlayerStatsModifyEvent event = new CEPlayerStatsModifyEvent(cePlayer, CustomAttributeType.STAT_HEALTH, ModifyType.ADD,
-                        defaultValue, currentValue, false);
+                        currentValue, changeValue, false);
                 Bukkit.getPluginManager().callEvent(event);
 
                 if (!event.isCancelled()) {
-                    player.setHealth(Math.max(Math.min(player.getMaxHealth(), event.getCurrentValue()), 0));
+                    player.setHealth(Math.max(Math.min(maxHealth, event.getFinalValue()), 0));
                 }
             }
 

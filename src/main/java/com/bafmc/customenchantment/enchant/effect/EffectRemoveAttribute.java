@@ -1,13 +1,13 @@
 package com.bafmc.customenchantment.enchant.effect;
 
-import org.bukkit.attribute.Attribute;
-import org.bukkit.entity.Player;
-
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.enchant.CEFunctionData;
 import com.bafmc.customenchantment.enchant.EffectHook;
 import com.bafmc.customenchantment.enchant.EffectUtil;
 import com.bafmc.customenchantment.player.CEPlayer;
+import com.bafmc.customenchantment.task.SlowResistanceTask;
+import org.bukkit.attribute.Attribute;
+import org.bukkit.entity.Player;
 
 public class EffectRemoveAttribute extends EffectHook {
 	private Attribute attribute;
@@ -32,7 +32,14 @@ public class EffectRemoveAttribute extends EffectHook {
 			return;
 		}
 		CEPlayer cePlayer = CEAPI.getCEPlayer(player);
-
 		cePlayer.getVanillaAttribute().removeAttribute(attribute, name);
+
+		if (attribute == Attribute.GENERIC_MOVEMENT_SPEED) {
+			 SlowResistanceTask.update(player);
+		}
+	}
+
+	public boolean isAsync() {
+		return false;
 	}
 }

@@ -32,6 +32,6 @@ public class EffectActiveAbility extends EffectHook {
 		}
 
 		CEPlayer cePlayer = CEAPI.getCEPlayer(player);
-		cePlayer.getAbility().setCancel(type, name, false);
+		cePlayer.getAbility().setCancel(type, name, false, 0);
 	}
 }

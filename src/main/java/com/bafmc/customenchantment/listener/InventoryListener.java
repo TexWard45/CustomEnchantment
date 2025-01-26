@@ -55,6 +55,28 @@ public class InventoryListener implements Listener {
         e.setResult(ceItem.exportTo());
     }
 
+	@EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
+	public void onPrepareSmithing(PrepareSmithingEvent e) {
+		ItemStack itemStack = e.getResult();
+		if (itemStack == null) {
+			return;
+		}
+
+		CEItem ceItem = CEAPI.getCEItem(itemStack);
+		if (ceItem == null) {
+			return;
+		}
+
+		if (ceItem instanceof CEWeaponAbstract weapon) {
+			CEItemData data = ceItem.getData();
+			if (data == null) {
+				weapon.getWeaponAttribute().clearAttribute();
+			}
+		}
+
+		e.setResult(ceItem.exportTo());
+	}
+
 	@SuppressWarnings("deprecation")
 	@EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
 	public void onAnvilClick(InventoryClickEvent e) {

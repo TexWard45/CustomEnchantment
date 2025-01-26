@@ -11,6 +11,7 @@ import com.bafmc.bukkit.utils.EquipSlot;
 public class EffectDeactiveEquipSlot extends EffectHook {
 	private EquipSlot slot;
 	private String name;
+	private long duration;
 
 	public String getIdentify() {
 		return "DEACTIVE_EQUIP_SLOT";
@@ -19,6 +20,9 @@ public class EffectDeactiveEquipSlot extends EffectHook {
 	public void setup(String[] args) {
 		this.slot = EquipSlot.valueOf(args[0]);
 		this.name = args[1];
+		if (args.length > 2) {
+			this.duration = Long.parseLong(args[2]);
+		}
 	}
 
 	public void execute(CEFunctionData data) {
@@ -28,6 +32,6 @@ public class EffectDeactiveEquipSlot extends EffectHook {
 		}
 
 		CEPlayer cePlayer = CEAPI.getCEPlayer(player);
-		cePlayer.getCEManager().setCancelSlot(slot, name, true);
+		cePlayer.getCEManager().setCancelSlot(slot, name, true, duration);
 	}
 }

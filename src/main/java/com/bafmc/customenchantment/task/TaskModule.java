@@ -12,11 +12,13 @@ public class TaskModule extends PluginModule<CustomEnchantment> {
     private CEArtifactTask artifactTask;
     private RecalculateAttributeTask attributeTask;
     private RegenerationTask regenerationTask;
+    private SlowResistanceTask slowResistanceTask;
     private CEPlayerTask cePlayerTask;
     private SpecialMiningTask specialMiningTask;
     private BlockTask blockTask;
     private ArrowTask arrowTask;
     private SaveTask saveTask;
+    private UnbreakableArmorTask unbreakableArmorTask;
     
     public TaskModule(CustomEnchantment plugin) {
         super(plugin);
@@ -44,6 +46,9 @@ public class TaskModule extends PluginModule<CustomEnchantment> {
         this.regenerationTask = new RegenerationTask(getPlugin());
         this.regenerationTask.runTaskTimer(getPlugin(), 0, 4);
 
+        this.slowResistanceTask = new SlowResistanceTask(getPlugin());
+        this.slowResistanceTask.runTaskTimer(getPlugin(), 0, 4);
+
         this.specialMiningTask = new SpecialMiningTask(getPlugin());
         this.specialMiningTask.runTaskTimer(getPlugin(), 0, 1);
 
@@ -55,6 +60,9 @@ public class TaskModule extends PluginModule<CustomEnchantment> {
 
         this.saveTask = new SaveTask(getPlugin());
         this.saveTask.runTaskTimer(getPlugin(), 0, 20 * 60 * 15);
+
+        this.unbreakableArmorTask = new UnbreakableArmorTask();
+        this.unbreakableArmorTask.runTaskTimer(getPlugin(), 0, getPlugin().getMainConfig().getUnbreakableArmorTickInterval());
     }
 
     public void onDisable() {
@@ -65,6 +73,7 @@ public class TaskModule extends PluginModule<CustomEnchantment> {
         this.artifactTask.cancel();
         this.attributeTask.cancel();
         this.regenerationTask.cancel();
+        this.slowResistanceTask.cancel();
         this.specialMiningTask.cancel();
         this.blockTask.cancel();
         this.arrowTask.cancel();

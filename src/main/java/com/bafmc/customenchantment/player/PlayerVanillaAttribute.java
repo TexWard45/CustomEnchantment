@@ -52,7 +52,6 @@ public class PlayerVanillaAttribute extends CEPlayerExpansion {
 	 */
 	public boolean addAttribute(Attribute attribute, String name, double amount, Operation operation) {
 		name = getPrefix(name);
-		name = name.toLowerCase(); // Must be lower case because of NameSpaceKey validation
 
 		AttributeInstance aInstance = player.getAttribute(attribute);
 		AttributeModifier aModifier = new AttributeModifier(NamespacedKey.fromString(name), amount, operation);
@@ -75,7 +74,6 @@ public class PlayerVanillaAttribute extends CEPlayerExpansion {
 	 */
 	public boolean removeAttribute(Attribute attribute, String name) {
 		name = getPrefix(name);
-		name = name.toLowerCase();
 
 		AttributeModifier aModifier = getAttributeModifier(attribute, name);
 
@@ -208,6 +206,7 @@ public class PlayerVanillaAttribute extends CEPlayerExpansion {
 	 * @return name with prefix at head
 	 */
 	public static String getPrefix(String name) {
+		name = name.toLowerCase();
 		return name.contains(PREFIX) ? name : PREFIX + name;
 	}
 }
