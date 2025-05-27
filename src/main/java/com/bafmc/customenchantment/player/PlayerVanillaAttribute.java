@@ -1,6 +1,7 @@
 package com.bafmc.customenchantment.player;
 
 import com.bafmc.bukkit.bafframework.nms.NMSAttribute;
+import com.bafmc.customenchantment.CustomEnchantment;
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import org.bukkit.NamespacedKey;
@@ -120,7 +121,14 @@ public class PlayerVanillaAttribute extends CEPlayerExpansion {
 	public AttributeModifier getAttributeModifier(Attribute attribute, String name) {
 		name = getPrefix(name);
 
-		for (AttributeModifier aModifier : player.getAttribute(attribute).getModifiers()) {
+		AttributeInstance attributeInstance = player.getAttribute(attribute);
+
+		if (attributeInstance == null) {
+			CustomEnchantment.instance().getLogger().warning("Attribute " + attribute + " with name " + name + " is null");
+			return null;
+		}
+
+		for (AttributeModifier aModifier : attributeInstance.getModifiers()) {
 			if (aModifier.getName().equals(name)) {
 				return aModifier;
 			}

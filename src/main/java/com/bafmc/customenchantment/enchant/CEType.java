@@ -13,6 +13,7 @@ public class CEType {
 	public static final CEType ARROW_HIT = new CEType("ARROW_HIT").register();
 	public static final CEType ARROW_DEFENSE = new CEType("ARROW_DEFENSE").register();
 	public static final CEType BOW_SHOOT = new CEType("BOW_SHOOT").register();
+	public static final CEType SNEAK = new CEType("SNEAK").register();
 	public static final CEType MINING = new CEType("MINING").register();
 	public static final CEType HOLD = new CEType("HOLD").register();
 	public static final CEType CHANGE_HAND = new CEType("CHANGE_HAND").register();

@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.bafmc.customenchantment.menu.MenuAbstract;
+import lombok.Getter;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
@@ -16,6 +17,7 @@ import com.bafmc.bukkit.utils.InventoryUtils;
 public class TinkererMenu extends MenuAbstract {
 	public static final String MENU_NAME = "tinkerer";
 	private static HashMap<String, TinkererMenu> map = new HashMap<String, TinkererMenu>();
+	@Getter
 	private static TinkererSettings settings;
 
 	public static void setSettings(TinkererSettings settings) {

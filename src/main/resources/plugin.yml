@@ -36,3 +36,6 @@ commands:
     description: Equipment for CustomEnchantment item
     usage: /<command>
     aliases: [au, aup]
+  cefilter:
+    description: Filter for CustomEnchantment item
+    usage: /<command>

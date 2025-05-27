@@ -47,7 +47,7 @@ public class SlowResistanceTask extends BukkitRunnable {
         PlayerCustomAttribute attribute = cePlayer.getCustomAttribute();
         PlayerVanillaAttribute vanillaAttribute = cePlayer.getVanillaAttribute();
 
-        double slowResistancePercent = attribute.getValue(CustomAttributeType.SLOW_RESISTANCE);
+        double slowResistancePercent = attribute.getValue(CustomAttributeType.SLOW_RESISTANCE) + attribute.getValue(CustomAttributeType.MAGIC_RESISTANCE);
         if (slowResistancePercent == 0) {
             vanillaAttribute.removeAttribute(Attribute.GENERIC_MOVEMENT_SPEED, CustomAttributeType.SLOW_RESISTANCE.getType());
             previousSpeedRatio.remove(player.getName());

@@ -14,6 +14,7 @@ import com.bafmc.customenchantment.api.MaterialList;
 import com.bafmc.customenchantment.attribute.CustomAttributeType;
 import com.bafmc.customenchantment.attribute.RangeAttribute;
 import com.bafmc.customenchantment.enchant.*;
+import com.bafmc.customenchantment.item.randombook.CERandomBookPlayerFilter;
 
 import java.util.*;
 
@@ -22,8 +23,15 @@ public class CEEnchantConfig extends AbstractConfig {
 	protected void loadConfig() {
 		Set<String> enchantKeys = config.getKeys(false);
 
+		List<String> filterCEList = CERandomBookPlayerFilter.getFilterCEList();
+
 		for (String key : enchantKeys) {
 			CEEnchant ceEnchant = loadCEEnchant(key, config.getAdvancedConfigurationSection(key));
+
+			if (ceEnchant.getCEGroup() != null && ceEnchant.getCEGroup().isFilter()) {
+				filterCEList.add(ceEnchant.getName());
+			}
+
 			CustomEnchantment.instance().getCeEnchantMap().put(ceEnchant.getName(), ceEnchant);
 		}
 	}
@@ -37,7 +45,7 @@ public class CEEnchantConfig extends AbstractConfig {
         int valuable = config.getInt("valuable", ceGroup.getValuable());
 		CEDisplay ceDisplay = new CEDisplay(config.getString("display"),
                 config.getString("book-display"),
-				config.getString("custom-display-lore"),
+				getCustomDisplayLore(config),
 				config.getBoolean("disable-enchant-lore", ceGroup.isDisableEnchantLore()),
 				config.getStringList("description"), config.getStringList("detail-description"),
 				config.getStringList("applies-description"));
@@ -51,6 +59,21 @@ public class CEEnchantConfig extends AbstractConfig {
 
 		return new CEEnchant(name, groupName, maxLevel, valuable, enchantPoint, ceDisplay, ceLevelMap,
 				appliesMaterialList, set, bookType, enchantBlacklist);
+	}
+
+	public Map<String, String> getCustomDisplayLore(AdvancedConfigurationSection config) {
+		if (config.get("custom-display-lore") instanceof String) {
+			Map<String, String> map = new HashMap<>();
+			map.put("default", config.getString("custom-display-lore"));
+			return map;
+		}
+
+		Map<String, String> map = new HashMap<>();
+		for (String key : config.getKeySection("custom-display-lore", false)) {
+			map.put(key, config.getString("custom-display-lore." + key));
+		}
+
+		return map;
 	}
 
 	public HashMap<Integer, List<String>> loadDescriptionMap(AdvancedConfigurationSection config) {

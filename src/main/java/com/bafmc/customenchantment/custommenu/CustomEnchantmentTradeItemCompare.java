@@ -2,10 +2,14 @@ package com.bafmc.customenchantment.custommenu;
 
 import com.bafmc.bukkit.api.PlaceholderAPI;
 import com.bafmc.bukkit.config.AdvancedConfigurationSection;
+import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.api.CEAPI;
+import com.bafmc.customenchantment.api.Parameter;
 import com.bafmc.customenchantment.enchant.CEEnchantSimple;
 import com.bafmc.customenchantment.item.*;
 import com.bafmc.customenchantment.item.gem.CEGemSimple;
+import com.bafmc.customenchantment.item.gemdrill.CEGemDrill;
+import com.bafmc.customenchantment.item.gemdrill.CEGemDrillSimple;
 import com.bafmc.custommenu.menu.trade.TradeItemCompare;
 import com.bafmc.custommenu.menu.trade.TradeItemRequiredHistory;
 import com.bafmc.finditem.item.UniqueItem;
@@ -31,6 +35,12 @@ public class CustomEnchantmentTradeItemCompare extends TradeItemCompare {
 		}
 
 		String type = dataConfig.getString("type", null);
+		String data = dataConfig.getString("data", null);
+		if (data != null) {
+			Parameter parameter = new Parameter(data);
+			return CustomEnchantment.instance().getCeItemStorageMap().get(type).getItemStackByParameter(parameter);
+		}
+
 		String name = dataConfig.getString("name", null);
 		if (type == null || name == null) {
 			return itemStack;
@@ -96,6 +106,10 @@ public class CustomEnchantmentTradeItemCompare extends TradeItemCompare {
 		// Migrate gem
 		WeaponGem resultWeaponGem = resultWeapon.getWeaponGem();
 		WeaponGem currentWeaponGem = currentWeapon.getWeaponGem();
+		for (CEGemDrillSimple ceGemDrillSimple : currentWeaponGem.getAvailableGemDrillList()) {
+			resultWeaponGem.addCEGemDrillSimple(ceGemDrillSimple);
+		}
+
 		for (CEGemSimple ceGemSimple : currentWeaponGem.getCEGemSimpleList()) {
 			resultWeaponGem.addCEGemSimple(ceGemSimple);
 		}
@@ -169,7 +183,7 @@ public class CustomEnchantmentTradeItemCompare extends TradeItemCompare {
 		CEItemData weaponData2 = weapon2.getData();
 
 		if (weaponData1 != null && weaponData2 != null) {
-			return weapon1.getData().getPattern().equals(weapon2.getData().getPattern());
+			return weapon1.getData().equals(weapon2.getData());
 		}
 
 		weapon1.clearTimeModifier();

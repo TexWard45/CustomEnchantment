@@ -203,4 +203,8 @@ public class PlayerSpecialMining extends CEPlayerExpansion {
     public AutoSellSpecialMine getAutoSellSpecialMine() {
         return (AutoSellSpecialMine) getSpecialMine(AutoSellSpecialMine.class);
     }
+
+	public VeinSpecialMine getVeinSpecialMine() {
+		return (VeinSpecialMine) getSpecialMine(VeinSpecialMine.class);
+	}
 }

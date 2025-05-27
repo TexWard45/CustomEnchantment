@@ -70,6 +70,10 @@ public class CEAPI {
 		return CEItemRegister.getCEItem(itemStack);
 	}
 
+	public static String getCEItemType(ItemStack itemStack) {
+		return CEItemRegister.getCEItemType(itemStack);
+	}
+
 	public static ItemStack getVanillaItemStack(String key) {
 		return CustomEnchantment.instance().getCeItemStorageMap().get(CEItemType.STORAGE)
 				.getItemStackByParameter(new Parameter(Arrays.asList(key)));

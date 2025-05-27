@@ -6,6 +6,7 @@ import com.bafmc.customenchantment.api.MaterialData;
 import com.bafmc.customenchantment.api.MaterialList;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 
@@ -32,6 +33,10 @@ public class WeaponSettings {
     private String vanillaEnchantLore;
 	@Getter
     private String customEnchantLore;
+
+	@Getter
+	@Setter
+	private String key;
 
 	private SparseMap<String> enchantPointLore;
 	private SparseMap<String> protectDeadLore;

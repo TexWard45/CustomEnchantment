@@ -19,6 +19,8 @@ public class TaskModule extends PluginModule<CustomEnchantment> {
     private ArrowTask arrowTask;
     private SaveTask saveTask;
     private UnbreakableArmorTask unbreakableArmorTask;
+    private AutoUpdateItemTask autoUpdateItemTask;
+    private ExpTask expTask;
     
     public TaskModule(CustomEnchantment plugin) {
         super(plugin);
@@ -63,6 +65,12 @@ public class TaskModule extends PluginModule<CustomEnchantment> {
 
         this.unbreakableArmorTask = new UnbreakableArmorTask();
         this.unbreakableArmorTask.runTaskTimer(getPlugin(), 0, getPlugin().getMainConfig().getUnbreakableArmorTickInterval());
+
+        this.autoUpdateItemTask = new AutoUpdateItemTask();
+        this.autoUpdateItemTask.runTaskTimer(getPlugin(), 0, 1);
+
+        this.expTask = new ExpTask();
+        this.expTask.runTaskTimer(getPlugin(), 200, 200);
     }
 
     public void onDisable() {
@@ -77,5 +85,6 @@ public class TaskModule extends PluginModule<CustomEnchantment> {
         this.specialMiningTask.cancel();
         this.blockTask.cancel();
         this.arrowTask.cancel();
+        this.expTask.cancel();
     }
 }

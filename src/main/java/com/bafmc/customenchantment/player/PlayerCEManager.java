@@ -26,6 +26,10 @@ public class PlayerCEManager extends CEPlayerExpansion {
 	}
 
 	public boolean isCancelSlot(EquipSlot slot) {
+		if (!map.containsKey(slot)) {
+			return false;
+		}
+
 		try {
 			return map.get(slot).isCancel();
 		} catch (Exception e) {

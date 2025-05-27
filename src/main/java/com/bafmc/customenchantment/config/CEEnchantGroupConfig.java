@@ -1,14 +1,13 @@
 package com.bafmc.customenchantment.config;
 
-import java.util.Set;
-
-import com.bafmc.customenchantment.CustomEnchantment;
-import com.bafmc.customenchantment.enchant.CEGroup;
-import com.bafmc.customenchantment.enchant.Priority;
 import com.bafmc.bukkit.config.AdvancedConfigurationSection;
 import com.bafmc.bukkit.utils.GaussianRandomRangeInt;
 import com.bafmc.bukkit.utils.RandomRangeInt;
-import com.bafmc.bukkit.utils.SparseMap;
+import com.bafmc.customenchantment.CustomEnchantment;
+import com.bafmc.customenchantment.enchant.CEGroup;
+import com.bafmc.customenchantment.enchant.Priority;
+
+import java.util.Set;
 
 public class CEEnchantGroupConfig extends AbstractConfig {
 
@@ -33,7 +32,8 @@ public class CEEnchantGroupConfig extends AbstractConfig {
 		int valuable = config.getInt("valuable");
 		Priority priority = Priority.valueOf(config.getString("priority", "NORMAL"));
         boolean craft = config.getBoolean("craft");
+		boolean filter = config.getBoolean("filter");
 
-		return new CEGroup(name, display, enchantDisplay, bookDisplay, prefix, disableEnchantLore, success, destroy, valuable, priority, craft);
+		return new CEGroup(name, display, enchantDisplay, bookDisplay, prefix, disableEnchantLore, success, destroy, valuable, priority, craft, filter);
 	}
 }

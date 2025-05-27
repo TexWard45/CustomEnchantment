@@ -6,6 +6,37 @@ attribute:
     succecs:
       - "MESSAGE &7***CRITICAL***"
 command:
+  cefilter:
+    add:
+      success:
+        - "SUCCESS Đã thêm %group_prefix%&l%enchant_display% &avào danh sách lọc!"
+      not-found:
+        - "DANGER Phù phép không tồn tại!"
+    remove:
+      success:
+        - "SUCCESS Đã xóa %group_prefix%&l%enchant_display% &akhỏi danh sách lọc!"
+      not-found:
+        - "DANGER Phù phép không tồn tại trong danh sách lọc!"
+    clear:
+      success:
+          - "SUCCESS Đã xóa toàn bộ danh sách lọc!"
+      empty:
+          - "DANGER Danh sách lọc rỗng!"
+    list:
+      success:
+        - "INFO Danh sách lọc phù phép:"
+        - "INFO %enchant_list%"
+      empty:
+        - "INFO Danh sách lọc rỗng!"
+    help:
+      - "&c-----------------Lệnh lọc phù phép-----------------"
+      - "&f/cefilter add <phù phép> &e- Thêm phù phép vào danh sách lọc"
+      - "&f/cefilter remove <phù phép> &e- Xóa phù phép khỏi danh sách lọc"
+      - "&f/cefilter clear &e- Xóa toàn bộ danh sách lọc"
+      - "&f/cefilter &e- Xem danh sách lọc"
+      - "&cLưu ý: những phù phép không có trong danh sách lọc sẽ tự động bị tinker!"
+    notice:
+      - "INFO Sử dụng &f/cefilter &eđể lọc phù phép khi mở sách!"
   nametag:
     not-set:
       - "DANGER Chưa thiết lập tên tạm thời để có thể xem!"
@@ -254,6 +285,8 @@ ce-item:
   randombook:
     success:
       - "SUCCESS Mở được %group_prefix%&l%enchant_display% %enchant_level%&a!"
+    success-tinker:
+      - "SUCCESS Mở được %group_prefix%&l%enchant_display% %enchant_level% và tự động dung luyện&a!"
     full:
       - "DANGER Túi đồ đã đầy!"
   nametag:

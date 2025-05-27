@@ -5,7 +5,9 @@ import java.util.List;
 
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.bukkit.utils.RandomRangeInt;
+import lombok.Getter;
 
+@Getter
 public class CEGroup {
 	private String name;
 	private String display;
@@ -18,9 +20,10 @@ public class CEGroup {
 	private int valuable;
 	private Priority priority;
     private boolean craft;
+	private boolean filter;
 
 	public CEGroup(String name, String display, String enchantDisplay, String bookDisplay, String prefix, boolean disableEnchantLore, RandomRangeInt success, RandomRangeInt destroy,
-			int valuable, Priority priority, boolean craft) {
+			int valuable, Priority priority, boolean craft, boolean filter) {
 		this.name = name;
 		this.display = display;
         this.enchantDisplay = enchantDisplay;
@@ -32,46 +35,7 @@ public class CEGroup {
 		this.valuable = valuable;
 		this.priority = priority;
         this.craft = craft;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public String getPrefix() {
-		return prefix;
-	}
-
-	public String getDisplay() {
-		return display;
-	}
-
-    public String getEnchantDisplay() {
-        return enchantDisplay;
-    }
-
-    public String getBookDisplay() {
-        return bookDisplay;
-    }
-
-	public boolean isDisableEnchantLore() {
-		return disableEnchantLore;
-	}
-
-	public RandomRangeInt getSuccess() {
-		return success;
-	}
-
-	public RandomRangeInt getDestroy() {
-		return destroy;
-	}
-
-	public int getValuable() {
-		return valuable;
-	}
-
-	public Priority getPriority() {
-		return priority;
+		this.filter = filter;
 	}
 
 	public List<String> getEnchantNameList() {
@@ -93,8 +57,4 @@ public class CEGroup {
 		}
 		return enchants;
 	}
-
-    public boolean isCraft() {
-        return craft;
-    }
 }

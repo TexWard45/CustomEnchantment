@@ -94,7 +94,7 @@ public abstract class CEUnify<T extends CEUnifyData> extends CEWeaponAbstract<T>
 		ItemStack weaponItemStack = weaponCraftItemStack.getNewItemStack();
 		ItemMeta meta = itemStack.getItemMeta();
 		ItemMeta weaponMeta = weaponItemStack.getItemMeta();
-		
+
 		if (!weaponMeta.hasDisplayName()) {
 			String display = getDisplay(MaterialUtils.getDisplayName(armorType));
 			meta.setDisplayName(display);
@@ -102,8 +102,10 @@ public abstract class CEUnify<T extends CEUnifyData> extends CEWeaponAbstract<T>
 			String display = getDisplay(weaponItemStack.getItemMeta().getDisplayName());
 			meta.setDisplayName(display);
 		}
-		
+
 		itemStack.setItemMeta(meta);
+
+		getWeaponDisplay().setDisplayName(meta.getDisplayName());
 
 		CECraftItemStackNMS nms = new CECraftItemStackNMS(itemStack);
 		setCraftItemStack(nms);
@@ -129,7 +131,11 @@ public abstract class CEUnify<T extends CEUnifyData> extends CEWeaponAbstract<T>
 		if (this.unifyWeapon.isSet()) {
 			return ApplyReason.CANCEL;
 		}
-		
+
+		if (this.getDefaultItemStack().getAmount() > 1 || ceItem.getDefaultItemStack().getAmount() > 1) {
+			return ApplyReason.CANCEL;
+		}
+
 		this.getCraftItemStack().getNewItemStack().setAmount(1);
 		ceItem.getCraftItemStack().getNewItemStack().setAmount(1);
 		

@@ -30,10 +30,6 @@ public class EffectData {
         return effectHook.isForceEffectOnEnemyDead();
     }
 
-	public void execute() {
-		effectHook.execute(data);
-	}
-
 	public void tick() {
 		tick++;
 	}

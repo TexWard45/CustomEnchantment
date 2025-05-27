@@ -374,7 +374,26 @@ public class PlayerListener implements Listener {
 
         handleDash(e.getPlayer());
         handleJump(e.getPlayer());
+		callSneak(e.getPlayer());
     }
+
+	public void callSneak(Player player) {
+		CEPlayer cePlayer = CEAPI.getCEPlayer(player);
+
+		cePlayer.getTemporaryStorage().set(TemporaryKey.LAST_SNEAK_TIME, System.currentTimeMillis());
+
+		PlayerTemporaryStorage storage = cePlayer.getTemporaryStorage();
+		long lastCallSneakTime = storage.getLong(TemporaryKey.LAST_CALL_SNEAK_TIME, 0);
+
+		if (System.currentTimeMillis() - lastCallSneakTime > CustomEnchantment.instance().getMainConfig().getSneakEventPeriod()) {
+			CECallerBuilder
+					.build(cePlayer.getPlayer())
+					.setCEType(CEType.SNEAK)
+					.call();
+
+			storage.set(TemporaryKey.LAST_CALL_SNEAK_TIME, System.currentTimeMillis());
+		}
+	}
 
     public void handleDash(Player player) {
         CEPlayer cePlayer = CEAPI.getCEPlayer(player);

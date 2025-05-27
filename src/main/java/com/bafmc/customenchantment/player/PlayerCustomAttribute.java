@@ -45,7 +45,7 @@ public class PlayerCustomAttribute extends CEPlayerExpansion {
 		return AttributeCalculate.calculate(type, value, list);
 	}
 
-	public double getValue(CustomAttributeType type) {
+	public double getValue(NMSAttributeType type) {
 		return valueMap.getOrDefault(type, 0.0);
 	}
 
@@ -83,7 +83,7 @@ public class PlayerCustomAttribute extends CEPlayerExpansion {
 				continue;
 			}
 
-			valueMap.put(customType, 0.0);
+			valueMap.put(customType, customType.getBaseValue());
 		}
 
 		for (CustomAttributeType type : attributeMap.keySet()) {

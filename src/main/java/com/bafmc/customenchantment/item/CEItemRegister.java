@@ -1,5 +1,9 @@
 package com.bafmc.customenchantment.item;
 
+import com.bafmc.bukkit.bafframework.nms.NMSNBTTagCompound;
+import com.bafmc.customenchantment.CustomEnchantment;
+import com.bafmc.customenchantment.CustomEnchantmentLog;
+import com.bafmc.customenchantment.nms.CECraftItemStackNMS;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
@@ -32,6 +36,26 @@ public class CEItemRegister {
 			return null;
 		}
 
+		CECraftItemStackNMS craftItemStack = new CECraftItemStackNMS(itemStack);
+		NMSNBTTagCompound tag = craftItemStack.getCECompound();
+
+		if (tag.hasKey(CENBT.TYPE)) {
+			String type = tag.getString(CENBT.TYPE);
+			CEItem ceItem;
+			for (CEItemFactory clazz : list) {
+				try {
+					if (!clazz.isMatchType(type)) {
+						continue;
+					}
+
+					ceItem = clazz.create(itemStack);
+					return ceItem;
+				} catch (Exception e) {
+					continue;
+				}
+			}
+		}
+
 		CEItem ceItem;
 		for (CEItemFactory clazz : list) {
 			try {
@@ -39,6 +63,7 @@ public class CEItemRegister {
 				if (!ceItem.isMatchType(ceItem.getType())) {
 					continue;
 				}
+
 				return ceItem;
 			} catch (Exception e) {
 				continue;
@@ -56,5 +81,12 @@ public class CEItemRegister {
 
 	public static void unregister(CEItemFactory clazz) {
 		list.remove(clazz);
+	}
+
+	public static String getCEItemType(ItemStack itemStack) {
+		CECraftItemStackNMS itemStackNMS = new CECraftItemStackNMS(itemStack);
+
+		NMSNBTTagCompound tag = itemStackNMS.getCECompound();
+		return tag.getString("type");
 	}
 }

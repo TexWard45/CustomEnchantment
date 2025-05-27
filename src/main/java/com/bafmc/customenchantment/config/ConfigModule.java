@@ -5,6 +5,9 @@ import com.bafmc.bukkit.module.PluginModule;
 import com.bafmc.bukkit.utils.FileUtils;
 import com.bafmc.customenchantment.*;
 import com.bafmc.customenchantment.item.mask.group.CEArtifactGroupMap;
+import com.bafmc.customenchantment.item.randombook.CERandomBookPlayerFilter;
+
+import java.util.ArrayList;
 
 public class ConfigModule extends PluginModule<CustomEnchantment> {
     public ConfigModule(CustomEnchantment plugin) {
@@ -16,6 +19,8 @@ public class ConfigModule extends PluginModule<CustomEnchantment> {
     }
 
     public void onReload() {
+        CustomEnchantment.instance().setInReload(true);
+
         FileUtils.createFolder(getPlugin().getArtifactFolder());
         FileUtils.createFolder(getPlugin().getBookUpgradeFolder());
         FileUtils.createFolder(getPlugin().getStorageItemFolder());
@@ -36,6 +41,8 @@ public class ConfigModule extends PluginModule<CustomEnchantment> {
         getPlugin().setCeGroupMap(new CEGroupMap());
         getPlugin().setCeArtifactGroupMap(new CEArtifactGroupMap());
         getPlugin().setCeItemStorageMap(new CEItemStorageMap());
+
+        CERandomBookPlayerFilter.setFilterCEList(new ArrayList<>());
 
         CustomEnchantmentMessage.setConfig(new AdvancedFileConfiguration(getPlugin().getMessagesFile()));
 
@@ -72,5 +79,7 @@ public class ConfigModule extends PluginModule<CustomEnchantment> {
 
         ArtifactUpgradeConfig artifactUpgradeConfig = new ArtifactUpgradeConfig();
         artifactUpgradeConfig.loadConfig(getPlugin().getArtifactUpgradeFile());
+
+        CustomEnchantment.instance().setInReload(false);
     }
 }

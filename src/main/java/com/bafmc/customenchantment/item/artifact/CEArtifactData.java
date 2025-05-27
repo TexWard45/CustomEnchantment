@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 public class CEArtifactData extends CEItemData implements Cloneable {
     @Getter
     private CEArtifactData.ConfigData configData;
@@ -21,6 +23,8 @@ public class CEArtifactData extends CEItemData implements Cloneable {
         private String group;
         private String enchant;
         private int maxLevel;
+        private String itemDisplay;
+        private List<String> itemLore;
     }
 
     public CEArtifactData() {
@@ -36,5 +40,12 @@ public class CEArtifactData extends CEItemData implements Cloneable {
         ceArtifactData.setPattern(this.getPattern());
         ceArtifactData.configData = this.configData;
         return ceArtifactData;
+    }
+
+    public boolean equals(Object data) {
+        if (data instanceof CEArtifactData) {
+            return getPattern().equals(((CEArtifactData) data).getPattern()) && level == ((CEArtifactData) data).getLevel();
+        }
+        return false;
     }
 }

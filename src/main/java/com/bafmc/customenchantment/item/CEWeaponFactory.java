@@ -6,4 +6,8 @@ public class CEWeaponFactory extends CEItemFactory<CEWeapon> {
     public CEWeapon create(ItemStack itemStack) {
         return new CEWeapon(itemStack);
     }
+
+    public boolean isMatchType(String type) {
+        return type.equals(CEItemType.WEAPON);
+    }
 }

@@ -1,5 +1,6 @@
 package com.bafmc.customenchantment.enchant;
 
+import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.api.CEAPI;
 import org.bukkit.entity.Player;
 
@@ -41,7 +42,7 @@ public abstract class EffectHook implements Cloneable {
 				updateAndExecuteOther(otherData);
 			}
 		} else {
-			execute(executeData);
+			executeWithBlacklistCheck(executeData);
 		}
 	}
 
@@ -54,7 +55,7 @@ public abstract class EffectHook implements Cloneable {
 		}
 		data.setTarget(target);
 
-		execute(data);
+		executeWithBlacklistCheck(data);
 	}
 
     public boolean isDifferentEnemyDeadSession(CEFunctionData data) {
@@ -62,6 +63,14 @@ public abstract class EffectHook implements Cloneable {
         return enemy != null && getSettings().getTarget() == Target.ENEMY
                 && CEAPI.getCEPlayer(enemy).getDeathTime() != data.getEnemyDeathTime();
     }
+
+	public void executeWithBlacklistCheck(CEFunctionData data) {
+		if (CustomEnchantment.instance().getMainConfig().getEffectTypeBlacklist().contains(getIdentify())) {
+			return;
+		}
+
+		execute(data);
+	}
 
     public boolean isForceEffectOnEnemyDead() {
         return false;

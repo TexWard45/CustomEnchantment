@@ -36,6 +36,7 @@ public class PlayerModule extends PluginModule<CustomEnchantment> {
     public void setupPlayerSpecialMining() {
         PlayerSpecialMiningRegister.register(BlockDropBonusSpecialMine.class);
         PlayerSpecialMiningRegister.register(ExplosionSpecialMine.class);
+        PlayerSpecialMiningRegister.register(VeinSpecialMine.class);
         PlayerSpecialMiningRegister.register(FurnaceSpecialMine.class);
         PlayerSpecialMiningRegister.register(TelepathySpecialMine.class);
         PlayerSpecialMiningRegister.register(AutoSellSpecialMine.class);

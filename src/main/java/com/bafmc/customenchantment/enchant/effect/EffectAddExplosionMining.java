@@ -1,12 +1,13 @@
 package com.bafmc.customenchantment.enchant.effect;
 
-import org.bukkit.entity.Player;
-
+import com.bafmc.bukkit.utils.StringUtils;
 import com.bafmc.customenchantment.api.CEAPI;
+import com.bafmc.customenchantment.api.MaterialList;
 import com.bafmc.customenchantment.enchant.CEFunctionData;
 import com.bafmc.customenchantment.enchant.EffectHook;
 import com.bafmc.customenchantment.player.CEPlayer;
 import com.bafmc.customenchantment.player.mining.ExplosionSpecialMine.Explosion;
+import org.bukkit.entity.Player;
 
 public class EffectAddExplosionMining extends EffectHook {
 	private String name;
@@ -18,7 +19,14 @@ public class EffectAddExplosionMining extends EffectHook {
 
 	public void setup(String[] args) {
 		this.name = args[0];
-		this.explosion = new Explosion(Integer.valueOf(args[1]), Double.valueOf(args[2]), Boolean.valueOf(args[3]));
+
+		if (args.length == 4) {
+			this.explosion = new Explosion(Integer.parseInt(args[1]), Double.parseDouble(args[2]), Boolean.parseBoolean(args[3]), false, null);
+		}else if (args.length == 5) {
+			this.explosion = new Explosion(Integer.parseInt(args[1]), Double.parseDouble(args[2]), Boolean.parseBoolean(args[3]), Boolean.parseBoolean(args[4]), null);
+		}else if (args.length == 6) {
+			this.explosion = new Explosion(Integer.parseInt(args[1]), Double.parseDouble(args[2]), Boolean.parseBoolean(args[3]), Boolean.parseBoolean(args[4]), MaterialList.getMaterialList(StringUtils.split(args[5], ",", 0)));
+		}
 	}
 
 	public void execute(CEFunctionData data) {

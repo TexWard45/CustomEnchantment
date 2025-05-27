@@ -58,16 +58,13 @@ public class CEGem extends CEItem<CEGemData> {
 
 		ItemStack itemStack = itemStackNMS.getNewItemStack();
 		ItemMeta itemMeta = itemStack.getItemMeta();
-		// Fix duplicate display name and lore
+		// Fix duplicate display name
 		if (getData().getConfigData().getItemDisplay() != null) {
 			itemMeta.setDisplayName(placeholder.apply(getData().getConfigData().getItemDisplay()));
 		}
 
-		if (getData().getConfigData().getItemLore() != null) {
-			itemMeta.setLore(placeholder.apply(getData().getConfigData().getItemLore()));
-		}
-
 		itemStack.setItemMeta(itemMeta);
+		itemStack = ItemStackUtils.setItemStack(itemStack, placeholder);
 		itemStack = ItemStackUtils.updateColorToItemStack(itemStack);
 		return itemStack;
 	}

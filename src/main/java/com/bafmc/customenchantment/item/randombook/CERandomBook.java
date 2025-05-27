@@ -1,25 +1,28 @@
 package com.bafmc.customenchantment.item.randombook;
 
+import com.bafmc.bukkit.bafframework.nms.NMSNBTTagCompound;
+import com.bafmc.bukkit.utils.InventoryUtils;
+import com.bafmc.customenchantment.CustomEnchantment;
+import com.bafmc.customenchantment.CustomEnchantmentLog;
+import com.bafmc.customenchantment.CustomEnchantmentMessage;
+import com.bafmc.customenchantment.enchant.CEEnchantSimple;
+import com.bafmc.customenchantment.enchant.CEPlaceholder;
+import com.bafmc.customenchantment.item.*;
+import com.bafmc.customenchantment.item.book.CEBook;
+import com.bafmc.customenchantment.item.book.CEBookStorage;
+import com.bafmc.customenchantment.menu.tinkerer.TinkererMenu;
+import com.bafmc.customenchantment.menu.tinkerer.TinkererReward;
+import com.bafmc.customenchantment.menu.tinkerer.TinkererSettings;
+import com.bafmc.customenchantment.nms.CECraftItemStackNMS;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.bafmc.customenchantment.item.*;
-import com.bafmc.customenchantment.item.book.CEBook;
-import com.bafmc.customenchantment.item.book.CEBookStorage;
-import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
-
-import com.bafmc.customenchantment.CustomEnchantment;
-import com.bafmc.customenchantment.CustomEnchantmentLog;
-import com.bafmc.customenchantment.CustomEnchantmentMessage;
-import com.bafmc.customenchantment.enchant.CEPlaceholder;
-import com.bafmc.customenchantment.enchant.CEEnchantSimple;
-import com.bafmc.customenchantment.nms.CECraftItemStackNMS;
-import com.bafmc.bukkit.utils.InventoryUtils;
-import com.bafmc.bukkit.bafframework.nms.NMSNBTTagCompound;
-
 public class CERandomBook extends CEItemUsable<CERandomBookData> {
+	private static Map<String, Integer> bookOpen = new HashMap<String, Integer>();
 
 	public CERandomBook(ItemStack itemStack) {
 		super(CEItemType.RANDOM_BOOK, itemStack);
@@ -70,8 +73,6 @@ public class CERandomBook extends CEItemUsable<CERandomBookData> {
 		ItemStack itemStack = ceBook.exportTo();
 
 		CEEnchantSimple ceEnchantSimple = ceBook.getData().getCESimple();
-		Map<String, String> placeholder = CEPlaceholder.getCESimplePlaceholder(ceEnchantSimple);
-		CustomEnchantmentMessage.send(player, "ce-item." + getType() + ".success", placeholder);
 
         if (CustomEnchantment.instance().getConfig().getBoolean("log.random-book.enable")) {
             ApplyReason reason = new ApplyReason("SUCCESS", ApplyResult.SUCCESS);
@@ -90,7 +91,33 @@ public class CERandomBook extends CEItemUsable<CERandomBookData> {
             CustomEnchantmentLog.writeItemActionLogs(reason);
         }
 
-		InventoryUtils.addItem(player, Arrays.asList(itemStack));
+		Map<String, String> placeholder = CEPlaceholder.getCESimplePlaceholder(ceEnchantSimple);
+
+		if (CERandomBookPlayerFilter.isFilter(player)) {
+			if (CERandomBookPlayerFilter.isFilter(player, ceEnchantSimple.getName())) {
+				InventoryUtils.addItem(player, Arrays.asList(itemStack));
+				CustomEnchantmentMessage.send(player, "ce-item." + getType() + ".success", placeholder);
+			} else {
+				TinkererSettings settings = TinkererMenu.getSettings();
+				TinkererReward reward = settings.getReward(ceBook);
+				if (reward != null) {
+					reward.getExecute().execute(player);
+					CustomEnchantmentMessage.send(player, "ce-item." + getType() + ".success-tinker", placeholder);
+				} else {
+					InventoryUtils.addItem(player, Arrays.asList(itemStack));
+					CustomEnchantmentMessage.send(player, "ce-item." + getType() + ".success", placeholder);
+				}
+			}
+		}else {
+			InventoryUtils.addItem(player, Arrays.asList(itemStack));
+			CustomEnchantmentMessage.send(player, "ce-item." + getType() + ".success", placeholder);
+
+			bookOpen.put(player.getName(), bookOpen.getOrDefault(player.getName(), 0) + 1);
+
+			if (bookOpen.get(player.getName()) % 10 == 0) {
+				CustomEnchantmentMessage.send(player, "command.cefilter.notify");
+			}
+		}
         return true;
 	}
 

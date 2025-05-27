@@ -18,13 +18,14 @@ import java.util.regex.Pattern;
 public class CEPlaceholder {
 	public static String setPlaceholder(String string, Map<String, String> map) {
 		for (String key : map.keySet()) {
-			try {
-				string = string.replace(key, map.get(key));
-			}catch (Exception e) {
+			String value = map.get(key);
+
+			if (value == null) {
 				CustomEnchantment.instance().getLogger().warning("Placeholder value is null: " + key + " in " + string);
-				e.printStackTrace();
 				return null;
 			}
+
+			string = string.replace(key, map.get(key));
 		}
 		return string;
 	}

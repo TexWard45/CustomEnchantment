@@ -1,13 +1,6 @@
 package com.bafmc.customenchantment;
 
-import com.bafmc.bukkit.config.AdvancedFileConfiguration;
 import org.junit.jupiter.api.Test;
-
-import java.io.File;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 public class CheckLocation {
     // world 7371 102 -6706
@@ -119,64 +112,64 @@ public class CheckLocation {
     //- 4a211646-8cb2-3e8a-98d4-9127acdc6917
     @Test
     public void onTest() {
-        File folder = new File("src/test/resources/userdata");
-
-        Set<String> keys = new HashSet<>();
-
-        for (File file : folder.listFiles()) {
-            if (!file.getName().endsWith(".yml")) {
-                continue;
-            }
-
-            AdvancedFileConfiguration config = new AdvancedFileConfiguration(file);
-
-            List<TestLocation> list = new ArrayList<>();
-
-            TestLocation lastLocation = new TestLocation();
-            lastLocation.world = config.getString("lastlocation.world-name");
-            lastLocation.x = config.getDouble("lastlocation.x");
-            lastLocation.y = config.getDouble("lastlocation.y");
-            lastLocation.z = config.getDouble("lastlocation.z");
-            list.add(lastLocation);
-
-            TestLocation logoutLocation = new TestLocation();
-            logoutLocation.world = config.getString("logoutlocation.world-name");
-            logoutLocation.x = config.getDouble("logoutlocation.x");
-            logoutLocation.y = config.getDouble("logoutlocation.y");
-            logoutLocation.z = config.getDouble("logoutlocation.z");
-            list.add(logoutLocation);
-
-            for (String home : config.getKeySection("homes", false)) {
-                TestLocation homeLocation = new TestLocation();
-                homeLocation.world = config.getString("homes." + home + ".world-name");
-                homeLocation.x = config.getDouble("homes." + home + ".x");
-                homeLocation.y = config.getDouble("homes." + home + ".y");
-                homeLocation.z = config.getDouble("homes." + home + ".z");
-                list.add(homeLocation);
-            }
-
-            for (TestLocation location : list) {
-                // Between // world 7371 102 -6706
-                //    // world 7283 102 -6777
-
-                if (location.world == null) {
-                    continue;
-                }
-
-                if (location.world.equals("world")) {
-                    if (location.x >= 7283 && location.x <= 7371) {
-                        if (location.z >= -6777 && location.z <= -6706) {
-                            String playerName = config.getString("last-account-name");
-                            keys.add(playerName);
-                        }
-                    }
-                }
-            }
-        }
-
-        for (String key : keys) {
-            System.out.println(key);
-        }
+//        File folder = new File("src/test/resources/userdata");
+//
+//        Set<String> keys = new HashSet<>();
+//
+//        for (File file : folder.listFiles()) {
+//            if (!file.getName().endsWith(".yml")) {
+//                continue;
+//            }
+//
+//            AdvancedFileConfiguration config = new AdvancedFileConfiguration(file);
+//
+//            List<TestLocation> list = new ArrayList<>();
+//
+//            TestLocation lastLocation = new TestLocation();
+//            lastLocation.world = config.getString("lastlocation.world-name");
+//            lastLocation.x = config.getDouble("lastlocation.x");
+//            lastLocation.y = config.getDouble("lastlocation.y");
+//            lastLocation.z = config.getDouble("lastlocation.z");
+//            list.add(lastLocation);
+//
+//            TestLocation logoutLocation = new TestLocation();
+//            logoutLocation.world = config.getString("logoutlocation.world-name");
+//            logoutLocation.x = config.getDouble("logoutlocation.x");
+//            logoutLocation.y = config.getDouble("logoutlocation.y");
+//            logoutLocation.z = config.getDouble("logoutlocation.z");
+//            list.add(logoutLocation);
+//
+//            for (String home : config.getKeySection("homes", false)) {
+//                TestLocation homeLocation = new TestLocation();
+//                homeLocation.world = config.getString("homes." + home + ".world-name");
+//                homeLocation.x = config.getDouble("homes." + home + ".x");
+//                homeLocation.y = config.getDouble("homes." + home + ".y");
+//                homeLocation.z = config.getDouble("homes." + home + ".z");
+//                list.add(homeLocation);
+//            }
+//
+//            for (TestLocation location : list) {
+//                // Between // world 7371 102 -6706
+//                //    // world 7283 102 -6777
+//
+//                if (location.world == null) {
+//                    continue;
+//                }
+//
+//                if (location.world.equals("world")) {
+//                    if (location.x >= 7283 && location.x <= 7371) {
+//                        if (location.z >= -6777 && location.z <= -6706) {
+//                            String playerName = config.getString("last-account-name");
+//                            keys.add(playerName);
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//
+//        for (String key : keys) {
+//            System.out.println(key);
+//        }
     }
 
     public static class TestLocation {

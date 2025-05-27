@@ -33,16 +33,18 @@ public class CustomAttributeType extends NMSAttributeType {
 	public static final CustomAttributeType SLOW_RESISTANCE = (CustomAttributeType) (new CustomAttributeType("SLOW_RESISTANCE", "custom:player.slow_resistance", 0, true)).register();
 	// The player will have a chance to resist the stun/slow effect by a certain percentage between 0 and 100.
 	public static final CustomAttributeType MAGIC_RESISTANCE = (CustomAttributeType) (new CustomAttributeType("MAGIC_RESISTANCE", "custom:player.magic_resistance", 0, true)).register();
+	// Vulnerability is a bonus damage percentage taken by the player when attacked by other players.
+	public static final CustomAttributeType VULNERABILITY = (CustomAttributeType) (new CustomAttributeType("VULNERABILITY", "custom:player.vulnerability", 0, true)).register();
 
-	private int baseValue;
+	private double baseValue;
 	private boolean percent;
 
-	public CustomAttributeType(String type, String minecraftId, int baseValue) {
+	public CustomAttributeType(String type, String minecraftId, double baseValue) {
 		super(type, minecraftId);
 		this.baseValue = baseValue;
 	}
 
-	public CustomAttributeType(String type, String minecraftId, int baseValue, boolean percent) {
+	public CustomAttributeType(String type, String minecraftId, double baseValue, boolean percent) {
 		super(type, minecraftId);
 		this.baseValue = baseValue;
 		this.percent = percent;

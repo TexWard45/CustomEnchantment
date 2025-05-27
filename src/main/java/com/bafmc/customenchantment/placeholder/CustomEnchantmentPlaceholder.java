@@ -1,7 +1,10 @@
 package com.bafmc.customenchantment.placeholder;
 
+import com.bafmc.bukkit.bafframework.nms.NMSAttributeType;
+import com.bafmc.bukkit.utils.FormatUtils;
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.attribute.AttributeCalculate;
+import com.bafmc.customenchantment.attribute.CustomAttributeType;
 import com.bafmc.customenchantment.enchant.EffectUtil;
 import com.bafmc.customenchantment.player.CEPlayer;
 import com.bafmc.customenchantment.player.PlayerVanillaAttribute;
@@ -15,9 +18,12 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 public class CustomEnchantmentPlaceholder extends PlaceholderExpansion {
+    private DecimalFormat decimalFormat = new DecimalFormat("#.##");
+
     @NotNull
     public String getAuthor() {
         return "TexWard";
@@ -43,41 +49,117 @@ public class CustomEnchantmentPlaceholder extends PlaceholderExpansion {
     }
 
     public String onRequest(OfflinePlayer player, String params) {
-        if(params.startsWith("attribute_")){
-            String cast = params.substring(10);
-            if(cast.startsWith("value_")){
-                String value = cast.substring(6);
-                CEPlayer cePlayer = CEAPI.getCEPlayer(player.getPlayer());
-                PlayerVanillaAttribute attribute = cePlayer.getVanillaAttribute();
-                Attribute attributePlayer = EffectUtil.getAttributeType(value);
-                List<AttributeModifier> attributeModifiers = attribute.getAttributeModifiers(attributePlayer);
-                Player playerServer = Bukkit.getServer().getPlayer(player.getUniqueId());
-                if(playerServer == null) return null;
+        if (params.startsWith("attribute_value_")) {
+            String[] split = params.split("_");
 
-                return switch (value) {
-                    case "ATTACK_DAMAGE" -> String.format("%.2f",
-                            AttributeCalculate.calculateAttributeModifier(
-                                    getAttackDamage(playerServer),
-                                    attributeModifiers));
-                    case "ATTACK_SPEED" -> String.format("%.2f",
+            String type = split[2].toUpperCase().replace("-", "_");
+
+            Attribute attributePlayer = EffectUtil.getAttributeType(type);
+
+            CEPlayer cePlayer = CEAPI.getCEPlayer(player.getPlayer());
+            PlayerVanillaAttribute attribute = cePlayer.getVanillaAttribute();
+            List<AttributeModifier> attributeModifiers = attribute.getAttributeModifiers(attributePlayer);
+            Player playerServer = Bukkit.getServer().getPlayer(player.getUniqueId());
+            if(playerServer == null) return null;
+
+            if (attributePlayer == Attribute.GENERIC_ATTACK_DAMAGE) {
+                return String.format("%-7s", FormatUtils.format(
+                        AttributeCalculate.calculateAttributeModifier(
+                                1,
+                                attributeModifiers)));
+            }
+
+            if (attributePlayer == Attribute.GENERIC_ATTACK_SPEED) {
+                String mode = split[3];
+
+                // attack speed each second = 4.0 / attack speed
+                if (mode.equals("0")) {
+                    return String.format("%-7s", FormatUtils.format(
                             AttributeCalculate.calculateAttributeModifier(
                                     4.0,
-                                    attributeModifiers));
-                    case "KNOCKBACK_RESISTANCE", "LUCK", "ARMOR", "ARMOR_TOUGHNESS" -> String.format("%.2f",
+                                    attributeModifiers)));
+                }
+                // time take for each attack = 1 / attack speed
+                else if (mode.equals("1")) {
+                    return String.format("%-7s", decimalFormat.format(1 /
                             AttributeCalculate.calculateAttributeModifier(
-                                    0.0,
-                                    attributeModifiers));
-                    case "MAX_HEALTH" -> String.format("%.2f",
-                            AttributeCalculate.calculateAttributeModifier(
-                                    20.0,
-                                    attributeModifiers));
-                    case "MOVEMENT_SPEED" -> String.format("%.2f",
-                            AttributeCalculate.calculateAttributeModifier(
-                                    0.1,
-                                    attributeModifiers));
-                    default -> null;
-                };
+                                    4.0,
+                                    attributeModifiers)));
+                }
             }
+
+            if (attributePlayer == Attribute.GENERIC_MOVEMENT_SPEED) {
+                double value = AttributeCalculate.calculateAttributeModifier(
+                        0.1,
+                        attributeModifiers);
+
+                if (value == 0.1) {
+                    return String.format("%-7s", "100%");
+                }
+
+                if (value > 0.1) {
+                    String positiveColor = split[3];
+                    return String.format("%-7s", positiveColor + FormatUtils.format((value / 0.1) * 100.0) + "%");
+                } else {
+                    String negativeColor = split[4];
+                    return String.format("%-7s", negativeColor + FormatUtils.format((value / 0.1) * 100.0) + "%");
+                }
+            }
+
+            if (attributePlayer == Attribute.GENERIC_MAX_HEALTH) {
+                return String.format("%-7s", FormatUtils.format(
+                        AttributeCalculate.calculateAttributeModifier(
+                                20.0,
+                                attributeModifiers)));
+            }
+
+            if (attributePlayer == Attribute.GENERIC_SCALE) {
+                return String.format("%-7s", FormatUtils.format(
+                        AttributeCalculate.calculateAttributeModifier(
+                                1.0,
+                                attributeModifiers)));
+            }
+
+            if (attributePlayer == Attribute.PLAYER_ENTITY_INTERACTION_RANGE) {
+                return String.format("%-7s", FormatUtils.format(
+                        AttributeCalculate.calculateAttributeModifier(
+                                3.0,
+                                attributeModifiers)));
+            }
+
+            if (attributePlayer == Attribute.PLAYER_BLOCK_INTERACTION_RANGE) {
+                return String.format("%-7s", FormatUtils.format(
+                        AttributeCalculate.calculateAttributeModifier(
+                                4.5,
+                                attributeModifiers)));
+            }
+
+            return String.format("%-7s", FormatUtils.format(AttributeCalculate.calculateAttributeModifier(
+                    0.0,
+                    attributeModifiers)));
+        }
+
+        if (params.startsWith("custom_attribute_value_")) {
+            String type = params.substring(23).toUpperCase().replace("-", "_");
+
+            NMSAttributeType customAttributeType = CustomAttributeType.valueOf(type);
+
+            CEPlayer cePlayer = CEAPI.getCEPlayer(player.getPlayer());
+
+            if (customAttributeType instanceof CustomAttributeType customAttributeType1 && customAttributeType1.isPercent()) {
+                return String.format("%-7s", FormatUtils.format(cePlayer.getCustomAttribute().getValue(customAttributeType)) + "%");
+            }
+
+            return String.format("%-7s", FormatUtils.format(cePlayer.getCustomAttribute().getValue(customAttributeType)));
+        }
+
+        if (params.startsWith("custom_attribute_value_percent_")) {
+            String type = params.substring(31).toUpperCase().replace("-", "_");
+
+            NMSAttributeType customAttributeType = CustomAttributeType.valueOf(type);
+
+            CEPlayer cePlayer = CEAPI.getCEPlayer(player.getPlayer());
+            return String.format("%-7s", FormatUtils.format(cePlayer.getCustomAttribute().getValue(customAttributeType) * 100.0) + "%");
         }
         return null;
     }

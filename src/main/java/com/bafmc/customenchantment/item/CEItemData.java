@@ -17,4 +17,11 @@ public abstract class CEItemData {
 	public void setPattern(String pattern) {
 		this.pattern = pattern;
 	}
+
+	public boolean equals(Object data) {
+		if (data instanceof CEItemData) {
+			return getPattern().equals(((CEItemData) data).getPattern());
+		}
+		return false;
+	}
 }

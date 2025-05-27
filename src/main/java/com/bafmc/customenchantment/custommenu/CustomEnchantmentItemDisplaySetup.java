@@ -2,7 +2,9 @@ package com.bafmc.customenchantment.custommenu;
 
 import com.bafmc.bukkit.api.PlaceholderAPI;
 import com.bafmc.bukkit.config.AdvancedConfigurationSection;
+import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.api.CEAPI;
+import com.bafmc.customenchantment.api.Parameter;
 import com.bafmc.custommenu.menu.ItemDisplaySetup;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -18,6 +20,12 @@ public class CustomEnchantmentItemDisplaySetup extends ItemDisplaySetup {
 		}
 		
 		int amount = dataConfig.getInt("amount", 1);
+
+		String data = dataConfig.getString("data", null);
+		if (data != null) {
+			Parameter parameter = new Parameter(data);
+			return CustomEnchantment.instance().getCeItemStorageMap().get(dataConfig.getString("type")).getItemStackByParameter(parameter);
+		}
 
 		if (dataConfig.getString("type").equals("storage")) {
 			String name = PlaceholderAPI.setPlaceholders(player, dataConfig.getString("name"));

@@ -118,7 +118,11 @@ public class CEItemConfig extends AbstractConfig {
 				String template = config.getString(key + ".template");
 				Validate.notNull(template, "Please set the template for the weapon settings: " + key);
 
-				map.put(key, loadWeaponSettings(config.getAdvancedConfigurationSection(key), config.getAdvancedConfigurationSection(template)));
+				WeaponSettings settings = loadWeaponSettings(config.getAdvancedConfigurationSection(key), config.getAdvancedConfigurationSection(template));
+
+				settings.setKey(key);
+
+				map.put(key, settings);
 			}catch (Exception e) {
 				e.printStackTrace();
 				continue;
@@ -627,7 +631,7 @@ public class CEItemConfig extends AbstractConfig {
 
 			int maxLevel = config.getInt(path + ".max-level");
 
-			CEArtifactData.ConfigData configData = new CEArtifactData.ConfigData(group, enchant, maxLevel);
+			CEArtifactData.ConfigData configData = new CEArtifactData.ConfigData(group, enchant, maxLevel, itemMeta.getDisplayName(), new ArrayList<>(itemMeta.getLore()));
 
 			CEArtifactData data = new CEArtifactData(pattern, configData);
 			ceItem.setData(data);

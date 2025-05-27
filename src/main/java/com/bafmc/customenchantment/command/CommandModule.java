@@ -105,5 +105,9 @@ public class CommandModule extends PluginModule<CustomEnchantment> {
         AdvancedCommandBuilder nameTagBuilder = AdvancedCommandBuilder.builder().plugin(getPlugin()).rootCommand("nametag");
         new CommandNameTag().onRegister(nameTagBuilder);
         nameTagBuilder.build();
+
+        AdvancedCommandBuilder filterEnchantBuilder = AdvancedCommandBuilder.builder().plugin(getPlugin()).rootCommand("cefilter");
+        new CommandFilterEnchant().onRegister(filterEnchantBuilder);
+        filterEnchantBuilder.build();
     }
 }

@@ -42,7 +42,7 @@ public class CEBanner extends CEUnify<CEBannerData> {
 
 	public boolean isMatchType(String type) {
 		ItemStack itemStack = getCurrentItemStack();
-		if (MaterialUtils.isSimilar(itemStack.getType(), "BANNER")) {
+		if (MaterialUtils.isSimilar(itemStack.getType(), "BANNER") || MaterialUtils.isSimilar(itemStack.getType(), "DRAGON_HEAD")) {
 			return true;
 		}
 		return super.isMatchType(type);

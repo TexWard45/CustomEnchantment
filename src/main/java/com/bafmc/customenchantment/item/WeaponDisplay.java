@@ -106,16 +106,19 @@ public class WeaponDisplay extends CEItemExpansion implements ITrade<NMSNBTTagCo
 			if (newLore.get(i).contains("blank_lore") && newLore.get(i + 1).isEmpty()) {
 				newLore.remove(i + 1);
 				i--;
+				continue;
 			}
 			
 			if (newLore.get(i).contains("lower_blank_lore") && newLore.get(i + 1).contains("lower_blank_lore")) {
 				newLore.remove(i + 1);
 				i--;
+				continue;
 			}
 			
 			if (newLore.get(i).contains("upper_blank_lore") && newLore.get(i + 1).contains("upper_blank_lore")) {
 				newLore.remove(i + 1);
 				i--;
+				continue;
 			}
 		}
 
@@ -284,7 +287,16 @@ class CustomEnchantLore {
 				continue;
 			}
 
-			String customDisplay = ceEnchant.getCEDisplay().getCustomDisplayFormat();
+
+			String customDisplay = null;
+			Map<String, String> customDisplayMap = ceEnchant.getCEDisplay().getCustomDisplayFormat();
+
+			if (customDisplayMap.containsKey(settings.getKey())) {
+				customDisplay = customDisplayMap.get(settings.getKey());
+			}else {
+				customDisplay = customDisplayMap.get("default");
+			}
+
 			if (customDisplay == null) {
 				customDisplay = settings.getCustomEnchantLore();
 			}

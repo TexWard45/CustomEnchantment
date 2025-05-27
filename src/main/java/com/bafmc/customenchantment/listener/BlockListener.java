@@ -1,15 +1,17 @@
 package com.bafmc.customenchantment.listener;
 
-import com.bafmc.bukkit.api.EconomyAPI;
+import com.bafmc.bukkit.bafframework.task.EconomyTask;
 import com.bafmc.bukkit.utils.InventoryUtils;
 import com.bafmc.bukkit.utils.ItemStackUtils;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.api.MaterialData;
 import com.bafmc.customenchantment.player.CEPlayer;
+import com.bafmc.customenchantment.player.TemporaryKey;
 import com.bafmc.customenchantment.player.bonus.BlockBonus;
 import com.bafmc.customenchantment.player.mining.AutoSellSpecialMine;
 import com.bafmc.customenchantment.task.BlockTask;
+import com.bafmc.customenchantment.task.ExpTask;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -55,6 +57,10 @@ public class BlockListener implements Listener {
 		CEPlayer cePlayer = CEAPI.getCEPlayer(player);
 
 		Block block = e.getBlock();
+		Material material = block.getType();
+
+		cePlayer.getTemporaryStorage().set(TemporaryKey.LAST_MINE_BLOCK_TYPE, material);
+
 		MaterialData materialNMS = new MaterialData(block);
 
 		ItemStack itemStack = player.getItemInHand();
@@ -69,12 +75,17 @@ public class BlockListener implements Listener {
 
 		BlockBonus xpBonus = cePlayer.getBlockBonus().getExpBonus();
 		if (!xpBonus.isEmpty()) {
-			e.setExpToDrop(e.getExpToDrop() + (int) xpBonus.getBonus(materialNMS));
+			e.setExpToDrop(0);
+
+			int newExp = e.getExpToDrop() + (int) xpBonus.getBonus(materialNMS);
+			if (newExp > 0) {
+				ExpTask.giveExp(player, newExp);
+			}
 		}
 
 		BlockBonus mBonus = cePlayer.getBlockBonus().getMoneyBonus();
 		if (!mBonus.isEmpty()) {
-			EconomyAPI.giveMoney(player, mBonus.getBonus(materialNMS));
+			EconomyTask.giveMoney(player, mBonus.getBonus(materialNMS));
 		}
 	}
 

@@ -54,6 +54,7 @@ public class CustomEnchantment extends BafPlugin implements Listener {
 	private GuardModule guardModule;
 	private ConfigModule configModule;
 	private FeatureModule featureModule;
+	private boolean inReload;
 
 	@Override
 	public void onEnable() {

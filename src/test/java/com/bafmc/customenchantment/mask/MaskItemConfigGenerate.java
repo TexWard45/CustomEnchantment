@@ -42,7 +42,7 @@ public class MaskItemConfigGenerate {
                 }else {
 //                    System.out.println(mobType + " is not a valid entity type. Found other entity type: " + config.get("list." + tierStr + ".list." + mobType + ".type"));
                     builder.put("{entity_type}", config.get("list." + tierStr + ".list." + mobType + ".type"));
-                    entityType = EntityType.valueOf(config.getString("list." + tierStr + ".list." + mobType + ".type"));
+                    entityType = EntityType.valueOf(config.getString("list." + tierStr + ".list." + mobType + ".type").replace("-", "_"));
                 }
 
                 for (int i = 1; i <= 5; i++) {

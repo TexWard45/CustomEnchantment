@@ -6,7 +6,9 @@ import com.bafmc.bukkit.config.annotation.Path;
 import com.bafmc.bukkit.config.annotation.ValueType;
 import com.bafmc.customenchantment.api.EntityTypeList;
 import com.bafmc.customenchantment.api.MaterialList;
+import com.bafmc.customenchantment.config.data.ArtifactSettingsData;
 import com.bafmc.customenchantment.item.CEWeapon;
+import com.bafmc.customenchantment.item.artifact.CEArtifact;
 import lombok.Getter;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -30,6 +32,9 @@ public class MainConfig implements IConfigurationLoader {
 	@Path("move-event-period")
 	@Getter
 	private long moveEventPeriod = 1000;
+	@Path("sneak-event-period")
+	@Getter
+	private long sneakEventPeriod = 250;
 	@Path("enchant-disable-worlds")
 	@Getter
 	private List<String> enchantDisableWorlds = new ArrayList<>();
@@ -48,6 +53,12 @@ public class MainConfig implements IConfigurationLoader {
 	@Path("unbreakable-armor.tick-interval")
 	@Getter
 	private int unbreakableArmorTickInterval = 20;
+	@Path("effect-type-blacklist")
+	@Getter
+	private List<String> effectTypeBlacklist = new ArrayList<>();
+	@Path("artifact-settings")
+	@ValueType(ArtifactSettingsData.class)
+	private Map<String, ArtifactSettingsData> artifactSettingMap = new LinkedHashMap<>();
 
 	@Override
 	public void loadConfig(String s, ConfigurationSection configurationSection) {
@@ -72,5 +83,21 @@ public class MainConfig implements IConfigurationLoader {
 
 	public boolean isEnchantDisableLocation(String world) {
 		return enchantDisableWorlds.contains(world);
+	}
+
+	public ArtifactSettingsData getArtifactSettings(CEArtifact ceArtifact) {
+		String group = ceArtifact.getData().getConfigData().getGroup();
+
+		for (String key : artifactSettingMap.keySet()) {
+			if (artifactSettingMap.get(key).getGroups().contains(group)) {
+				return artifactSettingMap.get(key);
+			}
+		}
+
+		return null;
+	}
+
+	public Map<String, ArtifactSettingsData> getArtifactSettingMap() {
+		return new LinkedHashMap<>(artifactSettingMap);
 	}
 }

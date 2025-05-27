@@ -12,6 +12,7 @@ import com.bafmc.customenchantment.item.CEWeaponAbstract;
 import com.bafmc.customenchantment.item.mask.group.CEArtifactGroup;
 import com.bafmc.customenchantment.nms.CECraftItemStackNMS;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -67,8 +68,19 @@ public class CEArtifact extends CEWeaponAbstract<CEArtifactData> {
             itemStackNMS.setCETag(tag);
         }
 
-        itemStack = ItemStackUtils.getItemStack(itemStackNMS.getNewItemStack(), Placeholder.of(getPlaceholder(data)));
-        return ItemStackUtils.updateColorToItemStack(itemStack);
+        Placeholder placeholder = Placeholder.of(getPlaceholder(data));
+
+        itemStack = itemStackNMS.getNewItemStack();
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        // Fix duplicate display name
+        if (getData().getConfigData().getItemDisplay() != null) {
+            itemMeta.setDisplayName(placeholder.apply(getData().getConfigData().getItemDisplay()));
+        }
+
+        itemStack.setItemMeta(itemMeta);
+        itemStack = ItemStackUtils.setItemStack(itemStack, placeholder);
+        itemStack = ItemStackUtils.updateColorToItemStack(itemStack);
+        return itemStack;
     }
 
     public Map<String, String> getPlaceholder(CEArtifactData data) {

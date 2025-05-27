@@ -1,9 +1,8 @@
 package com.bafmc.customenchantment.api;
 
+import com.github.sirblobman.combatlogx.CombatPlugin;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
-
-import com.SirBlobman.combatlogx.CombatLogX;
 
 public class CombatLogXAPI {
 	public static boolean isCombatLogXSupport() {
@@ -11,7 +10,7 @@ public class CombatLogXAPI {
 	}
 
 	public static boolean isInCombat(Player player) {
-		CombatLogX plugin = (CombatLogX) Bukkit.getPluginManager().getPlugin("CombatLogX");
+		CombatPlugin plugin = (CombatPlugin) Bukkit.getPluginManager().getPlugin("CombatLogX");
 		return plugin != null && plugin.getCombatManager().isInCombat(player);
 	}
 }

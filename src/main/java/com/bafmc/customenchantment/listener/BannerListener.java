@@ -52,7 +52,7 @@ public class BannerListener implements Listener {
 				return;
 			}
 
-			if (!MaterialUtils.isSimilar(cursor.getType(), "BANNER")) {
+			if (!MaterialUtils.isSimilar(cursor.getType(), "BANNER") && !MaterialUtils.isSimilar(cursor.getType(), "DRAGON_HEAD")) {
 				return;
 			}
 
@@ -78,7 +78,7 @@ public class BannerListener implements Listener {
 			
 			int amount = itemStack.getAmount();
 
-			if (!MaterialUtils.isSimilar(itemStack.getType(), "BANNER")) {
+			if (!MaterialUtils.isSimilar(itemStack.getType(), "BANNER") && !MaterialUtils.isSimilar(itemStack.getType(), "DRAGON_HEAD")) {
 				return;
 			}
 			

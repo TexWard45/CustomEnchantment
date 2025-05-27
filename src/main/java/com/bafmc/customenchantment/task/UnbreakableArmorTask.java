@@ -4,8 +4,7 @@ import com.bafmc.bukkit.task.PlayerPerTickTask;
 import com.bafmc.bukkit.utils.EquipSlot;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.api.CEAPI;
-import com.bafmc.customenchantment.item.CEItem;
-import com.bafmc.customenchantment.item.CEWeapon;
+import com.bafmc.customenchantment.item.CEItemType;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
@@ -25,8 +24,8 @@ public class UnbreakableArmorTask extends PlayerPerTickTask {
         for (EquipSlot equipSlot : EquipSlot.ARMOR_ARRAY) {
             ItemStack itemStack = equipSlot.getItemStack(player);
 
-            CEItem ceItem = CEAPI.getCEItem(itemStack);
-            if (!(ceItem instanceof CEWeapon)) {
+            String type = CEAPI.getCEItemType(itemStack);
+            if (type == null || !type.equals(CEItemType.WEAPON)) {
                 continue;
             }
 

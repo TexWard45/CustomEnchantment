@@ -1,6 +1,8 @@
 package com.bafmc.customenchantment.player;
 
 import com.bafmc.bukkit.utils.EquipSlot;
+import com.bafmc.customenchantment.CustomEnchantment;
+import com.bafmc.customenchantment.config.data.ArtifactSettingsData;
 import com.bafmc.customenchantment.item.CEWeapon;
 import com.bafmc.customenchantment.item.CEWeaponAbstract;
 import org.bukkit.inventory.ItemStack;
@@ -78,22 +80,26 @@ public class PlayerEquipment extends CEPlayerExpansion {
     }
 
     public void sortExtraSlot() {
-        List<EquipSlot> extraSlotList = new ArrayList<>();
-        extraSlotList.addAll(List.of(EquipSlot.EXTRA_SLOT_ARRAY));
-        for (int i = 0; i < extraSlotList.size(); i++) {
-            EquipSlot slot = extraSlotList.get(i);
-            if (getSlot(slot) != null) {
-                continue;
-            }
-            for (int j = i + 1; j < extraSlotList.size(); j++) {
-                EquipSlot nextSlot = extraSlotList.get(j);
-                CEWeaponAbstract weapon = getSlot(nextSlot);
-                if (weapon == null) {
+        Map<String, ArtifactSettingsData> artifactSettingsDataMap = CustomEnchantment.instance().getMainConfig().getArtifactSettingMap();
+
+        for (ArtifactSettingsData artifactSettingsData : artifactSettingsDataMap.values()) {
+            List<EquipSlot> extraSlotList = new ArrayList<>();
+            extraSlotList.addAll(artifactSettingsData.getSlots());
+            for (int i = 0; i < extraSlotList.size(); i++) {
+                EquipSlot slot = extraSlotList.get(i);
+                if (getSlot(slot) != null) {
                     continue;
                 }
-                setSlot(slot, weapon);
-                setSlot(nextSlot, null);
-                break;
+                for (int j = i + 1; j < extraSlotList.size(); j++) {
+                    EquipSlot nextSlot = extraSlotList.get(j);
+                    CEWeaponAbstract weapon = getSlot(nextSlot);
+                    if (weapon == null) {
+                        continue;
+                    }
+                    setSlot(slot, weapon);
+                    setSlot(nextSlot, null);
+                    break;
+                }
             }
         }
     }

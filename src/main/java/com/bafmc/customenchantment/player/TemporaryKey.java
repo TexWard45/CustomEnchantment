@@ -10,9 +10,11 @@ public class TemporaryKey {
     public static final String MULTIPLE_ARROW_COOLDOWN = "multiple_arrow_cooldown";
 	public static final String BOW_POWER = "bow_power";
 	public static final String LAST_MOVE_TIME = "last_move_time";
+    public static final String LAST_SNEAK_TIME = "last_sneak_time";
     public static final String LAST_COMBAT_TIME = "last_combat_time";
     public static final String IN_AIR = "in_air";
 	public static final String LAST_CALL_MOVE_TIME = "last_call_move_time";
+    public static final String LAST_CALL_SNEAK_TIME = "last_call_sneak_time";
 	public static final String MINING_TELEPATHY_ENABLE = "mining_telepathy_enable";
 	public static final String AUTO_SELL_ENABLE = "auto_sell_enable";
     public static final String DASH_ENABLE = "dash_enable";
@@ -27,4 +29,5 @@ public class TemporaryKey {
     public static final String DOUBLE_JUMP_POWER = "double_jump_power";
     public static final String DOUBLE_JUMP_PARTICLE = "double_jump_particle";
     public static final String DOUBLE_JUMP_LAST_USE = "double_jump_last_use";
+    public static final String LAST_MINE_BLOCK_TYPE = "last_mine_block_type";
 }

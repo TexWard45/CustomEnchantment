@@ -28,9 +28,13 @@ public class EntityInsentientNMS {
 		return entityInsentient;
 	}
 
+	// Need to fix this method
 	public void moveTo(Location location) {
-		Path path = entityInsentient.getNavigation().createPath(BlockPos.containing(location.getX(), location.getY(), location.getZ()), 0);
-		entityInsentient.getNavigation().moveTo(path, speed);
+//		try {
+//			Path path = entityInsentient.getNavigation().createPath(BlockPos.containing(location.getX(), location.getY(), location.getZ()), 0);
+//			entityInsentient.getNavigation().moveTo(path, speed);
+//		}catch (Exception e) {
+//		}
 	}
 
 	public void setGoalTarget(EntityInsentientNMS entity) {

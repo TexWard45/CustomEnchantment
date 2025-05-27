@@ -36,11 +36,11 @@ public class CommandInfo implements AbstractCommand {
 								List<AttributeModifier> attributeModifiers = attribute.getAttributeModifiers(attr);
 
 								for (AttributeModifier modifier : attributeModifiers) {
-									sender.sendMessage(modifier.getName() + " " + modifier.getAmount() + " " + modifier.getOperation());
+									sender.sendMessage(attr.name() + " " + modifier.getName() + " " + modifier.getAmount() + " " + modifier.getOperation());
 								}
 							}
 							for (CustomAttributeType type : CustomAttributeType.getValues()) {
-								sender.sendMessage(type.getType() + " " + cePlayer.getCustomAttribute().getValue(type));
+								sender.sendMessage(type.getMinecraftId() + " " + type.getType() + " " + cePlayer.getCustomAttribute().getValue(type));
 							}
 							sender.sendMessage("== End ==");
 							return true;

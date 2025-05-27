@@ -2,9 +2,16 @@ package com.bafmc.customenchantment.player.mining;
 
 import com.bafmc.bukkit.utils.Chance;
 import com.bafmc.customenchantment.CustomEnchantment;
+import com.bafmc.customenchantment.api.CEAPI;
+import com.bafmc.customenchantment.api.MaterialData;
+import com.bafmc.customenchantment.api.MaterialList;
+import com.bafmc.customenchantment.player.CEPlayer;
 import com.bafmc.customenchantment.player.PlayerSpecialMining;
+import com.bafmc.customenchantment.player.TemporaryKey;
 import com.bafmc.customenchantment.task.SpecialMiningTask;
+import lombok.Getter;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -21,7 +28,8 @@ public class ExplosionSpecialMine extends AbstractSpecialMine {
 
 	public static class MiningExplosion {
 		private ConcurrentHashMap<String, Explosion> explosionMap = new ConcurrentHashMap<String, Explosion>();
-		private Explosion highestExplosion;
+		@Getter
+        private Explosion highestExplosion;
 
 		public void addExplosion(String name, Explosion explosion) {
 			if (explosion.getChance() < 0) {
@@ -46,6 +54,8 @@ public class ExplosionSpecialMine extends AbstractSpecialMine {
 			int highestAOE = 1;
 			double highestChance = 0;
 			boolean drop = false;
+			boolean flat = false;
+			MaterialList whitelist = null;
 
 			for (Explosion explosion : this.explosionMap.values()) {
 				if (highestAOE > explosion.getAoe()) {
@@ -59,50 +69,48 @@ public class ExplosionSpecialMine extends AbstractSpecialMine {
 				highestAOE = explosion.getAoe();
 				highestChance = explosion.getChance();
 				drop = explosion.isDrop();
+				flat = explosion.isFlat();
+				whitelist = explosion.getWhitelist();
 			}
 
 			if (highestAOE != 1 || highestChance != 0) {
-				this.highestExplosion = new Explosion(highestAOE, highestChance, drop);
+				this.highestExplosion = new Explosion(highestAOE, highestChance, drop, flat, whitelist);
 			} else {
 				this.highestExplosion = null;
 			}
 		}
 
-		public Explosion getHighestExplosion() {
-			return highestExplosion;
-		}
-
-		public boolean isWork() {
+        public boolean isWork() {
 			return highestExplosion != null && highestExplosion.isWork();
 		}
 	}
 
 	public static class Explosion implements Cloneable {
-		private int aoe;
+		@Getter
+        private int aoe;
 		private double chanceDouble;
 		private Chance chance;
-		private boolean drop;
+		@Getter
+        private boolean drop;
+		@Getter
+		private boolean flat;
+		@Getter
+		private MaterialList whitelist;
 
-		public Explosion(int aoe, double chance, boolean drop) {
+		public Explosion(int aoe, double chance, boolean drop, boolean flat, MaterialList whitelist) {
 			this.aoe = aoe;
 			this.chanceDouble = chance;
 			this.chance = new Chance(chance);
 			this.drop = drop;
+			this.flat = flat;
+			this.whitelist = whitelist;
 		}
 
-		public int getAoe() {
-			return aoe;
-		}
-
-		public double getChance() {
+        public double getChance() {
 			return chanceDouble;
 		}
 
-		public boolean isDrop() {
-			return drop;
-		}
-
-		public boolean isWork() {
+        public boolean isWork() {
 			return chance.work();
 		}
 
@@ -110,7 +118,7 @@ public class ExplosionSpecialMine extends AbstractSpecialMine {
 			try {
 				return (Explosion) super.clone();
 			} catch (CloneNotSupportedException e) {
-				return new Explosion(aoe, chanceDouble, drop);
+				return new Explosion(aoe, chanceDouble, drop, flat, whitelist);
 			}
 		}
 	}
@@ -151,6 +159,10 @@ public class ExplosionSpecialMine extends AbstractSpecialMine {
 		int radius = exp.getAoe() / 2;
 
 		for (int y = -radius; y <= radius; y++) {
+			if (exp.isFlat() && y != 0) {
+				continue;
+			}
+
 			for (int x = -radius; x <= radius; x++) {
 				for (int z = -radius; z <= radius; z++) {
 					if (x == 0 && y == 0 && z == 0) {
@@ -158,6 +170,10 @@ public class ExplosionSpecialMine extends AbstractSpecialMine {
 					}
 
 					Location location = new Location(world, xCenter + x, yCenter + y, zCenter + z);
+					if (exp.getWhitelist() != null && !exp.getWhitelist().contains(new MaterialData(location.getBlock()))) {
+						continue;
+					}
+
 					task.add(getPlayerSpecialMining(), location, player, data);
 				}
 			}

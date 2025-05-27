@@ -6,6 +6,7 @@ import com.bafmc.bukkit.utils.MaterialUtils;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.CustomEnchantmentMessage;
 import com.bafmc.customenchantment.api.CEAPI;
+import com.bafmc.customenchantment.config.data.ArtifactSettingsData;
 import com.bafmc.customenchantment.item.CEItem;
 import com.bafmc.customenchantment.item.CEItemType;
 import com.bafmc.customenchantment.item.CEWeaponAbstract;
@@ -25,6 +26,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -35,9 +37,11 @@ public class EquipmentMenu extends MenuAbstract {
 	public static final String MENU_NAME = "equipment";
 	public static final String PROTECT_DEAD_SLOT = "protect-dead";
 	public static final String ARTIFACT_SLOT = "artifact";
+	public static final String PLAYER_INFO_SLOT = "player-info";
 	private static HashMap<String, EquipmentMenu> map = new HashMap<String, EquipmentMenu>();
 	@Getter
 	private boolean inUpdateMenu = false;
+	private boolean removed = false;
 
 	public static EquipmentMenu putMenu(Player player, CMenuView cMenuView) {
 		EquipmentMenu menu = map.get(player.getName());
@@ -55,7 +59,17 @@ public class EquipmentMenu extends MenuAbstract {
 	}
 
 	public static EquipmentMenu removeMenu(Player player) {
-		return map.remove(player.getName());
+		EquipmentMenu menu = map.remove(player.getName());
+
+		if (menu != null) {
+			menu.setRemoved(true);
+		}
+
+		return menu;
+	}
+
+	private void setRemoved(boolean removed) {
+		this.removed = removed;
 	}
 
 	public enum EquipmentAddReason {
@@ -73,31 +87,37 @@ public class EquipmentMenu extends MenuAbstract {
 	public EquipmentMenu(CMenuView menuView, Player player) {
 		super(menuView, player);
 		this.updateMenu();
+		this.autoUpdateMenu();
 	}
 
 	private Map<EquipSlot, Long> lastClickTime = new HashMap<EquipSlot, Long>();
 	public EquipmentAddReason addItem(InventoryClickEvent e, ItemStack itemStack, CEItem ceItem) {
-		if (ceItem instanceof CEArtifact) {
+		if (ceItem instanceof CEArtifact artifact) {
 			if (itemStack.getAmount() > 1) {
 				return EquipmentAddReason.NOTHING;
 			}
 
+			ArtifactSettingsData data = CustomEnchantment.instance().getMainConfig().getArtifactSettings(artifact);
+			if (data == null) {
+				return EquipmentAddReason.NOTHING;
+			}
+
 			PlayerEquipment playerEquipment = CEAPI.getCEPlayer(player).getEquipment();
-			int maxArtifactUseCount = getMaxArtifactUseCount();
+			int maxArtifactUseCount = getMaxArtifactUseCount(artifact);
 			if (maxArtifactUseCount <= 0) {
 				return EquipmentAddReason.NO_ARTIFACT_SLOT;
 			}
 
-			int emptyIndex = getEmptyArtifactIndex();
+			int emptyIndex = getEmptyArtifactIndex(artifact);
 			if (emptyIndex != -1) {
-				if (checkDuplicateArtifactSlot((CEArtifact) ceItem)) {
+				if (checkDuplicateArtifactSlot(artifact)) {
 					return EquipmentAddReason.DUPLICATE_ARTIFACT;
 				}
 			} else {
 				return EquipmentAddReason.MAX_ARTIFACT;
 			}
 
-			playerEquipment.setSlot(EquipSlot.getExtraSlot(emptyIndex), (CEArtifact) ceItem, true);
+			playerEquipment.setSlot(data.getSlot(emptyIndex), artifact, true);
 			updateMenuWithPreventAction();
 			e.setCurrentItem(null);
 			return EquipmentAddReason.ADD_ARTIFACT;
@@ -209,6 +229,26 @@ public class EquipmentMenu extends MenuAbstract {
 		updateSlots("mainhand", EquipSlot.MAINHAND.getItemStack(player));
 		updateProtectDeadSlots();
 		updateArtifactSlots();
+		updatePlayerInfoSlots();
+	}
+
+	public void autoUpdateMenu() {
+		new BukkitRunnable() {
+			public void run() {
+				if (removed) {
+					cancel();
+					return;
+				}
+				updatePlayerInfoSlots();
+			}
+		}.runTaskTimer(CustomEnchantment.instance(), 0, 5);
+	}
+
+	public void updatePlayerInfoSlots() {
+		List<Integer> slots = getSlots(PLAYER_INFO_SLOT);
+		for (int slot : slots) {
+			menuView.setTemporaryItem(slot, getItemStack(player, "player-info"));
+		}
 	}
 
 	public void updateProtectDeadSlots() {
@@ -246,28 +286,34 @@ public class EquipmentMenu extends MenuAbstract {
 	public void updateArtifactSlots() {
 		PlayerEquipment playerEquipment = CEAPI.getCEPlayer(player).getEquipment();
 		playerEquipment.sortExtraSlot();
-		int maxArtifactUseCount = getMaxArtifactUseCount();
-		for (int i = 0; i < maxArtifactUseCount; i++) {
-			List<Integer> slots = getSlots(ARTIFACT_SLOT);
 
-			if (i < slots.size()) {
-				CEWeaponAbstract weaponAbstract = playerEquipment.getSlot(EquipSlot.getExtraSlot(i));
-				if (weaponAbstract instanceof CEArtifact) {
-					menuView.setTemporaryItem(slots.get(i), weaponAbstract.getDefaultItemStack());
-				}else {
-					menuView.removeTemporaryItem(slots.get(i));
+		Map<String, ArtifactSettingsData> map = CustomEnchantment.instance().getMainConfig().getArtifactSettingMap();
+
+		for (String key : map.keySet()) {
+			ArtifactSettingsData data = map.get(key);
+
+			int maxArtifactUseCount = data.getMaxCount();
+			List<Integer> slots = getSlots(ARTIFACT_SLOT + "-" + key);
+
+			for (int i = 0; i < maxArtifactUseCount; i++) {
+				if (i < slots.size()) {
+					CEWeaponAbstract weaponAbstract = playerEquipment.getSlot(data.getSlot(i));
+					if (weaponAbstract instanceof CEArtifact) {
+						menuView.setTemporaryItem(slots.get(i), weaponAbstract.getDefaultItemStack());
+					}else {
+						menuView.removeTemporaryItem(slots.get(i));
+					}
 				}
 			}
 		}
 	}
 
-	public int getMaxArtifactUseCount() {
-		return CustomEnchantment.instance().getMainConfig().getMaxArtifactUseCount();
+	public int getMaxArtifactUseCount(CEArtifact ceArtifact) {
+		return CustomEnchantment.instance().getMainConfig().getArtifactSettings(ceArtifact).getMaxCount();
 	}
 
 	private List<String> itemInteractList = Arrays.asList(
 			EquipmentMenu.PROTECT_DEAD_SLOT,
-			EquipmentMenu.ARTIFACT_SLOT,
 			EquipSlot.HELMET.name().toLowerCase(),
 			EquipSlot.CHESTPLATE.name().toLowerCase(),
 			EquipSlot.LEGGINGS.name().toLowerCase(),
@@ -278,13 +324,28 @@ public class EquipmentMenu extends MenuAbstract {
 	public void returnItem(String itemName, int slot) {
 		PlayerEquipment playerEquipment = CEAPI.getCEPlayer(player).getEquipment();
 
-		if (itemInteractList.contains(itemName) && player.getInventory().firstEmpty() == -1) {
-			CustomEnchantmentMessage.send(player, "menu.equipment.return-item.no-empty-slot");
-			return;
+		if (itemInteractList.contains(itemName) || itemName.startsWith(EquipmentMenu.ARTIFACT_SLOT)) {
+			if (player.getInventory().firstEmpty() == -1) {
+				CustomEnchantmentMessage.send(player, "menu.equipment.return-item.no-empty-slot");
+				return;
+			}
 		}
 
-		if (itemName.equals(EquipmentMenu.ARTIFACT_SLOT)) {
-			List<Integer> artifactSlots = getSlots(ARTIFACT_SLOT);
+		if (itemName.startsWith(EquipmentMenu.ARTIFACT_SLOT)) {
+			Map<String, ArtifactSettingsData> map = CustomEnchantment.instance().getMainConfig().getArtifactSettingMap();
+
+			String specificSlot = null;
+			ArtifactSettingsData data = null;
+
+			for (String key : map.keySet()) {
+				if (itemName.equals(EquipmentMenu.ARTIFACT_SLOT + "-" + key)) {
+					data = map.get(key);
+					specificSlot = EquipmentMenu.ARTIFACT_SLOT + "-" + key;
+					break;
+				}
+			}
+
+			List<Integer> artifactSlots = getSlots(specificSlot);
 			if (artifactSlots.contains(slot)) {
 				int index = -1;
 				for (int i = 0; i < artifactSlots.size(); i++) {
@@ -295,9 +356,9 @@ public class EquipmentMenu extends MenuAbstract {
 				}
 
 				if (index != -1) {
-					CEWeaponAbstract weaponAbstract = playerEquipment.getSlot(EquipSlot.getExtraSlot(index));
+					CEWeaponAbstract weaponAbstract = playerEquipment.getSlot(data.getSlot(index));
 					if (weaponAbstract != null) {
-						playerEquipment.setSlot(EquipSlot.getExtraSlot(index), null, true);
+						playerEquipment.setSlot(data.getSlot(index), null, true);
 						InventoryUtils.addItem(player, weaponAbstract.getDefaultItemStack());
 					}
 					updateMenuWithPreventAction();
@@ -371,13 +432,15 @@ public class EquipmentMenu extends MenuAbstract {
 	public void returnItems() {
 	}
 
-	public int getEmptyArtifactIndex() {
+	public int getEmptyArtifactIndex(CEArtifact ceArtifact) {
 		PlayerEquipment playerEquipment = CEAPI.getCEPlayer(player).getEquipment();
 		playerEquipment.sortExtraSlot();
 
-		int maxArtifactUseCount = getMaxArtifactUseCount();
+		ArtifactSettingsData data = CustomEnchantment.instance().getMainConfig().getArtifactSettings(ceArtifact);
+
+		int maxArtifactUseCount = getMaxArtifactUseCount(ceArtifact);
 		for (int i = 0; i < maxArtifactUseCount; i++) {
-			if (playerEquipment.getSlot(EquipSlot.getExtraSlot(i)) == null) {
+			if (playerEquipment.getSlot(data.getSlot(i)) == null) {
 				return i;
 			}
 		}
@@ -386,9 +449,12 @@ public class EquipmentMenu extends MenuAbstract {
 
 	public boolean checkDuplicateArtifactSlot(CEArtifact ceArtifact) {
 		PlayerEquipment playerEquipment = CEAPI.getCEPlayer(player).getEquipment();
-		int maxArtifactUseCount = getMaxArtifactUseCount();
+		int maxArtifactUseCount = getMaxArtifactUseCount(ceArtifact);
+
+		ArtifactSettingsData data = CustomEnchantment.instance().getMainConfig().getArtifactSettings(ceArtifact);
+
 		for (int i = 0; i < maxArtifactUseCount; i++) {
-			CEWeaponAbstract weaponAbstract = playerEquipment.getSlot(EquipSlot.getExtraSlot(i));
+			CEWeaponAbstract weaponAbstract = playerEquipment.getSlot(data.getSlot(i));
 			if (weaponAbstract instanceof CEArtifact) {
 				CEArtifact artifact = (CEArtifact) weaponAbstract;
 				if (artifact.getData().getPattern().equals(ceArtifact.getData().getPattern())) {

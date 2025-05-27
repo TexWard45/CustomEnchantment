@@ -96,6 +96,8 @@ public class EnchantModule extends PluginModule<CustomEnchantment> {
         new EffectRemoveFurnaceMining().register();
         new EffectAddExplosionMining().register();
         new EffectRemoveExplosionMining().register();
+        new EffectAddVeinMining().register();
+        new EffectRemoveVeinMining().register();
         new EffectAddRandomPotion().register();
         new EffectRemoveRandomPotion().register();
         new EffectAddBlockDropBonusMining().register();

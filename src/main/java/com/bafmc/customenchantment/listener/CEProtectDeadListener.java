@@ -43,7 +43,17 @@ public class CEProtectDeadListener implements Listener {
 		List<ItemStack> keepItems = new ArrayList<>();
 
 		boolean removeAdvancedProtectDead;
+		boolean diconnect = false;
 		PlayerStorage storage = cePlayer.getStorage();
+
+		// Call custom death event after player disconnects
+		if (storage == null || storage.getConfig() == null) {
+			diconnect = true;
+
+			storage = new PlayerStorage(cePlayer);
+			storage.onJoin();
+		}
+
 		removeAdvancedProtectDead = StorageUtils.getProtectDeadAmount(storage) > 0;
 
 		if (removeAdvancedProtectDead) {
@@ -80,7 +90,11 @@ public class CEProtectDeadListener implements Listener {
 		}
 
 		if (!keepItems.isEmpty()) {
-			cePlayer.getStorage().getConfig().setItemStackList("save-items-on-death", keepItems);
+			storage.getConfig().setItemStackList("save-items-on-death", keepItems);
+		}
+
+		if (diconnect) {
+			storage.onQuit();
 		}
 	}
 

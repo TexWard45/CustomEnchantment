@@ -1,7 +1,6 @@
 package com.bafmc.customenchantment.player.mining;
 
-import com.bafmc.topstatistic.TopStatistic;
-import com.bafmc.topstatistic.settings.customshop.config.CustomShopSettings;
+import com.bafmc.bukkit.bafframework.task.EconomyTask;
 import com.bafmc.customenchantment.player.PlayerSpecialMining;
 import com.bafmc.customenchantment.player.TemporaryKey;
 import com.bafmc.customenchantment.utils.McMMOUtils;
@@ -9,7 +8,8 @@ import com.bafmc.customshop.ShopManager;
 import com.bafmc.customshop.shop.ShopItem;
 import com.bafmc.customshop.shop.ShopMenuType;
 import com.bafmc.customshop.shop.ShopVanillaFactory;
-import com.bafmc.bukkit.api.EconomyAPI;
+import com.bafmc.topstatistic.TopStatistic;
+import com.bafmc.topstatistic.settings.customshop.config.CustomShopSettings;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -85,7 +85,7 @@ public class AutoSellSpecialMine extends AbstractSpecialMine {
         }
 
         ShopManager.addTotalSell(shopItem, itemStack.getAmount());
-        EconomyAPI.giveMoney(player, price);
+        EconomyTask.giveMoney(player, price);
         return itemStack;
     }
 

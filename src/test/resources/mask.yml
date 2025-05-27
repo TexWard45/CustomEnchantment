@@ -14,8 +14,10 @@ item-template:
       - "&7  (Tự động in hoa để phù hợp với tên)"
     skull-owner: "%baf_skull_owner_{entity_type}%"
   display:
-    normal: "&{tier_color}[&f{display}&{tier_color}] &f&o%display%"
-    bold: "&{tier_color}&l[&{color}&l{display}&{tier_color}&l] &f&o%display%"
+    #normal: "&{tier_color}[&f{display}&{tier_color}] &f&o%display%"
+    #bold: "&{tier_color}&l[&{color}&l{display}&{tier_color}&l] &f&o%display%"
+    normal: "&f%display%"
+    bold: "&f%display%"
   enchants:
     - "{enchant} {level_number}"
 skull-storage-template:
