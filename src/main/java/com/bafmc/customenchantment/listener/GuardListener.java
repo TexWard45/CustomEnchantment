@@ -1,5 +1,9 @@
 package com.bafmc.customenchantment.listener;
 
+import com.bafmc.customenchantment.CustomEnchantment;
+import com.bafmc.customenchantment.guard.Guard;
+import com.bafmc.customenchantment.guard.GuardManager;
+import com.bafmc.customenchantment.guard.PlayerGuard;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Entity;
 import org.bukkit.event.EventHandler;
@@ -11,11 +15,6 @@ import org.bukkit.event.entity.EntityTameEvent;
 import org.bukkit.event.entity.EntityTargetLivingEntityEvent;
 import org.bukkit.event.player.PlayerTeleportEvent;
 
-import com.bafmc.customenchantment.CustomEnchantment;
-import com.bafmc.customenchantment.guard.Guard;
-import com.bafmc.customenchantment.guard.GuardManager;
-import com.bafmc.customenchantment.guard.PlayerGuard;
-
 public class GuardListener implements Listener {
 	private CustomEnchantment plugin;
 	private GuardManager guardManager;
@@ -26,7 +25,7 @@ public class GuardListener implements Listener {
 
 		Bukkit.getPluginManager().registerEvents(this, plugin);
 	}
-	
+
 	public static boolean guardSpawning = false;
 	@EventHandler(priority = EventPriority.MONITOR)
 	public void onEntityTarget(CreatureSpawnEvent e) {

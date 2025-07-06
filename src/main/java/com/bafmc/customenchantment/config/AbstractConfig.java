@@ -24,7 +24,11 @@ public abstract class AbstractConfig {
             this.config = new AdvancedFileConfiguration(file);
             this.loadConfig();
         }
+    }
 
+    public void loadConfig(AdvancedFileConfiguration config) {
+        this.config = config;
+        this.loadConfig();
     }
 
     protected abstract void loadConfig();

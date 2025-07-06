@@ -11,8 +11,11 @@ import com.bafmc.bukkit.utils.SparseMap;
 import com.bafmc.bukkit.utils.StringUtils;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.api.MaterialList;
+import com.bafmc.customenchantment.config.item.CEWeaponConfig;
 import com.bafmc.customenchantment.enchant.CEEnchantSimple;
-import com.bafmc.customenchantment.item.*;
+import com.bafmc.customenchantment.item.CEItemType;
+import com.bafmc.customenchantment.item.CEWeaponStorage;
+import com.bafmc.customenchantment.item.WeaponSettings;
 import com.bafmc.customenchantment.item.artifact.CEArtifact;
 import com.bafmc.customenchantment.item.artifact.CEArtifactData;
 import com.bafmc.customenchantment.item.artifact.CEArtifactStorage;
@@ -547,36 +550,11 @@ public class CEItemConfig extends AbstractConfig {
 		CEWeaponStorage storage = new CEWeaponStorage();
 		CustomEnchantment.instance().getCeItemStorageMap().put(CEItemType.WEAPON, storage);
 
-		for (String pattern : config.getKeySection("weapon", false)) {
-			String path = "weapon." + pattern;
+		CEWeaponConfig weaponConfig = new CEWeaponConfig(storage);
+		weaponConfig.loadConfig(config);
 
-			ItemStack itemStack = config.getItemStack(path + ".item", true, true);
-			CEWeapon ceItem = new CEWeapon(itemStack);
-			for (String enchantFormat : config.getStringList(path + ".enchants")) {
-				String enchantName = null;
-				int level = 1;
-
-				int spaceIndex = enchantFormat.indexOf(" ");
-				if (spaceIndex != -1) {
-					enchantName = enchantFormat.substring(0, spaceIndex);
-					level = Integer.parseInt(enchantFormat.substring(spaceIndex + 1, enchantFormat.length()));
-				} else {
-					enchantName = enchantFormat;
-				}
-
-				ceItem.getWeaponEnchant().addCESimple(new CEEnchantSimple(enchantName, level));
-			}
-
-			for (String attributeFormat : config.getStringList(path + ".attributes")) {
-				ceItem.getWeaponAttribute().addAttribute(attributeFormat);
-			}
-
-			CEWeaponData data = new CEWeaponData();
-			data.setPattern(pattern);
-			ceItem.setData(data);
-
-			storage.put(pattern, ceItem);
-		}
+		File folder = CustomEnchantment.instance().getWeaponFolder();
+		weaponConfig.loadConfig(folder);
 	}
 
 	public void loadCEArtifactStorage() {

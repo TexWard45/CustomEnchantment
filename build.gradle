@@ -27,6 +27,7 @@ dependencies {
     compileOnly 'cn.dreeam.leaf:leaf-api:1.21.1-R0.1-SNAPSHOT'
     compileOnly 'cn.dreeam.leaf:leaf:1.21.1-R0.1-SNAPSHOT'
 
+    compileOnly 'net.citizensnpcs:Citizens:2.0.35'
     compileOnly 'com.bafmc:BafFramework:1.0.0'
     compileOnly 'com.bafmc:FindItem:1.0.0'
     compileOnly 'com.bafmc:CustomMenu:1.0.0'
@@ -46,6 +47,7 @@ dependencies {
     compileOnly 'com.gmail.nossr50:mcMMO:2.2.023'
     compileOnly 'uk.antiperson:StackMob:5.9.2'
     compileOnly 'com.github.fierioziy:ParticleNativeAPI:4.3.0'
+    compileOnly 'io.github.magiccheese1:DamageIndicator-Rebuild:2.2.0-Rebuild'
 
     compileOnly 'org.apache.commons:commons-lang3:3.14.0'
     compileOnly 'org.jetbrains:annotations:24.0.1'

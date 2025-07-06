@@ -16,6 +16,7 @@ import java.util.Map;
 public class RegenerationTask extends BukkitRunnable {
     private CustomEnchantment plugin;
     private Map<String, Long> lastRegeneration = new HashMap<>();
+    public static final long REGENERATION_SECONDS = 5;
 
     public RegenerationTask(CustomEnchantment plugin) {
         this.plugin = plugin;
@@ -53,7 +54,7 @@ public class RegenerationTask extends BukkitRunnable {
 
             CEPlayer cePlayer = CEAPI.getCEPlayer(player);
 
-            double healRegeneration = cePlayer.getCustomAttribute().getValue(CustomAttributeType.HEALTH_REGENERATION) * ratio;
+            double healRegeneration = cePlayer.getCustomAttribute().getValue(CustomAttributeType.HEALTH_REGENERATION) * ratio / REGENERATION_SECONDS;
             if (healRegeneration > 0) {
                 CEPlayerStatsModifyEvent event = new CEPlayerStatsModifyEvent(cePlayer, CustomAttributeType.STAT_HEALTH, ModifyType.ADD, currentValue, healRegeneration, false);
                 Bukkit.getPluginManager().callEvent(event);
@@ -63,7 +64,7 @@ public class RegenerationTask extends BukkitRunnable {
                 }
             }
 
-            double healthRegenerationPercent = cePlayer.getCustomAttribute().getValue(CustomAttributeType.HEALTH_REGENERATION_PERCENT) * ratio;
+            double healthRegenerationPercent = cePlayer.getCustomAttribute().getValue(CustomAttributeType.HEALTH_REGENERATION_PERCENT) * ratio / REGENERATION_SECONDS;
             if (healthRegenerationPercent > 0) {
                 double changeValue = maxHealth * healthRegenerationPercent / 100;
 

@@ -4,12 +4,14 @@ import com.bafmc.bukkit.bafframework.nms.NMSAttribute;
 import com.bafmc.bukkit.utils.EquipSlot;
 import com.bafmc.bukkit.utils.RandomRange;
 import com.bafmc.bukkit.utils.RandomUtils;
+import com.bafmc.bukkit.utils.SoundUtils;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.CustomEnchantmentMessage;
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.attribute.AttributeCalculate;
 import com.bafmc.customenchantment.attribute.CustomAttributeType;
 import com.bafmc.customenchantment.command.CommandDebugAll;
+import com.bafmc.customenchantment.config.MainConfig;
 import com.bafmc.customenchantment.enchant.*;
 import com.bafmc.customenchantment.event.CEPlayerStatsModifyEvent;
 import com.bafmc.customenchantment.guard.Guard;
@@ -21,8 +23,10 @@ import com.bafmc.customenchantment.player.*;
 import com.bafmc.customenchantment.player.PlayerAbility.Type;
 import com.bafmc.customenchantment.task.ArrowTask;
 import com.bafmc.customenchantment.utils.DamageUtils;
+import io.github.magiccheese1.damageindicator.api.DamageIndicatorAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -35,6 +39,7 @@ import org.bukkit.util.Vector;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -43,10 +48,12 @@ public class EntityListener implements Listener {
 	private static ConcurrentHashMap<Entity, CEWeaponAbstract> arrowMap = new ConcurrentHashMap<Entity, CEWeaponAbstract>();
 	private CustomEnchantment plugin;
 	private GuardManager guardManager;
+	private boolean damageIndicatorPluginEnabled;
 
 	public EntityListener(CustomEnchantment plugin) {
 		this.plugin = plugin;
 		this.guardManager = plugin.getGuardModule().getGuardManager();
+		this.damageIndicatorPluginEnabled = Bukkit.getPluginManager().isPluginEnabled("DamageIndicator");
 
 		Bukkit.getPluginManager().registerEvents(this, plugin);
 	}
@@ -209,9 +216,10 @@ public class EntityListener implements Listener {
 //		}
 	}
 
+	private static Map<String, Integer> combatWarnTime = new HashMap<>();
 	@EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
 	public void onAttack(EntityDamageByEntityEvent e) {
-		if (e.getCause() == DamageCause.ENTITY_SWEEP_ATTACK || e.getCause() == DamageCause.THORNS) {
+		if (e.getCause() == DamageCause.THORNS) {
 			return;
 		}
 
@@ -224,6 +232,20 @@ public class EntityListener implements Listener {
 			if (ability.isCancel(Type.ATTACK)) {
 				e.setCancelled(true);
 				return;
+			}
+
+			CEWeaponAbstract ceWeapon = cePlayer.getEquipment().getSlot(EquipSlot.MAINHAND);
+			if (ceWeapon == null) {
+				MainConfig mainConfig = plugin.getMainConfig();
+				if (mainConfig.isCombatSettingsRequireWeapon()) {
+					if (combatWarnTime.getOrDefault(attacker.getName(), 0) % 5 == 0) {
+						CustomEnchantmentMessage.send(attacker, "combat.require-weapon");
+					}
+
+					combatWarnTime.put(attacker.getName(), combatWarnTime.getOrDefault(attacker.getName(), 0) + 1);
+					e.setCancelled(true);
+					return;
+				}
 			}
 		}
 
@@ -272,8 +294,9 @@ public class EntityListener implements Listener {
 		attacker = e.getDamager();
 		defender = e.getEntity();
 		double defaultDamage = e.getDamage();
-		defaultDamage = handleCritical(attacker, defaultDamage);
-		double currentDamage = defaultDamage;
+		double criticalDamage = handleCritical(attacker, defaultDamage);
+		boolean isCritical = criticalDamage != defaultDamage;
+		double currentDamage = criticalDamage;
 
 		currentDamage = onPlayerVsMob(attacker, defender, currentDamage, e);
 		currentDamage = onMobVsPlayer(attacker, defender, currentDamage, e);
@@ -298,6 +321,23 @@ public class EntityListener implements Listener {
 
 		if (attacker instanceof Player) {
 			handleLifeSteal((Player) attacker, finalDamage);
+		}
+
+		if (damageIndicatorPluginEnabled) {
+			LivingEntity defenderLivingEntity = getRealLivingEntity(defender);
+			LivingEntity attackerLivingEntity = getRealLivingEntity(attacker);
+
+			if (attackerLivingEntity instanceof Player playerAttacker) {
+				if (isCritical) {
+					DamageIndicatorAPI.spawnIndicator(defenderLivingEntity, playerAttacker, DamageIndicatorAPI.getCriticalDamageFormat(), finalDamage);
+				} else {
+					DamageIndicatorAPI.spawnIndicator(defenderLivingEntity, playerAttacker, DamageIndicatorAPI.getDamageFormat(), finalDamage);
+				}
+			}
+		}
+
+		if (isCritical) {
+			SoundUtils.play(attacker, Sound.ENTITY_PLAYER_ATTACK_CRIT);
 		}
 
 		if (attacker instanceof Player) {
@@ -401,6 +441,16 @@ public class EntityListener implements Listener {
 		return entity;
 	}
 
+	public LivingEntity getRealLivingEntity(Entity entity) {
+		if (entity instanceof Arrow && ((Arrow) entity).getShooter() instanceof LivingEntity) {
+			return (LivingEntity) ((Arrow) entity).getShooter();
+		}
+		if (entity instanceof LivingEntity) {
+			return (LivingEntity) entity;
+		}
+		return null;
+	}
+
 	public double onPlayerVsMob(Entity attacker, Entity defenser, double damage, EntityDamageByEntityEvent e) {
 		if (!(attacker instanceof Player) || !(defenser instanceof LivingEntity) || defenser instanceof Player) {
 			return damage;
@@ -411,35 +461,44 @@ public class EntityListener implements Listener {
 		cePlayer.getTemporaryStorage().set(TemporaryKey.LAST_COMBAT_TIME, System.currentTimeMillis());
 		LivingEntity eDefenser = (LivingEntity) defenser;
 
-		CEFunctionData data = new CEFunctionData(pAttacker);
-		data.setEnemyLivingEntity(eDefenser);
-		data.set("damage", damage);
-		data.setDamageCause(e.getCause());
+		CEFunctionData data;
+		CECallerList result;
+		if (e.getCause() != DamageCause.ENTITY_SWEEP_ATTACK) {
+			data = new CEFunctionData(pAttacker);
+			data.setEnemyLivingEntity(eDefenser);
+			data.set("damage", damage);
+			data.setDamageCause(e.getCause());
 
-		CECallerList result = CECallerBuilder
-				.build(pAttacker)
-				.setCEType(CEType.ATTACK)
-				.setCEFunctionData(data)
-				.call();
+			result = CECallerBuilder
+					.build(pAttacker)
+					.setCEType(CEType.ATTACK)
+					.setCEFunctionData(data)
+					.call();
 
-		damage = AttributeCalculate.calculate(cePlayer, CustomAttributeType.OPTION_ATTACK, damage,
-				result.getOptionDataList());
+			damage = AttributeCalculate.calculate(cePlayer, CustomAttributeType.OPTION_ATTACK, damage,
+					result.getOptionDataList());
+		}
 
-		data = new CEFunctionData(pAttacker);
-		data.setEnemyLivingEntity(eDefenser);
-		data.set("damage", damage);
-		data.setDamageCause(e.getCause());
+		List<NMSAttribute> attributes = new ArrayList<>();
+		if (e.getCause() != DamageCause.ENTITY_SWEEP_ATTACK) {
+			data = new CEFunctionData(pAttacker);
+			data.setEnemyLivingEntity(eDefenser);
+			data.set("damage", damage);
+			data.setDamageCause(e.getCause());
 
-		result = CECallerBuilder
-				.build(pAttacker)
-				.setCEType(CEType.FINAL_ATTACK)
-				.setCEFunctionData(data)
-				.call();
+			result = CECallerBuilder
+					.build(pAttacker)
+					.setCEType(CEType.FINAL_ATTACK)
+					.setCEFunctionData(data)
+					.call();
 
-		damage = AttributeCalculate.calculate(cePlayer, CustomAttributeType.OPTION_ATTACK, damage,
-				result.getOptionDataList());
+			damage = AttributeCalculate.calculate(cePlayer, CustomAttributeType.OPTION_ATTACK, damage,
+					result.getOptionDataList());
 
-		if (handleArmorPenetration(pAttacker, defenser, e, result.getOptionDataList())) {
+			attributes = result.getOptionDataList();
+		}
+
+		if (handleArmorPenetration(pAttacker, defenser, e, attributes)) {
 			e.setDamage(damage);
 		}
 
@@ -490,18 +549,22 @@ public class EntityListener implements Listener {
 		cePlayerAttacker.getTemporaryStorage().set(TemporaryKey.LAST_COMBAT_TIME, System.currentTimeMillis());
 		cePlayerDefenser.getTemporaryStorage().set(TemporaryKey.LAST_COMBAT_TIME, System.currentTimeMillis());
 
-		CEFunctionData pData = new CEFunctionData(pAttacker);
-		pData.setEnemyPlayer(pDefenser);
-		pData.set("damage", damage);
-		pData.setDamageCause(e.getCause());
+		CEFunctionData pData;
+		CECallerList pResult;
+		if (e.getCause() != DamageCause.ENTITY_SWEEP_ATTACK) {
+			pData = new CEFunctionData(pAttacker);
+			pData.setEnemyPlayer(pDefenser);
+			pData.set("damage", damage);
+			pData.setDamageCause(e.getCause());
 
-		CECallerList pResult = CECallerBuilder
-				.build(pAttacker)
-				.setCEType(CEType.ATTACK)
-				.setCEFunctionData(pData)
-				.call();
-		damage = AttributeCalculate.calculate(CEAPI.getCEPlayer(pAttacker), CustomAttributeType.OPTION_ATTACK, damage,
-				pResult.getOptionDataList());
+			pResult = CECallerBuilder
+					.build(pAttacker)
+					.setCEType(CEType.ATTACK)
+					.setCEFunctionData(pData)
+					.call();
+			damage = AttributeCalculate.calculate(CEAPI.getCEPlayer(pAttacker), CustomAttributeType.OPTION_ATTACK, damage,
+					pResult.getOptionDataList());
+		}
 
 		CEFunctionData eData = new CEFunctionData(pDefenser);
 		eData.setEnemyPlayer(pAttacker);
@@ -517,21 +580,26 @@ public class EntityListener implements Listener {
 				eResult.getOptionDataList());
 		boolean handleDamageReduction = handleDamageReduction((LivingEntity) defenser, damage, e);
 
-		pData = new CEFunctionData(pAttacker);
-		pData.setEnemyPlayer(pDefenser);
-		pData.set("damage", damage);
-		pData.setDamageCause(e.getCause());
+		List<NMSAttribute> attributes = new ArrayList<>();
+		if (e.getCause() != DamageCause.ENTITY_SWEEP_ATTACK) {
+			pData = new CEFunctionData(pAttacker);
+			pData.setEnemyPlayer(pDefenser);
+			pData.set("damage", damage);
+			pData.setDamageCause(e.getCause());
 
-		pResult = CECallerBuilder
-				.build(pAttacker)
-				.setCEType(CEType.FINAL_ATTACK)
-				.setCEFunctionData(pData)
-				.call();
+			pResult = CECallerBuilder
+					.build(pAttacker)
+					.setCEType(CEType.FINAL_ATTACK)
+					.setCEFunctionData(pData)
+					.call();
 
-		damage = AttributeCalculate.calculate(CEAPI.getCEPlayer(pAttacker), CustomAttributeType.OPTION_ATTACK, damage,
-				pResult.getOptionDataList());
+			damage = AttributeCalculate.calculate(CEAPI.getCEPlayer(pAttacker), CustomAttributeType.OPTION_ATTACK, damage,
+					pResult.getOptionDataList());
 
-		boolean handleArmorPenetration = handleArmorPenetration(pAttacker, pDefenser, e, pResult.getOptionDataList());
+			attributes = pResult.getOptionDataList();
+		}
+
+		boolean handleArmorPenetration = handleArmorPenetration(pAttacker, pDefenser, e, attributes);
 		if (handleDamageReduction || handleArmorPenetration) {
 			e.setDamage(damage);
 		}
@@ -691,7 +759,7 @@ public class EntityListener implements Listener {
 		PlayerCustomAttribute attribute = cePlayer.getCustomAttribute();
 
 		float resistanceBonus = (float) (attribute.getValue(CustomAttributeType.DAMAGE_REDUCTION) / 100);
-		e.setOverriddenFunction(EntityDamageEvent.DamageModifier.ARMOR, DamageUtils.getResistanceDamageModifier(entity, e.getDamageSource(), resistanceBonus));
+		e.setOverriddenFunction(EntityDamageEvent.DamageModifier.RESISTANCE, DamageUtils.getResistanceDamageModifier(entity, e.getDamageSource(), resistanceBonus));
 		return true;
 	}
 

@@ -21,6 +21,7 @@ public class TaskModule extends PluginModule<CustomEnchantment> {
     private UnbreakableArmorTask unbreakableArmorTask;
     private AutoUpdateItemTask autoUpdateItemTask;
     private ExpTask expTask;
+    private UpdateAttributeTask updateAttributeTask;
     
     public TaskModule(CustomEnchantment plugin) {
         super(plugin);
@@ -47,6 +48,9 @@ public class TaskModule extends PluginModule<CustomEnchantment> {
 
         this.regenerationTask = new RegenerationTask(getPlugin());
         this.regenerationTask.runTaskTimer(getPlugin(), 0, 4);
+
+        this.updateAttributeTask = new UpdateAttributeTask(getPlugin());
+        this.updateAttributeTask.runTaskTimer(getPlugin(), 0, 4);
 
         this.slowResistanceTask = new SlowResistanceTask(getPlugin());
         this.slowResistanceTask.runTaskTimer(getPlugin(), 0, 4);

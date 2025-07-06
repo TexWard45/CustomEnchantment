@@ -469,25 +469,33 @@ class AttributeLore {
 			for (NMSAttributeType type : typeMap.keySet()) {
 				if (attributes.hasAttributeType(type, slot, NMSAttributeOperation.ADD_NUMBER)) {
 					double amount = attributes.getValue(type, slot, NMSAttributeOperation.ADD_NUMBER);
+					String operation = amount >= 0 ? "+" : "-";
 					if (amount == 0) {
 						continue;
 					}
 
 					if (type instanceof CustomAttributeType customAttributeType && customAttributeType.isPercent()) {
-						currentLore.add(typeMap.get(type).replace("%amount%", format.format(amount) + "%"));
+						currentLore.add(typeMap.get(type).replace("%amount%", format.format(Math.abs(amount)) + "%")
+								.replace("%operation%", operation));
 					}else {
-						currentLore.add(typeMap.get(type).replace("%amount%", format.format(amount)));
+						currentLore.add(typeMap.get(type).replace("%amount%", format.format(Math.abs(amount)))
+								.replace("%operation%", operation));
 					}
 				}
 
 				if (attributes.hasAttributeType(type, slot, NMSAttributeOperation.MULTIPLY_PERCENTAGE)) {
 					double amount = attributes.getValue(type, slot, NMSAttributeOperation.MULTIPLY_PERCENTAGE);
-					currentLore.add(typeMap.get(type).replace("%amount%", format.format(amount * 100) + "%"));
+					String operation = amount >= 0 ? "+" : "-";
+					currentLore.add(typeMap.get(type).replace("%amount%", format.format(Math.abs(amount) * 100) + "%")
+							.replace("%operation%", operation));
 				}
 
 				if (attributes.hasAttributeType(type, slot, NMSAttributeOperation.ADD_PERCENTAGE)) {
-					double amount = attributes.getValue(type, slot, NMSAttributeOperation.ADD_PERCENTAGE);
-					currentLore.add(typeMap.get(type).replace("%amount%", format.format(amount * 100) + "%"));
+					double amount = attributes.getValue(1, type, slot, NMSAttributeOperation.ADD_PERCENTAGE);
+					amount -= 1; // Convert to percentage
+					String operation = amount >= 0 ? "+" : "-";
+					currentLore.add(typeMap.get(type).replace("%amount%", format.format(Math.abs(amount) * 100) + "%")
+							.replace("%operation%", operation));
 				}
 			}
 

@@ -59,6 +59,9 @@ public class MainConfig implements IConfigurationLoader {
 	@Path("artifact-settings")
 	@ValueType(ArtifactSettingsData.class)
 	private Map<String, ArtifactSettingsData> artifactSettingMap = new LinkedHashMap<>();
+	@Path("combat-settings.require-weapon")
+	@Getter
+	private boolean combatSettingsRequireWeapon = true;
 
 	@Override
 	public void loadConfig(String s, ConfigurationSection configurationSection) {

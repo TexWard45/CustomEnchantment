@@ -17,20 +17,28 @@ public class VanillaItemConfig {
 		CustomEnchantment.instance().getCeItemStorageMap().put(CEItemType.STORAGE, storage);
 
 		File folder = CustomEnchantment.instance().getStorageItemFolder();
-		for (File file : folder.listFiles()) {
-			if (file.getName().endsWith(".yml")) {
-				AdvancedFileConfiguration fileConfig = new AdvancedFileConfiguration(file);
-				for (String key : fileConfig.getKeys(false)) {
-					boolean weapon = fileConfig.getBoolean(key + ".weapon", false);
-					boolean origin = file.getName().equals("save-items.yml");
+		loadFile(folder, storage);
+	}
 
-					VanillaItem item = new VanillaItem(fileConfig.getItemStack(key, true, true));
-					VanillaItemData data = new VanillaItemData(key, weapon, origin);
-					item.setData(data);
-					storage.put(key, item);
-				}
+	public void loadFile(File file, VanillaItemStorage storage) {
+		if (file.isDirectory()) {
+			for (File subFile : file.listFiles()) {
+				loadFile(subFile, storage);
+			}
+			return;
+		}
+
+		if (file.getName().endsWith(".yml")) {
+			AdvancedFileConfiguration fileConfig = new AdvancedFileConfiguration(file);
+			for (String key : fileConfig.getKeys(false)) {
+				boolean weapon = fileConfig.getBoolean(key + ".weapon", false);
+				boolean origin = file.getName().equals("save-items.yml");
+
+				VanillaItem item = new VanillaItem(fileConfig.getItemStack(key, true, true));
+				VanillaItemData data = new VanillaItemData(key, weapon, origin);
+				item.setData(data);
+				storage.put(key, item);
 			}
 		}
 	}
-
 }

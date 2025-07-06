@@ -28,6 +28,7 @@ public class ConfigModule extends PluginModule<CustomEnchantment> {
         FileUtils.createFolder(getPlugin().getMenuFolder());
         FileUtils.createFolder(getPlugin().getGeneralDataFolder());
         FileUtils.createFolder(getPlugin().getPlayerDataFolder());
+        FileUtils.createFolder(getPlugin().getWeaponFolder());
         FileUtils.createFile(getPlugin().getGroupFile());
         FileUtils.createFile(getPlugin().getItemFile());
         FileUtils.createFile(getPlugin().getSaveItemFile());

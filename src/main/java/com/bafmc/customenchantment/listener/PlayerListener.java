@@ -32,6 +32,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
+import org.bukkit.event.entity.EntityRegainHealthEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.*;
 import org.bukkit.inventory.EquipmentSlot;
@@ -66,6 +67,13 @@ public class PlayerListener implements Listener {
 		double newChangeValue = attribute.getValue(type, changeValue);
 
 		e.setValue(newChangeValue);
+	}
+
+	@EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
+	public void onPlayerRegeneration(EntityRegainHealthEvent e) {
+	if (e.getEntity() instanceof Player player) {
+		System.out.println(e.getEntity().getName() + " " + e.getRegainReason());
+	}
 	}
 
 	@EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)

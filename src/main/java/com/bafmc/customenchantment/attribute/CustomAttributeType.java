@@ -35,6 +35,13 @@ public class CustomAttributeType extends NMSAttributeType {
 	public static final CustomAttributeType MAGIC_RESISTANCE = (CustomAttributeType) (new CustomAttributeType("MAGIC_RESISTANCE", "custom:player.magic_resistance", 0, true)).register();
 	// Vulnerability is a bonus damage percentage taken by the player when attacked by other players.
 	public static final CustomAttributeType VULNERABILITY = (CustomAttributeType) (new CustomAttributeType("VULNERABILITY", "custom:player.vulnerability", 0, true)).register();
+	// Power is a custom attribute that can be used to calculate the player's overall power level, which can be used to balance the game.
+	public static final CustomAttributeType POWER = (CustomAttributeType) (new CustomAttributeType("POWER", "custom:player.power", 0, false)).register();
+	// Aoe range is a custom attribute that can be used to calculate the range of area of effect attacks.
+	public static final CustomAttributeType AOE_RANGE = (CustomAttributeType) (new CustomAttributeType("AOE_RANGE", "custom:player.aoe_range", 0)).register();
+	// Aoe damage ratio is a custom attribute that can be used to calculate the damage dealt by area of effect attacks.
+	public static final CustomAttributeType AOE_DAMAGE_RATIO = (CustomAttributeType) (new CustomAttributeType("AOE_DAMAGE_RATIO", "custom:player.aoe_damage_ratio", 0, true)).register();
+
 
 	private double baseValue;
 	private boolean percent;

@@ -4,7 +4,7 @@ version: 1.0.0
 api-version: 1.21
 author: TexWard
 depend: [BafFramework]
-softdepend: [CustomMenu, StackMob, Vouchers, ItemDropManager, mcMMO, PlaceholderAPI, PlaceholderAPIAddon, CustomShop]
+softdepend: [CustomMenu, StackMob, Vouchers, ItemDropManager, mcMMO, PlaceholderAPI, PlaceholderAPIAddon, CustomShop, DamageIndicator]
 description: Support for custom enchantment
 commands:
   customenchantment:
@@ -38,4 +38,7 @@ commands:
     aliases: [au, aup]
   cefilter:
     description: Filter for CustomEnchantment item
+    usage: /<command>
+  autoattack:
+    description: Auto attack CustomEnchantment item
     usage: /<command>

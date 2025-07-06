@@ -24,6 +24,7 @@ import com.bafmc.customenchantment.task.TaskModule;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.OfflinePlayer;
+import org.bukkit.craftbukkit.entity.CraftPlayer;
 import org.bukkit.event.Listener;
 
 import java.io.File;
@@ -61,6 +62,8 @@ public class CustomEnchantment extends BafPlugin implements Listener {
 		CustomEnchantment.instance = this;
 
 		super.onEnable();
+
+		getServer().getPluginManager().registerEvents(new MobDamageTrackerListener(), this);
 	}
 
 	public void registerModules() {
@@ -98,6 +101,10 @@ public class CustomEnchantment extends BafPlugin implements Listener {
 
 	public File getPlayerDataFolder() {
 		return new File(getGeneralDataFolder(), "player");
+	}
+
+	public File getWeaponFolder() {
+		return new File(getDataFolder(), "weapon");
 	}
 
 	public File getPlayerDataFile(OfflinePlayer player) {
