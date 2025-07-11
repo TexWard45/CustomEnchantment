@@ -1,4 +1,4 @@
-package com.bafmc.customenchantment.item.artifact;
+package com.bafmc.customenchantment.item.sigil;
 
 import com.bafmc.bukkit.bafframework.nms.NMSNBTTagCompound;
 import com.bafmc.bukkit.feature.placeholder.Placeholder;
@@ -18,9 +18,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-public class CEArtifact extends CEWeaponAbstract<CEArtifactData> {
-    public CEArtifact(ItemStack itemStack) {
-        super(CEItemType.ARTIFACT, itemStack);
+public class CESigil extends CEWeaponAbstract<CESigilData> {
+    public CESigil(ItemStack itemStack) {
+        super(CEItemType.SIGIL, itemStack);
     }
 
     public void importFrom(ItemStack itemStack) {
@@ -33,10 +33,10 @@ public class CEArtifact extends CEWeaponAbstract<CEArtifactData> {
         int level = Math.max(tag.getInt(CENBT.LEVEL), 1);
         String id = tag.getString(CENBT.ID);
 
-        CEArtifact item = (CEArtifact) CustomEnchantment.instance().getCeItemStorageMap().get(CEItemType.ARTIFACT).get(pattern);
+        CESigil item = (CESigil) CustomEnchantment.instance().getCeItemStorageMap().get(CEItemType.SIGIL).get(pattern);
 
         if (item != null) {
-            CEArtifactData data = item.getData().clone();
+            CESigilData data = item.getData().clone();
             data.setLevel(level);
             data.setId(id);
             setData(data);
@@ -47,7 +47,7 @@ public class CEArtifact extends CEWeaponAbstract<CEArtifactData> {
         return exportTo(getData());
     }
 
-    public ItemStack exportTo(CEArtifactData data) {
+    public ItemStack exportTo(CESigilData data) {
         getWeaponEnchant().forceAddCESimple(new CEEnchantSimple(getData().getConfigData().getEnchant(), data.getLevel()));
 
         ItemStack itemStack = super.exportTo().clone();
@@ -83,27 +83,25 @@ public class CEArtifact extends CEWeaponAbstract<CEArtifactData> {
         return itemStack;
     }
 
-    public Map<String, String> getPlaceholder(CEArtifactData data) {
+    public Map<String, String> getPlaceholder(CESigilData data) {
         Map<String, String> map = new HashMap<>();
 
         if (data.getLevel() <= 0) {
             return map;
         }
 
-        CEArtifactGroup group = CustomEnchantment.instance().getCeArtifactGroupMap().get(data.getConfigData().getGroup());
-        if (group != null) {
-            map.put("{level}", String.valueOf(data.getLevel()));
+        CESigilSettings settings = CESigilSettings.getSettings();
+        map.put("{level}", String.valueOf(data.getLevel()));
 
-            SparseMap<String> levelColors = group.getLevelColors();
-            map.put("{level_color}", levelColors.containsKey(data.getLevel()) ? group.getLevelColors().get(data.getLevel()) : "");
-            // Fix auto replace bold color
-            map.put("{level_color_bold}", levelColors.containsKey(data.getLevel()) ? group.getLevelColors().get(data.getLevel()) + "&l" : "");
-        }
+        SparseMap<String> levelColors = settings.getLevelColors();
+        map.put("{level_color}", levelColors.containsKey(data.getLevel()) ? levelColors.get(data.getLevel()) : "");
+        // Fix auto replace bold color
+        map.put("{level_color_bold}", levelColors.containsKey(data.getLevel()) ? levelColors.get(data.getLevel()) + "&l" : "");
         return map;
     }
 
 
     public String getWeaponSettingsName() {
-        return "artifact-" + super.getWeaponSettingsName();
+        return "sigil-" + super.getWeaponSettingsName();
     }
 }

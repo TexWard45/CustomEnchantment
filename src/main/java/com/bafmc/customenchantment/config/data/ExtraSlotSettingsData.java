@@ -12,11 +12,11 @@ import java.util.List;
 @Configuration
 @Getter
 @ToString
-public class ArtifactSettingsData {
+public class ExtraSlotSettingsData {
     @Path
     private int maxCount;
     @Path
-    private List<String> groups;
+    private List<String> list;
     @Path
     @ListType(EquipSlot.class)
     private List<EquipSlot> slots;

@@ -1,4 +1,4 @@
-package com.bafmc.customenchantment.item.mask.group;
+package com.bafmc.customenchantment.item.artifact.group;
 
 import com.bafmc.bukkit.utils.StorageMap;
 

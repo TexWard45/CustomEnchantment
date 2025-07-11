@@ -1,20 +1,13 @@
 package com.bafmc.customenchantment;
 
-import net.minecraft.network.protocol.game.ClientboundCooldownPacket;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.item.Items;
 import org.bukkit.Bukkit;
-import org.bukkit.craftbukkit.entity.CraftPlayer;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Mob;
-import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDeathEvent;
-import org.bukkit.event.player.PlayerMoveEvent;
 
-import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.UUID;
 

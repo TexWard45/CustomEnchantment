@@ -22,4 +22,5 @@ public class CEItemType {
 	public static final String BANNER = "banner";
     public static final String LORE_FORMAT = "loreformat";
 	public static final String ARTIFACT = "artifact";
+	public static final String SIGIL = "sigil";
 }

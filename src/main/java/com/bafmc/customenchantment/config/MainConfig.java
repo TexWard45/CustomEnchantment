@@ -6,9 +6,11 @@ import com.bafmc.bukkit.config.annotation.Path;
 import com.bafmc.bukkit.config.annotation.ValueType;
 import com.bafmc.customenchantment.api.EntityTypeList;
 import com.bafmc.customenchantment.api.MaterialList;
-import com.bafmc.customenchantment.config.data.ArtifactSettingsData;
+import com.bafmc.customenchantment.config.data.ExtraSlotSettingsData;
+import com.bafmc.customenchantment.item.CEItem;
 import com.bafmc.customenchantment.item.CEWeapon;
 import com.bafmc.customenchantment.item.artifact.CEArtifact;
+import com.bafmc.customenchantment.item.sigil.CESigil;
 import lombok.Getter;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -38,9 +40,9 @@ public class MainConfig implements IConfigurationLoader {
 	@Path("enchant-disable-worlds")
 	@Getter
 	private List<String> enchantDisableWorlds = new ArrayList<>();
-	@Path("max-artifact-use-count")
+	@Path("max-extra-slot-use-count")
 	@Getter
-	private int maxArtifactUseCount = 3;
+	private int maxExtraSlotUseCount = 3;
 	@Path("combat-time")
 	@Getter
 	private int combatTime = 10000;
@@ -56,9 +58,9 @@ public class MainConfig implements IConfigurationLoader {
 	@Path("effect-type-blacklist")
 	@Getter
 	private List<String> effectTypeBlacklist = new ArrayList<>();
-	@Path("artifact-settings")
-	@ValueType(ArtifactSettingsData.class)
-	private Map<String, ArtifactSettingsData> artifactSettingMap = new LinkedHashMap<>();
+	@Path("extra-slot-settings")
+	@ValueType(ExtraSlotSettingsData.class)
+	private Map<String, ExtraSlotSettingsData> extraSlotSettingMap = new LinkedHashMap<>();
 	@Path("combat-settings.require-weapon")
 	@Getter
 	private boolean combatSettingsRequireWeapon = true;
@@ -88,19 +90,37 @@ public class MainConfig implements IConfigurationLoader {
 		return enchantDisableWorlds.contains(world);
 	}
 
-	public ArtifactSettingsData getArtifactSettings(CEArtifact ceArtifact) {
-		String group = ceArtifact.getData().getConfigData().getGroup();
+	public ExtraSlotSettingsData getExtraSlotSettings(CEItem ceItem) {
+		String id = null;
+		if (ceItem instanceof CEArtifact ceArtifact) {
+			id = "artifact " + ceArtifact.getData().getConfigData().getGroup();
+		}
 
-		for (String key : artifactSettingMap.keySet()) {
-			if (artifactSettingMap.get(key).getGroups().contains(group)) {
-				return artifactSettingMap.get(key);
+		if (ceItem instanceof CESigil ceSigil) {
+			id = "sigil " + ceSigil.getData().getPattern();
+		}
+
+		if (id == null) {
+			return null;
+		}
+
+		for (String key : extraSlotSettingMap.keySet()) {
+			List<String> list = extraSlotSettingMap.get(key).getList();
+			if (list.contains(id)) {
+				return extraSlotSettingMap.get(key);
+			}
+			if (id.startsWith("artifact ") && list.contains("artifact")) {
+				return extraSlotSettingMap.get(key);
+			}
+			if (id.startsWith("sigil ") && list.contains("sigil")) {
+				return extraSlotSettingMap.get(key);
 			}
 		}
 
 		return null;
 	}
 
-	public Map<String, ArtifactSettingsData> getArtifactSettingMap() {
-		return new LinkedHashMap<>(artifactSettingMap);
+	public Map<String, ExtraSlotSettingsData> getExtraSlotSettingMap() {
+		return new LinkedHashMap<>(extraSlotSettingMap);
 	}
 }

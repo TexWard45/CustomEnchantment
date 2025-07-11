@@ -15,7 +15,7 @@ import com.bafmc.customenchantment.feature.FeatureModule;
 import com.bafmc.customenchantment.filter.FilterModule;
 import com.bafmc.customenchantment.guard.GuardModule;
 import com.bafmc.customenchantment.item.ItemModule;
-import com.bafmc.customenchantment.item.mask.group.CEArtifactGroupMap;
+import com.bafmc.customenchantment.item.artifact.group.CEArtifactGroupMap;
 import com.bafmc.customenchantment.listener.ListenerModule;
 import com.bafmc.customenchantment.menu.MenuModule;
 import com.bafmc.customenchantment.placeholder.PlaceholderModule;
@@ -24,7 +24,6 @@ import com.bafmc.customenchantment.task.TaskModule;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.OfflinePlayer;
-import org.bukkit.craftbukkit.entity.CraftPlayer;
 import org.bukkit.event.Listener;
 
 import java.io.File;

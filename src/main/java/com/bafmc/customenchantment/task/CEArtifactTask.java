@@ -70,7 +70,7 @@ public class CEArtifactTask extends PlayerPerTickTask {
             return false;
         }
 
-        if (hotbarSlotMap.size() <= CustomEnchantment.instance().getMainConfig().getMaxArtifactUseCount()) {
+        if (hotbarSlotMap.size() <= CustomEnchantment.instance().getMainConfig().getMaxExtraSlotUseCount()) {
             if (uniqueArtifactList.size() != hotbarSlotMap.size()) {
                 handleArtifactDeactivation(cePlayer, hotbarSlotMap);
                 if (!inDisableArtifactSet.contains(player.getName())) {

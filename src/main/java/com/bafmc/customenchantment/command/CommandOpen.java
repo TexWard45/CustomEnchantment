@@ -8,6 +8,7 @@ import java.util.Set;
 import com.bafmc.bukkit.bafframework.utils.SkullUtils;
 import com.bafmc.bukkit.utils.ItemStackBuilder;
 import com.bafmc.customenchantment.item.artifact.CEArtifact;
+import com.bafmc.customenchantment.item.sigil.CESigil;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
@@ -142,6 +143,9 @@ public class CommandOpen implements AbstractCommand {
 					if (ceItem instanceof CEArtifact ceArtifact) {
 						ceArtifact.getData().setLevel(level);
 						inventory.setItem(i, ItemStackUtils.getItemStackWithPlaceholder(ceArtifact.exportTo(), player));
+					}else if (ceItem instanceof CESigil ceSigil) {
+						ceSigil.getData().setLevel(level);
+						inventory.setItem(i, ItemStackUtils.getItemStackWithPlaceholder(ceSigil.exportTo(), player));
 					}else {
 						inventory.setItem(i, ItemStackUtils.getItemStackWithPlaceholder(ceItemArr[from + i].exportTo(), player));
 					}

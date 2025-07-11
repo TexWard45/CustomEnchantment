@@ -3,7 +3,7 @@ package com.bafmc.customenchantment.config;
 import com.bafmc.bukkit.config.AdvancedConfigurationSection;
 import com.bafmc.bukkit.utils.SparseMap;
 import com.bafmc.customenchantment.CustomEnchantment;
-import com.bafmc.customenchantment.item.mask.group.CEArtifactGroup;
+import com.bafmc.customenchantment.item.artifact.group.CEArtifactGroup;
 
 import java.util.List;
 import java.util.Set;
@@ -15,12 +15,12 @@ public class CEArtifactGroupConfig extends AbstractConfig {
 		AdvancedConfigurationSection settingsConfig = config.getAdvancedConfigurationSection("settings");
 		for (String key : groupKeys) {
 			AdvancedConfigurationSection mainConfig = config.getAdvancedConfigurationSection("list." + key);
-			CEArtifactGroup ceGroup = loadCEMaskGroup(key, mainConfig, settingsConfig);
+			CEArtifactGroup ceGroup = loadCEArtifactGroup(key, mainConfig, settingsConfig);
 			CustomEnchantment.instance().getCeArtifactGroupMap().put(ceGroup.getName(), ceGroup);
 		}
 	}
 
-	public CEArtifactGroup loadCEMaskGroup(String key, AdvancedConfigurationSection mainConfig, AdvancedConfigurationSection settingsConfig) {
+	public CEArtifactGroup loadCEArtifactGroup(String key, AdvancedConfigurationSection mainConfig, AdvancedConfigurationSection settingsConfig) {
         String display = mainConfig.getString("display", settingsConfig.getString("display"));
 		String itemDisplay = mainConfig.getString("item-display", settingsConfig.getString("item-display"));
 		List<String> itemLore = mainConfig.getStringList("item-lore", settingsConfig.getStringList("item-lore"));

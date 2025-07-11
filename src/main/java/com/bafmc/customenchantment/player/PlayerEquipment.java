@@ -2,7 +2,7 @@ package com.bafmc.customenchantment.player;
 
 import com.bafmc.bukkit.utils.EquipSlot;
 import com.bafmc.customenchantment.CustomEnchantment;
-import com.bafmc.customenchantment.config.data.ArtifactSettingsData;
+import com.bafmc.customenchantment.config.data.ExtraSlotSettingsData;
 import com.bafmc.customenchantment.item.CEWeapon;
 import com.bafmc.customenchantment.item.CEWeaponAbstract;
 import org.bukkit.inventory.ItemStack;
@@ -80,11 +80,11 @@ public class PlayerEquipment extends CEPlayerExpansion {
     }
 
     public void sortExtraSlot() {
-        Map<String, ArtifactSettingsData> artifactSettingsDataMap = CustomEnchantment.instance().getMainConfig().getArtifactSettingMap();
+        Map<String, ExtraSlotSettingsData> artifactSettingsDataMap = CustomEnchantment.instance().getMainConfig().getExtraSlotSettingMap();
 
-        for (ArtifactSettingsData artifactSettingsData : artifactSettingsDataMap.values()) {
+        for (ExtraSlotSettingsData extraSlotSettingsData : artifactSettingsDataMap.values()) {
             List<EquipSlot> extraSlotList = new ArrayList<>();
-            extraSlotList.addAll(artifactSettingsData.getSlots());
+            extraSlotList.addAll(extraSlotSettingsData.getSlots());
             for (int i = 0; i < extraSlotList.size(); i++) {
                 EquipSlot slot = extraSlotList.get(i);
                 if (getSlot(slot) != null) {

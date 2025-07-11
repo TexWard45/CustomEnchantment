@@ -4,7 +4,7 @@ import com.bafmc.bukkit.config.AdvancedFileConfiguration;
 import com.bafmc.bukkit.module.PluginModule;
 import com.bafmc.bukkit.utils.FileUtils;
 import com.bafmc.customenchantment.*;
-import com.bafmc.customenchantment.item.mask.group.CEArtifactGroupMap;
+import com.bafmc.customenchantment.item.artifact.group.CEArtifactGroupMap;
 import com.bafmc.customenchantment.item.randombook.CERandomBookPlayerFilter;
 
 import java.util.ArrayList;

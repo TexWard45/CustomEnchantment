@@ -6,12 +6,13 @@ import com.bafmc.bukkit.utils.MaterialUtils;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.CustomEnchantmentMessage;
 import com.bafmc.customenchantment.api.CEAPI;
-import com.bafmc.customenchantment.config.data.ArtifactSettingsData;
+import com.bafmc.customenchantment.config.data.ExtraSlotSettingsData;
 import com.bafmc.customenchantment.item.CEItem;
 import com.bafmc.customenchantment.item.CEItemType;
 import com.bafmc.customenchantment.item.CEWeaponAbstract;
 import com.bafmc.customenchantment.item.artifact.CEArtifact;
 import com.bafmc.customenchantment.item.protectdead.CEProtectDead;
+import com.bafmc.customenchantment.item.sigil.CESigil;
 import com.bafmc.customenchantment.menu.MenuAbstract;
 import com.bafmc.customenchantment.player.CEPlayer;
 import com.bafmc.customenchantment.player.PlayerEquipment;
@@ -36,7 +37,7 @@ import java.util.Map;
 public class EquipmentMenu extends MenuAbstract {
 	public static final String MENU_NAME = "equipment";
 	public static final String PROTECT_DEAD_SLOT = "protect-dead";
-	public static final String ARTIFACT_SLOT = "artifact";
+	public static final String EXTRA_SLOT = "extra-slot";
 	public static final String PLAYER_INFO_SLOT = "player-info";
 	private static HashMap<String, EquipmentMenu> map = new HashMap<String, EquipmentMenu>();
 	@Getter
@@ -92,32 +93,28 @@ public class EquipmentMenu extends MenuAbstract {
 
 	private Map<EquipSlot, Long> lastClickTime = new HashMap<EquipSlot, Long>();
 	public EquipmentAddReason addItem(InventoryClickEvent e, ItemStack itemStack, CEItem ceItem) {
-		if (ceItem instanceof CEArtifact artifact) {
+		ExtraSlotSettingsData extraSlot = CustomEnchantment.instance().getMainConfig().getExtraSlotSettings(ceItem);
+		if (extraSlot != null && ceItem instanceof CEWeaponAbstract ceWeaponAbstract) {
 			if (itemStack.getAmount() > 1) {
 				return EquipmentAddReason.NOTHING;
 			}
 
-			ArtifactSettingsData data = CustomEnchantment.instance().getMainConfig().getArtifactSettings(artifact);
-			if (data == null) {
-				return EquipmentAddReason.NOTHING;
-			}
-
 			PlayerEquipment playerEquipment = CEAPI.getCEPlayer(player).getEquipment();
-			int maxArtifactUseCount = getMaxArtifactUseCount(artifact);
+			int maxArtifactUseCount = getMaxExtraSlotUseCount(ceWeaponAbstract);
 			if (maxArtifactUseCount <= 0) {
 				return EquipmentAddReason.NO_ARTIFACT_SLOT;
 			}
 
-			int emptyIndex = getEmptyArtifactIndex(artifact);
+			int emptyIndex = getEmptyExtraSlotIndex(ceWeaponAbstract);
 			if (emptyIndex != -1) {
-				if (checkDuplicateArtifactSlot(artifact)) {
+				if (checkDuplicateExtraSlot(ceWeaponAbstract)) {
 					return EquipmentAddReason.DUPLICATE_ARTIFACT;
 				}
 			} else {
 				return EquipmentAddReason.MAX_ARTIFACT;
 			}
 
-			playerEquipment.setSlot(data.getSlot(emptyIndex), artifact, true);
+			playerEquipment.setSlot(extraSlot.getSlot(emptyIndex), ceWeaponAbstract, true);
 			updateMenuWithPreventAction();
 			e.setCurrentItem(null);
 			return EquipmentAddReason.ADD_ARTIFACT;
@@ -228,7 +225,7 @@ public class EquipmentMenu extends MenuAbstract {
 		updateSlots("offhand", EquipSlot.OFFHAND.getItemStack(player));
 		updateSlots("mainhand", EquipSlot.MAINHAND.getItemStack(player));
 		updateProtectDeadSlots();
-		updateArtifactSlots();
+		updateExtraSlots();
 		updatePlayerInfoSlots();
 	}
 
@@ -283,22 +280,22 @@ public class EquipmentMenu extends MenuAbstract {
 		}
 	}
 
-	public void updateArtifactSlots() {
+	public void updateExtraSlots() {
 		PlayerEquipment playerEquipment = CEAPI.getCEPlayer(player).getEquipment();
 		playerEquipment.sortExtraSlot();
 
-		Map<String, ArtifactSettingsData> map = CustomEnchantment.instance().getMainConfig().getArtifactSettingMap();
+		Map<String, ExtraSlotSettingsData> map = CustomEnchantment.instance().getMainConfig().getExtraSlotSettingMap();
 
 		for (String key : map.keySet()) {
-			ArtifactSettingsData data = map.get(key);
+			ExtraSlotSettingsData data = map.get(key);
 
 			int maxArtifactUseCount = data.getMaxCount();
-			List<Integer> slots = getSlots(ARTIFACT_SLOT + "-" + key);
+			List<Integer> slots = getSlots(EXTRA_SLOT + "-" + key);
 
 			for (int i = 0; i < maxArtifactUseCount; i++) {
 				if (i < slots.size()) {
 					CEWeaponAbstract weaponAbstract = playerEquipment.getSlot(data.getSlot(i));
-					if (weaponAbstract instanceof CEArtifact) {
+					if (weaponAbstract instanceof CEArtifact || weaponAbstract instanceof CESigil) {
 						menuView.setTemporaryItem(slots.get(i), weaponAbstract.getDefaultItemStack());
 					}else {
 						menuView.removeTemporaryItem(slots.get(i));
@@ -308,8 +305,8 @@ public class EquipmentMenu extends MenuAbstract {
 		}
 	}
 
-	public int getMaxArtifactUseCount(CEArtifact ceArtifact) {
-		return CustomEnchantment.instance().getMainConfig().getArtifactSettings(ceArtifact).getMaxCount();
+	public int getMaxExtraSlotUseCount(CEWeaponAbstract ceItem) {
+		return CustomEnchantment.instance().getMainConfig().getExtraSlotSettings(ceItem).getMaxCount();
 	}
 
 	private List<String> itemInteractList = Arrays.asList(
@@ -324,23 +321,23 @@ public class EquipmentMenu extends MenuAbstract {
 	public void returnItem(String itemName, int slot) {
 		PlayerEquipment playerEquipment = CEAPI.getCEPlayer(player).getEquipment();
 
-		if (itemInteractList.contains(itemName) || itemName.startsWith(EquipmentMenu.ARTIFACT_SLOT)) {
+		if (itemInteractList.contains(itemName) || itemName.startsWith(EquipmentMenu.EXTRA_SLOT)) {
 			if (player.getInventory().firstEmpty() == -1) {
 				CustomEnchantmentMessage.send(player, "menu.equipment.return-item.no-empty-slot");
 				return;
 			}
 		}
 
-		if (itemName.startsWith(EquipmentMenu.ARTIFACT_SLOT)) {
-			Map<String, ArtifactSettingsData> map = CustomEnchantment.instance().getMainConfig().getArtifactSettingMap();
+		if (itemName.startsWith(EquipmentMenu.EXTRA_SLOT)) {
+			Map<String, ExtraSlotSettingsData> map = CustomEnchantment.instance().getMainConfig().getExtraSlotSettingMap();
 
 			String specificSlot = null;
-			ArtifactSettingsData data = null;
+			ExtraSlotSettingsData data = null;
 
 			for (String key : map.keySet()) {
-				if (itemName.equals(EquipmentMenu.ARTIFACT_SLOT + "-" + key)) {
+				if (itemName.equals(EquipmentMenu.EXTRA_SLOT + "-" + key)) {
 					data = map.get(key);
-					specificSlot = EquipmentMenu.ARTIFACT_SLOT + "-" + key;
+					specificSlot = EquipmentMenu.EXTRA_SLOT + "-" + key;
 					break;
 				}
 			}
@@ -432,13 +429,13 @@ public class EquipmentMenu extends MenuAbstract {
 	public void returnItems() {
 	}
 
-	public int getEmptyArtifactIndex(CEArtifact ceArtifact) {
+	public int getEmptyExtraSlotIndex(CEWeaponAbstract ceWeaponAbstract) {
 		PlayerEquipment playerEquipment = CEAPI.getCEPlayer(player).getEquipment();
 		playerEquipment.sortExtraSlot();
 
-		ArtifactSettingsData data = CustomEnchantment.instance().getMainConfig().getArtifactSettings(ceArtifact);
+		ExtraSlotSettingsData data = CustomEnchantment.instance().getMainConfig().getExtraSlotSettings(ceWeaponAbstract);
 
-		int maxArtifactUseCount = getMaxArtifactUseCount(ceArtifact);
+		int maxArtifactUseCount = getMaxExtraSlotUseCount(ceWeaponAbstract);
 		for (int i = 0; i < maxArtifactUseCount; i++) {
 			if (playerEquipment.getSlot(data.getSlot(i)) == null) {
 				return i;
@@ -447,21 +444,28 @@ public class EquipmentMenu extends MenuAbstract {
 		return -1;
 	}
 
-	public boolean checkDuplicateArtifactSlot(CEArtifact ceArtifact) {
+	public boolean checkDuplicateExtraSlot(CEWeaponAbstract ceWeaponAbstract) {
 		PlayerEquipment playerEquipment = CEAPI.getCEPlayer(player).getEquipment();
-		int maxArtifactUseCount = getMaxArtifactUseCount(ceArtifact);
+		int maxArtifactUseCount = getMaxExtraSlotUseCount(ceWeaponAbstract);
 
-		ArtifactSettingsData data = CustomEnchantment.instance().getMainConfig().getArtifactSettings(ceArtifact);
+		ExtraSlotSettingsData data = CustomEnchantment.instance().getMainConfig().getExtraSlotSettings(ceWeaponAbstract);
 
 		for (int i = 0; i < maxArtifactUseCount; i++) {
 			CEWeaponAbstract weaponAbstract = playerEquipment.getSlot(data.getSlot(i));
 			if (weaponAbstract instanceof CEArtifact) {
 				CEArtifact artifact = (CEArtifact) weaponAbstract;
-				if (artifact.getData().getPattern().equals(ceArtifact.getData().getPattern())) {
+				if (artifact.getData().getPattern().equals(ceWeaponAbstract.getData().getPattern())) {
+					return true;
+				}
+			}
+			if (weaponAbstract instanceof CESigil) {
+				CESigil sigil = (CESigil) weaponAbstract;
+				if (sigil.getData().getId().equals(ceWeaponAbstract.getData().getPattern())) {
 					return true;
 				}
 			}
 		}
+
 		return false;
 	}
 }

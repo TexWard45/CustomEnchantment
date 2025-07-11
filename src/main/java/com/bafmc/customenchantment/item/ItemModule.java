@@ -20,6 +20,7 @@ import com.bafmc.customenchantment.item.removeenchant.CERemoveEnchantFactory;
 import com.bafmc.customenchantment.item.removeenchantpoint.CERemoveEnchantPointFactory;
 import com.bafmc.customenchantment.item.removegem.CERemoveGemFactory;
 import com.bafmc.customenchantment.item.removeprotectdead.CERemoveProtectDeadFactory;
+import com.bafmc.customenchantment.item.sigil.CESigilFactory;
 
 public class ItemModule extends PluginModule<CustomEnchantment> {
     public ItemModule(CustomEnchantment plugin) {
@@ -46,5 +47,6 @@ public class ItemModule extends PluginModule<CustomEnchantment> {
         new CEEraseEnchantFactory().register();
         new CELoreFormatFactory().register();
         new CEGemDrillFactory().register();
+        new CESigilFactory().register();
     }
 }
