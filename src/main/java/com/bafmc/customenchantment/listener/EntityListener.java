@@ -250,7 +250,13 @@ public class EntityListener implements Listener {
 		}
 
 		if (e.getCause() == DamageCause.ENTITY_ATTACK && defender instanceof Player) {
-			if (isDodged((Player) defender)) {
+			Player player = null;
+			if (attacker instanceof Player) {
+				player = (Player) attacker;
+			} else if (attacker instanceof Arrow && ((Arrow) attacker).getShooter() instanceof Player) {
+				player = (Player) ((Arrow) attacker).getShooter();
+			}
+			if (isDodged((Player) defender, player)) {
 				e.setCancelled(true);
 				return;
 			}
@@ -763,13 +769,23 @@ public class EntityListener implements Listener {
 		return true;
 	}
 
-	public boolean isDodged(Player player) {
-		CEPlayer cePlayer = CEAPI.getCEPlayer(player);
+	public boolean isDodged(Player defender, Player attacker) {
+		CEPlayer cePlayer = CEAPI.getCEPlayer(defender);
 		PlayerCustomAttribute attribute = cePlayer.getCustomAttribute();
 
 		int chance = (int) attribute.getValue(CustomAttributeType.DODGE_CHANCE);
+
+		if (attacker != null) {
+			CEPlayer ceAttacker = CEAPI.getCEPlayer(attacker);
+			chance -= (int) ceAttacker.getCustomAttribute().getValue(CustomAttributeType.ACCURACY_CHANCE);
+		}
+
+		if (chance <= 0) {
+			return false;
+		}
+
 		if (RandomUtils.randomChance(chance)) {
-			CustomEnchantmentMessage.send(player, "attribute.dodge.success");
+			CustomEnchantmentMessage.send(defender, "attribute.dodge.success");
 			return true;
 		}
 		return false;

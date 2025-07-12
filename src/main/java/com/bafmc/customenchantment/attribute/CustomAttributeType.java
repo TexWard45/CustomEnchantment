@@ -41,9 +41,13 @@ public class CustomAttributeType extends NMSAttributeType {
 	public static final CustomAttributeType AOE_RANGE = (CustomAttributeType) (new CustomAttributeType("AOE_RANGE", "custom:player.aoe_range", 0)).register();
 	// Aoe damage ratio is a custom attribute that can be used to calculate the damage dealt by area of effect attacks.
 	public static final CustomAttributeType AOE_DAMAGE_RATIO = (CustomAttributeType) (new CustomAttributeType("AOE_DAMAGE_RATIO", "custom:player.aoe_damage_ratio", 0, true)).register();
+	// Accuracy is a counter to the target's dodge chance and determines hit success.
+	public static final CustomAttributeType ACCURACY_CHANCE = (CustomAttributeType) (new CustomAttributeType("ACCURACY_CHANCE", "custom:player.accuracy_chance", 0, true)).register();
 
 	private double baseValue;
 	private boolean percent;
+	@Getter
+	private static CustomAttributeType[] values = new CustomAttributeType[0];
 
 	public CustomAttributeType(String type, String minecraftId, double baseValue) {
 		super(type, minecraftId);
@@ -59,7 +63,16 @@ public class CustomAttributeType extends NMSAttributeType {
 	public static void init() {
 	}
 
-	public static CustomAttributeType[] getValues() {
-		return new CustomAttributeType[] {OPTION_ATTACK, OPTION_DEFENSE, OPTION_POWER, STAT_EXP, STAT_FOOD, STAT_HEALTH, STAT_OXYGEN, STAT_ABSORPTION_HEART, DODGE_CHANCE, CRITICAL_CHANCE, CRITICAL_DAMAGE, HEALTH_REGENERATION, DAMAGE_REDUCTION, LIFE_STEAL, ARMOR_PENETRATION};
+	public NMSAttributeType register() {
+		if (values == null) {
+			values = new CustomAttributeType[0];
+		}
+
+		CustomAttributeType[] newValues = new CustomAttributeType[values.length + 1];
+		System.arraycopy(values, 0, newValues, 0, values.length);
+		newValues[values.length] = this;
+		values = newValues;
+
+		return super.register();
 	}
 }
