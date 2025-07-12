@@ -25,7 +25,7 @@ public class PlayerModule extends PluginModule<CustomEnchantment> {
         CEPlayerExpansionRegister.register(PlayerCECooldown.class);
         CEPlayerExpansionRegister.register(PlayerCEManager.class);
         CEPlayerExpansionRegister.register(PlayerAbility.class);
-        CEPlayerExpansionRegister.register(PlayerArtifact.class);
+        CEPlayerExpansionRegister.register(PlayerExtraSlot.class);
         CEPlayerExpansionRegister.register(PlayerMobBonus.class);
         CEPlayerExpansionRegister.register(PlayerBlockBonus.class);
         CEPlayerExpansionRegister.register(PlayerSpecialMining.class);

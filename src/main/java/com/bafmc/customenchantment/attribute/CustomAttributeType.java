@@ -42,7 +42,6 @@ public class CustomAttributeType extends NMSAttributeType {
 	// Aoe damage ratio is a custom attribute that can be used to calculate the damage dealt by area of effect attacks.
 	public static final CustomAttributeType AOE_DAMAGE_RATIO = (CustomAttributeType) (new CustomAttributeType("AOE_DAMAGE_RATIO", "custom:player.aoe_damage_ratio", 0, true)).register();
 
-
 	private double baseValue;
 	private boolean percent;
 

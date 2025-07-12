@@ -142,8 +142,8 @@ public class CEPlayer implements ICEPlayerEvent {
 		return (PlayerTemporaryStorage) getExpansion(PlayerTemporaryStorage.class);
 	}
 
-	public PlayerArtifact getArtifact() {
-		return (PlayerArtifact) getExpansion(PlayerArtifact.class);
+	public PlayerExtraSlot getArtifact() {
+		return (PlayerExtraSlot) getExpansion(PlayerExtraSlot.class);
 	}
 
 	public PlayerMobBonus getMobBonus() {

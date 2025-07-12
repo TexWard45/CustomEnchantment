@@ -9,7 +9,7 @@ public class TaskModule extends PluginModule<CustomEnchantment> {
     private EffectExecuteTask asyncEffectExecuteTask;
     private EffectExecuteTask effectExecuteTask;
     private CECallerTask ceCallerTask;
-    private CEArtifactTask artifactTask;
+    private CEExtraSlotTask extraSlotTask;
     private RecalculateAttributeTask attributeTask;
     private RegenerationTask regenerationTask;
     private SlowResistanceTask slowResistanceTask;
@@ -40,8 +40,8 @@ public class TaskModule extends PluginModule<CustomEnchantment> {
         this.ceCallerTask = new CECallerTask(getPlugin());
         this.ceCallerTask.runTaskTimer(getPlugin(), 0, 1);
 
-        this.artifactTask = new CEArtifactTask(getPlugin());
-        this.artifactTask.runTaskTimer(getPlugin(), 0, 4);
+        this.extraSlotTask = new CEExtraSlotTask(getPlugin());
+        this.extraSlotTask.runTaskTimer(getPlugin(), 0, 4);
 
         this.attributeTask = new RecalculateAttributeTask(getPlugin());
         this.attributeTask.runTaskTimerAsynchronously(getPlugin(), 0, 20);
@@ -82,7 +82,7 @@ public class TaskModule extends PluginModule<CustomEnchantment> {
         this.effectExecuteTask.cancel();
         this.cePlayerTask.cancel();
         this.ceCallerTask.cancel();
-        this.artifactTask.cancel();
+        this.extraSlotTask.cancel();
         this.attributeTask.cancel();
         this.regenerationTask.cancel();
         this.slowResistanceTask.cancel();

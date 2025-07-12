@@ -75,8 +75,8 @@ public class EquipmentMenu extends MenuAbstract {
 
 	public enum EquipmentAddReason {
 		SUCCESS, NOT_SUPPORT_ITEM,UNDRESS_FIRST,
-		// ARTIFACT
-		ADD_ARTIFACT, MAX_ARTIFACT, DUPLICATE_ARTIFACT, NOTHING, NO_ARTIFACT_SLOT,
+		// EXTRA_SLOT
+		ADD_EXTRA_SLOT, MAX_EXTRA_SLOT, DUPLICATE_EXTRA_SLOT, NOTHING, NO_EXTRA_SLOT,
 		// PROTECT_DEAD
 		ADD_PROTECT_DEAD, EXCEED_PROTECT_DEAD, DIFFERENT_PROTECT_DEAD;
 	}
@@ -102,22 +102,22 @@ public class EquipmentMenu extends MenuAbstract {
 			PlayerEquipment playerEquipment = CEAPI.getCEPlayer(player).getEquipment();
 			int maxArtifactUseCount = getMaxExtraSlotUseCount(ceWeaponAbstract);
 			if (maxArtifactUseCount <= 0) {
-				return EquipmentAddReason.NO_ARTIFACT_SLOT;
+				return EquipmentAddReason.NO_EXTRA_SLOT;
 			}
 
 			int emptyIndex = getEmptyExtraSlotIndex(ceWeaponAbstract);
 			if (emptyIndex != -1) {
 				if (checkDuplicateExtraSlot(ceWeaponAbstract)) {
-					return EquipmentAddReason.DUPLICATE_ARTIFACT;
+					return EquipmentAddReason.DUPLICATE_EXTRA_SLOT;
 				}
 			} else {
-				return EquipmentAddReason.MAX_ARTIFACT;
+				return EquipmentAddReason.MAX_EXTRA_SLOT;
 			}
 
 			playerEquipment.setSlot(extraSlot.getSlot(emptyIndex), ceWeaponAbstract, true);
 			updateMenuWithPreventAction();
 			e.setCurrentItem(null);
-			return EquipmentAddReason.ADD_ARTIFACT;
+			return EquipmentAddReason.ADD_EXTRA_SLOT;
 		}else if (ceItem instanceof CEProtectDead protectDead && protectDead.getData().isAdvancedMode()) {
 			CEPlayer cePlayer = CEAPI.getCEPlayer(player);
 			PlayerStorage playerStorage = cePlayer.getStorage();
