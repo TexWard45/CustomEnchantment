@@ -1,22 +1,14 @@
 package com.bafmc.customenchantment.api;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
-
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.World;
-import org.bukkit.block.Block;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.Player;
-import org.bukkit.util.BlockIterator;
-import org.bukkit.util.Vector;
-
 import com.bafmc.bukkit.utils.MathUtils;
 import com.bafmc.bukkit.utils.StringUtils;
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
+import org.bukkit.World;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.Player;
+
+import java.util.List;
 
 public class LocationFormat {
 	private String locationFormat;
@@ -122,51 +114,6 @@ public class LocationFormat {
 			e.printStackTrace();
 		}
 		return location;
-	}
-
-	public List<Material> transparent = Arrays.asList(Material.AIR, Material.WATER, Material.LAVA);
-
-	public Location getLegitLocation(Location from, Location to) {
-		Location location = null;
-
-		Vector startVector = from.toVector();
-		Vector startDirection = to.toVector().subtract(from.toVector());
-		int maxDistance = (int) from.distance(to);
-		int maxLength = 0;
-		if (maxDistance > 120) {
-			maxDistance = 120;
-		}
-		double offSet = 0;
-
-		ArrayList<Block> blocks = new ArrayList<Block>();
-		Iterator<Block> itr = new BlockIterator(from.getWorld(), startVector, startDirection, offSet, maxDistance);
-		while (itr.hasNext()) {
-			Block block = (Block) itr.next();
-			blocks.add(block);
-			if ((maxLength != 0) && (blocks.size() > maxLength)) {
-				blocks.remove(0);
-			}
-			Material material = block.getType();
-			if (transparent == null ? !material.equals(Material.AIR) : !transparent.contains(material)) {
-				break;
-			}
-			location = block.getLocation();
-		}
-
-		if (location != null) {
-			if (Math.floor(to.getX()) == location.getX() && Math.floor(to.getY()) == location.getY()
-					&& Math.floor(to.getZ()) == location.getZ()) {
-				return to;
-			}
-
-			location.setX(location.getX() + 0.5);
-			location.setZ(location.getZ() + 0.5);
-			location.setYaw(to.getYaw());
-			location.setPitch(to.getPitch());
-			return location;
-		}
-
-		return from;
 	}
 
 	public static float getExactYaw(float yaw) {

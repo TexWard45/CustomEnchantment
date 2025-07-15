@@ -16,6 +16,7 @@ import com.bafmc.customenchantment.enchant.CEType;
 import com.bafmc.customenchantment.event.CEPlayerStatsModifyEvent;
 import com.bafmc.customenchantment.feature.other.DashFeature;
 import com.bafmc.customenchantment.feature.other.DoubleJumpFeature;
+import com.bafmc.customenchantment.feature.other.FlashFeature;
 import com.bafmc.customenchantment.item.CEItem;
 import com.bafmc.customenchantment.item.CEItemUsable;
 import com.bafmc.customenchantment.item.CEWeaponAbstract;
@@ -67,13 +68,6 @@ public class PlayerListener implements Listener {
 		double newChangeValue = attribute.getValue(type, changeValue);
 
 		e.setValue(newChangeValue);
-	}
-
-	@EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
-	public void onPlayerRegeneration(EntityRegainHealthEvent e) {
-	if (e.getEntity() instanceof Player player) {
-		System.out.println(e.getEntity().getName() + " " + e.getRegainReason());
-	}
 	}
 
 	@EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
@@ -382,6 +376,7 @@ public class PlayerListener implements Listener {
 
         handleDash(e.getPlayer());
         handleJump(e.getPlayer());
+		handleFlash(e.getPlayer());
 		callSneak(e.getPlayer());
     }
 
@@ -490,4 +485,43 @@ public class PlayerListener implements Listener {
         DoubleJumpFeature.jump(player, power, particle);
         storage.set(TemporaryKey.DOUBLE_JUMP_LAST_USE, currentTime);
     }
+
+	public void handleFlash(Player player) {
+		CEPlayer cePlayer = CEAPI.getCEPlayer(player);
+
+		PlayerTemporaryStorage storage = cePlayer.getTemporaryStorage();
+		if (!storage.isBoolean(TemporaryKey.FLASH_ENABLE)) {
+			return;
+		}
+
+		long lastMoveTime = storage.getLong(TemporaryKey.LAST_MOVE_TIME);
+		if (System.currentTimeMillis() - lastMoveTime > 1000) {
+			return;
+		}
+
+		double flashCooldown = storage.getDouble(TemporaryKey.FLASH_COOLDOWN);
+		long currentTime = System.currentTimeMillis();
+		long flashLastUse = storage.getLong(TemporaryKey.FLASH_LAST_USE);
+		if (System.currentTimeMillis() - flashLastUse < flashCooldown) {
+			String flashCooldownMessage = storage.getString(TemporaryKey.FLASH_COOLDOWN_MESSAGE);
+			double timeLeft = (flashCooldown - (currentTime - flashLastUse)) / 1000d;
+
+			Placeholder placeholder = PlaceholderBuilder.builder().put("{time_left}", StringUtils.formatNumber(timeLeft)).build();
+			flashCooldownMessage = placeholder.apply(flashCooldownMessage);
+
+			MessageUtils.send(player, flashCooldownMessage);
+			return;
+		}
+
+		String particle = storage.getString(TemporaryKey.FLASH_PARTICLE);
+
+		double power = storage.getDouble(TemporaryKey.FLASH_POWER);
+		boolean smart = storage.getBoolean(TemporaryKey.FLASH_SMART);
+		boolean flashSuccess = FlashFeature.flash(player, power, particle, smart);
+		if (!flashSuccess) {
+			storage.set(TemporaryKey.FLASH_LAST_USE, flashLastUse + 1000);
+			return;
+		}
+		storage.set(TemporaryKey.FLASH_LAST_USE, currentTime);
+	}
 }

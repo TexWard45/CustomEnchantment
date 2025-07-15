@@ -9,7 +9,6 @@ import com.bafmc.customenchantment.enchant.CEEnchantSimple;
 import com.bafmc.customenchantment.item.CEItemType;
 import com.bafmc.customenchantment.item.CENBT;
 import com.bafmc.customenchantment.item.CEWeaponAbstract;
-import com.bafmc.customenchantment.item.artifact.group.CEArtifactGroup;
 import com.bafmc.customenchantment.nms.CECraftItemStackNMS;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;

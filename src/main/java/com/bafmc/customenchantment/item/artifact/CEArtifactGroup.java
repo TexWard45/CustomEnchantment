@@ -1,4 +1,4 @@
-package com.bafmc.customenchantment.item.sigil;
+package com.bafmc.customenchantment.item.artifact;
 
 import com.bafmc.bukkit.utils.SparseMap;
 import lombok.AllArgsConstructor;
@@ -10,14 +10,9 @@ import java.util.List;
 @Getter
 @Builder
 @AllArgsConstructor
-public class CESigilSettings {
-    @Getter
-    private static CESigilSettings settings;
-
-    public static void setSettings(CESigilSettings settings) {
-        CESigilSettings.settings = settings;
-    }
-
+public class CEArtifactGroup {
+    private String name;
+    private String display;
     private String itemDisplay;
     private List<String> itemLore;
     private SparseMap<String> levelColors;

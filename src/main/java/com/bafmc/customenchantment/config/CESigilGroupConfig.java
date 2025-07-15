@@ -3,30 +3,30 @@ package com.bafmc.customenchantment.config;
 import com.bafmc.bukkit.config.AdvancedConfigurationSection;
 import com.bafmc.bukkit.utils.SparseMap;
 import com.bafmc.customenchantment.CustomEnchantment;
-import com.bafmc.customenchantment.item.artifact.CEArtifactGroup;
+import com.bafmc.customenchantment.item.sigil.CESigilGroup;
 
 import java.util.List;
 import java.util.Set;
 
-public class CEArtifactGroupConfig extends AbstractConfig {
+public class CESigilGroupConfig extends AbstractConfig {
 	protected void loadConfig() {
 		Set<String> groupKeys = config.getKeySection("list", false);
 
 		AdvancedConfigurationSection settingsConfig = config.getAdvancedConfigurationSection("settings");
 		for (String key : groupKeys) {
 			AdvancedConfigurationSection mainConfig = config.getAdvancedConfigurationSection("list." + key);
-			CEArtifactGroup ceGroup = loadCEArtifactGroup(key, mainConfig, settingsConfig);
-			CustomEnchantment.instance().getCeArtifactGroupMap().put(ceGroup.getName(), ceGroup);
+			CESigilGroup ceGroup = loadCESigilGroup(key, mainConfig, settingsConfig);
+			CustomEnchantment.instance().getCeSigilGroupMap().put(ceGroup.getName(), ceGroup);
 		}
 	}
 
-	public CEArtifactGroup loadCEArtifactGroup(String key, AdvancedConfigurationSection mainConfig, AdvancedConfigurationSection settingsConfig) {
+	public CESigilGroup loadCESigilGroup(String key, AdvancedConfigurationSection mainConfig, AdvancedConfigurationSection settingsConfig) {
         String display = mainConfig.getString("display", settingsConfig.getString("display"));
 		String itemDisplay = mainConfig.getString("item-display", settingsConfig.getString("item-display"));
 		List<String> itemLore = mainConfig.getStringList("item-lore", settingsConfig.getStringList("item-lore"));
 		SparseMap<String> levels = loadLevels(mainConfig, settingsConfig);
 
-		return CEArtifactGroup.builder()
+		return CESigilGroup.builder()
 				.name(key)
 				.display(display)
 				.itemDisplay(itemDisplay)

@@ -20,6 +20,7 @@ public class CESigilData extends CEItemData implements Cloneable {
     @AllArgsConstructor
     @Getter
     public static class ConfigData {
+        private String group;
         private String enchant;
         private int maxLevel;
         private String itemDisplay;

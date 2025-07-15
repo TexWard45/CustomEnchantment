@@ -1,12 +1,12 @@
 package com.bafmc.customenchantment.enchant.effect;
 
-import org.bukkit.Location;
-import org.bukkit.entity.LivingEntity;
-import org.bukkit.entity.Player;
-
+import com.bafmc.bukkit.utils.LocationUtils;
 import com.bafmc.customenchantment.api.LocationFormat;
 import com.bafmc.customenchantment.enchant.CEFunctionData;
 import com.bafmc.customenchantment.enchant.EffectHook;
+import org.bukkit.Location;
+import org.bukkit.entity.LivingEntity;
+import org.bukkit.entity.Player;
 
 public class EffectTeleport extends EffectHook {
 	private String format;
@@ -36,7 +36,7 @@ public class EffectTeleport extends EffectHook {
 		if (location == null) {
 			return;
 		}
-		location = locationFormat.getLegitLocation(player.getLocation(), location);
+		location = LocationUtils.getLegitLocation(player.getLocation(), location);
 
 		if (location == null) {
 			return;

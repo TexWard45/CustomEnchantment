@@ -1,4 +1,4 @@
-package com.bafmc.customenchantment.item.artifact.group;
+package com.bafmc.customenchantment.item.sigil;
 
 import com.bafmc.bukkit.utils.SparseMap;
 import lombok.AllArgsConstructor;
@@ -10,7 +10,7 @@ import java.util.List;
 @Getter
 @Builder
 @AllArgsConstructor
-public class CEArtifactGroup {
+public class CESigilGroup {
     private String name;
     private String display;
     private String itemDisplay;

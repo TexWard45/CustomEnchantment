@@ -29,5 +29,12 @@ public class TemporaryKey {
     public static final String DOUBLE_JUMP_POWER = "double_jump_power";
     public static final String DOUBLE_JUMP_PARTICLE = "double_jump_particle";
     public static final String DOUBLE_JUMP_LAST_USE = "double_jump_last_use";
+    public static final String FLASH_ENABLE = "flash_enable";
+    public static final String FLASH_COOLDOWN = "flash_cooldown";
+    public static final String FLASH_COOLDOWN_MESSAGE = "flash_cooldown_message";
+    public static final String FLASH_POWER = "flash_power";
+    public static final String FLASH_PARTICLE = "flash_particle";
+    public static final String FLASH_LAST_USE = "flash_last_use";
     public static final String LAST_MINE_BLOCK_TYPE = "last_mine_block_type";
+    public static final String FLASH_SMART = "flash_smart";
 }

@@ -1,5 +1,6 @@
 package com.bafmc.customenchantment.enchant.effect;
 
+import com.bafmc.bukkit.utils.LocationUtils;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.api.LocationFormat;
 import com.bafmc.customenchantment.enchant.CEFunctionData;
@@ -62,7 +63,7 @@ public class EffectSummonGuard extends EffectHook {
 		LocationFormat locationFormat = new LocationFormat(this.locationFormat);
 		
 		Location location = locationFormat.getLocation(player, null);
-		location = locationFormat.getLegitLocation(player.getLocation(), location);
+		location = LocationUtils.getLegitLocation(player.getLocation(), location);
 		
 		Entity entity = guard.summon(location, speed);
 		

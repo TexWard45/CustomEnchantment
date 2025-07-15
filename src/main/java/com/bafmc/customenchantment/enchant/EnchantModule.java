@@ -79,6 +79,8 @@ public class EnchantModule extends PluginModule<CustomEnchantment> {
         new EffectDeactiveDash().register();
         new EffectActiveDoubleJump().register();
         new EffectDeactiveDoubleJump().register();
+        new EffectActiveFlash().register();
+        new EffectDeactiveFlash().register();
         new EffectActiveEquipSlot().register();
         new EffectDeactiveEquipSlot().register();
         new EffectAddMobBonus().register();

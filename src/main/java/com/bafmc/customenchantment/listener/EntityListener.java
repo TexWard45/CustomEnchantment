@@ -333,7 +333,7 @@ public class EntityListener implements Listener {
 			LivingEntity defenderLivingEntity = getRealLivingEntity(defender);
 			LivingEntity attackerLivingEntity = getRealLivingEntity(attacker);
 
-			if (attackerLivingEntity instanceof Player playerAttacker) {
+			if (attackerLivingEntity instanceof Player playerAttacker && defenderLivingEntity instanceof LivingEntity) {
 				if (isCritical) {
 					DamageIndicatorAPI.spawnIndicator(defenderLivingEntity, playerAttacker, DamageIndicatorAPI.getCriticalDamageFormat(), finalDamage);
 				} else {

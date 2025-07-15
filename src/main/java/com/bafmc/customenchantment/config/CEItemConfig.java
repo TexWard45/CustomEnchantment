@@ -46,7 +46,7 @@ import com.bafmc.customenchantment.item.loreformat.CELoreFormatStorage;
 import com.bafmc.customenchantment.item.mask.CEMask;
 import com.bafmc.customenchantment.item.mask.CEMaskData;
 import com.bafmc.customenchantment.item.mask.CEMaskStorage;
-import com.bafmc.customenchantment.item.artifact.group.CEArtifactGroup;
+import com.bafmc.customenchantment.item.artifact.CEArtifactGroup;
 import com.bafmc.customenchantment.item.nametag.CENameTag;
 import com.bafmc.customenchantment.item.nametag.CENameTagData;
 import com.bafmc.customenchantment.item.nametag.CENameTagStorage;
@@ -74,7 +74,7 @@ import com.bafmc.customenchantment.item.removeprotectdead.CERemoveProtectDeadDat
 import com.bafmc.customenchantment.item.removeprotectdead.CERemoveProtectDeadStorage;
 import com.bafmc.customenchantment.item.sigil.CESigil;
 import com.bafmc.customenchantment.item.sigil.CESigilData;
-import com.bafmc.customenchantment.item.sigil.CESigilSettings;
+import com.bafmc.customenchantment.item.sigil.CESigilGroup;
 import com.bafmc.customenchantment.item.sigil.CESigilStorage;
 import com.bafmc.customenchantment.utils.AttributeUtils;
 import org.apache.commons.lang3.Validate;
@@ -91,7 +91,6 @@ public class CEItemConfig extends AbstractConfig {
 	protected void loadConfig() {
 		loadWeaponSettingsMap();
 		loadGemSettings();
-		loadSigilSettings();
 		loadCEBookStorage();
 		loadCEProtectDeadStorage();
 		loadCERemoveProtectDeadStorage();
@@ -661,22 +660,6 @@ public class CEItemConfig extends AbstractConfig {
 		}
 	}
 
-	public void loadSigilSettings() {
-		CESigilSettings.setSettings(loadSigilSettings(config.getAdvancedConfigurationSection("sigil-settings")));
-	}
-
-	public CESigilSettings loadSigilSettings(AdvancedConfigurationSection config) {
-		String itemDisplay = config.getString("item-display");
-		List<String> itemLore = config.getStringList("item-lore");
-		SparseMap<String> levels = loadLevels(config, config);
-
-		return CESigilSettings.builder()
-				.itemDisplay(itemDisplay)
-				.itemLore(itemLore)
-				.levelColors(levels)
-				.build();
-	}
-
 	public SparseMap<String> loadLevels(AdvancedConfigurationSection mainConfig, AdvancedConfigurationSection settingsConfig) {
 		SparseMap<String> map = new SparseMap<>();
 
@@ -828,24 +811,25 @@ public class CEItemConfig extends AbstractConfig {
 		for (String pattern : config.getKeySection("sigil", false)) {
 			String path = "sigil." + pattern;
 
+			String group = config.getStringColor(path + ".group");
 			String enchant = config.getStringColor(path + ".enchant");
 
-			CESigilSettings settings = CESigilSettings.getSettings();
+			CESigilGroup sigilGroup = CustomEnchantment.instance().getCeSigilGroupMap().get(group);
 
 			ItemStack itemStack = config.getItemStack(path + ".item", true, true);
 			ItemMeta itemMeta = itemStack.getItemMeta();
-			if (settings.getItemDisplay() != null) {
+			if (sigilGroup.getItemDisplay() != null) {
 				PlaceholderBuilder placeholderBuilder = PlaceholderBuilder.builder();
 				placeholderBuilder.put("{item_display}", itemMeta.hasDisplayName() ? itemMeta.getDisplayName() : "");
 
-				String itemDisplay = settings.getItemDisplay();
+				String itemDisplay = sigilGroup.getItemDisplay();
 				itemMeta.setDisplayName(placeholderBuilder.build().apply(itemDisplay));
 			}
 
-			if (settings.getItemLore() != null) {
+			if (sigilGroup.getItemLore() != null) {
 				PlaceholderBuilder placeholderBuilder = PlaceholderBuilder.builder();
 				placeholderBuilder.put("{item_lore}", itemMeta.hasLore() ? itemMeta.getLore() : new ArrayList<>());
-				itemMeta.setLore(placeholderBuilder.build().apply(settings.getItemLore()));
+				itemMeta.setLore(placeholderBuilder.build().apply(sigilGroup.getItemLore()));
 			}
 			itemStack.setItemMeta(itemMeta);
 
@@ -857,7 +841,7 @@ public class CEItemConfig extends AbstractConfig {
 
 			int maxLevel = config.getInt(path + ".max-level");
 
-			CESigilData.ConfigData configData = new CESigilData.ConfigData(enchant, maxLevel, itemMeta.getDisplayName(), new ArrayList<>(itemMeta.getLore()));
+			CESigilData.ConfigData configData = new CESigilData.ConfigData(group, enchant, maxLevel, itemMeta.getDisplayName(), new ArrayList<>(itemMeta.getLore()));
 
 			CESigilData data = new CESigilData(pattern, configData);
 			ceItem.setData(data);
