@@ -69,7 +69,7 @@ public class BannerListener implements Listener {
 			return;
 		}
 
-		if (clickTypes.contains(clickType)) {
+		if (clickTypes.contains(clickType) && slotType == SlotType.ARMOR && rawSlot == 1) {
 			ItemStack itemStack = e.getCurrentItem();
 
 			if (itemStack == null) {

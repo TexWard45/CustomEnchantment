@@ -3,30 +3,17 @@ package com.bafmc.customenchantment.item;
 import com.bafmc.bukkit.bafframework.nms.NMSNBTTagCompound;
 import com.bafmc.bukkit.utils.MaterialUtils;
 import com.bafmc.customenchantment.CustomEnchantment;
-import com.bafmc.customenchantment.api.MaterialData;
-import com.bafmc.customenchantment.api.MaterialList;
 import com.bafmc.customenchantment.item.banner.CEBanner;
 import com.bafmc.customenchantment.item.mask.CEMask;
 import com.bafmc.customenchantment.nms.CECraftItemStackNMS;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.List;
-
 public class CEWeapon extends CEWeaponAbstract<CEWeaponData> {
-	private static MaterialList materialWhitelist = new MaterialList();
-
 	public CEWeapon(ItemStack itemStack) {
 		super(CEItemType.WEAPON, itemStack);
 	}
 
-	public static void setWhitelist(List<MaterialData> list) {
-		if (list == null) {
-			return;
-		}
-		CEWeapon.materialWhitelist = new MaterialList(list);
-	}
-	
 	public void importFrom(ItemStack itemStack) {
 		super.importFrom(itemStack);
 		
@@ -63,15 +50,6 @@ public class CEWeapon extends CEWeaponAbstract<CEWeaponData> {
 		}
 
 		return itemStack;
-	}
-
-	public boolean isMatchType(String type) {
-		ItemStack itemStack = getCurrentItemStack();
-		if (materialWhitelist.contains(new MaterialData(itemStack))) {
-			return true;
-		}
-		CECraftItemStackNMS craftItemStack = new CECraftItemStackNMS(itemStack);
-		return craftItemStack.getCECompound().getString(CENBT.TYPE).equals(getType());
 	}
 
 	public ApplyReason applyTo(CEItem ceItem) {

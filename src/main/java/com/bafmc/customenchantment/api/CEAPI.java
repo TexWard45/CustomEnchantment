@@ -8,7 +8,6 @@ import com.bafmc.customenchantment.enchant.CEGroup;
 import com.bafmc.customenchantment.guard.PlayerGuard;
 import com.bafmc.customenchantment.item.*;
 import com.bafmc.customenchantment.item.book.CEBookStorage;
-import com.bafmc.customenchantment.item.gem.CEGemStorage;
 import com.bafmc.customenchantment.player.CEPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;

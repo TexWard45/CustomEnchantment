@@ -40,14 +40,6 @@ public class CEBanner extends CEUnify<CEBannerData> {
 		return itemStackNMS.getNewItemStack();
 	}
 
-	public boolean isMatchType(String type) {
-		ItemStack itemStack = getCurrentItemStack();
-		if (MaterialUtils.isSimilar(itemStack.getType(), "BANNER") || MaterialUtils.isSimilar(itemStack.getType(), "DRAGON_HEAD")) {
-			return true;
-		}
-		return super.isMatchType(type);
-	}
-
 	public ApplyReason applyTo(CEItem ceItem) {
 		// Helmet
 		if (helmetEnable) {

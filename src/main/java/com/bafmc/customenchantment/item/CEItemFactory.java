@@ -7,7 +7,16 @@ public abstract class CEItemFactory<T extends CEItem> {
 
     public abstract boolean isMatchType(String type);
 
+    public boolean isMatchType(ItemStack itemStack) {
+        T item = create(itemStack);
+        return item != null && isMatchType(item.getType());
+    }
+
     public void register() {
         CEItemRegister.register(this);
+    }
+
+    public boolean isAutoGenerateNewItem() {
+        return false;
     }
 }

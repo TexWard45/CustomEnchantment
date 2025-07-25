@@ -40,6 +40,26 @@ public class InventoryListener implements Listener {
 		Bukkit.getPluginManager().registerEvents(this, plugin);
 	}
 
+	@EventHandler
+	public void onPrepareCrafting(PrepareItemCraftEvent e) {
+		boolean find = false;
+		for (ItemStack itemStack : e.getInventory().getMatrix()) {
+			if (itemStack == null || itemStack.getType() == Material.AIR) {
+				continue;
+			}
+
+			CEItem ceItem = CEAPI.getCEItem(itemStack);
+			if (ceItem != null) {
+				find = true;
+				break;
+			}
+		}
+
+		if (find) {
+			e.getInventory().setResult(null);
+		}
+	}
+
     @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
     public void onPrepareGrindstone(PrepareGrindstoneEvent e) {
         ItemStack itemStack = e.getResult();
@@ -271,7 +291,7 @@ public class InventoryListener implements Listener {
 				&& !exceptSlot.contains(rawSlot)) {
 			onCEItemInventory(e);
 		} else if ((clickType == ClickType.MIDDLE || clickType == ClickType.SHIFT_RIGHT) && cursor.getType() == Material.AIR) {
-			onMaskInventory(e);
+			onUnifyInventory(e);
 		}
 	}
 
@@ -385,7 +405,7 @@ public class InventoryListener implements Listener {
 		return true;
 	}
 
-	public void onMaskInventory(InventoryClickEvent e) {
+	public void onUnifyInventory(InventoryClickEvent e) {
 		ItemStack itemStack = e.getCurrentItem();
 		if (itemStack != null && itemStack.getAmount() > 1) {
 			return;
@@ -396,14 +416,14 @@ public class InventoryListener implements Listener {
 			return;
 		}
 
-		CEUnify mask = (CEUnify) ceItem;
-		if (!mask.getUnifyWeapon().isSet()) {
+		CEUnify unify = (CEUnify) ceItem;
+		if (!unify.getUnifyWeapon().isSet()) {
 			return;
 		}
 
 		Player player = (Player) e.getWhoClicked();
-		ItemStack maskItemStack = mask.getUnifyWeapon().getItemStack(Target.UNIFY);
-		ItemStack weaponItemStack = mask.getUnifyWeapon().getItemStack(Target.WEAPON);
+		ItemStack maskItemStack = unify.getUnifyWeapon().getItemStack(Target.UNIFY);
+		ItemStack weaponItemStack = unify.getUnifyWeapon().getItemStack(Target.WEAPON);
 
 		e.setCurrentItem(maskItemStack);
 		e.setCursor(weaponItemStack);

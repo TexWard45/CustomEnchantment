@@ -23,6 +23,11 @@ public class CustomEnchantmentMessage {
 		placeholder.put("MESSAGE ", "");
 	}
 
+	public static List<String> getMessageConfig(String path) {
+		path = path.toLowerCase();
+		return config.getStringColorList(path);
+	}
+
 	public static void setConfig(AdvancedFileConfiguration config) {
 		CustomEnchantmentMessage.config = config;
 	}

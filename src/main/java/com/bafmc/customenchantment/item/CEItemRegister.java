@@ -1,8 +1,6 @@
 package com.bafmc.customenchantment.item;
 
 import com.bafmc.bukkit.bafframework.nms.NMSNBTTagCompound;
-import com.bafmc.customenchantment.CustomEnchantment;
-import com.bafmc.customenchantment.CustomEnchantmentLog;
 import com.bafmc.customenchantment.nms.CECraftItemStackNMS;
 import org.bukkit.inventory.ItemStack;
 
@@ -41,33 +39,25 @@ public class CEItemRegister {
 
 		if (tag.hasKey(CENBT.TYPE)) {
 			String type = tag.getString(CENBT.TYPE);
-			CEItem ceItem;
 			for (CEItemFactory clazz : list) {
-				try {
-					if (!clazz.isMatchType(type)) {
-						continue;
-					}
-
-					ceItem = clazz.create(itemStack);
-					return ceItem;
-				} catch (Exception e) {
+				if (!clazz.isMatchType(type)) {
 					continue;
 				}
+
+				return clazz.create(itemStack);
 			}
 		}
 
-		CEItem ceItem;
 		for (CEItemFactory clazz : list) {
-			try {
-				ceItem = clazz.create(itemStack);
-				if (!ceItem.isMatchType(ceItem.getType())) {
-					continue;
-				}
-
-				return ceItem;
-			} catch (Exception e) {
+			if (!clazz.isAutoGenerateNewItem()) {
 				continue;
 			}
+
+			if (!clazz.isMatchType(itemStack)) {
+				continue;
+			}
+
+			return clazz.create(itemStack);
 		}
 
 		return null;

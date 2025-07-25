@@ -1,14 +1,12 @@
 package com.bafmc.customenchantment.item;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.bafmc.bukkit.utils.ItemStackUtils;
-import org.bukkit.inventory.ItemStack;
-
 import com.bafmc.customenchantment.api.ITrade;
 import com.bafmc.customenchantment.nms.CECraftItemStackNMS;
-import com.bafmc.bukkit.bafframework.nms.NMSNBTTagCompound;
+import org.bukkit.inventory.ItemStack;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public abstract class CEItem<T extends CEItemData> implements ITrade<ItemStack> {
 	protected String type;
@@ -19,16 +17,6 @@ public abstract class CEItem<T extends CEItemData> implements ITrade<ItemStack> 
 		this.type = type;
 		this.craftItemStack = new CECraftItemStackNMS(itemStack);
 		this.importFrom(itemStack);
-	}
-
-	public boolean isMatchType(String type) {
-		NMSNBTTagCompound tag = this.craftItemStack.getCECompound();
-
-		if (tag.hasKey(CENBT.TYPE) && tag.getString(CENBT.TYPE).equals(type)) {
-			return true;
-		} else {
-			return false;
-		}
 	}
 
 	public ItemStack exportTo() {

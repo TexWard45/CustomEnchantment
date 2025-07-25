@@ -65,6 +65,14 @@ public class EntityListener implements Listener {
     }
 
 	@EventHandler
+	public void onSheepDyeWool(SheepDyeWoolEvent e) {
+		CEItem ceItem = CEAPI.getCEItem(e.getPlayer().getInventory().getItemInMainHand());
+		if (ceItem != null) {
+			e.setCancelled(true);
+		}
+	}
+
+	@EventHandler
 	public void onEntityResurrect(EntityResurrectEvent e) {
 		if (e.getEntity() instanceof Player player) {
 			for (EquipSlot equipSlot : EquipSlot.HAND_ARRAY) {

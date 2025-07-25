@@ -43,6 +43,8 @@ public class CustomAttributeType extends NMSAttributeType {
 	public static final CustomAttributeType AOE_DAMAGE_RATIO = (CustomAttributeType) (new CustomAttributeType("AOE_DAMAGE_RATIO", "custom:player.aoe_damage_ratio", 0, true)).register();
 	// Accuracy is a counter to the target's dodge chance and determines hit success.
 	public static final CustomAttributeType ACCURACY_CHANCE = (CustomAttributeType) (new CustomAttributeType("ACCURACY_CHANCE", "custom:player.accuracy_chance", 0, true)).register();
+	// Mining power affects the tool's effectiveness when breaking or mining blocks.
+	public static final CustomAttributeType MINING_POWER = (CustomAttributeType) (new CustomAttributeType("MINING_POWER", "custom:player.mining_power", 0)).register();
 
 	private double baseValue;
 	private boolean percent;

@@ -28,6 +28,7 @@ public class ItemModule extends PluginModule<CustomEnchantment> {
     }
 
     public void onEnable() {
+        new VanillaItemFactory().register();
         new CEArtifactFactory().register();
         new CEMaskFactory().register();
         new CEBannerFactory().register();

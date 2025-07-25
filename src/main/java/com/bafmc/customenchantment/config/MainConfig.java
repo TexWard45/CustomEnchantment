@@ -1,14 +1,16 @@
 package com.bafmc.customenchantment.config;
 
+import com.bafmc.bukkit.config.AdvancedConfigurationSection;
 import com.bafmc.bukkit.config.IConfigurationLoader;
 import com.bafmc.bukkit.config.annotation.Configuration;
 import com.bafmc.bukkit.config.annotation.Path;
 import com.bafmc.bukkit.config.annotation.ValueType;
+import com.bafmc.bukkit.feature.placeholder.PlaceholderManager;
 import com.bafmc.customenchantment.api.EntityTypeList;
 import com.bafmc.customenchantment.api.MaterialList;
 import com.bafmc.customenchantment.config.data.ExtraSlotSettingsData;
 import com.bafmc.customenchantment.item.CEItem;
-import com.bafmc.customenchantment.item.CEWeapon;
+import com.bafmc.customenchantment.item.CEWeaponFactory;
 import com.bafmc.customenchantment.item.artifact.CEArtifact;
 import com.bafmc.customenchantment.item.sigil.CESigil;
 import lombok.Getter;
@@ -64,9 +66,12 @@ public class MainConfig implements IConfigurationLoader {
 	@Path("combat-settings.require-weapon")
 	@Getter
 	private boolean combatSettingsRequireWeapon = true;
+	@Path("enchant-value")
+	private AdvancedConfigurationSection enchantValueConfig = new AdvancedConfigurationSection();
+
 
 	@Override
-	public void loadConfig(String s, ConfigurationSection configurationSection) {
+	public void loadConfig(String s, ConfigurationSection config) {
 		for (String key : materialGroupStringList.keySet()) {
 			MaterialList.defineMaterialList(key, MaterialList.getMaterialList(materialGroupStringList.get(key)));
 		}
@@ -75,7 +80,9 @@ public class MainConfig implements IConfigurationLoader {
 			EntityTypeList.defineEntityTypeList(key, EntityTypeList.getEntityTypeList(entityGroupStringList.get(key)));
 		}
 
-		CEWeapon.setWhitelist(new MaterialList(MaterialList.getMaterialList(ceItemMaterialWhitelist)));
+		CEWeaponFactory.setWhitelist(new MaterialList(MaterialList.getMaterialList(ceItemMaterialWhitelist)));
+
+		PlaceholderManager.getInstance().registerPlaceholder("ce", config.getConfigurationSection("enchant-value"));
 	}
 
 	public boolean isEnchantDisableLocation(Location location) {

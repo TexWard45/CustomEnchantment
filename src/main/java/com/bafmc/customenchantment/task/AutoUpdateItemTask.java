@@ -2,7 +2,8 @@ package com.bafmc.customenchantment.task;
 
 import com.bafmc.bukkit.task.PlayerPerTickTask;
 import com.bafmc.customenchantment.CustomEnchantment;
-import com.bafmc.customenchantment.item.gem.CEGem;
+import com.bafmc.customenchantment.api.CEAPI;
+import com.bafmc.customenchantment.item.CEItem;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
@@ -33,8 +34,8 @@ public class AutoUpdateItemTask extends PlayerPerTickTask {
                 continue;
             }
 
-            CEGem ceItem = new CEGem(itemStack);
-            if (!ceItem.isMatchType(ceItem.getType())) {
+            CEItem ceItem = CEAPI.getCEItem(itemStack);
+            if (ceItem == null) {
                 continue;
             }
 

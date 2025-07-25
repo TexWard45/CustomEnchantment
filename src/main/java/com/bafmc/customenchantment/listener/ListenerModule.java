@@ -31,5 +31,9 @@ public class ListenerModule extends PluginModule<CustomEnchantment> {
         if (Bukkit.getPluginManager().isPluginEnabled("mcMMO")) {
             new McMMOListener(getPlugin());
         }
+
+        if (Bukkit.getPluginManager().isPluginEnabled("CustomFarm")) {
+            new CustomFarmListener(getPlugin());
+        }
     }
 }
