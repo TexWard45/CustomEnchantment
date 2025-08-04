@@ -1,0 +1,150 @@
+# &7Nguyên liệu thường
+# &#77ff00Nguyên liệu hiếm
+# &#00bbffNguyên liệu rất hiếm
+# &#ffee00Nguyên liệu cực hiếm
+# &#ff4400Nguyên liệu siêu hiếm
+# &#ec4899Nguyên liệu sự kiện
+banner-test:
+  type: YELLOW_BANNER
+  patterns:
+    - "YELLOW STRIPE_CENTER" # Thân lúa
+    - "YELLOW STRIPE_DOWNLEFT" # Nhánh trái
+    - "YELLOW STRIPE_DOWNRIGHT" # Nhánh phải
+    - "YELLOW STRIPE_TOP" # ⬅ Thêm phần đầu ngọn lúa
+    - "BROWN STRIPE_MIDDLE" # Thắt lưng/đốt thân
+    - "LIGHT_GRAY BORDER" # Viền nhẹ
+event-tet-2025-x-letter:
+  type: RED_BANNER
+  display: "&c&lChữ &e&lXuân &c&lTết &e&l2025"
+  lore:
+    - "&#ec4899Nguyên liệu sự kiện"
+    - ""
+    - "&cSưu tập đủ bộ chữ số để đổi quà Tết"
+    - ""
+    - "&e&oSử dụng tại /event"
+  flags:
+    - "HIDE_ADDITIONAL_TOOLTIP"
+  patterns:
+    - "YELLOW STRIPE_TOP"
+    - "YELLOW STRIPE_BOTTOM"
+    - "RED STRIPE_CENTER"
+    - "YELLOW CROSS"
+    - "RED BORDER"
+event-tet-2025-a-letter:
+  type: YELLOW_BANNER
+  display: "&c&lChữ &e&lẤt &c&lTết &e&l2025"
+  lore:
+    - "&#ec4899Nguyên liệu sự kiện"
+    - ""
+    - "&cSưu tập đủ bộ chữ số để đổi quà Tết"
+    - ""
+    - "&e&oSử dụng tại /event"
+  flags:
+    - "HIDE_ADDITIONAL_TOOLTIP"
+  patterns:
+    - "RED HALF_HORIZONTAL"
+    - "RED STRIPE_BOTTOM"
+    - "YELLOW STRIPE_RIGHT"
+    - "YELLOW STRIPE_TOP"
+    - "YELLOW STRIPE_LEFT"
+    - "RED BORDER"
+event-tet-2025-t-letter:
+  type: RED_BANNER
+  display: "&c&lChữ &e&lTỵ &c&lTết &e&l2025"
+  lore:
+    - "&#ec4899Nguyên liệu sự kiện"
+    - ""
+    - "&cSưu tập đủ bộ chữ số để đổi quà Tết"
+    - ""
+    - "&e&oSử dụng tại /event"
+  flags:
+    - "HIDE_ADDITIONAL_TOOLTIP"
+  patterns:
+    - "YELLOW STRIPE_TOP"
+    - "YELLOW STRIPE_CENTER"
+    - "RED BORDER"
+event-tet-2025-p-letter:
+  type: YELLOW_BANNER
+  display: "&c&lChữ &e&lPhát &c&lTết &e&l2025"
+  lore:
+    - "&#ec4899Nguyên liệu sự kiện"
+    - ""
+    - "&cSưu tập đủ bộ chữ số để đổi quà Tết"
+    - ""
+    - "&e&oSử dụng tại /event"
+  flags:
+    - "HIDE_ADDITIONAL_TOOLTIP"
+  patterns:
+    - "RED HALF_HORIZONTAL"
+    - "YELLOW STRIPE_RIGHT"
+    - "RED STRIPE_BOTTOM"
+    - "YELLOW STRIPE_LEFT"
+    - "YELLOW STRIPE_TOP"
+    - "RED BORDER"
+event-tet-2025-l-letter:
+  type: RED_BANNER
+  display: "&c&lChữ &e&lLộc &c&lTết &e&l2025"
+  lore:
+    - "&#ec4899Nguyên liệu sự kiện"
+    - ""
+    - "&cSưu tập đủ bộ chữ số để đổi quà Tết"
+    - ""
+    - "&e&oSử dụng tại /event"
+  flags:
+    - "HIDE_ADDITIONAL_TOOLTIP"
+  patterns:
+    - "YELLOW STRIPE_LEFT"
+    - "YELLOW STRIPE_BOTTOM"
+    - "RED BORDER"
+event-tet-2025-2-letter:
+  type: RED_BANNER
+  display: "&c&lSố &e&l2 &c&lTết &e&l2025"
+  lore:
+    - "&#ec4899Nguyên liệu sự kiện"
+    - ""
+    - "&cSưu tập đủ bộ chữ số để đổi quà Tết"
+    - ""
+    - "&e&oSử dụng tại /event"
+  flags:
+    - "HIDE_ADDITIONAL_TOOLTIP"
+  patterns:
+    - "YELLOW STRIPE_TOP"
+    - "RED RHOMBUS"
+    - "YELLOW STRIPE_DOWNLEFT"
+    - "YELLOW STRIPE_BOTTOM"
+    - "RED BORDER"
+event-tet-2025-0-letter:
+  type: RED_BANNER
+  display: "&c&lSố &e&l0 &c&lTết &e&l2025"
+  lore:
+    - "&#ec4899Nguyên liệu sự kiện"
+    - ""
+    - "&cSưu tập đủ bộ chữ số để đổi quà Tết"
+    - ""
+    - "&e&oSử dụng tại /event"
+  flags:
+    - "HIDE_ADDITIONAL_TOOLTIP"
+  patterns:
+    - "YELLOW STRIPE_LEFT"
+    - "YELLOW STRIPE_TOP"
+    - "YELLOW STRIPE_RIGHT"
+    - "YELLOW STRIPE_BOTTOM"
+    - "RED BORDER"
+event-tet-2025-5-letter:
+  type: RED_BANNER
+  display: "&c&lSố &e&l5 &c&lTết &e&l2025"
+  lore:
+    - "&#ec4899Nguyên liệu sự kiện"
+    - ""
+    - "&cSưu tập đủ bộ chữ số để đổi quà Tết"
+    - ""
+    - "&e&oSử dụng tại /event"
+  flags:
+    - "HIDE_ADDITIONAL_TOOLTIP"
+  patterns:
+    - "YELLOW STRIPE_BOTTOM"
+    - "YELLOW STRIPE_DOWNRIGHT"
+    - "RED CURLY_BORDER"
+    - "YELLOW SQUARE_BOTTOM_LEFT"
+    - "YELLOW STRIPE_TOP"
+    - "RED BORDER"

@@ -1,0 +1,224 @@
+settings:
+  title: "&8&lKho đồ nâng cao (/e)"
+  rows: 6
+  sound: ENTITY_EXPERIENCE_ORB_PICKUP
+  actions:
+    "1":
+      inventory-type: CHEST
+      slots: 0-53
+      cancel-drag: true
+      cancel-click-type:
+        - LEFT
+        - RIGHT
+        - SHIFT_RIGHT
+        - SHIFT_LEFT
+        - NUMBER_KEY
+      cancel-inventory-action:
+        - MOVE_TO_OTHER_INVENTORY
+        - DROP_ALL_SLOT
+        - DROP_ALL_CURSOR
+        - DROP_ONE_SLOT
+        - DROP_ONE_CURSOR
+    "2":
+      inventory-type: PLAYER
+      slots: 0-35
+      cancel-drag: true
+      cancel-click-type:
+        - LEFT
+        - RIGHT
+        - SHIFT_RIGHT
+        - SHIFT_LEFT
+        - NUMBER_KEY
+
+# o = background
+# h = helmet
+# c = chestplate
+# l = leggings
+# b = boots
+# m = main hand
+# r = off hand
+# a = artifact
+layout:
+  - "ooooooooo"
+  - "ohclbomfo"
+  - "ooooooooo"
+  - "oaaaaaeeo"
+  - "ooooooooo"
+  - "oisoroopo"
+
+items:
+  border:
+    item:
+      type: BLACK_STAINED_GLASS_PANE
+      amount: 1
+      display: "&7"
+    slots: "o"
+    lore:
+      - ""
+      - "&cVật phẩm sẽ bị rơi ra khi chết nếu"
+      - "&ckhông có Ngọc bảo vệ hoặc Bùa bảo vệ"
+  helmet:
+    item:
+      type: WHITE_STAINED_GLASS_PANE
+      amount: 1
+      display: "&a&lMũ (Chưa trang bị)"
+      lore:
+        - ""
+        - "&cVật phẩm sẽ bị rơi ra khi chết nếu"
+        - "&ckhông có Ngọc bảo vệ hoặc Bùa bảo vệ"
+        - ""
+        - "&aNhấp vào Mũ để trang bị"
+    slots: "h"
+  chestplate:
+    item:
+      type: WHITE_STAINED_GLASS_PANE
+      amount: 1
+      display: "&a&lÁo giáp (Chưa trang bị)"
+      lore:
+        - ""
+        - "&cVật phẩm sẽ bị rơi ra khi chết nếu"
+        - "&ckhông có Ngọc bảo vệ hoặc Bùa bảo vệ"
+        - ""
+        - "&aNhấp vào Áo giáp để trang bị"
+    slots: "c"
+  leggings:
+    item:
+      type: WHITE_STAINED_GLASS_PANE
+      amount: 1
+      display: "&a&lQuần (Chưa trang bị)"
+      lore:
+        - ""
+        - "&cVật phẩm sẽ bị rơi ra khi chết nếu"
+        - "&ckhông có Ngọc bảo vệ hoặc Bùa bảo vệ"
+        - ""
+        - "&aNhấp vào Quần để trang bị"
+    slots: "l"
+  boots:
+    item:
+      type: WHITE_STAINED_GLASS_PANE
+      amount: 1
+      display: "&a&lGiày (Chưa trang bị)"
+      lore:
+        - ""
+        - "&cVật phẩm sẽ bị rơi ra khi chết nếu"
+        - "&ckhông có Ngọc bảo vệ hoặc Bùa bảo vệ"
+        - ""
+        - "&aNhấp vào Giày để trang bị"
+    slots: "b"
+  mainhand:
+    item:
+      type: WHITE_STAINED_GLASS_PANE
+      amount: 1
+      display: "&a&lTay cầm chính (Chưa trang bị)"
+      lore:
+        - ""
+        - "&cVật phẩm sẽ bị rơi ra khi chết nếu"
+        - "&ckhông có Ngọc bảo vệ hoặc Bùa bảo vệ"
+    slots: "m"
+  offhand:
+    item:
+      type: WHITE_STAINED_GLASS_PANE
+      amount: 1
+      display: "&a&lTay cầm phụ (Chưa trang bị)"
+      lore:
+        - ""
+        - "&cVật phẩm sẽ bị rơi ra khi chết nếu"
+        - "&ckhông có Ngọc bảo vệ hoặc Bùa bảo vệ"
+        - ""
+        - "&aNhấp vào vật phẩm để trang bị"
+    slots: "f"
+  extra-slot-artifact-default:
+    item:
+      type: WHITE_STAINED_GLASS_PANE
+      amount: 1
+      display: "&a&lCổ vật (Chưa trang bị)"
+      lore:
+        - ""
+        - "&aCổ vật sẽ không bị rơi ra khi chết"
+        - ""
+        - "&aNhấp vào Cổ vật để trang bị"
+    slots: "30,31,29,32,28"
+  extra-slot-artifact-event:
+    item:
+      type: WHITE_STAINED_GLASS_PANE
+      amount: 1
+      display: "&a&lCổ vật &d&lSự Kiện &a&l(Chưa trang bị)"
+      lore:
+        - ""
+        - "&aCổ vật sẽ không bị rơi ra khi chết"
+        - ""
+        - "&aNhấp vào Cổ vật loại &d&lSự kiện &a&lđể trang bị"
+    slots: "33,34"
+  extra-slot-sigil-all:
+    item:
+      type: GRAY_DYE
+      amount: 1
+      display: "&a&lẤn &a&l(Chưa trang bị)"
+      lore:
+        - ""
+        - "&aẤn sẽ không bị rơi ra khi chết"
+        - ""
+        - "&aNhấp vào Ấn &a&lđể trang bị"
+    slots: "s"
+  protect-dead:
+    item:
+      type: WHITE_STAINED_GLASS_PANE
+      amount: 1
+      display: "&a&lBùa bảo vệ (Chưa trang bị)"
+      lore:
+        - ""
+        - "&7&oCó tác dụng bảo vệ toàn bộ vật phẩm và"
+        - "&7&okinh nghiệm không bị rơi ra khi chết"
+        - ""
+        - "&7Tự động kích hoạt và tiêu hao 1 Bùa bảo vệ"
+        - "&7nếu có ít nhất một vật phẩm hoặc kinh nghiệm"
+        - "&7trong kho đồ rơi ra khi chết"
+    slots: "p"
+  player-info:
+    item:
+      type: PLAYER_HEAD
+      amount: 1
+      display: "&a&lThông số cá nhân"
+      lore:
+        - ""
+        - "&c&lChỉ số tấn công:"
+        - "&e%customenchantment_attribute_value_attack-damage% &cSức tấn công ⚔"
+        - "&e%customenchantment_attribute_value_attack-speed_0% &#00FF7FTốc độ tấn công ⚡"
+        - "&ex%customenchantment_custom_attribute_value_critical-damage%&#ff4500Sát thương chí mạng 💥"
+        - "&e%customenchantment_custom_attribute_value_critical-chance% &#ffd700Tỉ lệ chí mạng 🎯"
+        - "&e%customenchantment_custom_attribute_value_armor-penetration% &#00BFFFXuyên giáp 🛡"
+        - "&e%customenchantment_custom_attribute_value_life-steal% &#8b0000Hút máu 🧛"
+        - "&e%customenchantment_custom_attribute_value_aoe-range% &#3FC3FFPhạm vi đánh lan 🌐"
+        - "&e%customenchantment_custom_attribute_value_aoe-damage-ratio% &#FF6B3FSát thương đánh lan ✴"
+        - "&e%customenchantment_custom_attribute_value_accuracy-chance% &#3afe00Độ chính xác 🎯"
+        - ""
+        - "&b&lChỉ số phòng thủ:"
+        - "&e%customenchantment_attribute_value_max-health% &#d15feeSinh lực tối đa &f🩷"
+        - "&e%customenchantment_attribute_value_max-absorption% &#ffc400Tim vàng tối đa &f💛"
+        - "&e%customenchantment_custom_attribute_value_health-regeneration% &#32cd32HP hồi mỗi giây &f💚"
+        - "&e%customenchantment_attribute_value_armor% &#0284c7Giáp 🛡"
+        - "&e%customenchantment_custom_attribute_value_damage-reduction% &#64748bSát thương nhận giảm 🛡"
+        - "&e%customenchantment_attribute_value_movement-speed_&a_&c% &#8aefebTốc độ di chuyển &f⚡"
+        - "&e%customenchantment_custom_attribute_value_dodge-chance% &#f59e0bTỉ lệ né tránh 💨"
+        - "&e%customenchantment_custom_attribute_value_slow-resistance% &#00ccddKháng làm chậm 🛡"
+        - "&e%customenchantment_custom_attribute_value_magic-resistance% &#7E30E1Kháng khống chế 🛡"
+        - ""
+        - "&6&lChỉ số khác:"
+        - "&e%customenchantment_custom_attribute_value_power% &#FFD700Lực chiến ⚔"
+        - "&e%customenchantment_custom_attribute_value_mining_power% &#FF8800Sức khai phá ⛏"
+        - "&e%customenchantment_custom_attribute_value_vulnerability% &#f8312fTổn thương 💔"
+      skull-owner: "%player_name%"
+    slots: "i"
+  return:
+    item:
+      type: GRAY_STAINED_GLASS_PANE
+      amount: 1
+      display: "&cTrở về"
+    slots: "r"
+    command:
+      "1":
+        condition:
+          - CLICK_TYPE LEFT
+        true-condition:
+          execute:
+            - RETURN_MENU

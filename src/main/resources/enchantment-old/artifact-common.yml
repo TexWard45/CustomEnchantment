@@ -1,0 +1,1186 @@
+deadtwig:
+  group: artifact
+  display: "Dead Twig"
+  description:
+    - "&eKhi tấn công bằng tay không:"
+    - "&7» &7Gây thêm sát thương cho mục tiêu"
+  detail-description:
+    - "&eKhi tấn công bằng tay không:"
+    - "&7» &7Gây thêm sát thương cho mục tiêu"
+    - ""
+    - "&eSát thương: 1 x Cấp"
+  applies-description:
+    - "Thanh công cụ"
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - HOLD:AIR
+        options:
+          - ATTACK:1:0
+    "2":
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - HOLD:AIR
+        options:
+          - ATTACK:2:0
+    "3":
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - HOLD:AIR
+        options:
+          - ATTACK:3:0
+    "4":
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - HOLD:AIR
+        options:
+          - ATTACK:4:0
+    "5":
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - HOLD:AIR
+        options:
+          - ATTACK:5:0
+rustyblade:
+  group: artifact
+  display: "Rusty Blade"
+  description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm sức tấn công"
+  detail-description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm sức tấn công"
+    - ""
+    - "&eSức tấn công: 0.5 x Cấp"
+  applies-description:
+    - "Thanh công cụ"
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:ATTACK_DAMAGE:rustyblade_attack_damage:0.5:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:ATTACK_DAMAGE:rustyblade_attack_damage
+    "2":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:ATTACK_DAMAGE:rustyblade_attack_damage:1:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:ATTACK_DAMAGE:rustyblade_attack_damage
+    "3":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:ATTACK_DAMAGE:rustyblade_attack_damage:1.5:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:ATTACK_DAMAGE:rustyblade_attack_damage
+    "4":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:ATTACK_DAMAGE:rustyblade_attack_damage:2:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:ATTACK_DAMAGE:rustyblade_attack_damage
+    "5":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:ATTACK_DAMAGE:rustyblade_attack_damage:2.5:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:ATTACK_DAMAGE:rustyblade_attack_damage
+crackedglassshard:
+  group: artifact
+  display: "Cracked Glass Shard"
+  description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm tỉ lệ chí mạng"
+  detail-description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm tỉ lệ chí mạng"
+    - ""
+    - "&eTỉ lệ chí mạng: 1% x Cấp"
+  applies-description:
+    - "Thanh công cụ"
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_CUSTOM_ATTRIBUTE:crackedglassshard_critical_chance:CRITICAL_CHANCE:1.0:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_CUSTOM_ATTRIBUTE:crackedglassshard_critical_chance
+    "2":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_CUSTOM_ATTRIBUTE:crackedglassshard_critical_chance:CRITICAL_CHANCE:2.0:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_CUSTOM_ATTRIBUTE:crackedglassshard_critical_chance
+    "3":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_CUSTOM_ATTRIBUTE:crackedglassshard_critical_chance:CRITICAL_CHANCE:3.0:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_CUSTOM_ATTRIBUTE:crackedglassshard_critical_chance
+    "4":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_CUSTOM_ATTRIBUTE:crackedglassshard_critical_chance:CRITICAL_CHANCE:4.0:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_CUSTOM_ATTRIBUTE:crackedglassshard_critical_chance
+    "5":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_CUSTOM_ATTRIBUTE:crackedglassshard_critical_chance:CRITICAL_CHANCE:5.0:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_CUSTOM_ATTRIBUTE:crackedglassshard_critical_chance
+tatteredboots:
+  group: artifact
+  display: "Tattered Boots"
+  description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm tốc độ di chuyển"
+  detail-description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm tốc độ di chuyển"
+    - ""
+    - "&eTốc độ di chuyển: 1% x Cấp"
+  applies-description:
+    - "Thanh công cụ"
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:MOVEMENT_SPEED:tatteredboots_movement_speed:0.01:1
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:MOVEMENT_SPEED:tatteredboots_movement_speed
+    "2":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:MOVEMENT_SPEED:tatteredboots_movement_speed:0.02:1
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:MOVEMENT_SPEED:tatteredboots_movement_speed
+    "3":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:MOVEMENT_SPEED:tatteredboots_movement_speed:0.03:1
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:MOVEMENT_SPEED:tatteredboots_movement_speed
+    "4":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:MOVEMENT_SPEED:tatteredboots_movement_speed:0.04:1
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:MOVEMENT_SPEED:tatteredboots_movement_speed
+    "5":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:MOVEMENT_SPEED:tatteredboots_movement_speed:0.05:1
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:MOVEMENT_SPEED:tatteredboots_movement_speed
+rabbithide:
+  group: artifact
+  display: "Rabbit Hide"
+  description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm tỉ lệ né tránh"
+  detail-description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm tỉ lệ né tránh"
+    - ""
+    - "&eTỉ lệ né tránh: 1% x Cấp"
+  applies-description:
+    - "Thanh công cụ"
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_CUSTOM_ATTRIBUTE:rabbithide_dodge_chance:DODGE_CHANCE:1.0:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_CUSTOM_ATTRIBUTE:rabbithide_dodge_chance
+    "2":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_CUSTOM_ATTRIBUTE:rabbithide_dodge_chance:DODGE_CHANCE:2.0:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_CUSTOM_ATTRIBUTE:rabbithide_dodge_chance
+    "3":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_CUSTOM_ATTRIBUTE:rabbithide_dodge_chance:DODGE_CHANCE:3.0:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_CUSTOM_ATTRIBUTE:rabbithide_dodge_chance
+    "4":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_CUSTOM_ATTRIBUTE:rabbithide_dodge_chance:DODGE_CHANCE:4.0:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_CUSTOM_ATTRIBUTE:rabbithide_dodge_chance
+    "5":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_CUSTOM_ATTRIBUTE:rabbithide_dodge_chance:DODGE_CHANCE:5.0:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_CUSTOM_ATTRIBUTE:rabbithide_dodge_chance
+fang:
+  group: artifact
+  display: "Fang"
+  description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm hút máu"
+  detail-description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm hút máu"
+    - ""
+    - "&eHút máu: 1% x Cấp"
+  applies-description:
+    - "Thanh công cụ"
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_CUSTOM_ATTRIBUTE:fang_life_steal:LIFE_STEAL:1.0:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_CUSTOM_ATTRIBUTE:fang_life_steal
+    "2":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_CUSTOM_ATTRIBUTE:fang_life_steal:LIFE_STEAL:2.0:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_CUSTOM_ATTRIBUTE:fang_life_steal
+    "3":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_CUSTOM_ATTRIBUTE:fang_life_steal:LIFE_STEAL:3.0:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_CUSTOM_ATTRIBUTE:fang_life_steal
+    "4":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_CUSTOM_ATTRIBUTE:fang_life_steal:LIFE_STEAL:4.0:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_CUSTOM_ATTRIBUTE:fang_life_steal
+    "5":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_CUSTOM_ATTRIBUTE:fang_life_steal:LIFE_STEAL:5.0:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_CUSTOM_ATTRIBUTE:fang_life_steal
+steelbelt:
+  group: artifact
+  display: "Steel Belt"
+  description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm máu tối đa"
+  detail-description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm máu tối đa"
+    - ""
+    - "&eMáu tối đa: 1 x Cấp"
+  applies-description:
+    - "Thanh công cụ"
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:MAX_HEALTH:steelbelt_max_health:2:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:MAX_HEALTH:steelbelt_max_health
+    "2":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:MAX_HEALTH:steelbelt_max_health:4:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:MAX_HEALTH:steelbelt_max_health
+    "3":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:MAX_HEALTH:steelbelt_max_health:6:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:MAX_HEALTH:steelbelt_max_health
+    "4":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:MAX_HEALTH:steelbelt_max_health:8:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:MAX_HEALTH:steelbelt_max_health
+    "5":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:MAX_HEALTH:steelbelt_max_health:10:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:MAX_HEALTH:steelbelt_max_health
+ironarrow:
+  group: artifact
+  display: "Iron Arrow"
+  description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm sát thương gây ra từ cung tên"
+  detail-description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm sát thương gây ra từ cung tên"
+    - ""
+    - "&eSát thương: 1 x Cấp"
+  applies-description:
+    - "Thanh công cụ"
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 100
+        cooldown: 0
+        options:
+          - ATTACK:1:0
+    "2":
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 100
+        cooldown: 0
+        options:
+          - ATTACK:2:0
+    "3":
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 100
+        cooldown: 0
+        options:
+          - ATTACK:3:0
+    "4":
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 100
+        cooldown: 0
+        options:
+          - ATTACK:4:0
+    "5":
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 100
+        cooldown: 0
+        options:
+          - ATTACK:5:0
+yellowsand:
+  group: artifact
+  display: "Yellow Sand"
+  description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm tim vàng tối đa"
+  detail-description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm tim vàng tối đa"
+    - ""
+    - "&eTim vàng tối đa: 1 x Cấp"
+  applies-description:
+    - "Thanh công cụ"
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:MAX_ABSORPTION:yellowsand_max_absorption:2:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:MAX_ABSORPTION:yellowsand_max_absorption
+    "2":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:MAX_ABSORPTION:yellowsand_max_absorption:4:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:MAX_ABSORPTION:yellowsand_max_absorption
+    "3":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:MAX_ABSORPTION:yellowsand_max_absorption:6:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:MAX_ABSORPTION:yellowsand_max_absorption
+    "4":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:MAX_ABSORPTION:yellowsand_max_absorption:8:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:MAX_ABSORPTION:yellowsand_max_absorption
+    "5":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:MAX_ABSORPTION:yellowsand_max_absorption:10:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:MAX_ABSORPTION:yellowsand_max_absorption
+wornstone:
+  group: artifact
+  display: "Worn Stone"
+  description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm giáp"
+  detail-description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm giáp"
+    - ""
+    - "&eGiáp: 1 x Cấp"
+  applies-description:
+    - "Thanh công cụ"
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:ARMOR:wornstone_armor:2:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:ARMOR:wornstone_armor
+    "2":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:ARMOR:wornstone_armor:4:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:ARMOR:wornstone_armor
+    "3":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:ARMOR:wornstone_armor:6:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:ARMOR:wornstone_armor
+    "4":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:ARMOR:wornstone_armor:8:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:ARMOR:wornstone_armor
+    "5":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:ARMOR:wornstone_armor:10:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:ARMOR:wornstone_armor
+bentblade:
+  group: artifact
+  display: "Bent Blade"
+  description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm tốc độ đánh"
+  detail-description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm tốc độ đánh"
+    - ""
+    - "&eTốc độ đánh: 2% x Cấp"
+  applies-description:
+    - "Thanh công cụ"
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:ATTACK_SPEED:bentblade_attack_speed:0.02:1
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:ATTACK_SPEED:bentblade_attack_speed
+    "2":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:ATTACK_SPEED:bentblade_attack_speed:0.04:1
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:ATTACK_SPEED:bentblade_attack_speed
+    "3":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:ATTACK_SPEED:bentblade_attack_speed:0.06:1
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:ATTACK_SPEED:bentblade_attack_speed
+    "4":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:ATTACK_SPEED:bentblade_attack_speed:0.08:1
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:ATTACK_SPEED:bentblade_attack_speed
+    "5":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:ATTACK_SPEED:bentblade_attack_speed:0.1:1
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:ATTACK_SPEED:bentblade_attack_speed
+chainchestplate:
+  group: artifact
+  display: "Chain Chestplate"
+  description:
+    - "&eKhi trang bị:"
+    - "&7» &7Giảm sát thương từ cung tên"
+  detail-description:
+    - "&eKhi trang bị:"
+    - "&7» &7Giảm sát thương từ cung tên"
+    - ""
+    - "&eSát thương nhận giảm: 2% x Cấp"
+  applies-description:
+    - "Thanh công cụ"
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      arrow_defense:
+        type: ARROW_DEFENSE
+        chance: 100
+        cooldown: 0
+        options:
+          - DEFENSE:0.02:2
+    "2":
+      arrow_defense:
+        type: ARROW_DEFENSE
+        chance: 100
+        cooldown: 0
+        options:
+          - DEFENSE:0.04:2
+    "3":
+      arrow_defense:
+        type: ARROW_DEFENSE
+        chance: 100
+        cooldown: 0
+        options:
+          - DEFENSE:0.06:2
+    "4":
+      arrow_defense:
+        type: ARROW_DEFENSE
+        chance: 100
+        cooldown: 0
+        options:
+          - DEFENSE:0.08:2
+    "5":
+      arrow_defense:
+        type: ARROW_DEFENSE
+        chance: 100
+        cooldown: 0
+        options:
+          - DEFENSE:0.1:2
+herballeaves:
+  group: artifact
+  display: "Herbal Leaves"
+  description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm lượng máu hồi phục mỗi giây"
+  detail-description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm lượng máu hồi phục mỗi giây"
+    - ""
+    - "&eLượng máu hồi phục: 0.4 x Cấp"
+  applies-description:
+    - "Thanh công cụ"
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_CUSTOM_ATTRIBUTE:herballeaves_health_regeneration:HEALTH_REGENERATION:0.4:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_CUSTOM_ATTRIBUTE:herballeaves_health_regeneration
+    "2":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_CUSTOM_ATTRIBUTE:herballeaves_health_regeneration:HEALTH_REGENERATION:0.8:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_CUSTOM_ATTRIBUTE:herballeaves_health_regeneration
+    "3":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_CUSTOM_ATTRIBUTE:herballeaves_health_regeneration:HEALTH_REGENERATION:1.2:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_CUSTOM_ATTRIBUTE:herballeaves_health_regeneration
+    "4":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_CUSTOM_ATTRIBUTE:herballeaves_health_regeneration:HEALTH_REGENERATION:1.6:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_CUSTOM_ATTRIBUTE:herballeaves_health_regeneration
+    "5":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_CUSTOM_ATTRIBUTE:herballeaves_health_regeneration:HEALTH_REGENERATION:2.0:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_CUSTOM_ATTRIBUTE:herballeaves_health_regeneration

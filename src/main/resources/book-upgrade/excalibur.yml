@@ -1,0 +1,87 @@
+list:
+  excalibur:
+    5:
+      chance: 50
+      required-xp: 128
+      lose-xp-percent: 5->30
+      upgrade-enchant:
+        name: primeexcalibur
+        level: 1
+        success: 100
+        destroy: 0
+      xp-enchant-whitelist:
+        - 'primeexcalibur'
+      requirement:
+        - 'ITEM:CUSTOM_ENCHANTMENT:storage:magic-ball:6'
+        - 'ITEM:CUSTOM_ENCHANTMENT:storage:enchant-paper:12'
+        - 'EXP:2000000'
+        - 'MONEY:1000000'
+  primeexcalibur:
+    1:
+      chance: 45
+      xp: 32->64
+      required-xp: 64
+      lose-xp-percent: 10->35
+      upgrade-enchant:
+        name: primeexcalibur
+        level: 2
+        success: 100
+        destroy: 0
+      xp-enchant-whitelist:
+        - 'excalibur'
+      requirement:
+        - 'ITEM:CUSTOM_ENCHANTMENT:storage:magic-ball:12'
+        - 'ITEM:CUSTOM_ENCHANTMENT:storage:enchant-paper:24'
+        - 'EXP:4000000'
+        - 'MONEY:2000000'
+    2:
+      chance: 40
+      xp: 64->128
+      required-xp: 128
+      lose-xp-percent: 15->40
+      upgrade-enchant:
+        name: primeexcalibur
+        level: 3
+        success: 100
+        destroy: 0
+      xp-enchant-whitelist:
+        - 'excalibur'
+      requirement:
+        - 'ITEM:CUSTOM_ENCHANTMENT:storage:magic-ball:18'
+        - 'ITEM:CUSTOM_ENCHANTMENT:storage:enchant-paper:36'
+        - 'EXP:10000000'
+        - 'MONEY:4000000'
+    3:
+      chance: 35
+      xp: 128->256
+      required-xp: 256
+      lose-xp-percent: 20->45
+      upgrade-enchant:
+        name: primeexcalibur
+        level: 4
+        success: 100
+        destroy: 0
+      xp-enchant-whitelist:
+        - 'excalibur'
+      requirement:
+        - 'ITEM:CUSTOM_ENCHANTMENT:storage:magic-ball:24'
+        - 'ITEM:CUSTOM_ENCHANTMENT:storage:enchant-paper:48'
+        - 'EXP:20000000'
+        - 'MONEY:10000000'
+    4:
+      chance: 30
+      xp: 256->512
+      required-xp: 512
+      lose-xp-percent: 25->50
+      upgrade-enchant:
+        name: primeexcalibur
+        level: 5
+        success: 100
+        destroy: 0
+      xp-enchant-whitelist:
+        - 'excalibur'
+      requirement:
+        - 'ITEM:CUSTOM_ENCHANTMENT:storage:magic-ball:30'
+        - 'ITEM:CUSTOM_ENCHANTMENT:storage:enchant-paper:60'
+        - 'EXP:40000000'
+        - 'MONEY:20000000'

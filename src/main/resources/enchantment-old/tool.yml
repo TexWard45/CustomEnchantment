@@ -1,0 +1,128 @@
+miner:
+  group: 'tool'
+  display: 'Miner Tool'
+  custom-display-lore: '&6%enchant_display% %enchant_level%'
+  description:
+  - '&7- Nhận thêm tiền và kinh nghiệm khi đào khoáng sản'
+  applies-description:
+  - 'Bộ công cụ'
+  applies:
+  - 'ALL_PICKAXE'
+  max-level: 5
+  enchant-point: 0
+  valuable: 0
+  levels:
+    1:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effect-now: true
+        effects:
+        - ''
+    2:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effect-now: true
+        effects:
+        - ''
+    3:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effect-now: true
+        effects:
+        - ''
+    4:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effect-now: true
+        effects:
+        - ''
+    5:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effect-now: true
+        effects:
+        - ''
+lumberjack:
+  group: 'tool'
+  display: 'Lumberjack Tool'
+  custom-display-lore: '&9%enchant_display% %enchant_level%'
+  description:
+  - '&7- Nhận thêm tiền và kinh nghiệm khi chặt gỗ'
+  applies-description:
+  - 'Bộ công cụ'
+  applies:
+  - 'ALL_AXE'
+  max-level: 5
+  enchant-point: 0
+  valuable: 0
+  levels:
+    1:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effect-now: true
+        effects:
+        - ''
+    2:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effect-now: true
+        effects:
+        - ''
+    3:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effect-now: true
+        effects:
+        - ''
+    4:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effect-now: true
+        effects:
+        - ''
+    5:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effect-now: true
+        effects:
+        - ''

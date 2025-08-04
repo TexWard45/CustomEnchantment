@@ -1207,9 +1207,9 @@ rage:
     - "&eCác đòn đánh sẽ trở nên mạnh dần"
     - "&ekhi tấn công dồn dập"
     - ""
-    - "&eSát thương lần 1: +20%/35%/50%"
-    - "&eSát thương lần 2: +35%/50%/65%"
-    - "&eSát thương lần 3: +60%/75%/90%"
+    - "&eSát thương lần 1: +10%/15%/20%"
+    - "&eSát thương lần 2: +25%/30%/35%"
+    - "&eSát thương lần 3: +40%/45%/50%"
     - ""
     - "&cKhông thể ép chung với PrimeRage"
   applies-description:
@@ -1221,6 +1221,200 @@ rage:
   valuable: 0
   levels:
     "1":
+      first_1:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - NUMBER_STORAGE:SET:rage_time:0
+        true-condition-break: true
+      attack_1:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - NUMBER_STORAGE:%time%-rage_time:>:2000
+        effects:
+          - NUMBER_STORAGE:SET:rage_time:%time%
+          - NUMBER_STORAGE:SET:rage_multiply:1
+        true-condition-break: true
+      attack_2:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - NUMBER_STORAGE:rage_multiply:=:1
+          - NUMBER_STORAGE:%time%-rage_time:<=:2000
+        effects:
+          - NUMBER_STORAGE:SET:rage_time:%time%
+          - NUMBER_STORAGE:SET:rage_multiply:2
+          - "MESSAGE:&c&l***Rage: Combo***"
+          - "NAME=rage_combo_stop,DELAY=42 | MESSAGE:&7&l***Rage: Off***"
+        true-condition-break: true
+      attack_3:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - NUMBER_STORAGE:rage_multiply:=:2
+          - NUMBER_STORAGE:%time%-rage_time:<=:2000
+        effects:
+          - NUMBER_STORAGE:SET:rage_time:%time%
+          - NUMBER_STORAGE:SET:rage_multiply:3
+          - "MESSAGE:&c&l***Rage: &a&l+10% ATK&c&l***"
+          - "NAME=rage_combo_stop,DELAY=42 | MESSAGE:&7&l***Rage: Off***"
+        options:
+          - ATTACK:0.1:1
+        true-condition-break: true
+      attack_4:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - NUMBER_STORAGE:rage_multiply:=:3
+          - NUMBER_STORAGE:%time%-rage_time:<=:2000
+        effects:
+          - NUMBER_STORAGE:SET:rage_time:%time%
+          - NUMBER_STORAGE:SET:rage_multiply:4
+          - "MESSAGE:&c&l***Rage: &e&l+25% ATK&c&l***"
+          - "NAME=rage_combo_stop,DELAY=42 | MESSAGE:&7&l***Rage: Off***"
+        options:
+          - ATTACK:0.25:1
+        true-condition-break: true
+      attack_5:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - NUMBER_STORAGE:rage_multiply:=:4
+          - NUMBER_STORAGE:%time%-rage_time:<=:2000
+        effects:
+          - NUMBER_STORAGE:SET:rage_time:%time%
+          - NUMBER_STORAGE:SET:rage_multiply:5
+          - "MESSAGE:&c&l***Rage: &c&l+40% ATK&c&l***"
+          - "NAME=rage_combo_stop,DELAY=42 | MESSAGE:&7&l***Rage: Off***"
+        options:
+          - ATTACK:0.4:1
+        true-condition-break: true
+      attack_6:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - NUMBER_STORAGE:rage_multiply:=:5
+          - NUMBER_STORAGE:%time%-rage_time:<=:2000
+        effects:
+          - NUMBER_STORAGE:SET:rage_time:%time%
+          - "NAME=rage_combo_stop,DELAY=42 | MESSAGE:&7&l***Rage: Off***"
+        options:
+          - ATTACK:0.4:1
+        true-condition-break: true
+    "2":
+      first_1:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - NUMBER_STORAGE:SET:rage_time:0
+        true-condition-break: true
+      attack_1:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - NUMBER_STORAGE:%time%-rage_time:>:2000
+        effects:
+          - NUMBER_STORAGE:SET:rage_time:%time%
+          - NUMBER_STORAGE:SET:rage_multiply:1
+        true-condition-break: true
+      attack_2:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - NUMBER_STORAGE:rage_multiply:=:1
+          - NUMBER_STORAGE:%time%-rage_time:<=:2000
+        effects:
+          - NUMBER_STORAGE:SET:rage_time:%time%
+          - NUMBER_STORAGE:SET:rage_multiply:2
+          - "MESSAGE:&c&l***Rage: Combo***"
+          - "NAME=rage_combo_stop,DELAY=42 | MESSAGE:&7&l***Rage: Off***"
+        true-condition-break: true
+      attack_3:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - NUMBER_STORAGE:rage_multiply:=:2
+          - NUMBER_STORAGE:%time%-rage_time:<=:2000
+        effects:
+          - NUMBER_STORAGE:SET:rage_time:%time%
+          - NUMBER_STORAGE:SET:rage_multiply:3
+          - "MESSAGE:&c&l***Rage: &a&l+15% ATK&c&l***"
+          - "NAME=rage_combo_stop,DELAY=42 | MESSAGE:&7&l***Rage: Off***"
+        options:
+          - ATTACK:0.15:1
+        true-condition-break: true
+      attack_4:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - NUMBER_STORAGE:rage_multiply:=:3
+          - NUMBER_STORAGE:%time%-rage_time:<=:2000
+        effects:
+          - NUMBER_STORAGE:SET:rage_time:%time%
+          - NUMBER_STORAGE:SET:rage_multiply:4
+          - "MESSAGE:&c&l***Rage: &e&l+30% ATK&c&l***"
+          - "NAME=rage_combo_stop,DELAY=42 | MESSAGE:&7&l***Rage: Off***"
+        options:
+          - ATTACK:0.3:1
+        true-condition-break: true
+      attack_5:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - NUMBER_STORAGE:rage_multiply:=:4
+          - NUMBER_STORAGE:%time%-rage_time:<=:2000
+        effects:
+          - NUMBER_STORAGE:SET:rage_time:%time%
+          - NUMBER_STORAGE:SET:rage_multiply:5
+          - "MESSAGE:&c&l***Rage: &c&l+45% ATK&c&l***"
+          - "NAME=rage_combo_stop,DELAY=42 | MESSAGE:&7&l***Rage: Off***"
+        options:
+          - ATTACK:0.45:1
+        true-condition-break: true
+      attack_6:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - NUMBER_STORAGE:rage_multiply:=:5
+          - NUMBER_STORAGE:%time%-rage_time:<=:2000
+        effects:
+          - NUMBER_STORAGE:SET:rage_time:%time%
+          - "NAME=rage_combo_stop,DELAY=42 | MESSAGE:&7&l***Rage: Off***"
+        options:
+          - ATTACK:0.45:1
+        true-condition-break: true
+    "3":
       first_1:
         type: HOLD
         chance: 100
@@ -1298,10 +1492,10 @@ rage:
         effects:
           - NUMBER_STORAGE:SET:rage_time:%time%
           - NUMBER_STORAGE:SET:rage_multiply:5
-          - "MESSAGE:&c&l***Rage: &c&l+60% ATK&c&l***"
+          - "MESSAGE:&c&l***Rage: +50% ATK***"
           - "NAME=rage_combo_stop,DELAY=42 | MESSAGE:&7&l***Rage: Off***"
         options:
-          - ATTACK:0.6:1
+          - ATTACK:0.50:1
         true-condition-break: true
       attack_6:
         type: ATTACK
@@ -1315,201 +1509,7 @@ rage:
           - NUMBER_STORAGE:SET:rage_time:%time%
           - "NAME=rage_combo_stop,DELAY=42 | MESSAGE:&7&l***Rage: Off***"
         options:
-          - ATTACK:0.6:1
-        true-condition-break: true
-    "2":
-      first_1:
-        type: HOLD
-        chance: 100
-        cooldown: 0
-        conditions:
-          - ""
-        effects:
-          - NUMBER_STORAGE:SET:rage_time:0
-        true-condition-break: true
-      attack_1:
-        type: ATTACK
-        chance: 100
-        cooldown: 0
-        conditions:
-          - EQUIP_SLOT:MAINHAND
-          - NUMBER_STORAGE:%time%-rage_time:>:2000
-        effects:
-          - NUMBER_STORAGE:SET:rage_time:%time%
-          - NUMBER_STORAGE:SET:rage_multiply:1
-        true-condition-break: true
-      attack_2:
-        type: ATTACK
-        chance: 100
-        cooldown: 0
-        conditions:
-          - EQUIP_SLOT:MAINHAND
-          - NUMBER_STORAGE:rage_multiply:=:1
-          - NUMBER_STORAGE:%time%-rage_time:<=:2000
-        effects:
-          - NUMBER_STORAGE:SET:rage_time:%time%
-          - NUMBER_STORAGE:SET:rage_multiply:2
-          - "MESSAGE:&c&l***Rage: Combo***"
-          - "NAME=rage_combo_stop,DELAY=42 | MESSAGE:&7&l***Rage: Off***"
-        true-condition-break: true
-      attack_3:
-        type: ATTACK
-        chance: 100
-        cooldown: 0
-        conditions:
-          - EQUIP_SLOT:MAINHAND
-          - NUMBER_STORAGE:rage_multiply:=:2
-          - NUMBER_STORAGE:%time%-rage_time:<=:2000
-        effects:
-          - NUMBER_STORAGE:SET:rage_time:%time%
-          - NUMBER_STORAGE:SET:rage_multiply:3
-          - "MESSAGE:&c&l***Rage: &a&l+35% ATK&c&l***"
-          - "NAME=rage_combo_stop,DELAY=42 | MESSAGE:&7&l***Rage: Off***"
-        options:
-          - ATTACK:0.35:1
-        true-condition-break: true
-      attack_4:
-        type: ATTACK
-        chance: 100
-        cooldown: 0
-        conditions:
-          - EQUIP_SLOT:MAINHAND
-          - NUMBER_STORAGE:rage_multiply:=:3
-          - NUMBER_STORAGE:%time%-rage_time:<=:2000
-        effects:
-          - NUMBER_STORAGE:SET:rage_time:%time%
-          - NUMBER_STORAGE:SET:rage_multiply:4
-          - "MESSAGE:&c&l***Rage: &e&l+50% ATK&c&l***"
-          - "NAME=rage_combo_stop,DELAY=42 | MESSAGE:&7&l***Rage: Off***"
-        options:
-          - ATTACK:0.5:1
-        true-condition-break: true
-      attack_5:
-        type: ATTACK
-        chance: 100
-        cooldown: 0
-        conditions:
-          - EQUIP_SLOT:MAINHAND
-          - NUMBER_STORAGE:rage_multiply:=:4
-          - NUMBER_STORAGE:%time%-rage_time:<=:2000
-        effects:
-          - NUMBER_STORAGE:SET:rage_time:%time%
-          - NUMBER_STORAGE:SET:rage_multiply:5
-          - "MESSAGE:&c&l***Rage: &c&l+75% ATK&c&l***"
-          - "NAME=rage_combo_stop,DELAY=42 | MESSAGE:&7&l***Rage: Off***"
-        options:
-          - ATTACK:0.75:1
-        true-condition-break: true
-      attack_6:
-        type: ATTACK
-        chance: 100
-        cooldown: 0
-        conditions:
-          - EQUIP_SLOT:MAINHAND
-          - NUMBER_STORAGE:rage_multiply:=:5
-          - NUMBER_STORAGE:%time%-rage_time:<=:2000
-        effects:
-          - NUMBER_STORAGE:SET:rage_time:%time%
-          - "NAME=rage_combo_stop,DELAY=42 | MESSAGE:&7&l***Rage: Off***"
-        options:
-          - ATTACK:0.75:1
-        true-condition-break: true
-    "3":
-      first_1:
-        type: HOLD
-        chance: 100
-        cooldown: 0
-        conditions:
-          - ""
-        effects:
-          - NUMBER_STORAGE:SET:rage_time:0
-        true-condition-break: true
-      attack_1:
-        type: ATTACK
-        chance: 100
-        cooldown: 0
-        conditions:
-          - EQUIP_SLOT:MAINHAND
-          - NUMBER_STORAGE:%time%-rage_time:>:2000
-        effects:
-          - NUMBER_STORAGE:SET:rage_time:%time%
-          - NUMBER_STORAGE:SET:rage_multiply:1
-        true-condition-break: true
-      attack_2:
-        type: ATTACK
-        chance: 100
-        cooldown: 0
-        conditions:
-          - EQUIP_SLOT:MAINHAND
-          - NUMBER_STORAGE:rage_multiply:=:1
-          - NUMBER_STORAGE:%time%-rage_time:<=:2000
-        effects:
-          - NUMBER_STORAGE:SET:rage_time:%time%
-          - NUMBER_STORAGE:SET:rage_multiply:2
-          - "MESSAGE:&c&l***Rage: Combo***"
-          - "NAME=rage_combo_stop,DELAY=42 | MESSAGE:&7&l***Rage: Off***"
-        true-condition-break: true
-      attack_3:
-        type: ATTACK
-        chance: 100
-        cooldown: 0
-        conditions:
-          - EQUIP_SLOT:MAINHAND
-          - NUMBER_STORAGE:rage_multiply:=:2
-          - NUMBER_STORAGE:%time%-rage_time:<=:2000
-        effects:
-          - NUMBER_STORAGE:SET:rage_time:%time%
-          - NUMBER_STORAGE:SET:rage_multiply:3
-          - "MESSAGE:&c&l***Rage: &a&l+50% ATK&c&l***"
-          - "NAME=rage_combo_stop,DELAY=42 | MESSAGE:&7&l***Rage: Off***"
-        options:
-          - ATTACK:0.5:1
-        true-condition-break: true
-      attack_4:
-        type: ATTACK
-        chance: 100
-        cooldown: 0
-        conditions:
-          - EQUIP_SLOT:MAINHAND
-          - NUMBER_STORAGE:rage_multiply:=:3
-          - NUMBER_STORAGE:%time%-rage_time:<=:2000
-        effects:
-          - NUMBER_STORAGE:SET:rage_time:%time%
-          - NUMBER_STORAGE:SET:rage_multiply:4
-          - "MESSAGE:&c&l***Rage: &e&l+65% ATK&c&l***"
-          - "NAME=rage_combo_stop,DELAY=42 | MESSAGE:&7&l***Rage: Off***"
-        options:
-          - ATTACK:0.65:1
-        true-condition-break: true
-      attack_5:
-        type: ATTACK
-        chance: 100
-        cooldown: 0
-        conditions:
-          - EQUIP_SLOT:MAINHAND
-          - NUMBER_STORAGE:rage_multiply:=:4
-          - NUMBER_STORAGE:%time%-rage_time:<=:2000
-        effects:
-          - NUMBER_STORAGE:SET:rage_time:%time%
-          - NUMBER_STORAGE:SET:rage_multiply:5
-          - "MESSAGE:&c&l***Rage: +90% ATK***"
-          - "NAME=rage_combo_stop,DELAY=42 | MESSAGE:&7&l***Rage: Off***"
-        options:
-          - ATTACK:0.90:1
-        true-condition-break: true
-      attack_6:
-        type: ATTACK
-        chance: 100
-        cooldown: 0
-        conditions:
-          - EQUIP_SLOT:MAINHAND
-          - NUMBER_STORAGE:rage_multiply:=:5
-          - NUMBER_STORAGE:%time%-rage_time:<=:2000
-        effects:
-          - NUMBER_STORAGE:SET:rage_time:%time%
-          - "NAME=rage_combo_stop,DELAY=42 | MESSAGE:&7&l***Rage: Off***"
-        options:
-          - ATTACK:0.90:1
+          - ATTACK:0.50:1
         true-condition-break: true
 skillswipe:
   group: rare
@@ -2586,10 +2586,9 @@ hush:
           - EQUIP_SLOT:MAINHAND
           - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-          - TARGET=ENEMY | DEACTIVE_EQUIP_SLOT:MAINHAND:hush_armor
+          - TARGET=ENEMY | DEACTIVE_EQUIP_SLOT:MAINHAND:hush_armor:2000
           - "MESSAGE:&6&l***Hush: &c&lLock Enchant Weapon &7&l> &f&l%enemy_name%&6&l***"
           - TARGET=ENEMY | MESSAGE:&6&l***&c&lLock Enchant Weapon &f(0:02) &7&lby &f&l%enemy_name%&6&l***
-          - TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | ACTIVE_EQUIP_SLOT:MAINHAND:hush_armor
     "2":
       attack:
         type: ATTACK
@@ -2599,10 +2598,9 @@ hush:
           - EQUIP_SLOT:MAINHAND
           - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-          - TARGET=ENEMY | DEACTIVE_EQUIP_SLOT:MAINHAND:hush_armor
+          - TARGET=ENEMY | DEACTIVE_EQUIP_SLOT:MAINHAND:hush_armor:2000
           - "MESSAGE:&6&l***Hush: &c&lLock Enchant Weapon &7&l> &f&l%enemy_name%&6&l***"
           - TARGET=ENEMY | MESSAGE:&6&l***&c&lLock Enchant Weapon &f(0:02) &7&lby &f&l%enemy_name%&6&l***
-          - TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | ACTIVE_EQUIP_SLOT:MAINHAND:hush_armor
     "3":
       attack:
         type: ATTACK
@@ -2612,10 +2610,9 @@ hush:
           - EQUIP_SLOT:MAINHAND
           - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-          - TARGET=ENEMY | DEACTIVE_EQUIP_SLOT:MAINHAND:hush_armor
+          - TARGET=ENEMY | DEACTIVE_EQUIP_SLOT:MAINHAND:hush_armor:2000
           - "MESSAGE:&6&l***Hush: &c&lLock Enchant Weapon &7&l> &f&l%enemy_name%&6&l***"
           - TARGET=ENEMY | MESSAGE:&6&l***&c&lLock Enchant Weapon &f(0:02) &7&lby &f&l%enemy_name%&6&l***
-          - TARGET=ENEMY,DELAY=60,EFFECT_AFTER_DEAD=true | ACTIVE_EQUIP_SLOT:MAINHAND:hush_armor
 disarm:
   group: supreme
   display: Disarm
@@ -2646,11 +2643,10 @@ disarm:
           - EQUIP_SLOT:MAINHAND
           - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-          - TARGET=ENEMY | DEACTIVE_ABILITY:ATTACK:disarm_attack
+          - TARGET=ENEMY | DEACTIVE_ABILITY:ATTACK:disarm_attack:2000
           - "MESSAGE:&6&l***Disarm: &c&lLock Attack &f(0:02) &7&l> &f&l%enemy_name%&6&l***"
           - TARGET=ENEMY | MESSAGE:&6&l***&c&lLock Attack &f(0:02) &7&lby &f&l%enemy_name%&6&l***
           - TARGET=ENEMY | MESSAGE:&6&l***&c&lLock Attack &f(0:02) &7&lby &f&l%enemy_name%&6&l***
-          - TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | ACTIVE_ABILITY:ATTACK:disarm_attack
     "2":
       attack:
         type: ATTACK
@@ -2660,10 +2656,9 @@ disarm:
           - EQUIP_SLOT:MAINHAND
           - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-          - TARGET=ENEMY | DEACTIVE_ABILITY:ATTACK:disarm_attack
+          - TARGET=ENEMY | DEACTIVE_ABILITY:ATTACK:disarm_attack:2000
           - "MESSAGE:&6&l***Disarm: &c&lLock Attack &f(0:02) &7&l> &f&l%enemy_name%&6&l***"
           - TARGET=ENEMY | MESSAGE:&6&l***&c&lLock Attack &f(0:02) &7&lby &f&l%enemy_name%&6&l***
-          - TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | ACTIVE_ABILITY:ATTACK:disarm_attack
     "3":
       attack:
         type: ATTACK
@@ -2673,10 +2668,9 @@ disarm:
           - EQUIP_SLOT:MAINHAND
           - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-          - TARGET=ENEMY | DEACTIVE_ABILITY:ATTACK:disarm_attack
+          - TARGET=ENEMY | DEACTIVE_ABILITY:ATTACK:disarm_attack:2000
           - "MESSAGE:&6&l***Disarm: &c&lLock Attack &f(0:02) &7&l> &f&l%enemy_name%&6&l***"
           - TARGET=ENEMY | MESSAGE:&6&l***&c&lLock Attack &f(0:02) &7&lby &f&l%enemy_name%&6&l***
-          - TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | ACTIVE_ABILITY:ATTACK:disarm_attack
 bayonet:
   group: supreme
   display: Bayonet
@@ -2817,8 +2811,9 @@ stabstraight:
           - EQUIP_SLOT:MAINHAND
           - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-          - TARGET=ENEMY | ADD_CUSTOM_ATTRIBUTE:stabstraight_deep_attack:STAT_HEALTH:-0.1:2
-          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_CUSTOM_ATTRIBUTE:stabstraight_deep_attack
+          - ""
+          #- TARGET=ENEMY | ADD_CUSTOM_ATTRIBUTE:stabstraight_deep_attack:STAT_HEALTH:-0.1:2
+          #- TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_CUSTOM_ATTRIBUTE:stabstraight_deep_attack
     "2":
       attack:
         type: ATTACK
@@ -2828,8 +2823,9 @@ stabstraight:
           - EQUIP_SLOT:MAINHAND
           - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-          - TARGET=ENEMY | ADD_CUSTOM_ATTRIBUTE:stabstraight_deep_attack:STAT_HEALTH:-0.2:2
-          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_CUSTOM_ATTRIBUTE:stabstraight_deep_attack
+          - ""
+          #- TARGET=ENEMY | ADD_CUSTOM_ATTRIBUTE:stabstraight_deep_attack:STAT_HEALTH:-0.2:2
+          #- TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_CUSTOM_ATTRIBUTE:stabstraight_deep_attack
     "3":
       attack:
         type: ATTACK
@@ -2839,8 +2835,9 @@ stabstraight:
           - EQUIP_SLOT:MAINHAND
           - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-          - TARGET=ENEMY | ADD_CUSTOM_ATTRIBUTE:stabstraight_deep_attack:STAT_HEALTH:-0.3:2
-          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_CUSTOM_ATTRIBUTE:stabstraight_deep_attack
+          - ""
+          #- TARGET=ENEMY | ADD_CUSTOM_ATTRIBUTE:stabstraight_deep_attack:STAT_HEALTH:-0.3:2
+          #- TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_CUSTOM_ATTRIBUTE:stabstraight_deep_attack
     "4":
       attack:
         type: ATTACK
@@ -2850,8 +2847,9 @@ stabstraight:
           - EQUIP_SLOT:MAINHAND
           - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-          - TARGET=ENEMY | ADD_CUSTOM_ATTRIBUTE:stabstraight_deep_attack:STAT_HEALTH:-0.4:2
-          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_CUSTOM_ATTRIBUTE:stabstraight_deep_attack
+          - ""
+          #- TARGET=ENEMY | ADD_CUSTOM_ATTRIBUTE:stabstraight_deep_attack:STAT_HEALTH:-0.4:2
+          #- TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_CUSTOM_ATTRIBUTE:stabstraight_deep_attack
     "5":
       attack:
         type: ATTACK
@@ -2861,8 +2859,9 @@ stabstraight:
           - EQUIP_SLOT:MAINHAND
           - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-          - TARGET=ENEMY | ADD_CUSTOM_ATTRIBUTE:stabstraight_deep_attack:STAT_HEALTH:-0.5:2
-          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_CUSTOM_ATTRIBUTE:stabstraight_deep_attack
+          - ""
+          #- TARGET=ENEMY | ADD_CUSTOM_ATTRIBUTE:stabstraight_deep_attack:STAT_HEALTH:-0.5:2
+          #- TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_CUSTOM_ATTRIBUTE:stabstraight_deep_attack
 excalibur:
   group: ultimate
   display: Excalibur
@@ -2898,6 +2897,7 @@ excalibur:
           - ATTACK:-0.05:2
         effects:
           - TARGET=ENEMY | HEALTH:REMOVE:%damage%*5/100
+          - "MESSAGE:&c&l**Excalibur: &c&lDeal 5% True ATK&c&l***"
     "2":
       attack:
         type: ATTACK
@@ -2910,6 +2910,7 @@ excalibur:
           - ATTACK:-0.10:2
         effects:
           - TARGET=ENEMY | HEALTH:REMOVE:%damage%*10/100
+          - "MESSAGE:&c&l**Excalibur: &c&lDeal 10% True ATK&c&l***"
     "3":
       attack:
         type: ATTACK
@@ -2922,6 +2923,7 @@ excalibur:
           - ATTACK:-0.15:2
         effects:
           - TARGET=ENEMY | HEALTH:REMOVE:%damage%*15/100
+          - "MESSAGE:&c&l**Excalibur: &c&lDeal 15% True ATK&c&l***"
     "4":
       attack:
         type: ATTACK
@@ -2934,6 +2936,7 @@ excalibur:
           - ATTACK:-0.20:2
         effects:
           - TARGET=ENEMY | HEALTH:REMOVE:%damage%*20/100
+          - "MESSAGE:&c&l**Excalibur: &c&lDeal 20% True ATK&c&l***"
     "5":
       attack:
         type: ATTACK
@@ -2946,6 +2949,7 @@ excalibur:
           - ATTACK:-0.25:2
         effects:
           - TARGET=ENEMY | HEALTH:REMOVE:%damage%*25/100
+          - "MESSAGE:&c&l**Excalibur: &c&lDeal 25% True ATK&c&l***"
 arthritis:
   group: legendary
   display: Arthritis

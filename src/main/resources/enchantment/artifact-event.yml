@@ -1,0 +1,446 @@
+lunarsnake:
+  group: artifact
+  display: "Lunar Snake"
+  description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm sức tấn công, tỉ lệ chí mạng, sát thương"
+    - "&7chí mạng và tốc độ di chuyển"
+    - ""
+    - "&eKhi tấn công:"
+    - "&7» &7Có tỉ lệ trói chân đối thủ trong một khoảng thời gian"
+  detail-description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm sức tấn công, tỉ lệ chí mạng, sát thương"
+    - "&7chí mạng và tốc độ di chuyển"
+    - ""
+    - "&eKhi tấn công:"
+    - "&7» &7Có tỉ lệ trói chân đối thủ trong một khoảng thời gian"
+    - ""
+    - "&eSức tấn công: 5% x Cấp"
+    - "&eTỉ lệ chí mạng: 5% x Cấp"
+    - "&eSát thương chí mạng: 5% x Cấp"
+    - "&eTốc độ di chuyển: 5% x Cấp"
+    - "&eTỉ lệ trói chân: 25%"
+    - "&eThời gian trói chân: 1 giây"
+    - "&eThời gian hồi: 5 giây"
+  applies-description:
+    - "Thanh công cụ"
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:ATTACK_DAMAGE:lunarsnake_attack_damage:0.05:1
+          - ADD_ATTRIBUTE:MOVEMENT_SPEED:lunarsnake_movement_speed:0.05:1
+          - ADD_CUSTOM_ATTRIBUTE:lunarsnake_critical_chance:CRITICAL_CHANCE:5:0
+          - ADD_CUSTOM_ATTRIBUTE:lunarsnake_critical_damage:CRITICAL_DAMAGE:0.05:1
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:ATTACK_DAMAGE:lunarsnake_attack_damage
+          - REMOVE_ATTRIBUTE:MOVEMENT_SPEED:lunarsnake_movement_speed
+          - REMOVE_CUSTOM_ATTRIBUTE:lunarsnake_critical_chance
+          - REMOVE_CUSTOM_ATTRIBUTE:lunarsnake_critical_damage
+      attack:
+        type: ATTACK
+        chance: 25
+        cooldown: 5000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+          - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:lunarsnake_movement_speed_lock:-1:2
+          - "MESSAGE:&d&l***Lunar Snake: &6&lLock Speed &f(0:01) &7&l> &f&l%enemy_name%&d&l***"
+          - TARGET=ENEMY | MESSAGE:&d&l***&6&lLock Speed &f(0:01) &7&lby &f&l%enemy_name%&d&l***
+          - TARGET=ENEMY,DELAY=20,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:lunarsnake_movement_speed_lock
+    "2":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:ATTACK_DAMAGE:lunarsnake_attack_damage:0.1:1
+          - ADD_ATTRIBUTE:MOVEMENT_SPEED:lunarsnake_movement_speed:0.1:1
+          - ADD_CUSTOM_ATTRIBUTE:lunarsnake_critical_chance:CRITICAL_CHANCE:10:0
+          - ADD_CUSTOM_ATTRIBUTE:lunarsnake_critical_damage:CRITICAL_DAMAGE:0.1:1
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:ATTACK_DAMAGE:lunarsnake_attack_damage
+          - REMOVE_ATTRIBUTE:MOVEMENT_SPEED:lunarsnake_movement_speed
+          - REMOVE_CUSTOM_ATTRIBUTE:lunarsnake_critical_chance
+          - REMOVE_CUSTOM_ATTRIBUTE:lunarsnake_critical_damage
+      attack:
+        type: ATTACK
+        chance: 25
+        cooldown: 5000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+          - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:lunarsnake_movement_speed_lock:-1:2
+          - "MESSAGE:&d&l***Lunar Snake: &6&lLock Speed &f(0:01) &7&l> &f&l%enemy_name%&d&l***"
+          - TARGET=ENEMY | MESSAGE:&d&l***&6&lLock Speed &f(0:01) &7&lby &f&l%enemy_name%&d&l***
+          - TARGET=ENEMY,DELAY=20,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:lunarsnake_movement_speed_lock
+    "3":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:ATTACK_DAMAGE:lunarsnake_attack_damage:0.15:1
+          - ADD_ATTRIBUTE:MOVEMENT_SPEED:lunarsnake_movement_speed:0.15:1
+          - ADD_CUSTOM_ATTRIBUTE:lunarsnake_critical_chance:CRITICAL_CHANCE:15:0
+          - ADD_CUSTOM_ATTRIBUTE:lunarsnake_critical_damage:CRITICAL_DAMAGE:0.15:1
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:ATTACK_DAMAGE:lunarsnake_attack_damage
+          - REMOVE_ATTRIBUTE:MOVEMENT_SPEED:lunarsnake_movement_speed
+          - REMOVE_CUSTOM_ATTRIBUTE:lunarsnake_critical_chance
+          - REMOVE_CUSTOM_ATTRIBUTE:lunarsnake_critical_damage
+      attack:
+        type: ATTACK
+        chance: 25
+        cooldown: 5000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+          - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:lunarsnake_movement_speed_lock:-1:2
+          - "MESSAGE:&d&l***Lunar Snake: &6&lLock Speed &f(0:01) &7&l> &f&l%enemy_name%&d&l***"
+          - TARGET=ENEMY | MESSAGE:&d&l***&6&lLock Speed &f(0:01) &7&lby &f&l%enemy_name%&d&l***
+          - TARGET=ENEMY,DELAY=20,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:lunarsnake_movement_speed_lock
+    "4":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:ATTACK_DAMAGE:lunarsnake_attack_damage:0.2:1
+          - ADD_ATTRIBUTE:MOVEMENT_SPEED:lunarsnake_movement_speed:0.2:1
+          - ADD_CUSTOM_ATTRIBUTE:lunarsnake_critical_chance:CRITICAL_CHANCE:20:0
+          - ADD_CUSTOM_ATTRIBUTE:lunarsnake_critical_damage:CRITICAL_DAMAGE:0.2:1
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:ATTACK_DAMAGE:lunarsnake_attack_damage
+          - REMOVE_ATTRIBUTE:MOVEMENT_SPEED:lunarsnake_movement_speed
+          - REMOVE_CUSTOM_ATTRIBUTE:lunarsnake_critical_chance
+          - REMOVE_CUSTOM_ATTRIBUTE:lunarsnake_critical_damage
+      attack:
+        type: ATTACK
+        chance: 25
+        cooldown: 5000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+          - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:lunarsnake_movement_speed_lock:-1:2
+          - "MESSAGE:&d&l***Lunar Snake: &6&lLock Speed &f(0:01) &7&l> &f&l%enemy_name%&d&l***"
+          - TARGET=ENEMY | MESSAGE:&d&l***&6&lLock Speed &f(0:01) &7&lby &f&l%enemy_name%&d&l***
+          - TARGET=ENEMY,DELAY=20,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:lunarsnake_movement_speed_lock
+    "5":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:ATTACK_DAMAGE:lunarsnake_attack_damage:0.25:1
+          - ADD_ATTRIBUTE:MOVEMENT_SPEED:lunarsnake_movement_speed:0.25:1
+          - ADD_CUSTOM_ATTRIBUTE:lunarsnake_critical_chance:CRITICAL_CHANCE:25:0
+          - ADD_CUSTOM_ATTRIBUTE:lunarsnake_critical_damage:CRITICAL_DAMAGE:0.25:1
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:ATTACK_DAMAGE:lunarsnake_attack_damage
+          - REMOVE_ATTRIBUTE:MOVEMENT_SPEED:lunarsnake_movement_speed
+          - REMOVE_CUSTOM_ATTRIBUTE:lunarsnake_critical_chance
+          - REMOVE_CUSTOM_ATTRIBUTE:lunarsnake_critical_damage
+      attack:
+        type: ATTACK
+        chance: 25
+        cooldown: 5000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+          - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:lunarsnake_movement_speed_lock:-1:2
+          - "MESSAGE:&d&l***Lunar Snake: &6&lLock Speed &f(0:01) &7&l> &f&l%enemy_name%&d&l***"
+          - TARGET=ENEMY | MESSAGE:&d&l***&6&lLock Speed &f(0:01) &7&lby &f&l%enemy_name%&d&l***
+blessedwishwreath:
+  group: artifact
+  display: "Bleseed Wish Wreath"
+  description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm sức tấn công, tỉ lệ chí mạng, sát thương"
+    - "&7chí mạng và tốc độ di chuyển"
+    - ""
+    - "&eKhi tấn công:"
+    - "&7» &7Có tỉ lệ trói chân đối thủ trong một khoảng thời gian"
+  detail-description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm sức tấn công, tỉ lệ chí mạng, sát thương"
+    - "&7chí mạng và tốc độ di chuyển"
+    - ""
+    - "&eKhi tấn công:"
+    - "&7» &7Có tỉ lệ trói chân đối thủ trong một khoảng thời gian"
+    - ""
+    - "&eSức tấn công: 5% x Cấp"
+    - "&eTỉ lệ chí mạng: 5% x Cấp"
+    - "&eSát thương chí mạng: 5% x Cấp"
+    - "&eTốc độ di chuyển: 5% x Cấp"
+    - "&eTỉ lệ trói chân: 25%"
+    - "&eThời gian trói chân: 1 giây"
+    - "&eThời gian hồi: 5 giây"
+  applies-description:
+    - "Thanh công cụ"
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:MAX_HEALTH:blessedwishwreath_max_health:5:0
+          - ADD_CUSTOM_ATTRIBUTE:blessedwishwreath_health_regeneration:HEALTH_REGENERATION:0.5:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:MAX_HEALTH:blessedwishwreath_max_health
+          - REMOVE_CUSTOM_ATTRIBUTE:blessedwishwreath_health_regeneration
+      defense:
+        type: DEFENSE
+        chance: 100
+        cooldown: 3000
+        conditions:
+          - EQUIP_SLOT:EXTRA_SLOT
+          - HEALTH_PERCENT:<=:25
+        effects:
+          - ADD_CUSTOM_ATTRIBUTE:blessedwishwreath_health_regeneration2:HEALTH_REGENERATION:1.0:1
+          - DELAY=60,EFFECT_AFTER_DEAD=true | REMOVE_CUSTOM_ATTRIBUTE:blessedwishwreath_health_regeneration2
+          - "MESSAGE:&d&l***Blessed Wish Wreath: &c&lBelow 25%: &a&l+100% Regeneration&d&l***"
+        true-condition-break: true
+      defense2:
+        type: DEFENSE
+        chance: 100
+        cooldown: 3000
+        conditions:
+          - EQUIP_SLOT:EXTRA_SLOT
+          - HEALTH_PERCENT:<=:50
+        effects:
+          - ADD_CUSTOM_ATTRIBUTE:blessedwishwreath_health_regeneration2:HEALTH_REGENERATION:0.5:1
+          - DELAY=60,EFFECT_AFTER_DEAD=true | REMOVE_CUSTOM_ATTRIBUTE:blessedwishwreath_health_regeneration2
+          - "MESSAGE:&d&l***Blessed Wish Wreath: &c&lBelow 50%: &a&l+50% Regeneration&d&l***"
+    "2":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:MAX_HEALTH:blessedwishwreath_max_health:10:0
+          - ADD_CUSTOM_ATTRIBUTE:blessedwishwreath_health_regeneration:HEALTH_REGENERATION:1.0:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:MAX_HEALTH:blessedwishwreath_max_health
+          - REMOVE_CUSTOM_ATTRIBUTE:blessedwishwreath_health_regeneration
+      defense:
+        type: DEFENSE
+        chance: 100
+        cooldown: 3000
+        conditions:
+          - EQUIP_SLOT:EXTRA_SLOT
+          - HEALTH_PERCENT:<=:25
+        effects:
+          - ADD_CUSTOM_ATTRIBUTE:blessedwishwreath_health_regeneration2:HEALTH_REGENERATION:2.0:1
+          - DELAY=60,EFFECT_AFTER_DEAD=true | REMOVE_CUSTOM_ATTRIBUTE:blessedwishwreath_health_regeneration2
+          - "MESSAGE:&d&l***Blessed Wish Wreath: &c&lBelow 25%: &a&l+200% Regeneration&d&l***"
+        true-condition-break: true
+      defense2:
+        type: DEFENSE
+        chance: 100
+        cooldown: 3000
+        conditions:
+          - EQUIP_SLOT:EXTRA_SLOT
+          - HEALTH_PERCENT:<=:50
+        effects:
+          - ADD_CUSTOM_ATTRIBUTE:blessedwishwreath_health_regeneration2:HEALTH_REGENERATION:1.0:1
+          - DELAY=60,EFFECT_AFTER_DEAD=true | REMOVE_CUSTOM_ATTRIBUTE:blessedwishwreath_health_regeneration2
+          - "MESSAGE:&d&l***Blessed Wish Wreath: &c&lBelow 50%: &a&l+100% Regeneration&d&l***"
+    "3":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:MAX_HEALTH:blessedwishwreath_max_health:15:0
+          - ADD_CUSTOM_ATTRIBUTE:blessedwishwreath_health_regeneration:HEALTH_REGENERATION:1.5:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:MAX_HEALTH:blessedwishwreath_max_health
+          - REMOVE_CUSTOM_ATTRIBUTE:blessedwishwreath_health_regeneration
+      defense:
+        type: DEFENSE
+        chance: 100
+        cooldown: 3000
+        conditions:
+          - EQUIP_SLOT:EXTRA_SLOT
+          - HEALTH_PERCENT:<=:25
+        effects:
+          - ADD_CUSTOM_ATTRIBUTE:blessedwishwreath_health_regeneration2:HEALTH_REGENERATION:3.0:1
+          - DELAY=60,EFFECT_AFTER_DEAD=true | REMOVE_CUSTOM_ATTRIBUTE:blessedwishwreath_health_regeneration2
+          - "MESSAGE:&d&l***Blessed Wish Wreath: &c&lBelow 25%: &a&l+300% Regeneration&d&l***"
+        true-condition-break: true
+      defense2:
+        type: DEFENSE
+        chance: 100
+        cooldown: 3000
+        conditions:
+          - EQUIP_SLOT:EXTRA_SLOT
+          - HEALTH_PERCENT:<=:50
+        effects:
+          - ADD_CUSTOM_ATTRIBUTE:blessedwishwreath_health_regeneration2:HEALTH_REGENERATION:1.5:1
+          - DELAY=60,EFFECT_AFTER_DEAD=true | REMOVE_CUSTOM_ATTRIBUTE:blessedwishwreath_health_regeneration2
+          - "MESSAGE:&d&l***Blessed Wish Wreath: &c&lBelow 50%: &a&l+150% Regeneration&d&l***"
+    "4":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:MAX_HEALTH:blessedwishwreath_max_health:20:0
+          - ADD_CUSTOM_ATTRIBUTE:blessedwishwreath_health_regeneration:HEALTH_REGENERATION:2.0:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:MAX_HEALTH:blessedwishwreath_max_health
+          - REMOVE_CUSTOM_ATTRIBUTE:blessedwishwreath_health_regeneration
+      defense:
+        type: DEFENSE
+        chance: 100
+        cooldown: 3000
+        conditions:
+          - EQUIP_SLOT:EXTRA_SLOT
+          - HEALTH_PERCENT:<=:25
+        effects:
+          - ADD_CUSTOM_ATTRIBUTE:blessedwishwreath_health_regeneration2:HEALTH_REGENERATION:4.0:1
+          - DELAY=60,EFFECT_AFTER_DEAD=true | REMOVE_CUSTOM_ATTRIBUTE:blessedwishwreath_health_regeneration2
+          - "MESSAGE:&d&l***Blessed Wish Wreath: &c&lBelow 25%: &a&l+400% Regeneration&d&l***"
+        true-condition-break: true
+      defense2:
+        type: DEFENSE
+        chance: 100
+        cooldown: 3000
+        conditions:
+          - EQUIP_SLOT:EXTRA_SLOT
+          - HEALTH_PERCENT:<=:50
+        effects:
+          - ADD_CUSTOM_ATTRIBUTE:blessedwishwreath_health_regeneration2:HEALTH_REGENERATION:2.0:1
+          - DELAY=60,EFFECT_AFTER_DEAD=true | REMOVE_CUSTOM_ATTRIBUTE:blessedwishwreath_health_regeneration2
+          - "MESSAGE:&d&l***Blessed Wish Wreath: &c&lBelow 50%: &a&l+200% Regeneration&d&l***"
+    "5":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:MAX_HEALTH:blessedwishwreath_max_health:25:0
+          - ADD_CUSTOM_ATTRIBUTE:blessedwishwreath_health_regeneration:HEALTH_REGENERATION:2.5:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:MAX_HEALTH:blessedwishwreath_max_health
+          - REMOVE_CUSTOM_ATTRIBUTE:blessedwishwreath_health_regeneration
+      defense:
+        type: DEFENSE
+        chance: 100
+        cooldown: 3000
+        conditions:
+          - EQUIP_SLOT:EXTRA_SLOT
+          - HEALTH_PERCENT:<=:25
+        effects:
+          - ADD_CUSTOM_ATTRIBUTE:blessedwishwreath_health_regeneration2:HEALTH_REGENERATION:5.0:1
+          - DELAY=60,EFFECT_AFTER_DEAD=true | REMOVE_CUSTOM_ATTRIBUTE:blessedwishwreath_health_regeneration2
+          - "MESSAGE:&d&l***Blessed Wish Wreath: &c&lBelow 25%: &a&l+500% Regeneration&d&l***"
+        true-condition-break: true
+      defense2:
+        type: DEFENSE
+        chance: 100
+        cooldown: 3000
+        conditions:
+          - EQUIP_SLOT:EXTRA_SLOT
+          - HEALTH_PERCENT:<=:50
+        effects:
+          - ADD_CUSTOM_ATTRIBUTE:blessedwishwreath_health_regeneration2:HEALTH_REGENERATION:2.5:1
+          - DELAY=60,EFFECT_AFTER_DEAD=true | REMOVE_CUSTOM_ATTRIBUTE:blessedwishwreath_health_regeneration2
+          - "MESSAGE:&d&l***Blessed Wish Wreath: &c&lBelow 50%: &a&l+250% Regeneration&d&l***"

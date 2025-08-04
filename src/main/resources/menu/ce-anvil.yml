@@ -1,0 +1,287 @@
+settings:
+  title: "&8&lLò rèn"
+  rows: 5
+  sound: ENTITY_EXPERIENCE_ORB_PICKUP
+  actions:
+    "1":
+      inventory-type: CHEST
+      slots: 0-44
+      cancel-drag: true
+      cancel-click-type:
+        - LEFT
+        - RIGHT
+        - SHIFT_RIGHT
+        - SHIFT_LEFT
+        - NUMBER_KEY
+      cancel-inventory-action:
+        - MOVE_TO_OTHER_INVENTORY
+        - DROP_ALL_SLOT
+        - DROP_ALL_CURSOR
+        - DROP_ONE_SLOT
+        - DROP_ONE_CURSOR
+    "2":
+      inventory-type: PLAYER
+      slots: 0-35
+      cancel-drag: true
+      cancel-click-type:
+        - LEFT
+        - RIGHT
+        - MIDDLE
+        - SHIFT_RIGHT
+        - SHIFT_LEFT
+        - NUMBER_KEY
+
+data:
+  default-view:
+    enchant-group:
+      - "common"
+      - "rare"
+      - "epic"
+      - "legendary"
+      - "supreme"
+      - "ultimate"
+      - "event"
+
+# a = accept
+# o = border
+# s = slot1
+# S = slot2
+# 12345 = preview
+layout:
+  - "ooooooooo"
+  - "ooosoSooo"
+  - "opxxxxxno"
+  - "ooooaoooo"
+  - "ooooRoooo"
+
+items:
+  border:
+    item:
+      type: RED_STAINED_GLASS_PANE
+      amount: 1
+      display: "&7"
+    slots: "o"
+  confirm:
+    item:
+      type: ANVIL
+      amount: 1
+      display: "&eHãy chọn vật phẩm và trang bị tương ứng"
+      lore:
+        - "&echo 2 ô trên"
+    slots: "a"
+  confirm-enchant-point:
+    item:
+      type: ANVIL
+      amount: 1
+      display: "&eXác nhận ép ngọc đột phá"
+      lore:
+        - ""
+        - "&fNhấp để ép"
+    slots: "a"
+    priority: -1
+  confirm-book:
+    item:
+      type: ANVIL
+      amount: 1
+      display: "&eXác nhận ép sách phù phép"
+      lore:
+        - ""
+        - "&fNhấp để ép"
+    slots: "a"
+    priority: -1
+  confirm-remove-enchant:
+    item:
+      type: ANVIL
+      amount: 1
+      display: "&eXác nhận tách sách phù phép"
+      lore:
+        - ""
+        - "&fNhấp để tách"
+    slots: "a"
+    priority: -1
+  confirm-lore-format:
+    item:
+      type: ANVIL
+      amount: 1
+      display: "&eXác nhận thay đổi định dạng vật phẩm"
+      lore:
+        - ""
+        - "&fNhấp để xác nhận"
+    slots: "a"
+    priority: -1
+  confirm-protect-dead:
+    item:
+      type: ANVIL
+      amount: 1
+      display: "&eXác nhận ép ngọc bảo vệ"
+      lore:
+        - ""
+        - "&fNhấp để ép"
+    slots: "a"
+    priority: -1
+  confirm-gem-drill:
+    item:
+      type: ANVIL
+      amount: 1
+      display: "&eXác nhận đục lỗ ô ngọc"
+      lore:
+        - ""
+        - "&aTỉ lệ thành công: &f100%'"
+        - ""
+        - "&fNhấp để khoan"
+    slots: "a"
+    priority: -1
+  confirm-gem-drill-max:
+    item:
+      type: ANVIL
+      amount: 1
+      display: "&cĐã đạt số lượng ô ngọc tối đa"
+    slots: "a"
+    priority: -1
+  confirm-gem-drill-with-chance:
+    item:
+      type: ANVIL
+      amount: 1
+      display: "&eXác nhận đục lỗ ô ngọc"
+      lore:
+        - ""
+        - '&aTỉ lệ thành công: &f{chance}%'
+        - ""
+        - '&c&oThất bại sẽ mất Máy Khoan'
+        - ""
+        - "&fNhấp để khoan"
+    slots: "a"
+    priority: -1
+  confirm-gem:
+    item:
+      type: ANVIL
+      amount: 1
+      display: "&eXác nhận khảm ngọc"
+      lore:
+        - ""
+        - "&fNhấp để khảm"
+    slots: "a"
+    priority: -1
+  confirm-remove-protect-dead:
+    item:
+      type: ANVIL
+      amount: 1
+      display: "&eXác nhận tách ngọc bảo vệ"
+      lore:
+        - ""
+        - "&fNhấp để tách"
+    slots: "a"
+    priority: -1
+  confirm-remove-gem:
+    item:
+      type: ANVIL
+      amount: 1
+      display: "&eXác nhận tách ngọc khảm"
+      lore:
+        - ""
+        - "&fNhấp để tách"
+    slots: "a"
+    priority: -1
+  confirm-remove-enchant-point:
+    item:
+      type: ANVIL
+      amount: 1
+      display: "&eXác nhận tách ngọc đột phá"
+      lore:
+        - ""
+        - "&fNhấp để tách"
+    slots: "a"
+    priority: -1
+  confirm-protect-destroy:
+    item:
+      type: ANVIL
+      amount: 1
+      display: "&eXác nhận ép cuộn giấy bảo vệ"
+      lore:
+        - ""
+        - "&fNhấp để ép"
+    slots: "a"
+    priority: -1
+  slot1:
+    item:
+      type: LIGHT_GRAY_STAINED_GLASS_PANE
+      amount: 1
+      display: "&fÔ 1"
+      lore:
+        - ""
+        - "&eNhấp chọn trang bị bất kì từ kho đồ"
+    slots: "s"
+  slot2:
+    item:
+      type: LIGHT_GRAY_STAINED_GLASS_PANE
+      amount: 1
+      display: "&fÔ 2"
+      lore:
+        - ""
+        - "&eNhấp chọn vật phẩm sử dụng từ kho đồ"
+    slots: "S"
+  preview3:
+    item:
+      type: BLACK_STAINED_GLASS_PANE
+      amount: 1
+      display: "&fXem trước"
+    slots: "22"
+  preview1:
+    item:
+      type: BLACK_STAINED_GLASS_PANE
+      amount: 1
+      display: "&fXem trước"
+    slots: "20"
+  preview2:
+    item:
+      type: BLACK_STAINED_GLASS_PANE
+      amount: 1
+      display: "&fXem trước"
+    slots: "21"
+  preview4:
+    item:
+      type: BLACK_STAINED_GLASS_PANE
+      amount: 1
+      display: "&fXem trước"
+    slots: "23"
+  preview5:
+    item:
+      type: BLACK_STAINED_GLASS_PANE
+      amount: 1
+      display: "&fXem trước"
+    slots: "24"
+  previous-page:
+    item:
+      type: RED_STAINED_GLASS_PANE
+      amount: 1
+      display: "&7"
+    slots: "p"
+  next-page:
+    item:
+      type: RED_STAINED_GLASS_PANE
+      amount: 1
+      display: "&7"
+    slots: "n"
+  has-previous-page:
+    item:
+      type: YELLOW_STAINED_GLASS_PANE
+      amount: 1
+      display: "&cTrang trước"
+  has-next-page:
+    item:
+      type: GREEN_STAINED_GLASS_PANE
+      amount: 1
+      display: "&aTrang kế"
+  return:
+    item:
+      type: GRAY_STAINED_GLASS_PANE
+      amount: 1
+      display: "&cTrở về"
+    slots: "R"
+    command:
+      "1":
+        condition:
+          - CLICK_TYPE LEFT
+        true-condition:
+          execute:
+            - RETURN_MENU

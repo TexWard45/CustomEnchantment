@@ -1,0 +1,2342 @@
+veinminer:
+  group: supreme
+  display: VeinMiner
+  description:
+    - "&eKhi đào quặng, giúp phá vỡ các khối"
+    - "&ecùng loại liền kề nhau khi đào"
+  detail-description:
+    - "&eKhi đào quặng, giúp phá vỡ các khối"
+    - "&ecùng loại liền kề nhau khi đào"
+    - ""
+    - "&eSố khối: 3 x Cấp"
+    - "&eTỉ lệ kích hoạt: 20% x Cấp"
+  applies-description:
+    - Cúp
+  applies:
+    - ALL_PICKAXE
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      equip:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'ADD_VEIN_MINING:veinminer:3:100:ALL_ORE_BLOCK'
+      unequip:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_VEIN_MINING:veinminer'
+    2:
+      equip:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'ADD_VEIN_MINING:veinminer:6:100:ALL_ORE_BLOCK'
+      unequip:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_VEIN_MINING:veinminer'
+    3:
+      equip:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'ADD_VEIN_MINING:veinminer:9:100:ALL_ORE_BLOCK'
+      unequip:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_VEIN_MINING:veinminer'
+    4:
+      equip:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'ADD_VEIN_MINING:veinminer:12:100:ALL_ORE_BLOCK'
+      unequip:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_VEIN_MINING:veinminer'
+    5:
+      equip:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'ADD_VEIN_MINING:veinminer:15:100:ALL_ORE_BLOCK'
+      unequip:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_VEIN_MINING:veinminer'
+hasten:
+  group: legendary
+  display: Hasten
+  description:
+    - "&eCó tỉ lệ nhận hiệu ứng vội vàng trong"
+    - "&emột khoảng thời gian khi đào quặng"
+  detail-description:
+    - "&eCó tỉ lệ nhận hiệu ứng vội vàng trong"
+    - "&emột khoảng thời gian khi đào quặng"
+  applies-description:
+    - Cúp
+  applies:
+    - ALL_PICKAXE
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+planter:
+  group: epic
+  display: Planter
+  description:
+    - "&eCó cơ hội gieo hạt giống phù hợp trên"
+    - "&ethanh công cụ vào kích thước 3x3 ô đất"
+  detail-description:
+    - "&eCó cơ hội gieo hạt giống phù hợp trên"
+    - "&ethanh công cụ vào kích thước 3x3 ô đất"
+  applies-description:
+    - Cuốc
+  applies:
+    - ALL_HOE
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+harvest:
+  group: epic
+  display: Harvest
+  description:
+    - "&eCó cơ hội thu hoạch nông sản"
+    - "&etrên kích thước 3x3 ô đất"
+  detail-description:
+    - "&eCó cơ hội thu hoạch nông sản"
+    - "&etrên kích thước 3x3 ô đất"
+  applies-description:
+    - Cuốc
+  applies:
+    - ALL_HOE
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      equip:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'ADD_EXPLOSION_MINING:harvest:3:20:true:true:CE_HARVEST_BLOCK'
+      unequip:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_EXPLOSION_MINING:harvest'
+    2:
+      equip:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'ADD_EXPLOSION_MINING:harvest:3:40:true:true:CE_HARVEST_BLOCK'
+      unequip:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_EXPLOSION_MINING:harvest'
+    3:
+      equip:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'ADD_EXPLOSION_MINING:harvest:3:60:true:true:CE_HARVEST_BLOCK'
+      unequip:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_EXPLOSION_MINING:harvest'
+    4:
+      equip:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'ADD_EXPLOSION_MINING:harvest:3:80:true:true:CE_HARVEST_BLOCK'
+      unequip:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_EXPLOSION_MINING:harvest'
+    5:
+      equip:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'ADD_EXPLOSION_MINING:harvest:3:100:true:true:CE_HARVEST_BLOCK'
+      unequip:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - 'REMOVE_EXPLOSION_MINING:harvest'
+jellylegs:
+  group: rare
+  display: JellyLegs
+  description:
+    - "&eCó tỉ lệ chặn toàn bộ sát thương"
+    - "&esau khi rơi"
+  detail-description:
+    - "&eCó tỉ lệ chặn toàn bộ sát thương"
+    - "&esau khi rơi"
+  applies-description:
+    - Giày
+  applies:
+    - ALL_BOOTS
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    '1':
+      unknown_defense:
+        type: UNKNOWN_DEFENSE
+        chance: 20
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:LEGGINGS
+        - DAMAGE_CAUSE:FALL
+        options:
+        - DEFENSE:1:2
+    '2':
+      unknown_defense:
+        type: UNKNOWN_DEFENSE
+        chance: 40
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:LEGGINGS
+        - DAMAGE_CAUSE:FALL
+        options:
+        - DEFENSE:1:2
+    '3':
+      unknown_defense:
+        type: UNKNOWN_DEFENSE
+        chance: 60
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:LEGGINGS
+        - DAMAGE_CAUSE:FALL
+        options:
+        - DEFENSE:1:2
+    '4':
+      unknown_defense:
+        type: UNKNOWN_DEFENSE
+        chance: 80
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:LEGGINGS
+        - DAMAGE_CAUSE:FALL
+        options:
+        - DEFENSE:1:2
+    '5':
+      unknown_defense:
+        type: UNKNOWN_DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:LEGGINGS
+        - DAMAGE_CAUSE:FALL
+        options:
+        - DEFENSE:1:2
+slash:
+  group: legendary
+  display: Slash
+  description:
+    - "&eCó tỉ lệ gây chảy máu kẻ địch trong"
+    - "&emột khoảng thời gian khi tấn công"
+  detail-description:
+    - "&eCó tỉ lệ gây chảy máu kẻ địch trong"
+    - "&emột khoảng thời gian khi tấn công"
+    - ""
+    - "&eTỉ lệ chảy máu mỗi giây: 1% x Cấp"
+    - "&eThời gian chảy máu: 10s"
+    - "&eTỉ lệ kích hoạt: 50%"
+    - "&eThời gian hồi: 4s"
+  applies-description:
+    - Đinh ba
+  applies:
+    - TRIDENT
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      attack:
+        type: ATTACK
+        chance: 50
+        cooldown: 4000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+          - "MESSAGE:&e&l***Slash: &c&lActive bleed &7&l> &f&l%enemy_name%&e&l***"
+          - TARGET=ENEMY,DELAY=20 | HEALTH:REMOVE:%player_value%*1/100
+          - TARGET=ENEMY,DELAY=40 | HEALTH:REMOVE:%player_value%*1/100
+          - TARGET=ENEMY,DELAY=60 | HEALTH:REMOVE:%player_value%*1/100
+          - TARGET=ENEMY,DELAY=80 | HEALTH:REMOVE:%player_value%*1/100
+          - TARGET=ENEMY,DELAY=100 | HEALTH:REMOVE:%player_value%*1/100
+          - TARGET=ENEMY,DELAY=120 | HEALTH:REMOVE:%player_value%*1/100
+          - TARGET=ENEMY,DELAY=140 | HEALTH:REMOVE:%player_value%*1/100
+          - TARGET=ENEMY,DELAY=160 | HEALTH:REMOVE:%player_value%*1/100
+          - TARGET=ENEMY,DELAY=180 | HEALTH:REMOVE:%player_value%*1/100
+          - TARGET=ENEMY,DELAY=200 | HEALTH:REMOVE:%player_value%*1/100
+    "2":
+      attack:
+        type: ATTACK
+        chance: 50
+        cooldown: 4000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+          - "MESSAGE:&e&l***Slash: &c&lActive bleed &7&l> &f&l%enemy_name%&e&l***"
+          - TARGET=ENEMY,DELAY=20 | HEALTH:REMOVE:%player_value%*2/100
+          - TARGET=ENEMY,DELAY=40 | HEALTH:REMOVE:%player_value%*2/100
+          - TARGET=ENEMY,DELAY=60 | HEALTH:REMOVE:%player_value%*2/100
+          - TARGET=ENEMY,DELAY=80 | HEALTH:REMOVE:%player_value%*2/100
+          - TARGET=ENEMY,DELAY=100 | HEALTH:REMOVE:%player_value%*2/100
+          - TARGET=ENEMY,DELAY=120 | HEALTH:REMOVE:%player_value%*2/100
+          - TARGET=ENEMY,DELAY=140 | HEALTH:REMOVE:%player_value%*2/100
+          - TARGET=ENEMY,DELAY=160 | HEALTH:REMOVE:%player_value%*2/100
+          - TARGET=ENEMY,DELAY=180 | HEALTH:REMOVE:%player_value%*2/100
+          - TARGET=ENEMY,DELAY=200 | HEALTH:REMOVE:%player_value%*2/100
+    "3":
+      attack:
+        type: ATTACK
+        chance: 50
+        cooldown: 4000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+          - "MESSAGE:&e&l***Slash: &c&lActive bleed &7&l> &f&l%enemy_name%&e&l***"
+          - TARGET=ENEMY,DELAY=20 | HEALTH:REMOVE:%player_value%*3/100
+          - TARGET=ENEMY,DELAY=40 | HEALTH:REMOVE:%player_value%*3/100
+          - TARGET=ENEMY,DELAY=60 | HEALTH:REMOVE:%player_value%*3/100
+          - TARGET=ENEMY,DELAY=80 | HEALTH:REMOVE:%player_value%*3/100
+          - TARGET=ENEMY,DELAY=100 | HEALTH:REMOVE:%player_value%*3/100
+          - TARGET=ENEMY,DELAY=120 | HEALTH:REMOVE:%player_value%*3/100
+          - TARGET=ENEMY,DELAY=140 | HEALTH:REMOVE:%player_value%*3/100
+          - TARGET=ENEMY,DELAY=160 | HEALTH:REMOVE:%player_value%*3/100
+          - TARGET=ENEMY,DELAY=180 | HEALTH:REMOVE:%player_value%*3/100
+          - TARGET=ENEMY,DELAY=200 | HEALTH:REMOVE:%player_value%*3/100
+    "4":
+      attack:
+        type: ATTACK
+        chance: 50
+        cooldown: 4000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+          - "MESSAGE:&e&l***Slash: &c&lActive bleed &7&l> &f&l%enemy_name%&e&l***"
+          - TARGET=ENEMY,DELAY=20 | HEALTH:REMOVE:%player_value%*4/100
+          - TARGET=ENEMY,DELAY=40 | HEALTH:REMOVE:%player_value%*4/100
+          - TARGET=ENEMY,DELAY=60 | HEALTH:REMOVE:%player_value%*4/100
+          - TARGET=ENEMY,DELAY=80 | HEALTH:REMOVE:%player_value%*4/100
+          - TARGET=ENEMY,DELAY=100 | HEALTH:REMOVE:%player_value%*4/100
+          - TARGET=ENEMY,DELAY=120 | HEALTH:REMOVE:%player_value%*4/100
+          - TARGET=ENEMY,DELAY=140 | HEALTH:REMOVE:%player_value%*4/100
+          - TARGET=ENEMY,DELAY=160 | HEALTH:REMOVE:%player_value%*4/100
+          - TARGET=ENEMY,DELAY=180 | HEALTH:REMOVE:%player_value%*4/100
+          - TARGET=ENEMY,DELAY=200 | HEALTH:REMOVE:%player_value%*4/100
+    "5":
+      attack:
+        type: ATTACK
+        chance: 50
+        cooldown: 4000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+          - "MESSAGE:&e&l***Slash: &c&lActive bleed &7&l> &f&l%enemy_name%&e&l***"
+          - TARGET=ENEMY,DELAY=20 | HEALTH:REMOVE:%player_value%*5/100
+          - TARGET=ENEMY,DELAY=40 | HEALTH:REMOVE:%player_value%*5/100
+          - TARGET=ENEMY,DELAY=60 | HEALTH:REMOVE:%player_value%*5/100
+          - TARGET=ENEMY,DELAY=80 | HEALTH:REMOVE:%player_value%*5/100
+          - TARGET=ENEMY,DELAY=100 | HEALTH:REMOVE:%player_value%*5/100
+          - TARGET=ENEMY,DELAY=120 | HEALTH:REMOVE:%player_value%*5/100
+          - TARGET=ENEMY,DELAY=140 | HEALTH:REMOVE:%player_value%*5/100
+          - TARGET=ENEMY,DELAY=160 | HEALTH:REMOVE:%player_value%*5/100
+          - TARGET=ENEMY,DELAY=180 | HEALTH:REMOVE:%player_value%*5/100
+          - TARGET=ENEMY,DELAY=200 | HEALTH:REMOVE:%player_value%*5/100
+hydraulic:
+  group: supreme
+  display: Hydraulic
+  description:
+    - "&eMỗi lần tấn công sẽ tích lũy giảm giáp"
+    - "&etrên mỗi kẻ địch trong một khoảng thời gian"
+  detail-description:
+    - "&eMỗi lần tấn công sẽ tích lũy giảm giáp"
+    - "&etrên mỗi kẻ địch trong một khoảng thời gian"
+    - ""
+    - "&eMỗi lần tấn công sẽ giảm 1% giáp x Cấp"
+    - "&eThời gian mỗi tích lũy: 5s"
+    - "&eGiáp giảm tối đa: 4% x Cấp"
+  applies-description:
+    - Đinh ba
+  applies:
+    - TRIDENT
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      attack-1:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY,NEGATIVE=true | NUMBER_STORAGE:hydraulic_%player_name%_times
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:SET:hydraulic_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:ARMOR:hydraulic_armor:0:-0.01:1
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:ARMOR:hydraulic_armor:0
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:hydraulic_%player_name%_times:1
+          - "MESSAGE:&6&l***Hydraulic: &c&l-1% &f&l%enemy_name%'s Armor&6&l***"
+        true-condition-break: true
+      attack-reset:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | NUMBER_STORAGE:hydraulic_%player_name%_times:<:1
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:SET:hydraulic_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:ARMOR:hydraulic_armor:0:-0.01:1
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:ARMOR:hydraulic_armor:0
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:hydraulic_%player_name%_times:1
+          - "MESSAGE:&6&l***Hydraulic: &c&l-1% &f&l%enemy_name%'s Armor&6&l***"
+        true-condition-break: true
+      attack-2:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | NUMBER_STORAGE:hydraulic_%player_name%_times:=:1
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:ADD:hydraulic_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:ARMOR:hydraulic_armor:1:-0.01:1
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:ARMOR:hydraulic_armor:1
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:hydraulic_%player_name%_times:1
+          - "MESSAGE:&6&l***Hydraulic: &c&l-2% &f&l%enemy_name%'s Armor&6&l***"
+        true-condition-break: true
+      attack-3:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | NUMBER_STORAGE:hydraulic_%player_name%_times:=:2
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:ADD:hydraulic_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:ARMOR:hydraulic_armor:2:-0.01:1
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:ARMOR:hydraulic_armor:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:hydraulic_%player_name%_times:1
+          - "MESSAGE:&6&l***Hydraulic: &c&l-3% &f&l%enemy_name%'s Armor&6&l***"
+        true-condition-break: true
+      attack-4:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | NUMBER_STORAGE:hydraulic_%player_name%_times:=:3
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:ADD:hydraulic_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:ARMOR:hydraulic_armor:3:-0.01:1
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:ARMOR:hydraulic_armor:3
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:hydraulic_%player_name%_times:1
+          - "MESSAGE:&6&l***Hydraulic: &c&l-4% &f&l%enemy_name%'s Armor&6&l***"
+        true-condition-break: true
+    "2":
+      attack-1:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY,NEGATIVE=true | NUMBER_STORAGE:hydraulic_%player_name%_times
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:SET:hydraulic_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:ARMOR:hydraulic_armor:0:-0.02:1
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:ARMOR:hydraulic_armor:0
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:hydraulic_%player_name%_times:1
+          - "MESSAGE:&6&l***Hydraulic: &c&l-2% &f&l%enemy_name%'s Armor&6&l***"
+        true-condition-break: true
+      attack-reset:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | NUMBER_STORAGE:hydraulic_%player_name%_times:<:1
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:SET:hydraulic_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:ARMOR:hydraulic_armor:0:-0.02:1
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:ARMOR:hydraulic_armor:0
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:hydraulic_%player_name%_times:1
+          - "MESSAGE:&6&l***Hydraulic: &c&l-2% &f&l%enemy_name%'s Armor&6&l***"
+        true-condition-break: true
+      attack-2:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | NUMBER_STORAGE:hydraulic_%player_name%_times:=:1
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:ADD:hydraulic_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:ARMOR:hydraulic_armor:1:-0.02:1
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:ARMOR:hydraulic_armor:1
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:hydraulic_%player_name%_times:1
+          - "MESSAGE:&6&l***Hydraulic: &c&l-4% &f&l%enemy_name%'s Armor&6&l***"
+        true-condition-break: true
+      attack-3:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | NUMBER_STORAGE:hydraulic_%player_name%_times:=:2
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:ADD:hydraulic_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:ARMOR:hydraulic_armor:2:-0.02:1
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:ARMOR:hydraulic_armor:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:hydraulic_%player_name%_times:1
+          - "MESSAGE:&6&l***Hydraulic: &c&l-6% &f&l%enemy_name%'s Armor&6&l***"
+        true-condition-break: true
+      attack-4:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | NUMBER_STORAGE:hydraulic_%player_name%_times:=:3
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:ADD:hydraulic_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:ARMOR:hydraulic_armor:3:-0.02:1
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:ARMOR:hydraulic_armor:3
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:hydraulic_%player_name%_times:1
+          - "MESSAGE:&6&l***Hydraulic: &c&l-8% &f&l%enemy_name%'s Armor&6&l***"
+        true-condition-break: true
+    "3":
+      attack-1:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY,NEGATIVE=true | NUMBER_STORAGE:hydraulic_%player_name%_times
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:SET:hydraulic_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:ARMOR:hydraulic_armor:0:-0.03:1
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:ARMOR:hydraulic_armor:0
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:hydraulic_%player_name%_times:1
+          - "MESSAGE:&6&l***Hydraulic: &c&l-3% &f&l%enemy_name%'s Armor&6&l***"
+        true-condition-break: true
+      attack-reset:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | NUMBER_STORAGE:hydraulic_%player_name%_times:<:1
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:SET:hydraulic_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:ARMOR:hydraulic_armor:0:-0.03:1
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:ARMOR:hydraulic_armor:0
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:hydraulic_%player_name%_times:1
+          - "MESSAGE:&6&l***Hydraulic: &c&l-3% &f&l%enemy_name%'s Armor&6&l***"
+        true-condition-break: true
+      attack-2:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | NUMBER_STORAGE:hydraulic_%player_name%_times:=:1
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:ADD:hydraulic_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:ARMOR:hydraulic_armor:1:-0.03:1
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:ARMOR:hydraulic_armor:1
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:hydraulic_%player_name%_times:1
+          - "MESSAGE:&6&l***Hydraulic: &c&l-6% &f&l%enemy_name%'s Armor&6&l***"
+        true-condition-break: true
+      attack-3:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | NUMBER_STORAGE:hydraulic_%player_name%_times:=:2
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:ADD:hydraulic_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:ARMOR:hydraulic_armor:2:-0.03:1
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:ARMOR:hydraulic_armor:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:hydraulic_%player_name%_times:1
+          - "MESSAGE:&6&l***Hydraulic: &c&l-9% &f&l%enemy_name%'s Armor&6&l***"
+        true-condition-break: true
+      attack-4:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | NUMBER_STORAGE:hydraulic_%player_name%_times:=:3
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:ADD:hydraulic_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:ARMOR:hydraulic_armor:3:-0.03:1
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:ARMOR:hydraulic_armor:3
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:hydraulic_%player_name%_times:1
+          - "MESSAGE:&6&l***Hydraulic: &c&l-12% &f&l%enemy_name%'s Armor&6&l***"
+        true-condition-break: true
+    "4":
+      attack-1:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY,NEGATIVE=true | NUMBER_STORAGE:hydraulic_%player_name%_times
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:SET:hydraulic_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:ARMOR:hydraulic_armor:0:-0.04:1
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:ARMOR:hydraulic_armor:0
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:hydraulic_%player_name%_times:1
+          - "MESSAGE:&6&l***Hydraulic: &c&l-4% &f&l%enemy_name%'s Armor&6&l***"
+        true-condition-break: true
+      attack-reset:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | NUMBER_STORAGE:hydraulic_%player_name%_times:<:1
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:SET:hydraulic_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:ARMOR:hydraulic_armor:0:-0.04:1
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:ARMOR:hydraulic_armor:0
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:hydraulic_%player_name%_times:1
+          - "MESSAGE:&6&l***Hydraulic: &c&l-4% &f&l%enemy_name%'s Armor&6&l***"
+        true-condition-break: true
+      attack-2:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | NUMBER_STORAGE:hydraulic_%player_name%_times:=:1
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:ADD:hydraulic_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:ARMOR:hydraulic_armor:1:-0.04:1
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:ARMOR:hydraulic_armor:1
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:hydraulic_%player_name%_times:1
+          - "MESSAGE:&6&l***Hydraulic: &c&l-8% &f&l%enemy_name%'s Armor&6&l***"
+        true-condition-break: true
+      attack-3:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | NUMBER_STORAGE:hydraulic_%player_name%_times:=:2
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:ADD:hydraulic_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:ARMOR:hydraulic_armor:2:-0.04:1
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:ARMOR:hydraulic_armor:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:hydraulic_%player_name%_times:1
+          - "MESSAGE:&6&l***Hydraulic: &c&l-12% &f&l%enemy_name%'s Armor&6&l***"
+        true-condition-break: true
+      attack-4:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | NUMBER_STORAGE:hydraulic_%player_name%_times:=:3
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:ADD:hydraulic_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:ARMOR:hydraulic_armor:3:-0.04:1
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:ARMOR:hydraulic_armor:3
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:hydraulic_%player_name%_times:1
+          - "MESSAGE:&6&l***Hydraulic: &c&l-16% &f&l%enemy_name%'s Armor&6&l***"
+        true-condition-break: true
+    "5":
+      attack-1:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY,NEGATIVE=true | NUMBER_STORAGE:hydraulic_%player_name%_times
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:SET:hydraulic_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:ARMOR:hydraulic_armor:0:-0.05:1
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:ARMOR:hydraulic_armor:0
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:hydraulic_%player_name%_times:1
+          - "MESSAGE:&6&l***Hydraulic: &c&l-5% &f&l%enemy_name%'s Armor&6&l***"
+        true-condition-break: true
+      attack-reset:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | NUMBER_STORAGE:hydraulic_%player_name%_times:<:1
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:SET:hydraulic_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:ARMOR:hydraulic_armor:0:-0.05:1
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:ARMOR:hydraulic_armor:0
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:hydraulic_%player_name%_times:1
+          - "MESSAGE:&6&l***Hydraulic: &c&l-5% &f&l%enemy_name%'s Armor&6&l***"
+        true-condition-break: true
+      attack-2:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | NUMBER_STORAGE:hydraulic_%player_name%_times:=:1
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:ADD:hydraulic_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:ARMOR:hydraulic_armor:1:-0.05:1
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:ARMOR:hydraulic_armor:1
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:hydraulic_%player_name%_times:1
+          - "MESSAGE:&6&l***Hydraulic: &c&l-10% &f&l%enemy_name%'s Armor&6&l***"
+        true-condition-break: true
+      attack-3:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | NUMBER_STORAGE:hydraulic_%player_name%_times:=:2
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:ADD:hydraulic_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:ARMOR:hydraulic_armor:2:-0.05:1
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:ARMOR:hydraulic_armor:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:hydraulic_%player_name%_times:1
+          - "MESSAGE:&6&l***Hydraulic: &c&l-15% &f&l%enemy_name%'s Armor&6&l***"
+        true-condition-break: true
+      attack-4:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | NUMBER_STORAGE:hydraulic_%player_name%_times:=:3
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:ADD:hydraulic_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:ARMOR:hydraulic_armor:3:-0.05:1
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:ARMOR:hydraulic_armor:3
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:hydraulic_%player_name%_times:1
+          - "MESSAGE:&6&l***Hydraulic: &c&l-20% &f&l%enemy_name%'s Armor&6&l***"
+        true-condition-break: true
+frostbite:
+  group: supreme
+  display: Frostbite
+  description:
+    - "&eCó tỉ lệ làm choáng và làm chậm kẻ địch"
+    - "&etrong một khoảng thời gian khi tấn công"
+  detail-description:
+    - "&eCó tỉ lệ làm choáng và làm chậm kẻ địch"
+    - "&etrong một khoảng thời gian khi tấn công"
+    - ""
+    - "&eThời gian choáng: 1s"
+    - "&eThời gian làm chậm: 3s"
+    - "&eHiệu quả làm chậm: 10% x Cấp"
+    - "&eTỉ lệ kích hoạt: 10% x Cấp"
+    - "&eThời gian hồi: 5s"
+  applies-description:
+    - Đinh ba
+  applies:
+    - TRIDENT
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      attack:
+        type: ATTACK
+        chance: 10
+        cooldown: 6000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+          - TARGET=ENEMY | DEACTIVE_ABILITY:MOVE:frostbite_move:1000
+          - TARGET=ENEMY | DEACTIVE_ABILITY:ATTACK:frostbite_attack:1000
+          - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:frostbite_movement_speed:-0.1:1
+          - TARGET=ENEMY,DELAY=60,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:frostbite_movement_speed
+          - "MESSAGE:&6&l***Frostbite: &6&lStun &f(0:01),&c&l -10% &f&lMS &f(0:03) &7&l> &f&l%enemy_name%&6&l***"
+          - TARGET=ENEMY | MESSAGE:&6&l***&6&lStun &f(0:01),&c&l -10% &f&lMS &f(0:03) &7&lby &f&l%enemy_name%&6&l***
+    "2":
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 6000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+          - TARGET=ENEMY | DEACTIVE_ABILITY:MOVE:frostbite_move:1000
+          - TARGET=ENEMY | DEACTIVE_ABILITY:ATTACK:frostbite_attack:1000
+          - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:frostbite_movement_speed:-0.2:1
+          - TARGET=ENEMY,DELAY=60,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:frostbite_movement_speed
+          - "MESSAGE:&6&l***Frostbite: &6&lStun &f(0:01),&c&l -20% &f&lMS &f(0:03) &7&l> &f&l%enemy_name%&6&l***"
+          - TARGET=ENEMY | MESSAGE:&6&l***&6&lStun &f(0:01),&c&l -20% &f&lMS &f(0:03) &7&lby &f&l%enemy_name%&6&l***
+    "3":
+      attack:
+        type: ATTACK
+        chance: 30
+        cooldown: 6000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+          - TARGET=ENEMY | DEACTIVE_ABILITY:MOVE:frostbite_move:1000
+          - TARGET=ENEMY | DEACTIVE_ABILITY:ATTACK:frostbite_attack:1000
+          - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:frostbite_movement_speed:-0.3:1
+          - TARGET=ENEMY,DELAY=60,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:frostbite_movement_speed
+          - "MESSAGE:&6&l***Frostbite: &6&lStun &f(0:01),&c&l -30% &f&lMS &f(0:03) &7&l> &f&l%enemy_name%&6&l***"
+          - TARGET=ENEMY | MESSAGE:&6&l***&6&lStun &f(0:01),&c&l -30% &f&lMS &f(0:03) &7&lby &f&l%enemy_name%&6&l***
+    "4":
+      attack:
+        type: ATTACK
+        chance: 40
+        cooldown: 6000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+          - TARGET=ENEMY | DEACTIVE_ABILITY:MOVE:frostbite_move:1000
+          - TARGET=ENEMY | DEACTIVE_ABILITY:ATTACK:frostbite_attack:1000
+          - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:frostbite_movement_speed:-0.4:1
+          - TARGET=ENEMY,DELAY=60,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:frostbite_movement_speed
+          - "MESSAGE:&6&l***Frostbite: &6&lStun &f(0:01),&c&l -40% &f&lMS &f(0:03) &7&l> &f&l%enemy_name%&6&l***"
+          - TARGET=ENEMY | MESSAGE:&6&l***&6&lStun &f(0:01),&c&l -40% &f&lMS &f(0:03) &7&lby &f&l%enemy_name%&6&l***
+    "5":
+      attack:
+        type: ATTACK
+        chance: 50
+        cooldown: 6000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+          - TARGET=ENEMY | DEACTIVE_ABILITY:MOVE:frostbite_move:1000
+          - TARGET=ENEMY | DEACTIVE_ABILITY:ATTACK:frostbite_attack:1000
+          - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:frostbite_movement_speed:-0.5:1
+          - TARGET=ENEMY,DELAY=60,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:frostbite_movement_speed
+          - "MESSAGE:&6&l***Frostbite: &6&lStun &f(0:01),&c&l -50% &f&lMS &f(0:03) &7&l> &f&l%enemy_name%&6&l***"
+          - TARGET=ENEMY | MESSAGE:&6&l***&6&lStun &f(0:01),&c&l -50% &f&lMS &f(0:03) &7&lby &f&l%enemy_name%&6&l***
+thrust:
+  group: supreme
+  display: Thrust
+  description:
+    - "&eĐòn đánh luôn được cường hóa gây thêm"
+    - "&esát thương, làm chậm và đẩy lùi đối phương"
+  detail-description:
+    - "&eĐòn đánh luôn được cường hóa gây thêm"
+    - "&esát thương, làm chậm và đẩy lùi đối phương"
+    - ""
+    - "&eSát thương: +10% ATK Cơ bản x Cấp"
+    - "&eHiệu quả làm chậm: 8% x Cấp"
+    - "&eThời gian làm chậm: 2s"
+  applies-description:
+    - Đinh ba
+  applies:
+    - TRIDENT
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      attack-1:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        options:
+          - ATTACK:0.1:1
+        effects:
+          - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:thrust_movement_speed:-0.08:2
+          - TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:thrust_movement_speed
+          - TARGET=ENEMY | PULL:xE*0.5_-~_zE*0.5
+          - "MESSAGE:&6&l***Thrust: &c&l+20% &f&lATK&6&l***"
+        true-condition-break: true
+    "2":
+      attack-2:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        options:
+          - ATTACK:0.2:1
+        effects:
+          - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:thrust_movement_speed:-0.16:2
+          - TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:thrust_movement_speed
+          - TARGET=ENEMY | PULL:xE*0.5_-~_zE*0.5
+          - "MESSAGE:&6&l***Thrust: &c&l+40% &f&lATK&6&l***"
+        true-condition-break: true
+    "3":
+      attack-2:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        options:
+          - ATTACK:0.3:1
+        effects:
+          - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:thrust_movement_speed:-0.24:2
+          - TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:thrust_movement_speed
+          - TARGET=ENEMY | PULL:xE*0.5_-~_zE*0.5
+          - "MESSAGE:&6&l***Thrust: &c&l+60% &f&lATK&6&l***"
+        true-condition-break: true
+    "4":
+      attack-2:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        options:
+          - ATTACK:0.4:1
+        effects:
+          - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:thrust_movement_speed:-0.32:2
+          - TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:thrust_movement_speed
+          - TARGET=ENEMY | PULL:xE*0.5_-~_zE*0.5
+          - "MESSAGE:&6&l***Thrust: &c&l+80% &f&lATK&6&l***"
+        true-condition-break: true
+    "5":
+      attack-2:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        options:
+          - ATTACK:0.5:1
+        effects:
+          - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:thrust_movement_speed:-0.4:2
+          - TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:thrust_movement_speed
+          - TARGET=ENEMY | PULL:xE*0.5_-~_zE*0.5
+          - "MESSAGE:&6&l***Thrust: &c&l+100% &f&lATK&6&l***"
+        true-condition-break: true
+lunge:
+  group: legendary
+  display: Lunge
+  description:
+    - "&eMỗi khi lướt, đòn đánh tiếp theo được"
+    - "&ecường hóa gây thêm sát thương và làm chậm"
+  detail-description:
+    - "&eMỗi khi lướt, đòn đánh tiếp theo được"
+    - "&ecường hóa gây thêm sát thương và làm chậm"
+    - ""
+    - "&eSát thương: +40% ATK Cơ bản x Cấp"
+    - "&eHiệu quả làm chậm: 5% x Cấp"
+    - "&eThời gian làm chậm: 2s"
+  applies-description:
+    - Đinh ba
+  applies:
+    - TRIDENT
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - NUMBER_STORAGE:dash_last_use
+          - NUMBER_STORAGE:dash_last_use:>:%time%-3000
+          - NUMBER_STORAGE:dash_last_use:!=:lunge_last_use
+        options:
+          - ATTACK:0.4:1
+        effects:
+          - NUMBER_STORAGE:SET:lunge_last_use:dash_last_use
+          - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:lunge_movement_speed:-0.05:2
+          - TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:lunge_movement_speed
+          - "MESSAGE:&6&l***Lunge: &c&l+40% &f&lATK, &c&l-5% &f&lMS &f(0:02) &7&l> &f&l%entity_name%&6&l***"
+    "2":
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - NUMBER_STORAGE:dash_last_use
+          - NUMBER_STORAGE:dash_last_use:>:%time%-3000
+          - NUMBER_STORAGE:dash_last_use:!=:lunge_last_use
+        options:
+          - ATTACK:0.8:1
+        effects:
+          - NUMBER_STORAGE:SET:lunge_last_use:dash_last_use
+          - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:lunge_movement_speed:-0.1:2
+          - TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:lunge_movement_speed
+          - "MESSAGE:&6&l***Lunge: &c&l+80% &f&lATK, &c&l-10% &f&lMS &f(0:02) &7&l> &f&l%entity_name%&6&l***"
+    "3":
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - NUMBER_STORAGE:dash_last_use
+          - NUMBER_STORAGE:dash_last_use:>:%time%-3000
+          - NUMBER_STORAGE:dash_last_use:!=:lunge_last_use
+        options:
+          - ATTACK:1.2:1
+        effects:
+          - NUMBER_STORAGE:SET:lunge_last_use:dash_last_use
+          - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:lunge_movement_speed:-0.15:2
+          - TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:lunge_movement_speed
+          - "MESSAGE:&6&l***Lunge: &c&l+120% &f&lATK, &c&l-15% &f&lMS &f(0:02) &7&l> &f&l%entity_name%&6&l***"
+    "4":
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - NUMBER_STORAGE:dash_last_use
+          - NUMBER_STORAGE:dash_last_use:>:%time%-3000
+          - NUMBER_STORAGE:dash_last_use:!=:lunge_last_use
+        options:
+          - ATTACK:1.6:1
+        effects:
+          - NUMBER_STORAGE:SET:lunge_last_use:dash_last_use
+          - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:lunge_movement_speed:-0.2:2
+          - TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:lunge_movement_speed
+          - "MESSAGE:&6&l***Lunge: &c&l+160% &f&lATK, &c&l-20% &f&lMS &f(0:02) &7&l> &f&l%entity_name%&6&l***"
+    "5":
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - NUMBER_STORAGE:dash_last_use
+          - NUMBER_STORAGE:dash_last_use:>:%time%-3000
+          - NUMBER_STORAGE:dash_last_use:!=:lunge_last_use
+        options:
+          - ATTACK:2.0:1
+        effects:
+          - NUMBER_STORAGE:SET:lunge_last_use:dash_last_use
+          - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:lunge_movement_speed:-0.25:2
+          - TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:lunge_movement_speed
+          - "MESSAGE:&6&l***Lunge: &c&l+200% &f&lATK, &c&l-25% &f&lMS &f(0:02) &7&l> &f&l%entity_name%&6&l***"
+godpiercer:
+  group: supreme
+  display: Godpiercer
+  description:
+    - "&eĐòn tấn công luôn gây một lượng"
+    - "&esát thương chuẩn nhất định"
+  detail-description:
+    - "&eĐòn tấn công luôn gây một lượng"
+    - "&esát thương chuẩn nhất định"
+    - ""
+    - "&eSát thương: 2 x Cấp"
+  applies-description:
+    - Đinh ba
+  applies:
+    - TRIDENT
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - ENTITY_TYPE:PLAYER
+        effects:
+          - TARGET=ENEMY | HEALTH:REMOVE:2
+    "2":
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - ENTITY_TYPE:PLAYER
+        effects:
+          - TARGET=ENEMY | HEALTH:REMOVE:4
+    "3":
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - ENTITY_TYPE:PLAYER
+        effects:
+          - TARGET=ENEMY | HEALTH:REMOVE:6
+    "4":
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - ENTITY_TYPE:PLAYER
+        effects:
+          - TARGET=ENEMY | HEALTH:REMOVE:8
+    "5":
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - ENTITY_TYPE:PLAYER
+        effects:
+          - TARGET=ENEMY | HEALTH:REMOVE:10
+threshold:
+  group: supreme
+  display: Threshold
+  description:
+    - "&eKết liễu mục tiêu dưới ngưỡng máu nhất định"
+  detail-description:
+    - "&eKết liễu mục tiêu dưới ngưỡng máu nhất định"
+    - ""
+    - "&eNgưỡng máu: 3% x Cấp"
+  applies-description:
+    - Cuốc
+  applies:
+    - ALL_HOE
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | HEALTH_PERCENT:<:50
+        effects:
+          - TARGET=ENEMY | HEALTH:SET:0
+          - "MESSAGE:&6&l***Threshold: Kill &c&l%enemy_name%&6&l***"
+    "2":
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | HEALTH_PERCENT:<:6
+        effects:
+          - TARGET=ENEMY | HEALTH:SET:0
+          - "MESSAGE:&6&l***Threshold: Kill &c&l%enemy_name%&6&l***"
+    "3":
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | HEALTH_PERCENT:<:9
+        effects:
+          - TARGET=ENEMY | HEALTH:SET:0
+          - "MESSAGE:&6&l***Threshold: Kill &c&l%enemy_name%&6&l***"
+    "4":
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | HEALTH_PERCENT:<:12
+        effects:
+          - TARGET=ENEMY | HEALTH:SET:0
+          - "MESSAGE:&6&l***Threshold: Kill &c&l%enemy_name%&6&l***"
+    "5":
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | HEALTH_PERCENT:<:15
+        effects:
+          - TARGET=ENEMY | HEALTH:SET:0
+          - "MESSAGE:&6&l***Threshold: Kill &c&l%enemy_name%&6&l***"
+deathhunt:
+  group: legendary
+  display: DeathHunt
+  description:
+    - "&eTăng thêm tốc độ di chuyển và sát thương"
+    - "&egây lên kẻ địch dưới ngưỡng máu nhất định"
+    - "&egần đó"
+  detail-description:
+    - "&eTăng thêm tốc độ di chuyển và sát thương"
+    - "&egây ra khi có kẻ địch gần đó dưới ngưỡng máu"
+    - "&enhất định"
+    - ""
+    - "&eNgưỡng máu kích hoạt: 10% x Cấp"
+    - "&eTốc độ di chuyển: +15% x Cấp"
+    - "&eSát thương: +20% x Cấp"
+    - "&eKhoảng cách: 32m"
+  applies-description:
+    - Cuốc
+  applies:
+    - ALL_HOE
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - NUMBER_STORAGE:SET:deathhunt_enable:1
+          - NUMBER_STORAGE:SET:deathhunt_message:0
+          - "MESSAGE:&e&l***DeathHunt: &a&lEnable &e&l***"
+      auto:
+        type: AUTO
+        chance: 100
+        cooldown: 1000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - NUMBER_STORAGE:deathhunt_enable:=:1
+        target-filter:
+          except-player: true
+          except-enemy: false
+          min-distance: 0
+          max-distance: 32
+          min-target: 1
+          max-target: 1
+        target-conditions:
+          - CAN_ATTACK
+          - TARGET=ENEMY | HEALTH_PERCENT:<:50
+        target-effects:
+          - ADD_ATTRIBUTE:MOVEMENT_SPEED:deathhunt_movement_speed:0.15:1
+          - NUMBER_STORAGE:SET:deathhunt_founds:1
+          - NAME=deathhunt_effect_end,DELAY=30,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:deathhunt_movement_speed
+          - NAME=deathhunt_message,DELAY=30,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SET:deathhunt_message:0
+          - NAME=deathhunt_founds,DELAY=30,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SET:deathhunt_founds:0
+      auto2:
+        type: AUTO
+        chance: 100
+        cooldown: 1000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - NUMBER_STORAGE:deathhunt_enable:=:1
+        target-filter:
+          except-player: true
+          except-enemy: false
+          min-distance: 0
+          max-distance: 32
+          min-target: 1
+          max-target: 1
+        target-conditions:
+          - CAN_ATTACK
+          - TARGET=ENEMY | HEALTH_PERCENT:<:50
+          - NUMBER_STORAGE:deathhunt_message:=:0
+        target-effects:
+          - NUMBER_STORAGE:SET:deathhunt_message:1
+          - "MESSAGE:&e&l***DeathHunt: &e&lDetech &f&l%enemy_name%&e&l***"
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - NUMBER_STORAGE:deathhunt_founds:=:1
+        options:
+          - ATTACK:0.2:1
+        effects:
+          - "MESSAGE:&e&l***DeathHunt: &c&l+20% &f&lATK&e&l***"
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - NUMBER_STORAGE:SET:deathhunt_enable:0
+          - "MESSAGE:&e&l***DeathHunt: &c&lDisable &e&l***"
+    "2":
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - NUMBER_STORAGE:SET:deathhunt_enable:1
+          - NUMBER_STORAGE:SET:deathhunt_message:0
+          - "MESSAGE:&e&l***DeathHunt: &a&lEnable &e&l***"
+      auto:
+        type: AUTO
+        chance: 100
+        cooldown: 1000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - NUMBER_STORAGE:deathhunt_enable:=:1
+        target-filter:
+          except-player: true
+          except-enemy: false
+          min-distance: 0
+          max-distance: 32
+          min-target: 1
+          max-target: 1
+        target-conditions:
+          - CAN_ATTACK
+          - TARGET=ENEMY | HEALTH_PERCENT:<:50
+        target-effects:
+          - ADD_ATTRIBUTE:MOVEMENT_SPEED:deathhunt_movement_speed:0.3:1
+          - NUMBER_STORAGE:SET:deathhunt_founds:1
+          - NAME=deathhunt_effect_end,DELAY=30,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:deathhunt_movement_speed
+          - NAME=deathhunt_message,DELAY=30,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SET:deathhunt_message:0
+          - NAME=deathhunt_founds,DELAY=30,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SET:deathhunt_founds:0
+      auto2:
+        type: AUTO
+        chance: 100
+        cooldown: 1000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - NUMBER_STORAGE:deathhunt_enable:=:1
+        target-filter:
+          except-player: true
+          except-enemy: false
+          min-distance: 0
+          max-distance: 32
+          min-target: 1
+          max-target: 1
+        target-conditions:
+          - CAN_ATTACK
+          - TARGET=ENEMY | HEALTH_PERCENT:<:50
+          - NUMBER_STORAGE:deathhunt_message:=:0
+        target-effects:
+          - NUMBER_STORAGE:SET:deathhunt_message:1
+          - "MESSAGE:&e&l***DeathHunt: &e&lDetech &f&l%enemy_name%&e&l***"
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - NUMBER_STORAGE:deathhunt_founds:=:1
+        options:
+          - ATTACK:0.4:1
+        effects:
+          - "MESSAGE:&e&l***DeathHunt: &c&l+40% &f&lATK&e&l***"
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - NUMBER_STORAGE:SET:deathhunt_enable:0
+          - "MESSAGE:&e&l***DeathHunt: &c&lDisable &e&l***"
+    "3":
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - NUMBER_STORAGE:SET:deathhunt_enable:1
+          - NUMBER_STORAGE:SET:deathhunt_message:0
+          - "MESSAGE:&e&l***DeathHunt: &a&lEnable &e&l***"
+      auto:
+        type: AUTO
+        chance: 100
+        cooldown: 1000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - NUMBER_STORAGE:deathhunt_enable:=:1
+        target-filter:
+          except-player: true
+          except-enemy: false
+          min-distance: 0
+          max-distance: 32
+          min-target: 1
+          max-target: 1
+        target-conditions:
+          - CAN_ATTACK
+          - TARGET=ENEMY | HEALTH_PERCENT:<:50
+        target-effects:
+          - ADD_ATTRIBUTE:MOVEMENT_SPEED:deathhunt_movement_speed:0.45:1
+          - NUMBER_STORAGE:SET:deathhunt_founds:1
+          - NAME=deathhunt_effect_end,DELAY=30,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:deathhunt_movement_speed
+          - NAME=deathhunt_message,DELAY=30,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SET:deathhunt_message:0
+          - NAME=deathhunt_founds,DELAY=30,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SET:deathhunt_founds:0
+      auto2:
+        type: AUTO
+        chance: 100
+        cooldown: 1000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - NUMBER_STORAGE:deathhunt_enable:=:1
+        target-filter:
+          except-player: true
+          except-enemy: false
+          min-distance: 0
+          max-distance: 32
+          min-target: 1
+          max-target: 1
+        target-conditions:
+          - CAN_ATTACK
+          - TARGET=ENEMY | HEALTH_PERCENT:<:50
+          - NUMBER_STORAGE:deathhunt_message:=:0
+        target-effects:
+          - NUMBER_STORAGE:SET:deathhunt_message:1
+          - "MESSAGE:&e&l***DeathHunt: &e&lDetech &f&l%enemy_name%&e&l***"
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - NUMBER_STORAGE:deathhunt_founds:=:1
+        options:
+          - ATTACK:0.6:1
+        effects:
+          - "MESSAGE:&e&l***DeathHunt: &c&l+60% &f&lATK&e&l***"
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - NUMBER_STORAGE:SET:deathhunt_enable:0
+          - "MESSAGE:&e&l***DeathHunt: &c&lDisable &e&l***"
+    "4":
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - NUMBER_STORAGE:SET:deathhunt_enable:1
+          - NUMBER_STORAGE:SET:deathhunt_message:0
+          - "MESSAGE:&e&l***DeathHunt: &a&lEnable &e&l***"
+      auto:
+        type: AUTO
+        chance: 100
+        cooldown: 1000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - NUMBER_STORAGE:deathhunt_enable:=:1
+        target-filter:
+          except-player: true
+          except-enemy: false
+          min-distance: 0
+          max-distance: 32
+          min-target: 1
+          max-target: 1
+        target-conditions:
+          - CAN_ATTACK
+          - TARGET=ENEMY | HEALTH_PERCENT:<:50
+        target-effects:
+          - ADD_ATTRIBUTE:MOVEMENT_SPEED:deathhunt_movement_speed:0.6:1
+          - NUMBER_STORAGE:SET:deathhunt_founds:1
+          - NAME=deathhunt_effect_end,DELAY=30,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:deathhunt_movement_speed
+          - NAME=deathhunt_message,DELAY=30,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SET:deathhunt_message:0
+          - NAME=deathhunt_founds,DELAY=30,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SET:deathhunt_founds:0
+      auto2:
+        type: AUTO
+        chance: 100
+        cooldown: 1000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - NUMBER_STORAGE:deathhunt_enable:=:1
+        target-filter:
+          except-player: true
+          except-enemy: false
+          min-distance: 0
+          max-distance: 32
+          min-target: 1
+          max-target: 1
+        target-conditions:
+          - CAN_ATTACK
+          - TARGET=ENEMY | HEALTH_PERCENT:<:50
+          - NUMBER_STORAGE:deathhunt_message:=:0
+        target-effects:
+          - NUMBER_STORAGE:SET:deathhunt_message:1
+          - "MESSAGE:&e&l***DeathHunt: &e&lDetech &f&l%enemy_name%&e&l***"
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - NUMBER_STORAGE:deathhunt_founds:=:1
+        options:
+          - ATTACK:0.8:1
+        effects:
+          - "MESSAGE:&e&l***DeathHunt: &c&l+80% &f&lATK&e&l***"
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - NUMBER_STORAGE:SET:deathhunt_enable:0
+          - "MESSAGE:&e&l***DeathHunt: &c&lDisable &e&l***"
+    "5":
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - NUMBER_STORAGE:SET:deathhunt_enable:1
+          - NUMBER_STORAGE:SET:deathhunt_message:0
+          - "MESSAGE:&e&l***DeathHunt: &a&lEnable &e&l***"
+      auto:
+        type: AUTO
+        chance: 100
+        cooldown: 1000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - NUMBER_STORAGE:deathhunt_enable:=:1
+        target-filter:
+          except-player: true
+          except-enemy: false
+          min-distance: 0
+          max-distance: 32
+          min-target: 1
+          max-target: 1
+        target-conditions:
+          - CAN_ATTACK
+          - TARGET=ENEMY | HEALTH_PERCENT:<:50
+        target-effects:
+          - ADD_ATTRIBUTE:MOVEMENT_SPEED:deathhunt_movement_speed:0.75:1
+          - NUMBER_STORAGE:SET:deathhunt_founds:1
+          - NAME=deathhunt_effect_end,DELAY=30,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:deathhunt_movement_speed
+          - NAME=deathhunt_message,DELAY=30,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SET:deathhunt_message:0
+          - NAME=deathhunt_founds,DELAY=30,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SET:deathhunt_founds:0
+      auto2:
+        type: AUTO
+        chance: 100
+        cooldown: 1000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - NUMBER_STORAGE:deathhunt_enable:=:1
+        target-filter:
+          except-player: true
+          except-enemy: false
+          min-distance: 0
+          max-distance: 32
+          min-target: 1
+          max-target: 1
+        target-conditions:
+          - CAN_ATTACK
+          - TARGET=ENEMY | HEALTH_PERCENT:<:50
+          - NUMBER_STORAGE:deathhunt_message:=:0
+        target-effects:
+          - NUMBER_STORAGE:SET:deathhunt_message:1
+          - "MESSAGE:&e&l***DeathHunt: &e&lDetech &f&l%enemy_name%&e&l***"
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - NUMBER_STORAGE:deathhunt_founds:=:1
+        options:
+          - ATTACK:1.0:1
+        effects:
+          - "MESSAGE:&e&l***DeathHunt: &c&l+100% &f&lATK&e&l***"
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - NUMBER_STORAGE:SET:deathhunt_enable:0
+          - "MESSAGE:&e&l***DeathHunt: &c&lDisable &e&l***"
+souldrinker:
+  group: legendary
+  display: SoulDrinker
+  description:
+    - "&eKết liễu kẻ địch sẽ hồi phục một lượng máu"
+  detail-description:
+    - "&eKết liễu kẻ địch sẽ hồi phục một lượng máu"
+    - ""
+    - "&eLượng máu hồi phục: 20% máu tối đa x Cấp"
+    - "&eThời gian hồi: 20 giây"
+  applies-description:
+    - Cuốc
+  applies:
+    - ALL_HOE
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      attack:
+        type: KILL_PLAYER
+        chance: 100
+        cooldown: 20000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        effects:
+          - HEALTH:ADD:%player_max_value%*0.2
+          - "MESSAGE:&6&l***BloodLust: Heal &a&l20% &f&lHP&6&l***"
+    "2":
+      attack:
+        type: KILL_PLAYER
+        chance: 100
+        cooldown: 20000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        effects:
+          - HEALTH:ADD:%player_max_value%*0.4
+          - "MESSAGE:&6&l***BloodLust: Heal &a&l40% &f&lHP&6&l***"
+    "3":
+      attack:
+        type: KILL_PLAYER
+        chance: 100
+        cooldown: 20000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        effects:
+          - HEALTH:ADD:%player_max_value%*0.6
+          - "MESSAGE:&6&l***BloodLust: Heal &a&l60% &f&lHP&6&l***"
+    "4":
+      attack:
+        type: KILL_PLAYER
+        chance: 100
+        cooldown: 20000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        effects:
+          - HEALTH:ADD:%player_max_value%*0.8
+          - "MESSAGE:&6&l***BloodLust: Heal &a&l80% &f&lHP&6&l***"
+    "5":
+      attack:
+        type: KILL_PLAYER
+        chance: 100
+        cooldown: 20000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        effects:
+          - HEALTH:ADD:%player_max_value%
+          - "MESSAGE:&6&l***BloodLust: Heal &a&l100% &f&lHP&6&l***"
+thunder:
+  group: supreme
+  display: Thunder
+  description:
+    - "&eCó tỉ lệ tạo sét gây sát thương chuẩn"
+    - "&evà khiến kẻ địch không thể tấn công"
+    - "&etrong một khoảng thời gian"
+  detail-description:
+    - "&eCó tỉ lệ tạo sét gây sát thương chuẩn"
+    - "&evà khiến kẻ địch không thể tấn công"
+    - "&etrong một khoảng thời gian"
+    - ""
+    - "&eSát thương chuẩn: 5 x Cấp"
+    - "&eTỉ lệ kích hoạt: 15% x Cấp"
+    - "&eThời gian hiệu lực: 2s"
+    - "&eThời gian hồi: 10 giây"
+  applies-description:
+    - Đinh ba
+  applies:
+    - TRIDENT
+  max-level: 3
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      attack:
+        type: ATTACK
+        chance: 15
+        cooldown: 10000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - ENTITY_TYPE:PLAYER
+        effects:
+          - TARGET=ENEMY | LIGHTNING:~_~_~_~
+          - TARGET=ENEMY | HEALTH:REMOVE:5
+          - TARGET=ENEMY | DEACTIVE_ABILITY:ATTACK:stormbreaker_attack:2000
+          - "MESSAGE:&6&l***StormBreaker: &c&lLock Attack &f(0:02) &7&l> &f&l%enemy_name%&6&l***"
+          - TARGET=ENEMY | MESSAGE:&6&l***&c&lLock Attack &f(0:02) &7&lby &f&l%enemy_name%&6&l***
+    "2":
+      attack:
+        type: ATTACK
+        chance: 30
+        cooldown: 10000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - ENTITY_TYPE:PLAYER
+        effects:
+          - TARGET=ENEMY | LIGHTNING:~_~_~_~
+          - TARGET=ENEMY | HEALTH:REMOVE:10
+          - TARGET=ENEMY | DEACTIVE_ABILITY:ATTACK:stormbreaker_attack:2000
+          - "MESSAGE:&6&l***StormBreaker: &c&lLock Attack &f(0:02) &7&l> &f&l%enemy_name%&6&l***"
+          - TARGET=ENEMY | MESSAGE:&6&l***&c&lLock Attack &f(0:02) &7&lby &f&l%enemy_name%&6&l***
+    "3":
+      attack:
+        type: ATTACK
+        chance: 45
+        cooldown: 10000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - ENTITY_TYPE:PLAYER
+        effects:
+          - TARGET=ENEMY | LIGHTNING:~_~_~_~
+          - TARGET=ENEMY | HEALTH:REMOVE:15
+          - TARGET=ENEMY | DEACTIVE_ABILITY:ATTACK:stormbreaker_attack:2000
+          - "MESSAGE:&6&l***StormBreaker: &c&lLock Attack &f(0:02) &7&l> &f&l%enemy_name%&6&l***"
+          - TARGET=ENEMY | MESSAGE:&6&l***&c&lLock Attack &f(0:02) &7&lby &f&l%enemy_name%&6&l***
+# hydroforge:
+#   group: epic
+#   display: HydroForge
+#   description:
+#     - "&eCó tỉ lệ tạo tim vàng khi tấn công"
+#   detail-description:
+#     - "&eCó tỉ lệ tạo tim vàng khi tấn công"
+#     - ""
+#     - "&eTim vàng: 4 x Cấp"
+#     - "&eTỉ lệ kích hoạt: 10% x Cấp"
+#     - "&eThời gian hồi: 5 giây"
+#   applies-description:
+#     - Đinh ba
+#   applies:
+#     - TRIDENT
+#   max-level: 5
+#   enchant-point: 1
+#   valuable: 0
+#   levels:
+#     "1":
+#       attack:
+#         type: ATTACK
+#         chance: 10
+#         cooldown: 4000
+#         conditions:
+#           - EQUIP_SLOT:MAINHAND
+#         effects:
+#           - ABSORPTION_HEART:ADD:4:20
+#           - "MESSAGE:&b&l***HydroForge: &e&l+4 &e&lHP &b&l***"
+#     "2":
+#       attack:
+#         type: ATTACK
+#         chance: 20
+#         cooldown: 4000
+#         conditions:
+#           - EQUIP_SLOT:MAINHAND
+#         effects:
+#           - ABSORPTION_HEART:ADD:8:20
+#           - "MESSAGE:&b&l***HydroForge: &e&l+8 &e&lHP &b&l***"
+#     "3":
+#       attack:
+#         type: ATTACK
+#         chance: 30
+#         cooldown: 4000
+#         conditions:
+#           - EQUIP_SLOT:MAINHAND
+#         effects:
+#           - ABSORPTION_HEART:ADD:12:20
+#           - "MESSAGE:&b&l***HydroForge: &e&l+12 &e&lHP &b&l***"
+#     "4":
+#       attack:
+#         type: ATTACK
+#         chance: 40
+#         cooldown: 4000
+#         conditions:
+#           - EQUIP_SLOT:MAINHAND
+#         effects:
+#           - ABSORPTION_HEART:ADD:16:20
+#           - "MESSAGE:&b&l***HydroForge: &e&l+16 &e&lHP &b&l***"
+#     "5":
+#       attack:
+#         type: ATTACK
+#         chance: 50
+#         cooldown: 4000
+#         conditions:
+#           - EQUIP_SLOT:MAINHAND
+#         effects:
+#           - ABSORPTION_HEART:ADD:20:20
+#           - "MESSAGE:&b&l***HydroForge: &e&l+20 &e&lHP &b&l***"
+soulfire:
+  group: legendary
+  display: SoulFire
+  description:
+    - "&eCó tỉ lệ thiêu đốt phần trăm máu của kẻ địch"
+    - "&emỗi giây trong một khoảng thời gian khi tấn công"
+  detail-description:
+    - "&eCó tỉ lệ thiêu đốt phần trăm máu của kẻ địch"
+    - "&emỗi giây trong một khoảng thời gian khi tấn công"
+    - ""
+    - "&eLượng máu đốt mỗi giây: 1% máu tối đa x Cấp"
+    - "&eTỉ lệ kích hoạt: 75%"
+    - "&eThời gian hiệu lực: 5 giây"
+    - "&eThời gian hồi: 2 giây"
+  applies-description:
+    - Cuốc
+  applies:
+    - ALL_HOE
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      attack:
+        type: ATTACK
+        chance: 75
+        cooldown: 2000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+          - TARGET=ENEMY,DELAY=20 | HEALTH:REMOVE:%player_max_value%*1/100
+          - TARGET=ENEMY,DELAY=40 | HEALTH:REMOVE:%player_max_value%*1/100
+          - TARGET=ENEMY,DELAY=60 | HEALTH:REMOVE:%player_max_value%*1/100
+          - TARGET=ENEMY,DELAY=80 | HEALTH:REMOVE:%player_max_value%*1/100
+          - TARGET=ENEMY,DELAY=100 | HEALTH:REMOVE:%player_max_value%*1/100
+          - "MESSAGE:&6&l***SoulFire: Active > &f&l%enemy_name%&6&l***"
+    "2":
+      attack:
+        type: ATTACK
+        chance: 75
+        cooldown: 2000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+          - TARGET=ENEMY,DELAY=20 | HEALTH:REMOVE:%player_max_value%*2/100
+          - TARGET=ENEMY,DELAY=40 | HEALTH:REMOVE:%player_max_value%*2/100
+          - TARGET=ENEMY,DELAY=60 | HEALTH:REMOVE:%player_max_value%*2/100
+          - TARGET=ENEMY,DELAY=80 | HEALTH:REMOVE:%player_max_value%*2/100
+          - TARGET=ENEMY,DELAY=100 | HEALTH:REMOVE:%player_max_value%*2/100
+          - "MESSAGE:&6&l***SoulFire: Active > &f&l%enemy_name%&6&l***"
+    "3":
+      attack:
+        type: ATTACK
+        chance: 75
+        cooldown: 2000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+          - TARGET=ENEMY,DELAY=20 | HEALTH:REMOVE:%player_max_value%*3/100
+          - TARGET=ENEMY,DELAY=40 | HEALTH:REMOVE:%player_max_value%*3/100
+          - TARGET=ENEMY,DELAY=60 | HEALTH:REMOVE:%player_max_value%*3/100
+          - TARGET=ENEMY,DELAY=80 | HEALTH:REMOVE:%player_max_value%*3/100
+          - TARGET=ENEMY,DELAY=100 | HEALTH:REMOVE:%player_max_value%*3/100
+          - "MESSAGE:&6&l***SoulFire: Active > &f&l%enemy_name%&6&l***"
+    "4":
+      attack:
+        type: ATTACK
+        chance: 75
+        cooldown: 2000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+          - TARGET=ENEMY,DELAY=20 | HEALTH:REMOVE:%player_max_value%*4.0/100
+          - TARGET=ENEMY,DELAY=40 | HEALTH:REMOVE:%player_max_value%*4.0/100
+          - TARGET=ENEMY,DELAY=60 | HEALTH:REMOVE:%player_max_value%*4.0/100
+          - TARGET=ENEMY,DELAY=80 | HEALTH:REMOVE:%player_max_value%*4.0/100
+          - TARGET=ENEMY,DELAY=100 | HEALTH:REMOVE:%player_max_value%*4.0/100
+          - "MESSAGE:&6&l***SoulFire: Active > &f&l%enemy_name%&6&l***"
+    "5":
+      attack:
+        type: ATTACK
+        chance: 75
+        cooldown: 2000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+          - TARGET=ENEMY,DELAY=20 | HEALTH:REMOVE:%player_max_value%*5/100
+          - TARGET=ENEMY,DELAY=40 | HEALTH:REMOVE:%player_max_value%*5/100
+          - TARGET=ENEMY,DELAY=60 | HEALTH:REMOVE:%player_max_value%*5/100
+          - TARGET=ENEMY,DELAY=80 | HEALTH:REMOVE:%player_max_value%*5/100
+          - TARGET=ENEMY,DELAY=100 | HEALTH:REMOVE:%player_max_value%*5/100
+          - "MESSAGE:&6&l***SoulFire: Active > &f&l%enemy_name%&6&l***"
+wraith:
+  group: ultimate
+  display: Wraith
+  description:
+    - "&eGiảm máu tối đa của kẻ địch theo đòn đánh"
+  detail-description:
+    - "&eGiảm máu tối đa của kẻ địch theo đòn đánh"
+    - ""
+    - "&eMỗi lần tấn công sẽ giảm 1% máu tối đa x Cấp"
+    - "&eThời gian mỗi tích lũy: 5s"
+    - "&eMáu giảm tối đa: 4% x Cấp"
+  applies-description:
+    - Cuốc
+  applies:
+    - ALL_HOE
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      attack-1:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - TARGET=ENEMY,NEGATIVE=true | NUMBER_STORAGE:wraith_%player_name%_times
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:SET:wraith_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:0:-0.01:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:0
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:wraith_%player_name%_times:1
+          - "MESSAGE:&c&l***Wraith: &c&l-1% &f&l%enemy_name%'s Max Health&c&l***"
+        true-condition-break: true
+      attack-reset:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - TARGET=ENEMY | NUMBER_STORAGE:wraith_%player_name%_times:<:1
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:SET:wraith_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:0:-0.01:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:0
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:wraith_%player_name%_times:1
+          - "MESSAGE:&c&l***Wraith: &c&l-1% &f&l%enemy_name%'s Max Health&c&l***"
+        true-condition-break: true
+      attack-2:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - TARGET=ENEMY | NUMBER_STORAGE:wraith_%player_name%_times:=:1
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:ADD:wraith_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:1:-0.01:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:1
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:wraith_%player_name%_times:1
+          - "MESSAGE:&c&l***Wraith: &c&l-2% &f&l%enemy_name%'s Max Health&c&l***"
+        true-condition-break: true
+      attack-3:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - TARGET=ENEMY | NUMBER_STORAGE:wraith_%player_name%_times:=:2
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:ADD:wraith_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:2:-0.01:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:wraith_%player_name%_times:1
+          - "MESSAGE:&c&l***Wraith: &c&l-3% &f&l%enemy_name%'s Max Health&c&l***"
+        true-condition-break: true
+      attack-4:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - TARGET=ENEMY | NUMBER_STORAGE:wraith_%player_name%_times:=:3
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:ADD:wraith_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:3:-0.01:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:3
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:wraith_%player_name%_times:1
+          - "MESSAGE:&c&l***Wraith: &c&l-4% &f&l%enemy_name%'s Max Health&c&l***"
+        true-condition-break: true
+    "2":
+      attack-1:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - TARGET=ENEMY,NEGATIVE=true | NUMBER_STORAGE:wraith_%player_name%_times
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:SET:wraith_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:0:-0.02:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:0
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:wraith_%player_name%_times:1
+          - "MESSAGE:&c&l***Wraith: &c&l-2% &f&l%enemy_name%'s Max Health&c&l***"
+        true-condition-break: true
+      attack-reset:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - TARGET=ENEMY | NUMBER_STORAGE:wraith_%player_name%_times:<:1
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:SET:wraith_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:0:-0.02:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:0
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:wraith_%player_name%_times:1
+          - "MESSAGE:&c&l***Wraith: &c&l-2% &f&l%enemy_name%'s Max Health&c&l***"
+        true-condition-break: true
+      attack-2:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - TARGET=ENEMY | NUMBER_STORAGE:wraith_%player_name%_times:=:1
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:ADD:wraith_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:1:-0.02:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:1
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:wraith_%player_name%_times:1
+          - "MESSAGE:&c&l***Wraith: &c&l-4% &f&l%enemy_name%'s Max Health&c&l***"
+        true-condition-break: true
+      attack-3:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - TARGET=ENEMY | NUMBER_STORAGE:wraith_%player_name%_times:=:2
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:ADD:wraith_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:2:-0.02:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:wraith_%player_name%_times:1
+          - "MESSAGE:&c&l***Wraith: &c&l-6% &f&l%enemy_name%'s Max Health&c&l***"
+        true-condition-break: true
+      attack-4:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | NUMBER_STORAGE:wraith_%player_name%_times:=:3
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:ADD:wraith_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:3:-0.02:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:3
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:wraith_%player_name%_times:1
+          - "MESSAGE:&c&l***Wraith: &c&l-8% &f&l%enemy_name%'s Max Health&c&l***"
+        true-condition-break: true
+    "3":
+      attack-1:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - TARGET=ENEMY,NEGATIVE=true | NUMBER_STORAGE:wraith_%player_name%_times
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:SET:wraith_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:0:-0.03:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:0
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:wraith_%player_name%_times:1
+          - "MESSAGE:&c&l***Wraith: &c&l-3% &f&l%enemy_name%'s Max Health&c&l***"
+        true-condition-break: true
+      attack-reset:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - TARGET=ENEMY | NUMBER_STORAGE:wraith_%player_name%_times:<:1
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:SET:wraith_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:0:-0.03:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:0
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:wraith_%player_name%_times:1
+          - "MESSAGE:&c&l***Wraith: &c&l-3% &f&l%enemy_name%'s Max Health&c&l***"
+        true-condition-break: true
+      attack-2:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - TARGET=ENEMY | NUMBER_STORAGE:wraith_%player_name%_times:=:1
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:ADD:wraith_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:1:-0.03:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:1
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:wraith_%player_name%_times:1
+          - "MESSAGE:&c&l***Wraith: &c&l-6% &f&l%enemy_name%'s Max Health&c&l***"
+        true-condition-break: true
+      attack-3:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - TARGET=ENEMY | NUMBER_STORAGE:wraith_%player_name%_times:=:2
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:ADD:wraith_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:2:-0.03:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:wraith_%player_name%_times:1
+          - "MESSAGE:&c&l***Wraith: &c&l-9% &f&l%enemy_name%'s Max Health&c&l***"
+        true-condition-break: true
+      attack-4:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - TARGET=ENEMY | NUMBER_STORAGE:wraith_%player_name%_times:=:3
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:ADD:wraith_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:3:-0.03:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:3
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:wraith_%player_name%_times:1
+          - "MESSAGE:&c&l***Wraith: &c&l-12% &f&l%enemy_name%'s Max Health&c&l***"
+        true-condition-break: true
+    "4":
+      attack-1:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - TARGET=ENEMY,NEGATIVE=true | NUMBER_STORAGE:wraith_%player_name%_times
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:SET:wraith_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:0:-0.04:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:0
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:wraith_%player_name%_times:1
+          - "MESSAGE:&c&l***Wraith: &c&l-4% &f&l%enemy_name%'s Max Health&c&l***"
+        true-condition-break: true
+      attack-reset:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - TARGET=ENEMY | NUMBER_STORAGE:wraith_%player_name%_times:<:1
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:SET:wraith_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:0:-0.04:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:0
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:wraith_%player_name%_times:1
+          - "MESSAGE:&c&l***Wraith: &c&l-4% &f&l%enemy_name%'s Max Health&c&l***"
+        true-condition-break: true
+      attack-2:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - TARGET=ENEMY | NUMBER_STORAGE:wraith_%player_name%_times:=:1
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:ADD:wraith_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:1:-0.04:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:1
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:wraith_%player_name%_times:1
+          - "MESSAGE:&c&l***Wraith: &c&l-8% &f&l%enemy_name%'s Max Health&c&l***"
+        true-condition-break: true
+      attack-3:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - TARGET=ENEMY | NUMBER_STORAGE:wraith_%player_name%_times:=:2
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:ADD:wraith_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:2:-0.04:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:wraith_%player_name%_times:1
+          - "MESSAGE:&c&l***Wraith: &c&l-12% &f&l%enemy_name%'s Max Health&c&l***"
+        true-condition-break: true
+      attack-4:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - TARGET=ENEMY | NUMBER_STORAGE:wraith_%player_name%_times:=:3
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:ADD:wraith_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:3:-0.04:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:3
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:wraith_%player_name%_times:1
+          - "MESSAGE:&c&l***Wraith: &c&l-16% &f&l%enemy_name%'s Max Health&c&l***"
+        true-condition-break: true
+    "5":
+      attack-1:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - TARGET=ENEMY,NEGATIVE=true | NUMBER_STORAGE:wraith_%player_name%_times
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:SET:wraith_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:0:-0.05:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:0
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:wraith_%player_name%_times:1
+          - "MESSAGE:&c&l***Wraith: &c&l-5% &f&l%enemy_name%'s Max Health&c&l***"
+        true-condition-break: true
+      attack-reset:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - TARGET=ENEMY | NUMBER_STORAGE:wraith_%player_name%_times:<:1
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:SET:wraith_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:0:-0.05:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:0
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:wraith_%player_name%_times:1
+          - "MESSAGE:&c&l***Wraith: &c&l-5% &f&l%enemy_name%'s Max Health&c&l***"
+        true-condition-break: true
+      attack-2:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - TARGET=ENEMY | NUMBER_STORAGE:wraith_%player_name%_times:=:1
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:ADD:wraith_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:1:-0.05:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:1
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:wraith_%player_name%_times:1
+          - "MESSAGE:&c&l***Wraith: &c&l-10% &f&l%enemy_name%'s Max Health&c&l***"
+        true-condition-break: true
+      attack-3:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - TARGET=ENEMY | NUMBER_STORAGE:wraith_%player_name%_times:=:2
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:ADD:wraith_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:2:-0.05:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:wraith_%player_name%_times:1
+          - "MESSAGE:&c&l***Wraith: &c&l-15% &f&l%enemy_name%'s Max Health&c&l***"
+        true-condition-break: true
+      attack-4:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - TARGET=ENEMY | NUMBER_STORAGE:wraith_%player_name%_times:=:3
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:ADD:wraith_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:3:-0.05:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:3
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:wraith_%player_name%_times:1
+          - "MESSAGE:&c&l***Wraith: &c&l-20% &f&l%enemy_name%'s Max Health&c&l***"
+        true-condition-break: true

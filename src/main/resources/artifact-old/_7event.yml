@@ -1,0 +1,37 @@
+# &#ec4899Cổ Vật Sự Kiện
+lunarsnake:
+  group: event
+  max-level: 5
+  item:
+    type: PLAYER_HEAD
+    display: "<GRADIENT:f44336>&lĐầu Ất Tỵ</GRADIENT:ff9100>"
+    glowing: true
+    lore:
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm sức tấn công, tỉ lệ chí mạng, sát thương"
+      - "&7chí mạng và tốc độ di chuyển"
+      - ""
+      - "&eKhi tấn công:"
+      - "&7» &7Có tỉ lệ trói chân đối thủ trong một khoảng thời gian"
+    skull-owner: "textures:eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzkzMjQ2MzY4NDZkYTlkOTMyODI2MGYyNTk1ZjU4OTIyODc3NWNhYTI0NTk2MDJhNTE2YjdhY2ZkMjkyMmVjIn19fQ=="
+  enchant: "lunarsnake"
+blessedwishwreath:
+  group: event
+  max-level: 5
+  item:
+    type: PINK_PETALS
+    display: "<GRADIENT:57ff00>&lVòng Hoa</GRADIENT:cbff79> <GRADIENT:ff8bb2>&lNguyện Ước</GRADIENT:ff3279>"
+    glowing: true
+    lore:
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm máu tối đa và lượng máu hồi phục"
+      - "&7mỗi giây"
+      - ""
+      - "&eKhi dưới 50% máu:"
+      - "&7» &7Tăng mạnh máu hồi phục mỗi giây trong một"
+      - "&7khoảng thời gian"
+      - ""
+      - "&eKhi dưới 25% máu:"
+      - "&7» &7Tăng cực mạnh máu hồi phục mỗi giây trong"
+      - "&7một khoảng thời gian"
+  enchant: "blessedwishwreath"

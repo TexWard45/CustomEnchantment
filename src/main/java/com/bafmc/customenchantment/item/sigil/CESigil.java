@@ -2,20 +2,22 @@ package com.bafmc.customenchantment.item.sigil;
 
 import com.bafmc.bukkit.bafframework.nms.NMSNBTTagCompound;
 import com.bafmc.bukkit.feature.placeholder.Placeholder;
+import com.bafmc.bukkit.utils.ColorUtils;
 import com.bafmc.bukkit.utils.ItemStackUtils;
 import com.bafmc.bukkit.utils.SparseMap;
 import com.bafmc.customenchantment.CustomEnchantment;
+import com.bafmc.customenchantment.api.MaterialData;
 import com.bafmc.customenchantment.enchant.CEEnchantSimple;
 import com.bafmc.customenchantment.item.CEItemType;
 import com.bafmc.customenchantment.item.CENBT;
 import com.bafmc.customenchantment.item.CEWeaponAbstract;
-import com.bafmc.customenchantment.item.artifact.CEArtifactData;
-import com.bafmc.customenchantment.item.artifact.CEArtifactGroup;
 import com.bafmc.customenchantment.nms.CECraftItemStackNMS;
+import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -101,6 +103,32 @@ public class CESigil extends CEWeaponAbstract<CESigilData> {
             map.put("{level_color_bold}", levelColors.containsKey(data.getLevel()) ? group.getLevelColors().get(data.getLevel()) + "&l" : "");
         }
         return map;
+    }
+
+    public String getSpecialDisplay(ItemStack itemStack) {
+        MaterialData type = new MaterialData(itemStack);
+
+        List<CESigilData.SpecialDisplayData> specialDisplayDataList = getData().getConfigData().getSpecialDisplayDataList();
+        CESigilData.SpecialDisplayData specialDisplayData = null;
+
+        for (CESigilData.SpecialDisplayData data : specialDisplayDataList) {
+            if (data.getMaterialList().contains(type)) {
+                specialDisplayData = data;
+                break;
+            }
+        }
+
+        if (specialDisplayData == null) {
+            return null;
+        }
+
+        String display = specialDisplayData.getDisplay();
+        if (display == null || display.isEmpty()) {
+            return null;
+        }
+
+        Placeholder placeholder = Placeholder.of(getPlaceholder(getData()));
+        return ColorUtils.t(placeholder.apply(display));
     }
 
     public String getWeaponSettingsName() {

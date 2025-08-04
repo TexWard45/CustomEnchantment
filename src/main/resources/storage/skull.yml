@@ -1,0 +1,400 @@
+skull-zombie:
+  type: PLAYER_HEAD
+  display: "&#2e7d32&lĐầu Zombie"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Có thể rơi ra khi giết quái"
+  skull-owner: "%baf_skull_owner_ZOMBIE%"
+skull-pig:
+  type: PLAYER_HEAD
+  display: "&#e040fb&lĐầu Pig"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Có thể rơi ra khi giết quái"
+  skull-owner: "%baf_skull_owner_PIG%"
+skull-sheep:
+  type: PLAYER_HEAD
+  display: "&#78909c&lĐầu Sheep"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Có thể rơi ra khi giết quái"
+  skull-owner: "%baf_skull_owner_SHEEP%"
+skull-cow:
+  type: PLAYER_HEAD
+  display: "&#8d6e63&lĐầu Cow"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Có thể rơi ra khi giết quái"
+  skull-owner: "%baf_skull_owner_COW%"
+skull-spider:
+  type: PLAYER_HEAD
+  display: "&#9c27b0&lĐầu Spider"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Có thể rơi ra khi giết quái"
+  skull-owner: "%baf_skull_owner_SPIDER%"
+skull-cave-spider:
+  type: PLAYER_HEAD
+  display: "&#304ffe&lĐầu Cave Spider"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Có thể rơi ra khi giết quái"
+  skull-owner: "%baf_skull_owner_CAVE_SPIDER%"
+skull-squid:
+  type: PLAYER_HEAD
+  display: "&#00b0ff&lĐầu Squid"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Có thể rơi ra khi giết quái"
+  skull-owner: "%baf_skull_owner_SQUID%"
+skull-mooshroom:
+  type: PLAYER_HEAD
+  display: "&#ff5252&lĐầu Mooshroom"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Có thể rơi ra khi giết quái"
+  skull-owner: "%baf_skull_owner_MOOSHROOM%"
+skull-bat:
+  type: PLAYER_HEAD
+  display: "&#455a64&lĐầu Bat"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Có thể rơi ra khi giết quái"
+  skull-owner: "%baf_skull_owner_BAT%"
+skull-creeper:
+  type: PLAYER_HEAD
+  display: "&#55ff55&lĐầu Creeper"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Có thể rơi ra khi giết quái"
+  skull-owner: "%baf_skull_owner_CREEPER%"
+skull-chicken:
+  type: PLAYER_HEAD
+  display: "&#ffd600&lĐầu Chicken"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Có thể rơi ra khi giết quái"
+  skull-owner: "%baf_skull_owner_CHICKEN%"
+skull-llama:
+  type: PLAYER_HEAD
+  display: "&#ffd740&lĐầu Llama"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Có thể rơi ra khi giết quái"
+  skull-owner: "%baf_skull_owner_LLAMA%"
+skull-camel:
+  type: PLAYER_HEAD
+  display: "&#ffab40&lĐầu Camel"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Có thể rơi ra khi giết quái"
+  skull-owner: "%baf_skull_owner_CAMEL%"
+skull-skeleton:
+  type: PLAYER_HEAD
+  display: "&#b0bec5&lĐầu Skeleton"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Có thể rơi ra khi giết quái"
+  skull-owner: "%baf_skull_owner_SKELETON%"
+skull-rabbit:
+  type: PLAYER_HEAD
+  display: "&#ff4081&lĐầu Rabbit"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Có thể rơi ra khi giết quái"
+  skull-owner: "%baf_skull_owner_RABBIT%"
+skull-wolf:
+  type: PLAYER_HEAD
+  display: "&#94a3b8&lĐầu Wolf"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Có thể rơi ra khi giết quái"
+  skull-owner: "%baf_skull_owner_WOLF%"
+skull-stray:
+  type: PLAYER_HEAD
+  display: "&#90a4ae&lĐầu Stray"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Có thể rơi ra khi giết quái"
+  skull-owner: "%baf_skull_owner_STRAY%"
+skull-armadillo:
+  type: PLAYER_HEAD
+  display: "&#795548&lĐầu Armadillo"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Có thể rơi ra khi giết quái"
+  skull-owner: "%baf_skull_owner_ARMADILLO%"
+skull-ocelot:
+  type: PLAYER_HEAD
+  display: "&#ffca28&lĐầu Ocelot"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Có thể rơi ra khi giết quái"
+  skull-owner: "%baf_skull_owner_OCELOT%"
+skull-blaze:
+  type: PLAYER_HEAD
+  display: "&#f97316&lĐầu Blaze"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Có thể rơi ra khi giết quái"
+  skull-owner: "%baf_skull_owner_BLAZE%"
+skull-frog:
+  type: PLAYER_HEAD
+  display: "&#c0ca33&lĐầu Frog"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Có thể rơi ra khi giết quái"
+  skull-owner: "%baf_skull_owner_FROG%"
+skull-dolphin:
+  type: PLAYER_HEAD
+  display: "&#00e5ff&lĐầu Dolphin"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Có thể rơi ra khi giết quái"
+  skull-owner: "%baf_skull_owner_DOLPHIN%"
+skull-bee:
+  type: PLAYER_HEAD
+  display: "&#ffea00&lĐầu Bee"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Có thể rơi ra khi giết quái"
+  skull-owner: "%baf_skull_owner_BEE%"
+skull-goat:
+  type: PLAYER_HEAD
+  display: "&#e0e0e0&lĐầu Goat"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Có thể rơi ra khi giết quái"
+  skull-owner: "%baf_skull_owner_GOAT%"
+skull-horse:
+  type: PLAYER_HEAD
+  display: "&#ffff00&lĐầu Horse"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Có thể rơi ra khi giết quái"
+  skull-owner: "%baf_skull_owner_HORSE%"
+skull-parrot:
+  type: PLAYER_HEAD
+  display: "&#e80000&lĐầu Parrot"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Có thể rơi ra khi giết quái"
+  skull-owner: "%baf_skull_owner_PARROT%"
+skull-bogged:
+  type: PLAYER_HEAD
+  display: "&#827717&lĐầu Bogged"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Có thể rơi ra khi giết quái"
+  skull-owner: "%baf_skull_owner_BOGGED%"
+skull-endermite:
+  type: PLAYER_HEAD
+  display: "&#6a1b9a&lĐầu Endermite"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Có thể rơi ra khi giết quái"
+  skull-owner: "%baf_skull_owner_ENDERMITE%"
+skull-allay:
+  type: PLAYER_HEAD
+  display: "&#63f8fc&lĐầu Allay"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Có thể rơi ra khi giết quái"
+  skull-owner: "%baf_skull_owner_ALLAY%"
+skull-fox:
+  type: PLAYER_HEAD
+  display: "&#e65100&lĐầu Fox"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Có thể rơi ra khi giết quái"
+  skull-owner: "%baf_skull_owner_FOX%"
+skull-panda:
+  type: PLAYER_HEAD
+  display: "&#00c853&lĐầu Panda"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Có thể rơi ra khi giết quái"
+  skull-owner: "%baf_skull_owner_PANDA%"
+skull-turtle:
+  type: PLAYER_HEAD
+  display: "&#46bd49&lĐầu Turtle"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Có thể rơi ra khi giết quái"
+  skull-owner: "%baf_skull_owner_TURTLE%"
+skull-axolotl:
+  type: PLAYER_HEAD
+  display: "&#d500f9&lĐầu Axolotl"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Có thể rơi ra khi giết quái"
+  skull-owner: "%baf_skull_owner_AXOLOTL%"
+skull-pillager:
+  type: PLAYER_HEAD
+  display: "&#3d5afe&lĐầu Pillager"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Có thể rơi ra khi giết quái"
+  skull-owner: "%baf_skull_owner_PILLAGER%"
+skull-piglin:
+  type: PLAYER_HEAD
+  display: "&#ff4081&lĐầu Piglin"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Có thể rơi ra khi giết quái"
+  skull-owner: "%baf_skull_owner_PIGLIN%"
+skull-polar-bear:
+  type: PLAYER_HEAD
+  display: "&#f5f5f5&lĐầu Polar Bear"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Có thể rơi ra khi giết quái"
+  skull-owner: "%baf_skull_owner_POLAR_BEAR%"
+skull-zoglin:
+  type: PLAYER_HEAD
+  display: "&#ab47bc&lĐầu Zoglin"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Có thể rơi ra khi giết quái"
+  skull-owner: "%baf_skull_owner_ZOGLIN%"
+skull-sniffer:
+  type: PLAYER_HEAD
+  display: "&#e53935&lĐầu Sniffer"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Có thể rơi ra khi giết quái"
+  skull-owner: "%baf_skull_owner_SNIFFER%"
+skull-strider:
+  type: PLAYER_HEAD
+  display: "&#be123c&lĐầu Strider"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Có thể rơi ra khi giết quái"
+  skull-owner: "%baf_skull_owner_STRIDER%"
+skull-vindicator:
+  type: PLAYER_HEAD
+  display: "&#546e7a&lĐầu Vindicator"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Có thể rơi ra khi giết quái"
+  skull-owner: "%baf_skull_owner_VINDICATOR%"
+skull-phantom:
+  type: PLAYER_HEAD
+  display: "&#4f60a2&lĐầu Phantom"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Có thể rơi ra khi giết quái"
+  skull-owner: "%baf_skull_owner_PHANTOM%"
+skull-witch:
+  type: PLAYER_HEAD
+  display: "&#6366f1&lĐầu Witch"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Có thể rơi ra khi giết quái"
+  skull-owner: "%baf_skull_owner_WITCH%"
+skull-enderman:
+  type: PLAYER_HEAD
+  display: "&#c026d3&lĐầu Enderman"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Có thể rơi ra khi giết quái"
+  skull-owner: "%baf_skull_owner_ENDERMAN%"
+skull-guardian:
+  type: PLAYER_HEAD
+  display: "&#06b6d4&lĐầu Guardian"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Có thể rơi ra khi giết quái"
+  skull-owner: "%baf_skull_owner_GUARDIAN%"
+skull-slime:
+  type: PLAYER_HEAD
+  display: "&#22c55e&lĐầu Slime"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Có thể rơi ra khi giết quái"
+  skull-owner: "%baf_skull_owner_SLIME%"
+skull-magma-cube:
+  type: PLAYER_HEAD
+  display: "&#dd2c00&lĐầu Magma Cube"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Có thể rơi ra khi giết quái"
+  skull-owner: "%baf_skull_owner_MAGMA_CUBE%"
+skull-ravager:
+  type: PLAYER_HEAD
+  display: "&#4b4137&lĐầu Ravager"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Có thể rơi ra khi giết quái"
+  skull-owner: "%baf_skull_owner_RAVAGER%"
+skull-ghast:
+  type: PLAYER_HEAD
+  display: "&#ededed&lĐầu Ghast"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Có thể rơi ra khi giết quái"
+  skull-owner: "%baf_skull_owner_GHAST%"
+skull-breeze:
+  type: PLAYER_HEAD
+  display: "&#a99ac9&lĐầu Breeze"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Có thể rơi ra khi giết quái"
+  skull-owner: "%baf_skull_owner_BREEZE%"
+skull-iron-golem:
+  type: PLAYER_HEAD
+  display: "&#64748b&lĐầu Iron Golem"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Có thể rơi ra khi giết quái"
+  skull-owner: "%baf_skull_owner_IRON_GOLEM%"

@@ -1,0 +1,682 @@
+weapon:
+  ==: org.bukkit.inventory.ItemStack
+  v: 3955
+  type: NETHERITE_AXE
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"text":"","extra":[{"text":"Rìu ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":true},{"text":"Đ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#EA580C","bold":true},{"text":"ấ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#ED7019","bold":true},{"text":"u","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#F08826","bold":true},{"text":"
+      ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#F3A033","bold":true},{"text":"s","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#F6B840","bold":true},{"text":"ĩ
+      ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#F9D04D","bold":true},{"text":"4
+      ★","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#38BDF8","bold":true}]}'
+    lore:
+    - '{"text":"","extra":[{"text":"Sharpness XIII","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Unbreaking III","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Fighter Set IV","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Rekt V","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#FFC107","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Divine V","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#EF4444","bold":false}]}'
+    - '""'
+    - '{"text":"","extra":[{"text":"Thuộc bộ trang bị ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false},{"text":"Đ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#EA580C","bold":false},{"text":"ấ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#ED7019","bold":false},{"text":"u","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#F08826","bold":false},{"text":"
+      ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#F3A033","bold":false},{"text":"s","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#F6B840","bold":false},{"text":"ĩ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#F9D04D","bold":false}]}'
+    - '""'
+    - '{"text":"","extra":[{"text":"▣ Giới hạn phù phép ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"light_purple","bold":false},{"text":"+2","italic":false,"color":"red"}]}'
+    - '{"text":"","extra":[{"text":"▣ Bảo vệ vật phẩm khi chết","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}'
+    - '""'
+    - '{"text":"","extra":[{"text":"Khi ở tay chính:","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"+ 17 Sức tấn công","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}'
+    - '{"text":"","extra":[{"text":"+ 1 Tốc độ tấn công","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#00FF7F","bold":false}]}'
+    enchants:
+      minecraft:sharpness: 13
+      minecraft:unbreaking: 3
+    attribute-modifiers:
+      minecraft:generic.attack_damage:
+      - ==: org.bukkit.attribute.AttributeModifier
+        amount: 17.0
+        slot: mainhand
+        operation: 0
+        key: minecraft:1452502738801960
+      minecraft:generic.attack_speed:
+      - ==: org.bukkit.attribute.AttributeModifier
+        amount: -3.0
+        slot: mainhand
+        operation: 0
+        key: minecraft:1452502738806130
+    ItemFlags:
+    - HIDE_ENCHANTS
+    - HIDE_ATTRIBUTES
+    Damage: 81
+    custom: H4sIAAAAAAAA/5VSy47TMBS9nZS2qYbXICRW0D0CJek7KwoDO2AB+8qNb1NrEidybqCzmg+YDRJsWCNk8QuwQdb8yPwJrtvOgscCK3Kcc+4959hxF8CHoxmREoua8GXBxVKgqroAcNCB5pusIGiumOQe+K9LVIxEIS0JlnzFcoRb4WAYDYNo3J9MgnA6Cjpw/UrPVTzIhcREsSXFKUpUInnMiFhyMucsZym2oDXLi1rSkxC24/+NR2H/T+P7/zSuSkR+5fuzs/Ptwu2krqjIUSbWmuybrB2dlgit98jKQvrQ3pGbJg9uLkW6IlTxIA6DIA7gUOEJxcN4PI2jCG5w8c6GsN+TKB4ETSsmbDJofDozDz92oF3aRKgkHO50HrE1DrrgpZjbOE3OiHlwB9ek2HxnPC8LIWnzgzw42jKlKggTmnNk3BIND+7+TlSkitPNJn249xe5eSYqt6UDaLIsC3ezjZAVCn3wUHLYtrdywXmGm+IGfDF6+XZVX/74nPQWdu5ZZZluluc9o9dGPzd6ZvTQ6InRgdHPLj7s4WOjxw4LjZ5efv/q8BcOmbgnMnpU79G+0wncot/boyOjn7rageWqPTp14oFDjy+++XBtgamQ+8vVqZBIyLSCNsclqzN7mL8AkggDUQkDAAA=
+lenlook:
+  ==: org.bukkit.inventory.ItemStack
+  v: 3955
+  type: TRIDENT
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"text":"","extra":[{"text":"★ Gam","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":true},{"text":"bling
+      ★","italic":false,"color":"dark_gray","bold":true}]}'
+    lore:
+    - '{"text":"","extra":[{"text":"Impaling XV","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Loyalty III","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Unbreaking III","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Poseidon Set V","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_aqua","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Unknown CE","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Unknown CE","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Unknown CE","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Unknown CE","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Unknown CE","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Unknown CE","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Unknown CE","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '""'
+    - '{"text":"","extra":[{"text":"Unknown Gem","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Unknown Gem","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Unknown Gem","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Unknown Gem","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Unknown Gem","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '""'
+    - '{"text":"","extra":[{"text":"Thuộc bộ trang bị ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false},{"text":"H","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#0891B2","bold":false},{"text":"ả","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#159DBC","bold":false},{"text":"i","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#22A9C6","bold":false},{"text":"
+      ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#2FB5D0","bold":false},{"text":"t","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#3CC1DA","bold":false},{"text":"h","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#49CDE4","bold":false},{"text":"ầ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#56D9EE","bold":false},{"text":"n","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#63E5F8","bold":false}]}'
+    - '""'
+    - '{"text":"","extra":[{"text":"▣ Giới hạn phù phép ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"light_purple","bold":false},{"text":"+5","italic":false,"color":"red"}]}'
+    - '{"text":"","extra":[{"text":"▣ Bảo vệ không bị phá hủy ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"green","bold":false},{"text":"(","italic":false,"color":"dark_green"},{"text":"10","italic":false,"color":"green"},{"text":")","italic":false,"color":"dark_green"}]}'
+    - '{"text":"","extra":[{"text":"▣ Bảo vệ vật phẩm khi chết ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false},{"text":"(","italic":false,"color":"gold"},{"text":"9","italic":false,"color":"yellow"},{"text":")","italic":false,"color":"gold"}]}'
+    - '""'
+    - '{"text":"","extra":[{"text":"Khi ở tay chính:","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"+ 16 Sức tấn công","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}'
+    - '{"text":"","extra":[{"text":"+ 1.1 Tốc độ tấn công","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#00FF7F","bold":false}]}'
+    enchants:
+      minecraft:impaling: 15
+      minecraft:loyalty: 3
+      minecraft:unbreaking: 3
+    attribute-modifiers:
+      minecraft:generic.attack_damage:
+      - ==: org.bukkit.attribute.AttributeModifier
+        amount: 16.0
+        slot: mainhand
+        operation: 0
+        key: minecraft:2040284119067663
+      minecraft:generic.attack_speed:
+      - ==: org.bukkit.attribute.AttributeModifier
+        amount: -2.9
+        slot: mainhand
+        operation: 0
+        key: minecraft:2040284119069833
+    ItemFlags:
+    - HIDE_ENCHANTS
+    - HIDE_ATTRIBUTES
+    - HIDE_UNBREAKABLE
+    Unbreakable: true
+    custom: H4sIAAAAAAAA/7WUzW7TQBDHp42b2JFo0xZUxAH6AgF/JCHJiVBacQEOcEMo2ng38ar2rrVeq+0zcOXCmYPfoVyQX4BnyJsw3nxU0CJRBFHk7P52Pv4zzmwToAn2lAvKNUts2OQULN8PfBusWCoGm+8/oMVumGdaJkyEEREafzWe64uUQf2MkVQKBxrLQxsAbGilMmOcSjHsDj3XHbqwO1Uy0xNMs0Z7M0lTzlTI1BWLLqgieczDJep40NJRLigaBYYEA9jOYpJFS4tqH+ditgrcDWA/VTxhOlIoexXaQsUIATY+zZ/cPbGhkRKtmRKwuxLb1opTLK7bhNqMJQ5s43NMFY/jccwzU9sWNBYle3+ycMCuQlw5tzAnCU/blCQEFXvuX5Kdn8kAX5JFiSYOPGDnWpFxqqRmoR5TlmklL9YSmtCgbIod1v98UYP9Re7lX2GcSi50VbYDB7+qInQtaef/Sbql/ns39q7qmgP3b6htXcIGWCSOgxrsXa8Tj53q9VTz5ECNiYpUrJ5wSmO28P9eFtN3UT7/+jk8nODzEMOIWbX8eFgW52XhlkW/LAZl4ZXF87LwXxqKm66hLww9ml9+Mdw335E5OiqLHl/RE2PXNQ7uInJgTI5MMKQjbWhn5YvoGLeRoejYM2hg6PH8sjC8Z8IcGwNM0ccbYWvCZlyYWvFGsDOmNRezDA6W7W7n4lTIM9FethQ7sjfSOIKTXLNXkvIp3g1ZE7038bZ5G0sNFtrRGjhvUqaI5lIsYluvCQ52y3c7rt/veN7A7T3t9QIb7qzjGYtHCRcsVGSqhzMmmOLh48UYjRdjVIf6KJG50M9cWOm+beJBP7ie+OFvE2cpY3Sd91sjMB+AH/3hNQ2ZBQAA
+test:
+  ==: org.bukkit.inventory.ItemStack
+  v: 3955
+  type: NETHERITE_HOE
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"text":"","extra":[{"text":"Lưỡi hái ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":true},{"text":"T","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#374151","bold":true},{"text":"ử","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#475160","bold":true},{"text":"
+      ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#57616F","bold":true},{"text":"t","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#67717E","bold":true},{"text":"h","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#77818D","bold":true},{"text":"ầ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#87919C","bold":true},{"text":"n
+      ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#97A1AB","bold":true},{"text":"4
+      ★","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#38BDF8","bold":true}]}'
+    lore:
+    - '{"text":"","extra":[{"text":"Sharpness XIII","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Unbreaking III","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Reaper Set IV","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Ravage III","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#FF7B00","bold":false}]}'
+    - '{"text":"","extra":[{"text":"BloodThief IV","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#FF7B00","bold":false}]}'
+    - '{"text":"","extra":[{"text":"DeathHunt II","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#FFC107","bold":false}]}'
+    - '""'
+    - '{"text":"","extra":[{"text":"Thuộc bộ trang bị ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false},{"text":"T","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#374151","bold":false},{"text":"ử","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#475160","bold":false},{"text":"
+      ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#57616F","bold":false},{"text":"t","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#67717E","bold":false},{"text":"h","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#77818D","bold":false},{"text":"ầ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#87919C","bold":false},{"text":"n","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#97A1AB","bold":false}]}'
+    - '""'
+    - '{"text":"","extra":[{"text":"▣ Bảo vệ không bị phá hủy ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"green","bold":false},{"text":"(","italic":false,"color":"dark_green"},{"text":"2","italic":false,"color":"green"},{"text":")","italic":false,"color":"dark_green"}]}'
+    - '""'
+    - '{"text":"","extra":[{"text":"Khi ở tay chính:","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"+ 19 Sức tấn công","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}'
+    - '{"text":"","extra":[{"text":"+ 0.8 Tốc độ tấn công","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#00FF7F","bold":false}]}'
+    - '{"text":"","extra":[{"text":"+ 1 Tầm tấn công","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"aqua","bold":false}]}'
+    - '{"text":"","extra":[{"text":"+ 20% Hút máu","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#8B0000","bold":false}]}'
+    enchants:
+      minecraft:sharpness: 13
+      minecraft:unbreaking: 3
+    attribute-modifiers:
+      minecraft:generic.attack_damage:
+      - ==: org.bukkit.attribute.AttributeModifier
+        amount: 19.0
+        slot: mainhand
+        operation: 0
+        key: minecraft:1462405585506233
+      minecraft:generic.attack_speed:
+      - ==: org.bukkit.attribute.AttributeModifier
+        amount: -3.2
+        slot: mainhand
+        operation: 0
+        key: minecraft:1462405585507843
+      minecraft:player.entity_interaction_range:
+      - ==: org.bukkit.attribute.AttributeModifier
+        amount: 1.0
+        slot: mainhand
+        operation: 0
+        key: minecraft:1462405585508643
+    ItemFlags:
+    - HIDE_ENCHANTS
+    - HIDE_ATTRIBUTES
+    Damage: 97
+    custom: H4sIAAAAAAAA/52TvXLTQBDHN7FxZDN8JAwzDAWkpSAjWx+21YD56oCCdAyjOetW1k2kk+a0hrjiAWhpwgOgigeANIxaniJvwCNwPjkfw5giqFhJv9vd/97tXg+gB1YsJBeEmQWbgkPLm/QtaKe5Qth8+047bEfzkvIMZZQwSfpNep0WBULnA7Iil13YWi1aANCG60pjVIEb9G07sOGGYu/ZDAPH/Ds27EzTPOeUCIy1kzsIPB+2OTJKkrmkYBAMvcAbt7WKyBBg4/PHX/FXC7YKRoRKwtVG4GGSo9uDNmfEunAXD0mxsFA5YUQhx5JUvghTUZqyNmGLY8zmKZ19tOBWE7OqPixyIUn7Qgt2/s7GeLNwe62MEehBa4YZWGCVSCTkrDyT6jUn2oUWSpMIutDJBOcpLovbgO91Fe8n85Pjo2h3qu2uFpGz5een3bo6rCunroZ15dZVv648bfcNdQ31DPXryj45/ma4Z7h/yl80OXxDh4Zq+5wMbdDIUG2fJYaODB0bqu3Tkx+V4WPDJ4Zr+0R3/8oUZ0ICrPa1MyFSYjonfJlzEQtUZW85F3pq3qQ5QVufNW9B97VuISORm0gLrp2FvWK66/czITFSLKZghhKViPZ091l0EHKW6WnS2Yzfzb7rD1zb80aeZ/sDx+lAZ5Lleo4eO6uSLid875/CZYHI1+oOR+657s/u0fL5ckndB+e6RcoWqPb0TRO0CPVM6rhoGRguh2L91kf+hRIe/f6vrd9pbvqpfipiDEtClq5VHDvehcN2V4rwB6C790ZVBAAA
+'1':
+  ==: org.bukkit.inventory.ItemStack
+  v: 3955
+  type: NETHERITE_AXE
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"text":"","extra":[{"text":" Bai","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":true},{"text":"ru
+      ★","italic":false,"color":"blue","bold":true}]}'
+    lore:
+    - '{"text":"","extra":[{"text":"Sharpness XIII","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Unbreaking III","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Pulverize II","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#FF7B00","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Infested V","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#FFC107","bold":false}]}'
+    - '""'
+    - '{"text":"","extra":[{"text":"Sharpness XIII","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Unbreaking III","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Fighter Set IV","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Rekt V","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#FFC107","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Divine V","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#EF4444","bold":false}]}'
+    - '""'
+    - '{"text":"","extra":[{"text":"Thuộc bộ trang bị ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false},{"text":"Đ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#EA580C","bold":false},{"text":"ấ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#ED7019","bold":false},{"text":"u","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#F08826","bold":false},{"text":"
+      ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#F3A033","bold":false},{"text":"s","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#F6B840","bold":false},{"text":"ĩ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#F9D04D","bold":false}]}'
+    - '""'
+    - '{"text":"","extra":[{"text":"▣ Giới hạn phù phép ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"light_purple","bold":false},{"text":"+2","italic":false,"color":"red"}]}'
+    - '{"text":"","extra":[{"text":"▣ Bảo vệ vật phẩm khi chết","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}'
+    - '""'
+    - '{"text":"","extra":[{"text":"Khi ở tay chính:","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"+ 17 Sức tấn công","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}'
+    - '{"text":"","extra":[{"text":"+ 1 Tốc độ tấn công","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#00FF7F","bold":false}]}'
+    - '""'
+    - '{"text":"","extra":[{"text":"▣ Giới hạn phù phép ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"light_purple","bold":false},{"text":"+1","italic":false,"color":"red"}]}'
+    - '{"text":"","extra":[{"text":"▣ Bảo vệ không bị phá hủy","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"green","bold":false}]}'
+    - '{"text":"","extra":[{"text":"▣ Bảo vệ vật phẩm khi chết ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false},{"text":"(","italic":false,"color":"gold"},{"text":"2","italic":false,"color":"yellow"},{"text":")","italic":false,"color":"gold"}]}'
+    - '""'
+    - '{"text":"","extra":[{"text":"Khi ở tay chính:","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"+ 17 Sức tấn công","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}'
+    - '{"text":"","extra":[{"text":"+ 1 Tốc độ tấn công","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#00FF7F","bold":false}]}'
+    enchants:
+      minecraft:sharpness: 13
+      minecraft:unbreaking: 3
+    attribute-modifiers:
+      minecraft:generic.attack_damage:
+      - ==: org.bukkit.attribute.AttributeModifier
+        amount: 17.0
+        slot: mainhand
+        operation: 0
+        key: minecraft:1452502738801960
+      minecraft:generic.attack_speed:
+      - ==: org.bukkit.attribute.AttributeModifier
+        amount: -3.0
+        slot: mainhand
+        operation: 0
+        key: minecraft:1452502738806130
+    ItemFlags:
+    - HIDE_ENCHANTS
+    - HIDE_ATTRIBUTES
+    Damage: 229
+    custom: H4sIAAAAAAAA/61TS2/TQBCeNiGNI4HaIt6vPXBBSMhOmrTxiT4oihAgkYIQl2hjb+JV7LVlb0rLjRMHLlRCSIgDQhWyeuiNC8kB5PaPmF/CZPNAgiAuWKv16puZ7/tm1i4AaLC4KmXIm13J7vs2b3EWRgUAmM1D9gH1GMwbS+ViWS8ul1ZWdKNa0TOgPQxYSCX3BSZCHk5OKFTFNY8LZoW0Jc02Eyzk1i0qJbU6DZt6tM2Que76ErIOFXYOcque3xXytgHDZ6pwxSj9W/jqX4WjgDF7uu73/Ei3AAtWN5K+x4SFGRLfEkvkbsAg95zRwBcazI2Cg6JZWAi67jbqvGBm0TQMs1SFeS5aLJLMNstmVTeX9CxScDQHM29fPru8lYe5AE2xUIxJC5C1qaQaXGQ7MqSNIPQls2TDRprQ3224PFJyBZizWYt2XfnfDxk4PdQeddcIfC4kas5ocO53V9SeWJqdRnVmahtDsvNTZCZsM5ClrlvMwOKfkkqsAJk28/De8xGTkot2NJHFIbp+yDTIMGGr69Qg53HbdtmA+hQsJPFy3aFhIFgUkae1Wk1Bj0UzZLSDXGQEVTZ528H7IXUmSe0JXErinSTeVGs9iY0k1rHuEetI8gSuqOAdFVyarA2+jR8ihgH2k7i15XTT/nuLNHEn2Bhq4fE1GdeuJnE5iVcU8frxmzG8gTIKQ8lq2vs89qGrXFxFNNsdoyXFo6tDiYzRShKvqVy0pUdjtKrIdYVuHB+gzetJbP94t0/u8rT/gRMn7X0SJHCOvg62gwD5rJtFuIGEg6y1tLfvk+20/wq33qHEpLR34JGOw4mFx2+DT+cs2r+HQNr/SCTdxcDRoXBMuDDgIsYyqaf9A4tI7EwQ6+iLaIOuDOpqDQeOA9jEZLKV9vcscrynJvirQoMTTdbmYvQHw0/h5LLD0QQAAA==
+mending:
+  ==: org.bukkit.inventory.ItemStack
+  v: 3955
+  type: ENCHANTED_BOOK
+  meta:
+    ==: ItemMeta
+    meta-type: ENCHANTED
+    stored-enchants:
+      minecraft:mending: 1
+err1:
+  ==: org.bukkit.inventory.ItemStack
+  v: 3955
+  type: BOOK
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"text":"","extra":[{"text":"Ninja II","obfuscated":false,"italic":false,"underlined":true,"strikethrough":false,"color":"#FF7B00","bold":true}]}'
+    lore:
+    - '""'
+    - '{"text":"","extra":[{"text":"Nhận thêm tốc độ di chuyển và sức tấn công","italic":false,"color":"yellow"}]}'
+    - '{"text":"","extra":[{"text":"khi trang bị","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"yellow","bold":false}]}'
+    - '""'
+    - '{"text":"","extra":[{"text":"36% Tỉ lệ thành công","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"green","bold":false}]}'
+    - '{"text":"","extra":[{"text":"22% Tỉ lệ phá hủy","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Phù phép của ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false},{"text":"Các
+      loại giáp","italic":false,"color":"white"}]}'
+    - '""'
+    - '{"text":"","extra":[{"text":"Sử dụng tại /ceanvil","obfuscated":false,"italic":true,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    custom: H4sIAAAAAAAA/+NiYOBiEEwuLS7Jz03NS85IzCsB0iUcDCwllQWpDCxJ+fnZHAzsUCkG3rzMvKxEKyMrYzMrIyMWoKrM3FQGBsYprRr/uoHqChJLSlKL8hgEU1LTEktzSnRhtAEDAwD8Ga8zawAAAA==
+err2:
+  ==: org.bukkit.inventory.ItemStack
+  v: 3955
+  type: BOOK
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"text":"","extra":[{"text":"Ninja II","obfuscated":false,"italic":false,"underlined":true,"strikethrough":false,"color":"#FF7B00","bold":true}]}'
+    lore:
+    - '""'
+    - '{"text":"","extra":[{"text":"Nhận thêm tốc độ di chuyển và sức tấn công","italic":false,"color":"yellow"}]}'
+    - '{"text":"","extra":[{"text":"khi trang bị","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"yellow","bold":false}]}'
+    - '""'
+    - '{"text":"","extra":[{"text":"25% Tỉ lệ thành công","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"green","bold":false}]}'
+    - '{"text":"","extra":[{"text":"54% Tỉ lệ phá hủy","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Phù phép của ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false},{"text":"Các
+      loại giáp","italic":false,"color":"white"}]}'
+    - '""'
+    - '{"text":"","extra":[{"text":"Sử dụng tại /ceanvil","obfuscated":false,"italic":true,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    custom: H4sIAAAAAAAA/+NiYOBiEEwuLS7Jz03NS85IzCsB0iUcDCwllQWpDCxJ+fnZHAzsUCkGwZLU4pLEotz8IisjKyNTK1MTFqDKzNxUBgbGKR1udrpAtQWJJSWpRXkMgimpaYmlOSW6MNqAgQEAD+Cu828AAAA=
+swordnoupgrade:
+  ==: org.bukkit.inventory.ItemStack
+  v: 3955
+  type: NETHERITE_SWORD
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    lore:
+    - '{"text":"","extra":[{"text":"Sharpness V","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Unbreaking III","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '""'
+    - '{"text":"","extra":[{"text":"Khi ở tay chính:","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"+ 11 Sức tấn công","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}'
+    - '{"text":"","extra":[{"text":"+ 1.6 Tốc độ tấn công","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#00FF7F","bold":false}]}'
+    enchants:
+      minecraft:sharpness: 5
+      minecraft:unbreaking: 3
+    attribute-modifiers:
+      minecraft:generic.attack_damage:
+      - ==: org.bukkit.attribute.AttributeModifier
+        amount: 8.0
+        slot: mainhand
+        operation: 0
+        key: minecraft:100058
+      - ==: org.bukkit.attribute.AttributeModifier
+        amount: 3.0
+        slot: mainhand
+        operation: 0
+        key: minecraft:enchantment.sharpness
+      minecraft:generic.attack_speed:
+      - ==: org.bukkit.attribute.AttributeModifier
+        amount: -2.4
+        slot: mainhand
+        operation: 0
+        key: minecraft:100059
+    ItemFlags:
+    - HIDE_ENCHANTS
+    - HIDE_ATTRIBUTES
+    custom: H4sIAAAAAAAA/6VRwUrDQBAdTYzbgAcrvapfUCoiWE8W1Jt68CgSptlJupjdDbsTtP/g0Z/wL/wqz26TWkQRCs5lmXlv5r3HpgApiEIZqZi0gE0lIboYXwmIK+sINu8fAmE3bzxbTSafoeHwcsB5XhMkT4S1NSlEJenAjCUyRrBHz+wwWy5ktVWGIVQE/Q6pnWXKOZOEsgMGPwHPzs4XGMRBTGkC2Hh9+bh8SztvPYjItMvQg0QrKStadltTKpVpGxAgPDErU3rYllRgU3Gg9CfMTk0bpmsrVaHI+XThIwS7qyxDHIzLCHq3NTlkZU13K77BYCQ5Go1GJ6cCdlZX2vmBVoZyhwWflWTIqXyIzJg/ZhI1lpRAMtG2MXx+CF/u1pYb/5Lb/1PO10RypfYeHbe1ntrg2zcP/Qxdbcj7f2QVy6zwCfYHLfxtAgAA
+helmeterror:
+  ==: org.bukkit.inventory.ItemStack
+  v: 3955
+  type: PLAYER_HEAD
+  meta:
+    ==: ItemMeta
+    meta-type: SKULL
+    display-name: '{"text":"","extra":[{"text":"Mặt nạ Axolotl I","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#D500F9","bold":true}]}'
+    lore:
+    - '{"text":"","extra":[{"text":"[","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_gray","bold":false},{"text":"Nhấp
+      giữa để tháo vật phẩm","italic":false,"color":"gray"},{"text":"]","italic":false,"color":"dark_gray"}]}'
+    - '{"text":"","extra":[{"text":"Poseidon Set V","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_aqua","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Axolotl I","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#D500F9","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Unknown CE","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Unknown CE","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Unknown CE","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Unknown CE","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Unknown CE","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Unknown CE","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Unknown CE","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Unknown CE","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Unknown CE","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Unknown CE","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '""'
+    - '{"text":"","extra":[{"text":"Thuộc bộ trang bị ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false},{"text":"H","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#0891B2","bold":false},{"text":"ả","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#159DBC","bold":false},{"text":"i","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#22A9C6","bold":false},{"text":"
+      ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#2FB5D0","bold":false},{"text":"t","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#3CC1DA","bold":false},{"text":"h","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#49CDE4","bold":false},{"text":"ầ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#56D9EE","bold":false},{"text":"n","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#63E5F8","bold":false}]}'
+    - '""'
+    - '{"text":"","extra":[{"text":"▣ Giới hạn phù phép ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"light_purple","bold":false},{"text":"+5","italic":false,"color":"red"}]}'
+    - '{"text":"","extra":[{"text":"▣ Bảo vệ vật phẩm khi chết ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false},{"text":"(","italic":false,"color":"gold"},{"text":"10","italic":false,"color":"yellow"},{"text":")","italic":false,"color":"gold"}]}'
+    - '""'
+    - '{"text":"","extra":[{"text":"Khi ở đầu:","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"+ 14 Sinh lực tối đa","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"light_purple","bold":false}]}'
+    - '{"text":"","extra":[{"text":"+ 3 Giáp","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"blue","bold":false}]}'
+    - '{"text":"","extra":[{"text":"+ 3 Độ bền của áo giáp","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"blue","bold":false}]}'
+    - '{"text":"","extra":[{"text":"+ 1 Kháng bật lùi","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false}]}'
+    attribute-modifiers:
+      minecraft:generic.armor:
+      - ==: org.bukkit.attribute.AttributeModifier
+        amount: 3.0
+        slot: head
+        operation: 0
+        key: minecraft:1514229162904931
+      minecraft:generic.armor_toughness:
+      - ==: org.bukkit.attribute.AttributeModifier
+        amount: 3.0
+        slot: head
+        operation: 0
+        key: minecraft:1514229162905801
+      minecraft:generic.knockback_resistance:
+      - ==: org.bukkit.attribute.AttributeModifier
+        amount: 1.0
+        slot: head
+        operation: 0
+        key: minecraft:1514229162906461
+      minecraft:generic.max_health:
+      - ==: org.bukkit.attribute.AttributeModifier
+        amount: 14.0
+        slot: head
+        operation: 0
+        key: minecraft:1514229162907151
+    ItemFlags:
+    - HIDE_ATTRIBUTES
+    custom: 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
+    skull-owner:
+      ==: PlayerProfile
+      name: ''
+      properties:
+      - name: textures
+        value: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNWMxMzhmNDAxYzY3ZmMyZTFlMzg3ZDljOTBhOTY5MTc3MmVlNDg2ZThkZGJmMmVkMzc1ZmM4MzQ4NzQ2ZjkzNiJ9fX0=
+tridenterror:
+  ==: org.bukkit.inventory.ItemStack
+  v: 3955
+  type: AIR
+  amount: 0
+errorhoe:
+  ==: org.bukkit.inventory.ItemStack
+  v: 3955
+  type: NETHERITE_HOE
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    lore:
+    - '{"text":"","extra":[{"text":"Sharpness V","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Unbreaking III","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '""'
+    - '{"text":"","extra":[{"text":"Khi ở tay chính:","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"+ 4 Sức tấn công","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}'
+    - '{"text":"","extra":[{"text":"+ 4 Tốc độ tấn công","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#00FF7F","bold":false}]}'
+    enchants:
+      minecraft:sharpness: 5
+      minecraft:unbreaking: 3
+    attribute-modifiers:
+      minecraft:generic.attack_damage:
+      - ==: org.bukkit.attribute.AttributeModifier
+        amount: 1.0
+        slot: mainhand
+        operation: 0
+        key: minecraft:100046
+      - ==: org.bukkit.attribute.AttributeModifier
+        amount: 3.0
+        slot: mainhand
+        operation: 0
+        key: minecraft:enchantment.sharpness
+      minecraft:generic.attack_speed:
+      - ==: org.bukkit.attribute.AttributeModifier
+        amount: 0.0
+        slot: mainhand
+        operation: 0
+        key: minecraft:100047
+    ItemFlags:
+    - HIDE_ENCHANTS
+    - HIDE_ATTRIBUTES
+    custom: H4sIAAAAAAAA/7WRTU7DMBCFBxJSNxILCt3CCVoVCVHBBsoeWLBEKHLjSWIR/8ieCHoE9pyGu3AHjoDbBAQViBXeWKM3ft+8cQqQAiukFpJQMdiUAqKLkymDuDYOYfP2LjTs5I0no1DnFdcUbgo6LSxC8oDcGh2HUioE2Hh+ei1eGPQsJ0KnYU8jVeiC+6gyOGrbU4gFJx7BLj6S41lnnFkjNUE4EQxaxTpDmFMmkItWGK4LnpxZLLUwaFSiAgbMI5HUpYeewII3NaVtnj5EqFdG0IdESSFq7KqtOZZSA3TlYEbk5LwhvDRCFhKdT5f8EPyKh6TJ4WQyOTqOoH9t0XGSZvWWwfbnw1XfgZIac8cLOi1Rh0Xk47AZnt9ngiteYvC7qQ1BHBYgEkhmyjSazt66Qb7jpn/i9n/FeYsofqYBrNGGX3567CvurEbv/ynrOfvAvwP0Kw5yjQIAAA==
+errorboots:
+  ==: org.bukkit.inventory.ItemStack
+  v: 3955
+  type: NETHERITE_BOOTS
+  meta:
+    ==: ItemMeta
+    meta-type: ARMOR
+    lore:
+    - '""'
+    - '{"text":"","extra":[{"text":"Khi ở bàn chân:","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"+ 3 Giáp","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"blue","bold":false}]}'
+    - '{"text":"","extra":[{"text":"+ 3 Độ bền của áo giáp","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"blue","bold":false}]}'
+    - '{"text":"","extra":[{"text":"+ 1 Kháng bật lùi","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false}]}'
+    enchants:
+      minecraft:protection: 4
+      minecraft:unbreaking: 3
+    attribute-modifiers:
+      minecraft:generic.armor:
+      - ==: org.bukkit.attribute.AttributeModifier
+        amount: 3.0
+        slot: feet
+        operation: 0
+        key: minecraft:100093
+      minecraft:generic.armor_toughness:
+      - ==: org.bukkit.attribute.AttributeModifier
+        amount: 3.0
+        slot: feet
+        operation: 0
+        key: minecraft:100094
+      minecraft:generic.knockback_resistance:
+      - ==: org.bukkit.attribute.AttributeModifier
+        amount: 1.0
+        slot: feet
+        operation: 0
+        key: minecraft:100095
+    ItemFlags:
+    - HIDE_ATTRIBUTES
+    - HIDE_UNBREAKABLE
+    Unbreakable: true
+    custom: H4sIAAAAAAAA/6WPsU7DQAxArSaENBIDRYiZhRG1AgZYoDADAyNC0fXOSa3mfNGdI+hf8wlc26hSQQwIL5b1bD+7ACggr4gNCdocBmQgndw/3OeQNs4jDF7fYseh7oI4i6zniiVmiVyWLUL2jqp1XEBqlKgEjvBDvCr7zrJ1xAIxEhhtSOudoJbSoDIbcPwdBPFuuWLRnNRoIYc8oAhxHWDfYKW6RorNgUNIkNeLYAiZJWMa7Ku9GdbEAH05mop4mnWCj85QRehDsfLHT14aJ5BWiJLA8LlFr4TcejKHg+3Yk7IIJ5YYtVeV3NTI6EmfK2+dj1vWPJuMx+PriwyyqXUdy13eH/A3zekvmlJcV88ZQ9gVXv5XePZTuGCnFzOlF6XHQEEUa9y1Xm2tt5+9Fb4A3DgHl1ICAAA=
+errorpickaxe:
+  ==: org.bukkit.inventory.ItemStack
+  v: 3955
+  type: NETHERITE_PICKAXE
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    lore:
+    - '{"text":"","extra":[{"text":"Efficiency V","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Fortune III","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Unbreaking III","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '""'
+    - '{"text":"","extra":[{"text":"Khi ở tay chính:","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"+ 6 Sức tấn công","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}'
+    - '{"text":"","extra":[{"text":"+ 1.2 Tốc độ tấn công","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#00FF7F","bold":false}]}'
+    enchants:
+      minecraft:efficiency: 5
+      minecraft:fortune: 3
+      minecraft:unbreaking: 3
+    attribute-modifiers:
+      minecraft:generic.attack_damage:
+      - ==: org.bukkit.attribute.AttributeModifier
+        amount: 6.0
+        slot: mainhand
+        operation: 0
+        key: minecraft:100022
+      minecraft:generic.attack_speed:
+      - ==: org.bukkit.attribute.AttributeModifier
+        amount: -2.8
+        slot: mainhand
+        operation: 0
+        key: minecraft:100023
+    ItemFlags:
+    - HIDE_ENCHANTS
+    - HIDE_ATTRIBUTES
+    - HIDE_UNBREAKABLE
+    Unbreakable: true
+    Damage: 26
+    custom: H4sIAAAAAAAA/5WPQUrEQBBFP0mMScCFI4IrvYGMM6DgyjmAunApEmrSldiY7g6dCjq382i2SRhQcGFtiuL9qv+rAApktbZKC5sMkVZI1qvrmwxJ6zwjen4JiuNq6MUZttUrWQldApddx0jfmTpnCySKhGKc8Id4Kmdl2TltBaFiLCbSeSdcSamY1AROf4NevNt9s+AcN2yQIetZRNumx6HimoZWiilgjpjteAg5UqOVanmeDrbcaAvM42Ij4vV2EL53SteafV8EEIVPnlonSEJgFSN/7NiTaDduZjjarz2QYVwYbbnyVMttw5a9ri5JhKq3UpGhhsO1UZdeLZfL1SpFujFusHJ3Ngf5n935n3Z9x6x+uq33bp9pPRbwBUSIenfhAQAA
+errorsword:
+  ==: org.bukkit.inventory.ItemStack
+  v: 3955
+  type: NETHERITE_SWORD
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    lore:
+    - '{"text":"","extra":[{"text":"Sharpness V","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Unbreaking III","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '""'
+    - '{"text":"","extra":[{"text":"Khi ở tay chính:","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"+ 11 Sức tấn công","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}'
+    - '{"text":"","extra":[{"text":"+ 1.6 Tốc độ tấn công","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#00FF7F","bold":false}]}'
+    enchants:
+      minecraft:sharpness: 5
+      minecraft:unbreaking: 3
+    attribute-modifiers:
+      minecraft:generic.attack_damage:
+      - ==: org.bukkit.attribute.AttributeModifier
+        amount: 8.0
+        slot: mainhand
+        operation: 0
+        key: minecraft:100058
+      minecraft:generic.attack_speed:
+      - ==: org.bukkit.attribute.AttributeModifier
+        amount: -2.4
+        slot: mainhand
+        operation: 0
+        key: minecraft:100059
+    repair-cost: 3
+    ItemFlags:
+    - HIDE_ENCHANTS
+    - HIDE_ATTRIBUTES
+    - HIDE_UNBREAKABLE
+    Unbreakable: true
+    custom: H4sIAAAAAAAA/4WQwUrEQAyGf3Zq7RY8uOJVfQJZUUE9ueJ19eBRpGQ7aR3szJRpiu7b+WiO3SIoirmE8P3JnyQHcmSVcdoI2wwTo6Fuzm4zJI0PjMnjUxTsln0n3rIrn8lJzBK5rFtG+srUepcj0SSksMdvEqgYlUXrjRPEUJhtSBu8cCmFZtIbsP8TdBL8+pNFZ1WzRYasYxHj6g7bmivqG8k3C06h2A2DMEVqjdYNj9XWimvjgLGcLUSCWfXCS69NZTh0eQSTeMkd2XjJyXw+P79QmN63HEiMH3oz7Hw1DrpDaxyXgSq5qtlxMOUxiVD5UmiyVHOc99B4QRIfoFOkC+t7J9dH4yLf7S7/tTv4065rmfXvbu/qdAjgA74tPnDgAQAA
+ulteavor:
+  ==: org.bukkit.inventory.ItemStack
+  v: 3955
+  type: NETHERITE_CHESTPLATE
+  meta:
+    ==: ItemMeta
+    meta-type: ARMOR
+    display-name: '{"text":"","extra":[{"text":"Giáp ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":true},{"text":"T","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#374151","bold":true},{"text":"ử","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#475160","bold":true},{"text":"
+      ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#57616F","bold":true},{"text":"t","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#67717E","bold":true},{"text":"h","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#77818D","bold":true},{"text":"ầ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#87919C","bold":true},{"text":"n
+      ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#97A1AB","bold":true},{"text":"5
+      ★","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#FDE047","bold":true}]}'
+    lore:
+    - '{"text":"","extra":[{"text":"Protection IV","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Unbreaking III","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Reaper Set V","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Unknown CE","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Unknown CE","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Unknown CE","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Unknown CE","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Unknown CE","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Unknown CE","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Unknown CE","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Unknown CE","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Unknown CE","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Unknown CE","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '""'
+    - '{"text":"","extra":[{"text":"Unknown Gem","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Unknown Gem","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Unknown Gem","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Unknown Gem","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Unknown Gem","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '""'
+    - '{"text":"","extra":[{"text":"Thuộc bộ trang bị ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false},{"text":"T","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#374151","bold":false},{"text":"ử","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#475160","bold":false},{"text":"
+      ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#57616F","bold":false},{"text":"t","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#67717E","bold":false},{"text":"h","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#77818D","bold":false},{"text":"ầ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#87919C","bold":false},{"text":"n","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#97A1AB","bold":false}]}'
+    - '""'
+    - '{"text":"","extra":[{"text":"▣ Giới hạn phù phép ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"light_purple","bold":false},{"text":"+5","italic":false,"color":"red"}]}'
+    - '{"text":"","extra":[{"text":"▣ Bảo vệ không bị phá hủy ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"green","bold":false},{"text":"(","italic":false,"color":"dark_green"},{"text":"4","italic":false,"color":"green"},{"text":")","italic":false,"color":"dark_green"}]}'
+    - '{"text":"","extra":[{"text":"▣ Bảo vệ vật phẩm khi chết ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false},{"text":"(","italic":false,"color":"gold"},{"text":"4","italic":false,"color":"yellow"},{"text":")","italic":false,"color":"gold"}]}'
+    - '""'
+    - '{"text":"","extra":[{"text":"Khi ở ngực:","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"+ 20 Sinh lực tối đa","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"light_purple","bold":false}]}'
+    - '{"text":"","extra":[{"text":"+ 8 Giáp","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"blue","bold":false}]}'
+    - '{"text":"","extra":[{"text":"+ 3 Độ bền của áo giáp","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"blue","bold":false}]}'
+    - '{"text":"","extra":[{"text":"+ 1 Kháng bật lùi","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false}]}'
+    enchants:
+      minecraft:protection: 4
+      minecraft:unbreaking: 3
+    attribute-modifiers:
+      minecraft:generic.armor:
+      - ==: org.bukkit.attribute.AttributeModifier
+        amount: 8.0
+        slot: chest
+        operation: 0
+        key: minecraft:17a0d56e-f303-4820-a34f-e390f8be2d10
+      minecraft:generic.armor_toughness:
+      - ==: org.bukkit.attribute.AttributeModifier
+        amount: 3.0
+        slot: chest
+        operation: 0
+        key: minecraft:d19571bd-d2ca-426b-b8ee-870ce83f379b
+      minecraft:generic.knockback_resistance:
+      - ==: org.bukkit.attribute.AttributeModifier
+        amount: 1.0
+        slot: chest
+        operation: 0
+        key: minecraft:c3b60d8a-b26a-463c-ac2b-6977833d1fd6
+      minecraft:generic.max_health:
+      - ==: org.bukkit.attribute.AttributeModifier
+        amount: 20.0
+        slot: chest
+        operation: 0
+        key: minecraft:0e4b379b-a3c9-405f-a37c-f9b4c0041a52
+    ItemFlags:
+    - HIDE_ENCHANTS
+    - HIDE_ATTRIBUTES
+    - HIDE_UNBREAKABLE
+    Unbreakable: true
+    custom: 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
+    trim:
+      material: minecraft:amethyst
+      pattern: minecraft:tide
+testulteavor:
+  ==: org.bukkit.inventory.ItemStack
+  v: 3955
+  type: NETHERITE_SWORD
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"text":"","extra":[{"text":"Kiếm ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":true},{"text":"S","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#7E22CE","bold":true},{"text":"á","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#8932D5","bold":true},{"text":"t","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#9442DC","bold":true},{"text":"
+      ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#9F52E3","bold":true},{"text":"t","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#AA62EA","bold":true},{"text":"h","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#B572F1","bold":true},{"text":"ủ
+      ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#C082F8","bold":true},{"text":"1
+      ★","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#9CA3AF","bold":true}]}'
+    lore:
+    - '{"text":"","extra":[{"text":"Looting III","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Sharpness V","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Unbreaking III","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"Assassin Set I","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_purple","bold":false}]}'
+    - '{"text":"","extra":[{"text":"|","obfuscated":true,"italic":false,"underlined":false,"strikethrough":false,"color":"#94A3B8","bold":true},{"text":"
+      ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"bold":false},{"text":"P","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#94A3B8","bold":true},{"text":"r","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#9FACC0","bold":true},{"text":"i","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#AAB5C8","bold":true},{"text":"m","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#B5BED0","bold":true},{"text":"e","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#C0C7D8","bold":true},{"text":"I","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#CBD0E0","bold":true},{"text":"n","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#D6D9E8","bold":true},{"text":"q","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#E1E2F0","bold":true},{"text":"u","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#E2E8F0","bold":true},{"text":"i","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DAE1EA","bold":true},{"text":"s","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#D2DAE4","bold":true},{"text":"i","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#CAD3DE","bold":true},{"text":"t","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#C2CCD8","bold":true},{"text":"i","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#BAC5D2","bold":true},{"text":"v","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#B2BECC","bold":true},{"text":"e","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#AAB7C6","bold":true},{"text":"
+      ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#A2B0C0","bold":true},{"text":"X","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#9AA9BA","bold":true},{"text":"
+      ","italic":false,"bold":false},{"text":"|","obfuscated":true,"italic":false,"underlined":false,"strikethrough":false,"color":"#94A3B8","bold":true}]}'
+    - '""'
+    - '{"text":"","extra":[{"text":"Thuộc bộ trang bị ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false},{"text":"S","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#7E22CE","bold":false},{"text":"á","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#8932D5","bold":false},{"text":"t","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#9442DC","bold":false},{"text":"
+      ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#9F52E3","bold":false},{"text":"t","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#AA62EA","bold":false},{"text":"h","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#B572F1","bold":false},{"text":"ủ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#C082F8","bold":false}]}'
+    - '""'
+    - '{"text":"","extra":[{"text":"▣ Bảo vệ vật phẩm khi chết ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false},{"text":"(","italic":false,"color":"gold"},{"text":"7","italic":false,"color":"yellow"},{"text":")","italic":false,"color":"gold"}]}'
+    - '""'
+    - '{"text":"","extra":[{"text":"Khi ở tay chính:","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}'
+    - '{"text":"","extra":[{"text":"+ 12 Sức tấn công","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}'
+    - '{"text":"","extra":[{"text":"+ 1.6 Tốc độ tấn công","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#00FF7F","bold":false}]}'
+    - '{"text":"","extra":[{"text":"+ 5% Tốc độ tấn công","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#00FF7F","bold":false}]}'
+    - '{"text":"","extra":[{"text":"+ 5% Tỉ lệ chí mạng","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#FFD700","bold":false}]}'
+    enchants:
+      minecraft:looting: 3
+      minecraft:sharpness: 5
+      minecraft:unbreaking: 3
+    attribute-modifiers:
+      minecraft:generic.attack_damage:
+      - ==: org.bukkit.attribute.AttributeModifier
+        amount: 12.0
+        slot: mainhand
+        operation: 0
+        key: minecraft:1431864281928072
+      minecraft:generic.attack_speed:
+      - ==: org.bukkit.attribute.AttributeModifier
+        amount: -2.4
+        slot: mainhand
+        operation: 0
+        key: minecraft:generic.attack_speed
+      - ==: org.bukkit.attribute.AttributeModifier
+        amount: 0.05
+        slot: mainhand
+        operation: 1
+        key: minecraft:generic.attack_speed2
+    ItemFlags:
+    - HIDE_ENCHANTS
+    - HIDE_ATTRIBUTES
+    - HIDE_UNBREAKABLE
+    Unbreakable: true
+    Damage: 10
+    custom: H4sIAAAAAAAA/61Uy27TQBS9jUNeEqgUEAIJ6IIFGyOP38kGQgsSC2BRukIoGs9cpyPiB/aEtt/AmkWRWLCy+AOkbpD5kv4A38DETlJECRUS1pV9debMPWdmrqcH0INOKGIuJEYdaAgOmjv0O9CcJBlC49VrRbjMprlMIozZHo2l+ko1Lg9ThNY+0jSJu9CeD3YAoAHrNM9ViHhABsQwBgbcSDMRoYjfTkUupHiHCq+HmqqUGgJY+9D4tP2jA+2USolZDJcWVfR8P8l4D7QxRspOk1NJu3ATD2RGR2mWSGRyxDGXWXI4moh87qLNMaTTiVwmGlyp58zNjtJExFJxoQvXf69G+bJU+2ypf0o0uPZHrzNlDTbOKleavfoMuqBhPENmLluR4HyCM1Nr8LUswpd705PjI7YZqPemKhOPZ+n7zbI4KAuvLB6XhVnFlsp3KtQvi35ZWBW6XRbO988VrDC7ihrekgv0ieJUqKpl1YWHVbgLdFhzH1VEr0LVJLJXoUrYqERr1D85LrpwIcCxiKtFQQc6OUop4nF+unVd2BhKmYlgKvFZwkUoMMt7it1UrbczSSQ01QnyDlxc0p5T1UV3IhEjy2goB2OMMRPsvuomyt6MOI3oGDXovkgxo1IkcS3e3N19ug13PdNCDByqkyDo67bNXZ0ahOqeEbho25SZoanIlcg6sS3iu7bpk77pG57ZgtYwSqaxfHgPFov6m8vbK13mKSJfadIxXNch6OvI/VC3ue3rQRBw3bcD07CZa4UsXJg8R2Np+ZtmVc9/tby2tGy5ASWMB7ofBES3fUZ037FQdy3H8BkLCaW4sLz68CqN021+8OVo9nw8x/Ot+t4apBN6iNl9lqmbh9HJaPbzs9WtYGPI+65qBc/zDN1Gy9EpJ5buuwQ9DJGYbni2FUyDEOL80gpX560APwFaF4HEZQUAAA==

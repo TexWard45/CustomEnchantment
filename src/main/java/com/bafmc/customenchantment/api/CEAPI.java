@@ -69,6 +69,10 @@ public class CEAPI {
 		return CEItemRegister.getCEItem(itemStack);
 	}
 
+	public static CEItemSimple getCEItemSimple(ItemStack itemStack) {
+		return CEItemRegister.getCEItemSimple(itemStack);
+	}
+
 	public static String getCEItemType(ItemStack itemStack) {
 		return CEItemRegister.getCEItemType(itemStack);
 	}

@@ -1,0 +1,2847 @@
+primedoubledamage:
+  group: primelegendary
+  display: PrimeDoubleDamage
+  description:
+  - '&eCó tỉ lệ gây gấp đôi sát thương cơ bản'
+  - '&elên kẻ địch khi tấn công'
+  detail-description:
+  - '&eCó tỉ lệ gây gấp đôi sát thương cơ bản'
+  - '&elên kẻ địch khi tấn công'
+  - ''
+  - '&eSát thương: +100% ATK Cơ bản'
+  - '&eTỉ lệ kích hoạt: 25% + 10% x Cấp'
+  - '&eThời gian hồi: 0.5s'
+  - ''
+  - '&cKhông thể ép chung với DoubleDamage'
+  applies-description:
+  - Kiếm
+  applies:
+  - ALL_SWORD
+  max-level: 5
+  enchant-point: 1
+  enchant-blacklist:
+    - 'doubledamage'
+  valuable: 0
+  levels:
+    '1':
+      attack:
+        type: ATTACK
+        chance: 35
+        cooldown: 500
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        options:
+        - ATTACK:1.0:1
+        effects:
+        - 'MESSAGE:&6&l***PrimeDoubleDamage: &c&l+100% ATK&6&l***'
+    '2':
+      attack:
+        type: ATTACK
+        chance: 45
+        cooldown: 500
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        options:
+        - ATTACK:1.0:1
+        effects:
+        - 'MESSAGE:&6&l***PrimeDoubleDamage: &c&l+100% ATK&6&l***'
+    '3':
+      attack:
+        type: ATTACK
+        chance: 55
+        cooldown: 500
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        options:
+        - ATTACK:1.0:2
+        effects:
+        - 'MESSAGE:&6&l***PrimeDoubleDamage: &c&l+100% ATK&6&l***'
+    '4':
+      attack:
+        type: ATTACK
+        chance: 65
+        cooldown: 500
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        options:
+        - ATTACK:1.0:1
+        effects:
+        - 'MESSAGE:&6&l***PrimeDoubleDamage: &c&l+100% ATK&6&l***'
+    '5':
+      attack:
+        type: ATTACK
+        chance: 75
+        cooldown: 500
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        options:
+        - ATTACK:1.0:1
+        effects:
+        - 'MESSAGE:&6&l***PrimeDoubleDamage: &c&l+100% ATK&6&l***'
+primerekt:
+  group: primelegendary
+  display: PrimeRekt
+  description:
+  - '&eCó tỉ lệ gây gấp đôi sát thương cơ bản'
+  - '&elên đối thủ khi tấn công'
+  detail-description:
+  - '&eCó tỉ lệ gây gấp đôi sát thương cơ bản'
+  - '&elên đối thủ khi tấn công'
+  - ''
+  - '&eTỉ lệ kích hoạt: 40% + 10% x Cấp'
+  - '&eThời gian hồi: 1.5s'
+  - ''
+  - '&cKhông thể ép chung với Rekt'
+  applies-description:
+  - Rìu
+  applies:
+  - ALL_AXE
+  max-level: 5
+  enchant-blacklist:
+    - 'rekt'
+  enchant-point: 1
+  valuable: 0
+  levels:
+    '1':
+      attack:
+        type: ATTACK
+        chance: 50
+        cooldown: 1500
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        #- TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        options:
+        - ATTACK:1.0:1
+        effects:
+        - 'MESSAGE:&6&l***PrimeRekt: &c&l+100% ATK&6&l***'
+    '2':
+      attack:
+        type: ATTACK
+        chance: 60
+        cooldown: 1500
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        #- TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        options:
+        - ATTACK:1.0:1
+        effects:
+        - 'MESSAGE:&6&l***PrimeRekt: &c&l+100% ATK&6&l***'
+    '3':
+      attack:
+        type: ATTACK
+        chance: 70
+        cooldown: 1500
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        #- TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        options:
+        - ATTACK:1.0:1
+        effects:
+        - 'MESSAGE:&6&l***PrimeRekt: &c&l+100% ATK&6&l***'
+    '4':
+      attack:
+        type: ATTACK
+        chance: 80
+        cooldown: 1500
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        #- TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        options:
+        - ATTACK:1.0:1
+        effects:
+        - 'MESSAGE:&6&l***PrimeRekt: &c&l+100% ATK&6&l***'
+    '5':
+      attack:
+        type: ATTACK
+        chance: 90
+        cooldown: 1500
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        #- TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        options:
+        - ATTACK:1.0:1
+        effects:
+        - 'MESSAGE:&6&l***PrimeRekt: &c&l+100% ATK&6&l***'
+primeenlightened:
+  group: 'primelegendary'
+  display: 'PrimeEnlightened'
+  description:
+  - '&eCó tỉ lệ hồi máu cho bản thân khi bị'
+  - '&edính sát thương'
+  detail-description:
+  - '&eCó tỉ lệ hồi máu cho bản thân khi bị'
+  - '&edính sát thương'
+  - ''
+  - '&eLượng máu hồi: 5 + 2 x Cấp'
+  - '&eTỉ lệ kích hoạt: 50%'
+  - '&eThời gian hồi: 1s'
+  - ''
+  - '&cKhông thể ép chung với Enlightened'
+  applies-description:
+  - 'Các loại giáp'
+  applies:
+  - 'ALL_ARMOR'
+  max-level: 5
+  enchant-point: 1
+  enchant-blacklist:
+    - 'enlightened'
+  valuable: 0
+  levels:
+    1:
+      defense:
+        type: DEFENSE
+        chance: 50
+        cooldown: 1000
+        conditions:
+        - ''
+        effects:
+        - 'HEALTH:ADD:7'
+      arrow_defense:
+        type: ARROW_DEFENSE
+        chance: 50
+        cooldown: 1000
+        conditions:
+        - ''
+        effects:
+        - 'HEALTH:ADD:7'
+    2:
+      defense:
+        type: DEFENSE
+        chance: 50
+        cooldown: 1000
+        conditions:
+        - ''
+        effects:
+        - 'HEALTH:ADD:9'
+      arrow_defense:
+        type: ARROW_DEFENSE
+        chance: 50
+        cooldown: 1000
+        conditions:
+        - ''
+        effects:
+        - 'HEALTH:ADD:9'
+    3:
+      defense:
+        type: DEFENSE
+        chance: 50
+        cooldown: 1000
+        conditions:
+        - ''
+        effects:
+        - 'HEALTH:ADD:11'
+      arrow_defense:
+        type: ARROW_DEFENSE
+        chance: 50
+        cooldown: 1000
+        conditions:
+        - ''
+        effects:
+        - 'HEALTH:ADD:11'
+    4:
+      defense:
+        type: DEFENSE
+        chance: 50
+        cooldown: 1000
+        conditions:
+        - ''
+        effects:
+        - 'HEALTH:ADD:13'
+      arrow_defense:
+        type: ARROW_DEFENSE
+        chance: 50
+        cooldown: 1000
+        conditions:
+        - ''
+        effects:
+        - 'HEALTH:ADD:13'
+    5:
+      defense:
+        type: DEFENSE
+        chance: 50
+        cooldown: 1000
+        conditions:
+        - ''
+        effects:
+        - 'HEALTH:ADD:15'
+      arrow_defense:
+        type: ARROW_DEFENSE
+        chance: 50
+        cooldown: 1000
+        conditions:
+        - ''
+        effects:
+        - 'HEALTH:ADD:15'
+primesavior:
+  group: 'primelegendary'
+  display: 'PrimeSavior'
+  description:
+  - '&eCó tỉ lệ nhận giảm một nửa sát thương'
+  - '&ekhi bị tấn công'
+  detail-description:
+  - '&eCó tỉ lệ nhận giảm một nửa sát thương'
+  - '&ekhi bị tấn công'
+  - ''
+  - '&eSát thương nhận giảm: -50% ATK Tổng'
+  - '&eTỉ lệ kích hoạt: 25% + 5% x Cấp'
+  - '&eThời gian hồi: 1s'
+  - ''
+  - '&cKhông thể ép chung với Savior'
+  applies-description:
+  - 'Các loại giáp'
+  applies:
+  - 'ALL_ARMOR'
+  max-level: 5
+  enchant-blacklist:
+    - 'savior'
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      attack:
+        type: DEFENSE
+        chance: 30
+        cooldown: 1000
+        conditions:
+        - ''
+        options:
+        - 'DEFENSE:0.5:2'
+    2:
+      attack:
+        type: DEFENSE
+        chance: 35
+        cooldown: 1000
+        conditions:
+        - ''
+        options:
+        - 'DEFENSE:0.5:2'
+    3:
+      attack:
+        type: DEFENSE
+        chance: 40
+        cooldown: 1000
+        conditions:
+        - ''
+        options:
+        - 'DEFENSE:0.5:2'
+    4:
+      attack:
+        type: DEFENSE
+        chance: 45
+        cooldown: 1000
+        conditions:
+        - ''
+        options:
+        - 'DEFENSE:0.5:2'
+    5:
+      attack:
+        type: DEFENSE
+        chance: 50
+        cooldown: 1000
+        conditions:
+        - ''
+        options:
+        - 'DEFENSE:0.5:2'
+primepiercing:
+  group: 'primerare'
+  display: 'PrimePiercing'
+  description:
+  - '&eCó tỉ lệ gây thêm sát thương khi'
+  - '&ebắn trúng'
+  detail-description:
+  - '&eCó tỉ lệ gây thêm sát thương khi'
+  - '&ebắn trúng'
+  - ''
+  - '&eSát thương: +150% + 15% ATK Tổng x Cấp'
+  - '&eTỉ lệ kích hoạt: 50%'
+  - '&eThời gian hồi: 1s'
+  - ''
+  - '&cKhông thể ép chung với Piercing'
+  applies-description:
+  - 'Cung'
+  applies:
+  - 'ALL_BOW'
+  max-level: 10
+  enchant-blacklist:
+    - 'piercing'
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 50
+        cooldown: 1000
+        options:
+        - 'ATTACK:1.65:2'
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+    2:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 50
+        cooldown: 1000
+        options:
+        - 'ATTACK:1.8:2'
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+    3:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 50
+        cooldown: 1000
+        options:
+        - 'ATTACK:1.95:2'
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+    4:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 50
+        cooldown: 1000
+        options:
+        - 'ATTACK:2.1:2'
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+    5:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 50
+        cooldown: 1000
+        options:
+        - 'ATTACK:2.25:2'
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+    6:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 50
+        cooldown: 1000
+        options:
+        - 'ATTACK:2.4:2'
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+    7:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 50
+        cooldown: 1000
+        options:
+        - 'ATTACK:2.55:2'
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+    8:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 50
+        cooldown: 1000
+        options:
+        - 'ATTACK:2.7:2'
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+    9:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 50
+        cooldown: 1000
+        options:
+        - 'ATTACK:2.85:2'
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+    10:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 50
+        cooldown: 1000
+        options:
+        - 'ATTACK:3.0:2'
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+primehurstwic:
+  group: 'primeepic'
+  display: 'PrimeHurstwic'
+  description:
+  - '&eNhận giảm sát thương từ các đòn đánh với'
+  - '&elượng sát thương cao khi bị tấn công'
+  detail-description:
+  - "&eNhận giảm sát thương từ các đòn đánh với"
+  - "&elượng sát thương cao khi bị tấn công"
+  - ""
+  - "&eLượng sát thương tối thiểu kích hoạt: > 100"
+  - "&eLượng sát thương nhận giảm tối đa: 1000"
+  - "&eSát thương nhận giảm tối thiểu: -25% - 5% ATK Tổng x Cấp"
+  - "&eSát thương nhận giảm tối đa: -65% - 5% ATK Tổng x Cấp"
+  - ""
+  - "&7Vượt quá 1000 sát thương sẽ nhận giảm ở mức tối đa"
+  - ''
+  - '&cKhông thể ép chung với Hurstwic'
+  applies-description:
+  - 'Mũ'
+  applies:
+  - 'ALL_HELMET'
+  max-level: 5
+  enchant-blacklist:
+    - 'hurstwic'
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      defense1:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:HELMET
+          - NUMBER_STORAGE:%damage%:>=:1000
+        options:
+          - DEFENSE:0.70:2
+        true-condition-break: true
+      defense2:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:HELMET
+          - NUMBER_STORAGE:%damage%:>=:900
+        options:
+          - DEFENSE:0.66:2
+        true-condition-break: true
+      defense3:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:HELMET
+          - NUMBER_STORAGE:%damage%:>=:800
+        options:
+          - DEFENSE:0.62:2
+        true-condition-break: true
+      defense4:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:HELMET
+          - NUMBER_STORAGE:%damage%:>=:700
+        options:
+          - DEFENSE:0.58:2
+        true-condition-break: true
+      defense5:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:HELMET
+          - NUMBER_STORAGE:%damage%:>=:600
+        options:
+          - DEFENSE:0.54:2
+        true-condition-break: true
+      defense6:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:HELMET
+          - NUMBER_STORAGE:%damage%:>=:500
+        options:
+          - DEFENSE:0.50:2
+        true-condition-break: true
+      defense7:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:HELMET
+          - NUMBER_STORAGE:%damage%:>=:400
+        options:
+          - DEFENSE:0.46:2
+        true-condition-break: true
+      defense8:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:HELMET
+          - NUMBER_STORAGE:%damage%:>=:300
+        options:
+          - DEFENSE:0.42:2
+        true-condition-break: true
+      defense9:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:HELMET
+          - NUMBER_STORAGE:%damage%:>=:200
+        options:
+          - DEFENSE:0.38:2
+        true-condition-break: true
+      defense10:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:HELMET
+          - NUMBER_STORAGE:%damage%:>=:100
+        options:
+          - DEFENSE:0.30:2
+        true-condition-break: true
+    "2":
+      defense1:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:HELMET
+          - NUMBER_STORAGE:%damage%:>=:1000
+        options:
+          - DEFENSE:0.75:2
+        true-condition-break: true
+      defense2:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:HELMET
+          - NUMBER_STORAGE:%damage%:>=:900
+        options:
+          - DEFENSE:0.71:2
+        true-condition-break: true
+      defense3:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:HELMET
+          - NUMBER_STORAGE:%damage%:>=:800
+        options:
+          - DEFENSE:0.67:2
+        true-condition-break: true
+      defense4:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:HELMET
+          - NUMBER_STORAGE:%damage%:>=:700
+        options:
+          - DEFENSE:0.63:2
+        true-condition-break: true
+      defense5:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:HELMET
+          - NUMBER_STORAGE:%damage%:>=:600
+        options:
+          - DEFENSE:0.59:2
+        true-condition-break: true
+      defense6:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:HELMET
+          - NUMBER_STORAGE:%damage%:>=:500
+        options:
+          - DEFENSE:0.55:2
+        true-condition-break: true
+      defense7:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:HELMET
+          - NUMBER_STORAGE:%damage%:>=:400
+        options:
+          - DEFENSE:0.51:2
+        true-condition-break: true
+      defense8:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:HELMET
+          - NUMBER_STORAGE:%damage%:>=:300
+        options:
+          - DEFENSE:0.47:2
+        true-condition-break: true
+      defense9:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:HELMET
+          - NUMBER_STORAGE:%damage%:>=:200
+        options:
+          - DEFENSE:0.43:2
+        true-condition-break: true
+      defense10:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:HELMET
+          - NUMBER_STORAGE:%damage%:>=:100
+        options:
+          - DEFENSE:0.35:2
+        true-condition-break: true
+    "3":
+      defense1:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:HELMET
+          - NUMBER_STORAGE:%damage%:>=:1000
+        options:
+          - DEFENSE:0.80:2
+        true-condition-break: true
+      defense2:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:HELMET
+          - NUMBER_STORAGE:%damage%:>=:900
+        options:
+          - DEFENSE:0.76:2
+        true-condition-break: true
+      defense3:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:HELMET
+          - NUMBER_STORAGE:%damage%:>=:800
+        options:
+          - DEFENSE:0.72:2
+        true-condition-break: true
+      defense4:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:HELMET
+          - NUMBER_STORAGE:%damage%:>=:700
+        options:
+          - DEFENSE:0.68:2
+        true-condition-break: true
+      defense5:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:HELMET
+          - NUMBER_STORAGE:%damage%:>=:600
+        options:
+          - DEFENSE:0.64:2
+        true-condition-break: true
+      defense6:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:HELMET
+          - NUMBER_STORAGE:%damage%:>=:500
+        options:
+          - DEFENSE:0.60:2
+        true-condition-break: true
+      defense7:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:HELMET
+          - NUMBER_STORAGE:%damage%:>=:400
+        options:
+          - DEFENSE:0.56:2
+        true-condition-break: true
+      defense8:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:HELMET
+          - NUMBER_STORAGE:%damage%:>=:300
+        options:
+          - DEFENSE:0.52:2
+        true-condition-break: true
+      defense9:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:HELMET
+          - NUMBER_STORAGE:%damage%:>=:200
+        options:
+          - DEFENSE:0.48:2
+        true-condition-break: true
+      defense10:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:HELMET
+          - NUMBER_STORAGE:%damage%:>=:100
+        options:
+          - DEFENSE:0.40:2
+        true-condition-break: true
+    "4":
+      defense1:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:HELMET
+          - NUMBER_STORAGE:%damage%:>=:1000
+        options:
+          - DEFENSE:0.85:2
+        true-condition-break: true
+      defense2:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:HELMET
+          - NUMBER_STORAGE:%damage%:>=:900
+        options:
+          - DEFENSE:0.81:2
+        true-condition-break: true
+      defense3:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:HELMET
+          - NUMBER_STORAGE:%damage%:>=:800
+        options:
+          - DEFENSE:0.77:2
+        true-condition-break: true
+      defense4:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:HELMET
+          - NUMBER_STORAGE:%damage%:>=:700
+        options:
+          - DEFENSE:0.73:2
+        true-condition-break: true
+      defense5:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:HELMET
+          - NUMBER_STORAGE:%damage%:>=:600
+        options:
+          - DEFENSE:0.69:2
+        true-condition-break: true
+      defense6:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:HELMET
+          - NUMBER_STORAGE:%damage%:>=:500
+        options:
+          - DEFENSE:0.65:2
+        true-condition-break: true
+      defense7:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:HELMET
+          - NUMBER_STORAGE:%damage%:>=:400
+        options:
+          - DEFENSE:0.61:2
+        true-condition-break: true
+      defense8:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:HELMET
+          - NUMBER_STORAGE:%damage%:>=:300
+        options:
+          - DEFENSE:0.57:2
+        true-condition-break: true
+      defense9:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:HELMET
+          - NUMBER_STORAGE:%damage%:>=:200
+        options:
+          - DEFENSE:0.53:2
+        true-condition-break: true
+      defense10:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:HELMET
+          - NUMBER_STORAGE:%damage%:>=:100
+        options:
+          - DEFENSE:0.45:2
+        true-condition-break: true
+    "5":
+      defense1:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:HELMET
+          - NUMBER_STORAGE:%damage%:>=:1000
+        options:
+          - DEFENSE:0.90:2
+        true-condition-break: true
+      defense2:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:HELMET
+          - NUMBER_STORAGE:%damage%:>=:900
+        options:
+          - DEFENSE:0.86:2
+        true-condition-break: true
+      defense3:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:HELMET
+          - NUMBER_STORAGE:%damage%:>=:800
+        options:
+          - DEFENSE:0.82:2
+        true-condition-break: true
+      defense4:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:HELMET
+          - NUMBER_STORAGE:%damage%:>=:700
+        options:
+          - DEFENSE:0.78:2
+        true-condition-break: true
+      defense5:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:HELMET
+          - NUMBER_STORAGE:%damage%:>=:600
+        options:
+          - DEFENSE:0.74:2
+        true-condition-break: true
+      defense6:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:HELMET
+          - NUMBER_STORAGE:%damage%:>=:500
+        options:
+          - DEFENSE:0.70:2
+        true-condition-break: true
+      defense7:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:HELMET
+          - NUMBER_STORAGE:%damage%:>=:400
+        options:
+          - DEFENSE:0.66:2
+        true-condition-break: true
+      defense8:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:HELMET
+          - NUMBER_STORAGE:%damage%:>=:300
+        options:
+          - DEFENSE:0.62:2
+        true-condition-break: true
+      defense9:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:HELMET
+          - NUMBER_STORAGE:%damage%:>=:200
+        options:
+          - DEFENSE:0.58:2
+        true-condition-break: true
+      defense10:
+        type: DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:HELMET
+          - NUMBER_STORAGE:%damage%:>=:100
+        options:
+          - DEFENSE:0.50:2
+        true-condition-break: true
+primerage:
+  group: primesupreme
+  display: PrimeRage
+  description:
+  - '&eCác đòn đánh sẽ trở nên mạnh dần'
+  - '&ekhi tấn công dồn dập'
+  detail-description:
+  - '&eCác đòn đánh sẽ trở nên mạnh dần'
+  - '&ekhi tấn công dồn dập'
+  - ''
+  - "&eSát thương lần 1: +30%/45%/60%"
+  - "&eSát thương lần 2: +45%/60%/75%"
+  - "&eSát thương lần 3: +60%/75%/100%"
+  - ''
+  - '&cKhông thể ép chung với Rage'
+  applies-description:
+  - Kiếm
+  applies:
+  - ALL_SWORD
+  max-level: 3
+  enchant-blacklist:
+    - 'rage'
+  enchant-point: 1
+  valuable: 0
+  levels:
+    '1':
+      first_1:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - NUMBER_STORAGE:SET:rage_time:0
+        true-condition-break: true
+      attack_1:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - NUMBER_STORAGE:%time%-rage_time:>:2000
+        effects:
+        - NUMBER_STORAGE:SET:rage_time:%time%
+        - NUMBER_STORAGE:SET:rage_multiply:1
+        true-condition-break: true
+      attack_2:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - NUMBER_STORAGE:rage_multiply:=:1
+        - NUMBER_STORAGE:%time%-rage_time:<=:2000
+        effects:
+        - NUMBER_STORAGE:SET:rage_time:%time%
+        - NUMBER_STORAGE:SET:rage_multiply:2
+        - 'MESSAGE:&c&l***PrimeRage: Combo***'
+        - 'NAME=rage_combo_stop,DELAY=42 | MESSAGE:&7&l***PrimeRage: Off***'
+        true-condition-break: true
+      attack_3:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - NUMBER_STORAGE:rage_multiply:=:2
+        - NUMBER_STORAGE:%time%-rage_time:<=:2000
+        effects:
+        - NUMBER_STORAGE:SET:rage_time:%time%
+        - NUMBER_STORAGE:SET:rage_multiply:3
+        - 'MESSAGE:&c&l***PrimeRage: &a&l+30% ATK&c&l***'
+        - 'NAME=rage_combo_stop,DELAY=42 | MESSAGE:&7&l***PrimeRage: Off***'
+        options:
+        - ATTACK:0.30:1
+        true-condition-break: true
+      attack_4:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - NUMBER_STORAGE:rage_multiply:=:3
+        - NUMBER_STORAGE:%time%-rage_time:<=:2000
+        effects:
+        - NUMBER_STORAGE:SET:rage_time:%time%
+        - NUMBER_STORAGE:SET:rage_multiply:4
+        - 'MESSAGE:&c&l***PrimeRage: &e&l+45% ATK&c&l***'
+        - 'NAME=rage_combo_stop,DELAY=42 | MESSAGE:&7&l***PrimeRage: Off***'
+        options:
+        - ATTACK:0.45:1
+        true-condition-break: true
+      attack_5:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - NUMBER_STORAGE:rage_multiply:=:4
+        - NUMBER_STORAGE:%time%-rage_time:<=:2000
+        effects:
+        - NUMBER_STORAGE:SET:rage_time:%time%
+        - NUMBER_STORAGE:SET:rage_multiply:5
+        - 'MESSAGE:&c&l***PrimeRage: &c&l+60% ATK&c&l***'
+        - 'NAME=rage_combo_stop,DELAY=42 | MESSAGE:&7&l***PrimeRage: Off***'
+        options:
+        - ATTACK:0.60:1
+        true-condition-break: true
+      attack_6:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - NUMBER_STORAGE:rage_multiply:=:5
+        - NUMBER_STORAGE:%time%-rage_time:<=:2000
+        effects:
+        - NUMBER_STORAGE:SET:rage_time:%time%
+        - 'NAME=rage_combo_stop,DELAY=42 | MESSAGE:&7&l***PrimeRage: Off***'
+        options:
+        - ATTACK:0.60:1
+        true-condition-break: true
+    '2':
+      first_1:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - NUMBER_STORAGE:SET:rage_time:0
+        true-condition-break: true
+      attack_1:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - NUMBER_STORAGE:%time%-rage_time:>:2000
+        effects:
+        - NUMBER_STORAGE:SET:rage_time:%time%
+        - NUMBER_STORAGE:SET:rage_multiply:1
+        true-condition-break: true
+      attack_2:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - NUMBER_STORAGE:rage_multiply:=:1
+        - NUMBER_STORAGE:%time%-rage_time:<=:2000
+        effects:
+        - NUMBER_STORAGE:SET:rage_time:%time%
+        - NUMBER_STORAGE:SET:rage_multiply:2
+        - 'MESSAGE:&c&l***PrimeRage: Combo***'
+        - 'NAME=rage_combo_stop,DELAY=42 | MESSAGE:&7&l***PrimeRage: Off***'
+        true-condition-break: true
+      attack_3:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - NUMBER_STORAGE:rage_multiply:=:2
+        - NUMBER_STORAGE:%time%-rage_time:<=:2000
+        effects:
+        - NUMBER_STORAGE:SET:rage_time:%time%
+        - NUMBER_STORAGE:SET:rage_multiply:3
+        - 'MESSAGE:&c&l***PrimeRage: &a&l+45% ATK&c&l***'
+        - 'NAME=rage_combo_stop,DELAY=42 | MESSAGE:&7&l***PrimeRage: Off***'
+        options:
+        - ATTACK:0.45:1
+        true-condition-break: true
+      attack_4:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - NUMBER_STORAGE:rage_multiply:=:3
+        - NUMBER_STORAGE:%time%-rage_time:<=:2000
+        effects:
+        - NUMBER_STORAGE:SET:rage_time:%time%
+        - NUMBER_STORAGE:SET:rage_multiply:4
+        - 'MESSAGE:&c&l***PrimeRage: &e&l+60% ATK&c&l***'
+        - 'NAME=rage_combo_stop,DELAY=42 | MESSAGE:&7&l***PrimeRage: Off***'
+        options:
+        - ATTACK:0.60:1
+        true-condition-break: true
+      attack_5:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - NUMBER_STORAGE:rage_multiply:=:4
+        - NUMBER_STORAGE:%time%-rage_time:<=:2000
+        effects:
+        - NUMBER_STORAGE:SET:rage_time:%time%
+        - NUMBER_STORAGE:SET:rage_multiply:5
+        - 'MESSAGE:&c&l***PrimeRage: &c&l+75% ATK&c&l***'
+        - 'NAME=rage_combo_stop,DELAY=42 | MESSAGE:&7&l***PrimeRage: Off***'
+        options:
+        - ATTACK:0.75:1
+        true-condition-break: true
+      attack_6:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - NUMBER_STORAGE:rage_multiply:=:5
+        - NUMBER_STORAGE:%time%-rage_time:<=:2000
+        effects:
+        - NUMBER_STORAGE:SET:rage_time:%time%
+        - 'NAME=rage_combo_stop,DELAY=42 | MESSAGE:&7&l***PrimeRage: Off***'
+        options:
+        - ATTACK:0.75:1
+        true-condition-break: true
+    '3':
+      first_1:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - NUMBER_STORAGE:SET:rage_time:0
+        true-condition-break: true
+      attack_1:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - NUMBER_STORAGE:%time%-rage_time:>:2000
+        effects:
+        - NUMBER_STORAGE:SET:rage_time:%time%
+        - NUMBER_STORAGE:SET:rage_multiply:1
+        true-condition-break: true
+      attack_2:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - NUMBER_STORAGE:rage_multiply:=:1
+        - NUMBER_STORAGE:%time%-rage_time:<=:2000
+        effects:
+        - NUMBER_STORAGE:SET:rage_time:%time%
+        - NUMBER_STORAGE:SET:rage_multiply:2
+        - 'MESSAGE:&c&l***PrimeRage: Combo***'
+        - 'NAME=rage_combo_stop,DELAY=42 | MESSAGE:&7&l***PrimeRage: Off***'
+        true-condition-break: true
+      attack_3:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - NUMBER_STORAGE:rage_multiply:=:2
+        - NUMBER_STORAGE:%time%-rage_time:<=:2000
+        effects:
+        - NUMBER_STORAGE:SET:rage_time:%time%
+        - NUMBER_STORAGE:SET:rage_multiply:3
+        - 'MESSAGE:&c&l***PrimeRage: &a&l+60% ATK&c&l***'
+        - 'NAME=rage_combo_stop,DELAY=42 | MESSAGE:&7&l***PrimeRage: Off***'
+        options:
+        - ATTACK:0.60:1
+        true-condition-break: true
+      attack_4:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - NUMBER_STORAGE:rage_multiply:=:3
+        - NUMBER_STORAGE:%time%-rage_time:<=:2000
+        effects:
+        - NUMBER_STORAGE:SET:rage_time:%time%
+        - NUMBER_STORAGE:SET:rage_multiply:4
+        - 'MESSAGE:&c&l***PrimeRage: &e&l+75% ATK&c&l***'
+        - 'NAME=rage_combo_stop,DELAY=42 | MESSAGE:&7&l***PrimeRage: Off***'
+        options:
+        - ATTACK:0.75:1
+        true-condition-break: true
+      attack_5:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - NUMBER_STORAGE:rage_multiply:=:4
+        - NUMBER_STORAGE:%time%-rage_time:<=:2000
+        effects:
+        - NUMBER_STORAGE:SET:rage_time:%time%
+        - NUMBER_STORAGE:SET:rage_multiply:5
+        - 'MESSAGE:&c&l***PrimeRage: +100% ATK***'
+        - 'NAME=rage_combo_stop,DELAY=42 | MESSAGE:&7&l***PrimeRage: Off***'
+        options:
+        - ATTACK:1.0:1
+        true-condition-break: true
+      attack_6:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - NUMBER_STORAGE:rage_multiply:=:5
+        - NUMBER_STORAGE:%time%-rage_time:<=:2000
+        effects:
+        - NUMBER_STORAGE:SET:rage_time:%time%
+        - 'NAME=rage_combo_stop,DELAY=42 | MESSAGE:&7&l***PrimeRage: Off***'
+        options:
+        - ATTACK:1.0:1
+        true-condition-break: true
+primeexcalibur:
+  group: primeultimate
+  display: PrimeExcalibur
+  description:
+  - '&eCó tỉ lệ gây sát thương chuẩn lên kẻ địch'
+  - '&ekhi tấn công'
+  detail-description:
+  - '&eCó tỉ lệ gây sát thương chuẩn lên kẻ địch'
+  - '&ekhi tấn công'
+  - ''
+  - '&eSát thương chuẩn: 25% ATK tổng'
+  - '&eTỉ lệ kích hoạt: 25% + 5% x Cấp'
+  - '&eThời gian hồi: 3s'
+  - ''
+  - '&cKhông thể ép chung với Excalibur'
+  applies-description:
+  - Kiếm
+  applies:
+  - ALL_SWORD
+  max-level: 5
+  enchant-blacklist:
+    - 'excalibur'
+  enchant-point: 1
+  valuable: 0
+  levels:
+    '1':
+      attack:
+        type: ATTACK
+        chance: 30
+        cooldown: 3000
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        options:
+        - ATTACK:-0.25:2
+        effects:
+        - TARGET=ENEMY | HEALTH:REMOVE:%damage%*25/100
+        - "MESSAGE:&c&l**PrimeExcalibur: &c&lDeal 25% True ATK&c&l***"
+    '2':
+      attack:
+        type: ATTACK
+        chance: 35
+        cooldown: 3000
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        options:
+        - ATTACK:-0.25:2
+        effects:
+        - TARGET=ENEMY | HEALTH:REMOVE:%damage%*25/100
+        - "MESSAGE:&c&l**PrimeExcalibur: &c&lDeal 25% True ATK&c&l***"
+    '3':
+      attack:
+        type: ATTACK
+        chance: 40
+        cooldown: 3000
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        options:
+        - ATTACK:-0.25:2
+        effects:
+        - TARGET=ENEMY | HEALTH:REMOVE:%damage%*25/100
+        - "MESSAGE:&c&l**PrimeExcalibur: &c&lDeal 25% True ATK&c&l***"
+    '4':
+      attack:
+        type: ATTACK
+        chance: 45
+        cooldown: 3000
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        options:
+        - ATTACK:-0.25:2
+        effects:
+        - TARGET=ENEMY | HEALTH:REMOVE:%damage%*25/100
+        - "MESSAGE:&c&l**PrimeExcalibur: &c&lDeal 25% True ATK&c&l***"
+    '5':
+      attack:
+        type: ATTACK
+        chance: 50
+        cooldown: 3000
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        options:
+        - ATTACK:-0.25:2
+        effects:
+        - TARGET=ENEMY | HEALTH:REMOVE:%damage%*25/100
+        - "MESSAGE:&c&l**PrimeExcalibur: &c&lDeal 25% True ATK&c&l***"
+primedivine:
+  group: primeultimate
+  display: PrimeDivine
+  description:
+  - '&eCó tỉ lệ gây sát thương chuẩn lên đối thủ'
+  - '&ekhi tấn công'
+  detail-description:
+  - '&eCó tỉ lệ gây sát thương chuẩn lên đối thủ'
+  - '&ekhi tấn công'
+  - ''
+  - '&eSát thương chuẩn: 25% ATK tổng'
+  - '&eTỉ lệ kích hoạt: 25% + 5% x Cấp'
+  - '&eThời gian hồi: 3s'
+  - ''
+  - '&cKhông thể ép chung với Divine'
+  applies-description:
+  - Rìu
+  applies:
+  - ALL_AXE
+  max-level: 5
+  enchant-blacklist:
+    - 'divine'
+  enchant-point: 1
+  valuable: 0
+  levels:
+    '1':
+      attack:
+        type: ATTACK
+        chance: 30
+        cooldown: 3000
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        options:
+        - ATTACK:-0.25:2
+        effects:
+        - TARGET=ENEMY | HEALTH:REMOVE:%damage%*25/100
+        - "MESSAGE:&c&l**PrimeDivine: &c&lDeal 25% True ATK&c&l***"
+    '2':
+      attack:
+        type: ATTACK
+        chance: 35
+        cooldown: 3000
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        options:
+        - ATTACK:-0.25:2
+        effects:
+        - TARGET=ENEMY | HEALTH:REMOVE:%damage%*25/100
+        - "MESSAGE:&c&l**PrimeDivine: &c&lDeal 25% True ATK&c&l***"
+    '3':
+      attack:
+        type: ATTACK
+        chance: 40
+        cooldown: 3000
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        options:
+        - ATTACK:-0.25:2
+        effects:
+        - TARGET=ENEMY | HEALTH:REMOVE:%damage%*25/100
+        - "MESSAGE:&c&l**PrimeDivine: &c&lDeal 25% True ATK&c&l***"
+    '4':
+      attack:
+        type: ATTACK
+        chance: 45
+        cooldown: 3000
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        options:
+        - ATTACK:-0.25:2
+        effects:
+        - TARGET=ENEMY | HEALTH:REMOVE:%damage%*25/100
+        - "MESSAGE:&c&l**PrimeDivine: &c&lDeal 25% True ATK&c&l***"
+    '5':
+      attack:
+        type: ATTACK
+        chance: 50
+        cooldown: 3000
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        options:
+        - ATTACK:-0.25:2
+        effects:
+        - TARGET=ENEMY | HEALTH:REMOVE:%damage%*25/100
+        - "MESSAGE:&c&l**PrimeDivine: &c&lDeal 25% True ATK&c&l***"
+primesniper:
+  group: 'primeultimate'
+  display: 'PrimeSniper'
+  description:
+  - '&eCó tỉ lệ gây sát thương chuẩn lên kẻ địch'
+  - '&ekhi bắn trúng'
+  detail-description:
+  - '&eCó tỉ lệ gây sát thương chuẩn lên kẻ địch'
+  - '&ekhi bắn trúng'
+  - ''
+  - '&eSát thương chuẩn: 25% ATK tổng'
+  - '&eTỉ lệ kích hoạt: 50% + 7.5% x Cấp'
+  - '&eThời gian hồi: 3s'
+  - ''
+  - '&cKhông thể ép chung với Sniper'
+  applies-description:
+  - 'Cung'
+  applies:
+  - 'ALL_BOW'
+  max-level: 5
+  enchant-blacklist:
+    - 'sniper'
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 57.5
+        cooldown: 3000
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        options:
+        - 'ATTACK:-0.25:2'
+        effects:
+        - 'TARGET=ENEMY | HEALTH:REMOVE:%damage%*5/100'
+    2:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 65
+        cooldown: 3000
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        options:
+        - 'ATTACK:-0.25:2'
+        effects:
+        - 'TARGET=ENEMY | HEALTH:REMOVE:%damage%*10/100'
+    3:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 72.5
+        cooldown: 3000
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        options:
+        - 'ATTACK:-0.25:2'
+        effects:
+        - 'TARGET=ENEMY | HEALTH:REMOVE:%damage%*15/100'
+    4:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 80
+        cooldown: 3000
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        options:
+        - 'ATTACK:-0.25:2'
+        effects:
+        - 'TARGET=ENEMY | HEALTH:REMOVE:%damage%*20/100'
+    5:
+      arrow_hit:
+        type: ARROW_HIT
+        chance: 87.5
+        cooldown: 3000
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        - 'TARGET=ENEMY | ENTITY_TYPE:PLAYER'
+        options:
+        - 'ATTACK:-0.25:2'
+        effects:
+        - 'TARGET=ENEMY | HEALTH:REMOVE:%damage%*25/100'
+primevalor:
+  group: 'primesupreme'
+  display: 'PrimeValor'
+  description:
+  - '&eCó tỉ lệ tăng độ bền giáp và giảm'
+  - '&esát thương nhận vào khi bị tấn công'
+  detail-description:
+  - '&eCó tỉ lệ tăng độ bền giáp và giảm'
+  - '&esát thương nhận vào khi bị tấn công'
+  - ''
+  - '&eĐộ bền: 20'
+  - '&eSát thương nhận giảm: -25% + -5% ATK Tổng x Cấp'
+  - '&eTỉ lệ kích hoạt: 25% + 5% x Cấp'
+  - '&eThời gian hồi: 3s'
+  - ''
+  - '&cKhông thể ép chung với Valor'
+  applies-description:
+  - 'Các loại giáp'
+  applies:
+  - 'ALL_ARMOR'
+  max-level: 5
+  enchant-point: 1
+  enchant-blacklist:
+    - 'valor'
+  valuable: 0
+  levels:
+    1:
+      defense:
+        type: DEFENSE
+        chance: 30
+        cooldown: 4000
+        conditions:
+        - ''
+        options:
+        - 'DEFENSE:0.5:2'
+        effects:
+        - 'DURABILITY:ADD:AUTO:20'
+    2:
+      defense:
+        type: DEFENSE
+        chance: 35
+        cooldown: 4000
+        conditions:
+        - ''
+        options:
+        - 'DEFENSE:0.1:2'
+        effects:
+        - 'DURABILITY:ADD:AUTO:20'
+    3:
+      defense:
+        type: DEFENSE
+        chance: 40
+        cooldown: 4000
+        conditions:
+        - ''
+        options:
+        - 'DEFENSE:0.15:2'
+        effects:
+        - 'DURABILITY:ADD:AUTO:20'
+    4:
+      defense:
+        type: DEFENSE
+        chance: 45
+        cooldown: 4000
+        conditions:
+        - ''
+        options:
+        - 'DEFENSE:0.2:2'
+        effects:
+        - 'DURABILITY:ADD:AUTO:20'
+    5:
+      defense:
+        type: DEFENSE
+        chance: 50
+        cooldown: 4000
+        conditions:
+        - ''
+        options:
+        - 'DEFENSE:0.25:2'
+        effects:
+        - 'DURABILITY:ADD:AUTO:20'
+primerampage:
+  group: primesupreme
+  display: PrimeRampage
+  description:
+  - '&eGiao tranh liên tục với kẻ địch sẽ khiến'
+  - '&ebản thân bước vào trạng thái điên cuồng'
+  - '&etăng thêm tốc độ đánh và sát thương trong'
+  - '&emột khoảng thời gian'
+  detail-description:
+  - '&eGiao tranh liên tục với kẻ địch sẽ khiến'
+  - '&ebản thân bước vào trạng thái điên cuồng'
+  - '&etăng thêm tốc độ đánh và sát thương trong'
+  - '&emột khoảng thời gian'
+  - ''
+  - '&eThời gian giao tranh tối thiểu: 4 giây'
+  - '&eThời gian hiệu lực: 4 giây'
+  - '&eTốc độ đánh: +100% + 33% ATS x Cấp'
+  - '&eSát thương: +100% + 33% ATK Cơ bản x Cấp'
+  - ''
+  - '&cKhông thể ép chung với Rampage'
+  applies-description:
+  - Rìu
+  applies:
+  - ALL_AXE
+  max-level: 3
+  enchant-blacklist:
+    - 'rampage'
+  enchant-point: 1
+  valuable: 0
+  levels:
+    '1':
+      first_1:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - NUMBER_STORAGE:SET:rampage_time:8000
+        - 'REMOVE_TASK:rampage_combo_start'
+        - 'REMOVE_TASK:rampage_combo_start_attack_speed'
+        - 'REMOVE_TASK:rampage_combo_start_attack_damage'
+        - 'REMOVE_ATTRIBUTE:ATTACK_SPEED:rampage_attack_speed'
+        - 'REMOVE_ATTRIBUTE:ATTACK_DAMAGE:rampage_attack_damage'
+        true-condition-break: true
+      first_2:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - NUMBER_STORAGE:SET:rampage_time:8000
+        - 'REMOVE_TASK:rampage_combo_start'
+        - 'REMOVE_TASK:rampage_combo_start_attack_speed'
+        - 'REMOVE_TASK:rampage_combo_start_attack_damage'
+        - 'REMOVE_ATTRIBUTE:ATTACK_SPEED:rampage_attack_speed'
+        - 'REMOVE_ATTRIBUTE:ATTACK_DAMAGE:rampage_attack_damage'
+        true-condition-break: true
+      attack_active:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - NUMBER_STORAGE:rampage_active:=:1
+        options:
+        - 'ATTACK:1.33:1'
+      attack_reset_time:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - NUMBER_STORAGE:%time%-rampage_time:>:12000
+        effects:
+        - NUMBER_STORAGE:SET:rampage_time:%time%
+        - 'NAME=rampage_combo_start,DELAY=80 | MESSAGE:&6&l***PrimeRampage: On***'
+        - 'NAME=rampage_combo_start_attack_speed,DELAY=80 | ADD_ATTRIBUTE:ATTACK_SPEED:rampage_attack_speed:1.33:1'
+        - 'NAME=rampage_combo_start_attack_damage,DELAY=80 | NUMBER_STORAGE:SET:rampage_active:1'
+        - 'NAME=rampage_combo_end_attack_speed,DELAY=160 | REMOVE_ATTRIBUTE:ATTACK_SPEED:rampage_attack_speed'
+        - 'NAME=rampage_combo_end_attack_damage,DELAY=160 | NUMBER_STORAGE:SET:rampage_active:0'
+        - 'NAME=rampage_combo_end,DELAY=160 | MESSAGE:&7&l***PrimeRampage: Off***'
+        true-condition-break: true
+    '2':
+      first_1:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - NUMBER_STORAGE:SET:rampage_time:8000
+        - 'REMOVE_TASK:rampage_combo_start'
+        - 'REMOVE_TASK:rampage_combo_start_attack_speed'
+        - 'REMOVE_TASK:rampage_combo_start_attack_damage'
+        - 'REMOVE_ATTRIBUTE:ATTACK_SPEED:rampage_attack_speed'
+        - 'REMOVE_ATTRIBUTE:ATTACK_DAMAGE:rampage_attack_damage'
+        true-condition-break: true
+      first_2:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - NUMBER_STORAGE:SET:rampage_time:8000
+        - 'REMOVE_TASK:rampage_combo_start'
+        - 'REMOVE_TASK:rampage_combo_start_attack_speed'
+        - 'REMOVE_TASK:rampage_combo_start_attack_damage'
+        - 'REMOVE_ATTRIBUTE:ATTACK_SPEED:rampage_attack_speed'
+        - 'REMOVE_ATTRIBUTE:ATTACK_DAMAGE:rampage_attack_damage'
+        true-condition-break: true
+      attack_active:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - NUMBER_STORAGE:rampage_active:=:1
+        options:
+        - 'ATTACK:1.66:1'
+      attack_reset_time:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - NUMBER_STORAGE:%time%-rampage_time:>:12000
+        effects:
+        - NUMBER_STORAGE:SET:rampage_time:%time%
+        - 'NAME=rampage_combo_start,DELAY=80 | MESSAGE:&6&l***PrimeRampage: On***'
+        - 'NAME=rampage_combo_start_attack_speed,DELAY=80 | ADD_ATTRIBUTE:ATTACK_SPEED:rampage_attack_speed:1.66:1'
+        - 'NAME=rampage_combo_start_attack_damage,DELAY=80 | NUMBER_STORAGE:SET:rampage_active:1'
+        - 'NAME=rampage_combo_end_attack_speed,DELAY=160 | REMOVE_ATTRIBUTE:ATTACK_SPEED:rampage_attack_speed'
+        - 'NAME=rampage_combo_end_attack_damage,DELAY=160 | NUMBER_STORAGE:SET:rampage_active:0'
+        - 'NAME=rampage_combo_end,DELAY=160 | MESSAGE:&7&l***PrimeRampage: Off***'
+        true-condition-break: true
+    '3':
+      first_1:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - NUMBER_STORAGE:SET:rampage_time:8000
+        - 'REMOVE_TASK:rampage_combo_start'
+        - 'REMOVE_TASK:rampage_combo_start_attack_speed'
+        - 'REMOVE_TASK:rampage_combo_start_attack_damage'
+        - 'REMOVE_ATTRIBUTE:ATTACK_SPEED:rampage_attack_speed'
+        - 'REMOVE_ATTRIBUTE:ATTACK_DAMAGE:rampage_attack_damage'
+        true-condition-break: true
+      first_2:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - NUMBER_STORAGE:SET:rampage_time:8000
+        - 'REMOVE_TASK:rampage_combo_start'
+        - 'REMOVE_TASK:rampage_combo_start_attack_speed'
+        - 'REMOVE_TASK:rampage_combo_start_attack_damage'
+        - 'REMOVE_ATTRIBUTE:ATTACK_SPEED:rampage_attack_speed'
+        - 'REMOVE_ATTRIBUTE:ATTACK_DAMAGE:rampage_attack_damage'
+        true-condition-break: true
+      attack_active:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - NUMBER_STORAGE:rampage_active:=:1
+        options:
+        - 'ATTACK:1.99:1'
+      attack_reset_time:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - NUMBER_STORAGE:%time%-rampage_time:>:12000
+        effects:
+        - NUMBER_STORAGE:SET:rampage_time:%time%
+        - 'NAME=rampage_combo_start,DELAY=80 | MESSAGE:&6&l***PrimeRampage: On***'
+        - 'NAME=rampage_combo_start_attack_speed,DELAY=80 | ADD_ATTRIBUTE:ATTACK_SPEED:rampage_attack_speed:1.99:1'
+        - 'NAME=rampage_combo_start_attack_damage,DELAY=80 | NUMBER_STORAGE:SET:rampage_active:1'
+        - 'NAME=rampage_combo_end_attack_speed,DELAY=160 | REMOVE_ATTRIBUTE:ATTACK_SPEED:rampage_attack_speed'
+        - 'NAME=rampage_combo_end_attack_damage,DELAY=160 | NUMBER_STORAGE:SET:rampage_active:0'
+        - 'NAME=rampage_combo_end,DELAY=160 | MESSAGE:&7&l***PrimeRampage: Off***'
+        true-condition-break: true
+primestabstraight:
+  group: primelegendary
+  display: PrimeStabStraight
+  description:
+  - '&eCó tỉ lệ gây vết thương sâu làm giảm'
+  - '&ehiệu quả hồi máu của kẻ địch trong'
+  - '&emột khoảng thời gian khi tấn công'
+  detail-description:
+  - '&eCó tỉ lệ gây vết thương sâu làm giảm'
+  - '&ehiệu quả hồi máu của kẻ địch trong'
+  - '&emột khoảng thời gian khi tấn công'
+  - ''
+  - '&eHiệu quả hồi máu: -50% + -5% x Cấp'
+  - '&eThời gian hiệu ứng: 5s'
+  - '&eTỉ lệ kích hoạt: 25% + 5% x Cấp'
+  - '&eThời gian hồi: 7.5s'
+  - ''
+  - '&cKhông thể ép chung với StabStraight'
+  applies-description:
+  - Kiếm
+  applies:
+  - ALL_SWORD
+  max-level: 5
+  enchant-blacklist:
+    - 'stabstraight'
+  enchant-point: 1
+  valuable: 0
+  levels:
+    '1':
+      attack:
+        type: ATTACK
+        chance: 30
+        cooldown: 7500
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+        - ''
+        #- TARGET=ENEMY | ADD_CUSTOM_ATTRIBUTE:stabstraight_deep_attack:HEALTH:-0.55:2
+        #- TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_CUSTOM_ATTRIBUTE:stabstraight_deep_attack
+    '2':
+      attack:
+        type: ATTACK
+        chance: 35
+        cooldown: 7500
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+        - ''
+        #- TARGET=ENEMY | ADD_CUSTOM_ATTRIBUTE:stabstraight_deep_attack:HEALTH:-0.6:2
+        #- TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_CUSTOM_ATTRIBUTE:stabstraight_deep_attack
+    '3':
+      attack:
+        type: ATTACK
+        chance: 40
+        cooldown: 7500
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+        - ''
+        #- TARGET=ENEMY | ADD_CUSTOM_ATTRIBUTE:stabstraight_deep_attack:HEALTH:-0.65:2
+        #- TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_CUSTOM_ATTRIBUTE:stabstraight_deep_attack
+    '4':
+      attack:
+        type: ATTACK
+        chance: 45
+        cooldown: 7500
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+        - ''
+        #- TARGET=ENEMY | ADD_CUSTOM_ATTRIBUTE:stabstraight_deep_attack:HEALTH:-0.7:2
+        #- TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_CUSTOM_ATTRIBUTE:stabstraight_deep_attack
+    '5':
+      attack:
+        type: ATTACK
+        chance: 50
+        cooldown: 7500
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+        - ''
+        #- TARGET=ENEMY | ADD_CUSTOM_ATTRIBUTE:stabstraight_deep_attack:HEALTH:-0.75:2
+        #- TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_CUSTOM_ATTRIBUTE:stabstraight_deep_attack
+primewoundhealing:
+  group: 'primeepic'
+  display: 'PrimeWoundHealing'
+  description:
+  - '&eCó tỉ lệ hồi phục một lượng máu theo'
+  - '&ethời gian sau khi bị tấn công'
+  detail-description:
+  - '&eCó tỉ lệ hồi phục một lượng máu theo'
+  - '&ethời gian sau khi bị tấn công'
+  - ''
+  - '&eLượng máu hồi mỗi giây: 5/6/7/8/10'
+  - '&eThời gian hiệu ứng: 5s'
+  - '&eTỉ lệ kích hoạt: 20%'
+  - '&eThời gian hồi: 8s'
+  - ''
+  - '&cKhông thể ép chung với WoundHealing'
+  applies-description:
+  - 'Quần'
+  applies:
+  - 'ALL_LEGGINGS'
+  max-level: 5
+  enchant-blacklist:
+    - 'wouldhealing'
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      defense:
+        type: DEFENSE
+        chance: 20
+        cooldown: 8000
+        conditions:
+        - ''
+        effects:
+        - 'DELAY=20 | HEALTH:ADD:5'
+        - 'DELAY=40 | HEALTH:ADD:5'
+        - 'DELAY=60 | HEALTH:ADD:5'
+        - 'DELAY=80 | HEALTH:ADD:5'
+        - 'DELAY=100 | HEALTH:ADD:5'
+    2:
+      defense:
+        type: DEFENSE
+        chance: 20
+        cooldown: 8000
+        conditions:
+        - ''
+        effects:
+        - 'DELAY=20 | HEALTH:ADD:6'
+        - 'DELAY=40 | HEALTH:ADD:6'
+        - 'DELAY=60 | HEALTH:ADD:6'
+        - 'DELAY=80 | HEALTH:ADD:6'
+        - 'DELAY=100 | HEALTH:ADD:6'
+    3:
+      defense:
+        type: DEFENSE
+        chance: 20
+        cooldown: 8000
+        conditions:
+        - ''
+        effects:
+        - 'DELAY=20 | HEALTH:ADD:7'
+        - 'DELAY=40 | HEALTH:ADD:7'
+        - 'DELAY=60 | HEALTH:ADD:7'
+        - 'DELAY=80 | HEALTH:ADD:7'
+        - 'DELAY=100 | HEALTH:ADD:7'
+    4:
+      defense:
+        type: DEFENSE
+        chance: 20
+        cooldown: 8000
+        conditions:
+        - ''
+        effects:
+        - 'DELAY=20 | HEALTH:ADD:8'
+        - 'DELAY=40 | HEALTH:ADD:8'
+        - 'DELAY=60 | HEALTH:ADD:8'
+        - 'DELAY=80 | HEALTH:ADD:8'
+        - 'DELAY=100 | HEALTH:ADD:8'
+    5:
+      defense:
+        type: DEFENSE
+        chance: 20
+        cooldown: 8000
+        conditions:
+        - ''
+        effects:
+        - 'DELAY=20 | HEALTH:ADD:10'
+        - 'DELAY=40 | HEALTH:ADD:10'
+        - 'DELAY=60 | HEALTH:ADD:10'
+        - 'DELAY=80 | HEALTH:ADD:10'
+        - 'DELAY=100 | HEALTH:ADD:10'
+primenursery:
+  group: 'primesupreme'
+  display: 'PrimeNursery'
+  description:
+  - '&eCó tỉ lệ hồi máu khi di chuyển'
+  detail-description:
+  - '&eCó tỉ lệ hồi máu khi di chuyển'
+  - ''
+  - '&eLượng máu hồi: 5/6/7/8/10'
+  - '&eTỉ lệ kích hoạt: 25%'
+  - '&eThời gian hồi: 3s'
+  - ''
+  - '&eKhông thể ép chung với Nursery'
+  applies-description:
+  - 'Các loại giáp'
+  applies:
+  - 'ALL_ARMOR'
+  max-level: 5
+  enchant-blacklist:
+    - 'nursery'
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      attack:
+        type: MOVE
+        chance: 25
+        cooldown: 3000
+        effects:
+        - 'HEALTH:ADD:5'
+    2:
+      move:
+        type: MOVE
+        chance: 25
+        cooldown: 3000
+        effects:
+        - 'HEALTH:ADD:6'
+    3:
+      move:
+        type: MOVE
+        chance: 25
+        cooldown: 3000
+        effects:
+        - 'HEALTH:ADD:7'
+    4:
+      move:
+        type: MOVE
+        chance: 25
+        cooldown: 3000
+        effects:
+        - 'HEALTH:ADD:8'
+    5:
+      move:
+        type: MOVE
+        chance: 25
+        cooldown: 3000
+        effects:
+        - 'HEALTH:ADD:10'
+primegreathelm:
+  group: 'primelegendary'
+  display: 'PrimeGreatHelm'
+  description:
+  - '&eNhận giảm sát thương từ cung tên khi'
+  - '&ebị bắn trúng'
+  detail-description:
+  - '&eNhận giảm sát thương từ cung tên khi'
+  - '&ebị bắn trúng'
+  - ''
+  - '&eSát thương nhận giảm: -50% + -5% ATK Tổng x Cấp'
+  applies-description:
+  - 'Mũ'
+  applies:
+  - 'ALL_HELMET'
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      arrow_defense:
+        type: ARROW_DEFENSE
+        chance: 100
+        cooldown: 0
+        options:
+        - 'DEFENSE:0.55:2'
+    2:
+      arrow_defense:
+        type: ARROW_DEFENSE
+        chance: 100
+        cooldown: 0
+        options:
+        - 'DEFENSE:0.6:2'
+    3:
+      arrow_defense:
+        type: ARROW_DEFENSE
+        chance: 100
+        cooldown: 0
+        options:
+        - 'DEFENSE:0.65:2'
+    4:
+      arrow_defense:
+        type: ARROW_DEFENSE
+        chance: 100
+        cooldown: 0
+        options:
+        - 'DEFENSE:0.7:2'
+    5:
+      arrow_defense:
+        type: ARROW_DEFENSE
+        chance: 100
+        cooldown: 0
+        options:
+        - 'DEFENSE:0.75:2'
+primeinquisitive:
+  group: primecommon
+  display: PrimeInquisitive
+  description:
+  - '&eThưởng thêm kinh nghiệm người chơi'
+  - '&ekhi giết quái'
+  detail-description:
+  - '&eThưởng thêm kinh nghiệm người chơi'
+  - '&ekhi giết quái'
+  - ''
+  - '&eLượng kinh nghiệm:'
+  - '&e+50% + 5% Kinh nghiệm theo Thợ săn quái x Cấp'
+  - ''
+  - '&cKhông thể ép chung với Inquisitive'
+  enchant-blacklist:
+  - 'inquisitive'
+  applies-description:
+  - Kiếm
+  applies:
+  - ALL_SWORD
+  max-level: 10
+  enchant-point: 1
+  valuable: 0
+  levels:
+    '1':
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        effects:
+        - ADD_MOB_BONUS:MOB_SLAYER_EXP:inquisitive_xp_bonus:ALL:0.55:0:100
+        - 'MESSAGE:&7&l***PrimeInquisitive: Active&7&l***'
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - REMOVE_MOB_BONUS:MOB_SLAYER_EXP:inquisitive_xp_bonus
+        - 'MESSAGE:&7&l***PrimeInquisitive: Deactive&7&l***'
+    '2':
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        effects:
+        - ADD_MOB_BONUS:MOB_SLAYER_EXP:inquisitive_xp_bonus:ALL:0.6:0:100
+        - 'MESSAGE:&7&l***PrimeInquisitive: Active&7&l***'
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - REMOVE_MOB_BONUS:MOB_SLAYER_EXP:inquisitive_xp_bonus
+        - 'MESSAGE:&7&l***PrimeInquisitive: Deactive&7&l***'
+    '3':
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        effects:
+        - ADD_MOB_BONUS:MOB_SLAYER_EXP:inquisitive_xp_bonus:ALL:0.65:0:100
+        - 'MESSAGE:&7&l***PrimeInquisitive: Active&7&l***'
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - REMOVE_MOB_BONUS:MOB_SLAYER_EXP:inquisitive_xp_bonus
+        - 'MESSAGE:&7&l***PrimeInquisitive: Deactive&7&l***'
+    '4':
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        effects:
+        - ADD_MOB_BONUS:MOB_SLAYER_EXP:inquisitive_xp_bonus:ALL:0.7:0:100
+        - 'MESSAGE:&7&l***PrimeInquisitive: Active&7&l***'
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - REMOVE_MOB_BONUS:MOB_SLAYER_EXP:inquisitive_xp_bonus
+        - 'MESSAGE:&7&l***PrimeInquisitive: Deactive&7&l***'
+    '5':
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        effects:
+        - ADD_MOB_BONUS:MOB_SLAYER_EXP:inquisitive_xp_bonus:ALL:0.75:0:100
+        - 'MESSAGE:&7&l***PrimeInquisitive: Active&7&l***'
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - REMOVE_MOB_BONUS:MOB_SLAYER_EXP:inquisitive_xp_bonus
+        - 'MESSAGE:&7&l***PrimeInquisitive: Deactive&7&l***'
+    '6':
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        effects:
+        - ADD_MOB_BONUS:MOB_SLAYER_EXP:inquisitive_xp_bonus:ALL:0.8:0:100
+        - 'MESSAGE:&7&l***PrimeInquisitive: Active&7&l***'
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - REMOVE_MOB_BONUS:MOB_SLAYER_EXP:inquisitive_xp_bonus
+        - 'MESSAGE:&7&l***PrimeInquisitive: Deactive&7&l***'
+    '7':
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        effects:
+        - ADD_MOB_BONUS:MOB_SLAYER_EXP:inquisitive_xp_bonus:ALL:0.85:0:100
+        - 'MESSAGE:&7&l***PrimeInquisitive: Active&7&l***'
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - REMOVE_MOB_BONUS:MOB_SLAYER_EXP:inquisitive_xp_bonus
+        - 'MESSAGE:&7&l***PrimeInquisitive: Deactive&7&l***'
+    '8':
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        effects:
+        - ADD_MOB_BONUS:MOB_SLAYER_EXP:inquisitive_xp_bonus:ALL:0.9:0:100
+        - 'MESSAGE:&7&l***PrimeInquisitive: Active&7&l***'
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - REMOVE_MOB_BONUS:MOB_SLAYER_EXP:inquisitive_xp_bonus
+        - 'MESSAGE:&7&l***PrimeInquisitive: Deactive&7&l***'
+    '9':
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        effects:
+        - ADD_MOB_BONUS:MOB_SLAYER_EXP:inquisitive_xp_bonus:ALL:0.95:0:100
+        - 'MESSAGE:&7&l***PrimeInquisitive: Active&7&l***'
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - REMOVE_MOB_BONUS:MOB_SLAYER_EXP:inquisitive_xp_bonus
+        - 'MESSAGE:&7&l***PrimeInquisitive: Deactive&7&l***'
+    '10':
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        effects:
+        - ADD_MOB_BONUS:MOB_SLAYER_EXP:inquisitive_xp_bonus:ALL:1.0:0:100
+        - 'MESSAGE:&7&l***PrimeInquisitive: Active&7&l***'
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - REMOVE_MOB_BONUS:MOB_SLAYER_EXP:inquisitive_xp_bonus
+        - 'MESSAGE:&7&l***PrimeInquisitive: Deactive&7&l***'
+primedissect:
+  group: primecommon
+  display: PrimeDissect
+  description:
+  - '&eThưởng thêm kinh nghiệm người chơi'
+  - '&ekhi giết quái'
+  detail-description:
+  - '&eThưởng thêm kinh nghiệm người chơi'
+  - '&ekhi giết quái'
+  - ''
+  - '&eLượng kinh nghiệm:'
+  - '&e+50% + 5% Kinh nghiệm theo Thợ săn quái x Cấp'
+  - ''
+  - '&cKhông thể ép chung với Dissect'
+  enchant-blacklist:
+  - 'dissect'
+  applies-description:
+  - Rìu
+  applies:
+  - ALL_AXE
+  max-level: 10
+  enchant-point: 1
+  valuable: 0
+  levels:
+    '1':
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        effects:
+        - ADD_MOB_BONUS:MOB_SLAYER_EXP:dissect_xp_bonus:ALL:0.55:0:100
+        - 'MESSAGE:&7&l***PrimeDissect: Active&7&l***'
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - REMOVE_MOB_BONUS:MOB_SLAYER_EXP:dissect_xp_bonus
+        - 'MESSAGE:&7&l***PrimeDissect: Deactive&7&l***'
+    '2':
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        effects:
+        - ADD_MOB_BONUS:MOB_SLAYER_EXP:dissect_xp_bonus:ALL:0.55:0:100
+        - 'MESSAGE:&7&l***PrimeDissect: Active&7&l***'
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - REMOVE_MOB_BONUS:MOB_SLAYER_EXP:dissect_xp_bonus
+        - 'MESSAGE:&7&l***PrimeDissect: Deactive&7&l***'
+    '3':
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        effects:
+        - ADD_MOB_BONUS:MOB_SLAYER_EXP:dissect_xp_bonus:ALL:0.6:0:100
+        - 'MESSAGE:&7&l***PrimeDissect: Active&7&l***'
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - REMOVE_MOB_BONUS:MOB_SLAYER_EXP:dissect_xp_bonus
+        - 'MESSAGE:&7&l***PrimeDissect: Deactive&7&l***'
+    '4':
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        effects:
+        - ADD_MOB_BONUS:MOB_SLAYER_EXP:dissect_xp_bonus:ALL:0.65:0:100
+        - 'MESSAGE:&7&l***PrimeDissect: Active&7&l***'
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - REMOVE_MOB_BONUS:MOB_SLAYER_EXP:dissect_xp_bonus
+        - 'MESSAGE:&7&l***PrimeDissect: Deactive&7&l***'
+    '5':
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        effects:
+        - ADD_MOB_BONUS:MOB_SLAYER_EXP:dissect_xp_bonus:ALL:0.7:0:100
+        - 'MESSAGE:&7&l***PrimeDissect: Active&7&l***'
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - REMOVE_MOB_BONUS:MOB_SLAYER_EXP:dissect_xp_bonus
+        - 'MESSAGE:&7&l***PrimeDissect: Deactive&7&l***'
+    '6':
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        effects:
+        - ADD_MOB_BONUS:MOB_SLAYER_EXP:dissect_xp_bonus:ALL:0.75:0:100
+        - 'MESSAGE:&7&l***PrimeDissect: Active&7&l***'
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - REMOVE_MOB_BONUS:MOB_SLAYER_EXP:dissect_xp_bonus
+        - 'MESSAGE:&7&l***PrimeDissect: Deactive&7&l***'
+    '7':
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        effects:
+        - ADD_MOB_BONUS:MOB_SLAYER_EXP:dissect_xp_bonus:ALL:0.8:0:100
+        - 'MESSAGE:&7&l***PrimeDissect: Active&7&l***'
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - REMOVE_MOB_BONUS:MOB_SLAYER_EXP:dissect_xp_bonus
+        - 'MESSAGE:&7&l***PrimeDissect: Deactive&7&l***'
+    '8':
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        effects:
+        - ADD_MOB_BONUS:MOB_SLAYER_EXP:dissect_xp_bonus:ALL:0.85:0:100
+        - 'MESSAGE:&7&l***PrimeDissect: Active&7&l***'
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - REMOVE_MOB_BONUS:MOB_SLAYER_EXP:dissect_xp_bonus
+        - 'MESSAGE:&7&l***PrimeDissect: Deactive&7&l***'
+    '9':
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        effects:
+        - ADD_MOB_BONUS:MOB_SLAYER_EXP:dissect_xp_bonus:ALL:0.9:0:100
+        - 'MESSAGE:&7&l***PrimeDissect: Active&7&l***'
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - REMOVE_MOB_BONUS:MOB_SLAYER_EXP:dissect_xp_bonus
+        - 'MESSAGE:&7&l***PrimeDissect: Deactive&7&l***'
+    '10':
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:MAINHAND
+        effects:
+        - ADD_MOB_BONUS:MOB_SLAYER_EXP:dissect_xp_bonus:ALL:1.0:0:100
+        - 'MESSAGE:&7&l***PrimeDissect: Active&7&l***'
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - ''
+        effects:
+        - REMOVE_MOB_BONUS:MOB_SLAYER_EXP:dissect_xp_bonus
+        - 'MESSAGE:&7&l***PrimeDissect: Deactive&7&l***'
+primedeathscythe:
+  group: primesupreme
+  display: PrimeDeathScythe
+  description:
+    - "&eCó tỉ lệ bạo kích cực mạnh và tăng tốc độ"
+    - "&edi chuyển cho bản thân trong một khoảng"
+    - "&ethời gian khi tấn công"
+  detail-description:
+    - "&eCó tỉ lệ bạo kích cực mạnh và tăng tốc độ"
+    - "&edi chuyển cho bản thân trong một khoảng"
+    - "&ethời gian khi tấn công"
+    - ""
+    - "&eSát thương: +225% ATK + 75% ATK x Cấp"
+    - "&eTốc độ di chuyển: +10%"
+    - "&eThời gian tăng tốc: 0.5s"
+    - "&eTỉ lệ kích hoạt: 75%"
+    - "&eThời gian hồi: 0.75s"
+    - ''
+    - '&cKhông thể ép chung với DeathScythe'
+  enchant-blacklist:
+  - 'deathscythe'
+  applies-description:
+    - Cuốc
+  applies:
+    - ALL_HOE
+  max-level: 3
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      attack:
+        type: ATTACK
+        chance: 75
+        cooldown: 750
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        options:
+          - ATTACK:3.0:1
+        effects:
+          - ADD_ATTRIBUTE:MOVEMENT_SPEED:deathscythe_movement_speed:0.1:1
+          - DELAY=10,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:deathscythe_movement_speed
+          - "MESSAGE:&6&l***PrimeDeathScythe: &c&l+300% ATK,&b&l +10% &f&lMS &f(0:01)&6&l***"
+    "2":
+      attack:
+        type: ATTACK
+        chance: 75
+        cooldown: 750
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        options:
+          - ATTACK:3.75:1
+        effects:
+          - ADD_ATTRIBUTE:MOVEMENT_SPEED:deathscythe_movement_speed:0.1:1
+          - DELAY=10,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:deathscythe_movement_speed
+          - "MESSAGE:&6&l***PrimeDeathScythe: &c&l+375% ATK,&b&l +10% &f&lMS &f(0:01)&6&l***"
+    "3":
+      attack:
+        type: ATTACK
+        chance: 75
+        cooldown: 750
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        options:
+          - ATTACK:4.5:1
+        effects:
+          - ADD_ATTRIBUTE:MOVEMENT_SPEED:deathscythe_movement_speed:0.1:1
+          - DELAY=10,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:deathscythe_movement_speed
+          - "MESSAGE:&6&l***PrimeDeathScythe: &c&l+450% ATK,&b&l +10% &f&lMS &f(0:01)&6&l***"
+primethrust:
+  group: primesupreme
+  display: PrimeThrust
+  description:
+    - "&eĐòn đánh luôn được cường hóa gây thêm"
+    - "&esát thương, làm chậm và đẩy lùi đối phương"
+  detail-description:
+    - "&eĐòn đánh luôn được cường hóa gây thêm"
+    - "&esát thương, làm chậm và đẩy lùi đối phương"
+    - ""
+    - "&eSát thương: +50% ATK + 10% ATK x Cấp"
+    - "&eHiệu quả làm chậm: 40% + 8% x Cấp"
+    - "&eThời gian làm chậm: 2s"
+    - ''
+    - '&cKhông thể ép chung với Thrust'
+  enchant-blacklist:
+  - 'thrust'
+  applies-description:
+    - Đinh ba
+  applies:
+    - TRIDENT
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+  levels:
+    "1":
+      attack-1:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        options:
+          - ATTACK:0.6:1
+        effects:
+          - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:thrust_movement_speed:-0.08:2
+          - TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:thrust_movement_speed
+          - TARGET=ENEMY | PULL:xE*0.5_-~_zE*0.5
+          - "MESSAGE:&6&l***PrimeThrust: &c&l+60% &f&lATK&6&l***"
+        true-condition-break: true
+    "2":
+      attack-2:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        options:
+          - ATTACK:0.7:1
+        effects:
+          - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:thrust_movement_speed:-0.16:2
+          - TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:thrust_movement_speed
+          - TARGET=ENEMY | PULL:xE*0.5_-~_zE*0.5
+          - "MESSAGE:&6&l***PrimeThrust: &c&l+70% &f&lATK&6&l***"
+        true-condition-break: true
+    "3":
+      attack-2:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        options:
+          - ATTACK:0.8:1
+        effects:
+          - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:thrust_movement_speed:-0.24:2
+          - TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:thrust_movement_speed
+          - TARGET=ENEMY | PULL:xE*0.5_-~_zE*0.5
+          - "MESSAGE:&6&l***PrimeThrust: &c&l+80% &f&lATK&6&l***"
+        true-condition-break: true
+    "4":
+      attack-2:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        options:
+          - ATTACK:0.9:1
+        effects:
+          - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:thrust_movement_speed:-0.32:2
+          - TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:thrust_movement_speed
+          - TARGET=ENEMY | PULL:xE*0.5_-~_zE*0.5
+          - "MESSAGE:&6&l***PrimeThrust: &c&l+90% &f&lATK&6&l***"
+        true-condition-break: true
+    "5":
+      attack-2:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        options:
+          - ATTACK:2.0:1
+        effects:
+          - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:thrust_movement_speed:-0.4:2
+          - TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:thrust_movement_speed
+          - TARGET=ENEMY | PULL:xE*0.5_-~_zE*0.5
+          - "MESSAGE:&6&l***PrimeThrust: &c&l+100% &f&lATK&6&l***"
+        true-condition-break: true
+primedash:
+  group: "primesupreme"
+  display: "PrimeDash"
+  description:
+    - "&eCó khả năng lướt tới khi nhấn Shift"
+  detail-description:
+    - "&eCó khả năng lướt tới khi nhấn Shift"
+    - ""
+    - "&eThời gian hồi: 4 - 0.4 giây x Cấp"
+    - ""
+    - "&cKhông thể ép chung với DoubleJump"
+    - "&cKhông thể ép chung với Dash"
+  applies-description:
+    - "Giày"
+  applies:
+    - "ALL_BOOTS"
+  enchant-blacklist:
+  - 'dash'
+  - 'doublejump'
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "ACTIVE_DASH:1:3600:1_8:EXPLOSION_NORMAL:&cLướt tiếp sau &e{time_left} &cgiây!"
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "DEACTIVE_DASH"
+    2:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "ACTIVE_DASH:1:3200:1_8:EXPLOSION_NORMAL:&cLướt tiếp sau &e{time_left} &cgiây!"
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "DEACTIVE_DASH"
+    3:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "ACTIVE_DASH:1:2800:1_8:EXPLOSION_NORMAL:&cLướt tiếp sau &e{time_left} &cgiây!"
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "DEACTIVE_DASH"
+    4:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "ACTIVE_DASH:1:2400:1_8:EXPLOSION_NORMAL:&cLướt tiếp sau &e{time_left} &cgiây!"
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "DEACTIVE_DASH"
+    5:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "ACTIVE_DASH:1:2000:1_8:EXPLOSION_NORMAL:&cLướt tiếp sau &e{time_left} &cgiây!"
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "DEACTIVE_DASH"

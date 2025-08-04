@@ -56,12 +56,8 @@ public class EffectPacketRedstoneParticle extends EffectHook {
 		} catch (Exception e) {
 
 		}
-		Vector3f vector = new Vector3f(data.getColor().getRed(), data.getColor().getGreen(), data.getColor().getBlue());
+		Vector3f vector = new Vector3f(data.getColor().getRed() / 255f, data.getColor().getGreen() / 255f, data.getColor().getBlue() / 255f);
 		this.particle = new DustParticleOptions(vector, data.getSize());
-	}
-
-	public static void main(String[] args) {
-		System.out.println(java.awt.Color.decode("#55FFFF"));
 	}
 
 	public void execute(CEFunctionData data) {

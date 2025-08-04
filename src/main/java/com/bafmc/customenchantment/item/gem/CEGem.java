@@ -57,6 +57,11 @@ public class CEGem extends CEItem<CEGemData> {
 		Placeholder placeholder = Placeholder.of(getPlaceholder(data));
 
 		ItemStack itemStack = itemStackNMS.getNewItemStack();
+		int customModelData = getData().getCustomModelData();
+		if (customModelData > 0) {
+			itemStack.setCustomModelData(customModelData);
+		}
+
 		ItemMeta itemMeta = itemStack.getItemMeta();
 		// Fix duplicate display name
 		if (getData().getConfigData().getItemDisplay() != null) {
@@ -64,6 +69,7 @@ public class CEGem extends CEItem<CEGemData> {
 		}
 
 		itemStack.setItemMeta(itemMeta);
+
 		itemStack = ItemStackUtils.setItemStack(itemStack, placeholder);
 		itemStack = ItemStackUtils.updateColorToItemStack(itemStack);
 		return itemStack;

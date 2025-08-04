@@ -1,0 +1,27 @@
+settings:
+  broadcast-upgrade-success:
+    - 'BROADCAST &d&lChúc mừng &f&l{player_name} &d&lđột phá {book_display}&d&l thành công tại &f&l/bookup&d&l!'
+  xp:
+    default:
+      1: 1->2
+      2: 2->4
+      3: 4->8
+      4: 8->16
+      5: 16->32
+      6: 32->64
+      7: 64->128
+      8: 128->256
+      9: 256->512
+      10: 512->1024
+  required-xp:
+    default:
+      1: 24
+      2: 48
+      3: 96
+      4: 192
+      5: 384
+      6: 768
+      7: 1536
+      8: 3072
+      9: 6144
+      10: 12288

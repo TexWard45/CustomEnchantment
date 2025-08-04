@@ -1,0 +1,29 @@
+# &7Nguyên liệu thường
+# &#77ff00Nguyên liệu hiếm
+# &#00bbffNguyên liệu rất hiếm
+# &#ffee00Nguyên liệu cực hiếm
+# &#ff4400Nguyên liệu siêu hiếm
+area1-mob1-ingredient:
+  type: LEATHER
+  glowing: true
+  display: "&#f44336&lDa bò"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Rơi ra từ quái &fBò Sữa"
+    - ""
+    - "&7Dùng để chế tạo trang bị"
+    - ""
+    - "&7&oSử dụng tại &eKhu Trang Trại Lúa 🌾"
+area1-mob2-ingredient:
+  type: EGG
+  glowing: true
+  display: "&#ffecb3&lTrứng gà"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Rơi ra từ quái &fGà chiến"
+    - ""
+    - "&7Dùng để chế tạo trang bị"
+    - ""
+    - "&7&oSử dụng tại &eKhu Trang Trại Lúa 🌾"

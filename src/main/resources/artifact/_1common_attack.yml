@@ -1,0 +1,34 @@
+# &#94a3b8Cổ Vật Thường
+ironbeak:
+  group: common
+  max-level: 5
+  item:
+    type: IRON_NUGGET
+    display: "&#e0e0e0&lMỏ Sắt"
+    glowing: true
+    lore:
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm sức tấn công"
+  enchant: "ironbeak"
+crackedglassshard:
+  group: common
+  max-level: 5
+  item:
+    type: GLASS_PANE
+    display: "&#eeeeee&lMảnh Kính Nứt"
+    glowing: true
+    lore:
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm tỉ lệ chí mạng"
+  enchant: "crackedglassshard"
+feather:
+  group: common
+  max-level: 5
+  item:
+    type: FEATHER
+    display: "&#d7e360&lLông Vũ"
+    glowing: true
+    lore:
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm tốc độ đánh"
+  enchant: "feather"

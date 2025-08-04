@@ -30,7 +30,7 @@ public class CommandAddGem implements AbstractCommand {
                                 CEGem ceGem = (CEGem) CustomEnchantment.instance().getCeItemStorageMap().get(CEItemType.GEM).get(arg.get("<gem>"));
 
                                 if (ceGem != null) {
-                                    return ceGem.getData().getConfigData().getNmsAttributeLevelMap().keySet().stream().map(String::valueOf).collect(Collectors.toUnmodifiableList());
+                                    return ceGem.getData().getConfigData().getLevelMap().keySet().stream().map(String::valueOf).collect(Collectors.toUnmodifiableList());
                                 }
 
                                 return Arrays.asList("");

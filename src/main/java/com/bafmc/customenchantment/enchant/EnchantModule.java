@@ -55,6 +55,7 @@ public class EnchantModule extends PluginModule<CustomEnchantment> {
         new EffectRemoveForeverPotion().register();
         new EffectMessage().register();
         new EffectRemoveTask().register();
+        new EffectRemoveTaskAsync().register();
         new EffectEnableMultipleArrow().register();
         new EffectDisableMultipleArrow().register();
         new EffectAddAttribute().register();

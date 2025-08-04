@@ -1,0 +1,646 @@
+autosmelt:
+  group: 'rare'
+  display: 'AutoSmelt'
+  description:
+  - '&eCó tỉ lệ nung chảy quặng và cho'
+  - '&equặng nhiều hơn khi đào quặng'
+  applies-description:
+  - 'Cúp'
+  applies:
+  - 'ALL_PICKAXE'
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'ADD_FURNACE_MINING:autosmelt:50'
+        - 'ADD_BLOCK_DROP_BONUS_MINING:autosmelt_coal:ALL:COAL 0:COAL 0:75 1,25 2:false'
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'REMOVE_BLOCK_DROP_BONUS_MINING:autosmelt_coal'
+        - 'REMOVE_FURNACE_MINING:autosmelt'
+    2:
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'ADD_FURNACE_MINING:autosmelt:50'
+        - 'ADD_BLOCK_DROP_BONUS_MINING:autosmelt_coal:ALL:COAL 0:COAL 0:60 1,30 2,10 3:false'
+        - 'ADD_BLOCK_DROP_BONUS_MINING:autosmelt_iron:ALL:IRON_INGOT 0:IRON_INGOT 0:75 0,25 1:false'
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'REMOVE_BLOCK_DROP_BONUS_MINING:autosmelt_coal'
+        - 'REMOVE_BLOCK_DROP_BONUS_MINING:autosmelt_iron'
+        - 'REMOVE_FURNACE_MINING:autosmelt'
+    3:
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'ADD_FURNACE_MINING:autosmelt:50'
+        - 'ADD_BLOCK_DROP_BONUS_MINING:autosmelt_coal:ALL:COAL 0:COAL 0:60 1,30 2,10 3:false'
+        - 'ADD_BLOCK_DROP_BONUS_MINING:autosmelt_iron:ALL:IRON_INGOT 0:IRON_INGOT 0:75 1,25 2:false'
+        - 'ADD_BLOCK_DROP_BONUS_MINING:autosmelt_gold:ALL:GOLD_INGOT 0:GOLD_INGOT 0:75 0,25 1:false'
+        - 'ADD_BLOCK_DROP_BONUS_MINING:autosmelt_quartz:ALL:QUARTZ 0:QUARTZ 0:75 0,25 1:false'
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'REMOVE_BLOCK_DROP_BONUS_MINING:autosmelt_coal'
+        - 'REMOVE_BLOCK_DROP_BONUS_MINING:autosmelt_iron'
+        - 'REMOVE_BLOCK_DROP_BONUS_MINING:autosmelt_gold'
+        - 'REMOVE_BLOCK_DROP_BONUS_MINING:autosmelt_quartz'
+        - 'REMOVE_FURNACE_MINING:autosmelt'
+    4:
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'ADD_FURNACE_MINING:autosmelt:50'
+        - 'ADD_BLOCK_DROP_BONUS_MINING:autosmelt_coal:ALL:COAL 0:COAL 0:60 2,30 3,10 4:false'
+        - 'ADD_BLOCK_DROP_BONUS_MINING:autosmelt_iron:ALL:IRON_INGOT 0:IRON_INGOT 0:60 1,30 2,10 3:false'
+        - 'ADD_BLOCK_DROP_BONUS_MINING:autosmelt_gold:ALL:GOLD_INGOT 0:GOLD_INGOT 0:75 1,25 2:false'
+        - 'ADD_BLOCK_DROP_BONUS_MINING:autosmelt_quartz:ALL:QUARTZ 0:QUARTZ 0:75 1,25 2:false'
+        - 'ADD_BLOCK_DROP_BONUS_MINING:autosmelt_redstone:ALL:REDSTONE 0:REDSTONE 0:75 0,25 1:false'
+        - 'ADD_BLOCK_DROP_BONUS_MINING:autosmelt_lapis:ALL:LAPIS_LAZULI:LAPIS_LAZULI:75 0,25 1:false'
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'REMOVE_BLOCK_DROP_BONUS_MINING:autosmelt_coal'
+        - 'REMOVE_BLOCK_DROP_BONUS_MINING:autosmelt_iron'
+        - 'REMOVE_BLOCK_DROP_BONUS_MINING:autosmelt_gold'
+        - 'REMOVE_BLOCK_DROP_BONUS_MINING:autosmelt_quartz'
+        - 'REMOVE_BLOCK_DROP_BONUS_MINING:autosmelt_redstone'
+        - 'REMOVE_BLOCK_DROP_BONUS_MINING:autosmelt_lapis'
+        - 'REMOVE_FURNACE_MINING:autosmelt'
+    5:
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'ADD_FURNACE_MINING:autosmelt:50'
+        - 'ADD_BLOCK_DROP_BONUS_MINING:autosmelt_coal:ALL:COAL 0:COAL 0:60 2,30 3,10 4:false'
+        - 'ADD_BLOCK_DROP_BONUS_MINING:autosmelt_iron:ALL:IRON_INGOT 0:IRON_INGOT 0:60 1,30 2,10 3:false'
+        - 'ADD_BLOCK_DROP_BONUS_MINING:autosmelt_gold:ALL:GOLD_INGOT 0:GOLD_INGOT 0:60 1,30 2,10 3:false'
+        - 'ADD_BLOCK_DROP_BONUS_MINING:autosmelt_quartz:ALL:QUARTZ 0:QUARTZ 0:60 1,30 2,10 3:false'
+        - 'ADD_BLOCK_DROP_BONUS_MINING:autosmelt_redstone:ALL:REDSTONE 0:REDSTONE 0:60 1,30 2,10 3:false'
+        - 'ADD_BLOCK_DROP_BONUS_MINING:autosmelt_lapis:ALL:LAPIS_LAZULI:LAPIS_LAZULI:60 1,30 2,10 3:false'
+        - 'ADD_BLOCK_DROP_BONUS_MINING:autosmelt_diamond:ALL:DIAMOND 0:DIAMOND 0:75 1,25 2:false'
+        - 'ADD_BLOCK_DROP_BONUS_MINING:autosmelt_emerald:ALL:EMERALD 0:EMERALD 0:75 0,25 1:false'
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'REMOVE_BLOCK_DROP_BONUS_MINING:autosmelt_coal'
+        - 'REMOVE_BLOCK_DROP_BONUS_MINING:autosmelt_iron'
+        - 'REMOVE_BLOCK_DROP_BONUS_MINING:autosmelt_gold'
+        - 'REMOVE_BLOCK_DROP_BONUS_MINING:autosmelt_quartz'
+        - 'REMOVE_BLOCK_DROP_BONUS_MINING:autosmelt_redstone'
+        - 'REMOVE_BLOCK_DROP_BONUS_MINING:autosmelt_lapis'
+        - 'REMOVE_BLOCK_DROP_BONUS_MINING:autosmelt_diamond'
+        - 'REMOVE_BLOCK_DROP_BONUS_MINING:autosmelt_emerald'
+        - 'REMOVE_FURNACE_MINING:autosmelt'
+goldminer:
+  group: 'common'
+  display: 'Goldminer'
+  description:
+  - '&eNhận thêm tiền khi đào quặng'
+  detail-description:
+  - '&eNhận thêm tiền khi đào quặng'
+  - ''
+  - '&eLượng tiền: 2 x Cấp'
+  applies-description:
+  - 'Cúp'
+  applies:
+  - 'ALL_PICKAXE'
+  max-level: 10
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'ADD_BLOCK_BONUS:MONEY:goldminer_money_bonus:ALL_ORE_BLOCK:2'
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'REMOVE_BLOCK_BONUS:MONEY:goldminer_money_bonus'
+    2:
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'ADD_BLOCK_BONUS:MONEY:goldminer_money_bonus:ALL_ORE_BLOCK:4'
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'REMOVE_BLOCK_BONUS:MONEY:goldminer_money_bonus'
+    3:
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'ADD_BLOCK_BONUS:MONEY:goldminer_money_bonus:ALL_ORE_BLOCK:6'
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'REMOVE_BLOCK_BONUS:MONEY:goldminer_money_bonus'
+    4:
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'ADD_BLOCK_BONUS:MONEY:goldminer_money_bonus:ALL_ORE_BLOCK:8'
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'REMOVE_BLOCK_BONUS:MONEY:goldminer_money_bonus'
+    5:
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'ADD_BLOCK_BONUS:MONEY:goldminer_money_bonus:ALL_ORE_BLOCK:10'
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'REMOVE_BLOCK_BONUS:MONEY:goldminer_money_bonus'
+    6:
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'ADD_BLOCK_BONUS:MONEY:goldminer_money_bonus:ALL_ORE_BLOCK:12'
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'REMOVE_BLOCK_BONUS:MONEY:goldminer_money_bonus'
+    7:
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'ADD_BLOCK_BONUS:MONEY:goldminer_money_bonus:ALL_ORE_BLOCK:14'
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'REMOVE_BLOCK_BONUS:MONEY:goldminer_money_bonus'
+    8:
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'ADD_BLOCK_BONUS:MONEY:goldminer_money_bonus:ALL_ORE_BLOCK:16'
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'REMOVE_BLOCK_BONUS:MONEY:goldminer_money_bonus'
+    9:
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'ADD_BLOCK_BONUS:MONEY:goldminer_money_bonus:ALL_ORE_BLOCK:18'
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'REMOVE_BLOCK_BONUS:MONEY:goldminer_money_bonus'
+    10:
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'ADD_BLOCK_BONUS:MONEY:goldminer_money_bonus:ALL_ORE_BLOCK:20'
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'REMOVE_BLOCK_BONUS:MONEY:goldminer_money_bonus'
+experience:
+  group: 'common'
+  display: 'Experience'
+  description:
+  - '&eNhận thêm kinh nghiệm khi đào quặng'
+  detail-description:
+  - '&eNhận thêm kinh nghiệm khi đào quặng'
+  - ''
+  - '&eLượng kinh nghiệm: 2 x Cấp'
+  applies-description:
+  - 'Cúp'
+  applies:
+  - 'ALL_PICKAXE'
+  max-level: 10
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'ADD_BLOCK_BONUS:EXP:experience_xp_bonus:ALL_ORE_BLOCK:2:0:100'
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'REMOVE_BLOCK_BONUS:EXP:experience_xp_bonus'
+    2:
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'ADD_BLOCK_BONUS:EXP:experience_xp_bonus:ALL_ORE_BLOCK:4:0:100'
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'REMOVE_BLOCK_BONUS:EXP:experience_xp_bonus'
+    3:
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'ADD_BLOCK_BONUS:EXP:experience_xp_bonus:ALL_ORE_BLOCK:6:0:100'
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'REMOVE_BLOCK_BONUS:EXP:experience_xp_bonus'
+    4:
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'ADD_BLOCK_BONUS:EXP:experience_xp_bonus:ALL_ORE_BLOCK:8:0:100'
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'REMOVE_BLOCK_BONUS:EXP:experience_xp_bonus'
+    5:
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'ADD_BLOCK_BONUS:EXP:experience_xp_bonus:ALL_ORE_BLOCK:10:0:100'
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'REMOVE_BLOCK_BONUS:EXP:experience_xp_bonus'
+    6:
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'ADD_BLOCK_BONUS:EXP:experience_xp_bonus:ALL_ORE_BLOCK:12:0:100'
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'REMOVE_BLOCK_BONUS:EXP:experience_xp_bonus'
+    7:
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'ADD_BLOCK_BONUS:EXP:experience_xp_bonus:ALL_ORE_BLOCK:14:0:100'
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'REMOVE_BLOCK_BONUS:EXP:experience_xp_bonus'
+    8:
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'ADD_BLOCK_BONUS:EXP:experience_xp_bonus:ALL_ORE_BLOCK:16:0:100'
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'REMOVE_BLOCK_BONUS:EXP:experience_xp_bonus'
+    9:
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'ADD_BLOCK_BONUS:EXP:experience_xp_bonus:ALL_ORE_BLOCK:18:0:100'
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'REMOVE_BLOCK_BONUS:EXP:experience_xp_bonus'
+    10:
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'ADD_BLOCK_BONUS:EXP:experience_xp_bonus:ALL_ORE_BLOCK:20:0:100'
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'REMOVE_BLOCK_BONUS:EXP:experience_xp_bonus'
+furnace:
+  group: 'rare'
+  display: 'Furnace'
+  description:
+  - '&eGiúp nung chảy quặng vừa đào'
+  applies-description:
+  - 'Cúp'
+  applies:
+  - 'ALL_PICKAXE'
+  max-level: 3
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      equip:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'ADD_FURNACE_MINING:furnace:50'
+      unequip:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'REMOVE_FURNACE_MINING:furnace'
+    2:
+      equip:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'ADD_FURNACE_MINING:furnace:75'
+      unequip:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'REMOVE_FURNACE_MINING:furnace'
+    3:
+      equip:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'ADD_FURNACE_MINING:furnace:100'
+      unequip:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'REMOVE_FURNACE_MINING:furnace'
+trench:
+  group: 'epic'
+  display: 'Trench'
+  description:
+  - '&eCó tỉ lệ phá vỡ các khối xung quanh'
+  - '&etheo kích thước 3x3 nhưng không rớt'
+  - '&evật phẩm và độ bền công cụ sẽ giảm'
+  - '&enhanh hơn khi đào khối'
+  applies-description:
+  - 'Cúp'
+  applies:
+  - 'ALL_PICKAXE'
+  max-level: 3
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      equip:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'ADD_EXPLOSION_MINING:trench:3:50:false'
+      unequip:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'REMOVE_EXPLOSION_MINING:trench'
+    2:
+      equip:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'ADD_EXPLOSION_MINING:trench:3:75:false'
+      unequip:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'REMOVE_EXPLOSION_MINING:trench'
+    3:
+      equip:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'ADD_EXPLOSION_MINING:trench:3:100:false'
+      unequip:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+        - 'EQUIP_SLOT:MAINHAND'
+        effects:
+        - 'REMOVE_EXPLOSION_MINING:trench'

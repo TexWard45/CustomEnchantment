@@ -1,63 +1,205 @@
+# Color
+# Thường - #94a3b8
+# Hiếm - #22c55e
+# Sử thi - #0dcaf0
+# Huyền thoại - #ffc107
+# Tối thượng - #ff7b00
+# Chiến thần - #ef4444
+# Sự kiện - #ec4899
+# Giới hạn - #a855f7
 common:
   display: Thường
-  prefix: '&f'
+  enchant-display: "&#94a3b8%enchant_display% %enchant_level%"
+  book-display: "&#94a3b8&l&n%enchant_display% %enchant_level%"
+  prefix: "&#94a3b8"
   success: 0->50
-  destroy: 0->20
+  success-sigma: 0.5 # success percent will close to 50% of success rate (gaussian sigma)
+  destroy: 0->100
+  destroy-sigma: 0.5 # destroy percent will close to 75% of destroy rate (gaussian sigma)
   valuable: 0
+  craft: true
+  filter: true
 rare:
   display: Hiếm
-  prefix: '&a'
-  success: 0->45
-  destroy: 0->30
+  enchant-display: "&#22c55e%enchant_display% %enchant_level%"
+  book-display: "&#22c55e&l&n%enchant_display% %enchant_level%"
+  prefix: "&#22c55e"
+  success: 0->75
+  success-sigma: 0.5 # average 19
+  destroy: 5->100
+  destroy-sigma: 0.5
   valuable: 1000
+  craft: true
+  filter: true
 epic:
   display: Sử thi
-  prefix: '&b'
-  success: 0->40
-  destroy: 0->40
+  enchant-display: "&#0dcaf0%enchant_display% %enchant_level%"
+  book-display: "&#0dcaf0&l&n%enchant_display% %enchant_level%"
+  prefix: "&#0dcaf0"
+  success: 0->50
+  success-sigma: 0.5 # average 15
+  destroy: 10->100
+  destroy-sigma: 0.5
   valuable: 2000
+  craft: true
+  filter: true
 legendary:
   display: Huyền thoại
-  prefix: '&e'
-  success: 0->30
-  destroy: 0->60
+  enchant-display: "&#ffc107%enchant_display% %enchant_level%"
+  book-display: "&#ffc107&l&n%enchant_display% %enchant_level%"
+  prefix: "&#ffc107"
+  success: 0->75
+  success-sigma: 0.4 # average 11
+  destroy: 15->100
+  destroy-sigma: 0.5
   valuable: 3000
+  craft: true
+  filter: true
 supreme:
   display: Tối thượng
-  prefix: '&6'
-  success: 0->20
-  destroy: 0->80
+  enchant-display: "&#ff7b00%enchant_display% %enchant_level%"
+  book-display: "&#ff7b00&l&n%enchant_display% %enchant_level%"
+  prefix: "&#ff7b00"
+  success: 0->100
+  success-sigma: 0.3 # average 7
+  destroy: 20->100
+  destroy-sigma: 0.5
   valuable: 4000
+  craft: true
+  filter: true
 ultimate:
   display: Chiến thần
-  prefix: '&c'
-  success: 0->10
-  destroy: 0->100
+  enchant-display: "&#ef4444%enchant_display% %enchant_level%"
+  book-display: "&#ef4444&l&n%enchant_display% %enchant_level%"
+  prefix: "&#ef4444"
+  success: 0->100
+  success-sigma: 0.25 # average 3
+  destroy: 25->100
+  destroy-sigma: 0.5
   valuable: 5000
+  craft: true
+  filter: true
 event:
   display: Sự kiện
-  prefix: '&d'
+  enchant-display: "&#ec4899%enchant_display% %enchant_level%"
+  book-display: "&#ec4899&l&n%enchant_display% %enchant_level%"
+  prefix: "&#ec4899"
   success: 100
   destroy: 0
   valuable: 10000
+  craft: true
+limit:
+  display: Giới hạn
+  enchant-display: "&#a855f7%enchant_display% %enchant_level%"
+  book-display: "&#a855f7&l&n%enchant_display% %enchant_level%"
+  prefix: "&#a855f7"
+  success: 100
+  destroy: 0
+  valuable: 15000
+  craft: true
 mask:
   display: Mặt nạ
-  prefix: '&5'
+  enchant-display: "&5%enchant_display% %enchant_level%"
+  book-display: "&5&l&n%enchant_display% %enchant_level%"
+  prefix: "&5"
+  success: 100
+  destroy: 0
+  valuable: 20000
+  priority: HIGHEST
+artifact:
+  display: Cổ vật
+  enchant-display: "&f%enchant_display% %enchant_level%"
+  book-display: "&f&l&n%enchant_display% %enchant_level%"
+  prefix: "&f"
   success: 100
   destroy: 0
   valuable: 20000
   priority: HIGHEST
 set:
   display: Bộ trang bị
-  disable-enchant-lore: true
-  prefix: '&f'
+  enchant-display: "&f%enchant_display% %enchant_level%"
+  book-display: "&f&l&n%enchant_display% %enchant_level%"
+  prefix: "&f"
+  success: 100
+  destroy: 0
+  valuable: 50000
+  priority: MORNITOR
+tool:
+  display: Bộ công cụ
+  enchant-display: "&f%enchant_display% %enchant_level%"
+  book-display: "&f&l&n%enchant_display% %enchant_level%"
+  prefix: "&f"
   success: 100
   destroy: 0
   valuable: 50000
   priority: MORNITOR
 disable:
   display: Không hoạt động
-  prefix: '&8&m'
+  enchant-display: "&8%enchant_display% %enchant_level%"
+  book-display: "&8&l&n%enchant_display% %enchant_level%"
+  prefix: "&8&m"
   success: 0
   destroy: 100
   valuable: 0
+test:
+  display: Thử nghiệm
+  enchant-display: "&8%enchant_display% %enchant_level%"
+  book-display: "&8&l&n%enchant_display% %enchant_level%"
+  prefix: "&8"
+  success: 0
+  destroy: 100
+  valuable: 0
+primecommon:
+  display: Thường (Đột phá)
+  enchant-display: "&#94a3b8&k&l|&r <GRADIENT:94a3b8>&l%enchant_display_half_1%</GRADIENT:e2e8f0><GRADIENT:e2e8f0>&l%enchant_display_half_2% %enchant_level%</GRADIENT:94a3b8>&r &#94a3b8&k&l|"
+  book-display: "&#94a3b8&k&l|&r <GRADIENT:94a3b8>&l&n%enchant_display_half_1%</GRADIENT:e2e8f0><GRADIENT:e2e8f0>&l&n%enchant_display_half_2% %enchant_level%</GRADIENT:94a3b8>&r &#94a3b8&k&l|"
+  prefix: "&f"
+  success: 100
+  destroy: 0
+  valuable: 0
+  craft: false
+primerare:
+  display: Hiếm (Đột phá)
+  enchant-display: "&#16a34a&k|&r <GRADIENT:16a34a>&l%enchant_display_half_1%</GRADIENT:bbf7d0><GRADIENT:bbf7d0>&l%enchant_display_half_2% %enchant_level%</GRADIENT:16a34a>&r &#16a34a&k&l|"
+  book-display: "&#16a34a&k&l|&r <GRADIENT:16a34a>&l%enchant_display_half_1%</GRADIENT:bbf7d0><GRADIENT:bbf7d0>&l%enchant_display_half_2% %enchant_level%</GRADIENT:16a34a>&r &#16a34a&k&l|"
+  prefix: "&a"
+  success: 100
+  destroy: 0
+  valuable: 1000
+  craft: false
+primeepic:
+  display: Sử thi (Đột phá)
+  enchant-display: "&#0891b2&k&l|&r <GRADIENT:0891b2>&l%enchant_display_half_1%</GRADIENT:a5f3fc><GRADIENT:a5f3fc>&l%enchant_display_half_2% %enchant_level%</GRADIENT:0891b2>&r &#0891b2&k&l|"
+  book-display: "&#0891b2&k&l|&r <GRADIENT:0891b2>&l&n%enchant_display_half_1%</GRADIENT:a5f3fc><GRADIENT:a5f3fc>&l&n%enchant_display_half_2% %enchant_level%</GRADIENT:0891b2>&r &#0891b2&k&l|"
+  prefix: "&b"
+  success: 100
+  destroy: 0
+  valuable: 2000
+  craft: false
+primelegendary:
+  display: Huyền thoại (Đột phá)
+  enchant-display: "&#facc15&k&l|&r <GRADIENT:facc15>&l%enchant_display_half_1%</GRADIENT:fef08a><GRADIENT:fef08a>&l%enchant_display_half_2% %enchant_level%</GRADIENT:facc15>&r &#facc15&k&l|"
+  book-display: "&#facc15&k&l| <GRADIENT:facc15>&l&n%enchant_display_half_1%</GRADIENT:fef08a><GRADIENT:fef08a>&l&n%enchant_display_half_2% %enchant_level%</GRADIENT:facc15>&r &#facc15&k&l|"
+  prefix: "&e"
+  success: 100
+  destroy: 0
+  valuable: 3000
+  craft: false
+primesupreme:
+  display: Tối thượng (Đột phá)
+  enchant-display: "&#ff7b00&k&l|&r <GRADIENT:ff7b00>&l%enchant_display_half_1%</GRADIENT:fed7aa><GRADIENT:fed7aa>&l%enchant_display_half_2% %enchant_level%</GRADIENT:ff7b00>&r &#ff7b00&k&l|"
+  book-display: "&#ff7b00&k&l|&r <GRADIENT:ff7b00>&l&n%enchant_display_half_1%</GRADIENT:fed7aa><GRADIENT:fed7aa>&l&n%enchant_display_half_2% %enchant_level%</GRADIENT:ff7b00>&r &#ff7b00&k&l|"
+  prefix: "&6"
+  success: 100
+  destroy: 0
+  valuable: 4000
+  craft: false
+primeultimate:
+  display: Chiến thần (Đột phá)
+  enchant-display: "&#dc2626&k&l|&r <GRADIENT:dc2626>&l%enchant_display_half_1%</GRADIENT:fecaca><GRADIENT:fecaca>&l%enchant_display_half_2% %enchant_level%</GRADIENT:dc2626>&r &#dc2626&k&l|"
+  book-display: "&#dc2626&k&l|&r <GRADIENT:dc2626>&l&n%enchant_display_half_1%</GRADIENT:fecaca><GRADIENT:fecaca>&l&n%enchant_display_half_2% %enchant_level%</GRADIENT:dc2626>&r &#dc2626&k&l|"
+  prefix: "&c"
+  success: 100
+  destroy: 0
+  valuable: 5000
+  craft: false

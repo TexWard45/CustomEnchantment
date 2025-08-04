@@ -28,8 +28,16 @@ public class CEGemData extends CEItemData implements Cloneable {
 		private MaterialList appliesMaterialList;
 		private List<String> appliesDescription;
 		private List<String> appliesSlot;
-		private Map<Integer, List<NMSAttribute>> nmsAttributeLevelMap;
+		private Map<Integer, ConfigByLevelData> levelMap;
 		private int limitPerItem;
+	}
+
+	@AllArgsConstructor
+	@Getter
+	@Builder
+	public static class ConfigByLevelData {
+		private List<NMSAttribute> nmsAttributes;
+		private int customModelData;
 	}
 
 	public CEGemData() {
@@ -49,6 +57,10 @@ public class CEGemData extends CEItemData implements Cloneable {
 	}
 
 	public List<NMSAttribute> getNMSAttributes() {
-		return configData.nmsAttributeLevelMap.containsKey(level) ? configData.nmsAttributeLevelMap.get(level) : new ArrayList<>();
+		return configData.getLevelMap().containsKey(level) ? configData.getLevelMap().get(level).getNmsAttributes() : new ArrayList<>();
+	}
+
+	public int getCustomModelData() {
+		return configData.getLevelMap().containsKey(level) ? configData.getLevelMap().get(level).getCustomModelData() : 0;
 	}
 }

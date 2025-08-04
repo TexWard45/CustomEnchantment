@@ -6,6 +6,7 @@ import com.bafmc.bukkit.config.annotation.Configuration;
 import com.bafmc.bukkit.config.annotation.Path;
 import com.bafmc.bukkit.config.annotation.ValueType;
 import com.bafmc.bukkit.feature.placeholder.PlaceholderManager;
+import com.bafmc.bukkit.utils.EquipSlot;
 import com.bafmc.customenchantment.api.EntityTypeList;
 import com.bafmc.customenchantment.api.MaterialList;
 import com.bafmc.customenchantment.config.data.ExtraSlotSettingsData;
@@ -68,7 +69,12 @@ public class MainConfig implements IConfigurationLoader {
 	private boolean combatSettingsRequireWeapon = true;
 	@Path("enchant-value")
 	private AdvancedConfigurationSection enchantValueConfig = new AdvancedConfigurationSection();
-
+	@Path("sigil-extra-slot")
+	@Getter
+	private EquipSlot sigilExtraSlot = EquipSlot.EXTRA_SLOT_8;
+	@Path("sigil-display-enable")
+	@Getter
+	private boolean sigilDisplayEnable;
 
 	@Override
 	public void loadConfig(String s, ConfigurationSection config) {

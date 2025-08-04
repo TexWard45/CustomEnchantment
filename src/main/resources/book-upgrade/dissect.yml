@@ -1,0 +1,172 @@
+list:
+  dissect:
+    10:
+      chance: 75
+      required-xp: 3072
+      lose-xp-percent: 5->20
+      upgrade-enchant:
+        name: primedissect
+        level: 1
+        success: 100
+        destroy: 0
+      xp-enchant-whitelist:
+        - 'primedissect'
+      requirement:
+        - 'ITEM:CUSTOM_ENCHANTMENT:storage:magic-ball:1'
+        - 'ITEM:CUSTOM_ENCHANTMENT:storage:enchant-paper:3'
+        - 'EXP:50000'
+        - 'MONEY:25000'
+  primedissect:
+    1:
+      chance: 70
+      xp: 3072->4608
+      required-xp: 4608
+      lose-xp-percent: 5->20
+      upgrade-enchant:
+        name: primedissect
+        level: 2
+        success: 100
+        destroy: 0
+      xp-enchant-whitelist:
+        - 'dissect'
+      requirement:
+        - 'ITEM:CUSTOM_ENCHANTMENT:storage:magic-ball:2'
+        - 'ITEM:CUSTOM_ENCHANTMENT:storage:enchant-paper:6'
+        - 'EXP:100000'
+        - 'MONEY:50000'
+    2:
+      chance: 65
+      xp: 4608->6912
+      required-xp: 6912
+      lose-xp-percent: 10->25
+      upgrade-enchant:
+        name: primedissect
+        level: 3
+        success: 100
+        destroy: 0
+      xp-enchant-whitelist:
+        - 'dissect'
+      requirement:
+        - 'ITEM:CUSTOM_ENCHANTMENT:storage:magic-ball:3'
+        - 'ITEM:CUSTOM_ENCHANTMENT:storage:enchant-paper:9'
+        - 'EXP:200000'
+        - 'MONEY:100000'
+    3:
+      chance: 60
+      xp: 6912->10368
+      required-xp: 10368
+      lose-xp-percent: 10->25
+      upgrade-enchant:
+        name: primedissect
+        level: 4
+        success: 100
+        destroy: 0
+      xp-enchant-whitelist:
+        - 'dissect'
+      requirement:
+        - 'ITEM:CUSTOM_ENCHANTMENT:storage:magic-ball:4'
+        - 'ITEM:CUSTOM_ENCHANTMENT:storage:enchant-paper:12'
+        - 'EXP:400000'
+        - 'MONEY:200000'
+    4:
+      chance: 55
+      xp: 10368->15552
+      required-xp: 15552
+      lose-xp-percent: 10->30
+      upgrade-enchant:
+        name: primedissect
+        level: 5
+        success: 100
+        destroy: 0
+      xp-enchant-whitelist:
+        - 'dissect'
+      requirement:
+        - 'ITEM:CUSTOM_ENCHANTMENT:storage:magic-ball:5'
+        - 'ITEM:CUSTOM_ENCHANTMENT:storage:enchant-paper:15'
+        - 'EXP:800000'
+        - 'MONEY:400000'
+    5:
+      chance: 50
+      xp: 15552->23328
+      required-xp: 23328
+      lose-xp-percent: 15->30
+      upgrade-enchant:
+        name: primedissect
+        level: 6
+        success: 100
+        destroy: 0
+      xp-enchant-whitelist:
+        - 'dissect'
+      requirement:
+        - 'ITEM:CUSTOM_ENCHANTMENT:storage:magic-ball:6'
+        - 'ITEM:CUSTOM_ENCHANTMENT:storage:enchant-paper:18'
+        - 'EXP:1600000'
+        - 'MONEY:800000'
+    6:
+      chance: 45
+      xp: 23328->34992
+      required-xp: 34992
+      lose-xp-percent: 20-35
+      upgrade-enchant:
+        name: primedissect
+        level: 7
+        success: 100
+        destroy: 0
+      xp-enchant-whitelist:
+        - 'dissect'
+      requirement:
+        - 'ITEM:CUSTOM_ENCHANTMENT:storage:magic-ball:7'
+        - 'ITEM:CUSTOM_ENCHANTMENT:storage:enchant-paper:21'
+        - 'EXP:3200000'
+        - 'MONEY:1600000'
+    7:
+      chance: 40
+      xp: 34992->52488
+      required-xp: 52488
+      lose-xp-percent: 20-40
+      upgrade-enchant:
+        name: primedissect
+        level: 8
+        success: 100
+        destroy: 0
+      xp-enchant-whitelist:
+        - 'dissect'
+      requirement:
+        - 'ITEM:CUSTOM_ENCHANTMENT:storage:magic-ball:8'
+        - 'ITEM:CUSTOM_ENCHANTMENT:storage:enchant-paper:24'
+        - 'EXP:6400000'
+        - 'MONEY:3200000'
+    8:
+      chance: 35
+      xp: 52488->78732
+      required-xp: 78732
+      lose-xp-percent: 25-45
+      upgrade-enchant:
+        name: primedissect
+        level: 9
+        success: 100
+        destroy: 0
+      xp-enchant-whitelist:
+        - 'dissect'
+      requirement:
+        - 'ITEM:CUSTOM_ENCHANTMENT:storage:magic-ball:9'
+        - 'ITEM:CUSTOM_ENCHANTMENT:storage:enchant-paper:27'
+        - 'EXP:12800000'
+        - 'MONEY:6400000'
+    9:
+      chance: 30
+      xp: 78732->118098
+      required-xp: 118098
+      lose-xp-percent: 25-50
+      upgrade-enchant:
+        name: primedissect
+        level: 10
+        success: 100
+        destroy: 0
+      xp-enchant-whitelist:
+        - 'dissect'
+      requirement:
+        - 'ITEM:CUSTOM_ENCHANTMENT:storage:magic-ball:10'
+        - 'ITEM:CUSTOM_ENCHANTMENT:storage:enchant-paper:30'
+        - 'EXP:25600000'
+        - 'MONEY:12800000'

@@ -1,309 +1,422 @@
 log:
   random-book:
     enable: false
+combat-settings:
+  require-weapon: true
+max-extra-slot-use-count: 8
+extra-slot-settings:
+  artifact-default:
+    max-count: 5
+    list:
+      - "artifact common"
+      - "artifact rare"
+      - "artifact epic"
+      - "artifact legendary"
+      - "artifact supreme"
+      - "artifact ultimate"
+    slots:
+      - EXTRA_SLOT_1
+      - EXTRA_SLOT_2
+      - EXTRA_SLOT_3
+      - EXTRA_SLOT_4
+      - EXTRA_SLOT_5
+  artifact-event:
+    max-count: 2
+    list:
+      - "artifact event"
+    slots:
+      - EXTRA_SLOT_6
+      - EXTRA_SLOT_7
+  sigil-all:
+    max-count: 1
+    list:
+      - "sigil"
+    slots:
+      - EXTRA_SLOT_8
+sigil-extra-slot: EXTRA_SLOT_8
+sigil-display-enable: false
+unbreakable-armor:
+  enable: true
+  player-per-tick: 1
+  tick-interval: 1
+combat-time: 10000
 enchant-disable-worlds:
-- ''
+  - ""
+effect-type-blacklist:
+  - ""
 ce-item-material-whitelist:
-- 'ALL_ARMOR'
-- 'ALL_SWORD'
-- 'ALL_AXE'
-- 'ALL_HOE'
-- 'ALL_PICKAXE'
-- 'ALL_AXE'
-- 'ALL_SHOVEL'
-- 'ALL_SHOVEL'
-- 'ALL_BOW'
-- 'SHIELD'
+  - "ALL_ARMOR"
+  - "ALL_SWORD"
+  - "ALL_AXE"
+  - "ALL_HOE"
+  - "ALL_PICKAXE"
+  - "ALL_AXE"
+  - "ALL_SHOVEL"
+  - "ALL_SHOVEL"
+  - "ALL_BOW"
+  - "CROSSBOW"
+  - "SHIELD"
+  - "TRIDENT"
 entity-group:
   ALL:
-  - 'DROPPED_ITEM'
-  - 'EXPERIENCE_ORB'
-  - 'AREA_EFFECT_CLOUD'
-  - 'ELDER_GUARDIAN'
-  - 'WITHER_SKELETON'
-  - 'STRAY'
-  - 'EGG'
-  - 'LEASH_HITCH'
-  - 'PAINTING'
-  - 'ARROW'
-  - 'SNOWBALL'
-  - 'FIREBALL'
-  - 'SMALL_FIREBALL'
-  - 'ENDER_PEARL'
-  - 'ENDER_SIGNAL'
-  - 'SPLASH_POTION'
-  - 'THROWN_EXP_BOTTLE'
-  - 'ITEM_FRAME'
-  - 'WITHER_SKULL'
-  - 'PRIMED_TNT'
-  - 'FALLING_BLOCK'
-  - 'FIREWORK'
-  - 'HUSK'
-  - 'SPECTRAL_ARROW'
-  - 'SHULKER_BULLET'
-  - 'DRAGON_FIREBALL'
-  - 'ZOMBIE_VILLAGER'
-  - 'SKELETON_HORSE'
-  - 'ZOMBIE_HORSE'
-  - 'ARMOR_STAND'
-  - 'DONKEY'
-  - 'MULE'
-  - 'EVOKER_FANGS'
-  - 'EVOKER'
-  - 'VEX'
-  - 'VINDICATOR'
-  - 'ILLUSIONER'
-  - 'MINECART_COMMAND'
-  - 'BOAT'
-  - 'MINECART'
-  - 'MINECART_CHEST'
-  - 'MINECART_FURNACE'
-  - 'MINECART_TNT'
-  - 'MINECART_HOPPER'
-  - 'MINECART_MOB_SPAWNER'
-  - 'CREEPER'
-  - 'SKELETON'
-  - 'SPIDER'
-  - 'GIANT'
-  - 'ZOMBIE'
-  - 'SLIME'
-  - 'GHAST'
-  - 'ZOMBIFIED_PIGLIN'
-  - 'ENDERMAN'
-  - 'CAVE_SPIDER'
-  - 'SILVERFISH'
-  - 'BLAZE'
-  - 'MAGMA_CUBE'
-  - 'ENDER_DRAGON'
-  - 'WITHER'
-  - 'BAT'
-  - 'WITCH'
-  - 'ENDERMITE'
-  - 'GUARDIAN'
-  - 'SHULKER'
-  - 'PIG'
-  - 'SHEEP'
-  - 'COW'
-  - 'CHICKEN'
-  - 'SQUID'
-  - 'WOLF'
-  - 'MUSHROOM_COW'
-  - 'SNOWMAN'
-  - 'OCELOT'
-  - 'IRON_GOLEM'
-  - 'HORSE'
-  - 'RABBIT'
-  - 'POLAR_BEAR'
-  - 'LLAMA'
-  - 'LLAMA_SPIT'
-  - 'PARROT'
-  - 'VILLAGER'
-  - 'ENDER_CRYSTAL'
-  - 'TURTLE'
-  - 'PHANTOM'
-  - 'TRIDENT'
-  - 'COD'
-  - 'SALMON'
-  - 'PUFFERFISH'
-  - 'TROPICAL_FISH'
-  - 'DROWNED'
-  - 'DOLPHIN'
-  - 'CAT'
-  - 'PANDA'
-  - 'PILLAGER'
-  - 'RAVAGER'
-  - 'TRADER_LLAMA'
-  - 'WANDERING_TRADER'
-  - 'FOX'
-  - 'BEE'
-  - 'HOGLIN'
-  - 'PIGLIN'
-  - 'STRIDER'
-  - 'ZOGLIN'
-  - 'PIGLIN_BRUTE'
-  - 'FISHING_HOOK'
-  - 'LIGHTNING'
-  - 'PLAYER'
-  - 'UNKNOWN'
+    - "ITEM"
+    - "EXPERIENCE_ORB"
+    - "AREA_EFFECT_CLOUD"
+    - "ELDER_GUARDIAN"
+    - "WITHER_SKELETON"
+    - "STRAY"
+    - "EGG"
+    - "LEASH_KNOT"
+    - "PAINTING"
+    - "ARROW"
+    - "SNOWBALL"
+    - "FIREBALL"
+    - "SMALL_FIREBALL"
+    - "ENDER_PEARL"
+    - "EYE_OF_ENDER"
+    - "POTION"
+    - "EXPERIENCE_BOTTLE"
+    - "ITEM_FRAME"
+    - "WITHER_SKULL"
+    - "TNT"
+    - "FALLING_BLOCK"
+    - "FIREWORK_ROCKET"
+    - "HUSK"
+    - "SPECTRAL_ARROW"
+    - "SHULKER_BULLET"
+    - "DRAGON_FIREBALL"
+    - "ZOMBIE_VILLAGER"
+    - "SKELETON_HORSE"
+    - "ZOMBIE_HORSE"
+    - "ARMOR_STAND"
+    - "DONKEY"
+    - "MULE"
+    - "EVOKER_FANGS"
+    - "EVOKER"
+    - "VEX"
+    - "VINDICATOR"
+    - "ILLUSIONER"
+    - "COMMAND_BLOCK_MINECART"
+    - "BOAT"
+    - "MINECART"
+    - "CHEST_MINECART"
+    - "FURNACE_MINECART"
+    - "TNT_MINECART"
+    - "HOPPER_MINECART"
+    - "SPAWNER_MINECART"
+    - "CREEPER"
+    - "SKELETON"
+    - "SPIDER"
+    - "GIANT"
+    - "ZOMBIE"
+    - "SLIME"
+    - "GHAST"
+    - "ZOMBIFIED_PIGLIN"
+    - "ENDERMAN"
+    - "CAVE_SPIDER"
+    - "SILVERFISH"
+    - "BLAZE"
+    - "MAGMA_CUBE"
+    - "ENDER_DRAGON"
+    - "WITHER"
+    - "BAT"
+    - "WITCH"
+    - "ENDERMITE"
+    - "GUARDIAN"
+    - "SHULKER"
+    - "PIG"
+    - "SHEEP"
+    - "COW"
+    - "CHICKEN"
+    - "SQUID"
+    - "WOLF"
+    - "MOOSHROOM"
+    - "SNOW_GOLEM"
+    - "OCELOT"
+    - "IRON_GOLEM"
+    - "HORSE"
+    - "RABBIT"
+    - "POLAR_BEAR"
+    - "LLAMA"
+    - "LLAMA_SPIT"
+    - "PARROT"
+    - "VILLAGER"
+    - "END_CRYSTAL"
+    - "TURTLE"
+    - "PHANTOM"
+    - "TRIDENT"
+    - "COD"
+    - "SALMON"
+    - "PUFFERFISH"
+    - "TROPICAL_FISH"
+    - "DROWNED"
+    - "DOLPHIN"
+    - "CAT"
+    - "PANDA"
+    - "PILLAGER"
+    - "RAVAGER"
+    - "TRADER_LLAMA"
+    - "WANDERING_TRADER"
+    - "FOX"
+    - "BEE"
+    - "HOGLIN"
+    - "PIGLIN"
+    - "STRIDER"
+    - "ZOGLIN"
+    - "PIGLIN_BRUTE"
+    - "AXOLOTL"
+    - "GLOW_ITEM_FRAME"
+    - "GLOW_SQUID"
+    - "GOAT"
+    - "MARKER"
+    - "ALLAY"
+    - "CHEST_BOAT"
+    - "FROG"
+    - "TADPOLE"
+    - "WARDEN"
+    - "CAMEL"
+    - "BLOCK_DISPLAY"
+    - "INTERACTION"
+    - "ITEM_DISPLAY"
+    - "SNIFFER"
+    - "TEXT_DISPLAY"
+    - "BREEZE"
+    - "WIND_CHARGE"
+    - "BREEZE_WIND_CHARGE"
+    - "ARMADILLO"
+    - "BOGGED"
+    - "OMINOUS_ITEM_SPAWNER"
+    - "FISHING_BOBBER"
+    - "LIGHTNING_BOLT"
+    - "PLAYER"
+    - "UNKNOWN"
   MOB:
-  - 'ELDER_GUARDIAN'
-  - 'WITHER_SKELETON'
-  - 'STRAY'
-  - 'HUSK'
-  - 'ZOMBIE_VILLAGER'
-  - 'SKELETON_HORSE'
-  - 'ZOMBIE_HORSE'
-  - 'DONKEY'
-  - 'MULE'
-  - 'EVOKER'
-  - 'VEX'
-  - 'VINDICATOR'
-  - 'ILLUSIONER'
-  - 'CREEPER'
-  - 'SKELETON'
-  - 'SPIDER'
-  - 'GIANT'
-  - 'ZOMBIE'
-  - 'SLIME'
-  - 'GHAST'
-  - 'ZOMBIFIED_PIGLIN'
-  - 'ENDERMAN'
-  - 'CAVE_SPIDER'
-  - 'SILVERFISH'
-  - 'BLAZE'
-  - 'MAGMA_CUBE'
-  - 'ENDER_DRAGON'
-  - 'WITHER'
-  - 'BAT'
-  - 'WITCH'
-  - 'ENDERMITE'
-  - 'GUARDIAN'
-  - 'SHULKER'
-  - 'PIG'
-  - 'SHEEP'
-  - 'COW'
-  - 'CHICKEN'
-  - 'SQUID'
-  - 'WOLF'
-  - 'MUSHROOM_COW'
-  - 'SNOWMAN'
-  - 'OCELOT'
-  - 'IRON_GOLEM'
-  - 'HORSE'
-  - 'RABBIT'
-  - 'POLAR_BEAR'
-  - 'LLAMA'
-  - 'PARROT'
-  - 'VILLAGER'
-  - 'TURTLE'
-  - 'PHANTOM'
-  - 'COD'
-  - 'SALMON'
-  - 'PUFFERFISH'
-  - 'TROPICAL_FISH'
-  - 'DROWNED'
-  - 'DOLPHIN'
-  - 'CAT'
-  - 'PANDA'
-  - 'PILLAGER'
-  - 'RAVAGER'
-  - 'TRADER_LLAMA'
-  - 'WANDERING_TRADER'
-  - 'FOX'
-  - 'BEE'
-  - 'HOGLIN'
-  - 'PIGLIN'
-  - 'STRIDER'
-  - 'ZOGLIN'
-  - 'PIGLIN_BRUTE'
+    - "ELDER_GUARDIAN"
+    - "WITHER_SKELETON"
+    - "STRAY"
+    - "HUSK"
+    - "ZOMBIE_VILLAGER"
+    - "SKELETON_HORSE"
+    - "ZOMBIE_HORSE"
+    - "DONKEY"
+    - "MULE"
+    - "EVOKER"
+    - "VEX"
+    - "VINDICATOR"
+    - "ILLUSIONER"
+    - "CREEPER"
+    - "SKELETON"
+    - "SPIDER"
+    - "GIANT"
+    - "ZOMBIE"
+    - "SLIME"
+    - "GHAST"
+    - "ZOMBIFIED_PIGLIN"
+    - "ENDERMAN"
+    - "CAVE_SPIDER"
+    - "SILVERFISH"
+    - "BLAZE"
+    - "MAGMA_CUBE"
+    - "ENDER_DRAGON"
+    - "WITHER"
+    - "BAT"
+    - "WITCH"
+    - "ENDERMITE"
+    - "GUARDIAN"
+    - "SHULKER"
+    - "PIG"
+    - "SHEEP"
+    - "COW"
+    - "CHICKEN"
+    - "SQUID"
+    - "WOLF"
+    - "MOOSHROOM"
+    - "SNOW_GOLEM"
+    - "OCELOT"
+    - "IRON_GOLEM"
+    - "HORSE"
+    - "RABBIT"
+    - "POLAR_BEAR"
+    - "LLAMA"
+    - "PARROT"
+    - "VILLAGER"
+    - "TURTLE"
+    - "PHANTOM"
+    - "COD"
+    - "SALMON"
+    - "PUFFERFISH"
+    - "TROPICAL_FISH"
+    - "DROWNED"
+    - "DOLPHIN"
+    - "CAT"
+    - "PANDA"
+    - "PILLAGER"
+    - "RAVAGER"
+    - "TRADER_LLAMA"
+    - "WANDERING_TRADER"
+    - "FOX"
+    - "BEE"
+    - "HOGLIN"
+    - "PIGLIN"
+    - "STRIDER"
+    - "ZOGLIN"
+    - "PIGLIN_BRUTE"
+    - "AXOLOTL"
+    - "GLOW_SQUID"
+    - "GOAT"
+    - "ALLAY"
+    - "FROG"
+    - "TADPOLE"
+    - "WARDEN"
+    - "CAMEL"
+    - "SNIFFER"
+    - "ARMADILLO"
+    - "BOGGED"
 material-group:
+  CE_HARVEST_BLOCK:
+    - "CARROTS"
+    - "POTATOES"
+    - "WHEAT"
+    - "BEETROOTS"
+    - "PUMPKIN"
+    - "MELON"
+    - "NETHER_WART"
+    - "SUGAR_CANE"
   ALL_ORE_BLOCK:
-  - 'GOLD_ORE'
-  - 'IRON_ORE'
-  - 'COAL_ORE'
-  - 'LAPIS_ORE'
-  - 'DIAMOND_ORE'
-  - 'REDSTONE_ORE'
-  - 'EMERALD_ORE'
-  - 'QUARTZ'
+    - "GOLD_ORE"
+    - "COPPER_ORE"
+    - "IRON_ORE"
+    - "COAL_ORE"
+    - "LAPIS_ORE"
+    - "DIAMOND_ORE"
+    - "REDSTONE_ORE"
+    - "EMERALD_ORE"
+    - "DEEPSLATE_COPPER_ORE"
+    - "DEEPSLATE_GOLD_ORE"
+    - "DEEPSLATE_IRON_ORE"
+    - "DEEPSLATE_COAL_ORE"
+    - "DEEPSLATE_LAPIS_ORE"
+    - "DEEPSLATE_DIAMOND_ORE"
+    - "DEEPSLATE_REDSTONE_ORE"
+    - "DEEPSLATE_EMERALD_ORE"
+    - "NETHER_QUARTZ_ORE"
+    - "NETHER_GOLD_ORE"
   ALL_FARM_FULL_STAGE:
-  - 'WHEAT 7'
-  - 'CARROTS 7'
-  - 'POTATOES 7'
-  - 'BEETROOTS 3'
-  - 'PUMPKIN_STEM 7'
-  - 'MELON_STEM 7'
-  - 'COCOA 2'
-  - 'NETHER_WART 3'
-  - 'SWEET_BERRY_BUSH 2'
-  - 'SWEET_BERRY_BUSH 3'
+    - "WHEAT 7"
+    - "CARROTS 7"
+    - "POTATOES 7"
+    - "BEETROOTS 3"
+    - "PUMPKIN_STEM 7"
+    - "MELON_STEM 7"
+    - "COCOA 2"
+    - "NETHER_WART 3"
+    - "SWEET_BERRY_BUSH 2"
+    - "SWEET_BERRY_BUSH 3"
   ALL_BOW:
-  - 'BOW'
+    - "BOW"
   ALL_ARMOR:
-  - 'CHAINMAIL_HELMET'
-  - 'IRON_HELMET'
-  #- 'GOLDEN_HELMET'
-  - 'DIAMOND_HELMET'
-  - 'LEATHER_HELMET'
-  - 'CHAINMAIL_CHESTPLATE'
-  - 'IRON_CHESTPLATE'
-  #- 'GOLDEN_CHESTPLATE'
-  - 'DIAMOND_CHESTPLATE'
-  - 'LEATHER_CHESTPLATE'
-  - 'CHAINMAIL_LEGGINGS'
-  - 'IRON_LEGGINGS'
-  #- 'GOLDEN_LEGGINGS'
-  - 'DIAMOND_LEGGINGS'
-  - 'LEATHER_LEGGINGS'
-  - 'CHAINMAIL_BOOTS'
-  - 'IRON_BOOTS'
-  #- 'GOLDEN_BOOTS'
-  - 'DIAMOND_BOOTS'
-  - 'LEATHER_BOOTS'
-  - 'CHAINMAIL_HELMET'
-  - 'IRON_HELMET'
-  #- 'GOLDEN_HELMET'
-  - 'DIAMOND_HELMET'
-  - 'LEATHER_HELMET'
+    - "CHAINMAIL_HELMET"
+    - "IRON_HELMET"
+    #- 'GOLDEN_HELMET'
+    - "DIAMOND_HELMET"
+    - "LEATHER_HELMET"
+    - "NETHERITE_HELMET"
+    - "CHAINMAIL_CHESTPLATE"
+    - "IRON_CHESTPLATE"
+    #- 'GOLDEN_CHESTPLATE'
+    - "DIAMOND_CHESTPLATE"
+    - "LEATHER_CHESTPLATE"
+    - "NETHERITE_CHESTPLATE"
+    - "CHAINMAIL_LEGGINGS"
+    - "IRON_LEGGINGS"
+    #- 'GOLDEN_LEGGINGS'
+    - "DIAMOND_LEGGINGS"
+    - "LEATHER_LEGGINGS"
+    - "NETHERITE_LEGGINGS"
+    - "CHAINMAIL_BOOTS"
+    - "IRON_BOOTS"
+    #- 'GOLDEN_BOOTS'
+    - "DIAMOND_BOOTS"
+    - "LEATHER_BOOTS"
+    - "NETHERITE_BOOTS"
+    - "CHAINMAIL_HELMET"
+    - "IRON_HELMET"
+    #- 'GOLDEN_HELMET'
+    - "DIAMOND_HELMET"
+    - "LEATHER_HELMET"
+    - "NETHERITE_HELMET"
   ALL_HELMET:
-  - 'CHAINMAIL_HELMET'
-  - 'IRON_HELMET'
-  #- 'GOLDEN_HELMET'
-  - 'DIAMOND_HELMET'
-  - 'LEATHER_HELMET'
+    - "CHAINMAIL_HELMET"
+    - "IRON_HELMET"
+    #- 'GOLDEN_HELMET'
+    - "DIAMOND_HELMET"
+    - "LEATHER_HELMET"
+    - "NETHERITE_HELMET"
   ALL_CHESTPLATE:
-  - 'CHAINMAIL_CHESTPLATE'
-  - 'IRON_CHESTPLATE'
-  #- 'GOLDEN_CHESTPLATE'
-  - 'DIAMOND_CHESTPLATE'
-  - 'LEATHER_CHESTPLATE'
+    - "CHAINMAIL_CHESTPLATE"
+    - "IRON_CHESTPLATE"
+    #- 'GOLDEN_CHESTPLATE'
+    - "DIAMOND_CHESTPLATE"
+    - "LEATHER_CHESTPLATE"
+    - "NETHERITE_CHESTPLATE"
   ALL_LEGGINGS:
-  - 'CHAINMAIL_LEGGINGS'
-  - 'IRON_LEGGINGS'
-  #- 'GOLDEN_LEGGINGS'
-  - 'DIAMOND_LEGGINGS'
-  - 'LEATHER_LEGGINGS'
+    - "CHAINMAIL_LEGGINGS"
+    - "IRON_LEGGINGS"
+    #- 'GOLDEN_LEGGINGS'
+    - "DIAMOND_LEGGINGS"
+    - "LEATHER_LEGGINGS"
+    - "NETHERITE_LEGGINGS"
   ALL_BOOTS:
-  - 'CHAINMAIL_BOOTS'
-  - 'IRON_BOOTS'
-  #- 'GOLDEN_BOOTS'
-  - 'DIAMOND_BOOTS'
-  - 'LEATHER_BOOTS'
+    - "CHAINMAIL_BOOTS"
+    - "IRON_BOOTS"
+    #- 'GOLDEN_BOOTS'
+    - "DIAMOND_BOOTS"
+    - "LEATHER_BOOTS"
+    - "NETHERITE_BOOTS"
   ALL_SWORD:
-  - 'WOODEN_SWORD'
-  - 'STONE_SWORD'
-  - 'IRON_SWORD'
-  #- 'GOLDEN_SWORD'
-  - 'DIAMOND_SWORD'
+    - "WOODEN_SWORD"
+    - "STONE_SWORD"
+    - "IRON_SWORD"
+    #- 'GOLDEN_SWORD'
+    - "DIAMOND_SWORD"
+    - "NETHERITE_SWORD"
   ALL_PICKAXE:
-  - 'WOODEN_PICKAXE'
-  - 'STONE_PICKAXE'
-  - 'IRON_PICKAXE'
-  #- 'GOLDEN_PICKAXE'
-  - 'DIAMOND_PICKAXE'
+    - "WOODEN_PICKAXE"
+    - "STONE_PICKAXE"
+    - "IRON_PICKAXE"
+    #- 'GOLDEN_PICKAXE'
+    - "DIAMOND_PICKAXE"
+    - "NETHERITE_PICKAXE"
   ALL_AXE:
-  - 'WOODEN_AXE'
-  - 'STONE_AXE'
-  - 'IRON_AXE'
-  #- 'GOLDEN_AXE'
-  - 'DIAMOND_AXE'
+    - "WOODEN_AXE"
+    - "STONE_AXE"
+    - "IRON_AXE"
+    #- 'GOLDEN_AXE'
+    - "DIAMOND_AXE"
+    - "NETHERITE_AXE"
   ALL_SHOVEL:
-  - 'WOODEN_SHOVEL'
-  - 'STONE_SHOVEL'
-  - 'IRON_SHOVEL'
-  #- 'GOLDEN_SHOVEL'
-  - 'DIAMOND_SHOVEL'
+    - "WOODEN_SHOVEL"
+    - "STONE_SHOVEL"
+    - "IRON_SHOVEL"
+    #- 'GOLDEN_SHOVEL'
+    - "DIAMOND_SHOVEL"
+    - "NETHERITE_SHOVEL"
   ALL_HOE:
-  - 'WOODEN_HOE'
-  - 'STONE_HOE'
-  - 'IRON_HOE'
-  #- 'GOLDEN_HOE'
-  - 'DIAMOND_HOE'
-  ALL_SHOVEL:
-  - 'WOODEN_SHOVEL'
-  - 'STONE_SHOVEL'
-  - 'IRON_SHOVEL'
-  #- 'GOLDEN_SHOVEL'
-  - 'DIAMOND_SHOVEL'
+    - "WOODEN_HOE"
+    - "STONE_HOE"
+    - "IRON_HOE"
+    #- 'GOLDEN_HOE'
+    - "DIAMOND_HOE"
+    - "NETHERITE_HOE"
   ALL_GEM:
-  - 'MAGMA_CREAM'
+    - "MAGMA_CREAM"
+enchant-value:
+  lore:
+    equip: "&#e7eb02Khi trang bị:"
+    attack: "&#ff0000Khi tấn công:"
+    defense: "&#00e9ffKhi phòng thủ:"
+  stats:
+    damage: "&csát thương"
+    increase-damage: "&ctăng sát thương"
+    reduce-damage: "<GRADIENTS:00ad0e,05ff19>giảm sát thương</GRADIENTS>"
+    reflect-damage: "<GRADIENTS:d2d602,f8fc03>phản đòn</GRADIENTS>"

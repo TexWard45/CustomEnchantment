@@ -1,0 +1,53 @@
+list:
+  rage:
+    3:
+      chance: 50
+      required-xp: 128
+      lose-xp-percent: 5->30
+      upgrade-enchant:
+        name: primerage
+        level: 1
+        success: 100
+        destroy: 0
+      xp-enchant-whitelist:
+        - 'primerage'
+      requirement:
+        - 'ITEM:CUSTOM_ENCHANTMENT:storage:magic-ball:10'
+        - 'ITEM:CUSTOM_ENCHANTMENT:storage:enchant-paper:20'
+        - 'EXP:5000000'
+        - 'MONEY:2000000'
+  primerage:
+    1:
+      chance: 40
+      xp: 128->256
+      required-xp: 256
+      lose-xp-percent: 10->35
+      upgrade-enchant:
+        name: primerage
+        level: 2
+        success: 100
+        destroy: 0
+      xp-enchant-whitelist:
+        - 'rage'
+      requirement:
+        - 'ITEM:CUSTOM_ENCHANTMENT:storage:magic-ball:20'
+        - 'ITEM:CUSTOM_ENCHANTMENT:storage:enchant-paper:40'
+        - 'EXP:10000000'
+        - 'MONEY:5000000'
+    2:
+      chance: 30
+      xp: 256->512
+      required-xp: 512
+      lose-xp-percent: 15->40
+      upgrade-enchant:
+        name: primerage
+        level: 3
+        success: 100
+        destroy: 0
+      xp-enchant-whitelist:
+        - 'rage'
+      requirement:
+        - 'ITEM:CUSTOM_ENCHANTMENT:storage:magic-ball:30'
+        - 'ITEM:CUSTOM_ENCHANTMENT:storage:enchant-paper:60'
+        - 'EXP:20000000'
+        - 'MONEY:10000000'

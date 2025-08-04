@@ -1,0 +1,518 @@
+settings:
+  title: "&4&lSách phù phép nâng cao"
+  rows: 5
+  sound: ENTITY_EXPERIENCE_ORB_PICKUP
+  actions:
+    "1":
+      inventory-type: CHEST
+      slots: 0-44
+      cancel-drag: true
+      cancel-click-type:
+        - LEFT
+        - RIGHT
+        - SHIFT_RIGHT
+        - SHIFT_LEFT
+        - NUMBER_KEY
+      cancel-inventory-action:
+        - MOVE_TO_OTHER_INVENTORY
+        - DROP_ALL_SLOT
+        - DROP_ALL_CURSOR
+        - DROP_ONE_SLOT
+        - DROP_ONE_CURSOR
+    "2":
+      inventory-type: PLAYER
+      slots: 0-26
+      cancel-drag: true
+      cancel-click-type:
+        - LEFT
+        - RIGHT
+        - SHIFT_RIGHT
+        - SHIFT_LEFT
+        - NUMBER_KEY
+items:
+  background:
+    item:
+      type: BLACK_STAINED_GLASS_PANE
+      amount: 1
+      display: "&a"
+    slots:
+      - "111010111"
+      - "100000001"
+      - "111111111"
+      - "100010001"
+      - "111101111"
+  return:
+    item:
+      type: GRAY_STAINED_GLASS_PANE
+      amount: 1
+      display: "&cTrở về"
+    slots:
+      - "000000000"
+      - "000000000"
+      - "000000000"
+      - "000000000"
+      - "000010000"
+    priority:
+      condition:
+        - HAS_PREVIOUS_MENU
+      true-condition-priority: 1
+      false-condition-priority: -1
+    command:
+      "1":
+        condition:
+          - CLICK_TYPE LEFT
+        true-condition:
+          execute:
+            - RETURN_CLOSE_MENU
+          step: BREAK
+  close:
+    item:
+      type: RED_STAINED_GLASS_PANE
+      amount: 1
+      display: "&cĐóng"
+    slots:
+      - "000000000"
+      - "000000000"
+      - "000000000"
+      - "000000000"
+      - "000010000"
+    command:
+      "1":
+        condition:
+          - CLICK_TYPE LEFT
+        true-condition:
+          execute:
+            - RETURN_CLOSE_MENU
+          step: BREAK
+  xp-trade:
+    item:
+      type: EXPERIENCE_BOTTLE
+      amount: 1
+      display: "&b&lKinh nghiệm EXP &e(Đang chọn)"
+      lore:
+        - ""
+        - "&fĐổi sách phù phép bằng &bEXP"
+      enchants:
+        - "DURABILITY 1"
+      flags:
+        - HIDE_ENCHANTS
+    slots: 3
+  enchant-paper-trade:
+    item:
+      type: PAPER
+      amount: 1
+      display: "&f&lGiấy phù phép"
+      lore:
+        - ""
+        - "&fĐổi sách phù phép bằng &fGiấy phù phép"
+        - ""
+        - "&e&nNhấp để chọn"
+    slots: 5
+    command:
+      "1":
+        condition:
+          - CLICK_TYPE LEFT
+        true-condition:
+          execute:
+            - FORCE_OPEN_MENU ce-menu-enchant-paper
+          step: BREAK
+  common-book:
+    item:
+      type: WHITE_STAINED_GLASS_PANE
+      amount: 1
+      display: "&7&lSách cổ &7(&#94a3b8&lThường&7)"
+      lore:
+        - ""
+        - "&7Quyển sách cổ này đã bị phong ấn"
+        - ""
+        - "&7Giá: &b550 &3EXP &f| &720 &8Level"
+        - ""
+        - "&eNhấp trái để mua x1"
+        - "&eNhấp phải để mua x10"
+    skull-owner: "%player_name%"
+    slots: 10
+    command:
+      "1":
+        condition:
+          - CLICK_TYPE LEFT
+          - XP 550
+        true-condition:
+          execute:
+            - REMOVE_EXP 550
+            - CONSOLE_COMMAND cem give %player_name% randombook common-book 1
+            - SUCCESS_MESSAGE &aĐổi thành công &fx1 &7&lSách cổ &7(&#94a3b8&lThường&7)&a!
+            - "CONSOLE_MESSAGE &e[CE]: &f%player_name% &eđổi thành công &fx1 &7&lSách
+              cổ &7(&#94a3b8&lThường&7)&e!"
+            - "WRITE_MENU_LOG"
+          step: BREAK
+      "2":
+        condition:
+          - CLICK_TYPE RIGHT
+          - XP 5500
+        true-condition:
+          execute:
+            - REMOVE_EXP 5500
+            - CONSOLE_COMMAND cem give %player_name% randombook common-book 10
+            - SUCCESS_MESSAGE &aĐổi thành công &fx10 &7&lSách cổ &7(&#94a3b8&lThường&7)&a!
+            - "CONSOLE_MESSAGE &e[CE]: &f%player_name% &eđổi thành công &fx10 &7&lSách
+              cổ &7(&#94a3b8&lThường&7)&e!"
+            - "WRITE_MENU_LOG"
+          step: BREAK
+        false-condition:
+          execute:
+            - DANGER_MESSAGE &cBạn không đủ XP!
+          step: BREAK
+  rare-book:
+    item:
+      type: LIME_STAINED_GLASS_PANE
+      amount: 1
+      display: "&7&lSách cổ &7(&#22c55e&lHiếm&7)"
+      lore:
+        - ""
+        - "&7Quyển sách cổ này đã bị phong ấn"
+        - ""
+        - "&7Giá: &b2,920 &3EXP &f| &740 &8Level"
+        - ""
+        - "&eNhấp trái để mua x1"
+        - "&eNhấp phải để mua x10"
+    skull-owner: "%player_name%"
+    slots: 11
+    command:
+      "1":
+        condition:
+          - CLICK_TYPE LEFT
+          - XP 2920
+        true-condition:
+          execute:
+            - REMOVE_EXP 2920
+            - CONSOLE_COMMAND cem give %player_name% randombook rare-book 1
+            - SUCCESS_MESSAGE &aĐổi thành công &fx1 &7&lSách cổ &7(&#22c55e&lHiếm&7)&a!
+            - "CONSOLE_MESSAGE &e[CE]: &f%player_name% &eđổi thành công &fx1 &7&lSách
+              cổ &7(&#22c55e&lHiếm&7)&e!"
+            - "WRITE_MENU_LOG"
+          step: BREAK
+      "2":
+        condition:
+          - CLICK_TYPE RIGHT
+          - XP 29200
+        true-condition:
+          execute:
+            - REMOVE_EXP 29200
+            - CONSOLE_COMMAND cem give %player_name% randombook rare-book 10
+            - SUCCESS_MESSAGE &aĐổi thành công &fx10 &7&lSách cổ &7(&#22c55e&lHiếm&7)&a!
+            - "CONSOLE_MESSAGE &e[CE]: &f%player_name% &eđổi thành công &fx10 &7&lSách
+              cổ &7(&#22c55e&lHiếm&7)&e!"
+            - "WRITE_MENU_LOG"
+          step: BREAK
+        false-condition:
+          execute:
+            - DANGER_MESSAGE &cBạn không đủ XP!
+          step: BREAK
+  epic-book:
+    item:
+      type: LIGHT_BLUE_STAINED_GLASS_PANE
+      amount: 1
+      display: "&7&lSách cổ &7(&#0dcaf0&lSử thi&7)"
+      lore:
+        - ""
+        - "&7Quyển sách cổ này đã bị phong ấn"
+        - ""
+        - "&7Giá: &b18,020 &3EXP &f| &780 &8Level"
+        - ""
+        - "&eNhấp trái để mua x1"
+        - "&eNhấp phải để mua x10"
+    skull-owner: "%player_name%"
+    slots: 12
+    command:
+      "1":
+        condition:
+          - CLICK_TYPE LEFT
+          - XP 18020
+        true-condition:
+          execute:
+            - REMOVE_EXP 18020
+            - CONSOLE_COMMAND cem give %player_name% randombook epic-book 1
+            - SUCCESS_MESSAGE &aĐổi thành công &fx1 &7&lSách cổ &7(&#0dcaf0&lSử thi&7)&a!
+            - "CONSOLE_MESSAGE &e[CE]: &f%player_name% &eđổi thành công &fx1 &7&lSách
+              cổ &7(&#0dcaf0&lSử thi&7)&e!"
+            - "WRITE_MENU_LOG"
+          step: BREAK
+      "2":
+        condition:
+          - CLICK_TYPE RIGHT
+          - XP 180200
+        true-condition:
+          execute:
+            - REMOVE_EXP 180200
+            - CONSOLE_COMMAND cem give %player_name% randombook epic-book 10
+            - SUCCESS_MESSAGE &aĐổi thành công &fx10 &7&lSách cổ &7(&#0dcaf0&lSử thi&7)&a!
+            - "CONSOLE_MESSAGE &e[CE]: &f%player_name% &eđổi thành công &fx10 &7&lSách
+              cổ &7(&#0dcaf0&lSử thi&7)&e!"
+            - "WRITE_MENU_LOG"
+          step: BREAK
+        false-condition:
+          execute:
+            - DANGER_MESSAGE &cBạn không đủ XP!
+          step: BREAK
+  legendary-book:
+    item:
+      type: YELLOW_STAINED_GLASS_PANE
+      amount: 1
+      display: "&7&lSách cổ &7(&#ffc107&lHuyền thoại&7)"
+      lore:
+        - ""
+        - "&7Quyển sách cổ này đã bị phong ấn"
+        - ""
+        - "&7Giá: &b91,420 &3EXP &f| &7160 &8Level"
+        - ""
+        - "&eNhấp trái để mua x1"
+        - "&eNhấp phải để mua x10"
+    skull-owner: "%player_name%"
+    slots: 13
+    command:
+      "1":
+        condition:
+          - CLICK_TYPE LEFT
+          - XP 91420
+        true-condition:
+          execute:
+            - REMOVE_EXP 91420
+            - CONSOLE_COMMAND cem give %player_name% randombook legendary-book 1
+            - SUCCESS_MESSAGE &aĐổi thành công &fx1 &7&lSách cổ &7(&#ffc107&lHuyền thoại&7)&a!
+            - "CONSOLE_MESSAGE &e[CE]: &f%player_name% &eđổi thành công &fx1 &7&lSách
+              cổ &7(&#ffc107&lHuyền thoại&7)&e!"
+            - "WRITE_MENU_LOG"
+          step: BREAK
+      "2":
+        condition:
+          - CLICK_TYPE RIGHT
+          - XP 914200
+        true-condition:
+          execute:
+            - REMOVE_EXP 914200
+            - CONSOLE_COMMAND cem give %player_name% randombook legendary-book 10
+            - SUCCESS_MESSAGE &aĐổi thành công &fx10 &7&lSách cổ &7(&#ffc107&lHuyền thoại&7)&a!
+            - "CONSOLE_MESSAGE &e[CE]: &f%player_name% &eđổi thành công &fx10 &7&lSách
+              cổ &7(&#ffc107&lHuyền thoại&7)&e!"
+            - "WRITE_MENU_LOG"
+          step: BREAK
+        false-condition:
+          execute:
+            - DANGER_MESSAGE &cBạn không đủ XP!
+          step: BREAK
+  supreme-book:
+    item:
+      type: ORANGE_STAINED_GLASS_PANE
+      amount: 1
+      display: "&7&lSách cổ &7(&#ff7b00&lTối thượng&7)"
+      lore:
+        - ""
+        - "&7Quyển sách cổ này đã bị phong ấn"
+        - ""
+        - "&7Giá: &b411,020 &3EXP &f| &7320 &8Level"
+        - ""
+        - "&eNhấp trái để mua x1"
+        - "&eNhấp phải để mua x10"
+    skull-owner: "%player_name%"
+    slots: 14
+    command:
+      "1":
+        condition:
+          - CLICK_TYPE LEFT
+          - XP 411020
+        true-condition:
+          execute:
+            - REMOVE_EXP 411020
+            - CONSOLE_COMMAND cem give %player_name% randombook supreme-book 1
+            - SUCCESS_MESSAGE &aĐổi thành công &fx1 &7&lSách cổ &7(&#ff7b00&lTối thượng&7)&a!
+            - "CONSOLE_MESSAGE &e[CE]: &f%player_name% &eđổi thành công &fx1 &7&lSách
+              cổ &7(&#ff7b00&lTối thượng&7)&e!"
+            - "WRITE_MENU_LOG"
+          step: BREAK
+      "2":
+        condition:
+          - CLICK_TYPE RIGHT
+          - XP 4110200
+        true-condition:
+          execute:
+            - REMOVE_EXP 4110200
+            - CONSOLE_COMMAND cem give %player_name% randombook supreme-book 10
+            - SUCCESS_MESSAGE &aĐổi thành công &fx10 &7&lSách cổ &7(&#ff7b00&lTối thượng&7)&a!
+            - "CONSOLE_MESSAGE &e[CE]: &f%player_name% &eđổi thành công &fx10 &7&lSách
+              cổ &7(&#ff7b00&lTối thượng&7)&e!"
+            - "WRITE_MENU_LOG"
+          step: BREAK
+        false-condition:
+          execute:
+            - DANGER_MESSAGE &cBạn không đủ XP!
+          step: BREAK
+  ultimate-book:
+    item:
+      type: RED_STAINED_GLASS_PANE
+      amount: 1
+      display: "&7&lSách cổ &7(&#ef4444&lChiến thần&7)"
+      lore:
+        - ""
+        - "&7Quyển sách cổ này đã bị phong ấn"
+        - ""
+        - "&7Giá: &b11,262,220 &3EXP &f| &71600 &8Level"
+        - ""
+        - "&eNhấp trái để mua x1"
+        - "&eNhấp phải để mua x10"
+        # - ""
+        # - "&cHiện chưa mở bán"
+    skull-owner: "%player_name%"
+    slots: 15
+    command:
+      "1":
+        condition:
+          - CLICK_TYPE LEFT
+          - XP 11262220
+        true-condition:
+          execute:
+            - REMOVE_EXP 11262220
+            - CONSOLE_COMMAND cem give %player_name% randombook ultimate-book 1
+            - SUCCESS_MESSAGE &aĐổi thành công &fx1 &7&lSách cổ &7(&#ef4444&lChiến thần&7)&a!
+            - "CONSOLE_MESSAGE &e[CE]: &f%player_name% &eđổi thành công &7&lSách cổ &7(&#ef4444&lChiến thần&7)&e!"
+            - "WRITE_MENU_LOG"
+          step: BREAK
+      "2":
+        condition:
+          - CLICK_TYPE RIGHT
+          - XP 112622200
+        true-condition:
+          execute:
+            - REMOVE_EXP 112622200
+            - CONSOLE_COMMAND cem give %player_name% randombook ultimate-book 10
+            - SUCCESS_MESSAGE &aĐổi thành công &fx10 &7&lSách cổ &7(&#ef4444&lChiến thần&7)&a!
+            - "CONSOLE_MESSAGE &e[CE]: &f%player_name% &eđổi thành công &7&lSách cổ &7(&#ef4444&lChiến thần&7)&e!"
+            - "WRITE_MENU_LOG"
+          step: BREAK
+        false-condition:
+          execute:
+            - DANGER_MESSAGE &cBạn không đủ XP!
+          step: BREAK
+  event-book:
+    item:
+      type: PINK_STAINED_GLASS_PANE
+      amount: 1
+      display: "&7&lSách cổ &7(&#ec4899&lSự kiện&7)"
+      lore:
+        - ""
+        - "&cHiện chưa mở bán"
+    skull-owner: "%player_name%"
+    slots: 16
+  anvil:
+    item:
+      type: ANVIL
+      amount: 1
+      display: "&8&lLò rèn"
+      lore:
+        - "&7Lệnh nhanh /ceanvil"
+        - ""
+        - "&7Dùng để ép/gỡ sách phù phép và"
+        - "&7vật phẩm phù phép vào trang bị"
+        - ""
+        - "&f&nNhấp để mở"
+    skull-owner: "%player_name%"
+    slots: 28
+    command:
+      "1":
+        true-condition:
+          execute:
+            - PLAYER_COMMAND ceanvil
+          step: BREAK
+  craft:
+    item:
+      type: ENCHANTING_TABLE
+      amount: 1
+      display: "&4&lBàn nâng cấp"
+      lore:
+        - "&7Lệnh nhanh /bookcraft"
+        - ""
+        - "&7Hợp nhất các sách phù phép cùng loại"
+        - "&7để nâng lên sách có cấp bậc cao hơn"
+        - ""
+        - "&f&nNhấp để mở"
+    skull-owner: "%player_name%"
+    slots: 29
+    command:
+      "1":
+        true-condition:
+          execute:
+            - PLAYER_COMMAND bookcraft
+          step: BREAK
+  upgrade:
+    item:
+      type: END_PORTAL_FRAME
+      amount: 1
+      display: "&5&lBàn đột phá"
+      lore:
+        - "&7Lệnh nhanh /bookup"
+        - ""
+        - "&7Đột phá phù phép lên cấp bậc cao hơn"
+        - ""
+        - "&f&nNhấp để mở"
+    slots: 30
+    command:
+      "1":
+        true-condition:
+          execute:
+            - PLAYER_COMMAND bookupgrade
+          step: BREAK
+  tinkerer:
+    item:
+      type: HOPPER
+      amount: 1
+      display: "&9&lBàn dung luyện"
+      lore:
+        - "&7Lệnh nhanh /tinkerer"
+        - ""
+        - "&7Dung luyện vật phẩm phù phép thành"
+        - "&7các vật phẩm linh tinh khác"
+        - ""
+        - "&f&nNhấp để mở"
+    slots: 32
+    command:
+      "1":
+        true-condition:
+          execute:
+            - PLAYER_COMMAND tinkerer
+          step: BREAK
+  library:
+    item:
+      type: BOOKSHELF
+      amount: 1
+      display: "&4&lThư viện sách phù phép"
+      lore:
+        - "&7Lệnh nhanh /celib"
+        - ""
+        - "&7Xem danh sách các sách phù phép"
+        - "&7hiện có"
+        - ""
+        - "&f&nNhấp để mở"
+    slots: 33
+    command:
+      "1":
+        true-condition:
+          execute:
+            - FORCE_OPEN_MENU ce-library
+          step: BREAK
+  shop:
+    item:
+      type: CHEST
+      amount: 1
+      display: "&e&lCửa hàng phù phép"
+      lore:
+        - "&7Lệnh nhanh /ceshop"
+        - ""
+        - "&7Mua sắm các vật phẩm phù phép"
+        - ""
+        - "&f&nNhấp để mở"
+    slots: 34
+    command:
+      "1":
+        true-condition:
+          execute:
+            - FORCE_OPEN_MENU ce-shop
+          step: BREAK

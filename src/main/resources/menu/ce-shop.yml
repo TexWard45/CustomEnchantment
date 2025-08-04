@@ -1,0 +1,622 @@
+settings:
+  title: '&e&lCửa hàng phù phép'
+  rows: 5
+  sound: ENTITY_EXPERIENCE_ORB_PICKUP
+  actions:
+    '1':
+      inventory-type: CHEST
+      slots: 0-44
+      cancel-drag: true
+      cancel-click-type:
+      - LEFT
+      - RIGHT
+      - SHIFT_RIGHT
+      - SHIFT_LEFT
+      - NUMBER_KEY
+      cancel-inventory-action:
+      - MOVE_TO_OTHER_INVENTORY
+      - DROP_ALL_SLOT
+      - DROP_ALL_CURSOR
+      - DROP_ONE_SLOT
+      - DROP_ONE_CURSOR
+    '2':
+      inventory-type: PLAYER
+      slots: 0-26
+      cancel-drag: true
+      cancel-click-type:
+      - LEFT
+      - RIGHT
+      - SHIFT_RIGHT
+      - SHIFT_LEFT
+      - NUMBER_KEY
+items:
+  background:
+    item:
+      type: BLACK_STAINED_GLASS_PANE
+      amount: 1
+      display: '&a'
+    slots:
+    - '111111111'
+    - '100000001'
+    - '100000001'
+    - '100000001'
+    - '111101111'
+  return:
+    item:
+      type: GRAY_STAINED_GLASS_PANE
+      amount: 1
+      display: '&cTrở về'
+    slots:
+    - '000000000'
+    - '000000000'
+    - '000000000'
+    - '000000000'
+    - '000010000'
+    priority:
+      condition:
+      - HAS_PREVIOUS_MENU
+      true-condition-priority: 1
+      false-condition-priority: -1
+    command:
+      '1':
+        condition:
+        - CLICK_TYPE LEFT
+        true-condition:
+          execute:
+          - RETURN_CLOSE_MENU
+          step: BREAK
+  close:
+    item:
+      type: RED_STAINED_GLASS_PANE
+      amount: 1
+      display: '&cĐóng'
+    slots:
+    - '000000000'
+    - '000000000'
+    - '000000000'
+    - '000000000'
+    - '000010000'
+    command:
+      '1':
+        condition:
+        - CLICK_TYPE LEFT
+        true-condition:
+          execute:
+          - RETURN_CLOSE_MENU
+          step: BREAK
+  remove-enchant:
+    item:
+      type: INK_SAC
+      amount: 1
+      glowing: true
+      display: '&8&lCuộn giấy phân tách'
+      lore:
+      - ''
+      - '&eDùng để &6tách một phù phép nâng cao'
+      - '&6chỉ định&e ra khỏi trang bị và biến nó'
+      - '&etrở lại &6thành dạng sách'
+      - '&7'
+      - '&eSách sau khi tách ra sẽ có thông số'
+      - '&enhư cũ'
+      - '&7'
+      - '&7&oSử dụng tại /ceanvil'
+      - ''
+      - '&7Giá: &a50,000$'
+      - ''
+      - '&eNhấp để mua'
+    slots: 10
+    command:
+      '1':
+        condition:
+        - 'MONEY 50000'
+        true-condition:
+          execute:
+          - 'TAKE_MONEY 50000'
+          - 'CONSOLE_COMMAND cem give %player_name% removeenchant default 1'
+          - 'SUCCESS_MESSAGE &aMua thành công &fx1 &8&lCuộn giấy phân tách&a!'
+          - 'CONSOLE_MESSAGE &e[CEShop]: &f%player_name% &emua &fx1 &8&lCuộn giấy phân tách&e!'
+          - 'WRITE_MENU_LOG'
+          step: BREAK
+        false-condition:
+          execute:
+          - DANGER_MESSAGE &cBạn không đủ Money!
+          step: BREAK
+  erase-enchant:
+    item:
+      type: LIGHT_GRAY_DYE
+      glowing: true
+      display: '&f&lCuộn tẩy phù phép'
+      lore:
+      - ''
+      - '&eDùng để &6xóa một phù phép thường'
+      - '&6chỉ định&e ra khỏi trang bị'
+      - ''
+      - '&7&oSử dụng tại /ceanvil'
+      - ''
+      - '&7Giá: &a50,000$'
+      - ''
+      - '&eNhấp để mua'
+    slots: 11
+    command:
+      '1':
+        condition:
+        - 'MONEY 50000'
+        true-condition:
+          execute:
+          - 'TAKE_MONEY 50000'
+          - 'CONSOLE_COMMAND cem give %player_name% eraseenchant default 1'
+          - 'SUCCESS_MESSAGE &aMua thành công &fx1 &f&lCuộn tẩy phù phép&a!'
+          - 'CONSOLE_MESSAGE &e[CEShop]: &f%player_name% &emua &fx1 &f&lCuộn tẩy phù phép&e!'
+          - 'WRITE_MENU_LOG'
+          step: BREAK
+        false-condition:
+          execute:
+          - DANGER_MESSAGE &cBạn không đủ Money!
+          step: BREAK
+  protect-destroy:
+    item:
+      type: MAP
+      amount: 1
+      glowing: true
+      display: '&f&lCuộn giấy bảo vệ'
+      lore:
+      - ''
+      - '&eDùng để ngăn trang bị &6không bị phá hủy'
+      - '&enếu ép phù phép &cthất bại và bị phá hủy'
+      - ''
+      - '&eCó thể ép cộng dồn tối đa 5 lần'
+      - ''
+      - '&cTiêu hao 1 cộng dồn mỗi khi ép thất bại'
+      - '&cvà bị phá hủy'
+      - ''
+      - '&7&oSử dụng tại /ceanvil'
+      - ''
+      - '&7Giá: &a50,000$'
+      - ''
+      - '&eNhấp để mua'
+    slots: 12
+    command:
+      '1':
+        condition:
+        - 'MONEY 50000'
+        true-condition:
+          execute:
+          - 'TAKE_MONEY 50000'
+          - 'CONSOLE_COMMAND cem give %player_name% protectdestroy default 1'
+          - 'SUCCESS_MESSAGE &aMua thành công &fx1 &f&lCuộn giấy bảo vệ&a!'
+          - 'CONSOLE_MESSAGE &e[CEShop]: &f%player_name% &emua &fx1 &f&lCuộn giấy bảo vệ&e!'
+          - 'WRITE_MENU_LOG'
+          step: BREAK
+        false-condition:
+          execute:
+          - DANGER_MESSAGE &cBạn không đủ Money!
+          step: BREAK
+  name-tag1:
+    item:
+      type: NAME_TAG
+      glowing: true
+      display: '&a&lThẻ đổi tên trang bị &2&l(&a&l1&2&l)'
+      lore:
+      - ''
+      - '&fDùng để đổi tên cho trang bị, có thể'
+      - '&fsử dụng màu thường, không thể sử dụng'
+      - '&fcác kiểu chữ đặc biệt'
+      - ''
+      - '&aHướng dẫn sử dụng:'
+      - '&f1/ Đặt vật phẩm cần đổi tên vào ô 1 và'
+      - '&f   thẻ đổi tên vào ô 2 trong đe'
+      - '&f2/ Tại ô &oSửa chữa và đặt tên&f, tiến hành'
+      - '&f   đặt tên mới và lấy vật phẩm đã đổi tên'
+      - '&f   ở ô 3'
+      - ''
+      - '&cTên vi phạm luật chung sẽ bị xóa mà'
+      - '&ckhông thông báo trước!'
+      - ''
+      - '&7&oSử dụng lệnh /nametag để xem hướng dẫn'
+      - '&7&ocách đặt tên và sử dụng màu'
+      - ''
+      - '&7Giá: &a50,000$'
+      - ''
+      - '&eNhấp để mua'
+    slots: 13
+    command:
+      '1':
+        condition:
+        - 'MONEY 50000'
+        true-condition:
+          execute:
+          - 'TAKE_MONEY 50000'
+          - 'CONSOLE_COMMAND cem give %player_name% nametag 1 1'
+          - 'SUCCESS_MESSAGE &aMua thành công &fx1 &a&lThẻ đổi tên trang bị &2&l(&a&l1&2&l)&a!'
+          - 'CONSOLE_MESSAGE &e[CEShop]: &f%player_name% &emua &fx1 &a&lThẻ đổi tên trang bị &2&l(&a&l1&2&l)&e!'
+          - 'WRITE_MENU_LOG'
+          step: BREAK
+        false-condition:
+          execute:
+          - DANGER_MESSAGE &cBạn không đủ Money!
+          step: BREAK
+  name-tag2:
+    item:
+      type: NAME_TAG
+      glowing: true
+      display: '&b&lThẻ đổi tên trang bị &3&l(&b&l2&3&l)'
+      lore:
+      - ''
+      - '&fDùng để đổi tên cho trang bị, có thể'
+      - '&fsử dụng màu thường, các kiểu chữ đặc'
+      - '&fbiệt bao gồm gạch dưới, gạch ngang,'
+      - '&fin đậm và in nghiêng'
+      - ''
+      - '&aHướng dẫn sử dụng:'
+      - '&f1/ Đặt vật phẩm cần đổi tên vào ô 1 và'
+      - '&f   thẻ đổi tên vào ô 2 trong đe'
+      - '&f2/ Tại ô &oSửa chữa và đặt tên&f, tiến hành'
+      - '&f   đặt tên mới và lấy vật phẩm đã đổi tên'
+      - '&f   ở ô 3'
+      - ''
+      - '&cTên vi phạm luật chung sẽ bị xóa mà'
+      - '&ckhông thông báo trước!'
+      - ''
+      - '&7&oSử dụng lệnh /nametag để xem hướng dẫn'
+      - '&7&ocách đặt tên và sử dụng màu'
+      - ''
+      - '&7Giá: &a200,000$'
+      - ''
+      - '&eNhấp để mua'
+    slots: 14
+    command:
+      '1':
+        condition:
+        - 'MONEY 200000'
+        true-condition:
+          execute:
+          - 'TAKE_MONEY 200000'
+          - 'CONSOLE_COMMAND cem give %player_name% nametag 2 1'
+          - 'SUCCESS_MESSAGE &aMua thành công &fx1 &b&lThẻ đổi tên trang bị &3&l(&b&l2&3&l)&a!'
+          - 'CONSOLE_MESSAGE &e[CEShop]: &f%player_name% &emua &fx1 &b&lThẻ đổi tên trang bị &3&l(&b&l2&3&l)&e!'
+          - 'WRITE_MENU_LOG'
+          step: BREAK
+        false-condition:
+          execute:
+          - DANGER_MESSAGE &cBạn không đủ Money!
+          step: BREAK
+  name-tag3:
+    item:
+      type: NAME_TAG
+      glowing: true
+      display: '%iridiumcolorapi_rainbow_1_&lThẻ đổi tên trang bị (3)%'
+      lore:
+      - ''
+      - '&fDùng để đổi tên cho trang bị, có thể'
+      - '&fsử dụng màu thường, màu hex, các kiểu'
+      - '&fchữ đặc biệt bao gồm gạch dưới, gạch'
+      - '&fngang, in đậm và in nghiêng'
+      - ''
+      - '&aHướng dẫn sử dụng:'
+      - '&f1/ Đặt vật phẩm cần đổi tên vào ô 1 và'
+      - '&f   thẻ đổi tên vào ô 2 trong đe'
+      - '&f2/ Tại ô &oSửa chữa và đặt tên&f, tiến hành'
+      - '&f   đặt tên mới và lấy vật phẩm đã đổi tên'
+      - '&f   ở ô 3'
+      - ''
+      - '&cTên vi phạm luật chung sẽ bị xóa mà'
+      - '&ckhông thông báo trước!'
+      - ''
+      - '&7&oSử dụng lệnh /nametag để xem hướng dẫn'
+      - '&7&ocách đặt tên và sử dụng màu'
+      - ''
+      - '&bMở bán tại /pointshop'
+    slots: 15
+  remove-protect-dead:
+    item:
+      type: PAPER
+      glowing: true
+      display: '&6&lGiấy tách ngọc bảo vệ'
+      lore:
+      - ''
+      - '&eCó tác dụng &6tách ngọc bảo vệ đã ép'
+      - '&era khỏi trang bị và hoàn trả lại ngọc'
+      - ''
+      - '&7&oSử dụng tại /ceanvil'
+      - ''
+      - '&7Giá: &a20,000$'
+    slots: 16
+    command:
+      '1':
+        condition:
+        - 'MONEY 20000'
+        true-condition:
+          execute:
+          - 'TAKE_MONEY 20000'
+          - 'CONSOLE_COMMAND cem give %player_name% removeprotectdead 1 1'
+          - 'SUCCESS_MESSAGE &aMua thành công &fx1 &f&lGiấy tách ngọc bảo vệ&a!'
+          - 'CONSOLE_MESSAGE &e[CEShop]: &f%player_name% &emua &fx1 &f&lGiấy tách ngọc bảo vệ&e!'
+          - 'WRITE_MENU_LOG'
+          step: BREAK
+        false-condition:
+          execute:
+          - DANGER_MESSAGE &cBạn không đủ Money!
+          step: BREAK
+  enchant-point-weapon1:
+    item:
+      type: ENDER_EYE
+      glowing: true
+      display: '&5&lNgọc đột phá &f&lSơ cấp &7(&c&lVũ khí&7)'
+      lore:
+      - ''
+      - '&eTăng giới hạn phù phép nâng cao của'
+      - '&evũ khí thêm &c+1'
+      - ''
+      - '&cYêu cầu giới hạn phù phép nâng cao'
+      - '&ctrước đó của trang bị cần tăng dưới 7'
+      - ''
+      - '&7&oSử dụng tại /ceanvil'
+      - ''
+      - '&7Giá: &a500,000$'
+      - ''
+      - '&eNhấp để mua'
+    slots: 19
+    command:
+      '1':
+        condition:
+        - 'MONEY 500000'
+        true-condition:
+          execute:
+          - 'TAKE_MONEY 500000'
+          - 'CONSOLE_COMMAND cem give %player_name% enchantpoint weapon1 1'
+          - 'SUCCESS_MESSAGE &aMua thành công &fx1 &5&lNgọc đột phá &f&lSơ cấp &7(&c&lVũ khí&7)&a!'
+          - 'CONSOLE_MESSAGE &e[CEShop]: &f%player_name% &emua &fx1 &5&lNgọc đột phá &f&lSơ cấp &7(&c&lVũ khí&7)&e!'
+          - 'WRITE_MENU_LOG'
+          step: BREAK
+        false-condition:
+          execute:
+          - DANGER_MESSAGE &cBạn không đủ Money!
+          step: BREAK
+  enchant-point-weapon2:
+    item:
+      type: ENDER_EYE
+      glowing: true
+      display: '&5&lNgọc đột phá &b&lTrung cấp &7(&c&lVũ khí&7)'
+      lore:
+      - ''
+      - '&eTăng giới hạn phù phép nâng cao của'
+      - '&evũ khí thêm &c+1'
+      - ''
+      - '&cYêu cầu giới hạn phù phép nâng cao'
+      - '&ctrước đó của trang bị cần tăng dưới 9'
+      - ''
+      - '&7&oSử dụng tại /ceanvil'
+      - ''
+      - '&cKhông mở bán'
+    slots: 20
+  enchant-point-weapon3:
+    item:
+      type: ENDER_EYE
+      glowing: true
+      display: '&5&lNgọc đột phá &d&lCao cấp &7(&c&lVũ khí&7)'
+      lore:
+      - ''
+      - '&eTăng giới hạn phù phép nâng cao của'
+      - '&evũ khí thêm &c+1'
+      - ''
+      - '&cYêu cầu giới hạn phù phép nâng cao'
+      - '&ctrước đó của trang bị cần tăng dưới 10'
+      - ''
+      - '&7&oSử dụng tại /ceanvil'
+      - ''
+      - '&cKhông mở bán'
+    slots: 21
+  enchant-point-armor1:
+    item:
+      type: ENDER_EYE
+      glowing: true
+      display: '&5&lNgọc đột phá &f&lSơ cấp &7(&f&lGiáp&7)'
+      lore:
+      - ''
+      - '&eTăng giới hạn phù phép nâng cao của'
+      - '&egiáp thêm &c+1'
+      - ''
+      - '&cYêu cầu giới hạn phù phép nâng cao'
+      - '&ctrước đó của trang bị cần tăng dưới 7'
+      - ''
+      - '&7&oSử dụng tại /ceanvil'
+      - ''
+      - '&7Giá: &a200,000$'
+      - ''
+      - '&eNhấp để mua'
+    slots: 22
+    command:
+      '1':
+        condition:
+        - 'MONEY 200000'
+        true-condition:
+          execute:
+          - 'TAKE_MONEY 200000'
+          - 'CONSOLE_COMMAND cem give %player_name% enchantpoint armor1 1'
+          - 'SUCCESS_MESSAGE &aMua thành công &fx1 &5&lNgọc đột phá &f&lSơ cấp &7(&f&lGiáp&7)&a!'
+          - 'CONSOLE_MESSAGE &e[CEShop]: &f%player_name% &emua &fx1 &5&lNgọc đột phá &f&lSơ cấp &7(&f&lGiáp&7)&e!'
+          - 'WRITE_MENU_LOG'
+          step: BREAK
+        false-condition:
+          execute:
+          - DANGER_MESSAGE &cBạn không đủ Money!
+          step: BREAK
+  enchant-point-armor2:
+    item:
+      type: ENDER_EYE
+      glowing: true
+      display: '&5&lNgọc đột phá &b&lTrung cấp &7(&f&lGiáp&7)'
+      lore:
+      - ''
+      - '&eTăng giới hạn phù phép nâng cao của'
+      - '&egiáp thêm &c+1'
+      - ''
+      - '&cYêu cầu giới hạn phù phép nâng cao'
+      - '&ctrước đó của trang bị cần tăng dưới 9'
+      - ''
+      - '&7&oSử dụng tại /ceanvil'
+      - ''
+      - '&cKhông mở bán'
+    slots: 23
+  enchant-point-armor3:
+    item:
+      type: ENDER_EYE
+      glowing: true
+      display: '&5&lNgọc đột phá &d&lCao cấp &7(&f&lGiáp&7)'
+      lore:
+      - ''
+      - '&eTăng giới hạn phù phép nâng cao của'
+      - '&egiáp thêm &c+1'
+      - ''
+      - '&cYêu cầu giới hạn phù phép nâng cao'
+      - '&ctrước đó của trang bị cần tăng dưới 10'
+      - ''
+      - '&7&oSử dụng tại /ceanvil'
+      - ''
+      - '&cKhông mở bán'
+    slots: 24
+  protect-dead:
+    item:
+      type: EMERALD
+      glowing: true
+      display: '&6&lNgọc bảo vệ'
+      lore:
+      - ''
+      - '&eCó tác dụng bảo vệ vật phẩm &6khi'
+      - '&6chết không bị rơi ra &ekhỏi kho đồ'
+      - ''
+      - '&eCó thể ép cộng dồn tối đa 5 lần'
+      - ''
+      - '&cTiêu hao 1 cộng dồn mỗi khi chết'
+      - '&cmất đồ'
+      - ''
+      - '&7&oSử dụng tại /ceanvil'
+      - ''
+      - '&bMở bán tại /pointshop'
+    slots: 25
+  remove-enchant-point:
+    item:
+      type: PAPER
+      glowing: true
+      display: "&5&lGiấy tách ngọc đột phá"
+      lore:
+      - ""
+      - "&eCó tác dụng &dtách ngọc đột phá đã ép"
+      - "&etương ứng ra khỏi trang bị và hoàn trả"
+      - "&elại ngọc"
+      - ""
+      - "&7&oSử dụng tại /ceanvil"
+      - ''
+      - '&7Giá: &a100,000$'
+      - ''
+      - '&eNhấp để mua'
+    slots: 28
+    command:
+      '1':
+        condition:
+        - 'MONEY 100000'
+        true-condition:
+          execute:
+          - 'TAKE_MONEY 100000'
+          - 'CONSOLE_COMMAND cem give %player_name% removeenchantpoint default 1'
+          - 'SUCCESS_MESSAGE &aMua thành công &fx1 &5&lGiấy tách ngọc đột phá&a!'
+          - 'CONSOLE_MESSAGE &e[CEShop]: &f%player_name% &emua &fx1 &5&lGiấy tách ngọc đột phá&e!'
+          - 'WRITE_MENU_LOG'
+          step: BREAK
+        false-condition:
+          execute:
+          - DANGER_MESSAGE &cBạn không đủ Money!
+          step: BREAK
+  remove-gem:
+    item:
+      type: PAPER
+      glowing: true
+      display: "&d&lGiấy tách ngọc khảm"
+      lore:
+      - ""
+      - "&eCó tác dụng &dtách ngọc khảm đã ép"
+      - "&etương ứng ra khỏi trang bị và hoàn trả"
+      - "&elại ngọc"
+      - ""
+      - "&7&oSử dụng tại /ceanvil"
+      - ''
+      - '&7Giá: &a50,000$'
+      - ''
+      - '&eNhấp để mua'
+    slots: 29
+    command:
+      '1':
+        condition:
+        - 'MONEY 50000'
+        true-condition:
+          execute:
+          - 'TAKE_MONEY 50000'
+          - 'CONSOLE_COMMAND cem give %player_name% removegem default 1'
+          - 'SUCCESS_MESSAGE &aMua thành công &fx1 &d&lGiấy tách ngọc khảm&a!'
+          - 'CONSOLE_MESSAGE &e[CEShop]: &f%player_name% &emua &fx1 &d&lGiấy tách ngọc khảm&e!'
+          - 'WRITE_MENU_LOG'
+          step: BREAK
+        false-condition:
+          execute:
+          - DANGER_MESSAGE &cBạn không đủ Money!
+          step: BREAK
+  lore-format-default:
+    item:
+      type: PAPER
+      glowing: true
+      display: "&f&lThẻ hiển thị phù phép"
+      lore:
+      - ""
+      - "&eCó tác dụng &fhiển thị lại tên phù phép"
+      - "&ecó trên trang bị"
+      - ''
+      - '&7Giá: &a100,000$'
+      - ''
+      - '&eNhấp để mua'
+    slots: 30
+    command:
+      '1':
+        condition:
+        - 'MONEY 100000'
+        true-condition:
+          execute:
+          - 'TAKE_MONEY 100000'
+          - 'CONSOLE_COMMAND cem give %player_name% loreformat default 1'
+          - 'SUCCESS_MESSAGE &aMua thành công &fx1 &f&lThẻ hiển thị phù phép&a!'
+          - 'CONSOLE_MESSAGE &e[CEShop]: &f%player_name% &emua &fx1 &f&lThẻ hiển thị phù phép&e!'
+          - 'WRITE_MENU_LOG'
+          step: BREAK
+        false-condition:
+          execute:
+          - DANGER_MESSAGE &cBạn không đủ Money!
+          step: BREAK
+  lore-format-default-hide-enchant:
+    item:
+      type: PAPER
+      glowing: true
+      display: "&8&lThẻ ẩn phù phép"
+      lore:
+      - ""
+      - "&eCó tác dụng &7ẩn toàn bộ tên phù phép"
+      - "&ecó trên trang bị"
+      - ''
+      - '&7Giá: &a500,000$'
+      - ''
+      - '&eNhấp để mua'
+    slots: 31
+    command:
+      '1':
+        condition:
+        - 'MONEY 500000'
+        true-condition:
+          execute:
+          - 'TAKE_MONEY 500000'
+          - 'CONSOLE_COMMAND cem give %player_name% loreformat default-unknown-enchant 1'
+          - 'SUCCESS_MESSAGE &aMua thành công &fx1 &8&lThẻ ẩn phù phép&a!'
+          - 'CONSOLE_MESSAGE &e[CEShop]: &f%player_name% &emua &fx1 &8&lThẻ ẩn phù phép&e!'
+          - 'WRITE_MENU_LOG'
+          step: BREAK
+        false-condition:
+          execute:
+          - DANGER_MESSAGE &cBạn không đủ Money!
+          step: BREAK

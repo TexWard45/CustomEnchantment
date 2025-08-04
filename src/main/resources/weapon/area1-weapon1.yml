@@ -1,0 +1,95 @@
+weapon:
+  wooden-broadsword1:
+    item:
+      type: WOODEN_SWORD
+      display: "&#ffaa22&lĐại Kiếm Gỗ &#c1cad9&l1 ★"
+      custom-model-data: 10000
+    attributes:
+      - "type=ATTACK_DAMAGE,operation=0,amount=9,slot=HAND"
+      - "type=ATTACK_SPEED,operation=0,amount=-3.5,slot=HAND"
+      - "type=MOVEMENT_SPEED,operation=2,amount=-0.1,slot=HAND"
+      - "type=PLAYER_ENTITY_INTERACTION_RANGE,operation=0,amount=1.25,slot=HAND"
+      - "type=AOE_RANGE,operation=0,amount=2.0,slot=HAND"
+      - "type=AOE_DAMAGE_RATIO,operation=0,amount=50.0,slot=HAND"
+  wooden-katana1:
+    item:
+      type: WOODEN_SWORD
+      display: "&#ffaa22&lKatana Gỗ &#c1cad9&l1 ★"
+      custom-model-data: 20000
+    attributes:
+      - "type=ATTACK_DAMAGE,operation=0,amount=2.0,slot=HAND"
+      - "type=ATTACK_SPEED,operation=0,amount=-2.5,slot=HAND"
+      - "type=PLAYER_ENTITY_INTERACTION_RANGE,operation=0,amount=0.5,slot=HAND"
+      - "type=AOE_RANGE,operation=0,amount=1.0,slot=HAND"
+      - "type=AOE_DAMAGE_RATIO,operation=0,amount=50.0,slot=HAND"
+  wooden-battlestaff1:
+    item:
+      type: STICK
+      display: "&#ffaa22&lTrượng Gỗ &#c1cad9&l1 ★"
+      custom-model-data: 30000
+    attributes:
+      - "type=ATTACK_DAMAGE,operation=0,amount=1.5,slot=HAND"
+      - "type=ATTACK_SPEED,operation=0,amount=-2.15,slot=HAND"
+      - "type=MOVEMENT_SPEED,operation=2,amount=0.1,slot=HAND"
+  wooden-highlandaxe1:
+    item:
+      type: WOODEN_AXE
+      display: "&#ffaa22&lRìu Chiến Gỗ &#c1cad9&l1 ★"
+      custom-model-data: 40000
+    attributes:
+      - "type=ATTACK_DAMAGE,operation=0,amount=5.0,slot=HAND"
+      - "type=ATTACK_SPEED,operation=0,amount=-3.125,slot=HAND"
+      - "type=PLAYER_ENTITY_INTERACTION_RANGE,operation=0,amount=0.5,slot=HAND"
+  wooden-backstabber1:
+    item:
+      type: WOODEN_SWORD
+      display: "&#ffaa22&lĐoản Kiếm Gỗ &#c1cad9&l1 ★"
+      custom-model-data: 50000
+    attributes:
+      - "type=ATTACK_DAMAGE,operation=0,amount=1.5,slot=HAND"
+      - "type=ATTACK_SPEED,operation=0,amount=-2.0,slot=HAND"
+      - "type=PLAYER_ENTITY_INTERACTION_RANGE,operation=0,amount=-0.25,slot=HAND"
+      - "type=MOVEMENT_SPEED,operation=2,amount=0.05,slot=HAND"
+      - "type=AOE_RANGE,operation=0,amount=1.0,slot=HAND"
+      - "type=AOE_DAMAGE_RATIO,operation=0,amount=50.0,slot=HAND"
+  wooden-glaive1:
+    item:
+      type: WOODEN_SWORD
+      display: "&#ffaa22&lTrường Đao Gỗ &#c1cad9&l1 ★"
+      custom-model-data: 60000
+    attributes:
+      - "type=ATTACK_DAMAGE,operation=0,amount=2.75,slot=HAND"
+      - "type=ATTACK_SPEED,operation=0,amount=-3.0,slot=HAND"
+      - "type=PLAYER_ENTITY_INTERACTION_RANGE,operation=0,amount=1.5,slot=HAND"
+      - "type=AOE_RANGE,operation=0,amount=1.5,slot=HAND"
+      - "type=AOE_DAMAGE_RATIO,operation=0,amount=50.0,slot=HAND"
+  wooden-scythe1:
+    item:
+      type: WOODEN_HOE
+      display: "&#ffaa22&lLưỡi Hái Gỗ &#c1cad9&l1 ★"
+      custom-model-data: 70000
+    attributes:
+      - "type=ATTACK_DAMAGE,operation=0,amount=2.75,slot=HAND"
+      - "type=ATTACK_SPEED,operation=0,amount=-2.8,slot=HAND"
+      - "type=PLAYER_ENTITY_INTERACTION_RANGE,operation=0,amount=0.5,slot=HAND"
+      - "type=AOE_RANGE,operation=0,amount=2.0,slot=HAND"
+      - "type=AOE_DAMAGE_RATIO,operation=0,amount=50.0,slot=HAND"
+  wooden-doubleaxe1:
+    item:
+      type: WOODEN_AXE
+      display: "&#ffaa22&lRìu Đôi Gỗ &#c1cad9&l1 ★"
+      custom-model-data: 80000
+    attributes:
+      - "type=ATTACK_DAMAGE,operation=0,amount=7.0,slot=HAND"
+      - "type=ATTACK_SPEED,operation=0,amount=-3.15,slot=HAND"
+      - "type=PLAYER_ENTITY_INTERACTION_RANGE,operation=0,amount=-0.25,slot=HAND"
+  wooden-sword1:
+    item:
+      type: WOODEN_SWORD
+      display: "&#ffaa22&lKiếm Gỗ &#c1cad9&l1 ★"
+      custom-model-data: 90000
+    attributes:
+      - "type=ATTACK_DAMAGE,operation=0,amount=3.0,slot=HAND"
+      - "type=ATTACK_SPEED,operation=0,amount=-2.75,slot=HAND"
+      - "type=AOE_RANGE,operation=0,amount=1.0,slot=HAND"
+      - "type=AOE_DAMAGE_RATIO,operation=0,amount=50.0,slot=HAND"

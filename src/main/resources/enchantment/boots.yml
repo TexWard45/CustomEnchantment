@@ -42,8 +42,8 @@ feather:
         effects:
           - REMOVE_FOREVER_POTION:feather_speed
           - REMOVE_FOREVER_POTION:feather_jump
-          - REMOVE_TASK:feather_particle_0
-          - REMOVE_TASK:feather_particle_1
+          - REMOVE_TASK_ASYNC:feather_particle_0
+          - REMOVE_TASK_ASYNC:feather_particle_1
     "2":
       equip:
         type: ARMOR_EQUIP
@@ -65,8 +65,8 @@ feather:
         effects:
           - REMOVE_FOREVER_POTION:feather_speed
           - REMOVE_FOREVER_POTION:feather_jump
-          - REMOVE_TASK:feather_particle_0
-          - REMOVE_TASK:feather_particle_1
+          - REMOVE_TASK_ASYNC:feather_particle_0
+          - REMOVE_TASK_ASYNC:feather_particle_1
 gears:
   group: epic
   display: Gears
@@ -104,7 +104,7 @@ gears:
           - ""
         effects:
           - REMOVE_FOREVER_POTION:gears
-          - REMOVE_TASK:gears_particle_0
+          - REMOVE_TASK_ASYNC:gears_particle_0
     "2":
       equip:
         type: ARMOR_EQUIP
@@ -123,7 +123,7 @@ gears:
           - ""
         effects:
           - REMOVE_FOREVER_POTION:gears
-          - REMOVE_TASK:gears_particle_0
+          - REMOVE_TASK_ASYNC:gears_particle_0
     "3":
       equip:
         type: ARMOR_EQUIP
@@ -142,7 +142,7 @@ gears:
           - ""
         effects:
           - REMOVE_FOREVER_POTION:gears
-          - REMOVE_TASK:gears_particle_0
+          - REMOVE_TASK_ASYNC:gears_particle_0
 springs:
   group: epic
   display: Springs
@@ -180,7 +180,7 @@ springs:
           - ""
         effects:
           - REMOVE_FOREVER_POTION:springs
-          - REMOVE_TASK:springs_particle_0
+          - REMOVE_TASK_ASYNC:springs_particle_0
     "2":
       equip:
         type: ARMOR_EQUIP
@@ -199,7 +199,7 @@ springs:
           - ""
         effects:
           - REMOVE_FOREVER_POTION:springs
-          - REMOVE_TASK:springs_particle_0
+          - REMOVE_TASK_ASYNC:springs_particle_0
     "3":
       equip:
         type: ARMOR_EQUIP
@@ -218,7 +218,7 @@ springs:
           - ""
         effects:
           - REMOVE_FOREVER_POTION:springs
-          - REMOVE_TASK:springs_particle_0
+          - REMOVE_TASK_ASYNC:springs_particle_0
 sanguine:
   group: legendary
   display: Sanguine
@@ -240,7 +240,7 @@ sanguine:
     - "&eTốc độ di chuyển: +20%/+24/+28%/+34%/+40%"
     - "&eTốc độ đánh: +20%/+24/+28%/+34%/+40%"
     - "&eThời gian hiệu ứng: 2s"
-    - "&eTỉ lệ kích hoạt: 20%"
+    - "&eTỉ lệ kích hoạt: 50%"
     - "&eThời gian hồi: 3s"
   applies-description:
     - Giày
@@ -253,7 +253,7 @@ sanguine:
     "1":
       defense50:
         type: DEFENSE
-        chance: 20
+        chance: 50
         cooldown: 3000
         conditions:
           - EQUIP_SLOT:BOOTS
@@ -263,10 +263,11 @@ sanguine:
           - ADD_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed2:0.2:1
           - DELAY=40 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:sanguine_movement_speed2
           - DELAY=40 | REMOVE_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed2
+          - "MESSAGE:&e&l**Sanguine: Below &f&l25% &e&lMax Health: &e&l+20% &e&lATS&e&l, &f&l+20%&f&lMS&e&l***"
         true-condition-break: true
       defense25:
         type: DEFENSE
-        chance: 20
+        chance: 50
         cooldown: 3000
         conditions:
           - EQUIP_SLOT:BOOTS
@@ -276,11 +277,12 @@ sanguine:
           - ADD_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed:0.1:1
           - DELAY=40 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:sanguine_movement_speed
           - DELAY=40 | REMOVE_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed
+          - "MESSAGE:&e&l**Sanguine: Below &f&l50% &e&lMax Health: &e&l+10% &e&lATS&e&l, &f&l+10%&f&lMS&e&l***"
         true-condition-break: true
     "2":
       defense25:
         type: DEFENSE
-        chance: 20
+        chance: 50
         cooldown: 3000
         conditions:
           - EQUIP_SLOT:BOOTS
@@ -290,10 +292,11 @@ sanguine:
           - ADD_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed2:0.24:1
           - DELAY=40 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:sanguine_movement_speed2
           - DELAY=40 | REMOVE_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed2
+          - "MESSAGE:&e&l**Sanguine: Below &f&l25% &e&lMax Health: &e&l+20% &e&lATS&e&l, &f&l+20%&f&lMS&e&l***"
         true-condition-break: true
       defense50:
         type: DEFENSE
-        chance: 20
+        chance: 50
         cooldown: 3000
         conditions:
           - EQUIP_SLOT:BOOTS
@@ -303,11 +306,12 @@ sanguine:
           - ADD_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed:0.12:1
           - DELAY=40 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:sanguine_movement_speed
           - DELAY=40 | REMOVE_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed
+          - "MESSAGE:&e&l**Sanguine: Below &f&l50% &e&lMax Health: &e&l+12% &e&lATS&e&l, &f&l+12%&f&lMS&e&l***"
         true-condition-break: true
     "3":
       defense25:
         type: DEFENSE
-        chance: 20
+        chance: 50
         cooldown: 3000
         conditions:
           - EQUIP_SLOT:BOOTS
@@ -317,10 +321,11 @@ sanguine:
           - ADD_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed2:0.28:1
           - DELAY=40 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:sanguine_movement_speed2
           - DELAY=40 | REMOVE_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed2
+          - "MESSAGE:&e&l**Sanguine: Below &f&l25% &e&lMax Health: &e&l+28% &e&lATS&e&l, &f&l+28%&f&lMS&e&l***"
         true-condition-break: true
       defense50:
         type: DEFENSE
-        chance: 20
+        chance: 50
         cooldown: 3000
         conditions:
           - EQUIP_SLOT:BOOTS
@@ -330,11 +335,12 @@ sanguine:
           - ADD_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed:0.14:1
           - DELAY=40 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:sanguine_movement_speed
           - DELAY=40 | REMOVE_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed
+          - "MESSAGE:&e&l**Sanguine: Below &f&l50% &e&lMax Health: &e&l+14% &e&lATS&e&l, &f&l+14%&f&lMS&e&l***"
         true-condition-break: true
     "4":
       defense25:
         type: DEFENSE
-        chance: 20
+        chance: 50
         cooldown: 3000
         conditions:
           - EQUIP_SLOT:BOOTS
@@ -344,10 +350,11 @@ sanguine:
           - ADD_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed2:0.34:1
           - DELAY=40 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:sanguine_movement_speed2
           - DELAY=40 | REMOVE_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed2
+          - "MESSAGE:&e&l**Sanguine: Below &f&l25% &e&lMax Health: &e&l+34% &e&lATS&e&l, &f&l+34%&f&lMS&e&l***"
         true-condition-break: true
       defense50:
         type: DEFENSE
-        chance: 20
+        chance: 50
         cooldown: 3000
         conditions:
           - EQUIP_SLOT:BOOTS
@@ -357,11 +364,12 @@ sanguine:
           - ADD_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed:0.17:1
           - DELAY=40 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:sanguine_movement_speed
           - DELAY=40 | REMOVE_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed
+          - "MESSAGE:&e&l**Sanguine: Below &f&l50% &e&lMax Health: &e&l+17% &e&lATS&e&l, &f&l+17%&f&lMS&e&l***"
         true-condition-break: true
     "5":
       defense25:
         type: DEFENSE
-        chance: 20
+        chance: 50
         cooldown: 3000
         conditions:
           - EQUIP_SLOT:BOOTS
@@ -371,10 +379,11 @@ sanguine:
           - ADD_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed2:0.4:1
           - DELAY=40 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:sanguine_movement_speed2
           - DELAY=40 | REMOVE_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed2
+          - "MESSAGE:&e&l**Sanguine: Below &f&l25% &e&lMax Health: &e&l+40% &e&lATS&e&l, &f&l+40%&f&lMS&e&l***"
         true-condition-break: true
       defense50:
         type: DEFENSE
-        chance: 20
+        chance: 50
         cooldown: 3000
         conditions:
           - EQUIP_SLOT:BOOTS
@@ -384,27 +393,26 @@ sanguine:
           - ADD_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed:0.2:1
           - DELAY=40 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:sanguine_movement_speed
           - DELAY=40 | REMOVE_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed
+          - "MESSAGE:&e&l**Sanguine: Below &f&l50% &e&lMax Health: &e&l+20% &e&lATS&e&l, &f&l+20%&f&lMS&e&l***"
         true-condition-break: true
-# tag_potion: SPEED
 dash:
   group: "supreme"
   display: "Dash"
   description:
-    - "&eCó khả năng lướt tới và tăng sát thương gây ra"
-    - "&etrong một khoảng thời gian khi nhấn Shift"
+    - "&eCó khả năng lướt tới khi nhấn Shift"
   detail-description:
-    - "&eCó khả năng lướt tới và tăng sát thương gây ra"
-    - "&etrong một khoảng thời gian khi nhấn Shift"
+    - "&eCó khả năng lướt tới khi nhấn Shift"
     - ""
-    - "&eSát thương: +10% ATK Cơ bản x Cấp"
-    - "&eThời gian hiệu lực: 3s"
     - "&eThời gian hồi: 20/16/12/8/4 giây"
     - ""
-    - "&cKhông thể ép chung với DoubleJump"
+    - "&cKhông thể ép chung với DoubleJump, Flash"
   applies-description:
     - "Giày"
   applies:
     - "ALL_BOOTS"
+  enchant-blacklist:
+    - "doublejump"
+    - "flash"
   max-level: 5
   enchant-point: 1
   valuable: 0
@@ -507,13 +515,14 @@ doublejump:
     - ""
     - "&eThời gian hồi: 20/16/12/8/4 giây"
     - ""
-    - "&cKhông thể ép chung với Dash"
+    - "&cKhông thể ép chung với Dash, Flash"
   applies-description:
     - "Giày"
   applies:
     - "ALL_BOOTS"
   enchant-blacklist:
     - "dash"
+    - "flash"
   max-level: 5
   enchant-point: 1
   valuable: 0
@@ -603,3 +612,70 @@ doublejump:
           - ""
         effects:
           - "DEACTIVE_DOUBLE_JUMP"
+jellylegs:
+  group: rare
+  display: JellyLegs
+  description:
+    - "&eCó tỉ lệ chặn toàn bộ sát thương"
+    - "&esau khi rơi"
+  detail-description:
+    - "&eCó tỉ lệ chặn toàn bộ sát thương"
+    - "&esau khi rơi"
+  applies-description:
+    - Giày
+  applies:
+    - ALL_BOOTS
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      unknown_defense:
+        type: UNKNOWN_DEFENSE
+        chance: 20
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:LEGGINGS
+          - DAMAGE_CAUSE:FALL
+        options:
+          - DEFENSE:1:2
+    "2":
+      unknown_defense:
+        type: UNKNOWN_DEFENSE
+        chance: 40
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:LEGGINGS
+          - DAMAGE_CAUSE:FALL
+        options:
+          - DEFENSE:1:2
+    "3":
+      unknown_defense:
+        type: UNKNOWN_DEFENSE
+        chance: 60
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:LEGGINGS
+          - DAMAGE_CAUSE:FALL
+        options:
+          - DEFENSE:1:2
+    "4":
+      unknown_defense:
+        type: UNKNOWN_DEFENSE
+        chance: 80
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:LEGGINGS
+          - DAMAGE_CAUSE:FALL
+        options:
+          - DEFENSE:1:2
+    "5":
+      unknown_defense:
+        type: UNKNOWN_DEFENSE
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:LEGGINGS
+          - DAMAGE_CAUSE:FALL
+        options:
+          - DEFENSE:1:2

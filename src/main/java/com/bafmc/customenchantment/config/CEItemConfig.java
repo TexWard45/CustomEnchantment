@@ -18,6 +18,7 @@ import com.bafmc.customenchantment.item.CEWeaponStorage;
 import com.bafmc.customenchantment.item.WeaponSettings;
 import com.bafmc.customenchantment.item.artifact.CEArtifact;
 import com.bafmc.customenchantment.item.artifact.CEArtifactData;
+import com.bafmc.customenchantment.item.artifact.CEArtifactGroup;
 import com.bafmc.customenchantment.item.artifact.CEArtifactStorage;
 import com.bafmc.customenchantment.item.banner.CEBanner;
 import com.bafmc.customenchantment.item.banner.CEBannerData;
@@ -46,7 +47,6 @@ import com.bafmc.customenchantment.item.loreformat.CELoreFormatStorage;
 import com.bafmc.customenchantment.item.mask.CEMask;
 import com.bafmc.customenchantment.item.mask.CEMaskData;
 import com.bafmc.customenchantment.item.mask.CEMaskStorage;
-import com.bafmc.customenchantment.item.artifact.CEArtifactGroup;
 import com.bafmc.customenchantment.item.nametag.CENameTag;
 import com.bafmc.customenchantment.item.nametag.CENameTagData;
 import com.bafmc.customenchantment.item.nametag.CENameTagStorage;
@@ -733,7 +733,7 @@ public class CEItemConfig extends AbstractConfig {
 			MaterialList appliesMaterialList = MaterialList.getMaterialList(config.getStringList(path + ".applies"));
 			List<String> appliesDescription = config.getStringList(path + ".applies-description");
 			List<String> appliesSlot = config.getStringList(path + ".applies-slot");
-			Map<Integer, List<NMSAttribute>> attributeMap = loadGemAttributeMap(config.getAdvancedConfigurationSection(path + ".levels"));
+			Map<Integer, CEGemData.ConfigByLevelData> attributeMap = loadGemConfigByLevelMap(config.getAdvancedConfigurationSection(path + ".levels"));
 			int limitPerItem = config.getInt(path + ".limit-per-item");
 
 			ItemMeta itemMeta = itemStack.getItemMeta();
@@ -745,7 +745,7 @@ public class CEItemConfig extends AbstractConfig {
 					.appliesMaterialList(appliesMaterialList)
 					.appliesDescription(appliesDescription)
 					.appliesSlot(appliesSlot)
-					.nmsAttributeLevelMap(attributeMap)
+					.levelMap(attributeMap)
 					.limitPerItem(limitPerItem)
 					.itemDisplay(displayName)
 					.itemLore(lore).build();
@@ -756,12 +756,13 @@ public class CEItemConfig extends AbstractConfig {
 		}
 	}
 
-	public Map<Integer, List<NMSAttribute>> loadGemAttributeMap(AdvancedConfigurationSection config) {
-		Map<Integer, List<NMSAttribute>> map = new HashMap<>();
+	public Map<Integer, CEGemData.ConfigByLevelData> loadGemConfigByLevelMap(AdvancedConfigurationSection config) {
+		Map<Integer, CEGemData.ConfigByLevelData> map = new HashMap<>();
 
 		for (String key : config.getKeys(false)) {
 			try {
 				int level = Integer.parseInt(key);
+
 				List<NMSAttribute> list = new ArrayList<>();
 
 				for (String attributeFormat : config.getStringList(key + ".attributes")) {
@@ -769,7 +770,14 @@ public class CEItemConfig extends AbstractConfig {
 					list.add(attribute);
 				}
 
-				map.put(level, list);
+				int customModelData = config.getInt(key + ".custom-model-data", 0);
+
+				CEGemData.ConfigByLevelData configByLevelData = CEGemData.ConfigByLevelData.builder()
+						.nmsAttributes(list)
+						.customModelData(customModelData)
+						.build();
+
+				map.put(level, configByLevelData);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -841,12 +849,32 @@ public class CEItemConfig extends AbstractConfig {
 
 			int maxLevel = config.getInt(path + ".max-level");
 
-			CESigilData.ConfigData configData = new CESigilData.ConfigData(group, enchant, maxLevel, itemMeta.getDisplayName(), new ArrayList<>(itemMeta.getLore()));
+			List<CESigilData.SpecialDisplayData> specialDisplayDataList = loadCESigilSpecialDisplayData(config.getAdvancedConfigurationSection(path + ".special-display"));
+
+			CESigilData.ConfigData configData = new CESigilData.ConfigData(group, enchant, maxLevel, itemMeta.getDisplayName(), new ArrayList<>(itemMeta.getLore()), specialDisplayDataList);
 
 			CESigilData data = new CESigilData(pattern, configData);
 			ceItem.setData(data);
 
 			storage.put(pattern, ceItem);
 		}
+	}
+
+	public List<CESigilData.SpecialDisplayData> loadCESigilSpecialDisplayData(AdvancedConfigurationSection config) {
+		List<CESigilData.SpecialDisplayData> list = new ArrayList<>();
+
+		for (String key : config.getKeys(false)) {
+			try {
+				MaterialList materialList = MaterialList.getMaterialList(config.getStringList(key + ".type"));
+				String display = config.getString(key + ".display");
+
+				CESigilData.SpecialDisplayData data = new CESigilData.SpecialDisplayData(materialList, display);
+				list.add(data);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+		return list;
 	}
 }

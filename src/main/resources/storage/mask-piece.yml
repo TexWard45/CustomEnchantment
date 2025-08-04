@@ -1,0 +1,550 @@
+mask-piece-zombie:
+  type: POPPED_CHORUS_FRUIT
+  display: "&d&lMảnh mặt nạ &#2e7d32&lZombie"
+  lore:
+    - "&#00bbffNguyên liệu rất hiếm"
+    - ""
+    - "&7Dùng để chế tạo mặt nạ"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+mask-piece-pig:
+  type: POPPED_CHORUS_FRUIT
+  display: "&d&lMảnh mặt nạ &#e040fb&lPig"
+  lore:
+    - "&#00bbffNguyên liệu rất hiếm"
+    - ""
+    - "&7Dùng để chế tạo mặt nạ"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+mask-piece-sheep:
+  type: POPPED_CHORUS_FRUIT
+  display: "&d&lMảnh mặt nạ &#78909c&lSheep"
+  lore:
+    - "&#00bbffNguyên liệu rất hiếm"
+    - ""
+    - "&7Dùng để chế tạo mặt nạ"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+mask-piece-cow:
+  type: POPPED_CHORUS_FRUIT
+  display: "&d&lMảnh mặt nạ &#8d6e63&lCow"
+  lore:
+    - "&#00bbffNguyên liệu rất hiếm"
+    - ""
+    - "&7Dùng để chế tạo mặt nạ"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+mask-piece-spider:
+  type: POPPED_CHORUS_FRUIT
+  display: "&d&lMảnh mặt nạ &#9c27b0&lSpider"
+  lore:
+    - "&#00bbffNguyên liệu rất hiếm"
+    - ""
+    - "&7Dùng để chế tạo mặt nạ"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+mask-piece-cave-spider:
+  type: POPPED_CHORUS_FRUIT
+  display: "&d&lMảnh mặt nạ &#304ffe&lCave Spider"
+  lore:
+    - "&#00bbffNguyên liệu rất hiếm"
+    - ""
+    - "&7Dùng để chế tạo mặt nạ"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+mask-piece-squid:
+  type: POPPED_CHORUS_FRUIT
+  display: "&d&lMảnh mặt nạ &#00b0ff&lSquid"
+  lore:
+    - "&#00bbffNguyên liệu rất hiếm"
+    - ""
+    - "&7Dùng để chế tạo mặt nạ"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+mask-piece-mooshroom:
+  type: POPPED_CHORUS_FRUIT
+  display: "&d&lMảnh mặt nạ &#ff5252&lMooshroom"
+  lore:
+    - "&#00bbffNguyên liệu rất hiếm"
+    - ""
+    - "&7Dùng để chế tạo mặt nạ"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+mask-piece-bat:
+  type: POPPED_CHORUS_FRUIT
+  display: "&d&lMảnh mặt nạ &#455a64&lBat"
+  lore:
+    - "&#00bbffNguyên liệu rất hiếm"
+    - ""
+    - "&7Dùng để chế tạo mặt nạ"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+mask-piece-creeper:
+  type: POPPED_CHORUS_FRUIT
+  display: "&d&lMảnh mặt nạ &#55ff55&lCreeper"
+  lore:
+    - "&#00bbffNguyên liệu rất hiếm"
+    - ""
+    - "&7Dùng để chế tạo mặt nạ"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+mask-piece-chicken:
+  type: POPPED_CHORUS_FRUIT
+  display: "&d&lMảnh mặt nạ &#ffd600&lChicken"
+  lore:
+    - "&#00bbffNguyên liệu rất hiếm"
+    - ""
+    - "&7Dùng để chế tạo mặt nạ"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+mask-piece-llama:
+  type: POPPED_CHORUS_FRUIT
+  display: "&d&lMảnh mặt nạ &#ffd740&lLlama"
+  lore:
+    - "&#00bbffNguyên liệu rất hiếm"
+    - ""
+    - "&7Dùng để chế tạo mặt nạ"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+mask-piece-camel:
+  type: POPPED_CHORUS_FRUIT
+  display: "&d&lMảnh mặt nạ &#ffab40&lCamel"
+  lore:
+    - "&#00bbffNguyên liệu rất hiếm"
+    - ""
+    - "&7Dùng để chế tạo mặt nạ"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+mask-piece-skeleton:
+  type: POPPED_CHORUS_FRUIT
+  display: "&d&lMảnh mặt nạ &#b0bec5&lSkeleton"
+  lore:
+    - "&#00bbffNguyên liệu rất hiếm"
+    - ""
+    - "&7Dùng để chế tạo mặt nạ"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+mask-piece-rabbit:
+  type: POPPED_CHORUS_FRUIT
+  display: "&d&lMảnh mặt nạ &#ff4081&lRabbit"
+  lore:
+    - "&#00bbffNguyên liệu rất hiếm"
+    - ""
+    - "&7Dùng để chế tạo mặt nạ"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+mask-piece-wolf:
+  type: POPPED_CHORUS_FRUIT
+  display: "&d&lMảnh mặt nạ &#94a3b8&lWolf"
+  lore:
+    - "&#00bbffNguyên liệu rất hiếm"
+    - ""
+    - "&7Dùng để chế tạo mặt nạ"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+mask-piece-stray:
+  type: POPPED_CHORUS_FRUIT
+  display: "&d&lMảnh mặt nạ &#90a4ae&lStray"
+  lore:
+    - "&#00bbffNguyên liệu rất hiếm"
+    - ""
+    - "&7Dùng để chế tạo mặt nạ"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+mask-piece-armadillo:
+  type: POPPED_CHORUS_FRUIT
+  display: "&d&lMảnh mặt nạ &#795548&lArmadillo"
+  lore:
+    - "&#00bbffNguyên liệu rất hiếm"
+    - ""
+    - "&7Dùng để chế tạo mặt nạ"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+mask-piece-ocelot:
+  type: POPPED_CHORUS_FRUIT
+  display: "&d&lMảnh mặt nạ &#ffca28&lOcelot"
+  lore:
+    - "&#00bbffNguyên liệu rất hiếm"
+    - ""
+    - "&7Dùng để chế tạo mặt nạ"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+mask-piece-blaze:
+  type: POPPED_CHORUS_FRUIT
+  display: "&d&lMảnh mặt nạ &#f97316&lBlaze"
+  lore:
+    - "&#00bbffNguyên liệu rất hiếm"
+    - ""
+    - "&7Dùng để chế tạo mặt nạ"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+mask-piece-frog:
+  type: POPPED_CHORUS_FRUIT
+  display: "&d&lMảnh mặt nạ &#c0ca33&lFrog"
+  lore:
+    - "&#00bbffNguyên liệu rất hiếm"
+    - ""
+    - "&7Dùng để chế tạo mặt nạ"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+mask-piece-dolphin:
+  type: POPPED_CHORUS_FRUIT
+  display: "&d&lMảnh mặt nạ &#00e5ff&lDolphin"
+  lore:
+    - "&#00bbffNguyên liệu rất hiếm"
+    - ""
+    - "&7Dùng để chế tạo mặt nạ"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+mask-piece-bee:
+  type: POPPED_CHORUS_FRUIT
+  display: "&d&lMảnh mặt nạ &#ffea00&lBee"
+  lore:
+    - "&#00bbffNguyên liệu rất hiếm"
+    - ""
+    - "&7Dùng để chế tạo mặt nạ"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+mask-piece-goat:
+  type: POPPED_CHORUS_FRUIT
+  display: "&d&lMảnh mặt nạ &#e0e0e0&lGoat"
+  lore:
+    - "&#00bbffNguyên liệu rất hiếm"
+    - ""
+    - "&7Dùng để chế tạo mặt nạ"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+mask-piece-horse:
+  type: POPPED_CHORUS_FRUIT
+  display: "&d&lMảnh mặt nạ &#ffff00&lHorse"
+  lore:
+    - "&#00bbffNguyên liệu rất hiếm"
+    - ""
+    - "&7Dùng để chế tạo mặt nạ"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+mask-piece-parrot:
+  type: POPPED_CHORUS_FRUIT
+  display: "&d&lMảnh mặt nạ &#e80000&lParrot"
+  lore:
+    - "&#00bbffNguyên liệu rất hiếm"
+    - ""
+    - "&7Dùng để chế tạo mặt nạ"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+mask-piece-bogged:
+  type: POPPED_CHORUS_FRUIT
+  display: "&d&lMảnh mặt nạ &#827717&lBogged"
+  lore:
+    - "&#00bbffNguyên liệu rất hiếm"
+    - ""
+    - "&7Dùng để chế tạo mặt nạ"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+mask-piece-endermite:
+  type: POPPED_CHORUS_FRUIT
+  display: "&d&lMảnh mặt nạ &#6a1b9a&lEndermite"
+  lore:
+    - "&#00bbffNguyên liệu rất hiếm"
+    - ""
+    - "&7Dùng để chế tạo mặt nạ"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+mask-piece-allay:
+  type: POPPED_CHORUS_FRUIT
+  display: "&d&lMảnh mặt nạ &#63f8fc&lAllay"
+  lore:
+    - "&#00bbffNguyên liệu rất hiếm"
+    - ""
+    - "&7Dùng để chế tạo mặt nạ"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+mask-piece-fox:
+  type: POPPED_CHORUS_FRUIT
+  display: "&d&lMảnh mặt nạ &#e65100&lFox"
+  lore:
+    - "&#00bbffNguyên liệu rất hiếm"
+    - ""
+    - "&7Dùng để chế tạo mặt nạ"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+mask-piece-panda:
+  type: POPPED_CHORUS_FRUIT
+  display: "&d&lMảnh mặt nạ &#00c853&lPanda"
+  lore:
+    - "&#00bbffNguyên liệu rất hiếm"
+    - ""
+    - "&7Dùng để chế tạo mặt nạ"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+mask-piece-turtle:
+  type: POPPED_CHORUS_FRUIT
+  display: "&d&lMảnh mặt nạ &#46bd49&lTurtle"
+  lore:
+    - "&#00bbffNguyên liệu rất hiếm"
+    - ""
+    - "&7Dùng để chế tạo mặt nạ"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+mask-piece-axolotl:
+  type: POPPED_CHORUS_FRUIT
+  display: "&d&lMảnh mặt nạ &#d500f9&lAxolotl"
+  lore:
+    - "&#00bbffNguyên liệu rất hiếm"
+    - ""
+    - "&7Dùng để chế tạo mặt nạ"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+mask-piece-pillager:
+  type: POPPED_CHORUS_FRUIT
+  display: "&d&lMảnh mặt nạ &#3d5afe&lPillager"
+  lore:
+    - "&#00bbffNguyên liệu rất hiếm"
+    - ""
+    - "&7Dùng để chế tạo mặt nạ"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+mask-piece-piglin:
+  type: POPPED_CHORUS_FRUIT
+  display: "&d&lMảnh mặt nạ &#ff4081&lPiglin"
+  lore:
+    - "&#00bbffNguyên liệu rất hiếm"
+    - ""
+    - "&7Dùng để chế tạo mặt nạ"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+mask-piece-polar-bear:
+  type: POPPED_CHORUS_FRUIT
+  display: "&d&lMảnh mặt nạ &#f5f5f5&lPolar Bear"
+  lore:
+    - "&#00bbffNguyên liệu rất hiếm"
+    - ""
+    - "&7Dùng để chế tạo mặt nạ"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+mask-piece-zoglin:
+  type: POPPED_CHORUS_FRUIT
+  display: "&d&lMảnh mặt nạ &#ab47bc&lZoglin"
+  lore:
+    - "&#00bbffNguyên liệu rất hiếm"
+    - ""
+    - "&7Dùng để chế tạo mặt nạ"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+mask-piece-sniffer:
+  type: POPPED_CHORUS_FRUIT
+  display: "&d&lMảnh mặt nạ &#e53935&lSniffer"
+  lore:
+    - "&#00bbffNguyên liệu rất hiếm"
+    - ""
+    - "&7Dùng để chế tạo mặt nạ"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+mask-piece-strider:
+  type: POPPED_CHORUS_FRUIT
+  display: "&d&lMảnh mặt nạ &#be123c&lStrider"
+  lore:
+    - "&#00bbffNguyên liệu rất hiếm"
+    - ""
+    - "&7Dùng để chế tạo mặt nạ"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+mask-piece-vindicator:
+  type: POPPED_CHORUS_FRUIT
+  display: "&d&lMảnh mặt nạ &#546e7a&lVindicator"
+  lore:
+    - "&#00bbffNguyên liệu rất hiếm"
+    - ""
+    - "&7Dùng để chế tạo mặt nạ"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+mask-piece-phantom:
+  type: POPPED_CHORUS_FRUIT
+  display: "&d&lMảnh mặt nạ &#4f60a2&lPhantom"
+  lore:
+    - "&#00bbffNguyên liệu rất hiếm"
+    - ""
+    - "&7Dùng để chế tạo mặt nạ"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+mask-piece-witch:
+  type: POPPED_CHORUS_FRUIT
+  display: "&d&lMảnh mặt nạ &#6366f1&lWitch"
+  lore:
+    - "&#00bbffNguyên liệu rất hiếm"
+    - ""
+    - "&7Dùng để chế tạo mặt nạ"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+mask-piece-enderman:
+  type: POPPED_CHORUS_FRUIT
+  display: "&d&lMảnh mặt nạ &#c026d3&lEnderman"
+  lore:
+    - "&#00bbffNguyên liệu rất hiếm"
+    - ""
+    - "&7Dùng để chế tạo mặt nạ"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+mask-piece-guardian:
+  type: POPPED_CHORUS_FRUIT
+  display: "&d&lMảnh mặt nạ &#06b6d4&lGuardian"
+  lore:
+    - "&#00bbffNguyên liệu rất hiếm"
+    - ""
+    - "&7Dùng để chế tạo mặt nạ"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+mask-piece-slime:
+  type: POPPED_CHORUS_FRUIT
+  display: "&d&lMảnh mặt nạ &#22c55e&lSlime"
+  lore:
+    - "&#00bbffNguyên liệu rất hiếm"
+    - ""
+    - "&7Dùng để chế tạo mặt nạ"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+mask-piece-magma-cube:
+  type: POPPED_CHORUS_FRUIT
+  display: "&d&lMảnh mặt nạ &#dd2c00&lMagma Cube"
+  lore:
+    - "&#00bbffNguyên liệu rất hiếm"
+    - ""
+    - "&7Dùng để chế tạo mặt nạ"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+mask-piece-ravager:
+  type: POPPED_CHORUS_FRUIT
+  display: "&d&lMảnh mặt nạ &#4b4137&lRavager"
+  lore:
+    - "&#00bbffNguyên liệu rất hiếm"
+    - ""
+    - "&7Dùng để chế tạo mặt nạ"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+mask-piece-ghast:
+  type: POPPED_CHORUS_FRUIT
+  display: "&d&lMảnh mặt nạ &#ededed&lGhast"
+  lore:
+    - "&#00bbffNguyên liệu rất hiếm"
+    - ""
+    - "&7Dùng để chế tạo mặt nạ"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+mask-piece-breeze:
+  type: POPPED_CHORUS_FRUIT
+  display: "&d&lMảnh mặt nạ &#a99ac9&lBreeze"
+  lore:
+    - "&#00bbffNguyên liệu rất hiếm"
+    - ""
+    - "&7Dùng để chế tạo mặt nạ"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+mask-piece-iron-golem:
+  type: POPPED_CHORUS_FRUIT
+  display: "&d&lMảnh mặt nạ &#64748b&lIron Golem"
+  lore:
+    - "&#00bbffNguyên liệu rất hiếm"
+    - ""
+    - "&7Dùng để chế tạo mặt nạ"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS

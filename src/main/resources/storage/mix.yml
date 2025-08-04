@@ -1,0 +1,542 @@
+# &7Nguyên liệu thường
+# &#77ff00Nguyên liệu hiếm
+# &#00bbffNguyên liệu rất hiếm
+# &#ffee00Nguyên liệu cực hiếm
+# &#ff4400Nguyên liệu siêu hiếm
+default:
+  ==: org.bukkit.inventory.ItemStack
+  type: AIR
+barrier:
+  ==: org.bukkit.inventory.ItemStack
+  type: BARRIER
+  display: " "
+color:
+  type: STICK
+  display: "%iridiumcolorapi_gradient_FB4141,FFC145,ECE852,5CB338_&l⚔ Mega Faction ⚔%"
+  lore:
+    - "&6|&a|||&6|"
+rough-aquamarine:
+  type: PLAYER_HEAD
+  skull-owner: "textures:eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNWE1OGEzOGY3N2I1ZjBmMzYxMGIxNjRkYTI5ZTkwMTY2MWI0NjI4YTQ4MmQ1ZjcwMmI3MTA1NGY2NjVlMzUyYyJ9fX0="
+  display: "<GRADIENTS:009b9b,8cfaf2>&l💎 Đá Lam Ngọc Thô Sơ 💎</GRADIENTS>"
+rough-aquamarine1:
+  type: PLAYER_HEAD
+  skull-owner: "textures:eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNWE1OGEzOGY3N2I1ZjBmMzYxMGIxNjRkYTI5ZTkwMTY2MWI0NjI4YTQ4MmQ1ZjcwMmI3MTA1NGY2NjVlMzUyYyJ9fX0="
+  display: "&l💎 Đá Lam Ngọc Thô Sơ 💎"
+testweapon:
+  type: NETHERITE_SWORD
+  display: "Test"
+  custom-model-data: 10000
+star-color:
+  type: STONE
+  glowing: true
+  display: "&dStar Color"
+  lore:
+    - "&#c1cad9&l1 ★"
+    - "&#a3fc19&l2 ★"
+    - "&#1ef76e&l3 ★"
+    - "&#38bdf8&l4 ★"
+    - "&#fde047&l5 ★"
+    - "&#fb923c&l6 ★"
+    - "&#3b82f6&l7 ★"
+    - "&#a855f7&l8 ★"
+    - "&#ff309e&l9 ★"
+    - "&#fc0339&l10 ★"
+head:
+  type: PLAYER_HEAD
+  # bắp cải
+  #skull-owner: 'textures:eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNThlNTlkYzcyMmU0MTlmZTA2NGYwYzc5OTJhNzg5N2I3M2NjN2M1MjA1ZTE5ZDA2N2ExNzRiY2IwMThlOTQyOSJ9fX0='
+  # dưa hấu
+  #skull-owner: 'textures:eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGU0MTgxMTM1ODdhM2NhZGQ2YmM4NGE3MWUxZDU3ZDI1MWZmZjgwOTVmYTQ2YjY5ODE3NDk4NjVlMjAwM2UwYyJ9fX0='
+  # cà chua
+  skull-owner: "textures:eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2FiZmQwODc5ODFhNmZhNGE2MjE3NzcyMDA3NDQyMWRiMjg1OWY4YzFlZWY5OTI3MjdkYzlhZTA4NzEyODBiOSJ9fX0="
+creeper-egg:
+  type: CREEPER_SPAWN_EGG
+  display: "&2&lTrứng &a&lCreeper"
+  lore:
+    - ""
+    - "&7Triệu hồi Creeper có khả năng phát nổ"
+    - "&7khi đặt xuống"
+    - ""
+    - "&7Hỗ trợ trong việc đánh chiếm Faction"
+    - ""
+    - "&8[&7Cầm và đặt xuống để sử dụng&8]"
+trash-powder:
+  type: GUNPOWDER
+  display: "&7Bột hỏng"
+  lore:
+    - "&7Nguyên liệu thường"
+    - ""
+    - "&7Bột đã bị hỏng và không thể"
+    - "&7tiếp tục sử dụng"
+enchant-paper:
+  type: PAPER
+  display: "&f&lGiấy phù phép"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&eLoại giấy có nhiều công dụng đặc biệt"
+    - ""
+    - "&7&oSử dụng tại /ce"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+tavern-paper:
+  type: PAPER
+  display: "&f&lPhiếu &c&lHội quán"
+  lore:
+    - "&#ffee00Nguyên liệu cực hiếm"
+    - ""
+    - "&7Dùng để trao đổi tại &cHội quán"
+    - ""
+    - "&7&oSử dụng tại /tavern"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+tavern-armor:
+  type: DRIED_KELP
+  display: "&#06b6d4&lMảnh giáp &#f5222d&lHội quán"
+  lore:
+    - "&#ffee00Nguyên liệu cực hiếm"
+    - ""
+    - "&7Dùng để trao đổi tại &cHội quán"
+    - ""
+    - "&7&oSử dụng tại /tavern"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+tavern-weapon:
+  type: NETHERITE_INGOT
+  display: "&#ec4899&lPhôi vũ khí &#f5222d&lHội quán"
+  lore:
+    - "&#ffee00Nguyên liệu cực hiếm"
+    - ""
+    - "&7Dùng để trao đổi tại &cHội quán"
+    - ""
+    - "&7&oSử dụng tại /tavern"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+magic-ball:
+  type: MAGMA_CREAM
+  display: "%iridiumcolorapi_gradient_e11d48,2563eb_&lBóng ma thuật%"
+  lore:
+    - "&#ffee00Nguyên liệu cực hiếm"
+    - ""
+    - "&cDùng để đột phá sách phù phép"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+soul:
+  type: YELLOW_DYE
+  display: "&6&lSoul"
+  lore:
+    - "&7Tiền tệ"
+    - ""
+    - "&aDùng để trao đổi các vật phẩm"
+    - "&acó giá trị"
+    - ""
+    - "&aCó thể kiếm được khi trao đổi"
+    - "&atại &e/soul"
+    - ""
+    - "&7&oSử dụng tại /soul"
+  enchants:
+    - "DURABILITY 1"
+  flags:
+    - HIDE_ENCHANTS
+soulx64:
+  type: YELLOW_DYE
+  display: "&e&lx64 &6&lSoul"
+  lore:
+    - "&7Tiền tệ"
+    - ""
+    - "&aDùng để trao đổi các vật phẩm"
+    - "&acó giá trị"
+    - ""
+    - "&aCó thể kiếm được khi trao đổi"
+    - "&atại &e/soul"
+    - ""
+    - "&7&oSử dụng tại /soul"
+  enchants:
+    - "DURABILITY 1"
+  flags:
+    - HIDE_ENCHANTS
+shard:
+  type: PRISMARINE_SHARD
+  display: "&3&lShard"
+  lore:
+    - "&7Tiền tệ"
+    - ""
+    - "&aDùng để trao đổi các vật phẩm"
+    - "&acó giá trị"
+    - ""
+    - "&aCó thể rơi ra khi giết quái"
+    - ""
+    - "&7&oSử dụng tại /shard"
+  enchants:
+    - "DURABILITY 1"
+  flags:
+    - HIDE_ENCHANTS
+shardx64:
+  type: PRISMARINE_SHARD
+  display: "&b&lx64 &3&lShard"
+  lore:
+    - "&7Tiền tệ"
+    - ""
+    - "&aDùng để trao đổi các vật phẩm"
+    - "&acó giá trị"
+    - ""
+    - "&aCó thể rơi ra khi giết quái"
+    - ""
+    - "&7&oSử dụng tại /shard"
+  enchants:
+    - "DURABILITY 1"
+  flags:
+    - HIDE_ENCHANTS
+knight-armorial:
+  type: RED_DYE
+  display: "&f&lHuy hiệu &x&E&1&1&D&4&8&lH&x&E&5&3&3&5&9&li&x&E&9&4&9&6&A&lệ&x&E&D&5&F&7&B&lp&x&F&1&7&5&8&C&l &x&F&5&8&B&9&D&ls&x&F&9&A&1&A&E&lĩ"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Dùng để chế tạo trang bị &x&E&1&1&D&4&8H&x&E&5&3&3&5&9i&x&E&9&4&9&6&Aệ&x&E&D&5&F&7&Bp&x&F&1&7&5&8&C &x&F&5&8&B&9&Ds&x&F&9&A&1&A&Eĩ"
+    - ""
+    - "&7&oSử dụng tại /tavern"
+  enchants:
+    - "DURABILITY 1"
+  flags:
+    - HIDE_ENCHANTS
+fighter-armorial:
+  type: ORANGE_DYE
+  display: "&f&lHuy hiệu &x&E&A&5&8&0&C&lĐ&x&E&D&7&0&1&9&lấ&x&F&0&8&8&2&6&lu&x&F&3&A&0&3&3&l &x&F&6&B&8&4&0&ls&x&F&9&D&0&4&D&lĩ"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Dùng để chế tạo trang bị &x&E&A&5&8&0&CĐ&x&E&D&7&0&1&9ấ&x&F&0&8&8&2&6u&x&F&3&A&0&3&3 &x&F&6&B&8&4&0s&x&F&9&D&0&4&Dĩ"
+    - ""
+    - "&7&oSử dụng tại /tavern"
+  enchants:
+    - "DURABILITY 1"
+  flags:
+    - HIDE_ENCHANTS
+archer-armorial:
+  type: LIGHT_BLUE_DYE
+  display: "&f&lHuy hiệu &x&0&E&A&5&E&9&lT&x&2&3&A&D&E&B&lh&x&3&8&B&5&E&D&lầ&x&4&D&B&D&E&F&ln&x&6&2&C&5&F&1&l &x&7&7&C&D&F&3&lt&x&8&C&D&5&F&5&li&x&A&1&D&D&F&7&lễ&x&B&6&E&5&F&9&ln"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Dùng để chế tạo trang bị &x&0&E&A&5&E&9T&x&2&3&A&D&E&Bh&x&3&8&B&5&E&Dầ&x&4&D&B&D&E&Fn&x&6&2&C&5&F&1 &x&7&7&C&D&F&3t&x&8&C&D&5&F&5i&x&A&1&D&D&F&7ễ&x&B&6&E&5&F&9n"
+    - ""
+    - "&7&oSử dụng tại /tavern"
+  enchants:
+    - "DURABILITY 1"
+  flags:
+    - HIDE_ENCHANTS
+assassin-armorial:
+  type: PURPLE_DYE
+  display: "&f&lHuy hiệu &x&7&E&2&2&C&E&lS&x&8&9&3&2&D&5&lá&x&9&4&4&2&D&C&lt&x&9&F&5&2&E&3&l &x&A&A&6&2&E&A&lt&x&B&5&7&2&F&1&lh&x&C&0&8&2&F&8&lủ"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Dùng để chế tạo trang bị &x&7&E&2&2&C&ES&x&8&9&3&2&D&5á&x&9&4&4&2&D&Ct&x&9&F&5&2&E&3 &x&A&A&6&2&E&At&x&B&5&7&2&F&1h&x&C&0&8&2&F&8ủ"
+    - ""
+    - "&7&oSử dụng tại /tavern"
+  enchants:
+    - "DURABILITY 1"
+  flags:
+    - HIDE_ENCHANTS
+poseidon-armorial:
+  type: CYAN_DYE
+  display: "&f&lHuy hiệu &x&0&8&9&1&B&2&lH&x&1&5&9&D&B&C&lả&x&2&2&A&9&C&6&li&x&2&F&B&5&D&0&l &x&3&C&C&1&D&A&lt&x&4&9&C&D&E&4&lh&x&5&6&D&9&E&E&lầ&x&6&3&E&5&F&8&ln"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Dùng để chế tạo trang bị &x&0&8&9&1&B&2H&x&1&5&9&D&B&Cả&x&2&2&A&9&C&6i&x&2&F&B&5&D&0 &x&3&C&C&1&D&At&x&4&9&C&D&E&4h&x&5&6&D&9&E&Eầ&x&6&3&E&5&F&8n"
+    - ""
+    - "&7&oSử dụng tại /tavern"
+  enchants:
+    - "DURABILITY 1"
+  flags:
+    - HIDE_ENCHANTS
+reaper-armorial:
+  type: BLACK_DYE
+  display: "&f&lHuy hiệu &x&3&7&4&1&5&1&lT&x&4&7&5&1&6&0&lử&x&5&7&6&1&6&F&l &x&6&7&7&1&7&E&lt&x&7&7&8&1&8&D&lh&x&8&7&9&1&9&C&lầ&x&9&7&A&1&A&B&ln"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Dùng để chế tạo trang bị &x&3&7&4&1&5&1T&x&4&7&5&1&6&0ử&x&5&7&6&1&6&F &x&6&7&7&1&7&Et&x&7&7&8&1&8&Dh&x&8&7&9&1&9&Cầ&x&9&7&A&1&A&Bn"
+    - ""
+    - "&7&oSử dụng tại /tavern"
+  enchants:
+    - "DURABILITY 1"
+  flags:
+    - HIDE_ENCHANTS
+miner-ingot1:
+  type: IRON_INGOT
+  display: "&b&lThỏi &f&lHỗn hợp &f&lSơ cấp"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Dùng để chế tạo công cụ &x&F&F&F&F&F&FT&x&F&F&E&E&C&Ch&x&F&F&D&D&9&9ợ&x&F&F&C&C&6&6 &x&F&F&B&B&3&3m&x&F&F&A&A&0&0ỏ"
+    - ""
+    - "&7&oSử dụng tại /tavern"
+  enchants:
+    - "DURABILITY 1"
+  flags:
+    - HIDE_ENCHANTS
+miner-ingot2:
+  type: GOLD_INGOT
+  display: "&b&lThỏi &f&lHỗn hợp &b&lTrung cấp"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Dùng để chế tạo công cụ &x&F&F&F&F&F&FT&x&F&F&E&E&C&Ch&x&F&F&D&D&9&9ợ&x&F&F&C&C&6&6 &x&F&F&B&B&3&3m&x&F&F&A&A&0&0ỏ"
+    - ""
+    - "&7&oSử dụng tại /tavern"
+  enchants:
+    - "DURABILITY 1"
+  flags:
+    - HIDE_ENCHANTS
+miner-ingot3:
+  type: NETHERITE_INGOT
+  display: "&b&lThỏi &f&lHỗn hợp &c&lCao cấp"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Dùng để chế tạo công cụ &x&F&F&F&F&F&FT&x&F&F&E&E&C&Ch&x&F&F&D&D&9&9ợ&x&F&F&C&C&6&6 &x&F&F&B&B&3&3m&x&F&F&A&A&0&0ỏ"
+    - ""
+    - "&7&oSử dụng tại /tavern"
+  enchants:
+    - "DURABILITY 1"
+  flags:
+    - HIDE_ENCHANTS
+lumberjack-wood1:
+  type: OAK_LOG
+  display: "&6&lGỗ &f&lHỗn hợp &f&lSơ cấp"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Dùng để chế tạo công cụ &x&F&F&F&F&F&FT&x&E&7&E&7&F&Fi&x&C&F&C&F&F&Fề&x&B&7&B&7&F&Fu&x&9&F&9&F&F&F &x&8&7&8&7&F&Fp&x&6&F&6&F&F&Fh&x&5&7&5&7&F&Fu"
+    - ""
+    - "&7&oSử dụng tại /tavern"
+  enchants:
+    - "DURABILITY 1"
+  flags:
+    - HIDE_ENCHANTS
+lumberjack-wood2:
+  type: DARK_OAK_LOG
+  display: "&6&lGỗ &f&lHỗn hợp &b&lTrung cấp"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Dùng để chế tạo công cụ &x&F&F&F&F&F&FT&x&E&7&E&7&F&Fi&x&C&F&C&F&F&Fề&x&B&7&B&7&F&Fu&x&9&F&9&F&F&F &x&8&7&8&7&F&Fp&x&6&F&6&F&F&Fh&x&5&7&5&7&F&Fu"
+    - ""
+    - "&7&oSử dụng tại /tavern"
+  enchants:
+    - "DURABILITY 1"
+  flags:
+    - HIDE_ENCHANTS
+lumberjack-wood3:
+  type: ACACIA_LOG
+  display: "&6&lGỗ &f&lHỗn hợp &c&lCao cấp"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Dùng để chế tạo công cụ &x&F&F&F&F&F&FT&x&E&7&E&7&F&Fi&x&C&F&C&F&F&Fề&x&B&7&B&7&F&Fu&x&9&F&9&F&F&F &x&8&7&8&7&F&Fp&x&6&F&6&F&F&Fh&x&5&7&5&7&F&Fu"
+    - ""
+    - "&7&oSử dụng tại /tavern"
+  enchants:
+    - "DURABILITY 1"
+  flags:
+    - HIDE_ENCHANTS
+spawner-piece1:
+  type: FLINT
+  display: "&9&lMảnh lồng quái &f&lSơ cấp"
+  lore:
+    - "&#00bbffNguyên liệu rất hiếm"
+    - ""
+    - "&7Dùng để chế tạo lồng quái"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+spawner-piece2:
+  type: FLINT
+  display: "&9&lMảnh lồng quái &b&lTrung cấp"
+  lore:
+    - "&#ffee00Nguyên liệu cực hiếm"
+    - ""
+    - "&7Dùng để chế tạo lồng quái"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+spawner-piece3:
+  type: FLINT
+  display: "&9&lMảnh lồng quái &d&lCao cấp"
+  lore:
+    - "&#ff4400Nguyên liệu siêu hiếm"
+    - ""
+    - "&7Dùng để chế tạo lồng quái"
+  enchants:
+    - DURABILITY 1
+  flags:
+    - HIDE_ENCHANTS
+netherite-helmet:
+  weapon: true
+  type: NETHERITE_HELMET
+  enchants:
+    - PROTECTION 4
+    - DURABILITY 3
+  unbreakable: true
+  flags:
+    - HIDE_UNBREAKABLE
+netherite-chestplate:
+  weapon: true
+  type: NETHERITE_CHESTPLATE
+  enchants:
+    - PROTECTION 4
+    - DURABILITY 3
+  unbreakable: true
+  flags:
+    - HIDE_UNBREAKABLE
+netherite-leggings:
+  weapon: true
+  type: NETHERITE_LEGGINGS
+  enchants:
+    - PROTECTION 4
+    - DURABILITY 3
+  unbreakable: true
+  flags:
+    - HIDE_UNBREAKABLE
+netherite-boots:
+  weapon: true
+  type: NETHERITE_BOOTS
+  enchants:
+    - PROTECTION 4
+    - DURABILITY 3
+  unbreakable: true
+  flags:
+    - HIDE_UNBREAKABLE
+netherite-sword:
+  weapon: true
+  type: NETHERITE_SWORD
+  enchants:
+    - SHARPNESS 5
+    - UNBREAKING 3
+netherite-axe-weapon:
+  weapon: true
+  type: NETHERITE_AXE
+  enchants:
+    - SHARPNESS 5
+    - UNBREAKING 3
+bow:
+  weapon: true
+  type: BOW
+  enchants:
+    - POWER 5
+    - UNBREAKING 3
+netherite-shovel:
+  weapon: true
+  type: NETHERITE_SHOVEL
+  enchants:
+    - EFFICIENCY 5
+    - UNBREAKING 3
+netherite-pickaxe:
+  weapon: true
+  type: NETHERITE_PICKAXE
+  enchants:
+    - EFFICIENCY 5
+    - UNBREAKING 3
+netherite-axe-tool:
+  weapon: true
+  type: NETHERITE_AXE
+  enchants:
+    - EFFICIENCY 5
+    - UNBREAKING 3
+netherite-pickaxe-full-enchant:
+  weapon: true
+  type: NETHERITE_PICKAXE
+  enchants:
+    - EFFICIENCY 5
+    - FORTUNE 3
+    - UNBREAKING 3
+netherite-hoe-tool:
+  weapon: true
+  type: NETHERITE_HOE
+  enchants:
+    - EFFICIENCY 5
+    - UNBREAKING 3
+netherite-hoe-weapon:
+  weapon: true
+  type: NETHERITE_HOE
+  enchants:
+    - SHARPNESS 5
+    - UNBREAKING 3
+trident:
+  weapon: true
+  type: TRIDENT
+  enchants:
+    - IMPALING 5
+    - LOYALTY 3
+    - UNBREAKING 3
+boss-cell-zombie:
+  type: PHANTOM_MEMBRANE
+  display: "&5&lTế bào &2&l&lThây Ma"
+  lore:
+    - "&#00bbffNguyên liệu rất hiếm"
+    - ""
+    - "&cSử dụng để triệu hồi Boss bậc cao"
+    - "&choặc chế tạo mặt nạ cao cấp"
+    - ""
+    - "&cPhần thưởng khi kết liễu &4&lBOSS &2&lThây Ma"
+    - ""
+    - "&7&oSử dụng tại /boss"
+  enchants:
+    - "DURABILITY 1"
+  flags:
+    - HIDE_ENCHANTS
+sugar-canex64:
+  type: SUGAR_CANE
+  display: "&e&lx64 &a&lMía"
+  lore:
+    - "&7Nguyên liệu thường"
+    - ""
+    - "&7Dùng để trao đổi sự kiện"
+    - ""
+    - "&7&oSử dụng tại /event"
+  enchants:
+    - "DURABILITY 1"
+  flags:
+    - HIDE_ENCHANTS
+sugar-canex4096:
+  type: SUGAR_CANE
+  display: "&f&lx4096 &a&lMía"
+  lore:
+    - "&7Nguyên liệu thường"
+    - ""
+    - "&7Dùng để trao đổi sự kiện"
+    - ""
+    - "&7&oSử dụng tại /event"
+  enchants:
+    - "DURABILITY 1"
+  flags:
+    - HIDE_ENCHANTS
+poisonous-potatox64:
+  type: POISONOUS_POTATO
+  display: "&f&lx64 &e&lKhoai tây độc"
+  lore:
+    - "&7Nguyên liệu thường"
+    - ""
+    - "&7Dùng để trao đổi sự kiện"
+    - ""
+    - "&7&oSử dụng tại /event"
+  enchants:
+    - "DURABILITY 1"
+  flags:
+    - HIDE_ENCHANTS

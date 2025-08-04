@@ -1,19 +1,3 @@
-veinminer:
-  group: supreme
-  display: VeinMiner
-  description:
-    - "&eCó tỉ lệ phá vỡ các khối quặng"
-    - "&ecùng loại liên kề nhau khi đào"
-  detail-description:
-    - "&eCó tỉ lệ phá vỡ các khối quặng"
-    - "&ecùng loại liên kề nhau khi đào"
-  applies-description:
-    - Cúp
-  applies:
-    - ALL_PICKAXE
-  max-level: 5
-  enchant-point: 1
-  valuable: 0
 hasten:
   group: legendary
   display: Hasten
@@ -46,163 +30,183 @@ planter:
   max-level: 5
   enchant-point: 1
   valuable: 0
-harvest:
-  group: epic
-  display: Harvest
+# hydroforge:
+#   group: epic
+#   display: HydroForge
+#   description:
+#     - "&eCó tỉ lệ tạo tim vàng khi tấn công"
+#   detail-description:
+#     - "&eCó tỉ lệ tạo tim vàng khi tấn công"
+#     - ""
+#     - "&eTim vàng: 4 x Cấp"
+#     - "&eTỉ lệ kích hoạt: 10% x Cấp"
+#     - "&eThời gian hồi: 5 giây"
+#   applies-description:
+#     - Đinh ba
+#   applies:
+#     - TRIDENT
+#   max-level: 5
+#   enchant-point: 1
+#   valuable: 0
+#   levels:
+#     "1":
+#       attack:
+#         type: ATTACK
+#         chance: 10
+#         cooldown: 4000
+#         conditions:
+#           - EQUIP_SLOT:MAINHAND
+#         effects:
+#           - ABSORPTION_HEART:ADD:4:20
+#           - "MESSAGE:&b&l***HydroForge: &e&l+4 &e&lHP &b&l***"
+#     "2":
+#       attack:
+#         type: ATTACK
+#         chance: 20
+#         cooldown: 4000
+#         conditions:
+#           - EQUIP_SLOT:MAINHAND
+#         effects:
+#           - ABSORPTION_HEART:ADD:8:20
+#           - "MESSAGE:&b&l***HydroForge: &e&l+8 &e&lHP &b&l***"
+#     "3":
+#       attack:
+#         type: ATTACK
+#         chance: 30
+#         cooldown: 4000
+#         conditions:
+#           - EQUIP_SLOT:MAINHAND
+#         effects:
+#           - ABSORPTION_HEART:ADD:12:20
+#           - "MESSAGE:&b&l***HydroForge: &e&l+12 &e&lHP &b&l***"
+#     "4":
+#       attack:
+#         type: ATTACK
+#         chance: 40
+#         cooldown: 4000
+#         conditions:
+#           - EQUIP_SLOT:MAINHAND
+#         effects:
+#           - ABSORPTION_HEART:ADD:16:20
+#           - "MESSAGE:&b&l***HydroForge: &e&l+16 &e&lHP &b&l***"
+#     "5":
+#       attack:
+#         type: ATTACK
+#         chance: 50
+#         cooldown: 4000
+#         conditions:
+#           - EQUIP_SLOT:MAINHAND
+#         effects:
+#           - ABSORPTION_HEART:ADD:20:20
+#           - "MESSAGE:&b&l***HydroForge: &e&l+20 &e&lHP &b&l***"
+flash:
+  group: "supreme"
+  display: "Flash"
   description:
-    - "&eCó cơ hội thu hoạch nông sản"
-    - "&etrên kích thước 3x3 ô đất"
+    - "&eCó khả năng tốc biến đến phía trước khi nhấn Shift"
+    - ""
+    - "&7&oTự động xoay đầu nhìn về hướng kẻ địch khi tốc biến"
   detail-description:
-    - "&eCó cơ hội thu hoạch nông sản"
-    - "&etrên kích thước 3x3 ô đất"
+    - "&eCó khả năng tốc biến đến phía trước khi nhấn Shift"
+    - ""
+    - "&7&oTự động xoay đầu nhìn về hướng kẻ địch khi tốc biến"
+    - ""
+    - "&eThời gian hồi: 20/16/12/8/4 giây"
+    - ""
+    - "&cKhông thể ép chung với Dash, DoubleJump"
   applies-description:
-    - Cuốc
+    - "Giày"
   applies:
-    - ALL_HOE
+    - "ALL_BOOTS"
+  enchant-blacklist:
+    - "dash"
+    - "doublejump"
   max-level: 5
   enchant-point: 1
   valuable: 0
-jellylegs:
-  group: rare
-  display: JellyLegs
-  description:
-    - "&eCó tỉ lệ chặn toàn bộ sát thương"
-    - "&esau khi rơi"
-  detail-description:
-    - "&eCó tỉ lệ chặn toàn bộ sát thương"
-    - "&esau khi rơi"
-  applies-description:
-    - Giày
-  applies:
-    - ALL_BOOTS
-  max-level: 5
-  enchant-point: 1
-  valuable: 0
-slash:
-  group: legendary
-  display: Slash
-  description:
-    - "&eCó tỉ lệ gây chảy máu kẻ địch trong"
-    - "&emột khoảng thời gian khi tấn công"
-  detail-description:
-    - "&eCó tỉ lệ gây chảy máu kẻ địch trong"
-    - "&emột khoảng thời gian khi tấn công"
-  applies-description:
-    - Đinh ba
-  applies:
-    - TRIDENT
-  max-level: 5
-  enchant-point: 1
-  valuable: 0
-hydraulic:
-  group: supreme
-  display: Hydraulic
-  description:
-    - "&eMỗi lần tấn công sẽ tích lũy giảm giáp"
-    - "&etrên mỗi kẻ địch trong một khoảng thời gian"
-  detail-description:
-    - "&eMỗi lần tấn công sẽ tích lũy giảm giáp"
-    - "&etrên mỗi kẻ địch trong một khoảng thời gian"
-  applies-description:
-    - Đinh ba
-  applies:
-    - TRIDENT
-  max-level: 5
-  enchant-point: 1
-  valuable: 0
-frostbite:
-  group: supreme
-  display: Frostbite
-  description:
-    - "&eCó tỉ lệ làm choáng và làm chậm kẻ địch"
-    - "&etrong một khoảng thời gian khi tấn công"
-  detail-description:
-    - "&eCó tỉ lệ làm choáng và làm chậm kẻ địch"
-    - "&etrong một khoảng thời gian khi tấn công"
-  applies-description:
-    - Đinh ba
-  applies:
-    - TRIDENT
-  max-level: 5
-  enchant-point: 1
-  valuable: 0
-thrust:
-  group: supreme
-  display: Thrust
-  description:
-    - "&eĐòn đánh luôn được cường hóa gây thêm"
-    - "&esát thương, làm chậm và đẩy lùi đối phương"
-  detail-description:
-    - "&eĐòn đánh luôn được cường hóa gây thêm"
-    - "&esát thương, làm chậm và đẩy lùi đối phương"
-  applies-description:
-    - Đinh ba
-  applies:
-    - TRIDENT
-  max-level: 5
-  enchant-point: 1
-  valuable: 0
-lunge:
-  group: legendary
-  display: Lunge
-  description:
-    - "&eMỗi khi lướt, đòn đánh tiếp theo được"
-    - "&ecường hóa gây thêm sát thương và làm chậm"
-  detail-description:
-    - "&eMỗi khi lướt, đòn đánh tiếp theo được"
-    - "&ecường hóa gây thêm sát thương và làm chậm"
-  applies-description:
-    - Đinh ba
-  applies:
-    - TRIDENT
-  max-level: 5
-  enchant-point: 1
-  valuable: 0
-godpiercer:
-  group: supreme
-  display: Godpiercer
-  description:
-    - "&eĐòn tấn công luôn gây một lượng"
-    - "&esát thương chuẩn nhất định"
-  detail-description:
-    - "&eĐòn tấn công luôn gây một lượng"
-    - "&esát thương chuẩn nhất định"
-  applies-description:
-    - Đinh ba
-  applies:
-    - TRIDENT
-  max-level: 5
-  enchant-point: 1
-  valuable: 0
-threshold:
-  group: supreme
-  display: Threshold
-  description:
-    - "&eKết liễu mục tiêu dưới ngưỡng máu nhất định"
-  detail-description:
-    - "&eKết liễu mục tiêu dưới ngưỡng máu nhất định"
-  applies-description:
-    - Cuốc
-  applies:
-    - ALL_HOE
-  max-level: 5
-  enchant-point: 1
-  valuable: 0
-deathhunt:
-  group: legendary
-  display: DeathHunt
-  description:
-    - "&eTăng thêm tốc độ di chuyển và sát thương"
-    - "&egây ra khi có kẻ địch gần đó dưới ngưỡng máu"
-    - "&enhất định"
-  detail-description:
-    - "&eTăng thêm tốc độ di chuyển và sát thương"
-    - "&egây ra khi có kẻ địch gần đó dưới ngưỡng máu"
-    - "&enhất định"
-  applies-description:
-    - Cuốc
-  applies:
-    - ALL_HOE
-  max-level: 5
-  enchant-point: 1
-  valuable: 0
+  levels:
+    1:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "ACTIVE_FLASH:8:true:40000:1_8:EXPLOSION_NORMAL:&cTốc biến tiếp sau &e{time_left} &cgiây!"
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "DEACTIVE_FLASH"
+    2:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "ACTIVE_FLASH:8:true:32000:1_8:EXPLOSION_NORMAL:&cTốc biến tiếp sau &e{time_left} &cgiây!"
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "DEACTIVE_FLASH"
+    3:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "ACTIVE_FLASH:8:true:24000:1_8:EXPLOSION_NORMAL:&cTốc biến tiếp sau &e{time_left} &cgiây!"
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "DEACTIVE_FLASH"
+    4:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "ACTIVE_FLASH:8:true:16000:1_8:EXPLOSION_NORMAL:&cTốc biến tiếp sau &e{time_left} &cgiây!"
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "DEACTIVE_FLASH"
+    5:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "ACTIVE_FLASH:8:true:0:1_8:EXPLOSION_NORMAL:&cTốc biến tiếp sau &e{time_left} &cgiây!"
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "DEACTIVE_FLASH"

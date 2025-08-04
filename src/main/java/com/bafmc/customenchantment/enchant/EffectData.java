@@ -1,15 +1,25 @@
 package com.bafmc.customenchantment.enchant;
 
 import com.bafmc.customenchantment.player.CEPlayer;
+import lombok.Getter;
+import lombok.Setter;
 
 public class EffectData {
-	private String taskName;
-	private CEPlayer caller;
+	@Setter
+    @Getter
+    private String taskName;
+	@Getter
+    private CEPlayer caller;
 	private EffectHook effectHook;
 	private EffectSettings settings;
 	private CEFunctionData data;
 	private int tick;
-	private boolean remove;
+	@Getter
+    @Setter
+    private boolean remove;
+	@Getter
+	@Setter
+	private boolean running;
 
 	public EffectData(CEPlayer caller, EffectHook effectHook, CEFunctionData data) {
 		this.caller = caller;
@@ -19,7 +29,8 @@ public class EffectData {
 	}
 	
 	public void updateAndExecute() {
-		effectHook.updateAndExecute(data);
+		this.effectHook.updateAndExecute(data);
+		this.running = true;
 	}
 
     public boolean isDifferentEnemyDeadSession() {
@@ -58,27 +69,8 @@ public class EffectData {
 		return hasPeriod() && tick % settings.getPeriod() == 0;
 	}
 
-	public CEPlayer getCaller() {
-		return caller;
-	}
-
-	public boolean isRemove() {
-		return remove;
-	}
-
-	public void setRemove(boolean remove) {
-		this.remove = remove;
-	}
-
-	public String getTaskName() {
-		return taskName;
-	}
-	
-	public boolean hasTaskName() {
+    public boolean hasTaskName() {
 		return taskName != null;
 	}
 
-	public void setTaskName(String taskName) {
-		this.taskName = taskName;
-	}
 }

@@ -1,5 +1,6 @@
 package com.bafmc.customenchantment.item.sigil;
 
+import com.bafmc.customenchantment.api.MaterialList;
 import com.bafmc.customenchantment.item.CEItemData;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,6 +26,14 @@ public class CESigilData extends CEItemData implements Cloneable {
         private int maxLevel;
         private String itemDisplay;
         private List<String> itemLore;
+        private List<SpecialDisplayData> specialDisplayDataList;
+    }
+
+    @AllArgsConstructor
+    @Getter
+    public static class SpecialDisplayData {
+        private MaterialList materialList;
+        private String display;
     }
 
     public CESigilData() {

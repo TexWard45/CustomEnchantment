@@ -342,11 +342,11 @@ public class EquipmentMenu extends MenuAbstract {
 				}
 			}
 
-			List<Integer> artifactSlots = getSlots(specificSlot);
-			if (artifactSlots.contains(slot)) {
+			List<Integer> extraSlots = getSlots(specificSlot);
+			if (extraSlots.contains(slot)) {
 				int index = -1;
-				for (int i = 0; i < artifactSlots.size(); i++) {
-					if (artifactSlots.get(i) == slot) {
+				for (int i = 0; i < extraSlots.size(); i++) {
+					if (extraSlots.get(i) == slot) {
 						index = i;
 						break;
 					}

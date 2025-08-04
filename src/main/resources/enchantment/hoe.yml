@@ -3,641 +3,1679 @@ deathscythe:
   group: supreme
   display: DeathScythe
   description:
-  - '&eCó tỉ lệ bạo kích cực mạnh và tăng tốc độ'
-  - '&edi chuyển cho bản thân trong một khoảng'
-  - '&ethời gian khi tấn công'
+    - "&eCó tỉ lệ bạo kích cực mạnh và tăng tốc độ"
+    - "&edi chuyển cho bản thân trong một khoảng"
+    - "&ethời gian khi tấn công"
   detail-description:
-  - '&eCó tỉ lệ bạo kích cực mạnh và tăng tốc độ'
-  - '&edi chuyển cho bản thân trong một khoảng'
-  - '&ethời gian khi tấn công'
-  - ''
-  - '&eSát thương: +20 ATK'
-  - '&eTốc độ di chuyển: +30% x Cấp'
-  - '&eThời gian tăng tốc: 1.5s'
-  - '&eTỉ lệ kích hoạt: 25%'
-  - '&eThời gian hồi: 2s'
+    - "&eCó tỉ lệ bạo kích cực mạnh và tăng tốc độ"
+    - "&edi chuyển cho bản thân trong một khoảng"
+    - "&ethời gian khi tấn công"
+    - ""
+    - "&eSát thương: +75% ATK x Cấp"
+    - "&eTốc độ di chuyển: +10%"
+    - "&eThời gian tăng tốc: 0.5s"
+    - "&eTỉ lệ kích hoạt: 75%"
+    - "&eThời gian hồi: 0.75s"
   applies-description:
-  - Cuốc
+    - Cuốc
   applies:
-  - ALL_HOE
+    - ALL_HOE
   max-level: 3
   enchant-point: 1
   valuable: 0
   levels:
-    '1':
+    "1":
       attack:
         type: ATTACK
-        chance: 25
-        cooldown: 2000
+        chance: 75
+        cooldown: 750
         conditions:
-        - EQUIP_SLOT:MAINHAND
-        optionals:
-        - ATTACK:10:0
+          - EQUIP_SLOT:MAINHAND
+        options:
+          - ATTACK:0.75:1
         effects:
-        - ADD_ATTRIBUTE:MOVEMENT_SPEED:deathscythe_movement_speed:0.3:1
-        - DELAY=30 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:deathscythe_movement_speed
-    '2':
+          - ADD_ATTRIBUTE:MOVEMENT_SPEED:deathscythe_movement_speed:0.1:1
+          - DELAY=10,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:deathscythe_movement_speed
+          - "MESSAGE:&6&l***DeathScythe: &c&l+75% ATK,&b&l +10% &f&lMS &f(0:01)&6&l***"
+    "2":
       attack:
         type: ATTACK
-        chance: 25
-        cooldown: 2000
+        chance: 75
+        cooldown: 750
         conditions:
-        - EQUIP_SLOT:MAINHAND
-        optionals:
-        - ATTACK:15:0
+          - EQUIP_SLOT:MAINHAND
+        options:
+          - ATTACK:1.5:1
         effects:
-        - ADD_ATTRIBUTE:MOVEMENT_SPEED:deathscythe_movement_speed:0.6:1
-        - DELAY=30 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:deathscythe_movement_speed
-    '3':
+          - ADD_ATTRIBUTE:MOVEMENT_SPEED:deathscythe_movement_speed:0.1:1
+          - DELAY=10,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:deathscythe_movement_speed
+          - "MESSAGE:&6&l***DeathScythe: &c&l+150% ATK,&b&l +10% &f&lMS &f(0:01)&6&l***"
+    "3":
       attack:
         type: ATTACK
-        chance: 25
-        cooldown: 2000
+        chance: 75
+        cooldown: 750
         conditions:
-        - EQUIP_SLOT:MAINHAND
-        optionals:
-        - ATTACK:20:0
+          - EQUIP_SLOT:MAINHAND
+        options:
+          - ATTACK:2.25:1
         effects:
-        - ADD_ATTRIBUTE:MOVEMENT_SPEED:deathscythe_movement_speed:0.9:1
-        - DELAY=30 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:deathscythe_movement_speed
+          - ADD_ATTRIBUTE:MOVEMENT_SPEED:deathscythe_movement_speed:0.1:1
+          - DELAY=10,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:deathscythe_movement_speed
+          - "MESSAGE:&6&l***DeathScythe: &c&l+225% ATK,&b&l +10% &f&lMS &f(0:01)&6&l***"
 fieldprot:
   group: rare
   display: FieldProt
   description:
-  - '&eCó tỉ lệ hất văng đối thủ ra xa'
-  - '&ekhi tấn công'
+    - "&eCó tỉ lệ hất văng đối thủ ra xa"
+    - "&ekhi tấn công"
   detail-description:
-  - '&eCó tỉ lệ hất văng đối thủ ra xa'
-  - '&ekhi tấn công'
-  - ''
-  - '&eTỉ lệ kích hoạt: 10% x Cấp'
-  - '&eThời gian hồi: 7s'
+    - "&eCó tỉ lệ hất văng đối thủ ra xa"
+    - "&ekhi tấn công"
+    - ""
+    - "&eTỉ lệ kích hoạt: 10% x Cấp"
+    - "&eThời gian hồi: 7s"
   applies-description:
-  - Cuốc
+    - Cuốc
   applies:
-  - ALL_HOE
+    - ALL_HOE
   max-level: 5
   enchant-point: 1
   valuable: 0
   levels:
-    '1':
+    "1":
       attack:
         type: ATTACK
         chance: 10
         cooldown: 7000
         conditions:
-        - EQUIP_SLOT:MAINHAND
-        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-        - TARGET=ENEMY | PULL:xE*1.5_yE*1.5_zE*1.5
-    '2':
+          - TARGET=ENEMY | PULL:xE*1.5_yE*1.5_zE*1.5
+    "2":
       attack:
         type: ATTACK
         chance: 20
         cooldown: 7000
         conditions:
-        - EQUIP_SLOT:MAINHAND
-        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-        - TARGET=ENEMY | PULL:xE*1.5_yE*1.5_zE*1.5
-    '3':
+          - TARGET=ENEMY | PULL:xE*1.5_yE*1.5_zE*1.5
+    "3":
       attack:
         type: ATTACK
         chance: 30
         cooldown: 7000
         conditions:
-        - EQUIP_SLOT:MAINHAND
-        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-        - TARGET=ENEMY | PULL:xE*1.5_yE*1.5_zE*1.5
-    '4':
+          - TARGET=ENEMY | PULL:xE*1.5_yE*1.5_zE*1.5
+    "4":
       attack:
         type: ATTACK
         chance: 40
         cooldown: 7000
         conditions:
-        - EQUIP_SLOT:MAINHAND
-        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-        - TARGET=ENEMY | PULL:xE*1.5_yE*1.5_zE*1.5
-    '5':
+          - TARGET=ENEMY | PULL:xE*1.5_yE*1.5_zE*1.5
+    "5":
       attack:
         type: ATTACK
         chance: 50
         cooldown: 7000
         conditions:
-        - EQUIP_SLOT:MAINHAND
-        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-        - TARGET=ENEMY | PULL:xE*1.5_yE*1.5_zE*1.5
+          - TARGET=ENEMY | PULL:xE*1.5_yE*1.5_zE*1.5
 rush:
   group: legendary
   display: Rush
   description:
-  - '&eGiúp tăng tốc độ di chuyển và tốc độ'
-  - '&eđánh khi cầm vật phẩm'
+    - "&eGiúp tăng tốc độ di chuyển và tốc độ"
+    - "&eđánh khi cầm vật phẩm"
   detail-description:
-  - '&eGiúp tăng tốc độ di chuyển và tốc độ'
-  - '&eđánh khi cầm vật phẩm'
-  - ''
-  - '&eTốc độ di chuyển: 10%/15%/20%'
-  - '&eTốc độ đánh: 10%/15%/20%'
+    - "&eGiúp tăng tốc độ di chuyển và tốc độ"
+    - "&eđánh khi cầm vật phẩm"
+    - ""
+    - "&eTốc độ di chuyển: 10%/15%/20%"
+    - "&eTốc độ đánh: 10%/15%/20%"
   applies-description:
-  - Cuốc
+    - Cuốc
   applies:
-  - ALL_HOE
+    - ALL_HOE
   max-level: 3
   enchant-point: 1
   valuable: 0
   levels:
-    '1':
+    "1":
       hold:
         type: HOLD
         chance: 100
         cooldown: 0
         conditions:
-        - EQUIP_SLOT:MAINHAND
+          - EQUIP_SLOT:MAINHAND
         effects:
-        - ADD_ATTRIBUTE:MOVEMENT_SPEED:rush_movement_speed:0.1:1
-        - ADD_ATTRIBUTE:ATTACK_SPEED:rush_attack_speed:0.1:1
+          - ADD_ATTRIBUTE:MOVEMENT_SPEED:rush_movement_speed:0.1:1
+          - ADD_ATTRIBUTE:ATTACK_SPEED:rush_attack_speed:0.1:1
       change_hand:
         type: CHANGE_HAND
         chance: 100
         cooldown: 0
         conditions:
-        - EQUIP_SLOT:MAINHAND
+          - EQUIP_SLOT:MAINHAND
         effects:
-        - REMOVE_ATTRIBUTE:MOVEMENT_SPEED:rush_movement_speed
-        - REMOVE_ATTRIBUTE:ATTACK_SPEED:rush_attack_speed
-    '2':
+          - REMOVE_ATTRIBUTE:MOVEMENT_SPEED:rush_movement_speed
+          - REMOVE_ATTRIBUTE:ATTACK_SPEED:rush_attack_speed
+    "2":
       hold:
         type: HOLD
         chance: 100
         cooldown: 0
         conditions:
-        - EQUIP_SLOT:MAINHAND
+          - EQUIP_SLOT:MAINHAND
         effects:
-        - ADD_ATTRIBUTE:MOVEMENT_SPEED:rush_movement_speed:0.15:1
-        - ADD_ATTRIBUTE:ATTACK_SPEED:rush_attack_speed:0.15:1
+          - ADD_ATTRIBUTE:MOVEMENT_SPEED:rush_movement_speed:0.15:1
+          - ADD_ATTRIBUTE:ATTACK_SPEED:rush_attack_speed:0.15:1
       change_hand:
         type: CHANGE_HAND
         chance: 100
         cooldown: 0
         conditions:
-        - EQUIP_SLOT:MAINHAND
+          - EQUIP_SLOT:MAINHAND
         effects:
-        - REMOVE_ATTRIBUTE:MOVEMENT_SPEED:rush_movement_speed
-        - REMOVE_ATTRIBUTE:ATTACK_SPEED:rush_attack_speed
-    '3':
+          - REMOVE_ATTRIBUTE:MOVEMENT_SPEED:rush_movement_speed
+          - REMOVE_ATTRIBUTE:ATTACK_SPEED:rush_attack_speed
+    "3":
       hold:
         type: HOLD
         chance: 100
         cooldown: 0
         conditions:
-        - EQUIP_SLOT:MAINHAND
+          - EQUIP_SLOT:MAINHAND
         effects:
-        - ADD_ATTRIBUTE:MOVEMENT_SPEED:rush_movement_speed:0.2:1
-        - ADD_ATTRIBUTE:ATTACK_SPEED:rush_attack_speed:0.2:1
+          - ADD_ATTRIBUTE:MOVEMENT_SPEED:rush_movement_speed:0.2:1
+          - ADD_ATTRIBUTE:ATTACK_SPEED:rush_attack_speed:0.2:1
       change_hand:
         type: CHANGE_HAND
         chance: 100
         cooldown: 0
         conditions:
-        - EQUIP_SLOT:MAINHAND
+          - EQUIP_SLOT:MAINHAND
         effects:
-        - REMOVE_ATTRIBUTE:MOVEMENT_SPEED:rush_movement_speed
-        - REMOVE_ATTRIBUTE:ATTACK_SPEED:rush_attack_speed
+          - REMOVE_ATTRIBUTE:MOVEMENT_SPEED:rush_movement_speed
+          - REMOVE_ATTRIBUTE:ATTACK_SPEED:rush_attack_speed
 peasant:
   group: common
   display: Peasant
   description:
-  - '&eNhận thêm tiền và kinh nghiệm khi'
-  - '&ethu hoạch nông sản'
+    - "&eNhận thêm tiền và kinh nghiệm khi"
+    - "&ethu hoạch nông sản"
   detail-description:
-  - '&eNhận thêm tiền và kinh nghiệm khi'
-  - '&ethu hoạch nông sản'
-  - ''
-  - '&eLượng tiền: 1 x Cấp'
-  - '&eLượng kinh nghiệm: 1 x Cấp'
+    - "&eNhận thêm tiền và kinh nghiệm khi"
+    - "&ethu hoạch nông sản"
+    - ""
+    - "&eLượng tiền: 10 x Cấp"
+    - "&eLượng kinh nghiệm: 10 x Cấp"
   applies-description:
-  - Cuốc
+    - Cuốc
   applies:
-  - ALL_HOE
+    - ALL_HOE
   max-level: 10
   enchant-point: 1
   valuable: 0
   levels:
-    '1':
+    "1":
       hold:
         type: HOLD
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - ADD_BLOCK_BONUS:MONEY:peasant_money_bonus:ALL_FARM_FULL_STAGE:2:0:100
-        - ADD_BLOCK_BONUS:EXP:peasant_xp_bonus:ALL_FARM_FULL_STAGE:2:0:100
+          - ADD_BLOCK_BONUS:MONEY:peasant_money_bonus:ALL_FARM_FULL_STAGE:10:0:100
+          - ADD_BLOCK_BONUS:EXP:peasant_xp_bonus:ALL_FARM_FULL_STAGE:10:0:100
       change_hand:
         type: CHANGE_HAND
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - REMOVE_BLOCK_BONUS:MONEY:peasant_money_bonus
-        - REMOVE_BLOCK_BONUS:EXP:peasant_xp_bonus
-    '2':
+          - REMOVE_BLOCK_BONUS:MONEY:peasant_money_bonus
+          - REMOVE_BLOCK_BONUS:EXP:peasant_xp_bonus
+    "2":
       hold:
         type: HOLD
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - ADD_BLOCK_BONUS:MONEY:peasant_money_bonus:ALL_FARM_FULL_STAGE:4:0:100
-        - ADD_BLOCK_BONUS:EXP:peasant_xp_bonus:ALL_FARM_FULL_STAGE:4:0:100
+          - ADD_BLOCK_BONUS:MONEY:peasant_money_bonus:ALL_FARM_FULL_STAGE:20:0:100
+          - ADD_BLOCK_BONUS:EXP:peasant_xp_bonus:ALL_FARM_FULL_STAGE:20:0:100
       change_hand:
         type: CHANGE_HAND
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - REMOVE_BLOCK_BONUS:MONEY:peasant_money_bonus
-        - REMOVE_BLOCK_BONUS:EXP:peasant_xp_bonus
-    '3':
+          - REMOVE_BLOCK_BONUS:MONEY:peasant_money_bonus
+          - REMOVE_BLOCK_BONUS:EXP:peasant_xp_bonus
+    "3":
       hold:
         type: HOLD
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - ADD_BLOCK_BONUS:MONEY:peasant_money_bonus:ALL_FARM_FULL_STAGE:6:0:100
-        - ADD_BLOCK_BONUS:EXP:peasant_xp_bonus:ALL_FARM_FULL_STAGE:6:0:100
+          - ADD_BLOCK_BONUS:MONEY:peasant_money_bonus:ALL_FARM_FULL_STAGE:30:0:100
+          - ADD_BLOCK_BONUS:EXP:peasant_xp_bonus:ALL_FARM_FULL_STAGE:30:0:100
       change_hand:
         type: CHANGE_HAND
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - REMOVE_BLOCK_BONUS:MONEY:peasant_money_bonus
-        - REMOVE_BLOCK_BONUS:EXP:peasant_xp_bonus
-    '4':
+          - REMOVE_BLOCK_BONUS:MONEY:peasant_money_bonus
+          - REMOVE_BLOCK_BONUS:EXP:peasant_xp_bonus
+    "4":
       hold:
         type: HOLD
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - ADD_BLOCK_BONUS:MONEY:peasant_money_bonus:ALL_FARM_FULL_STAGE:8:0:100
-        - ADD_BLOCK_BONUS:EXP:peasant_xp_bonus:ALL_FARM_FULL_STAGE:8:0:100
+          - ADD_BLOCK_BONUS:MONEY:peasant_money_bonus:ALL_FARM_FULL_STAGE:40:0:100
+          - ADD_BLOCK_BONUS:EXP:peasant_xp_bonus:ALL_FARM_FULL_STAGE:40:0:100
       change_hand:
         type: CHANGE_HAND
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - REMOVE_BLOCK_BONUS:MONEY:peasant_money_bonus
-        - REMOVE_BLOCK_BONUS:EXP:peasant_xp_bonus
-    '5':
+          - REMOVE_BLOCK_BONUS:MONEY:peasant_money_bonus
+          - REMOVE_BLOCK_BONUS:EXP:peasant_xp_bonus
+    "5":
       hold:
         type: HOLD
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - ADD_BLOCK_BONUS:MONEY:peasant_money_bonus:ALL_FARM_FULL_STAGE:10:0:100
-        - ADD_BLOCK_BONUS:EXP:peasant_xp_bonus:ALL_FARM_FULL_STAGE:10:0:100
+          - ADD_BLOCK_BONUS:MONEY:peasant_money_bonus:ALL_FARM_FULL_STAGE:50:0:100
+          - ADD_BLOCK_BONUS:EXP:peasant_xp_bonus:ALL_FARM_FULL_STAGE:50:0:100
       change_hand:
         type: CHANGE_HAND
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - REMOVE_BLOCK_BONUS:MONEY:peasant_money_bonus
-        - REMOVE_BLOCK_BONUS:EXP:peasant_xp_bonus
-    '6':
+          - REMOVE_BLOCK_BONUS:MONEY:peasant_money_bonus
+          - REMOVE_BLOCK_BONUS:EXP:peasant_xp_bonus
+    "6":
       hold:
         type: HOLD
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - ADD_BLOCK_BONUS:MONEY:peasant_money_bonus:ALL_FARM_FULL_STAGE:12:0:100
-        - ADD_BLOCK_BONUS:EXP:peasant_xp_bonus:ALL_FARM_FULL_STAGE:12:0:100
+          - ADD_BLOCK_BONUS:MONEY:peasant_money_bonus:ALL_FARM_FULL_STAGE:60:0:100
+          - ADD_BLOCK_BONUS:EXP:peasant_xp_bonus:ALL_FARM_FULL_STAGE:60:0:100
       change_hand:
         type: CHANGE_HAND
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - REMOVE_BLOCK_BONUS:MONEY:peasant_money_bonus
-        - REMOVE_BLOCK_BONUS:EXP:peasant_xp_bonus
-    '7':
+          - REMOVE_BLOCK_BONUS:MONEY:peasant_money_bonus
+          - REMOVE_BLOCK_BONUS:EXP:peasant_xp_bonus
+    "7":
       hold:
         type: HOLD
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - ADD_BLOCK_BONUS:MONEY:peasant_money_bonus:ALL_FARM_FULL_STAGE:14:0:100
-        - ADD_BLOCK_BONUS:EXP:peasant_xp_bonus:ALL_FARM_FULL_STAGE:14:0:100
+          - ADD_BLOCK_BONUS:MONEY:peasant_money_bonus:ALL_FARM_FULL_STAGE:70:0:100
+          - ADD_BLOCK_BONUS:EXP:peasant_xp_bonus:ALL_FARM_FULL_STAGE:70:0:100
       change_hand:
         type: CHANGE_HAND
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - REMOVE_BLOCK_BONUS:MONEY:peasant_money_bonus
-        - REMOVE_BLOCK_BONUS:EXP:peasant_xp_bonus
-    '8':
+          - REMOVE_BLOCK_BONUS:MONEY:peasant_money_bonus
+          - REMOVE_BLOCK_BONUS:EXP:peasant_xp_bonus
+    "8":
       hold:
         type: HOLD
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - ADD_BLOCK_BONUS:MONEY:peasant_money_bonus:ALL_FARM_FULL_STAGE:16:0:100
-        - ADD_BLOCK_BONUS:EXP:peasant_xp_bonus:ALL_FARM_FULL_STAGE:16:0:100
+          - ADD_BLOCK_BONUS:MONEY:peasant_money_bonus:ALL_FARM_FULL_STAGE:80:0:100
+          - ADD_BLOCK_BONUS:EXP:peasant_xp_bonus:ALL_FARM_FULL_STAGE:80:0:100
       change_hand:
         type: CHANGE_HAND
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - REMOVE_BLOCK_BONUS:MONEY:peasant_money_bonus
-        - REMOVE_BLOCK_BONUS:EXP:peasant_xp_bonus
-    '9':
+          - REMOVE_BLOCK_BONUS:MONEY:peasant_money_bonus
+          - REMOVE_BLOCK_BONUS:EXP:peasant_xp_bonus
+    "9":
       hold:
         type: HOLD
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - ADD_BLOCK_BONUS:MONEY:peasant_money_bonus:ALL_FARM_FULL_STAGE:18:0:100
-        - ADD_BLOCK_BONUS:EXP:peasant_xp_bonus:ALL_FARM_FULL_STAGE:18:0:100
+          - ADD_BLOCK_BONUS:MONEY:peasant_money_bonus:ALL_FARM_FULL_STAGE:90:0:100
+          - ADD_BLOCK_BONUS:EXP:peasant_xp_bonus:ALL_FARM_FULL_STAGE:900:0:100
       change_hand:
         type: CHANGE_HAND
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - REMOVE_BLOCK_BONUS:MONEY:peasant_money_bonus
-        - REMOVE_BLOCK_BONUS:EXP:peasant_xp_bonus
-    '10':
+          - REMOVE_BLOCK_BONUS:MONEY:peasant_money_bonus
+          - REMOVE_BLOCK_BONUS:EXP:peasant_xp_bonus
+    "10":
       hold:
         type: HOLD
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - ADD_BLOCK_BONUS:MONEY:peasant_money_bonus:ALL_FARM_FULL_STAGE:20:0:100
-        - ADD_BLOCK_BONUS:EXP:peasant_xp_bonus:ALL_FARM_FULL_STAGE:20:0:100
+          - ADD_BLOCK_BONUS:MONEY:peasant_money_bonus:ALL_FARM_FULL_STAGE:100:0:100
+          - ADD_BLOCK_BONUS:EXP:peasant_xp_bonus:ALL_FARM_FULL_STAGE:100:0:100
       change_hand:
         type: CHANGE_HAND
         chance: 100
         cooldown: 0
         conditions:
-        - ''
+          - ""
         effects:
-        - REMOVE_BLOCK_BONUS:MONEY:peasant_money_bonus
-        - REMOVE_BLOCK_BONUS:EXP:peasant_xp_bonus
+          - REMOVE_BLOCK_BONUS:MONEY:peasant_money_bonus
+          - REMOVE_BLOCK_BONUS:EXP:peasant_xp_bonus
 aghast:
   group: event
   display: Aghast
   description:
-  - '&eCó tỉ lệ làm kẻ địch bị mù và bối rối'
-  - '&etrong một khoảng thời gian khi tấn công'
+    - "&eCó tỉ lệ làm kẻ địch bị mù và bối rối"
+    - "&etrong một khoảng thời gian khi tấn công"
   detail-description:
-  - '&eCó tỉ lệ làm kẻ địch bị mù và bối rối'
-  - '&etrong một khoảng thời gian khi tấn công'
-  - ''
-  - '&eHiệu ứng thuốc: Mù, bối rối'
-  - '&eThời gian hiệu ứng: 10s'
-  - '&eTỉ lệ kích hoạt: 5%/10%/20%'
-  - '&eThời gian hồi: 10s'
+    - "&eCó tỉ lệ làm kẻ địch bị mù và bối rối"
+    - "&etrong một khoảng thời gian khi tấn công"
+    - ""
+    - "&eHiệu ứng thuốc: Mù, bối rối"
+    - "&eThời gian hiệu ứng: 10s"
+    - "&eTỉ lệ kích hoạt: 5%/10%/20%"
+    - "&eThời gian hồi: 10s"
   applies-description:
-  - Cuốc
+    - Cuốc
   applies:
-  - ALL_HOE
+    - ALL_HOE
   max-level: 5
   enchant-point: 1
   valuable: 0
   levels:
-    '1':
+    "1":
       attack:
         type: ATTACK
         chance: 5
         cooldown: 10000
         conditions:
-        - EQUIP_SLOT:MAINHAND
-        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-        - TARGET=ENEMY | ADD_POTION:CONFUSION:0:200
-        - TARGET=ENEMY | ADD_POTION:BLINDNESS:0:200
-    '2':
+          - TARGET=ENEMY | ADD_POTION:CONFUSION:0:200
+          - TARGET=ENEMY | ADD_POTION:BLINDNESS:0:200
+    "2":
       attack:
         type: ATTACK
         chance: 10
         cooldown: 10000
         conditions:
-        - EQUIP_SLOT:MAINHAND
-        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-        - TARGET=ENEMY | ADD_POTION:CONFUSION:0:200
-        - TARGET=ENEMY | ADD_POTION:BLINDNESS:0:200
-    '3':
+          - TARGET=ENEMY | ADD_POTION:CONFUSION:0:200
+          - TARGET=ENEMY | ADD_POTION:BLINDNESS:0:200
+    "3":
       attack:
         type: ATTACK
         chance: 20
         cooldown: 10000
         conditions:
-        - EQUIP_SLOT:MAINHAND
-        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-        - TARGET=ENEMY | ADD_POTION:CONFUSION:0:200
-        - TARGET=ENEMY | ADD_POTION:BLINDNESS:0:200
+          - TARGET=ENEMY | ADD_POTION:CONFUSION:0:200
+          - TARGET=ENEMY | ADD_POTION:BLINDNESS:0:200
 bloodthief:
   group: supreme
   display: BloodThief
   description:
-  - '&eCó tỉ lệ đánh cắp máu của kẻ địch và hồi phục'
-  - '&emột phần lượng máu đã mất của bản thân trong'
-  - '&ekhoảng thời gian khi tấn công'
+    - "&eCó tỉ lệ đánh cắp máu của kẻ địch và hồi phục"
+    - "&emột phần lượng máu đã mất của bản thân trong"
+    - "&ekhoảng thời gian khi tấn công"
   detail-description:
-  - '&eCó tỉ lệ đánh cắp máu của kẻ địch và hồi phục'
-  - '&emột phần lượng máu đã mất của bản thân trong'
-  - '&ekhoảng thời gian khi tấn công'
-  - ''
-  - '&eLượng máu đánh cắp: 2 x Cấp'
-  - '&eLượng máu hồi mỗi giây: 2.5% máu đã mất (+2.5%/cấp)'
-  - '&eThời gian hiệu ứng: 2s'
-  - '&eTỉ lệ kích hoạt: 25%'
-  - '&eThời gian hồi: 5s'
+    - "&eCó tỉ lệ đánh cắp máu của kẻ địch và hồi phục"
+    - "&emột phần lượng máu đã mất của bản thân trong"
+    - "&ekhoảng thời gian khi tấn công"
+    - ""
+    - "&eLượng máu đánh cắp: 4 x Cấp"
+    - "&eLượng máu hồi mỗi giây: 2.5% máu đã mất (+2.5%/cấp)"
+    - "&eThời gian hiệu ứng: 2s"
+    - "&eTỉ lệ kích hoạt: 75%"
+    - "&eThời gian hồi: 3s"
   applies-description:
-  - Cuốc
+    - Cuốc
   applies:
-  - ALL_HOE
+    - ALL_HOE
   max-level: 5
   enchant-point: 1
   valuable: 0
   levels:
-    '1':
+    "1":
       attack:
         type: ATTACK
-        chance: 25
-        cooldown: 5000
+        chance: 75
+        cooldown: 3000
         conditions:
-        - EQUIP_SLOT:MAINHAND
-        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-        - TARGET=ENEMY | HEALTH:REMOVE:2
-        - DELAY=8 | HEALTH:ADD:(%player_max_value%-%player_value%)*1/100
-        - DELAY=16 | HEALTH:ADD:(%player_max_value%-%player_value%)*1/100
-        - DELAY=24 | HEALTH:ADD:(%player_max_value%-%player_value%)*1/100
-        - DELAY=32 | HEALTH:ADD:(%player_max_value%-%player_value%)*1/100
-        - DELAY=40 | HEALTH:ADD:(%player_max_value%-%player_value%)*1/100
-    '2':
+          - TARGET=ENEMY | HEALTH:REMOVE:4
+          - DELAY=8 | HEALTH:ADD:(%player_max_value%-%player_value%)*1/100
+          - DELAY=16 | HEALTH:ADD:(%player_max_value%-%player_value%)*1/100
+          - DELAY=24 | HEALTH:ADD:(%player_max_value%-%player_value%)*1/100
+          - DELAY=32 | HEALTH:ADD:(%player_max_value%-%player_value%)*1/100
+          - DELAY=40 | HEALTH:ADD:(%player_max_value%-%player_value%)*1/100
+    "2":
       attack:
         type: ATTACK
-        chance: 25
-        cooldown: 5000
+        chance: 75
+        cooldown: 3000
         conditions:
-        - EQUIP_SLOT:MAINHAND
-        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-        - TARGET=ENEMY | HEALTH:REMOVE:4
-        - DELAY=8 | HEALTH:ADD:(%player_max_value%-%player_value%)*2/100
-        - DELAY=16 | HEALTH:ADD:(%player_max_value%-%player_value%)*2/100
-        - DELAY=24 | HEALTH:ADD:(%player_max_value%-%player_value%)*2/100
-        - DELAY=32 | HEALTH:ADD:(%player_max_value%-%player_value%)*2/100
-        - DELAY=40 | HEALTH:ADD:(%player_max_value%-%player_value%)*2/100
-    '3':
+          - TARGET=ENEMY | HEALTH:REMOVE:8
+          - DELAY=8 | HEALTH:ADD:(%player_max_value%-%player_value%)*2/100
+          - DELAY=16 | HEALTH:ADD:(%player_max_value%-%player_value%)*2/100
+          - DELAY=24 | HEALTH:ADD:(%player_max_value%-%player_value%)*2/100
+          - DELAY=32 | HEALTH:ADD:(%player_max_value%-%player_value%)*2/100
+          - DELAY=40 | HEALTH:ADD:(%player_max_value%-%player_value%)*2/100
+    "3":
       attack:
         type: ATTACK
-        chance: 25
-        cooldown: 5000
+        chance: 75
+        cooldown: 3000
         conditions:
-        - EQUIP_SLOT:MAINHAND
-        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-        - TARGET=ENEMY | HEALTH:REMOVE:6
-        - DELAY=8 | HEALTH:ADD:(%player_max_value%-%player_value%)*3/100
-        - DELAY=16 | HEALTH:ADD:(%player_max_value%-%player_value%)*3/100
-        - DELAY=24 | HEALTH:ADD:(%player_max_value%-%player_value%)*3/100
-        - DELAY=32 | HEALTH:ADD:(%player_max_value%-%player_value%)*3/100
-        - DELAY=40 | HEALTH:ADD:(%player_max_value%-%player_value%)*3/100
-    '4':
+          - TARGET=ENEMY | HEALTH:REMOVE:12
+          - DELAY=8 | HEALTH:ADD:(%player_max_value%-%player_value%)*3/100
+          - DELAY=16 | HEALTH:ADD:(%player_max_value%-%player_value%)*3/100
+          - DELAY=24 | HEALTH:ADD:(%player_max_value%-%player_value%)*3/100
+          - DELAY=32 | HEALTH:ADD:(%player_max_value%-%player_value%)*3/100
+          - DELAY=40 | HEALTH:ADD:(%player_max_value%-%player_value%)*3/100
+    "4":
       attack:
         type: ATTACK
-        chance: 25
-        cooldown: 5000
+        chance: 75
+        cooldown: 3000
         conditions:
-        - EQUIP_SLOT:MAINHAND
-        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-        - TARGET=ENEMY | HEALTH:REMOVE:8
-        - DELAY=8 | HEALTH:ADD:(%player_max_value%-%player_value%)*4/100
-        - DELAY=16 | HEALTH:ADD:(%player_max_value%-%player_value%)*4/100
-        - DELAY=24 | HEALTH:ADD:(%player_max_value%-%player_value%)*4/100
-        - DELAY=32 | HEALTH:ADD:(%player_max_value%-%player_value%)*4/100
-        - DELAY=40 | HEALTH:ADD:(%player_max_value%-%player_value%)*4/100
-    '5':
+          - TARGET=ENEMY | HEALTH:REMOVE:16
+          - DELAY=8 | HEALTH:ADD:(%player_max_value%-%player_value%)*4/100
+          - DELAY=16 | HEALTH:ADD:(%player_max_value%-%player_value%)*4/100
+          - DELAY=24 | HEALTH:ADD:(%player_max_value%-%player_value%)*4/100
+          - DELAY=32 | HEALTH:ADD:(%player_max_value%-%player_value%)*4/100
+          - DELAY=40 | HEALTH:ADD:(%player_max_value%-%player_value%)*4/100
+    "5":
       attack:
         type: ATTACK
-        chance: 25
-        cooldown: 5000
+        chance: 75
+        cooldown: 3000
         conditions:
-        - EQUIP_SLOT:MAINHAND
-        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-        - TARGET=ENEMY | HEALTH:REMOVE:10
-        - DELAY=8 | HEALTH:ADD:(%player_max_value%-%player_value%)*5/100
-        - DELAY=16 | HEALTH:ADD:(%player_max_value%-%player_value%)*5/100
-        - DELAY=24 | HEALTH:ADD:(%player_max_value%-%player_value%)*5/100
-        - DELAY=32 | HEALTH:ADD:(%player_max_value%-%player_value%)*5/100
-        - DELAY=40 | HEALTH:ADD:(%player_max_value%-%player_value%)*5/100
+          - TARGET=ENEMY | HEALTH:REMOVE:20
+          - DELAY=8 | HEALTH:ADD:(%player_max_value%-%player_value%)*5/100
+          - DELAY=16 | HEALTH:ADD:(%player_max_value%-%player_value%)*5/100
+          - DELAY=24 | HEALTH:ADD:(%player_max_value%-%player_value%)*5/100
+          - DELAY=32 | HEALTH:ADD:(%player_max_value%-%player_value%)*5/100
+          - DELAY=40 | HEALTH:ADD:(%player_max_value%-%player_value%)*5/100
 ravage:
   group: supreme
   display: Ravage
   description:
-  - '&eCó tỉ lệ gây thêm sát thương theo phần trăm'
-  - '&emáu hiện tại của kẻ địch khi tấn công'
+    - "&eCó tỉ lệ gây thêm sát thương theo phần trăm"
+    - "&emáu hiện tại của kẻ địch khi tấn công"
   detail-description:
-  - '&eCó tỉ lệ gây thêm sát thương theo phần trăm'
-  - '&emáu hiện tại của kẻ địch khi tấn công'
-  - ''
-  - '&eSát thương: 5% Máu hiện tại kẻ địch x Cấp'
+    - "&eCó tỉ lệ gây thêm sát thương theo phần trăm"
+    - "&emáu hiện tại của kẻ địch khi tấn công"
+    - ""
+    - "&eSát thương: 5% Máu hiện tại kẻ địch x Cấp"
+    - "&eThời gian hồi: 3s"
   applies-description:
-  - Cuốc
+    - Cuốc
   applies:
-  - ALL_HOE
+    - ALL_HOE
   max-level: 5
   enchant-point: 1
   valuable: 0
   levels:
-    '1':
+    "1":
       attack:
         type: ATTACK
-        chance: 25
-        cooldown: 4000
+        chance: 50
+        cooldown: 3000
         conditions:
-        - EQUIP_SLOT:MAINHAND
-        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-        - TARGET=ENEMY | DEAL_DAMAGE:%player_value%*5/100:true:true:true:true:true
-    '2':
+          - TARGET=ENEMY | DEAL_DAMAGE:%player_value%*5/100:true:true:true:true:true
+    "2":
       attack:
         type: ATTACK
-        chance: 25
-        cooldown: 4000
+        chance: 50
+        cooldown: 3000
         conditions:
-        - EQUIP_SLOT:MAINHAND
-        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-        - TARGET=ENEMY | DEAL_DAMAGE:%player_value%*10/100:true:true:true:true:true
-    '3':
+          - TARGET=ENEMY | DEAL_DAMAGE:%player_value%*10/100:true:true:true:true:true
+    "3":
       attack:
         type: ATTACK
-        chance: 25
-        cooldown: 4000
+        chance: 50
+        cooldown: 3000
         conditions:
-        - EQUIP_SLOT:MAINHAND
-        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-        - TARGET=ENEMY | DEAL_DAMAGE:%player_value%*15/100:true:true:true:true:true
-    '4':
+          - TARGET=ENEMY | DEAL_DAMAGE:%player_value%*15/100:true:true:true:true:true
+    "4":
       attack:
         type: ATTACK
-        chance: 25
-        cooldown: 4000
+        chance: 50
+        cooldown: 3000
         conditions:
-        - EQUIP_SLOT:MAINHAND
-        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-        - TARGET=ENEMY | DEAL_DAMAGE:%player_value%*20/100:true:true:true:true:true
-    '5':
+          - TARGET=ENEMY | DEAL_DAMAGE:%player_value%*20/100:true:true:true:true:true
+    "5":
       attack:
         type: ATTACK
-        chance: 25
-        cooldown: 4000
+        chance: 50
+        cooldown: 3000
         conditions:
-        - EQUIP_SLOT:MAINHAND
-        - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
-        - TARGET=ENEMY | DEAL_DAMAGE:%player_value%*25/100:true:true:true:true:true
+          - TARGET=ENEMY | DEAL_DAMAGE:%player_value%*25/100:true:true:true:true:true
+threshold:
+  group: supreme
+  display: Threshold
+  description:
+    - "&eKết liễu mục tiêu dưới ngưỡng máu nhất định"
+  detail-description:
+    - "&eKết liễu mục tiêu dưới ngưỡng máu nhất định"
+    - ""
+    - "&eNgưỡng máu: 3% x Cấp"
+  applies-description:
+    - Cuốc
+  applies:
+    - ALL_HOE
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | HEALTH_PERCENT:<:50
+        effects:
+          - TARGET=ENEMY | HEALTH:SET:0
+          - "MESSAGE:&6&l***Threshold: Kill &c&l%enemy_name%&6&l***"
+    "2":
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | HEALTH_PERCENT:<:6
+        effects:
+          - TARGET=ENEMY | HEALTH:SET:0
+          - "MESSAGE:&6&l***Threshold: Kill &c&l%enemy_name%&6&l***"
+    "3":
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | HEALTH_PERCENT:<:9
+        effects:
+          - TARGET=ENEMY | HEALTH:SET:0
+          - "MESSAGE:&6&l***Threshold: Kill &c&l%enemy_name%&6&l***"
+    "4":
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | HEALTH_PERCENT:<:12
+        effects:
+          - TARGET=ENEMY | HEALTH:SET:0
+          - "MESSAGE:&6&l***Threshold: Kill &c&l%enemy_name%&6&l***"
+    "5":
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | HEALTH_PERCENT:<:15
+        effects:
+          - TARGET=ENEMY | HEALTH:SET:0
+          - "MESSAGE:&6&l***Threshold: Kill &c&l%enemy_name%&6&l***"
+deathhunt:
+  group: legendary
+  display: DeathHunt
+  description:
+    - "&eTăng thêm tốc độ di chuyển và sát thương"
+    - "&egây lên kẻ địch dưới ngưỡng máu nhất định"
+    - "&egần đó"
+  detail-description:
+    - "&eTăng thêm tốc độ di chuyển và sát thương"
+    - "&egây ra khi có kẻ địch gần đó dưới ngưỡng máu"
+    - "&enhất định"
+    - ""
+    - "&eNgưỡng máu kích hoạt: 10% x Cấp"
+    - "&eTốc độ di chuyển: +15% x Cấp"
+    - "&eSát thương: +20% x Cấp"
+    - "&eKhoảng cách: 32m"
+  applies-description:
+    - Cuốc
+  applies:
+    - ALL_HOE
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - NUMBER_STORAGE:SET:deathhunt_enable:1
+          - NUMBER_STORAGE:SET:deathhunt_message:0
+          - "MESSAGE:&e&l***DeathHunt: &a&lEnable &e&l***"
+      auto:
+        type: AUTO
+        chance: 100
+        cooldown: 1000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - NUMBER_STORAGE:deathhunt_enable:=:1
+        target-filter:
+          except-player: true
+          except-enemy: false
+          min-distance: 0
+          max-distance: 32
+          min-target: 1
+          max-target: 1
+        target-conditions:
+          - CAN_ATTACK
+          - TARGET=ENEMY | HEALTH_PERCENT:<:50
+        target-effects:
+          - ADD_ATTRIBUTE:MOVEMENT_SPEED:deathhunt_movement_speed:0.15:1
+          - NUMBER_STORAGE:SET:deathhunt_founds:1
+          - NAME=deathhunt_effect_end,DELAY=30,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:deathhunt_movement_speed
+          - NAME=deathhunt_message,DELAY=30,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SET:deathhunt_message:0
+          - NAME=deathhunt_founds,DELAY=30,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SET:deathhunt_founds:0
+      auto2:
+        type: AUTO
+        chance: 100
+        cooldown: 1000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - NUMBER_STORAGE:deathhunt_enable:=:1
+        target-filter:
+          except-player: true
+          except-enemy: false
+          min-distance: 0
+          max-distance: 32
+          min-target: 1
+          max-target: 1
+        target-conditions:
+          - CAN_ATTACK
+          - TARGET=ENEMY | HEALTH_PERCENT:<:50
+          - NUMBER_STORAGE:deathhunt_message:=:0
+        target-effects:
+          - NUMBER_STORAGE:SET:deathhunt_message:1
+          - "MESSAGE:&e&l***DeathHunt: &e&lDetech &f&l%enemy_name%&e&l***"
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - NUMBER_STORAGE:deathhunt_founds:=:1
+        options:
+          - ATTACK:0.2:1
+        effects:
+          - "MESSAGE:&e&l***DeathHunt: &c&l+20% &f&lATK&e&l***"
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - NUMBER_STORAGE:SET:deathhunt_enable:0
+          - "MESSAGE:&e&l***DeathHunt: &c&lDisable &e&l***"
+    "2":
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - NUMBER_STORAGE:SET:deathhunt_enable:1
+          - NUMBER_STORAGE:SET:deathhunt_message:0
+          - "MESSAGE:&e&l***DeathHunt: &a&lEnable &e&l***"
+      auto:
+        type: AUTO
+        chance: 100
+        cooldown: 1000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - NUMBER_STORAGE:deathhunt_enable:=:1
+        target-filter:
+          except-player: true
+          except-enemy: false
+          min-distance: 0
+          max-distance: 32
+          min-target: 1
+          max-target: 1
+        target-conditions:
+          - CAN_ATTACK
+          - TARGET=ENEMY | HEALTH_PERCENT:<:50
+        target-effects:
+          - ADD_ATTRIBUTE:MOVEMENT_SPEED:deathhunt_movement_speed:0.3:1
+          - NUMBER_STORAGE:SET:deathhunt_founds:1
+          - NAME=deathhunt_effect_end,DELAY=30,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:deathhunt_movement_speed
+          - NAME=deathhunt_message,DELAY=30,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SET:deathhunt_message:0
+          - NAME=deathhunt_founds,DELAY=30,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SET:deathhunt_founds:0
+      auto2:
+        type: AUTO
+        chance: 100
+        cooldown: 1000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - NUMBER_STORAGE:deathhunt_enable:=:1
+        target-filter:
+          except-player: true
+          except-enemy: false
+          min-distance: 0
+          max-distance: 32
+          min-target: 1
+          max-target: 1
+        target-conditions:
+          - CAN_ATTACK
+          - TARGET=ENEMY | HEALTH_PERCENT:<:50
+          - NUMBER_STORAGE:deathhunt_message:=:0
+        target-effects:
+          - NUMBER_STORAGE:SET:deathhunt_message:1
+          - "MESSAGE:&e&l***DeathHunt: &e&lDetech &f&l%enemy_name%&e&l***"
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - NUMBER_STORAGE:deathhunt_founds:=:1
+        options:
+          - ATTACK:0.4:1
+        effects:
+          - "MESSAGE:&e&l***DeathHunt: &c&l+40% &f&lATK&e&l***"
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - NUMBER_STORAGE:SET:deathhunt_enable:0
+          - "MESSAGE:&e&l***DeathHunt: &c&lDisable &e&l***"
+    "3":
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - NUMBER_STORAGE:SET:deathhunt_enable:1
+          - NUMBER_STORAGE:SET:deathhunt_message:0
+          - "MESSAGE:&e&l***DeathHunt: &a&lEnable &e&l***"
+      auto:
+        type: AUTO
+        chance: 100
+        cooldown: 1000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - NUMBER_STORAGE:deathhunt_enable:=:1
+        target-filter:
+          except-player: true
+          except-enemy: false
+          min-distance: 0
+          max-distance: 32
+          min-target: 1
+          max-target: 1
+        target-conditions:
+          - CAN_ATTACK
+          - TARGET=ENEMY | HEALTH_PERCENT:<:50
+        target-effects:
+          - ADD_ATTRIBUTE:MOVEMENT_SPEED:deathhunt_movement_speed:0.45:1
+          - NUMBER_STORAGE:SET:deathhunt_founds:1
+          - NAME=deathhunt_effect_end,DELAY=30,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:deathhunt_movement_speed
+          - NAME=deathhunt_message,DELAY=30,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SET:deathhunt_message:0
+          - NAME=deathhunt_founds,DELAY=30,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SET:deathhunt_founds:0
+      auto2:
+        type: AUTO
+        chance: 100
+        cooldown: 1000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - NUMBER_STORAGE:deathhunt_enable:=:1
+        target-filter:
+          except-player: true
+          except-enemy: false
+          min-distance: 0
+          max-distance: 32
+          min-target: 1
+          max-target: 1
+        target-conditions:
+          - CAN_ATTACK
+          - TARGET=ENEMY | HEALTH_PERCENT:<:50
+          - NUMBER_STORAGE:deathhunt_message:=:0
+        target-effects:
+          - NUMBER_STORAGE:SET:deathhunt_message:1
+          - "MESSAGE:&e&l***DeathHunt: &e&lDetech &f&l%enemy_name%&e&l***"
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - NUMBER_STORAGE:deathhunt_founds:=:1
+        options:
+          - ATTACK:0.6:1
+        effects:
+          - "MESSAGE:&e&l***DeathHunt: &c&l+60% &f&lATK&e&l***"
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - NUMBER_STORAGE:SET:deathhunt_enable:0
+          - "MESSAGE:&e&l***DeathHunt: &c&lDisable &e&l***"
+    "4":
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - NUMBER_STORAGE:SET:deathhunt_enable:1
+          - NUMBER_STORAGE:SET:deathhunt_message:0
+          - "MESSAGE:&e&l***DeathHunt: &a&lEnable &e&l***"
+      auto:
+        type: AUTO
+        chance: 100
+        cooldown: 1000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - NUMBER_STORAGE:deathhunt_enable:=:1
+        target-filter:
+          except-player: true
+          except-enemy: false
+          min-distance: 0
+          max-distance: 32
+          min-target: 1
+          max-target: 1
+        target-conditions:
+          - CAN_ATTACK
+          - TARGET=ENEMY | HEALTH_PERCENT:<:50
+        target-effects:
+          - ADD_ATTRIBUTE:MOVEMENT_SPEED:deathhunt_movement_speed:0.6:1
+          - NUMBER_STORAGE:SET:deathhunt_founds:1
+          - NAME=deathhunt_effect_end,DELAY=30,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:deathhunt_movement_speed
+          - NAME=deathhunt_message,DELAY=30,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SET:deathhunt_message:0
+          - NAME=deathhunt_founds,DELAY=30,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SET:deathhunt_founds:0
+      auto2:
+        type: AUTO
+        chance: 100
+        cooldown: 1000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - NUMBER_STORAGE:deathhunt_enable:=:1
+        target-filter:
+          except-player: true
+          except-enemy: false
+          min-distance: 0
+          max-distance: 32
+          min-target: 1
+          max-target: 1
+        target-conditions:
+          - CAN_ATTACK
+          - TARGET=ENEMY | HEALTH_PERCENT:<:50
+          - NUMBER_STORAGE:deathhunt_message:=:0
+        target-effects:
+          - NUMBER_STORAGE:SET:deathhunt_message:1
+          - "MESSAGE:&e&l***DeathHunt: &e&lDetech &f&l%enemy_name%&e&l***"
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - NUMBER_STORAGE:deathhunt_founds:=:1
+        options:
+          - ATTACK:0.8:1
+        effects:
+          - "MESSAGE:&e&l***DeathHunt: &c&l+80% &f&lATK&e&l***"
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - NUMBER_STORAGE:SET:deathhunt_enable:0
+          - "MESSAGE:&e&l***DeathHunt: &c&lDisable &e&l***"
+    "5":
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - NUMBER_STORAGE:SET:deathhunt_enable:1
+          - NUMBER_STORAGE:SET:deathhunt_message:0
+          - "MESSAGE:&e&l***DeathHunt: &a&lEnable &e&l***"
+      auto:
+        type: AUTO
+        chance: 100
+        cooldown: 1000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - NUMBER_STORAGE:deathhunt_enable:=:1
+        target-filter:
+          except-player: true
+          except-enemy: false
+          min-distance: 0
+          max-distance: 32
+          min-target: 1
+          max-target: 1
+        target-conditions:
+          - CAN_ATTACK
+          - TARGET=ENEMY | HEALTH_PERCENT:<:50
+        target-effects:
+          - ADD_ATTRIBUTE:MOVEMENT_SPEED:deathhunt_movement_speed:0.75:1
+          - NUMBER_STORAGE:SET:deathhunt_founds:1
+          - NAME=deathhunt_effect_end,DELAY=30,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:deathhunt_movement_speed
+          - NAME=deathhunt_message,DELAY=30,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SET:deathhunt_message:0
+          - NAME=deathhunt_founds,DELAY=30,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SET:deathhunt_founds:0
+      auto2:
+        type: AUTO
+        chance: 100
+        cooldown: 1000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - NUMBER_STORAGE:deathhunt_enable:=:1
+        target-filter:
+          except-player: true
+          except-enemy: false
+          min-distance: 0
+          max-distance: 32
+          min-target: 1
+          max-target: 1
+        target-conditions:
+          - CAN_ATTACK
+          - TARGET=ENEMY | HEALTH_PERCENT:<:50
+          - NUMBER_STORAGE:deathhunt_message:=:0
+        target-effects:
+          - NUMBER_STORAGE:SET:deathhunt_message:1
+          - "MESSAGE:&e&l***DeathHunt: &e&lDetech &f&l%enemy_name%&e&l***"
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - NUMBER_STORAGE:deathhunt_founds:=:1
+        options:
+          - ATTACK:1.0:1
+        effects:
+          - "MESSAGE:&e&l***DeathHunt: &c&l+100% &f&lATK&e&l***"
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - NUMBER_STORAGE:SET:deathhunt_enable:0
+          - "MESSAGE:&e&l***DeathHunt: &c&lDisable &e&l***"
+souldrinker:
+  group: legendary
+  display: SoulDrinker
+  description:
+    - "&eKết liễu kẻ địch sẽ hồi phục một lượng máu"
+  detail-description:
+    - "&eKết liễu kẻ địch sẽ hồi phục một lượng máu"
+    - ""
+    - "&eLượng máu hồi phục: 20% máu tối đa x Cấp"
+    - "&eThời gian hồi: 20 giây"
+  applies-description:
+    - Cuốc
+  applies:
+    - ALL_HOE
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      attack:
+        type: KILL_PLAYER
+        chance: 100
+        cooldown: 20000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        effects:
+          - HEALTH:ADD:%player_max_value%*0.2
+          - "MESSAGE:&6&l***BloodLust: Heal &a&l20% &f&lHP&6&l***"
+    "2":
+      attack:
+        type: KILL_PLAYER
+        chance: 100
+        cooldown: 20000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        effects:
+          - HEALTH:ADD:%player_max_value%*0.4
+          - "MESSAGE:&6&l***BloodLust: Heal &a&l40% &f&lHP&6&l***"
+    "3":
+      attack:
+        type: KILL_PLAYER
+        chance: 100
+        cooldown: 20000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        effects:
+          - HEALTH:ADD:%player_max_value%*0.6
+          - "MESSAGE:&6&l***BloodLust: Heal &a&l60% &f&lHP&6&l***"
+    "4":
+      attack:
+        type: KILL_PLAYER
+        chance: 100
+        cooldown: 20000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        effects:
+          - HEALTH:ADD:%player_max_value%*0.8
+          - "MESSAGE:&6&l***BloodLust: Heal &a&l80% &f&lHP&6&l***"
+    "5":
+      attack:
+        type: KILL_PLAYER
+        chance: 100
+        cooldown: 20000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        effects:
+          - HEALTH:ADD:%player_max_value%
+          - "MESSAGE:&6&l***BloodLust: Heal &a&l100% &f&lHP&6&l***"
+soulfire:
+  group: legendary
+  display: SoulFire
+  description:
+    - "&eCó tỉ lệ thiêu đốt phần trăm máu của kẻ địch"
+    - "&emỗi giây trong một khoảng thời gian khi tấn công"
+  detail-description:
+    - "&eCó tỉ lệ thiêu đốt phần trăm máu của kẻ địch"
+    - "&emỗi giây trong một khoảng thời gian khi tấn công"
+    - ""
+    - "&eLượng máu đốt mỗi giây: 1% máu tối đa x Cấp"
+    - "&eTỉ lệ kích hoạt: 75%"
+    - "&eThời gian hiệu lực: 5 giây"
+    - "&eThời gian hồi: 2 giây"
+  applies-description:
+    - Cuốc
+  applies:
+    - ALL_HOE
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      attack:
+        type: ATTACK
+        chance: 75
+        cooldown: 2000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+          - TARGET=ENEMY,DELAY=20 | HEALTH:REMOVE:%player_max_value%*1/100
+          - TARGET=ENEMY,DELAY=40 | HEALTH:REMOVE:%player_max_value%*1/100
+          - TARGET=ENEMY,DELAY=60 | HEALTH:REMOVE:%player_max_value%*1/100
+          - TARGET=ENEMY,DELAY=80 | HEALTH:REMOVE:%player_max_value%*1/100
+          - TARGET=ENEMY,DELAY=100 | HEALTH:REMOVE:%player_max_value%*1/100
+          - "MESSAGE:&6&l***SoulFire: Active > &f&l%enemy_name%&6&l***"
+    "2":
+      attack:
+        type: ATTACK
+        chance: 75
+        cooldown: 2000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+          - TARGET=ENEMY,DELAY=20 | HEALTH:REMOVE:%player_max_value%*2/100
+          - TARGET=ENEMY,DELAY=40 | HEALTH:REMOVE:%player_max_value%*2/100
+          - TARGET=ENEMY,DELAY=60 | HEALTH:REMOVE:%player_max_value%*2/100
+          - TARGET=ENEMY,DELAY=80 | HEALTH:REMOVE:%player_max_value%*2/100
+          - TARGET=ENEMY,DELAY=100 | HEALTH:REMOVE:%player_max_value%*2/100
+          - "MESSAGE:&6&l***SoulFire: Active > &f&l%enemy_name%&6&l***"
+    "3":
+      attack:
+        type: ATTACK
+        chance: 75
+        cooldown: 2000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+          - TARGET=ENEMY,DELAY=20 | HEALTH:REMOVE:%player_max_value%*3/100
+          - TARGET=ENEMY,DELAY=40 | HEALTH:REMOVE:%player_max_value%*3/100
+          - TARGET=ENEMY,DELAY=60 | HEALTH:REMOVE:%player_max_value%*3/100
+          - TARGET=ENEMY,DELAY=80 | HEALTH:REMOVE:%player_max_value%*3/100
+          - TARGET=ENEMY,DELAY=100 | HEALTH:REMOVE:%player_max_value%*3/100
+          - "MESSAGE:&6&l***SoulFire: Active > &f&l%enemy_name%&6&l***"
+    "4":
+      attack:
+        type: ATTACK
+        chance: 75
+        cooldown: 2000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+          - TARGET=ENEMY,DELAY=20 | HEALTH:REMOVE:%player_max_value%*4.0/100
+          - TARGET=ENEMY,DELAY=40 | HEALTH:REMOVE:%player_max_value%*4.0/100
+          - TARGET=ENEMY,DELAY=60 | HEALTH:REMOVE:%player_max_value%*4.0/100
+          - TARGET=ENEMY,DELAY=80 | HEALTH:REMOVE:%player_max_value%*4.0/100
+          - TARGET=ENEMY,DELAY=100 | HEALTH:REMOVE:%player_max_value%*4.0/100
+          - "MESSAGE:&6&l***SoulFire: Active > &f&l%enemy_name%&6&l***"
+    "5":
+      attack:
+        type: ATTACK
+        chance: 75
+        cooldown: 2000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+          - TARGET=ENEMY,DELAY=20 | HEALTH:REMOVE:%player_max_value%*5/100
+          - TARGET=ENEMY,DELAY=40 | HEALTH:REMOVE:%player_max_value%*5/100
+          - TARGET=ENEMY,DELAY=60 | HEALTH:REMOVE:%player_max_value%*5/100
+          - TARGET=ENEMY,DELAY=80 | HEALTH:REMOVE:%player_max_value%*5/100
+          - TARGET=ENEMY,DELAY=100 | HEALTH:REMOVE:%player_max_value%*5/100
+          - "MESSAGE:&6&l***SoulFire: Active > &f&l%enemy_name%&6&l***"
+wraith:
+  group: ultimate
+  display: Wraith
+  description:
+    - "&eGiảm máu tối đa của kẻ địch theo đòn đánh"
+  detail-description:
+    - "&eGiảm máu tối đa của kẻ địch theo đòn đánh"
+    - ""
+    - "&eMỗi lần tấn công sẽ giảm 1% máu tối đa x Cấp"
+    - "&eThời gian mỗi tích lũy: 5s"
+    - "&eMáu giảm tối đa: 4% x Cấp"
+  applies-description:
+    - Cuốc
+  applies:
+    - ALL_HOE
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      attack-1:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - TARGET=ENEMY,NEGATIVE=true | NUMBER_STORAGE:wraith_%player_name%_times
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:SET:wraith_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:0:-0.01:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:0
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:wraith_%player_name%_times:1
+          - "MESSAGE:&c&l***Wraith: &c&l-1% &f&l%enemy_name%'s Max Health&c&l***"
+        true-condition-break: true
+      attack-reset:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - TARGET=ENEMY | NUMBER_STORAGE:wraith_%player_name%_times:<:1
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:SET:wraith_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:0:-0.01:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:0
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:wraith_%player_name%_times:1
+          - "MESSAGE:&c&l***Wraith: &c&l-1% &f&l%enemy_name%'s Max Health&c&l***"
+        true-condition-break: true
+      attack-2:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - TARGET=ENEMY | NUMBER_STORAGE:wraith_%player_name%_times:=:1
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:ADD:wraith_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:1:-0.01:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:1
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:wraith_%player_name%_times:1
+          - "MESSAGE:&c&l***Wraith: &c&l-2% &f&l%enemy_name%'s Max Health&c&l***"
+        true-condition-break: true
+      attack-3:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - TARGET=ENEMY | NUMBER_STORAGE:wraith_%player_name%_times:=:2
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:ADD:wraith_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:2:-0.01:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:wraith_%player_name%_times:1
+          - "MESSAGE:&c&l***Wraith: &c&l-3% &f&l%enemy_name%'s Max Health&c&l***"
+        true-condition-break: true
+      attack-4:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - TARGET=ENEMY | NUMBER_STORAGE:wraith_%player_name%_times:=:3
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:ADD:wraith_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:3:-0.01:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:3
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:wraith_%player_name%_times:1
+          - "MESSAGE:&c&l***Wraith: &c&l-4% &f&l%enemy_name%'s Max Health&c&l***"
+        true-condition-break: true
+    "2":
+      attack-1:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - TARGET=ENEMY,NEGATIVE=true | NUMBER_STORAGE:wraith_%player_name%_times
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:SET:wraith_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:0:-0.02:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:0
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:wraith_%player_name%_times:1
+          - "MESSAGE:&c&l***Wraith: &c&l-2% &f&l%enemy_name%'s Max Health&c&l***"
+        true-condition-break: true
+      attack-reset:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - TARGET=ENEMY | NUMBER_STORAGE:wraith_%player_name%_times:<:1
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:SET:wraith_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:0:-0.02:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:0
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:wraith_%player_name%_times:1
+          - "MESSAGE:&c&l***Wraith: &c&l-2% &f&l%enemy_name%'s Max Health&c&l***"
+        true-condition-break: true
+      attack-2:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - TARGET=ENEMY | NUMBER_STORAGE:wraith_%player_name%_times:=:1
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:ADD:wraith_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:1:-0.02:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:1
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:wraith_%player_name%_times:1
+          - "MESSAGE:&c&l***Wraith: &c&l-4% &f&l%enemy_name%'s Max Health&c&l***"
+        true-condition-break: true
+      attack-3:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - TARGET=ENEMY | NUMBER_STORAGE:wraith_%player_name%_times:=:2
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:ADD:wraith_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:2:-0.02:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:wraith_%player_name%_times:1
+          - "MESSAGE:&c&l***Wraith: &c&l-6% &f&l%enemy_name%'s Max Health&c&l***"
+        true-condition-break: true
+      attack-4:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | NUMBER_STORAGE:wraith_%player_name%_times:=:3
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:ADD:wraith_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:3:-0.02:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:3
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:wraith_%player_name%_times:1
+          - "MESSAGE:&c&l***Wraith: &c&l-8% &f&l%enemy_name%'s Max Health&c&l***"
+        true-condition-break: true
+    "3":
+      attack-1:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - TARGET=ENEMY,NEGATIVE=true | NUMBER_STORAGE:wraith_%player_name%_times
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:SET:wraith_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:0:-0.03:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:0
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:wraith_%player_name%_times:1
+          - "MESSAGE:&c&l***Wraith: &c&l-3% &f&l%enemy_name%'s Max Health&c&l***"
+        true-condition-break: true
+      attack-reset:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - TARGET=ENEMY | NUMBER_STORAGE:wraith_%player_name%_times:<:1
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:SET:wraith_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:0:-0.03:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:0
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:wraith_%player_name%_times:1
+          - "MESSAGE:&c&l***Wraith: &c&l-3% &f&l%enemy_name%'s Max Health&c&l***"
+        true-condition-break: true
+      attack-2:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - TARGET=ENEMY | NUMBER_STORAGE:wraith_%player_name%_times:=:1
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:ADD:wraith_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:1:-0.03:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:1
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:wraith_%player_name%_times:1
+          - "MESSAGE:&c&l***Wraith: &c&l-6% &f&l%enemy_name%'s Max Health&c&l***"
+        true-condition-break: true
+      attack-3:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - TARGET=ENEMY | NUMBER_STORAGE:wraith_%player_name%_times:=:2
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:ADD:wraith_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:2:-0.03:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:wraith_%player_name%_times:1
+          - "MESSAGE:&c&l***Wraith: &c&l-9% &f&l%enemy_name%'s Max Health&c&l***"
+        true-condition-break: true
+      attack-4:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - TARGET=ENEMY | NUMBER_STORAGE:wraith_%player_name%_times:=:3
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:ADD:wraith_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:3:-0.03:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:3
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:wraith_%player_name%_times:1
+          - "MESSAGE:&c&l***Wraith: &c&l-12% &f&l%enemy_name%'s Max Health&c&l***"
+        true-condition-break: true
+    "4":
+      attack-1:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - TARGET=ENEMY,NEGATIVE=true | NUMBER_STORAGE:wraith_%player_name%_times
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:SET:wraith_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:0:-0.04:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:0
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:wraith_%player_name%_times:1
+          - "MESSAGE:&c&l***Wraith: &c&l-4% &f&l%enemy_name%'s Max Health&c&l***"
+        true-condition-break: true
+      attack-reset:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - TARGET=ENEMY | NUMBER_STORAGE:wraith_%player_name%_times:<:1
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:SET:wraith_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:0:-0.04:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:0
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:wraith_%player_name%_times:1
+          - "MESSAGE:&c&l***Wraith: &c&l-4% &f&l%enemy_name%'s Max Health&c&l***"
+        true-condition-break: true
+      attack-2:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - TARGET=ENEMY | NUMBER_STORAGE:wraith_%player_name%_times:=:1
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:ADD:wraith_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:1:-0.04:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:1
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:wraith_%player_name%_times:1
+          - "MESSAGE:&c&l***Wraith: &c&l-8% &f&l%enemy_name%'s Max Health&c&l***"
+        true-condition-break: true
+      attack-3:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - TARGET=ENEMY | NUMBER_STORAGE:wraith_%player_name%_times:=:2
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:ADD:wraith_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:2:-0.04:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:wraith_%player_name%_times:1
+          - "MESSAGE:&c&l***Wraith: &c&l-12% &f&l%enemy_name%'s Max Health&c&l***"
+        true-condition-break: true
+      attack-4:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - TARGET=ENEMY | NUMBER_STORAGE:wraith_%player_name%_times:=:3
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:ADD:wraith_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:3:-0.04:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:3
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:wraith_%player_name%_times:1
+          - "MESSAGE:&c&l***Wraith: &c&l-16% &f&l%enemy_name%'s Max Health&c&l***"
+        true-condition-break: true
+    "5":
+      attack-1:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - TARGET=ENEMY,NEGATIVE=true | NUMBER_STORAGE:wraith_%player_name%_times
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:SET:wraith_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:0:-0.05:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:0
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:wraith_%player_name%_times:1
+          - "MESSAGE:&c&l***Wraith: &c&l-5% &f&l%enemy_name%'s Max Health&c&l***"
+        true-condition-break: true
+      attack-reset:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - TARGET=ENEMY | NUMBER_STORAGE:wraith_%player_name%_times:<:1
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:SET:wraith_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:0:-0.05:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:0
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:wraith_%player_name%_times:1
+          - "MESSAGE:&c&l***Wraith: &c&l-5% &f&l%enemy_name%'s Max Health&c&l***"
+        true-condition-break: true
+      attack-2:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - TARGET=ENEMY | NUMBER_STORAGE:wraith_%player_name%_times:=:1
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:ADD:wraith_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:1:-0.05:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:1
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:wraith_%player_name%_times:1
+          - "MESSAGE:&c&l***Wraith: &c&l-10% &f&l%enemy_name%'s Max Health&c&l***"
+        true-condition-break: true
+      attack-3:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - TARGET=ENEMY | NUMBER_STORAGE:wraith_%player_name%_times:=:2
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:ADD:wraith_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:2:-0.05:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:wraith_%player_name%_times:1
+          - "MESSAGE:&c&l***Wraith: &c&l-15% &f&l%enemy_name%'s Max Health&c&l***"
+        true-condition-break: true
+      attack-4:
+        type: ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - TARGET=ENEMY | NUMBER_STORAGE:wraith_%player_name%_times:=:3
+        effects:
+          - TARGET=ENEMY | NUMBER_STORAGE:ADD:wraith_%player_name%_times:1
+          - TARGET=ENEMY | ADD_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:3:-0.05:2
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_AUTO_ATTRIBUTE:MAX_HEALTH:wraith_max_health:3
+          - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | NUMBER_STORAGE:SUB:wraith_%player_name%_times:1
+          - "MESSAGE:&c&l***Wraith: &c&l-20% &f&l%enemy_name%'s Max Health&c&l***"
+        true-condition-break: true

@@ -1,0 +1,204 @@
+ironbeak:
+  group: artifact
+  display: "Iron Beak"
+  description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm sức tấn công"
+  detail-description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm sức tấn công"
+    - ""
+    - "&eSức tấn công: 0.5 x Cấp"
+  applies-description:
+    - "Thanh công cụ"
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:ATTACK_DAMAGE:ironbeak_attack_damage:0.5:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:ATTACK_DAMAGE:ironbeak_attack_damage
+    "2":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:ATTACK_DAMAGE:ironbeak_attack_damage:1:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:ATTACK_DAMAGE:ironbeak_attack_damage
+    "3":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:ATTACK_DAMAGE:ironbeak_attack_damage:1.5:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:ATTACK_DAMAGE:ironbeak_attack_damage
+    "4":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:ATTACK_DAMAGE:ironbeak_attack_damage:2:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:ATTACK_DAMAGE:ironbeak_attack_damage
+    "5":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:ATTACK_DAMAGE:ironbeak_attack_damage:2.5:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:ATTACK_DAMAGE:ironbeak_attack_damage
+eggshell:
+  group: artifact
+  display: "Egg Shell"
+  description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm tỉ lệ chí mạng"
+  detail-description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm tỉ lệ chí mạng"
+    - ""
+    - "&eTỉ lệ chí mạng: 1% x Cấp"
+  applies-description:
+    - "Thanh công cụ"
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_CUSTOM_ATTRIBUTE:eggshell_critical_chance:CRITICAL_CHANCE:1.0:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_CUSTOM_ATTRIBUTE:eggshell_critical_chance
+    "2":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_CUSTOM_ATTRIBUTE:eggshell_critical_chance:CRITICAL_CHANCE:2.0:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_CUSTOM_ATTRIBUTE:eggshell_critical_chance
+    "3":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_CUSTOM_ATTRIBUTE:eggshell_critical_chance:CRITICAL_CHANCE:3.0:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_CUSTOM_ATTRIBUTE:eggshell_critical_chance
+    "4":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_CUSTOM_ATTRIBUTE:eggshell_critical_chance:CRITICAL_CHANCE:4.0:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_CUSTOM_ATTRIBUTE:eggshell_critical_chance
+    "5":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_CUSTOM_ATTRIBUTE:eggshell_critical_chance:CRITICAL_CHANCE:5.0:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_CUSTOM_ATTRIBUTE:eggshell_critical_chance

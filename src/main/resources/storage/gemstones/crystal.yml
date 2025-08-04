@@ -1,0 +1,148 @@
+# &7Nguyên liệu thường
+# &#77ff00Nguyên liệu hiếm
+# &#00bbffNguyên liệu rất hiếm
+# &#ffee00Nguyên liệu cực hiếm
+# &#ff4400Nguyên liệu siêu hiếm
+# Ruby - Hồng Ngọc - Sức tấn công x
+# Amber - Hổ Phách - Sát thương chí mạng x
+# Sapphire - Lam Ngọc - Giáp x
+# Jade - Cẩm Thạch - Tốc độ đánh x
+# Amethyst - Thạch Anh Tím - Máu tối đa x
+# Opal - Nhãn Thạch - Tốc độ di chuyển x
+# Topaz - Hoàng Ngọc - Chí mạng x
+# Jasper - Mã Não - Hút máu x
+# Onyx - Bạch Ngọc - Sát thương nhận giảm x
+# Aquamarine - Ngọc Xanh Biển - Xuyên giáp x
+# Citrine - Thạch Anh Vàng - Sức khai phá
+# Peridot - Ngọc Ô Liu - HP Hồi mỗi giây x
+crystal-ruby:
+  type: RED_DYE
+  custom-model-data: 6
+  display: "<GRADIENTS:b41424,f41c34,b41424>&l⬥ Tinh thể Hồng Ngọc ⬥</GRADIENTS>"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Dùng để chế tạo ngọc khảm"
+    - ""
+    - "&7&oSử dụng tại /gem"
+
+crystal-amber:
+  type: ORANGE_DYE
+  custom-model-data: 6
+  display: "<GRADIENTS:e47c04,f4a404,e47c04>&l⬥ Tinh thể Hổ Phách ⬥</GRADIENTS>"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Dùng để chế tạo ngọc khảm"
+    - ""
+    - "&7&oSử dụng tại /gem"
+
+crystal-sapphire:
+  type: LIGHT_BLUE_DYE
+  custom-model-data: 6
+  display: "<GRADIENTS:1488e8,a9ddee,1488e8>&l⬥ Tinh thể Lam Ngọc ⬥</GRADIENTS>"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Dùng để chế tạo ngọc khảm"
+    - ""
+    - "&7&oSử dụng tại /gem"
+
+crystal-jade:
+  type: LIME_DYE
+  custom-model-data: 6
+  display: "<GRADIENTS:48b86c,d4fcd4,48b86c>&l⬥ Tinh thể Bích Ngọc ⬥</GRADIENTS>"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Dùng để chế tạo ngọc khảm"
+    - ""
+    - "&7&oSử dụng tại /gem"
+
+crystal-amethyst:
+  type: PURPLE_DYE
+  custom-model-data: 6
+  display: "<GRADIENTS:8c6ccc,cca4f4,8c6ccc>&l⬥ Tinh thể Thạch Anh Tím ⬥</GRADIENTS>"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Dùng để chế tạo ngọc khảm"
+    - ""
+    - "&7&oSử dụng tại /gem"
+
+crystal-opal:
+  type: WHITE_DYE
+  custom-model-data: 6
+  display: "<GRADIENTS:e9ee77,8cf4ec,8c84fc>&l⬥ Tinh thể Ngọc Mắt Mèo ⬥</GRADIENTS>"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Dùng để chế tạo ngọc khảm"
+    - ""
+    - "&7&oSử dụng tại /gem"
+
+crystal-topaz:
+  type: YELLOW_DYE
+  custom-model-data: 6
+  display: "<GRADIENTS:c49c44,eddd75,c49c44>&l⬥ Tinh thể Hoàng Ngọc ⬥</GRADIENTS>"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Dùng để chế tạo ngọc khảm"
+    - ""
+    - "&7&oSử dụng tại /gem"
+
+crystal-jasper:
+  type: MAGENTA_DYE
+  custom-model-data: 6
+  display: "<GRADIENTS:a41c0c,dc4c34,a41c0c>&l⬥ Tinh thể Huyết Ngọc ⬥</GRADIENTS>"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Dùng để chế tạo ngọc khảm"
+    - ""
+    - "&7&oSử dụng tại /gem"
+
+crystal-onyx:
+  type: BLACK_DYE
+  custom-model-data: 6
+  display: "<GRADIENTS:2c2c24,949494,2c2c24>&l⬥ Tinh thể Hắc Ngọc ⬥</GRADIENTS>"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Dùng để chế tạo ngọc khảm"
+    - ""
+    - "&7&oSử dụng tại /gem"
+
+crystal-aquamarine:
+  type: BLUE_DYE
+  custom-model-data: 6
+  display: "<GRADIENTS:2c9c7c,7cece4,2c9c7c>&l⬥ Tinh thể Thanh Ngọc ⬥</GRADIENTS>"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Dùng để chế tạo ngọc khảm"
+    - ""
+    - "&7&oSử dụng tại /gem"
+
+crystal-citrine:
+  type: BROWN_DYE
+  custom-model-data: 6
+  display: "<GRADIENTS:f8b04c,f4bc74,f8b04c>&l⬥ Tinh thể Thạch Vàng ⬥</GRADIENTS>"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Dùng để chế tạo ngọc khảm"
+    - ""
+    - "&7&oSử dụng tại /gem"
+
+crystal-peridot:
+  type: GREEN_DYE
+  custom-model-data: 6
+  display: "<GRADIENTS:648c2c,c4dc74,648c2c>&l⬥ Tinh thể Lục Ngọc ⬥</GRADIENTS>"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Dùng để chế tạo ngọc khảm"
+    - ""
+    - "&7&oSử dụng tại /gem"

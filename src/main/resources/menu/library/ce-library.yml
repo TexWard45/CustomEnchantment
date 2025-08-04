@@ -1,0 +1,563 @@
+settings:
+  title: "&4&lThư viện sách phù phép"
+  rows: 6
+  sound: ENTITY_EXPERIENCE_ORB_PICKUP
+  actions:
+    "1":
+      inventory-type: CHEST
+      slots: 0-53
+      cancel-drag: true
+      cancel-click-type:
+        - LEFT
+        - RIGHT
+        - SHIFT_RIGHT
+        - SHIFT_LEFT
+        - NUMBER_KEY
+      cancel-inventory-action:
+        - MOVE_TO_OTHER_INVENTORY
+        - DROP_ALL_SLOT
+        - DROP_ALL_CURSOR
+        - DROP_ONE_SLOT
+        - DROP_ONE_CURSOR
+    "2":
+      inventory-type: PLAYER
+      slots: 0-35
+      cancel-drag: true
+      cancel-click-type:
+        - LEFT
+        - RIGHT
+        - SHIFT_RIGHT
+        - SHIFT_LEFT
+        - NUMBER_KEY
+items:
+  background:
+    item:
+      type: BLACK_STAINED_GLASS_PANE
+      display: " "
+    slots:
+      - "111111111"
+      - "100000001"
+      - "100000001"
+      - "100000001"
+      - "100000001"
+      - "111101111"
+  return:
+    item:
+      type: GRAY_STAINED_GLASS_PANE
+      amount: 1
+      display: "&cTrở về"
+    slots:
+      - "000000000"
+      - "000000000"
+      - "000000000"
+      - "000000000"
+      - "000000000"
+      - "000010000"
+    priority:
+      condition:
+        - HAS_PREVIOUS_MENU
+      true-condition-priority: 1
+      false-condition-priority: -1
+    command:
+      "1":
+        condition:
+          - CLICK_TYPE LEFT
+        true-condition:
+          execute:
+            - RETURN_CLOSE_MENU
+          step: BREAK
+  close:
+    item:
+      type: RED_STAINED_GLASS_PANE
+      amount: 1
+      display: "&cĐóng"
+    slots:
+      - "000000000"
+      - "000000000"
+      - "000000000"
+      - "000000000"
+      - "000000000"
+      - "000010000"
+    command:
+      "1":
+        condition:
+          - CLICK_TYPE LEFT
+        true-condition:
+          execute:
+            - RETURN_CLOSE_MENU
+          step: BREAK
+  helmet:
+    item:
+      type: DIAMOND_HELMET
+      display: "&3&lMũ (Helmet)"
+      lore:
+        - ""
+        - "&7Xem thông tin các sách phù phép"
+        - "&7thuộc &3Mũ"
+        - ""
+        - "&f&nNhấp để xem"
+      flags:
+        - "HIDE_ATTRIBUTES"
+    slots: 19
+    sound: ENTITY_EXPERIENCE_ORB_PICKUP
+    command:
+      "1":
+        condition:
+          - CLICK_TYPE LEFT
+        true-condition:
+          execute:
+            - FORCE_OPEN_MENU ce-library-helmet
+          step: BREAK
+  chestplate:
+    item:
+      type: DIAMOND_CHESTPLATE
+      display: "&3&lGiáp ngực (Chestplate)"
+      lore:
+        - ""
+        - "&7Xem thông tin các sách phù phép"
+        - "&7thuộc &3Giáp ngực"
+        - ""
+        - "&f&nNhấp để xem"
+      flags:
+        - "HIDE_ATTRIBUTES"
+    slots: 20
+    sound: ENTITY_EXPERIENCE_ORB_PICKUP
+    command:
+      "1":
+        condition:
+          - CLICK_TYPE LEFT
+        true-condition:
+          execute:
+            - FORCE_OPEN_MENU ce-library-chestplate
+          step: BREAK
+  leggings:
+    item:
+      type: DIAMOND_LEGGINGS
+      display: "&3&lQuần (Leggings)"
+      lore:
+        - ""
+        - "&7Xem thông tin các sách phù phép"
+        - "&7thuộc &3Quần"
+        - ""
+        - "&f&nNhấp để xem"
+      flags:
+        - "HIDE_ATTRIBUTES"
+    slots: 21
+    sound: ENTITY_EXPERIENCE_ORB_PICKUP
+    command:
+      "1":
+        condition:
+          - CLICK_TYPE LEFT
+        true-condition:
+          execute:
+            - FORCE_OPEN_MENU ce-library-leggings
+          step: BREAK
+  boots:
+    item:
+      type: DIAMOND_BOOTS
+      display: "&3&lGiày (Boots)"
+      lore:
+        - ""
+        - "&7Xem thông tin các sách phù phép"
+        - "&7thuộc &3Giày"
+        - ""
+        - "&f&nNhấp để xem"
+      flags:
+        - "HIDE_ATTRIBUTES"
+    slots: 22
+    sound: ENTITY_EXPERIENCE_ORB_PICKUP
+    command:
+      "1":
+        condition:
+          - CLICK_TYPE LEFT
+        true-condition:
+          execute:
+            - FORCE_OPEN_MENU ce-library-boots
+          step: BREAK
+  sword:
+    item:
+      type: DIAMOND_SWORD
+      display: "&3&lKiếm (Sword)"
+      lore:
+        - ""
+        - "&7Xem thông tin các sách phù phép"
+        - "&7thuộc &3Kiếm"
+        - ""
+        - "&f&nNhấp để xem"
+      flags:
+        - "HIDE_ATTRIBUTES"
+    slots: 23
+    sound: ENTITY_EXPERIENCE_ORB_PICKUP
+    command:
+      "1":
+        condition:
+          - CLICK_TYPE LEFT
+        true-condition:
+          execute:
+            - FORCE_OPEN_MENU ce-library-sword
+          step: BREAK
+  axe:
+    item:
+      type: DIAMOND_AXE
+      display: "&3&lRìu (Axe)"
+      lore:
+        - ""
+        - "&7Xem thông tin các sách phù phép"
+        - "&7thuộc &3Rìu"
+        - ""
+        - "&f&nNhấp để xem"
+      flags:
+        - "HIDE_ATTRIBUTES"
+    slots: 24
+    sound: ENTITY_EXPERIENCE_ORB_PICKUP
+    command:
+      "1":
+        condition:
+          - CLICK_TYPE LEFT
+        true-condition:
+          execute:
+            - FORCE_OPEN_MENU ce-library-axe
+          step: BREAK
+  trident:
+    item:
+      type: TRIDENT
+      display: "&3&lĐinh ba (Trident)"
+      lore:
+        - ""
+        - "&7Xem thông tin các sách phù phép"
+        - "&7thuộc &3Đinh ba"
+        - ""
+        - "&f&nNhấp để xem"
+      flags:
+        - "HIDE_ATTRIBUTES"
+    slots: 25
+    sound: ENTITY_EXPERIENCE_ORB_PICKUP
+    command:
+      "1":
+        condition:
+          - CLICK_TYPE LEFT
+        true-condition:
+          execute:
+            - FORCE_OPEN_MENU ce-library-trident
+          step: BREAK
+  pickaxe:
+    item:
+      type: DIAMOND_PICKAXE
+      display: "&3&lCúp (Pickaxe)"
+      lore:
+        - ""
+        - "&7Xem thông tin các sách phù phép"
+        - "&7thuộc &3Cúp"
+        - ""
+        - "&f&nNhấp để xem"
+      flags:
+        - "HIDE_ATTRIBUTES"
+    slots: 28
+    sound: ENTITY_EXPERIENCE_ORB_PICKUP
+    command:
+      "1":
+        condition:
+          - CLICK_TYPE LEFT
+        true-condition:
+          execute:
+            - FORCE_OPEN_MENU ce-library-pickaxe
+          step: BREAK
+  hoe:
+    item:
+      type: DIAMOND_HOE
+      display: "&3&lCuốc (Hoe)"
+      lore:
+        - ""
+        - "&7Xem thông tin các sách phù phép"
+        - "&7thuộc &3Cuốc"
+        - ""
+        - "&f&nNhấp để xem"
+      flags:
+        - "HIDE_ATTRIBUTES"
+    slots: 29
+    sound: ENTITY_EXPERIENCE_ORB_PICKUP
+    command:
+      "1":
+        condition:
+          - CLICK_TYPE LEFT
+        true-condition:
+          execute:
+            - FORCE_OPEN_MENU ce-library-hoe
+          step: BREAK
+  space:
+    item:
+      type: DIAMOND_SHOVEL
+      display: "&3&lXẻng (Shovel)"
+      lore:
+        - ""
+        - "&7Hiện chưa có sách phù phép"
+        - "&7thuộc loại này"
+      flags:
+        - "HIDE_ATTRIBUTES"
+    slots: 30
+    sound: ENTITY_EXPERIENCE_ORB_PICKUP
+  bow:
+    item:
+      type: BOW
+      display: "&f&lCung (Bow)"
+      lore:
+        - ""
+        - "&7Xem thông tin các sách phù phép"
+        - "&7thuộc &fCung"
+        - ""
+        - "&f&nNhấp để xem"
+    slots: 31
+    sound: ENTITY_EXPERIENCE_ORB_PICKUP
+    command:
+      "1":
+        condition:
+          - CLICK_TYPE LEFT
+        true-condition:
+          execute:
+            - FORCE_OPEN_MENU ce-library-bow
+          step: BREAK
+  armor:
+    item:
+      type: IRON_CHESTPLATE
+      display: "&f&lTất cả loại giáp (Armor)"
+      lore:
+        - ""
+        - "&7Xem thông tin các sách phù phép"
+        - "&7thuộc &3Giáp"
+        - ""
+        - "&f&nNhấp để xem"
+      flags:
+        - "HIDE_ATTRIBUTES"
+    slots: 32
+    sound: ENTITY_EXPERIENCE_ORB_PICKUP
+    command:
+      "1":
+        condition:
+          - CLICK_TYPE LEFT
+        true-condition:
+          execute:
+            - FORCE_OPEN_MENU ce-library-armor
+          step: BREAK
+  mix:
+    item:
+      type: IRON_PICKAXE
+      display: "&f&lLinh tinh"
+      lore:
+        - ""
+        - "&7Xem thông tin các sách phù phép khác"
+        - "&7thuộc &fCông cụ, Vũ khí, Kiếm & Rìu"
+        - ""
+        - "&f&nNhấp để xem"
+      flags:
+        - "HIDE_ATTRIBUTES"
+    slots: 33
+    sound: ENTITY_EXPERIENCE_ORB_PICKUP
+    command:
+      "1":
+        condition:
+          - CLICK_TYPE LEFT
+        true-condition:
+          execute:
+            - FORCE_OPEN_MENU ce-library-mix
+          step: BREAK
+  set:
+    item:
+      type: GOLDEN_CHESTPLATE
+      display: "&e&lBộ trang bị"
+      lore:
+        - ""
+        - "&7Xem thông tin các sách phù phép"
+        - "&7thuộc &eBộ trang bị"
+        - ""
+        - "&f&nNhấp để xem"
+      flags:
+        - "HIDE_ATTRIBUTES"
+    slots: 34
+    sound: ENTITY_EXPERIENCE_ORB_PICKUP
+    command:
+      "1":
+        condition:
+          - CLICK_TYPE LEFT
+        true-condition:
+          execute:
+            - FORCE_OPEN_MENU ce-library-set
+          step: BREAK
+  mask:
+    item:
+      type: ZOMBIE_HEAD
+      display: "&5&lMặt nạ"
+      lore:
+        - ""
+        - "&7Xem thông tin các sách phù phép"
+        - "&7thuộc &5Mặt nạ"
+        - ""
+        - "&f&nNhấp để xem"
+    slots: 37
+    sound: ENTITY_EXPERIENCE_ORB_PICKUP
+    command:
+      "1":
+        condition:
+          - CLICK_TYPE LEFT
+        true-condition:
+          execute:
+            - FORCE_OPEN_MENU ce-library-mask
+          step: BREAK
+  upgrade:
+    item:
+      type: END_PORTAL_FRAME
+      display: "&d&lSách đột phá"
+      lore:
+        - ""
+        - "&7Xem thông tin các sách phù phép Đột phá"
+        - ""
+        - "&f&nNhấp để xem"
+    slots: 38
+    sound: ENTITY_EXPERIENCE_ORB_PICKUP
+    command:
+      "1":
+        condition:
+          - CLICK_TYPE LEFT
+        true-condition:
+          execute:
+            - FORCE_OPEN_MENU ce-library-upgrade
+          step: BREAK
+  common:
+    item:
+      type: WHITE_STAINED_GLASS_PANE
+      display: "&f&lPhân loại &#94a3b8&lThường"
+      lore:
+        - ""
+        - "&7Xem thông tin các sách phù phép"
+        - "&7thuộc loại &#94a3b8Thường"
+        - ""
+        - "&f&nNhấp để mở"
+    slots: 10
+    sound: ENTITY_EXPERIENCE_ORB_PICKUP
+    command:
+      "1":
+        condition:
+          - CLICK_TYPE LEFT
+        true-condition:
+          execute:
+            - FORCE_OPEN_MENU ce-library-common
+          step: BREAK
+  rare:
+    item:
+      type: LIME_STAINED_GLASS_PANE
+      display: "&f&lPhân loại &#22c55e&lHiếm"
+      lore:
+        - ""
+        - "&7Xem thông tin các sách phù phép"
+        - "&7thuộc loại &#22c55eHiếm"
+        - ""
+        - "&f&nNhấp để mở"
+    slots: 11
+    sound: ENTITY_EXPERIENCE_ORB_PICKUP
+    command:
+      "1":
+        condition:
+          - CLICK_TYPE LEFT
+        true-condition:
+          execute:
+            - FORCE_OPEN_MENU ce-library-rare
+          step: BREAK
+  epic:
+    item:
+      type: LIGHT_BLUE_STAINED_GLASS_PANE
+      display: "&f&lPhân loại &#0dcaf0&lSử thi"
+      lore:
+        - ""
+        - "&7Xem thông tin các sách phù phép"
+        - "&7thuộc loại &#0dcaf0Sử thi"
+        - ""
+        - "&f&nNhấp để mở"
+    slots: 12
+    sound: ENTITY_EXPERIENCE_ORB_PICKUP
+    command:
+      "1":
+        condition:
+          - CLICK_TYPE LEFT
+        true-condition:
+          execute:
+            - FORCE_OPEN_MENU ce-library-epic
+          step: BREAK
+  legendary:
+    item:
+      type: YELLOW_STAINED_GLASS_PANE
+      display: "&f&lPhân loại &#ffc107&lHuyền thoại"
+      lore:
+        - ""
+        - "&7Xem thông tin các sách phù phép"
+        - "&7thuộc loại &#ffc107Huyền thoại"
+        - ""
+        - "&f&nNhấp để mở"
+    slots: 13
+    sound: ENTITY_EXPERIENCE_ORB_PICKUP
+    command:
+      "1":
+        condition:
+          - CLICK_TYPE LEFT
+        true-condition:
+          execute:
+            - FORCE_OPEN_MENU ce-library-legendary
+          step: BREAK
+  supreme:
+    item:
+      type: ORANGE_STAINED_GLASS_PANE
+      display: "&f&lPhân loại &#ff7b00&lTối thượng"
+      lore:
+        - ""
+        - "&7Xem thông tin các sách phù phép"
+        - "&7thuộc loại &#ff7b00Tối thượng"
+        - ""
+        - "&f&nNhấp để mở"
+    slots: 14
+    sound: ENTITY_EXPERIENCE_ORB_PICKUP
+    command:
+      "1":
+        condition:
+          - CLICK_TYPE LEFT
+        true-condition:
+          execute:
+            - FORCE_OPEN_MENU ce-library-supreme
+          step: BREAK
+  ultimate:
+    item:
+      type: RED_STAINED_GLASS_PANE
+      display: "&f&lPhân loại &#ef4444&lChiến thần"
+      lore:
+        - ""
+        - "&7Xem thông tin các sách phù phép"
+        - "&7thuộc loại &#ef4444Chiến thần"
+        - ""
+        - "&f&nNhấp để mở"
+    slots: 15
+    sound: ENTITY_EXPERIENCE_ORB_PICKUP
+    command:
+      "1":
+        condition:
+          - CLICK_TYPE LEFT
+        true-condition:
+          execute:
+            - FORCE_OPEN_MENU ce-library-ultimate
+          step: BREAK
+  event:
+    item:
+      type: PINK_STAINED_GLASS_PANE
+      display: "&f&lPhân loại &#ec4899&lSự kiện"
+      lore:
+        - ""
+        - "&7Xem thông tin các sách phù phép"
+        - "&7thuộc loại &#ec4899Sự kiện"
+        - ""
+        - "&f&nNhấp để mở"
+    slots: 16
+    sound: ENTITY_EXPERIENCE_ORB_PICKUP
+    command:
+      "1":
+        condition:
+          - CLICK_TYPE LEFT
+        true-condition:
+          execute:
+            - FORCE_OPEN_MENU ce-library-event
+          step: BREAK

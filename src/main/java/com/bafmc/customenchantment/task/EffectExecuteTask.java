@@ -1,19 +1,20 @@
 package com.bafmc.customenchantment.task;
 
+import com.bafmc.customenchantment.enchant.EffectData;
+import com.bafmc.customenchantment.player.CEPlayer;
+import lombok.Getter;
+import org.bukkit.scheduler.BukkitRunnable;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
-import org.bukkit.scheduler.BukkitRunnable;
-
-import com.bafmc.customenchantment.enchant.EffectData;
-import com.bafmc.customenchantment.player.CEPlayer;
-
 public class EffectExecuteTask extends BukkitRunnable {
 	private int maxProcessPerTick = 500;
-	private ConcurrentHashMap<String, EffectData> effectSchedulerMap = new ConcurrentHashMap<String, EffectData>();
+	private final ConcurrentHashMap<String, EffectData> effectSchedulerMap = new ConcurrentHashMap<String, EffectData>();
 	private List<EffectData> list = new ArrayList<EffectData>();
-	private boolean async;
+	@Getter
+    private boolean async;
 
 	public EffectExecuteTask(boolean async) {
 		this.async = async;
@@ -26,7 +27,7 @@ public class EffectExecuteTask extends BukkitRunnable {
 
 		for (int i = 0, j = 0; j < maxProcessPerTick && i < list.size(); j++) {
 			EffectData effectData = list.get(i);
-			
+
 			if (effectData == null) {
 				list.remove(i);
 				continue;
@@ -121,8 +122,9 @@ public class EffectExecuteTask extends BukkitRunnable {
 
 	public void removeEffectData(String name) {
 		EffectData data = effectSchedulerMap.get(name);
-		if (data != null) {
+		if (data != null && data.isRunning()) {
 			data.setRemove(true);
+
 			effectSchedulerMap.remove(name);
 		}
 	}
@@ -145,9 +147,5 @@ public class EffectExecuteTask extends BukkitRunnable {
 		} else {
 			return String.valueOf(System.nanoTime());
 		}
-	}
-
-	public boolean isAsync() {
-		return async;
 	}
 }

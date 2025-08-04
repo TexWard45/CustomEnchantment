@@ -1,0 +1,80 @@
+greencompound:
+  group: artifact
+  display: "Green Compound"
+  description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm máu tối đa, giáp và kích thước"
+    - "&7bù lại giảm tốc độ di chuyển"
+  detail-description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm máu tối đa, giáp và kích thước"
+    - "&7bù lại giảm tốc độ di chuyển"
+  applies-description:
+    - "Thanh công cụ"
+  max-level: 1
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:MAX_HEALTH:greencompound_max_health:10:0
+          - ADD_ATTRIBUTE:ARMOR:greencompound_armor:5:0
+          - ADD_ATTRIBUTE:SCALE:greencompound_scale:0.25:1
+          - ADD_ATTRIBUTE:MOVEMENT_SPEED:greencompound_movement_speed:-0.25:2
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:MAX_HEALTH:greencompound_max_health
+          - REMOVE_ATTRIBUTE:SCALE:greencompound_scale
+          - REMOVE_ATTRIBUTE:ARMOR:greencompound_armor
+          - REMOVE_ATTRIBUTE:MOVEMENT_SPEED:greencompound_movement_speed
+graycompound:
+  group: artifact
+  display: "Gray Compound"
+  description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm máu tối đa, giáp và kích thước"
+    - "&7bù lại giảm tốc độ di chuyển"
+  detail-description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm máu tối đa, giáp và kích thước"
+    - "&7bù lại giảm tốc độ di chuyển"
+  applies-description:
+    - "Thanh công cụ"
+  max-level: 1
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:MAX_HEALTH:graycompound_max_health:10:0
+          - ADD_ATTRIBUTE:ARMOR:graycompound_armor:5:0
+          - ADD_ATTRIBUTE:SCALE:graycompound_scale:-0.25:1
+          - ADD_ATTRIBUTE:MOVEMENT_SPEED:graycompound_movement_speed:0.25:2
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:MAX_HEALTH:graycompound_max_health
+          - REMOVE_ATTRIBUTE:SCALE:graycompound_scale
+          - REMOVE_ATTRIBUTE:ARMOR:graycompound_armor
+          - REMOVE_ATTRIBUTE:MOVEMENT_SPEED:graycompound_movement_speed

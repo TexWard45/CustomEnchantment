@@ -1,1153 +1,992 @@
-tinkerer-slots: '1,2,3,9,10,11,12,18,19,20,21,27,28,29,30,36,37,38,39,45,46,47,48'
-reward-slots: '5,6,7,14,15,16,17,23,24,25,26,32,33,34,35,41,42,43,44,50,51,52,53'
+tinkerer-slots: "1,2,3,9,10,11,12,18,19,20,21,27,28,29,30,36,37,38,39,45,46,47,48"
+reward-slots: "5,6,7,14,15,16,17,23,24,25,26,32,33,34,35,41,42,43,44,50,51,52,53"
 
 tinkerers:
   book:
     common:
       1:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-5% loại &fThường'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f1'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#94a3b8&lThường&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#94a3b8&lThường&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#94a3b8&lThường&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f1"
         rewards:
-        - 'GIVE_VOUCHER_ITEM common_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM common-old-powder1 1"
       2:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-5% loại &fThường'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f2'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#94a3b8&lThường&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#94a3b8&lThường&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#94a3b8&lThường&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f1"
         rewards:
-        - 'GIVE_VOUCHER_ITEM common_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM common-old-powder1 1"
       3:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-5% loại &fThường'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f4'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#94a3b8&lThường&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#94a3b8&lThường&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#94a3b8&lThường&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f1"
         rewards:
-        - 'GIVE_VOUCHER_ITEM common_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM common-old-powder1 1"
       4:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-5% loại &fThường'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f8'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#94a3b8&lThường&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#94a3b8&lThường&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#94a3b8&lThường&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f2"
         rewards:
-        - 'GIVE_VOUCHER_ITEM common_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM common-old-powder1 2"
       5:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-5% loại &fThường'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f16'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#94a3b8&lThường&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#94a3b8&lThường&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#94a3b8&lThường&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f4"
         rewards:
-        - 'GIVE_VOUCHER_ITEM common_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM common-old-powder1 4"
       6:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-10% loại &fThường'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f16'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#94a3b8&lThường&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#94a3b8&lThường&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#94a3b8&lThường&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f8"
         rewards:
-        - 'GIVE_VOUCHER_ITEM common_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM common-old-powder1 8"
       7:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-10% loại &fThường'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f32'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#94a3b8&lThường&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#94a3b8&lThường&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#94a3b8&lThường&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f8"
         rewards:
-        - 'GIVE_VOUCHER_ITEM common_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM common-old-powder1 8"
       8:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-10% loại &fThường'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f64'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#94a3b8&lThường&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#94a3b8&lThường&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#94a3b8&lThường&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f16"
         rewards:
-        - 'GIVE_VOUCHER_ITEM common_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM common-old-powder1 16"
       9:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-10% loại &fThường'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f128'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#94a3b8&lThường&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#94a3b8&lThường&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#94a3b8&lThường&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f16"
         rewards:
-        - 'GIVE_VOUCHER_ITEM common_old_powder1:1'
-        - 'GIVE_VOUCHER_ITEM common_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM common-old-powder1 16"
       10:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-10% loại &fThường'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f256'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#94a3b8&lThường&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#94a3b8&lThường&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#94a3b8&lThường&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f32"
         rewards:
-        - 'GIVE_VOUCHER_ITEM common_old_powder1:1'
-        - 'GIVE_VOUCHER_ITEM common_old_powder1:1'
-        - 'GIVE_VOUCHER_ITEM common_old_powder1:1'
-        - 'GIVE_VOUCHER_ITEM common_old_powder1:1'
-    event:
-      1:
-        item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-5% loại bất kì'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f1'
-        rewards:
-        - 'GIVE_VOUCHER_ITEM all_old_powder1:1'
-      2:
-        item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-5% loại bất kì'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f2'
-        rewards:
-        - 'GIVE_VOUCHER_ITEM all_old_powder1:1'
-      3:
-        item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-5% loại bất kì'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f4'
-        rewards:
-        - 'GIVE_VOUCHER_ITEM all_old_powder1:1'
-      4:
-        item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-5% loại bất kì'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f8'
-        rewards:
-        - 'GIVE_VOUCHER_ITEM all_old_powder1:1'
-      5:
-        item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-5% loại bất kì'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f16'
-        rewards:
-        - 'GIVE_VOUCHER_ITEM all_old_powder1:1'
-      6:
-        item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-10% loại bất kì'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f16'
-        rewards:
-        - 'GIVE_VOUCHER_ITEM all_old_powder1:1'
-      7:
-        item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-10% loại bất kì'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f32'
-        rewards:
-        - 'GIVE_VOUCHER_ITEM all_old_powder1:1'
-      8:
-        item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-10% loại bất kì'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f64'
-        rewards:
-        - 'GIVE_VOUCHER_ITEM all_old_powder1:1'
-      9:
-        item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-10% loại bất kì'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f128'
-        rewards:
-        - 'GIVE_VOUCHER_ITEM all_old_powder1:1'
-        - 'GIVE_VOUCHER_ITEM all_old_powder1:1'
-      10:
-        item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-10% loại bất kì'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f256'
-        rewards:
-        - 'GIVE_VOUCHER_ITEM all_old_powder1:1'
-        - 'GIVE_VOUCHER_ITEM all_old_powder1:1'
-        - 'GIVE_VOUCHER_ITEM all_old_powder1:1'
-        - 'GIVE_VOUCHER_ITEM all_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM common-old-powder1 32"
     rare:
       1:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-5% loại &aHiếm'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f1'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#22c55e&lHiếm&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#22c55e&lHiếm&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#22c55e&lHiếm&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f1"
         rewards:
-        - 'GIVE_VOUCHER_ITEM rare_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM rare-old-powder1 1"
       2:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-5% loại &aHiếm'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f2'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#22c55e&lHiếm&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#22c55e&lHiếm&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#22c55e&lHiếm&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f1"
         rewards:
-        - 'GIVE_VOUCHER_ITEM rare_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM rare-old-powder1 1"
       3:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-5% loại &aHiếm'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f4'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#22c55e&lHiếm&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#22c55e&lHiếm&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#22c55e&lHiếm&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f1"
         rewards:
-        - 'GIVE_VOUCHER_ITEM rare_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM rare-old-powder1 1"
       4:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-5% loại &aHiếm'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f8'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#22c55e&lHiếm&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#22c55e&lHiếm&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#22c55e&lHiếm&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f2"
         rewards:
-        - 'GIVE_VOUCHER_ITEM rare_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM rare-old-powder1 2"
       5:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-5% loại &aHiếm'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f16'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#22c55e&lHiếm&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#22c55e&lHiếm&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#22c55e&lHiếm&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f4"
         rewards:
-        - 'GIVE_VOUCHER_ITEM rare_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM rare-old-powder1 4"
       6:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-10% loại &aHiếm'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f16'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#22c55e&lHiếm&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#22c55e&lHiếm&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#22c55e&lHiếm&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f8"
         rewards:
-        - 'GIVE_VOUCHER_ITEM rare_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM rare-old-powder1 8"
       7:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-10% loại &aHiếm'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f32'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#22c55e&lHiếm&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#22c55e&lHiếm&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#22c55e&lHiếm&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f8"
         rewards:
-        - 'GIVE_VOUCHER_ITEM rare_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM rare-old-powder1 8"
       8:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-10% loại &aHiếm'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f64'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#22c55e&lHiếm&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#22c55e&lHiếm&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#22c55e&lHiếm&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f16"
         rewards:
-        - 'GIVE_VOUCHER_ITEM rare_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM rare-old-powder1 16"
       9:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-10% loại &aHiếm'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f128'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#22c55e&lHiếm&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#22c55e&lHiếm&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#22c55e&lHiếm&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f16"
         rewards:
-        - 'GIVE_VOUCHER_ITEM rare_old_powder1:1'
-        - 'GIVE_VOUCHER_ITEM rare_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM rare-old-powder1 16"
       10:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-10% loại &aHiếm'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f256'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#22c55e&lHiếm&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#22c55e&lHiếm&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#22c55e&lHiếm&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f32"
         rewards:
-        - 'GIVE_VOUCHER_ITEM rare_old_powder1:1'
-        - 'GIVE_VOUCHER_ITEM rare_old_powder1:1'
-        - 'GIVE_VOUCHER_ITEM rare_old_powder1:1'
-        - 'GIVE_VOUCHER_ITEM rare_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM rare-old-powder1 32"
     epic:
       1:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-5% loại &bSử thi'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f1'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#0dcaf0&lSử thi&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#0dcaf0&lSử thi&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#0dcaf0&lSử thi&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f1"
         rewards:
-        - 'GIVE_VOUCHER_ITEM epic_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM epic-old-powder1 1"
       2:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-5% loại &bSử thi'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f2'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#0dcaf0&lSử thi&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#0dcaf0&lSử thi&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#0dcaf0&lSử thi&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f1"
         rewards:
-        - 'GIVE_VOUCHER_ITEM epic_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM epic-old-powder1 1"
       3:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-5% loại &bSử thi'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f4'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#0dcaf0&lSử thi&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#0dcaf0&lSử thi&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#0dcaf0&lSử thi&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f1"
         rewards:
-        - 'GIVE_VOUCHER_ITEM epic_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM epic-old-powder1 1"
       4:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-5% loại &bSử thi'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f8'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#0dcaf0&lSử thi&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#0dcaf0&lSử thi&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#0dcaf0&lSử thi&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f2"
         rewards:
-        - 'GIVE_VOUCHER_ITEM epic_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM epic-old-powder1 2"
       5:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-5% loại &bSử thi'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f16'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#0dcaf0&lSử thi&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#0dcaf0&lSử thi&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#0dcaf0&lSử thi&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f4"
         rewards:
-        - 'GIVE_VOUCHER_ITEM epic_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM epic-old-powder1 4"
       6:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-10% loại &bSử thi'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f16'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#0dcaf0&lSử thi&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#0dcaf0&lSử thi&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#0dcaf0&lSử thi&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f8"
         rewards:
-        - 'GIVE_VOUCHER_ITEM epic_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM epic-old-powder1 8"
       7:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-10% loại &bSử thi'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f32'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#0dcaf0&lSử thi&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#0dcaf0&lSử thi&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#0dcaf0&lSử thi&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f8"
         rewards:
-        - 'GIVE_VOUCHER_ITEM epic_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM epic-old-powder1 8"
       8:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-10% loại &bSử thi'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f64'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#0dcaf0&lSử thi&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#0dcaf0&lSử thi&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#0dcaf0&lSử thi&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f16"
         rewards:
-        - 'GIVE_VOUCHER_ITEM epic_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM epic-old-powder1 16"
       9:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-10% loại &bSử thi'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f128'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#0dcaf0&lSử thi&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#0dcaf0&lSử thi&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#0dcaf0&lSử thi&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f16"
         rewards:
-        - 'GIVE_VOUCHER_ITEM epic_old_powder1:1'
-        - 'GIVE_VOUCHER_ITEM epic_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM epic-old-powder1 16"
       10:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-10% loại &bSử thi'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f256'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#0dcaf0&lSử thi&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#0dcaf0&lSử thi&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#0dcaf0&lSử thi&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f32"
         rewards:
-        - 'GIVE_VOUCHER_ITEM epic_old_powder1:1'
-        - 'GIVE_VOUCHER_ITEM epic_old_powder1:1'
-        - 'GIVE_VOUCHER_ITEM epic_old_powder1:1'
-        - 'GIVE_VOUCHER_ITEM epic_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM epic-old-powder1 32"
     legendary:
       1:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-5% loại &eHuyền thoại'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f1'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#ffc107&lHuyền thoại&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#ffc107&lHuyền thoại&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#ffc107&lHuyền thoại&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f1"
         rewards:
-        - 'GIVE_VOUCHER_ITEM legendary_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM legendary-old-powder1 1"
       2:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-5% loại &eHuyền thoại'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f2'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#ffc107&lHuyền thoại&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#ffc107&lHuyền thoại&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#ffc107&lHuyền thoại&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f1"
         rewards:
-        - 'GIVE_VOUCHER_ITEM legendary_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM legendary-old-powder1 1"
       3:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-5% loại &eHuyền thoại'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f4'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#ffc107&lHuyền thoại&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#ffc107&lHuyền thoại&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#ffc107&lHuyền thoại&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f1"
         rewards:
-        - 'GIVE_VOUCHER_ITEM legendary_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM legendary-old-powder1 1"
       4:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-5% loại &eHuyền thoại'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f8'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#ffc107&lHuyền thoại&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#ffc107&lHuyền thoại&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#ffc107&lHuyền thoại&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f2"
         rewards:
-        - 'GIVE_VOUCHER_ITEM legendary_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM legendary-old-powder1 2"
       5:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-5% loại &eHuyền thoại'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f16'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#ffc107&lHuyền thoại&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#ffc107&lHuyền thoại&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#ffc107&lHuyền thoại&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f4"
         rewards:
-        - 'GIVE_VOUCHER_ITEM legendary_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM legendary-old-powder1 4"
       6:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-10% loại &eHuyền thoại'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f16'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#ffc107&lHuyền thoại&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#ffc107&lHuyền thoại&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#ffc107&lHuyền thoại&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f8"
         rewards:
-        - 'GIVE_VOUCHER_ITEM legendary_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM legendary-old-powder1 8"
       7:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-10% loại &eHuyền thoại'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f32'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#ffc107&lHuyền thoại&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#ffc107&lHuyền thoại&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#ffc107&lHuyền thoại&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f8"
         rewards:
-        - 'GIVE_VOUCHER_ITEM legendary_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM legendary-old-powder1 8"
       8:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-10% loại &eHuyền thoại'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f64'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#ffc107&lHuyền thoại&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#ffc107&lHuyền thoại&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#ffc107&lHuyền thoại&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f16"
         rewards:
-        - 'GIVE_VOUCHER_ITEM legendary_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM legendary-old-powder1 16"
       9:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-10% loại &eHuyền thoại'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f128'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#ffc107&lHuyền thoại&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#ffc107&lHuyền thoại&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#ffc107&lHuyền thoại&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f16"
         rewards:
-        - 'GIVE_VOUCHER_ITEM legendary_old_powder1:1'
-        - 'GIVE_VOUCHER_ITEM legendary_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM legendary-old-powder1 16"
       10:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-10% loại &eHuyền thoại'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f256'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#ffc107&lHuyền thoại&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#ffc107&lHuyền thoại&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#ffc107&lHuyền thoại&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f32"
         rewards:
-        - 'GIVE_VOUCHER_ITEM legendary_old_powder1:1'
-        - 'GIVE_VOUCHER_ITEM legendary_old_powder1:1'
-        - 'GIVE_VOUCHER_ITEM legendary_old_powder1:1'
-        - 'GIVE_VOUCHER_ITEM legendary_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM legendary-old-powder1 32"
     supreme:
       1:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-5% loại &6Tối thượng'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f1'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#ff7b00&lTối thượng&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#ff7b00&lTối thượng&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#ff7b00&lTối thượng&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f1"
         rewards:
-        - 'GIVE_VOUCHER_ITEM supreme_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM supreme-old-powder1 1"
       2:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-5% loại &6Tối thượng'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f2'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#ff7b00&lTối thượng&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#ff7b00&lTối thượng&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#ff7b00&lTối thượng&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f1"
         rewards:
-        - 'GIVE_VOUCHER_ITEM supreme_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM supreme-old-powder1 1"
       3:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-5% loại &6Tối thượng'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f4'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#ff7b00&lTối thượng&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#ff7b00&lTối thượng&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#ff7b00&lTối thượng&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f1"
         rewards:
-        - 'GIVE_VOUCHER_ITEM supreme_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM supreme-old-powder1 1"
       4:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-5% loại &6Tối thượng'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f8'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#ff7b00&lTối thượng&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#ff7b00&lTối thượng&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#ff7b00&lTối thượng&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f2"
         rewards:
-        - 'GIVE_VOUCHER_ITEM supreme_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM supreme-old-powder1 2"
       5:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-5% loại &6Tối thượng'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f16'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#ff7b00&lTối thượng&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#ff7b00&lTối thượng&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#ff7b00&lTối thượng&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f4"
         rewards:
-        - 'GIVE_VOUCHER_ITEM supreme_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM supreme-old-powder1 4"
       6:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-10% loại &6Tối thượng'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f16'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#ff7b00&lTối thượng&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#ff7b00&lTối thượng&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#ff7b00&lTối thượng&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f8"
         rewards:
-        - 'GIVE_VOUCHER_ITEM supreme_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM supreme-old-powder1 8"
       7:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-10% loại &6Tối thượng'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f32'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#ff7b00&lTối thượng&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#ff7b00&lTối thượng&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#ff7b00&lTối thượng&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f8"
         rewards:
-        - 'GIVE_VOUCHER_ITEM supreme_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM supreme-old-powder1 8"
       8:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-10% loại &6Tối thượng'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f64'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#ff7b00&lTối thượng&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#ff7b00&lTối thượng&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#ff7b00&lTối thượng&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f16"
         rewards:
-        - 'GIVE_VOUCHER_ITEM supreme_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM supreme-old-powder1 16"
       9:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-10% loại &6Tối thượng'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f128'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#ff7b00&lTối thượng&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#ff7b00&lTối thượng&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#ff7b00&lTối thượng&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f16"
         rewards:
-        - 'GIVE_VOUCHER_ITEM supreme_old_powder1:1'
-        - 'GIVE_VOUCHER_ITEM supreme_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM supreme-old-powder1 16"
       10:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-10% loại &6Tối thượng'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f256'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#ff7b00&lTối thượng&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#ff7b00&lTối thượng&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#ff7b00&lTối thượng&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f32"
         rewards:
-        - 'GIVE_VOUCHER_ITEM supreme_old_powder1:1'
-        - 'GIVE_VOUCHER_ITEM supreme_old_powder1:1'
-        - 'GIVE_VOUCHER_ITEM supreme_old_powder1:1'
-        - 'GIVE_VOUCHER_ITEM supreme_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM supreme-old-powder1 32"
     ultimate:
       1:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-5% loại &eTối thượng'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f1'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#ef4444&lChiến thần&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#ef4444&lChiến thần&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#ef4444&lChiến thần&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f1"
         rewards:
-        - 'GIVE_VOUCHER_ITEM ultimate_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM ultimate-old-powder1 1"
       2:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-5% loại &eTối thượng'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f2'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#ef4444&lChiến thần&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#ef4444&lChiến thần&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#ef4444&lChiến thần&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f1"
         rewards:
-        - 'GIVE_VOUCHER_ITEM ultimate_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM ultimate-old-powder1 1"
       3:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-5% loại &eTối thượng'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f4'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#ef4444&lChiến thần&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#ef4444&lChiến thần&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#ef4444&lChiến thần&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f1"
         rewards:
-        - 'GIVE_VOUCHER_ITEM ultimate_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM ultimate-old-powder1 1"
       4:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-5% loại &eTối thượng'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f8'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#ef4444&lChiến thần&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#ef4444&lChiến thần&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#ef4444&lChiến thần&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f2"
         rewards:
-        - 'GIVE_VOUCHER_ITEM ultimate_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM ultimate-old-powder1 2"
       5:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-5% loại &eTối thượng'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f16'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#ef4444&lChiến thần&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#ef4444&lChiến thần&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#ef4444&lChiến thần&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f4"
         rewards:
-        - 'GIVE_VOUCHER_ITEM ultimate_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM ultimate-old-powder1 4"
       6:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-10% loại &eTối thượng'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f16'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#ef4444&lChiến thần&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#ef4444&lChiến thần&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#ef4444&lChiến thần&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f8"
         rewards:
-        - 'GIVE_VOUCHER_ITEM ultimate_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM ultimate-old-powder1 8"
       7:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-10% loại &eTối thượng'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f32'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#ef4444&lChiến thần&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#ef4444&lChiến thần&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#ef4444&lChiến thần&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f8"
         rewards:
-        - 'GIVE_VOUCHER_ITEM ultimate_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM ultimate-old-powder1 8"
       8:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-10% loại &eTối thượng'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f64'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#ef4444&lChiến thần&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#ef4444&lChiến thần&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#ef4444&lChiến thần&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f16"
         rewards:
-        - 'GIVE_VOUCHER_ITEM ultimate_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM ultimate-old-powder1 16"
       9:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-10% loại &eTối thượng'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f128'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#ef4444&lChiến thần&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#ef4444&lChiến thần&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#ef4444&lChiến thần&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f16"
         rewards:
-        - 'GIVE_VOUCHER_ITEM ultimate_old_powder1:1'
-        - 'GIVE_VOUCHER_ITEM ultimate_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM ultimate-old-powder1 16"
       10:
         item:
-          ==: org.bukkit.inventory.ItemStack
-          type: SULPHUR
-          amount: 1
-          meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            display-name: '&7&lBột cũ'
-            lore:
-            - '&eKhi mở ngẫu nhiên nhận được một'
-            - '&ebột may mắn &f1-10% loại &eTối thượng'
-            - '&ehoặc một &7bột hỏng'
-            - '&eSố lượng: &f256'
+          type: GUNPOWDER
+          display: "&7&lBột cũ &7(&#ef4444&lChiến thần&7)"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f(&#ef4444&lChiến thần&f) &f1-5%"
+            - "&7- &c&lBột phá hủy &f(&#ef4444&lChiến thần&f) &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f32"
         rewards:
-        - 'GIVE_VOUCHER_ITEM ultimate_old_powder1:1'
-        - 'GIVE_VOUCHER_ITEM ultimate_old_powder1:1'
-        - 'GIVE_VOUCHER_ITEM ultimate_old_powder1:1'
-        - 'GIVE_VOUCHER_ITEM ultimate_old_powder1:1'
+          - "GIVE_VOUCHER_ITEM ultimate-old-powder1 32"
+    event:
+      1:
+        item:
+          type: GUNPOWDER
+          display: "&7&lBột cũ"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f1-5%"
+            - "&7- &c&lBột phá hủy &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f1"
+        rewards:
+          - "GIVE_VOUCHER_ITEM all-old-powder1 1"
+      2:
+        item:
+          type: GUNPOWDER
+          display: "&7&lBột cũ"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f1-5%"
+            - "&7- &c&lBột phá hủy &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f1"
+        rewards:
+          - "GIVE_VOUCHER_ITEM all-old-powder1 1"
+      3:
+        item:
+          type: GUNPOWDER
+          display: "&7&lBột cũ"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f1-5%"
+            - "&7- &c&lBột phá hủy &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f1"
+        rewards:
+          - "GIVE_VOUCHER_ITEM all-old-powder1 1"
+      4:
+        item:
+          type: GUNPOWDER
+          display: "&7&lBột cũ"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f1-5%"
+            - "&7- &c&lBột phá hủy &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f2"
+        rewards:
+          - "GIVE_VOUCHER_ITEM all-old-powder1 2"
+      5:
+        item:
+          type: GUNPOWDER
+          display: "&7&lBột cũ"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f1-5%"
+            - "&7- &c&lBột phá hủy &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f4"
+        rewards:
+          - "GIVE_VOUCHER_ITEM all-old-powder1 4"
+      6:
+        item:
+          type: GUNPOWDER
+          display: "&7&lBột cũ"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f1-5%"
+            - "&7- &c&lBột phá hủy &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f8"
+        rewards:
+          - "GIVE_VOUCHER_ITEM all-old-powder1 8"
+      7:
+        item:
+          type: GUNPOWDER
+          display: "&7&lBột cũ"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f1-5%"
+            - "&7- &c&lBột phá hủy &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f8"
+        rewards:
+          - "GIVE_VOUCHER_ITEM all-old-powder1 8"
+      8:
+        item:
+          type: GUNPOWDER
+          display: "&7&lBột cũ"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f1-5%"
+            - "&7- &c&lBột phá hủy &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f16"
+        rewards:
+          - "GIVE_VOUCHER_ITEM all-old-powder1 16"
+      9:
+        item:
+          type: GUNPOWDER
+          display: "&7&lBột cũ"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f1-5%"
+            - "&7- &c&lBột phá hủy &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f16"
+        rewards:
+          - "GIVE_VOUCHER_ITEM all-old-powder1 16"
+      10:
+        item:
+          type: GUNPOWDER
+          display: "&7&lBột cũ"
+          lore:
+            - ""
+            - "&eKhi mở, nhận được ngẫu nhiên:"
+            - "&7- &f&lBột may mắn &f1-5%"
+            - "&7- &c&lBột phá hủy &f1-5%"
+            - "&7- &8&lBột hỏng"
+            - ""
+            - "&eSố lượng: &f32"
+        rewards:
+          - "GIVE_VOUCHER_ITEM all-old-powder1 32"

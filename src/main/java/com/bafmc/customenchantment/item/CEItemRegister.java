@@ -29,6 +29,23 @@ public class CEItemRegister {
 		return ceItem.getType().equals(type) ? ceItem : null;
 	}
 
+	public static CEItemSimple getCEItemSimple(ItemStack itemStack) {
+		if (itemStack == null) {
+			return null;
+		}
+
+		CECraftItemStackNMS craftItemStack = new CECraftItemStackNMS(itemStack);
+		NMSNBTTagCompound tag = craftItemStack.getCECompound();
+
+		if (tag.hasKey(CENBT.TYPE)) {
+			String type = tag.getString(CENBT.TYPE);
+			String pattern = tag.getString(CENBT.PATTERN);
+			return new CEItemSimple(itemStack, type, pattern);
+		}
+
+		return null;
+	}
+
 	public static CEItem getCEItem(ItemStack itemStack) {
 		if (itemStack == null) {
 			return null;

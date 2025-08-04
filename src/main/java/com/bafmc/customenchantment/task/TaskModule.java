@@ -44,7 +44,7 @@ public class TaskModule extends PluginModule<CustomEnchantment> {
         this.extraSlotTask.runTaskTimer(getPlugin(), 0, 4);
 
         this.attributeTask = new RecalculateAttributeTask(getPlugin());
-        this.attributeTask.runTaskTimerAsynchronously(getPlugin(), 0, 20);
+        this.attributeTask.runTaskTimerAsynchronously(getPlugin(), 0, 1);
 
         this.regenerationTask = new RegenerationTask(getPlugin());
         this.regenerationTask.runTaskTimer(getPlugin(), 0, 4);
@@ -75,6 +75,11 @@ public class TaskModule extends PluginModule<CustomEnchantment> {
 
         this.expTask = new ExpTask();
         this.expTask.runTaskTimer(getPlugin(), 200, 200);
+
+        if (getPlugin().getMainConfig().isSigilDisplayEnable()) {
+            SigilItemTask sigilItemTask = new SigilItemTask();
+            sigilItemTask.runTaskTimerAsynchronously(getPlugin(), 0, 1);
+        }
     }
 
     public void onDisable() {

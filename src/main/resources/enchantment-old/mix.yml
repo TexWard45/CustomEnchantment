@@ -1,0 +1,1610 @@
+telepathy:
+  group: "legendary"
+  display: "Telepathy"
+  description:
+    - "&eTự động nhặt khối vừa đào vào túi đồ"
+  applies-description:
+    - "Công cụ"
+  applies:
+    - "ALL_PICKAXE"
+    - "ALL_SHOVEL"
+    - "ALL_AXE"
+    - "ALL_HOE"
+  max-level: 1
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      equip:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "ENABLE_TELEPATHY"
+      unequip:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "DISABLE_TELEPATHY"
+autosell:
+  group: "ultimate"
+  display: "AutoSell"
+  description:
+    - "&eTự động bán khối vừa đào"
+  applies-description:
+    - "Công cụ"
+  applies:
+    - "ALL_PICKAXE"
+    - "ALL_SHOVEL"
+    - "ALL_AXE"
+    - "ALL_HOE"
+  max-level: 1
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      equip:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "ENABLE_AUTO_SELL"
+      unequip:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "DISABLE_AUTO_SELL"
+# tag_potion: WATER_BREATHING
+oxygenate:
+  group: "rare"
+  display: "Oxygenate"
+  description:
+    - "&eNhận hiệu ứng thở dưới nước khi"
+    - "&ecầm vật phẩm"
+  detail-description:
+    - "&eNhận hiệu ứng thở dưới nước khi"
+    - "&ecầm vật phẩm"
+    - ""
+    - "&eHiệu ứng thuốc: Thở dưới nước"
+    - "&eThời gian hiệu ứng: Vĩnh viễn"
+  applies-description:
+    - "Công cụ"
+  applies:
+    - "ALL_PICKAXE"
+    - "ALL_SHOVEL"
+    - "ALL_AXE"
+    - "ALL_HOE"
+  max-level: 1
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      equip:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "ADD_FOREVER_POTION:oxygenate:WATER_BREATHING:0"
+      unequip:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "REMOVE_FOREVER_POTION:oxygenate"
+bountyhunter:
+  group: common
+  display: BountyHunter
+  description:
+    - "&eCó tỉ lệ thưởng thêm tiền khi giết quái"
+  detail-description:
+    - "&eCó tỉ lệ thưởng thêm tiền khi giết quái"
+    - ""
+    - "&eLượng tiền: 0.005 x Cấp"
+  applies-description:
+    - "Kiếm & Rìu"
+  applies:
+    - "ALL_SWORD"
+    - "ALL_AXE"
+  max-level: 10
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        effects:
+          - ADD_MOB_BONUS:MONEY:bountyhunter_money_bonus:MOB:0.005:0:100
+          - "MESSAGE:&7&l***BountyHunter: Active&7&l***"
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        effects:
+          - REMOVE_MOB_BONUS:MONEY:bountyhunter_money_bonus
+          - "MESSAGE:&7&l***BountyHunter: Deactive&7&l***"
+    "2":
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        effects:
+          - ADD_MOB_BONUS:MONEY:bountyhunter_money_bonus:MOB:0.01:0:100
+          - "MESSAGE:&7&l***BountyHunter: Active&7&l***"
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        effects:
+          - REMOVE_MOB_BONUS:MONEY:bountyhunter_money_bonus
+          - "MESSAGE:&7&l***BountyHunter: Deactive&7&l***"
+    "3":
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        effects:
+          - ADD_MOB_BONUS:MONEY:bountyhunter_money_bonus:MOB:0.015:0:100
+          - "MESSAGE:&7&l***BountyHunter: Active&7&l***"
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        effects:
+          - REMOVE_MOB_BONUS:MONEY:bountyhunter_money_bonus
+          - "MESSAGE:&7&l***BountyHunter: Deactive&7&l***"
+    "4":
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        effects:
+          - ADD_MOB_BONUS:MONEY:bountyhunter_money_bonus:MOB:0.02:0:100
+          - "MESSAGE:&7&l***BountyHunter: Active&7&l***"
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        effects:
+          - REMOVE_MOB_BONUS:MONEY:bountyhunter_money_bonus
+          - "MESSAGE:&7&l***BountyHunter: Deactive&7&l***"
+    "5":
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        effects:
+          - ADD_MOB_BONUS:MONEY:bountyhunter_money_bonus:MOB:0.025:0:100
+          - "MESSAGE:&7&l***BountyHunter: Active&7&l***"
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        effects:
+          - REMOVE_MOB_BONUS:MONEY:bountyhunter_money_bonus
+          - "MESSAGE:&7&l***BountyHunter: Deactive&7&l***"
+    "6":
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        effects:
+          - ADD_MOB_BONUS:MONEY:bountyhunter_money_bonus:MOB:0.03:0:100
+          - "MESSAGE:&7&l***BountyHunter: Active&7&l***"
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        effects:
+          - REMOVE_MOB_BONUS:MONEY:bountyhunter_money_bonus
+          - "MESSAGE:&7&l***BountyHunter: Deactive&7&l***"
+    "7":
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        effects:
+          - ADD_MOB_BONUS:MONEY:bountyhunter_money_bonus:MOB:0.035:0:100
+          - "MESSAGE:&7&l***BountyHunter: Active&7&l***"
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        effects:
+          - REMOVE_MOB_BONUS:MONEY:bountyhunter_money_bonus
+          - "MESSAGE:&7&l***BountyHunter: Deactive&7&l***"
+    "8":
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        effects:
+          - ADD_MOB_BONUS:MONEY:bountyhunter_money_bonus:MOB:0.04:0:100
+          - "MESSAGE:&7&l***BountyHunter: Active&7&l***"
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        effects:
+          - REMOVE_MOB_BONUS:MONEY:bountyhunter_money_bonus
+          - "MESSAGE:&7&l***BountyHunter: Deactive&7&l***"
+    "9":
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        effects:
+          - ADD_MOB_BONUS:MONEY:bountyhunter_money_bonus:MOB:0.045:0:100
+          - "MESSAGE:&7&l***BountyHunter: Active&7&l***"
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        effects:
+          - REMOVE_MOB_BONUS:MONEY:bountyhunter_money_bonus
+          - "MESSAGE:&7&l***BountyHunter: Deactive&7&l***"
+    "10":
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        effects:
+          - ADD_MOB_BONUS:MONEY:bountyhunter_money_bonus:MOB:0.05:0:100
+          - "MESSAGE:&7&l***BountyHunter: Active&7&l***"
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        effects:
+          - REMOVE_MOB_BONUS:MONEY:bountyhunter_money_bonus
+          - "MESSAGE:&7&l***BountyHunter: Deactive&7&l***"
+reforged:
+  group: "common"
+  display: "Reforged"
+  description:
+    - "&eCó tỉ lệ tăng độ bền của vũ khí khi"
+    - "&etấn công"
+  detail-description:
+    - "&eCó tỉ lệ tăng độ bền của vũ khí khi"
+    - "&etấn công"
+    - ""
+    - "&eĐộ bền: 1/1/1/1/1/2/2/3/3/4"
+    - "&eTỉ lệ kích hoạt: 5% (+2%/cấp)"
+    - "&eThời gian hồi: 2s"
+  applies-description:
+    - "Kiếm & Rìu"
+  applies:
+    - "ALL_AXE"
+    - "ALL_SWORD"
+  max-level: 10
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      attack:
+        type: ATTACK
+        chance: 5
+        cooldown: 2000
+        conditions:
+          - "EQUIP_SLOT:MAINHAND"
+        effects:
+          - "DURABILITY:ADD:MAINHAND:1"
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        effects:
+          - "MESSAGE:&7&l***Reforged: Active&7&l***"
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "MESSAGE:&7&l***Reforged: Deactive&7&l***"
+    2:
+      attack:
+        type: ATTACK
+        chance: 7
+        cooldown: 2000
+        conditions:
+          - "EQUIP_SLOT:MAINHAND"
+        effects:
+          - "DURABILITY:ADD:MAINHAND:1"
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        effects:
+          - "MESSAGE:&7&l***Reforged: Active&7&l***"
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "MESSAGE:&7&l***Reforged: Deactive&7&l***"
+    3:
+      attack:
+        type: ATTACK
+        chance: 9
+        cooldown: 2000
+        conditions:
+          - "EQUIP_SLOT:MAINHAND"
+        effects:
+          - "DURABILITY:ADD:MAINHAND:1"
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        effects:
+          - "MESSAGE:&7&l***Reforged: Active&7&l***"
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "MESSAGE:&7&l***Reforged: Deactive&7&l***"
+    4:
+      attack:
+        type: ATTACK
+        chance: 11
+        cooldown: 2000
+        conditions:
+          - "EQUIP_SLOT:MAINHAND"
+        effects:
+          - "DURABILITY:ADD:MAINHAND:1"
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        effects:
+          - "MESSAGE:&7&l***Reforged: Active&7&l***"
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "MESSAGE:&7&l***Reforged: Deactive&7&l***"
+    5:
+      attack:
+        type: ATTACK
+        chance: 13
+        cooldown: 2000
+        conditions:
+          - "EQUIP_SLOT:MAINHAND"
+        effects:
+          - "DURABILITY:ADD:MAINHAND:2"
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        effects:
+          - "MESSAGE:&7&l***Reforged: Active&7&l***"
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "MESSAGE:&7&l***Reforged: Deactive&7&l***"
+    6:
+      attack:
+        type: ATTACK
+        chance: 15
+        cooldown: 2000
+        conditions:
+          - "EQUIP_SLOT:MAINHAND"
+        effects:
+          - "DURABILITY:ADD:MAINHAND:2"
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        effects:
+          - "MESSAGE:&7&l***Reforged: Active&7&l***"
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "MESSAGE:&7&l***Reforged: Deactive&7&l***"
+    7:
+      attack:
+        type: ATTACK
+        chance: 17
+        cooldown: 2000
+        conditions:
+          - "EQUIP_SLOT:MAINHAND"
+        effects:
+          - "DURABILITY:ADD:MAINHAND:2"
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        effects:
+          - "MESSAGE:&7&l***Reforged: Active&7&l***"
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "MESSAGE:&7&l***Reforged: Deactive&7&l***"
+    8:
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 2000
+        conditions:
+          - "EQUIP_SLOT:MAINHAND"
+        effects:
+          - "DURABILITY:ADD:MAINHAND:3"
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        effects:
+          - "MESSAGE:&7&l***Reforged: Active&7&l***"
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "MESSAGE:&7&l***Reforged: Deactive&7&l***"
+    9:
+      attack:
+        type: ATTACK
+        chance: 22
+        cooldown: 2000
+        conditions:
+          - "EQUIP_SLOT:MAINHAND"
+        effects:
+          - "DURABILITY:ADD:MAINHAND:3"
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        effects:
+          - "MESSAGE:&7&l***Reforged: Active&7&l***"
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "MESSAGE:&7&l***Reforged: Deactive&7&l***"
+    10:
+      attack:
+        type: ATTACK
+        chance: 25
+        cooldown: 2000
+        conditions:
+          - "EQUIP_SLOT:MAINHAND"
+        effects:
+          - "DURABILITY:ADD:MAINHAND:4"
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+        effects:
+          - "MESSAGE:&7&l***Reforged: Active&7&l***"
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "MESSAGE:&7&l***Reforged: Deactive&7&l***"
+tonic:
+  group: "event"
+  display: "Tonic"
+  description:
+    - "&eCó tỉ lệ nhận thêm ngẫu nhiên các hiệu"
+    - "&eứng có lợi trong một khoảng thời gian"
+    - "&ekhi tấn công"
+    - ""
+    - "&eSố lượng hiệu ứng có lợi cùng lúc: 2"
+    - "&eCấp độ hiệu ứng: 1/2/3/4"
+    - "&eThời gian hiệu ứng: 3s"
+    - "&eTỉ lệ kích hoạt: 25%"
+    - "&eThời gian hồi: 4s"
+  applies-description:
+    - "Kiếm & Rìu"
+  applies:
+    - "ALL_AXE"
+    - "ALL_SWORD"
+  max-level: 4
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      attack:
+        type: ATTACK
+        chance: 25
+        cooldown: 4000
+        conditions:
+          - ""
+        effects:
+          - "ADD_RANDOM_POTION:NOT_DUPLICATE:2:REGENERATION,FAST_DIGGING,SPEED,SATURATION,DAMAGE_RESISTANCE,INCREASE_DAMAGE,JUMP,ABSORPTION,INVISIBILITY:0:60"
+    2:
+      attack:
+        type: ATTACK
+        chance: 25
+        cooldown: 4000
+        conditions:
+          - ""
+        effects:
+          - "ADD_RANDOM_POTION:NOT_DUPLICATE:2:REGENERATION,FAST_DIGGING,SPEED,SATURATION,DAMAGE_RESISTANCE,INCREASE_DAMAGE,JUMP,ABSORPTION,INVISIBILITY:1:60"
+    3:
+      attack:
+        type: ATTACK
+        chance: 25
+        cooldown: 4000
+        conditions:
+          - ""
+        effects:
+          - "ADD_RANDOM_POTION:NOT_DUPLICATE:2:REGENERATION,FAST_DIGGING,SPEED,SATURATION,DAMAGE_RESISTANCE,INCREASE_DAMAGE,JUMP,ABSORPTION,INVISIBILITY:2:60"
+    4:
+      attack:
+        type: ATTACK
+        chance: 25
+        cooldown: 4000
+        conditions:
+          - ""
+        effects:
+          - "ADD_RANDOM_POTION:NOT_DUPLICATE:2:REGENERATION,FAST_DIGGING,SPEED,SATURATION,DAMAGE_RESISTANCE,INCREASE_DAMAGE,JUMP,ABSORPTION,INVISIBILITY:3:60"
+moonlight:
+  group: "event"
+  display: "Moonlight"
+  description:
+    - "&eCó tỉ lệ bước vào giai đoạn tích trữ lượng"
+    - "&esát thương gây ra trong một khoảng"
+    - "&ethời gian và bùng nổ toàn bộ sát thương"
+    - "&eđã tích trữ cho đòn đánh kế tiếp"
+    - ""
+    - "&eThời gian tích trữ: 3s"
+    - "&eLượng sát thương tích trữ tối đa: 20 x Cấp"
+    - "&eTỉ lệ kích hoạt: 100%"
+    - "&eThời gian hồi: 10s"
+  applies-description:
+    - "Kiếm & Rìu"
+  applies:
+    - "ALL_AXE"
+    - "ALL_SWORD"
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      attack_begin_phase:
+        type: FINAL_ATTACK
+        chance: 100
+        cooldown: 10000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+          - NUMBER_STORAGE:SET:moonlight_enable:1
+          - NUMBER_STORAGE:SET:moonlight_damage:0
+          - NUMBER_STORAGE:SET:moonlight_start:%time%
+          - NUMBER_STORAGE:SET:moonlight_deal:0
+          - NUMBER_STORAGE:SET:moonlight_store1:0
+          - "MESSAGE:&d&l***Moonlight: &a&lBegin Store Damage&d&l***"
+      attack_damage_phase:
+        type: FINAL_ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - NUMBER_STORAGE:moonlight_enable:=:1
+          - NUMBER_STORAGE:%time%-moonlight_start:<=:3000
+          - NUMBER_STORAGE:moonlight_damage:<:20
+        effects:
+          - NUMBER_STORAGE:ADD:moonlight_damage:%damage%
+      attack_end_phase:
+        type: FINAL_ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - NUMBER_STORAGE:moonlight_enable:=:1
+          - NUMBER_STORAGE:moonlight_end:=:0
+        effects:
+          - NUMBER_STORAGE:SET:moonlight_end:1
+          - "NAME=moonlight_deal,DELAY=60 | MESSAGE:&d&l***Moonlight: &c&lStart Deal Damage&d&l***"
+          - "NAME=moonlight_deal_variable,DELAY=60 | NUMBER_STORAGE:SET:moonlight_deal:1"
+          - "NAME=moonlight_end,DELAY=100 | MESSAGE:&d&l***Moonlight: &7&lEnd&d&l***"
+          - "NAME=moonlight_end_clear1,DELAY=100 | NUMBER_STORAGE:SET:moonlight_enable:0"
+          - "NAME=moonlight_end_clear2,DELAY=100 | NUMBER_STORAGE:SET:moonlight_end:0"
+      attack_damage_store_message:
+        type: FINAL_ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - NUMBER_STORAGE:moonlight_enable:=:1
+          - NUMBER_STORAGE:moonlight_damage:>=:20
+          - NUMBER_STORAGE:moonlight_store1:=:0
+        effects:
+          - NUMBER_STORAGE:SET:moonlight_store1:1
+          - "MESSAGE:&d&l***Moonlight: &e&lStore 20 ATK&d&l***"
+      attack_deal_damage_message:
+        type: FINAL_ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - NUMBER_STORAGE:moonlight_enable:=:1
+          - NUMBER_STORAGE:moonlight_damage:>=:20
+          - NUMBER_STORAGE:moonlight_deal:=:0
+        effects:
+          - "REMOVE_TASK:moonlight_deal"
+          - NUMBER_STORAGE:SET:moonlight_deal:1
+          - "MESSAGE:&d&l***Moonlight: &c&lStart Deal Damage&d&l***"
+        true-condition-break: true
+      attack_deal_damage_phase:
+        type: FINAL_ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - NUMBER_STORAGE:moonlight_enable:=:1
+          - NUMBER_STORAGE:moonlight_damage:>=:20
+          - NUMBER_STORAGE:moonlight_deal:=:1
+          - NUMBER_STORAGE:%time%-moonlight_start:>=:3000
+        effects:
+          - "REMOVE_TASK:moonlight_end"
+          - "REMOVE_TASK:moonlight_deal"
+          - "NUMBER_STORAGE:SET:moonlight_enable:0"
+          - "NUMBER_STORAGE:SET:moonlight_end:0"
+          - "MESSAGE:&d&l***Moonlight: &c&l+20 ATK&d&l***"
+          - "MESSAGE:&d&l***Moonlight: &7&lEnd&d&l***"
+        options:
+          - ATTACK:20:3
+        true-condition-break: true
+    2:
+      attack_begin_phase:
+        type: FINAL_ATTACK
+        chance: 100
+        cooldown: 10000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+          - NUMBER_STORAGE:SET:moonlight_enable:1
+          - NUMBER_STORAGE:SET:moonlight_damage:0
+          - NUMBER_STORAGE:SET:moonlight_start:%time%
+          - NUMBER_STORAGE:SET:moonlight_deal:0
+          - NUMBER_STORAGE:SET:moonlight_store1:0
+          - NUMBER_STORAGE:SET:moonlight_store2:0
+          - "MESSAGE:&d&l***Moonlight: &a&lBegin Store Damage&d&l***"
+      attack_damage_phase:
+        type: FINAL_ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - NUMBER_STORAGE:moonlight_enable:=:1
+          - NUMBER_STORAGE:%time%-moonlight_start:<=:3000
+          - NUMBER_STORAGE:moonlight_damage:<:40
+        effects:
+          - NUMBER_STORAGE:ADD:moonlight_damage:%damage%
+      attack_end_phase:
+        type: FINAL_ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - NUMBER_STORAGE:moonlight_enable:=:1
+          - NUMBER_STORAGE:moonlight_end:=:0
+        effects:
+          - NUMBER_STORAGE:SET:moonlight_end:1
+          - "NAME=moonlight_deal,DELAY=60 | MESSAGE:&d&l***Moonlight: &c&lStart Deal Damage&d&l***"
+          - "NAME=moonlight_deal_variable,DELAY=60 | NUMBER_STORAGE:SET:moonlight_deal:1"
+          - "NAME=moonlight_end,DELAY=100 | MESSAGE:&d&l***Moonlight: &7&lEnd&d&l***"
+          - "NAME=moonlight_end_clear1,DELAY=100 | NUMBER_STORAGE:SET:moonlight_enable:0"
+          - "NAME=moonlight_end_clear2,DELAY=100 | NUMBER_STORAGE:SET:moonlight_end:0"
+      attack_damage_store1_message:
+        type: FINAL_ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - NUMBER_STORAGE:moonlight_enable:=:1
+          - NUMBER_STORAGE:moonlight_damage:>=:20
+          - NUMBER_STORAGE:moonlight_store1:=:0
+        effects:
+          - NUMBER_STORAGE:SET:moonlight_store1:1
+          - "MESSAGE:&d&l***Moonlight: &e&lStore 20 ATK&d&l***"
+      attack_damage_store2_message:
+        type: FINAL_ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - NUMBER_STORAGE:moonlight_enable:=:1
+          - NUMBER_STORAGE:moonlight_damage:>=:40
+          - NUMBER_STORAGE:moonlight_store2:=:0
+        effects:
+          - NUMBER_STORAGE:SET:moonlight_store2:1
+          - "MESSAGE:&d&l***Moonlight: &e&lStore 40 ATK&d&l***"
+      attack_deal_damage_message:
+        type: FINAL_ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - NUMBER_STORAGE:moonlight_enable:=:1
+          - NUMBER_STORAGE:moonlight_damage:>=:40
+          - NUMBER_STORAGE:moonlight_deal:=:0
+        effects:
+          - "REMOVE_TASK:moonlight_deal"
+          - NUMBER_STORAGE:SET:moonlight_deal:1
+          - "MESSAGE:&d&l***Moonlight: &c&lStart Deal Damage&d&l***"
+        true-condition-break: true
+      attack_deal_damage1_phase:
+        type: FINAL_ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - NUMBER_STORAGE:moonlight_enable:=:1
+          - NUMBER_STORAGE:moonlight_damage:>=:40
+          - NUMBER_STORAGE:moonlight_deal:=:1
+          - NUMBER_STORAGE:%time%-moonlight_start:>=:3000
+        effects:
+          - "REMOVE_TASK:moonlight_end"
+          - "REMOVE_TASK:moonlight_deal"
+          - "NUMBER_STORAGE:SET:moonlight_enable:0"
+          - "NUMBER_STORAGE:SET:moonlight_end:0"
+          - "MESSAGE:&d&l***Moonlight: &c&l+40 ATK&d&l***"
+          - "MESSAGE:&d&l***Moonlight: &7&lEnd&d&l***"
+        options:
+          - ATTACK:40:3
+        true-condition-break: true
+      attack_deal_damage2_phase:
+        type: FINAL_ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - NUMBER_STORAGE:moonlight_enable:=:1
+          - NUMBER_STORAGE:moonlight_damage:>=:20
+          - NUMBER_STORAGE:moonlight_deal:=:1
+          - NUMBER_STORAGE:%time%-moonlight_start:>=:3000
+        effects:
+          - "REMOVE_TASK:moonlight_end"
+          - "REMOVE_TASK:moonlight_deal"
+          - "NUMBER_STORAGE:SET:moonlight_enable:0"
+          - "NUMBER_STORAGE:SET:moonlight_end:0"
+          - "MESSAGE:&d&l***Moonlight: &c&l+20 ATK&d&l***"
+          - "MESSAGE:&d&l***Moonlight: &7&lEnd&d&l***"
+        options:
+          - ATTACK:20:3
+        true-condition-break: true
+    3:
+      attack_begin_phase:
+        type: FINAL_ATTACK
+        chance: 100
+        cooldown: 10000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+          - NUMBER_STORAGE:SET:moonlight_enable:1
+          - NUMBER_STORAGE:SET:moonlight_damage:0
+          - NUMBER_STORAGE:SET:moonlight_start:%time%
+          - NUMBER_STORAGE:SET:moonlight_deal:0
+          - NUMBER_STORAGE:SET:moonlight_store1:0
+          - NUMBER_STORAGE:SET:moonlight_store2:0
+          - NUMBER_STORAGE:SET:moonlight_store3:0
+          - "MESSAGE:&d&l***Moonlight: &a&lBegin Store Damage&d&l***"
+      attack_damage_phase:
+        type: FINAL_ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - NUMBER_STORAGE:moonlight_enable:=:1
+          - NUMBER_STORAGE:%time%-moonlight_start:<=:3000
+          - NUMBER_STORAGE:moonlight_damage:<:60
+        effects:
+          - NUMBER_STORAGE:ADD:moonlight_damage:%damage%
+      attack_end_phase:
+        type: FINAL_ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - NUMBER_STORAGE:moonlight_enable:=:1
+          - NUMBER_STORAGE:moonlight_end:=:0
+        effects:
+          - NUMBER_STORAGE:SET:moonlight_end:1
+          - "NAME=moonlight_deal,DELAY=60 | MESSAGE:&d&l***Moonlight: &c&lStart Deal Damage&d&l***"
+          - "NAME=moonlight_deal_variable,DELAY=60 | NUMBER_STORAGE:SET:moonlight_deal:1"
+          - "NAME=moonlight_end,DELAY=100 | MESSAGE:&d&l***Moonlight: &7&lEnd&d&l***"
+          - "NAME=moonlight_end_clear1,DELAY=100 | NUMBER_STORAGE:SET:moonlight_enable:0"
+          - "NAME=moonlight_end_clear2,DELAY=100 | NUMBER_STORAGE:SET:moonlight_end:0"
+      attack_damage_store1_message:
+        type: FINAL_ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - NUMBER_STORAGE:moonlight_enable:=:1
+          - NUMBER_STORAGE:moonlight_damage:>=:20
+          - NUMBER_STORAGE:moonlight_store1:=:0
+        effects:
+          - NUMBER_STORAGE:SET:moonlight_store1:1
+          - "MESSAGE:&d&l***Moonlight: &e&lStore 20 ATK&d&l***"
+      attack_damage_store2_message:
+        type: FINAL_ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - NUMBER_STORAGE:moonlight_enable:=:1
+          - NUMBER_STORAGE:moonlight_damage:>=:40
+          - NUMBER_STORAGE:moonlight_store2:=:0
+        effects:
+          - NUMBER_STORAGE:SET:moonlight_store2:1
+          - "MESSAGE:&d&l***Moonlight: &e&lStore 40 ATK&d&l***"
+      attack_damage_store3_message:
+        type: FINAL_ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - NUMBER_STORAGE:moonlight_enable:=:1
+          - NUMBER_STORAGE:moonlight_damage:>=:60
+          - NUMBER_STORAGE:moonlight_store3:=:0
+        effects:
+          - NUMBER_STORAGE:SET:moonlight_store3:1
+          - "MESSAGE:&d&l***Moonlight: &e&lStore 60 ATK&d&l***"
+      attack_deal_damage_message:
+        type: FINAL_ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - NUMBER_STORAGE:moonlight_enable:=:1
+          - NUMBER_STORAGE:moonlight_damage:>=:60
+          - NUMBER_STORAGE:moonlight_deal:=:0
+        effects:
+          - "REMOVE_TASK:moonlight_deal"
+          - NUMBER_STORAGE:SET:moonlight_deal:1
+          - "MESSAGE:&d&l***Moonlight: &c&lStart Deal Damage&d&l***"
+        true-condition-break: true
+      attack_deal_damage1_phase:
+        type: FINAL_ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - NUMBER_STORAGE:moonlight_enable:=:1
+          - NUMBER_STORAGE:moonlight_damage:>=:60
+          - NUMBER_STORAGE:moonlight_deal:=:1
+          - NUMBER_STORAGE:%time%-moonlight_start:>=:3000
+        effects:
+          - "REMOVE_TASK:moonlight_end"
+          - "REMOVE_TASK:moonlight_deal"
+          - "NUMBER_STORAGE:SET:moonlight_enable:0"
+          - "NUMBER_STORAGE:SET:moonlight_end:0"
+          - "MESSAGE:&d&l***Moonlight: &c&l+60 ATK&d&l***"
+          - "MESSAGE:&d&l***Moonlight: &7&lEnd&d&l***"
+        options:
+          - ATTACK:60:3
+        true-condition-break: true
+      attack_deal_damage2_phase:
+        type: FINAL_ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - NUMBER_STORAGE:moonlight_enable:=:1
+          - NUMBER_STORAGE:moonlight_damage:>=:40
+          - NUMBER_STORAGE:moonlight_deal:=:1
+          - NUMBER_STORAGE:%time%-moonlight_start:>=:3000
+        effects:
+          - "REMOVE_TASK:moonlight_end"
+          - "REMOVE_TASK:moonlight_deal"
+          - "NUMBER_STORAGE:SET:moonlight_enable:0"
+          - "NUMBER_STORAGE:SET:moonlight_end:0"
+          - "MESSAGE:&d&l***Moonlight: &c&l+40 ATK&d&l***"
+          - "MESSAGE:&d&l***Moonlight: &7&lEnd&d&l***"
+        options:
+          - ATTACK:40:3
+        true-condition-break: true
+      attack_deal_damage3_phase:
+        type: FINAL_ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - NUMBER_STORAGE:moonlight_enable:=:1
+          - NUMBER_STORAGE:moonlight_damage:>=:20
+          - NUMBER_STORAGE:moonlight_deal:=:1
+          - NUMBER_STORAGE:%time%-moonlight_start:>=:3000
+        effects:
+          - "REMOVE_TASK:moonlight_end"
+          - "REMOVE_TASK:moonlight_deal"
+          - "NUMBER_STORAGE:SET:moonlight_enable:0"
+          - "NUMBER_STORAGE:SET:moonlight_end:0"
+          - "MESSAGE:&d&l***Moonlight: &c&l+20 ATK&d&l***"
+          - "MESSAGE:&d&l***Moonlight: &7&lEnd&d&l***"
+        options:
+          - ATTACK:20:3
+        true-condition-break: true
+    4:
+      attack_begin_phase:
+        type: FINAL_ATTACK
+        chance: 100
+        cooldown: 10000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+          - NUMBER_STORAGE:SET:moonlight_enable:1
+          - NUMBER_STORAGE:SET:moonlight_damage:0
+          - NUMBER_STORAGE:SET:moonlight_start:%time%
+          - NUMBER_STORAGE:SET:moonlight_deal:0
+          - NUMBER_STORAGE:SET:moonlight_store1:0
+          - NUMBER_STORAGE:SET:moonlight_store2:0
+          - NUMBER_STORAGE:SET:moonlight_store3:0
+          - NUMBER_STORAGE:SET:moonlight_store4:0
+          - "MESSAGE:&d&l***Moonlight: &a&lBegin Store Damage&d&l***"
+      attack_damage_phase:
+        type: FINAL_ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - NUMBER_STORAGE:moonlight_enable:=:1
+          - NUMBER_STORAGE:%time%-moonlight_start:<=:3000
+          - NUMBER_STORAGE:moonlight_damage:<:80
+        effects:
+          - NUMBER_STORAGE:ADD:moonlight_damage:%damage%
+      attack_end_phase:
+        type: FINAL_ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - NUMBER_STORAGE:moonlight_enable:=:1
+          - NUMBER_STORAGE:moonlight_end:=:0
+        effects:
+          - NUMBER_STORAGE:SET:moonlight_end:1
+          - "NAME=moonlight_deal,DELAY=60 | MESSAGE:&d&l***Moonlight: &c&lStart Deal Damage&d&l***"
+          - "NAME=moonlight_deal_variable,DELAY=60 | NUMBER_STORAGE:SET:moonlight_deal:1"
+          - "NAME=moonlight_end,DELAY=100 | MESSAGE:&d&l***Moonlight: &7&lEnd&d&l***"
+          - "NAME=moonlight_end_clear1,DELAY=100 | NUMBER_STORAGE:SET:moonlight_enable:0"
+          - "NAME=moonlight_end_clear2,DELAY=100 | NUMBER_STORAGE:SET:moonlight_end:0"
+      attack_damage_store1_message:
+        type: FINAL_ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - NUMBER_STORAGE:moonlight_enable:=:1
+          - NUMBER_STORAGE:moonlight_damage:>=:20
+          - NUMBER_STORAGE:moonlight_store1:=:0
+        effects:
+          - NUMBER_STORAGE:SET:moonlight_store1:1
+          - "MESSAGE:&d&l***Moonlight: &e&lStore 20 ATK&d&l***"
+      attack_damage_store2_message:
+        type: FINAL_ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - NUMBER_STORAGE:moonlight_enable:=:1
+          - NUMBER_STORAGE:moonlight_damage:>=:40
+          - NUMBER_STORAGE:moonlight_store2:=:0
+        effects:
+          - NUMBER_STORAGE:SET:moonlight_store2:1
+          - "MESSAGE:&d&l***Moonlight: &e&lStore 40 ATK&d&l***"
+      attack_damage_store3_message:
+        type: FINAL_ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - NUMBER_STORAGE:moonlight_enable:=:1
+          - NUMBER_STORAGE:moonlight_damage:>=:60
+          - NUMBER_STORAGE:moonlight_store3:=:0
+        effects:
+          - NUMBER_STORAGE:SET:moonlight_store3:1
+          - "MESSAGE:&d&l***Moonlight: &e&lStore 60 ATK&d&l***"
+      attack_damage_store4_message:
+        type: FINAL_ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - NUMBER_STORAGE:moonlight_enable:=:1
+          - NUMBER_STORAGE:moonlight_damage:>=:80
+          - NUMBER_STORAGE:moonlight_store4:=:0
+        effects:
+          - NUMBER_STORAGE:SET:moonlight_store4:1
+          - "MESSAGE:&d&l***Moonlight: &e&lStore 80 ATK&d&l***"
+      attack_deal_damage_message:
+        type: FINAL_ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - NUMBER_STORAGE:moonlight_enable:=:1
+          - NUMBER_STORAGE:moonlight_damage:>=:80
+          - NUMBER_STORAGE:moonlight_deal:=:0
+        effects:
+          - "REMOVE_TASK:moonlight_deal"
+          - NUMBER_STORAGE:SET:moonlight_deal:1
+          - "MESSAGE:&d&l***Moonlight: &c&lStart Deal Damage&d&l***"
+        true-condition-break: true
+      attack_deal_damage1_phase:
+        type: FINAL_ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - NUMBER_STORAGE:moonlight_enable:=:1
+          - NUMBER_STORAGE:moonlight_damage:>=:80
+          - NUMBER_STORAGE:moonlight_deal:=:1
+          - NUMBER_STORAGE:%time%-moonlight_start:>=:3000
+        effects:
+          - "REMOVE_TASK:moonlight_end"
+          - "REMOVE_TASK:moonlight_deal"
+          - "NUMBER_STORAGE:SET:moonlight_enable:0"
+          - "NUMBER_STORAGE:SET:moonlight_end:0"
+          - "MESSAGE:&d&l***Moonlight: &c&l+80 ATK&d&l***"
+          - "MESSAGE:&d&l***Moonlight: &7&lEnd&d&l***"
+        options:
+          - ATTACK:80:3
+        true-condition-break: true
+      attack_deal_damage2_phase:
+        type: FINAL_ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - NUMBER_STORAGE:moonlight_enable:=:1
+          - NUMBER_STORAGE:moonlight_damage:>=:60
+          - NUMBER_STORAGE:moonlight_deal:=:1
+          - NUMBER_STORAGE:%time%-moonlight_start:>=:3000
+        effects:
+          - "REMOVE_TASK:moonlight_end"
+          - "REMOVE_TASK:moonlight_deal"
+          - "NUMBER_STORAGE:SET:moonlight_enable:0"
+          - "NUMBER_STORAGE:SET:moonlight_end:0"
+          - "MESSAGE:&d&l***Moonlight: &c&l+60 ATK&d&l***"
+          - "MESSAGE:&d&l***Moonlight: &7&lEnd&d&l***"
+        options:
+          - ATTACK:60:3
+        true-condition-break: true
+      attack_deal_damage3_phase:
+        type: FINAL_ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - NUMBER_STORAGE:moonlight_enable:=:1
+          - NUMBER_STORAGE:moonlight_damage:>=:40
+          - NUMBER_STORAGE:moonlight_deal:=:1
+          - NUMBER_STORAGE:%time%-moonlight_start:>=:3000
+        effects:
+          - "REMOVE_TASK:moonlight_end"
+          - "REMOVE_TASK:moonlight_deal"
+          - "NUMBER_STORAGE:SET:moonlight_enable:0"
+          - "NUMBER_STORAGE:SET:moonlight_end:0"
+          - "MESSAGE:&d&l***Moonlight: &c&l+40 ATK&d&l***"
+          - "MESSAGE:&d&l***Moonlight: &7&lEnd&d&l***"
+        options:
+          - ATTACK:40:3
+        true-condition-break: true
+      attack_deal_damage4_phase:
+        type: FINAL_ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - NUMBER_STORAGE:moonlight_enable:=:1
+          - NUMBER_STORAGE:moonlight_damage:>=:20
+          - NUMBER_STORAGE:moonlight_deal:=:1
+          - NUMBER_STORAGE:%time%-moonlight_start:>=:3000
+        effects:
+          - "REMOVE_TASK:moonlight_end"
+          - "REMOVE_TASK:moonlight_deal"
+          - "NUMBER_STORAGE:SET:moonlight_enable:0"
+          - "NUMBER_STORAGE:SET:moonlight_end:0"
+          - "MESSAGE:&d&l***Moonlight: &c&l+20 ATK&d&l***"
+          - "MESSAGE:&d&l***Moonlight: &7&lEnd&d&l***"
+        options:
+          - ATTACK:20:3
+        true-condition-break: true
+    5:
+      attack_begin_phase:
+        type: FINAL_ATTACK
+        chance: 100
+        cooldown: 10000
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+        effects:
+          - NUMBER_STORAGE:SET:moonlight_enable:1
+          - NUMBER_STORAGE:SET:moonlight_damage:0
+          - NUMBER_STORAGE:SET:moonlight_start:%time%
+          - NUMBER_STORAGE:SET:moonlight_deal:0
+          - NUMBER_STORAGE:SET:moonlight_store1:0
+          - NUMBER_STORAGE:SET:moonlight_store2:0
+          - NUMBER_STORAGE:SET:moonlight_store3:0
+          - NUMBER_STORAGE:SET:moonlight_store4:0
+          - NUMBER_STORAGE:SET:moonlight_store5:0
+          - "MESSAGE:&d&l***Moonlight: &a&lBegin Store Damage&d&l***"
+      attack_damage_phase:
+        type: FINAL_ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - NUMBER_STORAGE:moonlight_enable:=:1
+          - NUMBER_STORAGE:%time%-moonlight_start:<=:3000
+          - NUMBER_STORAGE:moonlight_damage:<:100
+        effects:
+          - NUMBER_STORAGE:ADD:moonlight_damage:%damage%
+      attack_end_phase:
+        type: FINAL_ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - NUMBER_STORAGE:moonlight_enable:=:1
+          - NUMBER_STORAGE:moonlight_end:=:0
+        effects:
+          - NUMBER_STORAGE:SET:moonlight_end:1
+          - "NAME=moonlight_deal,DELAY=60 | MESSAGE:&d&l***Moonlight: &c&lStart Deal Damage&d&l***"
+          - "NAME=moonlight_deal_variable,DELAY=60 | NUMBER_STORAGE:SET:moonlight_deal:1"
+          - "NAME=moonlight_end,DELAY=100 | MESSAGE:&d&l***Moonlight: &7&lEnd&d&l***"
+          - "NAME=moonlight_end_clear1,DELAY=100 | NUMBER_STORAGE:SET:moonlight_enable:0"
+          - "NAME=moonlight_end_clear2,DELAY=100 | NUMBER_STORAGE:SET:moonlight_end:0"
+      attack_damage_store1_message:
+        type: FINAL_ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - NUMBER_STORAGE:moonlight_enable:=:1
+          - NUMBER_STORAGE:moonlight_damage:>=:20
+          - NUMBER_STORAGE:moonlight_store1:=:0
+        effects:
+          - NUMBER_STORAGE:SET:moonlight_store1:1
+          - "MESSAGE:&d&l***Moonlight: &e&lStore 20 ATK&d&l***"
+      attack_damage_store2_message:
+        type: FINAL_ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - NUMBER_STORAGE:moonlight_enable:=:1
+          - NUMBER_STORAGE:moonlight_damage:>=:40
+          - NUMBER_STORAGE:moonlight_store2:=:0
+        effects:
+          - NUMBER_STORAGE:SET:moonlight_store2:1
+          - "MESSAGE:&d&l***Moonlight: &e&lStore 40 ATK&d&l***"
+      attack_damage_store3_message:
+        type: FINAL_ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - NUMBER_STORAGE:moonlight_enable:=:1
+          - NUMBER_STORAGE:moonlight_damage:>=:60
+          - NUMBER_STORAGE:moonlight_store3:=:0
+        effects:
+          - NUMBER_STORAGE:SET:moonlight_store3:1
+          - "MESSAGE:&d&l***Moonlight: &e&lStore 60 ATK&d&l***"
+      attack_damage_store4_message:
+        type: FINAL_ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - NUMBER_STORAGE:moonlight_enable:=:1
+          - NUMBER_STORAGE:moonlight_damage:>=:80
+          - NUMBER_STORAGE:moonlight_store4:=:0
+        effects:
+          - NUMBER_STORAGE:SET:moonlight_store4:1
+          - "MESSAGE:&d&l***Moonlight: &e&lStore 80 ATK&d&l***"
+      attack_damage_store5_message:
+        type: FINAL_ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - NUMBER_STORAGE:moonlight_enable:=:1
+          - NUMBER_STORAGE:moonlight_damage:>=:80
+          - NUMBER_STORAGE:moonlight_store5:=:0
+        effects:
+          - NUMBER_STORAGE:SET:moonlight_store5:1
+          - "MESSAGE:&d&l***Moonlight: &e&lStore 100 ATK&d&l***"
+      attack_deal_damage_message:
+        type: FINAL_ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - NUMBER_STORAGE:moonlight_enable:=:1
+          - NUMBER_STORAGE:moonlight_damage:>=:100
+          - NUMBER_STORAGE:moonlight_deal:=:0
+        effects:
+          - "REMOVE_TASK:moonlight_deal"
+          - NUMBER_STORAGE:SET:moonlight_deal:1
+          - "MESSAGE:&d&l***Moonlight: &c&lStart Deal Damage&d&l***"
+        true-condition-break: true
+      attack_deal_damage1_phase:
+        type: FINAL_ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - NUMBER_STORAGE:moonlight_enable:=:1
+          - NUMBER_STORAGE:moonlight_damage:>=:100
+          - NUMBER_STORAGE:moonlight_deal:=:1
+          - NUMBER_STORAGE:%time%-moonlight_start:>=:3000
+        effects:
+          - "REMOVE_TASK:moonlight_end"
+          - "REMOVE_TASK:moonlight_deal"
+          - "NUMBER_STORAGE:SET:moonlight_enable:0"
+          - "NUMBER_STORAGE:SET:moonlight_end:0"
+          - "MESSAGE:&d&l***Moonlight: &c&l+100 ATK&d&l***"
+          - "MESSAGE:&d&l***Moonlight: &7&lEnd&d&l***"
+        options:
+          - ATTACK:100:3
+        true-condition-break: true
+      attack_deal_damage2_phase:
+        type: FINAL_ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - NUMBER_STORAGE:moonlight_enable:=:1
+          - NUMBER_STORAGE:moonlight_damage:>=:80
+          - NUMBER_STORAGE:moonlight_deal:=:1
+          - NUMBER_STORAGE:%time%-moonlight_start:>=:3000
+        effects:
+          - "REMOVE_TASK:moonlight_end"
+          - "REMOVE_TASK:moonlight_deal"
+          - "NUMBER_STORAGE:SET:moonlight_enable:0"
+          - "NUMBER_STORAGE:SET:moonlight_end:0"
+          - "MESSAGE:&d&l***Moonlight: &c&l+80 ATK&d&l***"
+          - "MESSAGE:&d&l***Moonlight: &7&lEnd&d&l***"
+        options:
+          - ATTACK:80:3
+        true-condition-break: true
+      attack_deal_damage3_phase:
+        type: FINAL_ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - NUMBER_STORAGE:moonlight_enable:=:1
+          - NUMBER_STORAGE:moonlight_damage:>=:60
+          - NUMBER_STORAGE:moonlight_deal:=:1
+          - NUMBER_STORAGE:%time%-moonlight_start:>=:3000
+        effects:
+          - "REMOVE_TASK:moonlight_end"
+          - "REMOVE_TASK:moonlight_deal"
+          - "NUMBER_STORAGE:SET:moonlight_enable:0"
+          - "NUMBER_STORAGE:SET:moonlight_end:0"
+          - "MESSAGE:&d&l***Moonlight: &c&l+60 ATK&d&l***"
+          - "MESSAGE:&d&l***Moonlight: &7&lEnd&d&l***"
+        options:
+          - ATTACK:60:3
+        true-condition-break: true
+      attack_deal_damage4_phase:
+        type: FINAL_ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - NUMBER_STORAGE:moonlight_enable:=:1
+          - NUMBER_STORAGE:moonlight_damage:>=:40
+          - NUMBER_STORAGE:moonlight_deal:=:1
+          - NUMBER_STORAGE:%time%-moonlight_start:>=:3000
+        effects:
+          - "REMOVE_TASK:moonlight_end"
+          - "REMOVE_TASK:moonlight_deal"
+          - "NUMBER_STORAGE:SET:moonlight_enable:0"
+          - "NUMBER_STORAGE:SET:moonlight_end:0"
+          - "MESSAGE:&d&l***Moonlight: &c&l+40 ATK&d&l***"
+          - "MESSAGE:&d&l***Moonlight: &7&lEnd&d&l***"
+        options:
+          - ATTACK:40:3
+        true-condition-break: true
+      attack_deal_damage5_phase:
+        type: FINAL_ATTACK
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:MAINHAND
+          - TARGET=ENEMY | ENTITY_TYPE:PLAYER
+          - NUMBER_STORAGE:moonlight_enable:=:1
+          - NUMBER_STORAGE:moonlight_damage:>=:20
+          - NUMBER_STORAGE:moonlight_deal:=:1
+          - NUMBER_STORAGE:%time%-moonlight_start:>=:3000
+        effects:
+          - "REMOVE_TASK:moonlight_end"
+          - "REMOVE_TASK:moonlight_deal"
+          - "NUMBER_STORAGE:SET:moonlight_enable:0"
+          - "NUMBER_STORAGE:SET:moonlight_end:0"
+          - "MESSAGE:&d&l***Moonlight: &c&l+20 ATK&d&l***"
+          - "MESSAGE:&d&l***Moonlight: &7&lEnd&d&l***"
+        options:
+          - ATTACK:20:3
+        true-condition-break: true
+# critical:
+#   group: ultimate
+#   display: "Critical"
+#   description:
+#     - "&eCó tỉ lệ gây gấp đôi sát thương tổng"
+#     - "&elên kẻ địch"
+#   detail-description:
+#     - "&eCó tỉ lệ gây gấp đôi sát thương tổng"
+#     - "&elên kẻ địch"
+#     - ""
+#     - "&eSát thương: +100% ATK Tổng"
+#     - "&eTỉ lệ kích hoạt: 5% x Cấp"
+#     - "&eThời gian hồi: 3s"
+#   applies-description:
+#     - "Vũ khí"
+#   applies:
+#     - "ALL_AXE"
+#     - "ALL_SWORD"
+#     - "ALL_BOW"
+#   max-level: 5
+#   enchant-point: 1
+#   valuable: 0
+#   levels:
+#     "1":
+#       attack:
+#         type: ATTACK
+#         chance: 5
+#         cooldown: 3000
+#         conditions:
+#           - EQUIP_SLOT:MAINHAND
+#         #- TARGET=ENEMY | ENTITY_TYPE:PLAYER
+#         options:
+#           - ATTACK:1.0:2
+#         effects:
+#           - "MESSAGE:&6&l***Crit: &c&lx2 ATK&6&l***"
+#       arrow_hit:
+#         type: ARROW_HIT
+#         chance: 5
+#         cooldown: 3000
+#         conditions:
+#           - EQUIP_SLOT:MAINHAND
+#         options:
+#           - ATTACK:1.0:2
+#         effects:
+#           - "MESSAGE:&6&l***Crit: &c&lx2 ATK&6&l***"
+#     "2":
+#       attack:
+#         type: ATTACK
+#         chance: 10
+#         cooldown: 3000
+#         conditions:
+#           - EQUIP_SLOT:MAINHAND
+#         #- TARGET=ENEMY | ENTITY_TYPE:PLAYER
+#         options:
+#           - ATTACK:1.0:2
+#         effects:
+#           - "MESSAGE:&6&l***Crit: &c&lx2 ATK&6&l***"
+#       arrow_hit:
+#         type: ARROW_HIT
+#         chance: 10
+#         cooldown: 3000
+#         conditions:
+#           - EQUIP_SLOT:MAINHAND
+#         options:
+#           - ATTACK:1.0:2
+#         effects:
+#           - "MESSAGE:&6&l***Crit: &c&lx2 ATK&6&l***"
+#     "3":
+#       attack:
+#         type: ATTACK
+#         chance: 15
+#         cooldown: 3000
+#         conditions:
+#           - EQUIP_SLOT:MAINHAND
+#         #- TARGET=ENEMY | ENTITY_TYPE:PLAYER
+#         options:
+#           - ATTACK:1.0:2
+#         effects:
+#           - "MESSAGE:&6&l***Crit: &c&lx2 ATK&6&l***"
+#       arrow_hit:
+#         type: ARROW_HIT
+#         chance: 15
+#         cooldown: 3000
+#         conditions:
+#           - EQUIP_SLOT:MAINHAND
+#         options:
+#           - ATTACK:1.0:2
+#         effects:
+#           - "MESSAGE:&6&l***Crit: &c&lx2 ATK&6&l***"
+#     "4":
+#       attack:
+#         type: ATTACK
+#         chance: 20
+#         cooldown: 3000
+#         conditions:
+#           - EQUIP_SLOT:MAINHAND
+#         #- TARGET=ENEMY | ENTITY_TYPE:PLAYER
+#         options:
+#           - ATTACK:1.0:2
+#         effects:
+#           - "MESSAGE:&6&l***Crit: &c&lx2 ATK&6&l***"
+#       arrow_hit:
+#         type: ARROW_HIT
+#         chance: 20
+#         cooldown: 3000
+#         conditions:
+#           - EQUIP_SLOT:MAINHAND
+#         options:
+#           - ATTACK:1.0:2
+#         effects:
+#           - "MESSAGE:&6&l***Crit: &c&lx2 ATK&6&l***"
+#     "5":
+#       attack:
+#         type: ATTACK
+#         chance: 25
+#         cooldown: 3000
+#         conditions:
+#           - EQUIP_SLOT:MAINHAND
+#         #- TARGET=ENEMY | ENTITY_TYPE:PLAYER
+#         options:
+#           - ATTACK:1.0:2
+#         effects:
+#           - "MESSAGE:&6&l***Crit: &c&lx2 ATK&6&l***"
+#       arrow_hit:
+#         type: ARROW_HIT
+#         chance: 25
+#         cooldown: 3000
+#         conditions:
+#           - EQUIP_SLOT:MAINHAND
+#         options:
+#           - ATTACK:1.0:2
+#         effects:
+#           - "MESSAGE:&6&l***Crit: &c&lx2 ATK&6&l***"

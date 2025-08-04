@@ -1,0 +1,87 @@
+list:
+  greathelm:
+    5:
+      chance: 50
+      required-xp: 128
+      lose-xp-percent: 5->30
+      upgrade-enchant:
+        name: primegreathelm
+        level: 1
+        success: 100
+        destroy: 0
+      xp-enchant-whitelist:
+        - 'primegreathelm'
+      requirement:
+        - 'ITEM:CUSTOM_ENCHANTMENT:storage:magic-ball:4'
+        - 'ITEM:CUSTOM_ENCHANTMENT:storage:enchant-paper:8'
+        - 'EXP:500000'
+        - 'MONEY:250000'
+  primegreathelm:
+    1:
+      chance: 45
+      xp: 32->64
+      required-xp: 192
+      lose-xp-percent: 10->35
+      upgrade-enchant:
+        name: primegreathelm
+        level: 2
+        success: 100
+        destroy: 0
+      xp-enchant-whitelist:
+        - 'greathelm'
+      requirement:
+        - 'ITEM:CUSTOM_ENCHANTMENT:storage:magic-ball:8'
+        - 'ITEM:CUSTOM_ENCHANTMENT:storage:enchant-paper:16'
+        - 'EXP:1000000'
+        - 'MONEY:500000'
+    2:
+      chance: 40
+      xp: 64->128
+      required-xp: 288
+      lose-xp-percent: 15->40
+      upgrade-enchant:
+        name: primegreathelm
+        level: 3
+        success: 100
+        destroy: 0
+      xp-enchant-whitelist:
+        - 'greathelm'
+      requirement:
+        - 'ITEM:CUSTOM_ENCHANTMENT:storage:magic-ball:12'
+        - 'ITEM:CUSTOM_ENCHANTMENT:storage:enchant-paper:24'
+        - 'EXP:2000000'
+        - 'MONEY:1000000'
+    3:
+      chance: 35
+      xp: 128->256
+      required-xp: 432
+      lose-xp-percent: 20->45
+      upgrade-enchant:
+        name: primegreathelm
+        level: 4
+        success: 100
+        destroy: 0
+      xp-enchant-whitelist:
+        - 'greathelm'
+      requirement:
+        - 'ITEM:CUSTOM_ENCHANTMENT:storage:magic-ball:16'
+        - 'ITEM:CUSTOM_ENCHANTMENT:storage:enchant-paper:32'
+        - 'EXP:4000000'
+        - 'MONEY:2000000'
+    4:
+      chance: 30
+      xp: 256->512
+      required-xp: 648
+      lose-xp-percent: 25->50
+      upgrade-enchant:
+        name: primegreathelm
+        level: 5
+        success: 100
+        destroy: 0
+      xp-enchant-whitelist:
+        - 'greathelm'
+      requirement:
+        - 'ITEM:CUSTOM_ENCHANTMENT:storage:magic-ball:20'
+        - 'ITEM:CUSTOM_ENCHANTMENT:storage:enchant-paper:40'
+        - 'EXP:10000000'
+        - 'MONEY:5000000'

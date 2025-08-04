@@ -1,0 +1,612 @@
+# tag_potion: SPEED
+# tag_potion: JUMP
+feather:
+  group: legendary
+  display: Feather
+  description:
+    - "&eNhận hiệu ứng tốc độ và nhảy cao"
+    - "&ekhi trang bị"
+  detail-description:
+    - "&eNhận hiệu ứng tốc độ và nhảy cao"
+    - "&ekhi trang bị"
+    - ""
+    - "&eHiệu ứng thuốc: Tốc độ, Nhảy cao"
+    - "&eCấp độ hiệu ứng: 1/2"
+    - "&eThời gian hiệu ứng: Vĩnh viễn"
+  applies-description:
+    - Giày
+  applies:
+    - ALL_BOOTS
+  max-level: 2
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - ADD_FOREVER_POTION:feather_speed:SPEED:0
+          - ADD_FOREVER_POTION:feather_jump:JUMP:0
+          - NAME=feather_particle_0,PERIOD=6 | PACKET_REDSTONE_PARTICLE:10:500:~_~_~+0.1_~:0.5_0_0.5:0_0_0:1:0:#55FFFF:1
+          - NAME=feather_particle_1,PERIOD=6 | PACKET_REDSTONE_PARTICLE:10:500:~_~_~+0.1_~:0.5_0_0.5:0_0_0:1:0:#55FF55:1
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - REMOVE_FOREVER_POTION:feather_speed
+          - REMOVE_FOREVER_POTION:feather_jump
+          - REMOVE_TASK:feather_particle_0
+          - REMOVE_TASK:feather_particle_1
+    "2":
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - ADD_FOREVER_POTION:feather_speed:SPEED:1
+          - ADD_FOREVER_POTION:feather_jump:JUMP:1
+          - NAME=feather_particle_0,PERIOD=5 | PACKET_REDSTONE_PARTICLE:10:500:~_~_~+0.1_~:0.5_0_0.5:0_0_0:1:0:#55FFFF:1
+          - NAME=feather_particle_1,PERIOD=5 | PACKET_REDSTONE_PARTICLE:10:500:~_~_~+0.1_~:0.5_0_0.5:0_0_0:1:0:#55FF55:1
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - REMOVE_FOREVER_POTION:feather_speed
+          - REMOVE_FOREVER_POTION:feather_jump
+          - REMOVE_TASK:feather_particle_0
+          - REMOVE_TASK:feather_particle_1
+gears:
+  group: epic
+  display: Gears
+  description:
+    - "&eNhận hiệu ứng tốc độ khi trang bị"
+  detail-description:
+    - "&eNhận hiệu ứng tốc độ khi trang bị"
+    - ""
+    - "&eHiệu ứng thuốc: Tốc độ"
+    - "&eCấp độ hiệu ứng: 1/2/3"
+    - "&eThời gian hiệu ứng: Vĩnh viễn"
+  applies-description:
+    - Giày
+  applies:
+    - ALL_BOOTS
+  max-level: 3
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - ADD_FOREVER_POTION:gears:SPEED:0
+          - NAME=gears_particle_0,PERIOD=6 | PACKET_REDSTONE_PARTICLE:10:500:~_~_~+0.1_~:0.5_0_0.5:0_0_0:1:0:#55FFFF:1
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - REMOVE_FOREVER_POTION:gears
+          - REMOVE_TASK:gears_particle_0
+    "2":
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - ADD_FOREVER_POTION:gears:SPEED:1
+          - NAME=gears_particle_0,PERIOD=5 | PACKET_REDSTONE_PARTICLE:10:500:~_~_~+0.1_~:0.5_0_0.5:0_0_0:1:0:#55FFFF:1
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - REMOVE_FOREVER_POTION:gears
+          - REMOVE_TASK:gears_particle_0
+    "3":
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - ADD_FOREVER_POTION:gears:SPEED:2
+          - NAME=gears_particle_0,PERIOD=4 | PACKET_REDSTONE_PARTICLE:10:500:~_~_~+0.1_~:0.5_0_0.5:0_0_0:1:0:#55FFFF:1
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - REMOVE_FOREVER_POTION:gears
+          - REMOVE_TASK:gears_particle_0
+springs:
+  group: epic
+  display: Springs
+  description:
+    - "&eNhận hiệu ứng nhảy cao khi trang bị"
+  detail-description:
+    - "&eNhận hiệu ứng nhảy cao khi trang bị"
+    - ""
+    - "&eHiệu ứng thuốc: Nhảy cao"
+    - "&eCấp độ hiệu ứng: 1/2/3"
+    - "&eThời gian hiệu ứng: Vĩnh viễn"
+  applies-description:
+    - Giày
+  applies:
+    - ALL_BOOTS
+  max-level: 3
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - ADD_FOREVER_POTION:springs:JUMP:0
+          - NAME=springs_particle_0,PERIOD=6 | PACKET_REDSTONE_PARTICLE:10:500:~_~_~+0.1_~:0.5_0_0.5:0_0_0:1:0:#55FF55:1
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - REMOVE_FOREVER_POTION:springs
+          - REMOVE_TASK:springs_particle_0
+    "2":
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - ADD_FOREVER_POTION:springs:JUMP:1
+          - NAME=springs_particle_0,PERIOD=5 | PACKET_REDSTONE_PARTICLE:10:500:~_~_~+0.1_~:0.5_0_0.5:0_0_0:1:0:#55FF55:1
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - REMOVE_FOREVER_POTION:springs
+          - REMOVE_TASK:springs_particle_0
+    "3":
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - ADD_FOREVER_POTION:springs:JUMP:2
+          - NAME=springs_particle_0,PERIOD=4 | PACKET_REDSTONE_PARTICLE:10:500:~_~_~+0.1_~:0.5_0_0.5:0_0_0:1:0:#55FF55:1
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - REMOVE_FOREVER_POTION:springs
+          - REMOVE_TASK:springs_particle_0
+sanguine:
+  group: legendary
+  display: Sanguine
+  description:
+    - "&eCó tỉ lệ nhận thêm tốc độ di chuyển và"
+    - "&etốc độ đánh tỉ lệ với lượng máu thấp"
+    - "&etrong một khoảng thời gian khi bị"
+    - "&etấn công"
+  detail-description:
+    - "&eCó tỉ lệ nhận thêm tốc độ di chuyển và"
+    - "&etốc độ đánh tỉ lệ với lượng máu thấp"
+    - "&etrong một khoảng thời gian khi bị"
+    - "&etấn công"
+    - ""
+    - "&eKhi lượng máu dưới 50%:"
+    - "&eTốc độ di chuyển: +10%/+12/+14%/+17%/+20%"
+    - "&eTốc độ đánh: +10%/+12/+14%/+17%/+20%"
+    - "&eKhi lượng máu dưới 25%:"
+    - "&eTốc độ di chuyển: +20%/+24/+28%/+34%/+40%"
+    - "&eTốc độ đánh: +20%/+24/+28%/+34%/+40%"
+    - "&eThời gian hiệu ứng: 2s"
+    - "&eTỉ lệ kích hoạt: 50%"
+    - "&eThời gian hồi: 3s"
+  applies-description:
+    - Giày
+  applies:
+    - ALL_BOOTS
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      defense50:
+        type: DEFENSE
+        chance: 50
+        cooldown: 3000
+        conditions:
+          - EQUIP_SLOT:BOOTS
+          - HEALTH_PERCENT:<=:25
+        effects:
+          - ADD_ATTRIBUTE:MOVEMENT_SPEED:sanguine_movement_speed2:0.2:1
+          - ADD_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed2:0.2:1
+          - DELAY=40 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:sanguine_movement_speed2
+          - DELAY=40 | REMOVE_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed2
+          - "MESSAGE:&e&l**Sanguine: Below &f&l25% &e&lMax Health: &e&l+20% &e&lATS&e&l, &f&l+20%&f&lMS&e&l***"
+        true-condition-break: true
+      defense25:
+        type: DEFENSE
+        chance: 50
+        cooldown: 3000
+        conditions:
+          - EQUIP_SLOT:BOOTS
+          - HEALTH_PERCENT:<=:50
+        effects:
+          - ADD_ATTRIBUTE:MOVEMENT_SPEED:sanguine_movement_speed:0.1:1
+          - ADD_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed:0.1:1
+          - DELAY=40 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:sanguine_movement_speed
+          - DELAY=40 | REMOVE_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed
+          - "MESSAGE:&e&l**Sanguine: Below &f&l50% &e&lMax Health: &e&l+10% &e&lATS&e&l, &f&l+10%&f&lMS&e&l***"
+        true-condition-break: true
+    "2":
+      defense25:
+        type: DEFENSE
+        chance: 50
+        cooldown: 3000
+        conditions:
+          - EQUIP_SLOT:BOOTS
+          - HEALTH_PERCENT:<=:25
+        effects:
+          - ADD_ATTRIBUTE:MOVEMENT_SPEED:sanguine_movement_speed2:0.24:1
+          - ADD_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed2:0.24:1
+          - DELAY=40 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:sanguine_movement_speed2
+          - DELAY=40 | REMOVE_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed2
+          - "MESSAGE:&e&l**Sanguine: Below &f&l25% &e&lMax Health: &e&l+20% &e&lATS&e&l, &f&l+20%&f&lMS&e&l***"
+        true-condition-break: true
+      defense50:
+        type: DEFENSE
+        chance: 50
+        cooldown: 3000
+        conditions:
+          - EQUIP_SLOT:BOOTS
+          - HEALTH_PERCENT:<=:50
+        effects:
+          - ADD_ATTRIBUTE:MOVEMENT_SPEED:sanguine_movement_speed:0.12:1
+          - ADD_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed:0.12:1
+          - DELAY=40 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:sanguine_movement_speed
+          - DELAY=40 | REMOVE_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed
+          - "MESSAGE:&e&l**Sanguine: Below &f&l50% &e&lMax Health: &e&l+12% &e&lATS&e&l, &f&l+12%&f&lMS&e&l***"
+        true-condition-break: true
+    "3":
+      defense25:
+        type: DEFENSE
+        chance: 50
+        cooldown: 3000
+        conditions:
+          - EQUIP_SLOT:BOOTS
+          - HEALTH_PERCENT:<=:25
+        effects:
+          - ADD_ATTRIBUTE:MOVEMENT_SPEED:sanguine_movement_speed2:0.28:1
+          - ADD_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed2:0.28:1
+          - DELAY=40 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:sanguine_movement_speed2
+          - DELAY=40 | REMOVE_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed2
+          - "MESSAGE:&e&l**Sanguine: Below &f&l25% &e&lMax Health: &e&l+28% &e&lATS&e&l, &f&l+28%&f&lMS&e&l***"
+        true-condition-break: true
+      defense50:
+        type: DEFENSE
+        chance: 50
+        cooldown: 3000
+        conditions:
+          - EQUIP_SLOT:BOOTS
+          - HEALTH_PERCENT:<=:50
+        effects:
+          - ADD_ATTRIBUTE:MOVEMENT_SPEED:sanguine_movement_speed:0.14:1
+          - ADD_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed:0.14:1
+          - DELAY=40 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:sanguine_movement_speed
+          - DELAY=40 | REMOVE_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed
+          - "MESSAGE:&e&l**Sanguine: Below &f&l50% &e&lMax Health: &e&l+14% &e&lATS&e&l, &f&l+14%&f&lMS&e&l***"
+        true-condition-break: true
+    "4":
+      defense25:
+        type: DEFENSE
+        chance: 50
+        cooldown: 3000
+        conditions:
+          - EQUIP_SLOT:BOOTS
+          - HEALTH_PERCENT:<=:25
+        effects:
+          - ADD_ATTRIBUTE:MOVEMENT_SPEED:sanguine_movement_speed2:0.34:1
+          - ADD_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed2:0.34:1
+          - DELAY=40 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:sanguine_movement_speed2
+          - DELAY=40 | REMOVE_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed2
+          - "MESSAGE:&e&l**Sanguine: Below &f&l25% &e&lMax Health: &e&l+34% &e&lATS&e&l, &f&l+34%&f&lMS&e&l***"
+        true-condition-break: true
+      defense50:
+        type: DEFENSE
+        chance: 50
+        cooldown: 3000
+        conditions:
+          - EQUIP_SLOT:BOOTS
+          - HEALTH_PERCENT:<=:50
+        effects:
+          - ADD_ATTRIBUTE:MOVEMENT_SPEED:sanguine_movement_speed:0.1:17
+          - ADD_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed:0.17:1
+          - DELAY=40 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:sanguine_movement_speed
+          - DELAY=40 | REMOVE_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed
+          - "MESSAGE:&e&l**Sanguine: Below &f&l50% &e&lMax Health: &e&l+17% &e&lATS&e&l, &f&l+17%&f&lMS&e&l***"
+        true-condition-break: true
+    "5":
+      defense25:
+        type: DEFENSE
+        chance: 50
+        cooldown: 3000
+        conditions:
+          - EQUIP_SLOT:BOOTS
+          - HEALTH_PERCENT:<=:25
+        effects:
+          - ADD_ATTRIBUTE:MOVEMENT_SPEED:sanguine_movement_speed2:0.4:1
+          - ADD_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed2:0.4:1
+          - DELAY=40 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:sanguine_movement_speed2
+          - DELAY=40 | REMOVE_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed2
+          - "MESSAGE:&e&l**Sanguine: Below &f&l25% &e&lMax Health: &e&l+40% &e&lATS&e&l, &f&l+40%&f&lMS&e&l***"
+        true-condition-break: true
+      defense50:
+        type: DEFENSE
+        chance: 50
+        cooldown: 3000
+        conditions:
+          - EQUIP_SLOT:BOOTS
+          - HEALTH_PERCENT:<=:50
+        effects:
+          - ADD_ATTRIBUTE:MOVEMENT_SPEED:sanguine_movement_speed:0.2:1
+          - ADD_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed:0.2:1
+          - DELAY=40 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:sanguine_movement_speed
+          - DELAY=40 | REMOVE_ATTRIBUTE:ATTACK_SPEED:sanguine_attack_speed
+          - "MESSAGE:&e&l**Sanguine: Below &f&l50% &e&lMax Health: &e&l+20% &e&lATS&e&l, &f&l+20%&f&lMS&e&l***"
+        true-condition-break: true
+dash:
+  group: "supreme"
+  display: "Dash"
+  description:
+    - "&eCó khả năng lướt tới khi nhấn Shift"
+  detail-description:
+    - "&eCó khả năng lướt tới khi nhấn Shift"
+    - ""
+    - "&eThời gian hồi: 20/16/12/8/4 giây"
+    - ""
+    - "&cKhông thể ép chung với DoubleJump"
+  applies-description:
+    - "Giày"
+  applies:
+    - "ALL_BOOTS"
+  enchant-blacklist:
+    - 'doublejump'
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "ACTIVE_DASH:1:20000:1_8:EXPLOSION_NORMAL:&cLướt tiếp sau &e{time_left} &cgiây!"
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "DEACTIVE_DASH"
+    2:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "ACTIVE_DASH:1:16000:1_8:EXPLOSION_NORMAL:&cLướt tiếp sau &e{time_left} &cgiây!"
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "DEACTIVE_DASH"
+    3:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "ACTIVE_DASH:1:12000:1_8:EXPLOSION_NORMAL:&cLướt tiếp sau &e{time_left} &cgiây!"
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "DEACTIVE_DASH"
+    4:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "ACTIVE_DASH:1:8000:1_8:EXPLOSION_NORMAL:&cLướt tiếp sau &e{time_left} &cgiây!"
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "DEACTIVE_DASH"
+    5:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "ACTIVE_DASH:1:4000:1_8:EXPLOSION_NORMAL:&cLướt tiếp sau &e{time_left} &cgiây!"
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "DEACTIVE_DASH"
+# tag_potion: SPEED
+doublejump:
+  group: "rare"
+  display: "DoubleJump"
+  description:
+    - "&eCó khả năng nhảy thêm lần nữa"
+    - "&ekhi nhấn Shift trên không"
+  detail-description:
+    - "&eCó khả năng nhảy thêm lần nữa"
+    - "&ekhi nhấn Shift trên không"
+    - ""
+    - "&eThời gian hồi: 20/16/12/8/4 giây"
+    - ""
+    - "&cKhông thể ép chung với Dash"
+  applies-description:
+    - "Giày"
+  applies:
+    - "ALL_BOOTS"
+  enchant-blacklist:
+    - "dash"
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    1:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "ACTIVE_DOUBLE_JUMP:1:20000:1_8:EXPLOSION_NORMAL:&cKhinh công tiếp sau &e{time_left} &cgiây!"
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "DEACTIVE_DOUBLE_JUMP"
+    2:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "ACTIVE_DOUBLE_JUMP:1:16000:1_8:PEXPLOSION_NORMAL:&cKhinh công tiếp sau &e{time_left} &cgiây!"
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "DEACTIVE_DOUBLE_JUMP"
+    3:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "ACTIVE_DOUBLE_JUMP:1:12000:1_8:EXPLOSION_NORMAL:&cKhinh công tiếp sau &e{time_left} &cgiây!"
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "DEACTIVE_DOUBLE_JUMP"
+    4:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "ACTIVE_DOUBLE_JUMP:1:8000:1_8:EXPLOSION_NORMAL:&cKhinh công tiếp sau &e{time_left} &cgiây!"
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "DEACTIVE_DOUBLE_JUMP"
+    5:
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "ACTIVE_DOUBLE_JUMP:1:4000:1_8:EXPLOSION_NORMAL:&cKhinh công tiếp sau &e{time_left} &cgiây!"
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+          - ""
+        effects:
+          - "DEACTIVE_DOUBLE_JUMP"

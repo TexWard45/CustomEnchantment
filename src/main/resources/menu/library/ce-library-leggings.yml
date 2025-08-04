@@ -1,0 +1,109 @@
+settings:
+  title: '&8&lPhù phép Quần'
+  rows: 6
+  sound: ENTITY_EXPERIENCE_ORB_PICKUP
+  actions:
+    '1':
+      inventory-type: CHEST
+      slots: 0-53
+      cancel-drag: true
+      cancel-click-type:
+      - LEFT
+      - RIGHT
+      - SHIFT_RIGHT
+      - SHIFT_LEFT
+      - NUMBER_KEY
+      cancel-inventory-action:
+      - MOVE_TO_OTHER_INVENTORY
+      - DROP_ALL_SLOT
+      - DROP_ALL_CURSOR
+      - DROP_ONE_SLOT
+      - DROP_ONE_CURSOR
+    '2':
+      inventory-type: PLAYER
+      slots: 0-35
+      cancel-drag: true
+      cancel-click-type:
+      - LEFT
+      - RIGHT
+      - SHIFT_RIGHT
+      - SHIFT_LEFT
+      - NUMBER_KEY
+catalog:
+  type: 'cebook'
+  data:
+    applies:
+    - 'Quần'
+    groups:
+    - 'common'
+    - 'rare'
+    - 'epic'
+    - 'legendary'
+    - 'supreme'
+    - 'ultimate'
+    - 'event'
+    - 'primecommon'
+    - 'primerare'
+    - 'primeepic'
+    - 'primelegendary'
+    - 'primesupreme'
+    - 'primeultimate'
+    ce-book-type: 'detail'
+  slots: '10-16,19-25,28-34,37-43'
+  item:
+    item:
+      type: BOOK
+      display: '%cmcatalog_display%'
+      lore:
+      - '%cmcatalog_description%'
+  next-page:
+    item:
+      type: LIME_STAINED_GLASS_PANE
+      display: §aTrang kế
+    slots: 50
+    command:
+      '1':
+        condition:
+        - CLICK_TYPE LEFT
+        true-condition:
+          execute:
+          - NEXT_PAGE
+          step: BREAK
+  previous-page:
+    item:
+      type: YELLOW_STAINED_GLASS_PANE
+      display: §eTrang trước
+    slots: 48
+    command:
+      '1':
+        condition:
+        - CLICK_TYPE LEFT
+        true-condition:
+          execute:
+          - PREVIOUS_PAGE
+          step: BREAK
+items:
+  return:
+    item:
+      type: GRAY_STAINED_GLASS_PANE
+      display: §cTrở về
+    slots: 49
+    command:
+      '1':
+        condition:
+        - CLICK_TYPE LEFT
+        true-condition:
+          execute:
+          - RETURN_MENU
+          step: BREAK
+  background:
+    item:
+      type: RED_STAINED_GLASS_PANE
+      display: ' '
+    slots:
+    - '111111111'
+    - '100000001'
+    - '100000001'
+    - '100000001'
+    - '100000001'
+    - '111101111'

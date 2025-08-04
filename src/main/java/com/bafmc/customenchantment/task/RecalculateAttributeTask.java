@@ -1,23 +1,26 @@
 package com.bafmc.customenchantment.task;
 
+import com.bafmc.bukkit.task.PlayerPerTickTask;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.player.CEPlayer;
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
-import org.bukkit.scheduler.BukkitRunnable;
 
-public class RecalculateAttributeTask extends BukkitRunnable {
+public class RecalculateAttributeTask extends PlayerPerTickTask {
     private CustomEnchantment plugin;
 
     public RecalculateAttributeTask(CustomEnchantment plugin) {
         this.plugin = plugin;
     }
 
-    public void run() {
-        for (Player player : Bukkit.getOnlinePlayers()) {
-            CEPlayer cePlayer = CEAPI.getCEPlayer(player);
-            cePlayer.getCustomAttribute().recalculateAttribute();
-        }
+    @Override
+    public int getPlayerPerTick() {
+        return 20;
+    }
+
+    @Override
+    public void run(Player player) {
+        CEPlayer cePlayer = CEAPI.getCEPlayer(player);
+        cePlayer.getCustomAttribute().recalculateAttribute();
     }
 }

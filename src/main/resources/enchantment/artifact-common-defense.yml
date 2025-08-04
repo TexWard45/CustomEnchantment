@@ -1,0 +1,204 @@
+freshgrass:
+  group: artifact
+  display: "Fresh Grass"
+  description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm lượng máu hồi phục mỗi giây"
+  detail-description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm lượng máu hồi phục mỗi giây"
+    - ""
+    - "&eLượng máu hồi phục: 0.4 x Cấp"
+  applies-description:
+    - "Thanh công cụ"
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_CUSTOM_ATTRIBUTE:freshgrass_health_regeneration:HEALTH_REGENERATION:1.0:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_CUSTOM_ATTRIBUTE:freshgrass_health_regeneration
+    "2":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_CUSTOM_ATTRIBUTE:freshgrass_health_regeneration:HEALTH_REGENERATION:2.0:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_CUSTOM_ATTRIBUTE:freshgrass_health_regeneration
+    "3":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_CUSTOM_ATTRIBUTE:freshgrass_health_regeneration:HEALTH_REGENERATION:3.0:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_CUSTOM_ATTRIBUTE:freshgrass_health_regeneration
+    "4":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_CUSTOM_ATTRIBUTE:freshgrass_health_regeneration:HEALTH_REGENERATION:4.0:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_CUSTOM_ATTRIBUTE:freshgrass_health_regeneration
+    "5":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_CUSTOM_ATTRIBUTE:freshgrass_health_regeneration:HEALTH_REGENERATION:5.0:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_CUSTOM_ATTRIBUTE:freshgrass_health_regeneration
+steelbelt:
+  group: artifact
+  display: "Steel Belt"
+  description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm máu tối đa"
+  detail-description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm máu tối đa"
+    - ""
+    - "&eMáu tối đa: 1 x Cấp"
+  applies-description:
+    - "Thanh công cụ"
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:MAX_HEALTH:steelbelt_max_health:2:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:MAX_HEALTH:steelbelt_max_health
+    "2":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:MAX_HEALTH:steelbelt_max_health:4:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:MAX_HEALTH:steelbelt_max_health
+    "3":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:MAX_HEALTH:steelbelt_max_health:6:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:MAX_HEALTH:steelbelt_max_health
+    "4":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:MAX_HEALTH:steelbelt_max_health:8:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:MAX_HEALTH:steelbelt_max_health
+    "5":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_ATTRIBUTE:MAX_HEALTH:steelbelt_max_health:10:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_ATTRIBUTE:MAX_HEALTH:steelbelt_max_health

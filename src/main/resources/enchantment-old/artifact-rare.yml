@@ -1,0 +1,32 @@
+eternalbread:
+  group: artifact
+  display: "Eternal Bread"
+  description:
+    - "&eKhi trang bị:"
+    - "&7» &7Nhận hiệu ứng thuốc bão hòa"
+  detail-description:
+    - "&eKhi trang bị:"
+    - "&7» &7Nhận hiệu ứng thuốc bão hòa"
+  applies-description:
+    - "Thanh công cụ"
+  max-level: 1
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_FOREVER_POTION:eternalbread:SATURATION:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_FOREVER_POTION:eternalbread
