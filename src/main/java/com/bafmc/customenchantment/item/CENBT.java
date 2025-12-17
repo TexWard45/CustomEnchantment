@@ -9,6 +9,7 @@ public class CENBT {
 	public static final String ENCHANT = "enchant";
 	public static final String DATA = "data";
 	public static final String TYPE = "type";
+	public static final String CUSTOM_TYPE = "custom-type";
 	public static final String PATTERN = "pattern";
 	public static final String NAME = "name";
 	public static final String LEVEL = "lvl";

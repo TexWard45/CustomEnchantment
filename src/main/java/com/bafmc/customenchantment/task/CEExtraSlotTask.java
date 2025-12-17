@@ -12,6 +12,7 @@ import com.bafmc.customenchantment.enchant.CEType;
 import com.bafmc.customenchantment.item.CEItem;
 import com.bafmc.customenchantment.item.CEWeaponAbstract;
 import com.bafmc.customenchantment.item.artifact.CEArtifact;
+import com.bafmc.customenchantment.item.outfit.CEOutfit;
 import com.bafmc.customenchantment.item.sigil.CESigil;
 import com.bafmc.customenchantment.player.CEPlayer;
 import com.bafmc.customenchantment.player.PlayerExtraSlot;
@@ -51,7 +52,7 @@ public class CEExtraSlotTask extends PlayerPerTickTask {
         for (EquipSlot equipSlot : EquipSlot.EXTRA_SLOT_ARRAY) {
             CEItem ceItem = cePlayer.getEquipment().getSlot(equipSlot, false);
 
-            if (!(ceItem instanceof CEArtifact) && !(ceItem instanceof CESigil)) {
+            if (!(ceItem instanceof CEArtifact) && !(ceItem instanceof CESigil) && !(ceItem instanceof CEOutfit)) {
                 continue;
             }
 

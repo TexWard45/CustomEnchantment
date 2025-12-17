@@ -23,4 +23,6 @@ public class CEItemType {
     public static final String LORE_FORMAT = "loreformat";
 	public static final String ARTIFACT = "artifact";
 	public static final String SIGIL = "sigil";
+	public static final String OUTFIT = "outfit";
+	public static final String SKIN = "skin";
 }

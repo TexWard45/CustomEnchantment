@@ -11,6 +11,7 @@ import com.bafmc.customenchantment.item.CEItem;
 import com.bafmc.customenchantment.item.CEItemType;
 import com.bafmc.customenchantment.item.CEWeaponAbstract;
 import com.bafmc.customenchantment.item.artifact.CEArtifact;
+import com.bafmc.customenchantment.item.outfit.CEOutfit;
 import com.bafmc.customenchantment.item.protectdead.CEProtectDead;
 import com.bafmc.customenchantment.item.sigil.CESigil;
 import com.bafmc.customenchantment.menu.MenuAbstract;
@@ -100,8 +101,8 @@ public class EquipmentMenu extends MenuAbstract {
 			}
 
 			PlayerEquipment playerEquipment = CEAPI.getCEPlayer(player).getEquipment();
-			int maxArtifactUseCount = getMaxExtraSlotUseCount(ceWeaponAbstract);
-			if (maxArtifactUseCount <= 0) {
+			int maxExtraSlotUseCount = getMaxExtraSlotUseCount(ceWeaponAbstract);
+			if (maxExtraSlotUseCount <= 0) {
 				return EquipmentAddReason.NO_EXTRA_SLOT;
 			}
 
@@ -295,7 +296,7 @@ public class EquipmentMenu extends MenuAbstract {
 			for (int i = 0; i < maxArtifactUseCount; i++) {
 				if (i < slots.size()) {
 					CEWeaponAbstract weaponAbstract = playerEquipment.getSlot(data.getSlot(i));
-					if (weaponAbstract instanceof CEArtifact || weaponAbstract instanceof CESigil) {
+					if (weaponAbstract instanceof CEArtifact || weaponAbstract instanceof CESigil || weaponAbstract instanceof CEOutfit) {
 						menuView.setTemporaryItem(slots.get(i), weaponAbstract.getDefaultItemStack());
 					}else {
 						menuView.removeTemporaryItem(slots.get(i));
@@ -461,6 +462,13 @@ public class EquipmentMenu extends MenuAbstract {
 			if (weaponAbstract instanceof CESigil) {
 				CESigil sigil = (CESigil) weaponAbstract;
 				if (sigil.getData().getId().equals(ceWeaponAbstract.getData().getPattern())) {
+					return true;
+				}
+			}
+
+			if (weaponAbstract instanceof CEOutfit) {
+				CEOutfit outfit = (CEOutfit) weaponAbstract;
+				if (outfit.getData().getId().equals(ceWeaponAbstract.getData().getPattern())) {
 					return true;
 				}
 			}

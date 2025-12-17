@@ -5,6 +5,7 @@ import com.bafmc.bukkit.module.PluginModule;
 import com.bafmc.bukkit.utils.FileUtils;
 import com.bafmc.customenchantment.*;
 import com.bafmc.customenchantment.item.artifact.CEArtifactGroupMap;
+import com.bafmc.customenchantment.item.outfit.CEOutfitGroupMap;
 import com.bafmc.customenchantment.item.randombook.CERandomBookPlayerFilter;
 import com.bafmc.customenchantment.item.sigil.CESigilGroupMap;
 
@@ -30,6 +31,8 @@ public class ConfigModule extends PluginModule<CustomEnchantment> {
         FileUtils.createFolder(getPlugin().getGeneralDataFolder());
         FileUtils.createFolder(getPlugin().getPlayerDataFolder());
         FileUtils.createFolder(getPlugin().getWeaponFolder());
+        FileUtils.createFolder(getPlugin().getSigilGroupFile());
+        FileUtils.createFolder(getPlugin().getOutfitGroupFile());
         FileUtils.createFile(getPlugin().getGroupFile());
         FileUtils.createFile(getPlugin().getItemFile());
         FileUtils.createFile(getPlugin().getSaveItemFile());
@@ -43,6 +46,7 @@ public class ConfigModule extends PluginModule<CustomEnchantment> {
         getPlugin().setCeGroupMap(new CEGroupMap());
         getPlugin().setCeArtifactGroupMap(new CEArtifactGroupMap());
         getPlugin().setCeSigilGroupMap(new CESigilGroupMap());
+        getPlugin().setCeOutfitGroupMap(new CEOutfitGroupMap());
         getPlugin().setCeItemStorageMap(new CEItemStorageMap());
 
         CERandomBookPlayerFilter.setFilterCEList(new ArrayList<>());
@@ -63,6 +67,9 @@ public class ConfigModule extends PluginModule<CustomEnchantment> {
 
         CESigilGroupConfig ceSigilGroupConfig = new CESigilGroupConfig();
         ceSigilGroupConfig.loadConfig(getPlugin().getSigilGroupFile());
+
+        CEOutfitGroupConfig ceOutfitGroupConfig = new CEOutfitGroupConfig();
+        ceOutfitGroupConfig.loadConfig(getPlugin().getOutfitGroupFile());
 
         CEEnchantConfig enchantConfig = new CEEnchantConfig();
         enchantConfig.loadConfig(getPlugin().getEnchantFolder());

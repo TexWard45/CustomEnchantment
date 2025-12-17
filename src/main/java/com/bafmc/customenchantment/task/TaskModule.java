@@ -22,6 +22,7 @@ public class TaskModule extends PluginModule<CustomEnchantment> {
     private AutoUpdateItemTask autoUpdateItemTask;
     private ExpTask expTask;
     private UpdateAttributeTask updateAttributeTask;
+    private OutfitItemTask outfitItemTask;
     
     public TaskModule(CustomEnchantment plugin) {
         super(plugin);
@@ -80,6 +81,9 @@ public class TaskModule extends PluginModule<CustomEnchantment> {
             SigilItemTask sigilItemTask = new SigilItemTask();
             sigilItemTask.runTaskTimerAsynchronously(getPlugin(), 0, 1);
         }
+
+        this.outfitItemTask = new OutfitItemTask();
+        this.outfitItemTask.runTaskTimer(getPlugin(), 0, 20);
     }
 
     public void onDisable() {

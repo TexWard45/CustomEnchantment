@@ -13,6 +13,7 @@ import com.bafmc.customenchantment.config.data.ExtraSlotSettingsData;
 import com.bafmc.customenchantment.item.CEItem;
 import com.bafmc.customenchantment.item.CEWeaponFactory;
 import com.bafmc.customenchantment.item.artifact.CEArtifact;
+import com.bafmc.customenchantment.item.outfit.CEOutfit;
 import com.bafmc.customenchantment.item.sigil.CESigil;
 import lombok.Getter;
 import org.bukkit.Location;
@@ -72,6 +73,9 @@ public class MainConfig implements IConfigurationLoader {
 	@Path("sigil-extra-slot")
 	@Getter
 	private EquipSlot sigilExtraSlot = EquipSlot.EXTRA_SLOT_8;
+	@Path("outfit-extra-slot")
+	@Getter
+	private EquipSlot outfitExtraSlot = EquipSlot.EXTRA_SLOT_9;
 	@Path("sigil-display-enable")
 	@Getter
 	private boolean sigilDisplayEnable;
@@ -113,6 +117,10 @@ public class MainConfig implements IConfigurationLoader {
 			id = "sigil " + ceSigil.getData().getPattern();
 		}
 
+		if (ceItem instanceof CEOutfit ceOutfit) {
+			id = "outfit " + ceOutfit.getData().getPattern();
+		}
+
 		if (id == null) {
 			return null;
 		}
@@ -126,6 +134,9 @@ public class MainConfig implements IConfigurationLoader {
 				return extraSlotSettingMap.get(key);
 			}
 			if (id.startsWith("sigil ") && list.contains("sigil")) {
+				return extraSlotSettingMap.get(key);
+			}
+			if (id.startsWith("outfit ") && list.contains("outfit")) {
 				return extraSlotSettingMap.get(key);
 			}
 		}

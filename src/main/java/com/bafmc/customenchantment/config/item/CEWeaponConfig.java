@@ -19,8 +19,10 @@ public class CEWeaponConfig extends AbstractConfig {
         for (String pattern : config.getKeySection("weapon", false)) {
             String path = "weapon." + pattern;
 
+            String customType = config.getString(path + ".custom-type");
             ItemStack itemStack = config.getItemStack(path + ".item", true, true);
             CEWeapon ceItem = new CEWeapon(itemStack);
+            ceItem.setCustomType(customType);
             for (String enchantFormat : config.getStringList(path + ".enchants")) {
                 String enchantName = null;
                 int level = 1;

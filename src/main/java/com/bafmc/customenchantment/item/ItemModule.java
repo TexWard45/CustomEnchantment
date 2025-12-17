@@ -13,6 +13,7 @@ import com.bafmc.customenchantment.item.increaseratebook.CEIncreaseRateBookFacto
 import com.bafmc.customenchantment.item.loreformat.CELoreFormatFactory;
 import com.bafmc.customenchantment.item.mask.CEMaskFactory;
 import com.bafmc.customenchantment.item.nametag.CENameTagFactory;
+import com.bafmc.customenchantment.item.outfit.CEOutfitFactory;
 import com.bafmc.customenchantment.item.protectdead.CEProtectDeadFactory;
 import com.bafmc.customenchantment.item.protectdestroy.CEProtectDestroyFactory;
 import com.bafmc.customenchantment.item.randombook.CERandomBookFactory;
@@ -21,6 +22,7 @@ import com.bafmc.customenchantment.item.removeenchantpoint.CERemoveEnchantPointF
 import com.bafmc.customenchantment.item.removegem.CERemoveGemFactory;
 import com.bafmc.customenchantment.item.removeprotectdead.CERemoveProtectDeadFactory;
 import com.bafmc.customenchantment.item.sigil.CESigilFactory;
+import com.bafmc.customenchantment.item.skin.CESkinFactory;
 
 public class ItemModule extends PluginModule<CustomEnchantment> {
     public ItemModule(CustomEnchantment plugin) {
@@ -49,5 +51,7 @@ public class ItemModule extends PluginModule<CustomEnchantment> {
         new CELoreFormatFactory().register();
         new CEGemDrillFactory().register();
         new CESigilFactory().register();
+        new CEOutfitFactory().register();
+        new CESkinFactory().register();
     }
 }

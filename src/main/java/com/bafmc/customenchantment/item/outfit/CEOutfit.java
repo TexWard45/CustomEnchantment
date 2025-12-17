@@ -1,0 +1,136 @@
+package com.bafmc.customenchantment.item.outfit;
+
+import com.bafmc.bukkit.bafframework.nms.NMSNBTTagCompound;
+import com.bafmc.bukkit.feature.placeholder.Placeholder;
+import com.bafmc.bukkit.utils.ColorUtils;
+import com.bafmc.bukkit.utils.ItemStackUtils;
+import com.bafmc.bukkit.utils.SparseMap;
+import com.bafmc.customenchantment.CustomEnchantment;
+import com.bafmc.customenchantment.api.MaterialData;
+import com.bafmc.customenchantment.enchant.CEEnchantSimple;
+import com.bafmc.customenchantment.item.CEItemType;
+import com.bafmc.customenchantment.item.CENBT;
+import com.bafmc.customenchantment.item.CEWeaponAbstract;
+import com.bafmc.customenchantment.nms.CECraftItemStackNMS;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
+
+public class CEOutfit extends CEWeaponAbstract<CEOutfitData> {
+    public CEOutfit(ItemStack itemStack) {
+        super(CEItemType.OUTFIT, itemStack);
+    }
+
+    public void importFrom(ItemStack itemStack) {
+        super.importFrom(itemStack);
+
+        CECraftItemStackNMS itemStackNMS = getCraftItemStack();
+        NMSNBTTagCompound tag = itemStackNMS.getCECompound();
+
+        String pattern = tag.getString(CENBT.PATTERN);
+        int level = Math.max(tag.getInt(CENBT.LEVEL), 1);
+        String id = tag.getString(CENBT.ID);
+
+        CEOutfit item = (CEOutfit) CustomEnchantment.instance().getCeItemStorageMap().get(CEItemType.OUTFIT).get(pattern);
+
+        if (item != null) {
+            CEOutfitData data = item.getData().clone();
+            data.setLevel(level);
+            data.setId(id);
+            setData(data);
+        }
+    }
+
+    public ItemStack exportTo() {
+        return exportTo(getData());
+    }
+
+    public ItemStack exportTo(CEOutfitData data) {
+        getWeaponEnchant().forceAddCESimple(new CEEnchantSimple(getData().getConfigData().getEnchant(), data.getLevel()));
+
+        ItemStack itemStack = super.exportTo().clone();
+
+        CECraftItemStackNMS itemStackNMS = new CECraftItemStackNMS(itemStack);
+        NMSNBTTagCompound tag = itemStackNMS.getCECompound();
+
+        tag.setString(CENBT.TYPE, getType());
+        tag.setString(CENBT.PATTERN, data.getPattern());
+        tag.setInt(CENBT.LEVEL, data.getLevel());
+        if (data.getId() == null || data.getId().isEmpty()) {
+            tag.setString(CENBT.ID, UUID.randomUUID().toString());
+        }else {
+            tag.setString(CENBT.ID, data.getId());
+        }
+
+        if (!tag.isEmpty()) {
+            itemStackNMS.setCETag(tag);
+        }
+
+        Placeholder placeholder = Placeholder.of(getPlaceholder(data));
+
+        itemStack = itemStackNMS.getNewItemStack();
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        // Fix duplicate display name
+        if (getData().getConfigData().getItemDisplay() != null) {
+            itemMeta.setDisplayName(placeholder.apply(getData().getConfigData().getItemDisplay()));
+        }
+
+        itemStack.setItemMeta(itemMeta);
+        itemStack = ItemStackUtils.setItemStack(itemStack, placeholder);
+        itemStack = ItemStackUtils.updateColorToItemStack(itemStack);
+        return itemStack;
+    }
+
+    public Map<String, String> getPlaceholder(CEOutfitData data) {
+        Map<String, String> map = new HashMap<>();
+
+        if (data.getLevel() <= 0) {
+            return map;
+        }
+
+        CEOutfitGroup group = CustomEnchantment.instance().getCeOutfitGroupMap().get(data.getConfigData().getGroup());
+        if (group != null) {
+            map.put("{level}", String.valueOf(data.getLevel()));
+
+            SparseMap<String> levelColors = group.getLevelColors();
+            map.put("{level_color}", levelColors.containsKey(data.getLevel()) ? group.getLevelColors().get(data.getLevel()) : "");
+            // Fix auto replace bold color
+            map.put("{level_color_bold}", levelColors.containsKey(data.getLevel()) ? group.getLevelColors().get(data.getLevel()) + "&l" : "");
+        }
+        return map;
+    }
+
+    public String getSpecialDisplay(ItemStack itemStack) {
+        MaterialData type = new MaterialData(itemStack);
+
+        List<CEOutfitData.SpecialDisplayData> specialDisplayDataList = getData().getConfigData().getSpecialDisplayDataList();
+        CEOutfitData.SpecialDisplayData specialDisplayData = null;
+
+        for (CEOutfitData.SpecialDisplayData data : specialDisplayDataList) {
+            if (data.getMaterialList().contains(type)) {
+                specialDisplayData = data;
+                break;
+            }
+        }
+
+        if (specialDisplayData == null) {
+            return null;
+        }
+
+        String display = specialDisplayData.getDisplay();
+        if (display == null || display.isEmpty()) {
+            return null;
+        }
+
+        Placeholder placeholder = Placeholder.of(getPlaceholder(getData()));
+        return ColorUtils.t(placeholder.apply(display));
+    }
+
+    public String getWeaponSettingsName() {
+        return "outfit-" + super.getWeaponSettingsName();
+    }
+}

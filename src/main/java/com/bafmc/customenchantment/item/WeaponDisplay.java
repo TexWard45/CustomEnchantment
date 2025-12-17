@@ -21,6 +21,7 @@ import com.bafmc.customenchantment.item.gemdrill.CEGemDrillSimple;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
@@ -254,13 +255,15 @@ class NormalEnchantLore {
 	public List<String> buildLores() {
 		List<String> lore = new ArrayList<String>();
 
-		Map<Enchantment, Integer> enchantMap = itemStack.getEnchantments();
+		if (!itemStack.hasItemFlag(ItemFlag.HIDE_ENCHANTS)) {
+			Map<Enchantment, Integer> enchantMap = itemStack.getEnchantments();
 
-		for (Enchantment enchantment : enchantMap.keySet()) {
-			String vanillaLore = settings.getVanillaEnchantLore();
-			vanillaLore = vanillaLore.replace("%enchant_display%", PlaceholderAPI.setPlaceholders(null, EnchantmentUtils.getDisplayName(enchantment)));
-			vanillaLore = vanillaLore.replace("%enchant_level%", NumberUtils.toRomanNumber(enchantMap.get(enchantment)));
-			lore.add(vanillaLore);
+			for (Enchantment enchantment : enchantMap.keySet()) {
+				String vanillaLore = settings.getVanillaEnchantLore();
+				vanillaLore = vanillaLore.replace("%enchant_display%", PlaceholderAPI.setPlaceholders(null, EnchantmentUtils.getDisplayName(enchantment)));
+				vanillaLore = vanillaLore.replace("%enchant_level%", NumberUtils.toRomanNumber(enchantMap.get(enchantment)));
+				lore.add(vanillaLore);
+			}
 		}
 
 		if (lore.isEmpty()) {
@@ -457,60 +460,62 @@ class AttributeLore {
 	public List<String> buildLores() {
 		List<String> lore = new ArrayList<String>();
 
-		Map<NMSAttributeType, String> typeMap = settings.getAttributeTypeMap();
-		Map<String, String> slotMap = settings.getAttributeSlotMap();
+		if (!itemStack.hasItemFlag(ItemFlag.HIDE_ATTRIBUTES)) {
+			Map<NMSAttributeType, String> typeMap = settings.getAttributeTypeMap();
+			Map<String, String> slotMap = settings.getAttributeSlotMap();
 
-		INMSAttributeItem attributes = NMSManager.getAttributesProvider().getNMSAttributeItem().setItemStack(itemStack);
-		DecimalFormat format = new DecimalFormat("#.##");
+			INMSAttributeItem attributes = NMSManager.getAttributesProvider().getNMSAttributeItem().setItemStack(itemStack);
+			DecimalFormat format = new DecimalFormat("#.##");
 
-		for (String slot : slotMap.keySet()) {
-			List<String> currentLore = new ArrayList<String>();
+			for (String slot : slotMap.keySet()) {
+				List<String> currentLore = new ArrayList<String>();
 
-			for (NMSAttributeType type : typeMap.keySet()) {
-				if (attributes.hasAttributeType(type, slot, NMSAttributeOperation.ADD_NUMBER)) {
-					double amount = attributes.getValue(type, slot, NMSAttributeOperation.ADD_NUMBER);
-					String operation = amount >= 0 ? "+" : "-";
-					if (amount == 0) {
-						continue;
+				for (NMSAttributeType type : typeMap.keySet()) {
+					if (attributes.hasAttributeType(type, slot, NMSAttributeOperation.ADD_NUMBER)) {
+						double amount = attributes.getValue(type, slot, NMSAttributeOperation.ADD_NUMBER);
+						String operation = amount >= 0 ? "+" : "-";
+						if (amount == 0) {
+							continue;
+						}
+
+						if (type instanceof CustomAttributeType customAttributeType && customAttributeType.isPercent()) {
+							currentLore.add(typeMap.get(type).replace("%amount%", format.format(Math.abs(amount)) + "%")
+									.replace("%operation%", operation));
+						} else {
+							currentLore.add(typeMap.get(type).replace("%amount%", format.format(Math.abs(amount)))
+									.replace("%operation%", operation));
+						}
 					}
 
-					if (type instanceof CustomAttributeType customAttributeType && customAttributeType.isPercent()) {
-						currentLore.add(typeMap.get(type).replace("%amount%", format.format(Math.abs(amount)) + "%")
+					if (attributes.hasAttributeType(type, slot, NMSAttributeOperation.MULTIPLY_PERCENTAGE)) {
+						double amount = attributes.getValue(type, slot, NMSAttributeOperation.MULTIPLY_PERCENTAGE);
+						String operation = amount >= 0 ? "+" : "-";
+						currentLore.add(typeMap.get(type).replace("%amount%", format.format(Math.abs(amount) * 100) + "%")
 								.replace("%operation%", operation));
-					}else {
-						currentLore.add(typeMap.get(type).replace("%amount%", format.format(Math.abs(amount)))
+					}
+
+					if (attributes.hasAttributeType(type, slot, NMSAttributeOperation.ADD_PERCENTAGE)) {
+						double amount = attributes.getValue(1, type, slot, NMSAttributeOperation.ADD_PERCENTAGE);
+						amount -= 1; // Convert to percentage
+						String operation = amount >= 0 ? "+" : "-";
+						currentLore.add(typeMap.get(type).replace("%amount%", format.format(Math.abs(amount) * 100) + "%")
 								.replace("%operation%", operation));
 					}
 				}
 
-				if (attributes.hasAttributeType(type, slot, NMSAttributeOperation.MULTIPLY_PERCENTAGE)) {
-					double amount = attributes.getValue(type, slot, NMSAttributeOperation.MULTIPLY_PERCENTAGE);
-					String operation = amount >= 0 ? "+" : "-";
-					currentLore.add(typeMap.get(type).replace("%amount%", format.format(Math.abs(amount) * 100) + "%")
-							.replace("%operation%", operation));
-				}
+				if (!currentLore.isEmpty()) {
+					lore.add(slotMap.get(slot));
+					lore.addAll(currentLore);
 
-				if (attributes.hasAttributeType(type, slot, NMSAttributeOperation.ADD_PERCENTAGE)) {
-					double amount = attributes.getValue(1, type, slot, NMSAttributeOperation.ADD_PERCENTAGE);
-					amount -= 1; // Convert to percentage
-					String operation = amount >= 0 ? "+" : "-";
-					currentLore.add(typeMap.get(type).replace("%amount%", format.format(Math.abs(amount) * 100) + "%")
-							.replace("%operation%", operation));
+					// Add empty line between slot
+					lore.add("");
 				}
 			}
 
-			if (!currentLore.isEmpty()) {
-				lore.add(slotMap.get(slot));
-				lore.addAll(currentLore);
-
-				// Add empty line between slot
-				lore.add("");
+			// Remove last empty line
+			if (!lore.isEmpty() && lore.get(lore.size() - 1).isEmpty()) {
+				lore.remove(lore.size() - 1);
 			}
-		}
-
-		// Remove last empty line
-		if (!lore.isEmpty() && lore.get(lore.size() - 1).isEmpty()) {
-			lore.remove(lore.size() - 1);
 		}
 
 		if (lore.isEmpty()) {

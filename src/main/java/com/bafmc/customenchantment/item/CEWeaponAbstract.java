@@ -27,6 +27,9 @@ public abstract class CEWeaponAbstract<T extends CEItemData> extends CEItem<T> {
     protected String weaponSettingsName;
 	private int repairCost;
 	private boolean removePattern;
+	@Getter
+	@Setter
+	private String customType;
 
 	public CEWeaponAbstract(String type, ItemStack itemStack) {
 		super(type, itemStack);
@@ -72,6 +75,12 @@ public abstract class CEWeaponAbstract<T extends CEItemData> extends CEItem<T> {
 		this.repairCost = itemStackNMS.getRepairCost();
 		
 		this.lastTimeModifier = this.newTimeModifier = tag.getLong("time");
+
+		if (tag.hasKey(CENBT.CUSTOM_TYPE)) {
+			this.customType = tag.getString(CENBT.CUSTOM_TYPE);
+		} else {
+			this.customType = null;
+		}
 	}
 	
 	public ItemStack exportTo() {
@@ -84,6 +93,12 @@ public abstract class CEWeaponAbstract<T extends CEItemData> extends CEItem<T> {
 		NMSNBTTagCompound tag = itemStackNMS.getCECompound();
 		tag.setString(CENBT.TYPE, getType());
 		tag.setString(CENBT.SETTINGS, weaponSettingsName);
+
+		if (this.customType != null && !this.customType.isEmpty()) {
+			tag.setString(CENBT.CUSTOM_TYPE, this.customType);
+		}else {
+			tag.remove(CENBT.CUSTOM_TYPE);
+		}
 
 		NMSNBTTagList enchantTag = weaponEnchant.exportTo();
 		if (enchantTag != null) {
