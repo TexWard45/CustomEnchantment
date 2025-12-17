@@ -66,7 +66,7 @@ public abstract class CEUnify<T extends CEUnifyData> extends CEWeaponAbstract<T>
 		return itemStackNMS.getNewItemStack();
 	}
 
-	public CEUnify convertWeaponToMask(CEWeaponAbstract weapon) {
+	public CEUnify mergeWeapon(CEWeaponAbstract weapon) {
 		WeaponEnchant enchant = this.getWeaponEnchant();
 
 		ItemStack defaultItemStack = weapon.getDefaultItemStack();
@@ -140,7 +140,7 @@ public abstract class CEUnify<T extends CEUnifyData> extends CEWeaponAbstract<T>
 		ceItem.getCraftItemStack().getNewItemStack().setAmount(1);
 		
 		CEWeaponAbstract weaponAbstract = (CEWeaponAbstract) ceItem;
-		CEUnify unifyTarget = convertWeaponToMask(weaponAbstract);
+		CEUnify unifyTarget = mergeWeapon(weaponAbstract);
 		ApplyReason reason = new ApplyReason("success", ApplyResult.SUCCESS);
 		
 		reason.setSource(unifyTarget);

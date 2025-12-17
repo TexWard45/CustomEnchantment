@@ -278,8 +278,7 @@ public class PlayerListener implements Listener {
 			Location to = e.getTo();
 
 			PlayerAbility ability = cePlayer.getAbility();
-			if (ability.isCancel(Type.MOVE)
-					&& (from.getX() != to.getX() || from.getY() < to.getY() || from.getZ() != to.getZ()))
+			if (ability.isCancel(Type.MOVE) && isDifferentLocation(from, to))
 				e.setCancelled(true);
 			if (ability.isCancel(Type.LOOK) && (from.getYaw() != to.getYaw() || from.getPitch() != to.getPitch()))
 				e.setCancelled(true);
@@ -297,13 +296,23 @@ public class PlayerListener implements Listener {
 				}
 			}
 
-			if (from.getX() != to.getX() || from.getY() != to.getY() || from.getZ() != to.getZ()) {
+			if (isDifferentLocation(from, to)) {
 				callMove(cePlayer, from, to);
 			}
 		} catch (Exception ex) {
 			System.out.println("Error Move at player " + player);
 			ex.printStackTrace();
 		}
+	}
+
+	public boolean isDifferentLocation(Location from, Location to) {
+		return roundToOneDecimal(from.getX()) != roundToOneDecimal(to.getX())
+				|| roundToOneDecimal(from.getY()) != roundToOneDecimal(to.getY())
+				|| roundToOneDecimal(from.getZ()) != roundToOneDecimal(to.getZ());
+	}
+
+	private double roundToOneDecimal(double value) {
+		return Math.floor(value * 10) / 10.0;
 	}
 
 	@SuppressWarnings("deprecation")

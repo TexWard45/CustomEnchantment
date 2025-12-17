@@ -422,10 +422,10 @@ public class InventoryListener implements Listener {
 		}
 
 		Player player = (Player) e.getWhoClicked();
-		ItemStack maskItemStack = unify.getUnifyWeapon().getItemStack(Target.UNIFY);
+		ItemStack unifyItemStack = unify.getUnifyWeapon().getItemStack(Target.UNIFY);
 		ItemStack weaponItemStack = unify.getUnifyWeapon().getItemStack(Target.WEAPON);
 
-		e.setCurrentItem(maskItemStack);
+		e.setCurrentItem(unifyItemStack);
 		e.setCursor(weaponItemStack);
 		e.setCancelled(true);
 

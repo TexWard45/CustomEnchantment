@@ -23,16 +23,19 @@ public class ParticleSupport {
 
 	public void send(Player target, ParticleOptions e, float x, float y, float z, float offsetX,
 			float offsetY, float offsetZ, int count, boolean force) {
-		((CraftWorld) target.getWorld()).getHandle().sendParticles(
-				((CraftWorld) target.getWorld()).getHandle().players(),
-				null, // Sender // Paper - Particle API
-				e, // Particle
-				x, y, z, // Position
-				count,  // Count
-				offsetX, offsetY, offsetZ, // Random offset
-				0, // Speed?
-				force // Long distance
-		);
+		try {
+			((CraftWorld) target.getWorld()).getHandle().sendParticles(
+					((CraftWorld) target.getWorld()).getHandle().players(),
+					null, // Sender // Paper - Particle API
+					e, // Particle
+					x, y, z, // Position
+					count,  // Count
+					offsetX, offsetY, offsetZ, // Random offset
+					0, // Speed?
+					force // Long distance
+			);
+		}catch (Exception ex) {
+		}
 	}
 
 	public List<Particle> getParticleList(String format) {

@@ -37,4 +37,8 @@ public class TemporaryKey {
     public static final String FLASH_LAST_USE = "flash_last_use";
     public static final String LAST_MINE_BLOCK_TYPE = "last_mine_block_type";
     public static final String FLASH_SMART = "flash_smart";
+    public static final String PARTICLE_TURN = "particle_turn";
+    public static final String PARTICLE_ANGLE = "particle_angle";
+    public static final String PARTICLE_COLOR = "particle_color";
+    public static final String PARTICLE_CONTINUOUS = "particle_continuous";
 }

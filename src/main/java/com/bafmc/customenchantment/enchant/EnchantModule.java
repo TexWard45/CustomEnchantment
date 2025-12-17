@@ -89,6 +89,8 @@ public class EnchantModule extends PluginModule<CustomEnchantment> {
         new EffectAddBlockBonus().register();
         new EffectRemoveBlockBonus().register();
         new EffectPacketRedstoneParticle().register();
+        new EffectPacketSpiralRedstoneParticle().register();
+        new EffectPacketCircleRedstoneParticle().register();
         new EffectExplosion().register();
         new EffectPlaySound().register();
         new EffectNumberStorage().register();
