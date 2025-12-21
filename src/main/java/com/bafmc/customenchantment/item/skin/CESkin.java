@@ -17,10 +17,6 @@ public class CESkin extends CEUnify<CESkinData> {
 			return super.applyTo(ceItem);
 		}
 		
-		if (ceItem instanceof CESkin) {
-			return ceItem.applyTo(this);
-		}
-
 		return ApplyReason.NOTHING;
 	}
 	

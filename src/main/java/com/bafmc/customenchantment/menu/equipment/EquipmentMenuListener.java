@@ -9,12 +9,19 @@ import com.bafmc.custommenu.event.CustomMenuClickEvent;
 import com.bafmc.custommenu.event.CustomMenuCloseEvent;
 import com.bafmc.custommenu.event.CustomMenuOpenEvent;
 import org.bukkit.entity.Player;
+import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class EquipmentMenuListener extends MenuListenerAbstract {
+    private static final Map<String, Long> swapSkinCooldowns = new HashMap<>();
+    private static final long SWAP_SKIN_COOLDOWN_MS = 1000; // 1 second
+
     @Override
     public String getMenuName() {
         return EquipmentMenu.MENU_NAME;
@@ -40,7 +47,23 @@ public class EquipmentMenuListener extends MenuListenerAbstract {
             e.setCancelled(true);
             return;
         }
-        menu.returnItem(name, e.getSlot());
+
+        ClickType clickType = e.getInventoryClickEvent().getClick();
+
+        if (clickType == ClickType.LEFT) {
+            menu.returnItem(name, e.getSlot());
+        }else if (clickType == ClickType.RIGHT) {
+            String playerName = player.getName();
+            long currentTime = System.currentTimeMillis();
+            Long lastSwapTime = swapSkinCooldowns.get(playerName);
+
+            if (lastSwapTime != null && (currentTime - lastSwapTime) < SWAP_SKIN_COOLDOWN_MS) {
+                return;
+            }
+
+            swapSkinCooldowns.put(playerName, currentTime);
+            menu.swapSkin(name, e.getSlot());
+        }
     }
 
     @Override

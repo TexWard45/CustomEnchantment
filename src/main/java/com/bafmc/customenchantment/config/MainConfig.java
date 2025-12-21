@@ -76,6 +76,12 @@ public class MainConfig implements IConfigurationLoader {
 	@Path("outfit-extra-slot")
 	@Getter
 	private EquipSlot outfitExtraSlot = EquipSlot.EXTRA_SLOT_9;
+	@Path("outfit-task.per-player")
+	@Getter
+	private int outfitTaskPerPlayer = 5;
+	@Path("outfit-task.per-item")
+	@Getter
+	private int outfitTaskPerItem = 10;
 	@Path("sigil-display-enable")
 	@Getter
 	private boolean sigilDisplayEnable;

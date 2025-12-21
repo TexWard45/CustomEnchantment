@@ -9,6 +9,7 @@ import com.bafmc.customenchantment.guard.PlayerGuard;
 import com.bafmc.customenchantment.item.*;
 import com.bafmc.customenchantment.item.book.CEBookStorage;
 import com.bafmc.customenchantment.player.CEPlayer;
+import com.bafmc.customenchantment.player.TemporaryKey;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
@@ -122,5 +123,16 @@ public class CEAPI {
 			map.put(slot, weapon);
 		}
 		return map;
+	}
+
+	public static boolean isInCombat(Player player) {
+		if (CombatLogXAPI.isCombatLogXSupport()) {
+			return CombatLogXAPI.isInCombat(player);
+		}
+
+		CEPlayer cePlayer = CEAPI.getCEPlayer(player);
+
+		long lastCombatTime = cePlayer.getTemporaryStorage().getLong(TemporaryKey.LAST_COMBAT_TIME);
+		return System.currentTimeMillis() - lastCombatTime < CustomEnchantment.instance().getMainConfig().getCombatTime();
 	}
 }

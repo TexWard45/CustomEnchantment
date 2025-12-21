@@ -5,6 +5,9 @@ import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.config.data.ExtraSlotSettingsData;
 import com.bafmc.customenchantment.item.CEWeapon;
 import com.bafmc.customenchantment.item.CEWeaponAbstract;
+import com.bafmc.customenchantment.item.outfit.CEOutfit;
+import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
@@ -16,6 +19,9 @@ import java.util.concurrent.ConcurrentHashMap;
 public class PlayerEquipment extends CEPlayerExpansion {
     private ConcurrentHashMap<EquipSlot, CEWeaponAbstract> slotMap = new ConcurrentHashMap<>();
     private ConcurrentHashMap<EquipSlot, Boolean> disableSlotMap = new ConcurrentHashMap<>();
+    @Getter
+    @Setter
+    private CEWeaponAbstract wings;
 
     public PlayerEquipment(CEPlayer cePlayer) {
         super(cePlayer);
@@ -138,6 +144,14 @@ public class PlayerEquipment extends CEPlayerExpansion {
         getCEPlayer().getSet().onUpdate();
     }
 
+    public void setSkinIndex(String outfit, String customType, int index) {
+        getCEPlayer().getStorage().getConfig().set("outfit." + outfit + ".skin." + customType + ".index", index);
+    }
+
+    public int getSkinIndex(String outfit, String customType) {
+        return getCEPlayer().getStorage().getConfig().getInt("outfit." + outfit + ".skin." + customType + ".index", 0);
+    }
+
     public void setDisableSlot(EquipSlot slot, boolean disable) {
         if (disable) {
             disableSlotMap.put(slot, true);
@@ -166,5 +180,10 @@ public class PlayerEquipment extends CEPlayerExpansion {
             map.put(slot, slotMap.get(slot));
         }
         return map;
+    }
+
+    public CEOutfit getCEOutfit() {
+        EquipSlot outfitExtraSlot = CustomEnchantment.instance().getMainConfig().getOutfitExtraSlot();
+        return (CEOutfit) cePlayer.getEquipment().getSlot(outfitExtraSlot);
     }
 }

@@ -20,14 +20,6 @@ public class ConditionInCombat extends ConditionHook {
 	@Override
 	public boolean match(CEFunctionData data) {
 		Player player = data.getPlayer();
-
-		if (CombatLogXAPI.isCombatLogXSupport()) {
-			return CombatLogXAPI.isInCombat(player);
-		}
-
-		CEPlayer cePlayer = CEAPI.getCEPlayer(player);
-
-		long lastCombatTime = cePlayer.getTemporaryStorage().getLong(TemporaryKey.LAST_COMBAT_TIME);
-		return System.currentTimeMillis() - lastCombatTime < CustomEnchantment.instance().getMainConfig().getCombatTime();
+		return CEAPI.isInCombat(player);
 	}
 }

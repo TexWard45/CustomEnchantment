@@ -82,8 +82,11 @@ public class TaskModule extends PluginModule<CustomEnchantment> {
             sigilItemTask.runTaskTimerAsynchronously(getPlugin(), 0, 1);
         }
 
-        this.outfitItemTask = new OutfitItemTask();
-        this.outfitItemTask.runTaskTimer(getPlugin(), 0, 20);
+        OutfitItemAsyncTask outfitItemAsyncTask = new OutfitItemAsyncTask();
+        outfitItemAsyncTask.runTaskTimerAsynchronously(getPlugin(), 0, 1);
+
+        this.outfitItemTask = new OutfitItemTask(outfitItemAsyncTask);
+        this.outfitItemTask.runTaskTimer(getPlugin(), 0, 1);
     }
 
     public void onDisable() {

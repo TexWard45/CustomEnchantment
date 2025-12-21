@@ -18,7 +18,7 @@ public abstract class CEItemStorage<T extends CEItem<? extends CEItemData>> exte
 
 	public abstract T getByParameter(Parameter parameter);
 
-	public List<ItemStack> getItemStacksByParameter(Parameter parameter) {
+	public synchronized List<ItemStack> getItemStacksByParameter(Parameter parameter) {
 		T ceItem = getByParameter(parameter);
 
 		if (ceItem == null) {

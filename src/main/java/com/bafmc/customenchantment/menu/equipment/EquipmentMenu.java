@@ -6,6 +6,7 @@ import com.bafmc.bukkit.utils.MaterialUtils;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.CustomEnchantmentMessage;
 import com.bafmc.customenchantment.api.CEAPI;
+import com.bafmc.customenchantment.api.Parameter;
 import com.bafmc.customenchantment.config.data.ExtraSlotSettingsData;
 import com.bafmc.customenchantment.item.CEItem;
 import com.bafmc.customenchantment.item.CEItemType;
@@ -18,6 +19,7 @@ import com.bafmc.customenchantment.menu.MenuAbstract;
 import com.bafmc.customenchantment.player.CEPlayer;
 import com.bafmc.customenchantment.player.PlayerEquipment;
 import com.bafmc.customenchantment.player.PlayerStorage;
+import com.bafmc.customenchantment.task.OutfitItemAsyncTask;
 import com.bafmc.customenchantment.utils.StorageUtils;
 import com.bafmc.custommenu.menu.CMenuView;
 import lombok.Getter;
@@ -40,6 +42,7 @@ public class EquipmentMenu extends MenuAbstract {
 	public static final String PROTECT_DEAD_SLOT = "protect-dead";
 	public static final String EXTRA_SLOT = "extra-slot";
 	public static final String PLAYER_INFO_SLOT = "player-info";
+	public static final String WINGS_SLOT = "wings";
 	private static HashMap<String, EquipmentMenu> map = new HashMap<String, EquipmentMenu>();
 	@Getter
 	private boolean inUpdateMenu = false;
@@ -150,21 +153,27 @@ public class EquipmentMenu extends MenuAbstract {
 		}else {
 			Material type = itemStack.getType();
 
+			String customType = null;
+			if (ceItem instanceof CEWeaponAbstract ceWeaponAbstract) {
+				customType = ceWeaponAbstract.getCustomType();
+			}
+
 			EquipSlot equipSlot = null;
 			EquipmentSlot equipmentSlot = null;
 			if (MaterialUtils.isSimilar(type, "HELMET")
 					|| type == Material.TURTLE_HELMET
 					|| MaterialUtils.isSimilar(type, "BANNER")
-					|| MaterialUtils.isSimilar(type, "HEAD")) {
+					|| MaterialUtils.isSimilar(type, "HEAD")
+					|| "HELMET".equalsIgnoreCase(customType)) {
 				equipSlot = EquipSlot.HELMET;
 				equipmentSlot = EquipmentSlot.HEAD;
-			}else if (MaterialUtils.isSimilar(type, "CHESTPLATE")) {
+			}else if (MaterialUtils.isSimilar(type, "CHESTPLATE") || "CHESTPLATE".equalsIgnoreCase(customType)) {
 				equipSlot = EquipSlot.CHESTPLATE;
 				equipmentSlot = EquipmentSlot.CHEST;
-			}else if (MaterialUtils.isSimilar(type, "LEGGINGS")) {
+			}else if (MaterialUtils.isSimilar(type, "LEGGINGS") || "LEGGINGS".equalsIgnoreCase(customType)) {
 				equipSlot = EquipSlot.LEGGINGS;
 				equipmentSlot = EquipmentSlot.LEGS;
-			}else if (MaterialUtils.isSimilar(type, "BOOTS")) {
+			}else if (MaterialUtils.isSimilar(type, "BOOTS") || "BOOTS".equalsIgnoreCase(customType)) {
 				equipSlot = EquipSlot.BOOTS;
 				equipmentSlot = EquipmentSlot.FEET;
 			}
@@ -228,6 +237,7 @@ public class EquipmentMenu extends MenuAbstract {
 		updateProtectDeadSlots();
 		updateExtraSlots();
 		updatePlayerInfoSlots();
+		updateWingsSlot();
 	}
 
 	public void autoUpdateMenu() {
@@ -247,6 +257,51 @@ public class EquipmentMenu extends MenuAbstract {
 		for (int slot : slots) {
 			menuView.setTemporaryItem(slot, getItemStack(player, "player-info"));
 		}
+	}
+
+	public void updateWingsSlot() {
+		List<Integer> slots = getSlots(WINGS_SLOT);
+
+		CEPlayer cePlayer = CEAPI.getCEPlayer(player);
+		CEOutfit outfit = cePlayer.getEquipment().getCEOutfit();
+		if (outfit == null) {
+			for (int slot : slots) {
+				menuView.removeTemporaryItem(slot);
+			}
+			return;
+		}
+
+		int skinIndex = cePlayer.getEquipment().getSkinIndex(outfit.getData().getPattern(), "WINGS");
+		if (skinIndex == -1) {
+			for (int slot : slots) {
+				menuView.setTemporaryItem(slot, getItemStack(player, "wings-off"));
+			}
+			return;
+		}
+
+		String skinName = outfit.getData().getConfigByLevelData().getSkinByIndex("WINGS", skinIndex);
+		if (skinName == null || skinName.isEmpty()) {
+			return;
+		}
+
+		ItemStack itemStack = getSkinItemStack(skinName);
+		if (itemStack == null) {
+			return;
+		}
+
+		for (int slot : slots) {
+			menuView.setTemporaryItem(slot, itemStack);
+		}
+	}
+
+	private ItemStack getSkinItemStack(String skinName) {
+		Parameter parameter = new Parameter(List.of(skinName));
+		List<ItemStack> itemStacks = CustomEnchantment.instance()
+				.getCeItemStorageMap()
+				.get(CEItemType.SKIN)
+				.getItemStacksByParameter(parameter);
+
+		return (itemStacks != null && !itemStacks.isEmpty()) ? itemStacks.get(0) : null;
 	}
 
 	public void updateProtectDeadSlots() {
@@ -426,6 +481,56 @@ public class EquipmentMenu extends MenuAbstract {
 			}
 		}
     }
+
+	public void swapSkin(String itemName, int slot) {
+		PlayerEquipment playerEquipment = CEAPI.getCEPlayer(player).getEquipment();
+		CEOutfit ceOutfit = CEAPI.getCEPlayer(player).getEquipment().getCEOutfit();
+		if (ceOutfit == null) {
+			return;
+		}
+
+		CEWeaponAbstract weaponAbstract = null;
+		String customType = null;
+
+		if (itemName.equals(EquipSlot.HELMET.name().toLowerCase())) {
+			weaponAbstract = playerEquipment.getSlot(EquipSlot.HELMET);
+			customType = weaponAbstract != null ? weaponAbstract.getCustomType() : null;
+		} else if (itemName.equals(EquipSlot.CHESTPLATE.name().toLowerCase())) {
+			weaponAbstract = playerEquipment.getSlot(EquipSlot.CHESTPLATE);
+			customType = weaponAbstract != null ? weaponAbstract.getCustomType() : null;
+		} else if (itemName.equals(EquipSlot.LEGGINGS.name().toLowerCase())) {
+			weaponAbstract = playerEquipment.getSlot(EquipSlot.LEGGINGS);
+			customType = weaponAbstract != null ? weaponAbstract.getCustomType() : null;
+		} else if (itemName.equals(EquipSlot.BOOTS.name().toLowerCase())) {
+			weaponAbstract = playerEquipment.getSlot(EquipSlot.BOOTS);
+			customType = weaponAbstract != null ? weaponAbstract.getCustomType() : null;
+		} else if (itemName.equals("wings")) {
+			customType = "WINGS";
+		}
+
+		if (customType == null || customType.isEmpty()) {
+			return;
+		}
+
+		String outfit = ceOutfit.getData().getPattern();
+		List<String> skinList = ceOutfit.getData().getConfigByLevelData().getSkinListByCustomType(customType);
+		if (skinList == null || skinList.isEmpty()) {
+			return;
+		}
+
+		if (customType.equals("WINGS")) {
+			int index = playerEquipment.getSkinIndex(outfit, customType);
+			if (index + 1 >= skinList.size()) {
+				playerEquipment.setSkinIndex(outfit, customType, -1);
+			}else {
+				playerEquipment.setSkinIndex(outfit, customType, index + 1);
+			}
+		}else {
+			playerEquipment.setSkinIndex(outfit, customType, (playerEquipment.getSkinIndex(outfit, customType) + 1) % skinList.size());
+		}
+
+		updateMenuWithPreventAction();
+	}
 
 	public void returnItems() {
 	}

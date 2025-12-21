@@ -35,6 +35,10 @@ public abstract class CEItem<T extends CEItemData> implements ITrade<ItemStack> 
 		this.craftItemStack = craftItemStack;
 	}
 
+	public void updateDefaultItemStack(ItemStack itemStack) {
+		setCraftItemStack(new CECraftItemStackNMS(itemStack));
+	}
+
 	public CECraftItemStackNMS getCraftItemStack() {
 		return craftItemStack;
 	}

@@ -8,7 +8,8 @@ import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.enchant.CEEnchant;
 import com.bafmc.customenchantment.enchant.CEEnchantSimple;
-import com.bafmc.customenchantment.item.CEWeaponAbstract;
+import com.bafmc.customenchantment.item.*;
+import com.bafmc.customenchantment.nms.CECraftItemStackNMS;
 import com.bafmc.customenchantment.player.CEPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -73,8 +74,9 @@ public class CommandAddEnchant implements AbstractCommand {
                                     return true;
                                 }
 
-                                weapon.getWeaponEnchant().forceAddCESimple(ceEnchantSimple);
-                                player.setItemInHand(weapon.exportTo());
+//                                weapon.getWeaponEnchant().forceAddCESimple(ceEnchantSimple);
+                                CEItem ceItem = forceAddCESimple(weapon, ceEnchantSimple);
+                                player.setItemInHand(ceItem.exportTo());
                                 return true;
                             })
 						.end()
@@ -82,5 +84,25 @@ public class CommandAddEnchant implements AbstractCommand {
 				.end()
 			.end();
 	}
-	
+
+    public CEItem forceAddCESimple(CEItem ceItem, CEEnchantSimple ceEnchantSimple) {
+        if (ceItem instanceof CEUnify unify) {
+            CEUnifyWeapon unifyWeapon = unify.getUnifyWeapon();
+            ItemStack weapon = unifyWeapon.getItemStack(CEUnifyWeapon.Target.WEAPON);
+            ItemStack unifyItem = unifyWeapon.getItemStack(CEUnifyWeapon.Target.UNIFY);
+
+            CEItem ceWeaponItem = CEAPI.getCEItem(weapon);
+            CEItem ceUnifyItem = CEAPI.getCEItem(unifyItem);
+
+            CEItem newCeWeaponItem = forceAddCESimple(ceWeaponItem, ceEnchantSimple);
+            ApplyReason applyReason = ceUnifyItem.applyTo(newCeWeaponItem);
+            return applyReason.getSource();
+        }else if (ceItem instanceof CEWeaponAbstract weaponAbstract) {
+            weaponAbstract.getWeaponEnchant().forceAddCESimple(ceEnchantSimple);
+            weaponAbstract.updateDefaultItemStack(weaponAbstract.exportTo());
+            return weaponAbstract;
+        }
+
+        return ceItem;
+    }
 }

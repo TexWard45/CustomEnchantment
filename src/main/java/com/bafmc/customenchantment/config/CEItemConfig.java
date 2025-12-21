@@ -969,8 +969,17 @@ public class CEItemConfig extends AbstractConfig {
 					skinMap.put(skinKey, skinConfig.getString(skinKey));
 				}
 
+				Map<String, CEOutfitData.ConfigCustomTypeData> equipSlotDataMap = new HashMap<>();
+				AdvancedConfigurationSection customTypeConfig = config.getAdvancedConfigurationSection(key + ".custom-types");
+				for (String customType : customTypeConfig.getKeys(false)) {
+					List<String> list = customTypeConfig.getStringList(customType + ".list");
+					CEOutfitData.ConfigCustomTypeData data = new CEOutfitData.ConfigCustomTypeData(list);
+					equipSlotDataMap.put(customType, data);
+				}
+
 				CEOutfitData.ConfigByLevelData configByLevelData = CEOutfitData.ConfigByLevelData.builder()
 						.skinMap(skinMap)
+						.customTypeMap(equipSlotDataMap)
 						.build();
 
 				map.put(level, configByLevelData);

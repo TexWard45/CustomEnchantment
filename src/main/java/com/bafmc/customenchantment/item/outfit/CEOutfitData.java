@@ -1,9 +1,7 @@
 package com.bafmc.customenchantment.item.outfit;
 
-import com.bafmc.bukkit.bafframework.nms.NMSAttribute;
 import com.bafmc.customenchantment.api.MaterialList;
 import com.bafmc.customenchantment.item.CEItemData;
-import com.bafmc.customenchantment.item.gem.CEGemData;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -39,10 +37,36 @@ public class CEOutfitData extends CEItemData implements Cloneable {
     @Builder
     public static class ConfigByLevelData {
         private Map<String, String> skinMap;
+        private Map<String, ConfigCustomTypeData> customTypeMap;
 
         public String getSkinByCustomType(String customType) {
             return skinMap.containsKey(customType) ? skinMap.get(customType) : null;
         }
+
+        public List<String> getSkinListByCustomType(String customType) {
+            return customTypeMap.containsKey(customType) ? customTypeMap.get(customType).skinList : null;
+        }
+
+        public String getSkinByIndex(String customType, int index) {
+            if (customTypeMap.containsKey(customType)) {
+                List<String> skinList = customTypeMap.get(customType).skinList;
+                if (skinList == null || skinList.isEmpty()) {
+                    return getSkinByCustomType(customType);
+                }
+
+                if (index >= 0 && index < skinList.size()) {
+                    return skinList.get(index);
+                } else {
+                    return skinList.get(0);
+                }
+            }
+            return getSkinByCustomType(customType);
+        }
+    }
+
+    @AllArgsConstructor
+    public static class ConfigCustomTypeData {
+        private List<String> skinList;
     }
 
     @AllArgsConstructor

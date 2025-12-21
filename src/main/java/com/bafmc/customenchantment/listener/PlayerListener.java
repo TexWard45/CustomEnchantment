@@ -17,10 +17,8 @@ import com.bafmc.customenchantment.event.CEPlayerStatsModifyEvent;
 import com.bafmc.customenchantment.feature.other.DashFeature;
 import com.bafmc.customenchantment.feature.other.DoubleJumpFeature;
 import com.bafmc.customenchantment.feature.other.FlashFeature;
-import com.bafmc.customenchantment.item.CEItem;
-import com.bafmc.customenchantment.item.CEItemUsable;
-import com.bafmc.customenchantment.item.CEWeaponAbstract;
-import com.bafmc.customenchantment.item.VanillaItem;
+import com.bafmc.customenchantment.item.*;
+import com.bafmc.customenchantment.item.skin.CESkin;
 import com.bafmc.customenchantment.player.*;
 import com.bafmc.customenchantment.player.PlayerAbility.Type;
 import org.bukkit.Bukkit;
@@ -181,8 +179,35 @@ public class PlayerListener implements Listener {
 		Player player = e.getPlayer();
 		CEPlayer cePlayer = CEAPI.getCEPlayer(player);
 		EquipSlot slot = e.getEquipSlot();
+		ItemStack newEquipItemStack = e.getNewItemStack();
 
 		CEWeaponAbstract ceOldWeapon = cePlayer.getEquipment().getSlot(slot);
+		CEWeaponAbstract ceNewWeapon = null;
+		if (newEquipItemStack != null && newEquipItemStack.getType() != Material.AIR) {
+			ceNewWeapon = CEWeaponAbstract.getCEWeapon(newEquipItemStack);
+			cePlayer.getEquipment().setSlot(slot, ceNewWeapon);
+		}else {
+			cePlayer.getEquipment().setSlot(slot, null);
+		}
+
+		// Check if swapping between skin and weapon of same type
+		if (ceOldWeapon != null && ceNewWeapon != null) {
+			ItemStack oldItemStack = null;
+			ItemStack newItemStack = null;
+
+			if (ceNewWeapon instanceof CESkin newWeaponSkin) {
+				newItemStack = newWeaponSkin.getUnifyWeapon().getItemStack(CEUnifyWeapon.Target.WEAPON);
+				oldItemStack = ceOldWeapon.getDefaultItemStack();
+			} else if (ceOldWeapon instanceof CESkin oldWeaponSkin) {
+				oldItemStack = oldWeaponSkin.getUnifyWeapon().getItemStack(CEUnifyWeapon.Target.WEAPON);
+				newItemStack = ceNewWeapon.getDefaultItemStack();
+			}
+
+			if (oldItemStack != null && newItemStack != null && oldItemStack.equals(newItemStack)) {
+				return;
+			}
+		}
+
 		// Call on old equip
 		if (ceOldWeapon != null) {
 			Map<EquipSlot, CEWeaponAbstract> map = CEAPI.getCEWeaponMap(player);
@@ -206,15 +231,6 @@ public class PlayerListener implements Listener {
 						.setActiveEquipSlot(slot)
 						.call();
 			}
-		}
-
-		ItemStack newItemStack = e.getNewItemStack();
-		CEWeaponAbstract ceNewWeapon = null;
-		if (newItemStack != null && newItemStack.getType() != Material.AIR) {
-			ceNewWeapon = CEWeaponAbstract.getCEWeapon(newItemStack);
-			cePlayer.getEquipment().setSlot(slot, ceNewWeapon);
-		}else {
-			cePlayer.getEquipment().setSlot(slot, null);
 		}
 
 		// Call on new equip
