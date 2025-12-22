@@ -1,6 +1,5 @@
 package com.bafmc.customenchantment.task;
 
-import com.bafmc.bukkit.utils.EquipSlot;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.api.Parameter;
@@ -18,12 +17,9 @@ import org.bukkit.scheduler.BukkitRunnable;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.logging.Logger;
 
 public class OutfitItemAsyncTask extends BukkitRunnable {
-    private static final Logger logger = Logger.getLogger(OutfitItemAsyncTask.class.getName());
     private final Map<String, PlayerItemTracker> playerItemTrackers = new ConcurrentHashMap<>();
-    private PlayerItemTracker currentTracker;
 
     public PlayerItemTracker getPlayerItemTracker(String playerName) {
         return playerItemTrackers.get(playerName);
@@ -39,10 +35,11 @@ public class OutfitItemAsyncTask extends BukkitRunnable {
             return itemHistories.get(slot);
         }
 
-        public void setItemHistory(int slot, ItemStack oldItemStack, ItemStack newItemStack) {
+        public void setItemHistory(int slot, ItemStack oldItemStack, CEItem newCEItem) {
             PlayerItemHistory history = new PlayerItemHistory();
             history.oldItemStack = oldItemStack;
-            history.newItemStack = newItemStack;
+            history.sourceItem = newCEItem;
+            history.newItemStack = newCEItem != null ? newCEItem.exportTo() : null;
             itemHistories.put(slot, history);
         }
 
@@ -55,6 +52,7 @@ public class OutfitItemAsyncTask extends BukkitRunnable {
     public static class PlayerItemHistory {
         private ItemStack oldItemStack;
         private ItemStack newItemStack;
+        private CEItem sourceItem;
     }
 
     public void run() {
@@ -103,6 +101,12 @@ public class OutfitItemAsyncTask extends BukkitRunnable {
     }
 
     private void updateWingsSkin(CEPlayer cePlayer, PlayerItemTracker tracker, CEOutfit outfit) {
+        if (CEAPI.isInCombat(cePlayer.getPlayer())) {
+            tracker.wingsWeapon = null;
+            tracker.forceUpdate = true;
+            return;
+        }
+
         int skinIndex = cePlayer.getEquipment().getSkinIndex(outfit.getData().getPattern(), "WINGS");
         CEWeaponAbstract ceWeaponAbstract = cePlayer.getEquipment().getWings();
         if (skinIndex == -1) {
@@ -160,7 +164,7 @@ public class OutfitItemAsyncTask extends BukkitRunnable {
         CEItem source = applyReason.getSource();
 
         if (source != null) {
-            tracker.setItemHistory(slot, itemStack, source.exportTo());
+            tracker.setItemHistory(slot, itemStack, source);
             return true;
         }
         return false;
@@ -168,7 +172,8 @@ public class OutfitItemAsyncTask extends BukkitRunnable {
 
     private boolean processSkinWithoutOutfit(PlayerItemTracker tracker, int slot, CESkin skin, ItemStack itemStack) {
         ItemStack weaponItemStack = skin.getUnifyWeapon().getItemStack(CEUnifyWeapon.Target.WEAPON);
-        tracker.setItemHistory(slot, itemStack, weaponItemStack);
+        CEItem source = CEAPI.getCEItem(weaponItemStack);
+        tracker.setItemHistory(slot, itemStack, source);
         return true;
     }
 

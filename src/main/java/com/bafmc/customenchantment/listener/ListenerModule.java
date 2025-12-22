@@ -17,6 +17,7 @@ public class ListenerModule extends PluginModule<CustomEnchantment> {
         new CEProtectDeadListener(getPlugin());
         new GuardListener(getPlugin());
         new BannerListener(getPlugin());
+        new OutfitListener(getPlugin());
 
         if (Bukkit.getPluginManager().isPluginEnabled("StackMob")) {
             new MobStackDeathListener(getPlugin());

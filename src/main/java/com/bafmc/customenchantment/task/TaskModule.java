@@ -23,6 +23,7 @@ public class TaskModule extends PluginModule<CustomEnchantment> {
     private ExpTask expTask;
     private UpdateAttributeTask updateAttributeTask;
     private OutfitItemTask outfitItemTask;
+    private OutfitTopInventoryTask outfitTopInventoryTask;
     
     public TaskModule(CustomEnchantment plugin) {
         super(plugin);
@@ -87,6 +88,12 @@ public class TaskModule extends PluginModule<CustomEnchantment> {
 
         this.outfitItemTask = new OutfitItemTask(outfitItemAsyncTask);
         this.outfitItemTask.runTaskTimer(getPlugin(), 0, 1);
+
+        OutfitTopInventoryAsyncTask outfitTopInventoryAsyncTask = new OutfitTopInventoryAsyncTask();
+        outfitTopInventoryAsyncTask.runTaskTimerAsynchronously(getPlugin(), 0, 1);
+
+        this.outfitTopInventoryTask = new OutfitTopInventoryTask(outfitTopInventoryAsyncTask);
+        this.outfitTopInventoryTask.runTaskTimer(getPlugin(), 0, 1);
     }
 
     public void onDisable() {
@@ -102,5 +109,8 @@ public class TaskModule extends PluginModule<CustomEnchantment> {
         this.blockTask.cancel();
         this.arrowTask.cancel();
         this.expTask.cancel();
+        this.updateAttributeTask.cancel();
+        this.outfitItemTask.cancel();
+        this.outfitTopInventoryTask.cancel();
     }
 }

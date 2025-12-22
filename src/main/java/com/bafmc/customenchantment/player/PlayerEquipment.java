@@ -3,25 +3,28 @@ package com.bafmc.customenchantment.player;
 import com.bafmc.bukkit.utils.EquipSlot;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.config.data.ExtraSlotSettingsData;
+import com.bafmc.customenchantment.item.CEItem;
 import com.bafmc.customenchantment.item.CEWeapon;
 import com.bafmc.customenchantment.item.CEWeaponAbstract;
 import com.bafmc.customenchantment.item.outfit.CEOutfit;
 import lombok.Getter;
 import lombok.Setter;
+import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class PlayerEquipment extends CEPlayerExpansion {
     private ConcurrentHashMap<EquipSlot, CEWeaponAbstract> slotMap = new ConcurrentHashMap<>();
     private ConcurrentHashMap<EquipSlot, Boolean> disableSlotMap = new ConcurrentHashMap<>();
+    private Map<Integer, CEItem> ceItemCacheMap = new HashMap<>();
     @Getter
     @Setter
     private CEWeaponAbstract wings;
+    @Getter
+    @Setter
+    private ItemStack offhandItemStack;
 
     public PlayerEquipment(CEPlayer cePlayer) {
         super(cePlayer);
@@ -38,10 +41,10 @@ public class PlayerEquipment extends CEPlayerExpansion {
     }
 
     public void saveSlot() {
-        List<EquipSlot> playerEquipSlot = new ArrayList<>();
-        playerEquipSlot.addAll(List.of(EquipSlot.HAND_ARRAY));
-        playerEquipSlot.addAll(List.of(EquipSlot.ARMOR_ARRAY));
-        playerEquipSlot.addAll(List.of(EquipSlot.HOTBAR_ARRAY));
+//        List<EquipSlot> playerEquipSlot = new ArrayList<>();
+//        playerEquipSlot.addAll(List.of(EquipSlot.HAND_ARRAY));
+//        playerEquipSlot.addAll(List.of(EquipSlot.ARMOR_ARRAY));
+//        playerEquipSlot.addAll(List.of(EquipSlot.HOTBAR_ARRAY));
 
         List<EquipSlot> configEquipSlot = new ArrayList<>();
         configEquipSlot.addAll(List.of(EquipSlot.EXTRA_SLOT_ARRAY));
@@ -53,6 +56,12 @@ public class PlayerEquipment extends CEPlayerExpansion {
                 getCEPlayer().getStorage().getConfig().set("equipment." + slot.name(), weapon.getDefaultItemStack());
             }
         }
+
+        if (offhandItemStack != null && offhandItemStack.getType() != Material.AIR) {
+            getCEPlayer().getStorage().getConfig().set("equipment.OFFHAND", offhandItemStack);
+        } else {
+            getCEPlayer().getStorage().getConfig().set("equipment.OFFHAND", null);
+        }
     }
 
     public void updateSlot() {
@@ -62,6 +71,16 @@ public class PlayerEquipment extends CEPlayerExpansion {
         playerEquipSlot.addAll(List.of(EquipSlot.HOTBAR_ARRAY));
 
         for (EquipSlot slot : playerEquipSlot) {
+            if (slot == EquipSlot.OFFHAND) {
+                ItemStack offhand = getCEPlayer().getStorage().getConfig().getItemStack("equipment.OFFHAND");
+                if (offhand != null && offhand.getType() != Material.AIR) {
+                    this.offhandItemStack = offhand;
+                }else {
+                    this.offhandItemStack = null;
+                }
+                continue;
+            }
+
             CEWeaponAbstract weapon = CEWeapon.getCEWeapon(slot.getItemStack(player));
             if (weapon == null) {
                 continue;
@@ -182,8 +201,28 @@ public class PlayerEquipment extends CEPlayerExpansion {
         return map;
     }
 
+    public void setCEItemCache(int slotIndex, CEItem ceItem) {
+        ceItemCacheMap.put(slotIndex, ceItem);
+    }
+
+    public CEItem getCEItemCache(int slotIndex) {
+        return ceItemCacheMap.get(slotIndex);
+    }
+
+    public void removeCEItemCache(int slotIndex) {
+        ceItemCacheMap.remove(slotIndex);
+    }
+
     public CEOutfit getCEOutfit() {
         EquipSlot outfitExtraSlot = CustomEnchantment.instance().getMainConfig().getOutfitExtraSlot();
         return (CEOutfit) cePlayer.getEquipment().getSlot(outfitExtraSlot);
+    }
+
+    public boolean hasWings() {
+        return wings != null;
+    }
+
+    public boolean hasOffhandItemStack() {
+        return this.offhandItemStack != null && this.offhandItemStack.getType() != Material.AIR;
     }
 }

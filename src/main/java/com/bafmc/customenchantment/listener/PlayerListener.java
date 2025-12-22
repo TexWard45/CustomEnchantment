@@ -181,13 +181,24 @@ public class PlayerListener implements Listener {
 		EquipSlot slot = e.getEquipSlot();
 		ItemStack newEquipItemStack = e.getNewItemStack();
 
-		CEWeaponAbstract ceOldWeapon = cePlayer.getEquipment().getSlot(slot);
+		PlayerEquipment equipment = cePlayer.getEquipment();
+		CEWeaponAbstract ceOldWeapon = equipment.getSlot(slot);
 		CEWeaponAbstract ceNewWeapon = null;
 		if (newEquipItemStack != null && newEquipItemStack.getType() != Material.AIR) {
 			ceNewWeapon = CEWeaponAbstract.getCEWeapon(newEquipItemStack);
+			// Skip calling if skin without weapon is equipped (wings logic)
+			if (ceNewWeapon instanceof CESkin skin && skin.getUnifyWeapon().getItemStack(CEUnifyWeapon.Target.WEAPON) == null) {
+				return;
+			}
+
 			cePlayer.getEquipment().setSlot(slot, ceNewWeapon);
 		}else {
 			cePlayer.getEquipment().setSlot(slot, null);
+		}
+
+		// Handle offhand separately (wings logic)
+		if (slot == EquipSlot.OFFHAND) {
+			cePlayer.getEquipment().setOffhandItemStack(newEquipItemStack);
 		}
 
 		// Check if swapping between skin and weapon of same type

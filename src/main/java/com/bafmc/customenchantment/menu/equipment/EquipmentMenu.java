@@ -19,7 +19,6 @@ import com.bafmc.customenchantment.menu.MenuAbstract;
 import com.bafmc.customenchantment.player.CEPlayer;
 import com.bafmc.customenchantment.player.PlayerEquipment;
 import com.bafmc.customenchantment.player.PlayerStorage;
-import com.bafmc.customenchantment.task.OutfitItemAsyncTask;
 import com.bafmc.customenchantment.utils.StorageUtils;
 import com.bafmc.custommenu.menu.CMenuView;
 import lombok.Getter;
@@ -198,10 +197,17 @@ public class EquipmentMenu extends MenuAbstract {
 				return EquipmentAddReason.SUCCESS;
 			}else if (ceItem instanceof CEWeaponAbstract) {
 				if (EquipSlot.MAINHAND.getItemStack(player).getType() != Material.AIR) {
-					if (EquipSlot.OFFHAND.getItemStack(player).getType() != Material.AIR) {
+					CEPlayer cePlayer = CEAPI.getCEPlayer(player);
+					PlayerEquipment playerEquipment = cePlayer.getEquipment();
+					if (playerEquipment.hasOffhandItemStack()) {
 						return EquipmentAddReason.NOT_SUPPORT_ITEM;
 					}
-					player.getInventory().setItem(EquipmentSlot.OFF_HAND, itemStack);
+
+					if (!playerEquipment.hasWings()) {
+						player.getInventory().setItem(EquipmentSlot.OFF_HAND, itemStack);
+					}else {
+						playerEquipment.setOffhandItemStack(itemStack);
+					}
 					this.updateMenuWithPreventAction();
 					e.setCurrentItem(null);
 					return EquipmentAddReason.SUCCESS;
@@ -232,12 +238,12 @@ public class EquipmentMenu extends MenuAbstract {
 		updateSlots("chestplate", EquipSlot.CHESTPLATE.getItemStack(player));
 		updateSlots("leggings", EquipSlot.LEGGINGS.getItemStack(player));
 		updateSlots("boots", EquipSlot.BOOTS.getItemStack(player));
-		updateSlots("offhand", EquipSlot.OFFHAND.getItemStack(player));
 		updateSlots("mainhand", EquipSlot.MAINHAND.getItemStack(player));
+		updateOffhandSlots();
 		updateProtectDeadSlots();
 		updateExtraSlots();
 		updatePlayerInfoSlots();
-		updateWingsSlot();
+		updateWingsSlots();
 	}
 
 	public void autoUpdateMenu() {
@@ -259,7 +265,19 @@ public class EquipmentMenu extends MenuAbstract {
 		}
 	}
 
-	public void updateWingsSlot() {
+	public void updateOffhandSlots() {
+		CEPlayer cePlayer = CEAPI.getCEPlayer(player);
+		PlayerEquipment playerEquipment = cePlayer.getEquipment();
+
+		if (playerEquipment.hasWings()) {
+			ItemStack offhandItem = playerEquipment.getOffhandItemStack();
+			updateSlots("offhand", offhandItem);
+		}else {
+			updateSlots("offhand", EquipSlot.OFFHAND.getItemStack(player));
+		}
+	}
+
+	public void updateWingsSlots() {
 		List<Integer> slots = getSlots(WINGS_SLOT);
 
 		CEPlayer cePlayer = CEAPI.getCEPlayer(player);
@@ -465,9 +483,19 @@ public class EquipmentMenu extends MenuAbstract {
 					updateMenuWithPreventAction();
 				}
 			} else if (itemName.equals(EquipSlot.OFFHAND.name().toLowerCase())) {
-				ItemStack itemStack = EquipSlot.OFFHAND.getItemStack(player);
+				if (playerEquipment.hasWings() && !playerEquipment.hasOffhandItemStack()) {
+					return;
+				}
+
+				ItemStack itemStack = playerEquipment.hasOffhandItemStack() ?
+						playerEquipment.getOffhandItemStack() :
+						EquipSlot.OFFHAND.getItemStack(player);
 				if (itemStack != null) {
-					player.getInventory().setItem(EquipmentSlot.OFF_HAND, null);
+					if (!playerEquipment.hasWings()) {
+						player.getInventory().setItem(EquipmentSlot.OFF_HAND, null);
+					}else {
+						playerEquipment.setOffhandItemStack(null);
+					}
 					InventoryUtils.addItem(player, itemStack);
 					updateMenuWithPreventAction();
 				}

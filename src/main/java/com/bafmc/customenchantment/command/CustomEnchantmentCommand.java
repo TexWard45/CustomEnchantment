@@ -31,5 +31,6 @@ public class CustomEnchantmentCommand implements AbstractCommand {
 		new CommandFullChance().onRegister(builder);
 		new CommandDebugAll().onRegister(builder);
 		new CommandDebugCE().onRegister(builder);
+		new CommandTest().onRegister(builder);
 	}
 }
