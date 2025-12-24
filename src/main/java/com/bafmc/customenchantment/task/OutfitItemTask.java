@@ -1,5 +1,6 @@
 package com.bafmc.customenchantment.task;
 
+import com.bafmc.bukkit.bafframework.event.ItemEquipEvent;
 import com.bafmc.bukkit.task.PlayerPerTickTask;
 import com.bafmc.bukkit.utils.EquipSlot;
 import com.bafmc.customenchantment.CustomEnchantment;
@@ -14,6 +15,8 @@ import com.bafmc.customenchantment.player.CEPlayer;
 import com.bafmc.customenchantment.player.PlayerEquipment;
 import lombok.Getter;
 import lombok.Setter;
+import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
@@ -22,6 +25,7 @@ import org.bukkit.inventory.PlayerInventory;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.logging.Logger;
 
 public class OutfitItemTask extends PlayerPerTickTask {
@@ -60,11 +64,20 @@ public class OutfitItemTask extends PlayerPerTickTask {
                 continue;
             }
 
-            if (currentItem == null) {
+            ItemStack oldItem = itemHistory.getOldItemStack();
+            if (oldItem == null || oldItem.getType() == Material.AIR) {
+                ItemStack newItem = itemHistory.getNewItemStack();
+                inventory.setItem(i, newItem);
+                equipment.setCEItemCache(i, itemHistory.getSourceItem());
+
+                updated = true;
                 continue;
             }
 
-            ItemStack oldItem = itemHistory.getOldItemStack();
+            if (currentItem == null || currentItem.getType() == Material.AIR) {
+                continue;
+            }
+
             if (!currentItem.equals(oldItem)) {
                 continue;
             }
@@ -80,43 +93,18 @@ public class OutfitItemTask extends PlayerPerTickTask {
         CEWeaponAbstract newWings = playerItemTracker.getWingsWeapon();
 
         // Check if wings actually changed
-        boolean wingsChanged = (oldWings == null && newWings != null) ||
-                (oldWings != null && newWings == null) ||
-                (oldWings != null && !oldWings.equals(newWings));
-
+        boolean wingsChanged = hasWingsChanged(oldWings, newWings) && !playerItemTracker.isNoNeedUpdateWings();
         if (wingsChanged) {
-            // Handle off-hand item based on combat status and newWings availability
             if (CEAPI.isInCombat(player)) {
-                ItemStack offhandItem = equipment.getOffhandItemStack();
-
-                cePlayer.getEquipment().setWings(null);
-                cePlayer.getEquipment().setOffhandItemStack(null);
-
-                player.getInventory().setItem(EquipmentSlot.OFF_HAND, offhandItem);
+                handleCombatWingsChange(player, cePlayer, equipment);
             } else {
-                cePlayer.getEquipment().setWings(newWings);
-
-                ItemStack oldOffhandItemStack = equipment.getOffhandItemStack();
-                ItemStack offhandItemStack = EquipSlot.OFFHAND.getItemStack(player);
-                if (oldWings == null || !oldWings.getDefaultItemStack().equals(offhandItemStack)) {
-                    cePlayer.getEquipment().setOffhandItemStack(offhandItemStack);
-                }
-
-                ItemStack offHandItem = newWings != null ? newWings.getDefaultItemStack() : oldOffhandItemStack;
-                player.getInventory().setItem(EquipmentSlot.OFF_HAND, offHandItem);
+                handleNonCombatWingsChange(player, cePlayer, equipment, oldWings, newWings);
             }
-
             updated = true;
         }
 
         if (updated) {
-            long endTime = System.nanoTime();
-            double executionTimeMs = (endTime - startTime) / 1_000_000.0;
-
             updateEquipmentMenu(player);
-
-            logger.info(String.format("OutfitItemTask execution time for player %s: %.3f ms)",
-                    player.getName(), executionTimeMs));
         }
     }
 
@@ -125,5 +113,40 @@ public class OutfitItemTask extends PlayerPerTickTask {
         if (menu != null) {
             menu.updateMenuWithPreventAction();
         }
+    }
+
+    private boolean hasWingsChanged(CEWeaponAbstract oldWings, CEWeaponAbstract newWings) {
+        return oldWings != newWings && (oldWings == null || newWings == null || !Objects.equals(oldWings.getData().getPattern(), newWings.getData().getPattern()));
+    }
+
+    private void handleCombatWingsChange(Player player, CEPlayer cePlayer, PlayerEquipment equipment) {
+        ItemStack offhandItem = equipment.getOffhandItemStack();
+
+        cePlayer.getEquipment().setWings(null);
+
+        player.getInventory().setItem(EquipmentSlot.OFF_HAND, offhandItem);
+    }
+
+    private void handleNonCombatWingsChange(Player player, CEPlayer cePlayer, PlayerEquipment equipment,
+                                            CEWeaponAbstract oldWings, CEWeaponAbstract newWings) {
+        cePlayer.getEquipment().setWings(newWings);
+
+        ItemStack oldOffhandItemStack = equipment.getOffhandItemStack();
+        ItemStack currentOffhandItemStack = EquipSlot.OFFHAND.getItemStack(player);
+
+        if (shouldUpdateOffhandItemStack(oldWings, newWings, currentOffhandItemStack)) {
+            cePlayer.getEquipment().setOffhandItemStack(currentOffhandItemStack);
+        }
+
+        ItemStack newOffHandItem = newWings != null ? newWings.getDefaultItemStack() : oldOffhandItemStack;
+        player.getInventory().setItem(EquipmentSlot.OFF_HAND, newOffHandItem);
+    }
+
+    private boolean shouldUpdateOffhandItemStack(CEWeaponAbstract oldWings, CEWeaponAbstract newWings, ItemStack currentOffhandItemStack) {
+        if (newWings != null && newWings.getDefaultItemStack().equals(currentOffhandItemStack)) {
+            return false;
+        }
+
+        return oldWings == null || !oldWings.getDefaultItemStack().equals(currentOffhandItemStack);
     }
 }

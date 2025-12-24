@@ -180,25 +180,30 @@ public class PlayerListener implements Listener {
 		CEPlayer cePlayer = CEAPI.getCEPlayer(player);
 		EquipSlot slot = e.getEquipSlot();
 		ItemStack newEquipItemStack = e.getNewItemStack();
+		ItemStack oldEquipItemStack = e.getOldItemStack();
+
+		CEItemOptimizeLoader newEquipCEItem = new CEItemOptimizeLoader(newEquipItemStack);
+		CEItemOptimizeLoader oldEquipCEItem = new CEItemOptimizeLoader(oldEquipItemStack);
+
+		if (newEquipCEItem.isCESkin() && newEquipCEItem.getWeaponItemStack() == null) {
+			return;
+		}
+		if (oldEquipCEItem.isCESkin() && oldEquipCEItem.getWeaponItemStack() == null && (newEquipItemStack == null || newEquipItemStack.getType() == Material.AIR)) {
+			return;
+		}
 
 		PlayerEquipment equipment = cePlayer.getEquipment();
+		if (slot == EquipSlot.OFFHAND && newEquipItemStack != null && newEquipItemStack.equals(equipment.getOffhandItemStack())) {
+			return;
+		}
+
 		CEWeaponAbstract ceOldWeapon = equipment.getSlot(slot);
 		CEWeaponAbstract ceNewWeapon = null;
 		if (newEquipItemStack != null && newEquipItemStack.getType() != Material.AIR) {
 			ceNewWeapon = CEWeaponAbstract.getCEWeapon(newEquipItemStack);
-			// Skip calling if skin without weapon is equipped (wings logic)
-			if (ceNewWeapon instanceof CESkin skin && skin.getUnifyWeapon().getItemStack(CEUnifyWeapon.Target.WEAPON) == null) {
-				return;
-			}
-
 			cePlayer.getEquipment().setSlot(slot, ceNewWeapon);
 		}else {
 			cePlayer.getEquipment().setSlot(slot, null);
-		}
-
-		// Handle offhand separately (wings logic)
-		if (slot == EquipSlot.OFFHAND) {
-			cePlayer.getEquipment().setOffhandItemStack(newEquipItemStack);
 		}
 
 		// Check if swapping between skin and weapon of same type

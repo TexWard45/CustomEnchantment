@@ -75,8 +75,13 @@ public class PlayerEquipment extends CEPlayerExpansion {
                 ItemStack offhand = getCEPlayer().getStorage().getConfig().getItemStack("equipment.OFFHAND");
                 if (offhand != null && offhand.getType() != Material.AIR) {
                     this.offhandItemStack = offhand;
+                    setSlot(slot, CEWeapon.getCEWeapon(offhand));
                 }else {
-                    this.offhandItemStack = null;
+                    CEWeaponAbstract weapon = CEWeapon.getCEWeapon(slot.getItemStack(player));
+                    if (weapon == null) {
+                        continue;
+                    }
+                    setSlot(slot, weapon);
                 }
                 continue;
             }
@@ -224,5 +229,12 @@ public class PlayerEquipment extends CEPlayerExpansion {
 
     public boolean hasOffhandItemStack() {
         return this.offhandItemStack != null && this.offhandItemStack.getType() != Material.AIR;
+    }
+
+    public ItemStack getActualOffhandItemStack() {
+        if (hasOffhandItemStack()) {
+            return this.offhandItemStack;
+        }
+        return hasWings() ? null : EquipSlot.OFFHAND.getItemStack(cePlayer.getPlayer());
     }
 }

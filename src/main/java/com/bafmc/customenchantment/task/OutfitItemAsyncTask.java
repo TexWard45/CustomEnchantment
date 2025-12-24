@@ -1,5 +1,6 @@
 package com.bafmc.customenchantment.task;
 
+import com.bafmc.bukkit.utils.EquipSlot;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.api.Parameter;
@@ -8,6 +9,7 @@ import com.bafmc.customenchantment.item.outfit.CEOutfit;
 import com.bafmc.customenchantment.item.skin.CESkin;
 import com.bafmc.customenchantment.player.CEPlayer;
 import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -30,6 +32,9 @@ public class OutfitItemAsyncTask extends BukkitRunnable {
         @Getter
         private CEWeaponAbstract wingsWeapon;
         private boolean forceUpdate;
+        @Getter
+        @Setter
+        private boolean noNeedUpdateWings;
 
         public PlayerItemHistory getItemHistory(int slot) {
             return itemHistories.get(slot);
@@ -123,6 +128,12 @@ public class OutfitItemAsyncTask extends BukkitRunnable {
         }
 
         if (ceWeaponAbstract instanceof CESkin skin && skin.getData().getPattern().equals(skinName)) {
+            if (!skin.getDefaultItemStack().equals(EquipSlot.OFFHAND.getItemStack(cePlayer.getPlayer())) ) {
+                tracker.setItemHistory(40, EquipSlot.OFFHAND.getItemStack(cePlayer.getPlayer()), skin);
+                tracker.noNeedUpdateWings = true;
+            }else {
+                tracker.wingsWeapon = ceWeaponAbstract;
+            }
             return;
         }
 
