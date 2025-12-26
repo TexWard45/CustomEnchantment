@@ -11,7 +11,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockDropItemEvent;
-import org.bukkit.event.inventory.*;
+import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -27,7 +28,7 @@ public class OutfitListener implements Listener {
 	}
 
 	@EventHandler
-	public void onInventoryOpen(InventoryClickEvent e) {
+	public void onInventoryClick(InventoryClickEvent e) {
 		Inventory clickInventory = e.getClickedInventory();
 		if (clickInventory == null || clickInventory.getType() == InventoryType.CRAFTING) {
 			return;

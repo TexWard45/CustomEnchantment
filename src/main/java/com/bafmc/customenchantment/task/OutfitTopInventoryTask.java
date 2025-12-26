@@ -14,6 +14,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 
+import java.util.List;
 import java.util.logging.Logger;
 
 public class OutfitTopInventoryTask extends PlayerPerTickTask {
@@ -46,6 +47,13 @@ public class OutfitTopInventoryTask extends PlayerPerTickTask {
         Inventory inventory = player.getOpenInventory().getTopInventory();
         if (inventory.getType() == InventoryType.CRAFTING) {
             return;
+        }
+
+        if (cePlayer.getTitleOpenInventory() != null) {
+            List<String> outfitTitleUpdateBlacklist = CustomEnchantment.instance().getMainConfig().getOutfitTitleUpdateBlacklist();
+            if (outfitTitleUpdateBlacklist.contains(cePlayer.getTitleOpenInventory())) {
+                return;
+            }
         }
 
         boolean updated = false;

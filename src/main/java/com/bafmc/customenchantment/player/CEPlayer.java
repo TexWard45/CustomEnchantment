@@ -29,6 +29,9 @@ public class CEPlayer implements ICEPlayerEvent {
 	@Setter
     @Getter
     private boolean fullChance;
+	@Setter
+	@Getter
+	private String titleOpenInventory;
 
 	public static CEPlayerMap getCePlayerMap() {
 		if (cePlayerMap == null) {

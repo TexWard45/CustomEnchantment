@@ -11,6 +11,7 @@ import com.bafmc.customenchantment.menu.bookupgrade.BookUpgradeMenu;
 import com.bafmc.custommenu.api.CustomMenuAPI;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.event.inventory.InventoryType;
 
 public class CommandModule extends PluginModule<CustomEnchantment> {
     public CommandModule(CustomEnchantment plugin) {
@@ -96,6 +97,9 @@ public class CommandModule extends PluginModule<CustomEnchantment> {
                     return true;
                 }
                 Player player = (Player) sender;
+                if (player.getOpenInventory().getTopInventory().getType() != InventoryType.CRAFTING) {
+                    player.closeInventory();
+                }
                 CustomMenuAPI.getCPlayer(player).openCustomMenu("equipment", true);
                 return true;
             }

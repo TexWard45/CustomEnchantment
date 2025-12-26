@@ -43,9 +43,16 @@ public class OutfitTopInventoryAsyncTask extends BukkitRunnable {
             return;
         }
 
+        CEPlayer cePlayer = CEAPI.getCEPlayer(player);
+        if (cePlayer.getTitleOpenInventory() != null) {
+            List<String> outfitTitleUpdateBlacklist = CustomEnchantment.instance().getMainConfig().getOutfitTitleUpdateBlacklist();
+            if (outfitTitleUpdateBlacklist.contains(cePlayer.getTitleOpenInventory())) {
+                return;
+            }
+        }
+
         String playerName = player.getName();
         PlayerItemTracker tracker = new PlayerItemTracker();
-        CEPlayer cePlayer = CEAPI.getCEPlayer(player);
         CEOutfit ceOutfit = cePlayer.getEquipment().getCEOutfit();
 
         processInventoryItems(inventory, cePlayer, ceOutfit, tracker);
@@ -60,12 +67,7 @@ public class OutfitTopInventoryAsyncTask extends BukkitRunnable {
 
             itemStack = itemStack.clone();
             CEItem ceItem = CEAPI.getCEItem(itemStack);
-
-            if (!(ceItem instanceof CEWeaponAbstract weapon)) continue;
-
-            if (ceOutfit != null) {
-                processWithOutfit(cePlayer, tracker, slot, weapon, ceOutfit, itemStack);
-            } else if (weapon instanceof CESkin skin) {
+            if (ceItem instanceof CESkin skin) {
                 processSkinWithoutOutfit(tracker, slot, skin, itemStack);
             }
         }
@@ -79,79 +81,10 @@ public class OutfitTopInventoryAsyncTask extends BukkitRunnable {
         }
     }
 
-    private void processWithOutfit(CEPlayer cePlayer, PlayerItemTracker tracker, int slot,
-                                   CEWeaponAbstract weapon, CEOutfit outfit, ItemStack itemStack) {
-        if (weapon instanceof CEOutfit || !hasValidCustomType(weapon)) {
-            return;
-        }
-
-        String skinName = getSkinNameFromOutfit(cePlayer, weapon, outfit);
-        if (skinName == null) {
-            return;
-        }
-
-        weapon = extractWeaponFromSkin(weapon, skinName);
-        if (weapon == null) {
-            return;
-        }
-
-        applySkinToWeapon(tracker, slot, weapon, skinName, itemStack);
-    }
-
-    private boolean hasValidCustomType(CEWeaponAbstract weapon) {
-        String customType = weapon.getCustomType();
-        return customType != null && !customType.isEmpty();
-    }
-
-    private String getSkinNameFromOutfit(CEPlayer cePlayer, CEWeaponAbstract weapon, CEOutfit outfit) {
-        String customType = weapon.getCustomType();
-        int skinIndex = cePlayer.getEquipment().getSkinIndex(outfit.getData().getPattern(), customType);
-        String skinName = outfit.getData().getConfigByLevelData().getSkinByIndex(customType, skinIndex);
-
-        return (skinName != null && !skinName.isEmpty()) ? skinName : null;
-    }
-
-    private CEWeaponAbstract extractWeaponFromSkin(CEWeaponAbstract weapon, String skinName) {
-        if (weapon instanceof CESkin skin) {
-            if (skin.getData().getPattern().equals(skinName)) {
-                return null; // Same skin, no change needed
-            }
-            ItemStack weaponStack = skin.getUnifyWeapon().getItemStack(CEUnifyWeapon.Target.WEAPON);
-            return (CEWeaponAbstract) CEAPI.getCEItem(weaponStack);
-        }
-        return weapon;
-    }
-
-    private void applySkinToWeapon(PlayerItemTracker tracker, int slot, CEWeaponAbstract weapon,
-                                   String skinName, ItemStack originalItemStack) {
-        ItemStack skinItemStack = getSkinItemStack(skinName);
-        if (skinItemStack == null) {
-            return;
-        }
-
-        CESkin ceSkin = (CESkin) CEAPI.getCEItem(skinItemStack);
-        ApplyReason applyReason = ceSkin.applyTo(weapon);
-        CEItem resultItem = applyReason.getSource();
-
-        if (resultItem != null) {
-            tracker.setItemHistory(slot, originalItemStack, resultItem);
-        }
-    }
-
     private void processSkinWithoutOutfit(PlayerItemTracker tracker, int slot, CESkin skin, ItemStack itemStack) {
         ItemStack weaponItemStack = skin.getUnifyWeapon().getItemStack(CEUnifyWeapon.Target.WEAPON);
         CEItem weaponItem = CEAPI.getCEItem(weaponItemStack);
         tracker.setItemHistory(slot, itemStack, weaponItem);
-    }
-
-    private ItemStack getSkinItemStack(String skinName) {
-        Parameter parameter = new Parameter(List.of(skinName));
-        List<ItemStack> itemStacks = CustomEnchantment.instance()
-                .getCeItemStorageMap()
-                .get(CEItemType.SKIN)
-                .getItemStacksByParameter(parameter);
-
-        return (itemStacks != null && !itemStacks.isEmpty()) ? itemStacks.get(0) : null;
     }
 
     public static class PlayerItemTracker {

@@ -103,7 +103,19 @@ public class EquipmentMenu extends MenuAbstract {
 		this.autoUpdateMenu();
 	}
 
-	private Map<EquipSlot, Long> lastClickTime = new HashMap<EquipSlot, Long>();
+	private Map<EquipSlot, Long> lastClickTime = new HashMap<>();
+	public void addLastClickTime(EquipSlot equipSlot, long time) {
+		lastClickTime.put(equipSlot, time);
+	}
+
+	public boolean isInLastClickCooldown(EquipSlot equipSlot) {
+		if (!lastClickTime.containsKey(equipSlot)) {
+			return false;
+		}
+		long lastTime = lastClickTime.get(equipSlot);
+		return System.currentTimeMillis() - lastTime < 500;
+	}
+
 	public EquipmentAddReason addItem(InventoryClickEvent e, ItemStack itemStack, CEItem ceItem) {
 		ExtraSlotSettingsData extraSlot = CustomEnchantment.instance().getMainConfig().getExtraSlotSettings(ceItem);
 		if (extraSlot != null && ceItem instanceof CEWeaponAbstract ceWeaponAbstract) {
@@ -129,6 +141,7 @@ public class EquipmentMenu extends MenuAbstract {
 			playerEquipment.setSlot(extraSlot.getSlot(emptyIndex), ceWeaponAbstract, true);
 			updateMenuWithPreventAction();
 			e.setCurrentItem(null);
+			addLastClickTime(EquipSlot.EXTRA_SLOT, System.currentTimeMillis());
 			return EquipmentAddReason.ADD_EXTRA_SLOT;
 		}else if (ceItem instanceof CEProtectDead protectDead && protectDead.getData().isAdvancedMode()) {
 			CEPlayer cePlayer = CEAPI.getCEPlayer(player);
@@ -187,15 +200,6 @@ public class EquipmentMenu extends MenuAbstract {
 			}
 
 			if (equipSlot != null) {
-				lastClickTime.putIfAbsent(equipSlot, 0L);
-
-				long currentTime = System.currentTimeMillis();
-				if (currentTime - lastClickTime.get(equipSlot) < 500) {
-					return EquipmentAddReason.NOTHING;
-				}
-
-				lastClickTime.put(equipSlot, currentTime);
-
 				ItemStack oldItemStack = equipSlot.getItemStack(player);
 				if (oldItemStack.getAmount() > 1) {
 					return EquipmentAddReason.NOTHING;
@@ -203,6 +207,7 @@ public class EquipmentMenu extends MenuAbstract {
 				player.getInventory().setItem(equipmentSlot, itemStack);
 				this.updateMenuWithPreventAction();
 				e.setCurrentItem(oldItemStack);
+				addLastClickTime(equipSlot, System.currentTimeMillis());
 				return EquipmentAddReason.SUCCESS;
 			}else {
 				// If vanilla item, then hand or offhand
@@ -210,6 +215,7 @@ public class EquipmentMenu extends MenuAbstract {
 					player.getInventory().setItem(EquipmentSlot.HAND, itemStack);
 					this.updateMenuWithPreventAction();
 					e.setCurrentItem(null);
+					addLastClickTime(EquipSlot.MAINHAND, System.currentTimeMillis());
 					return EquipmentAddReason.SUCCESS;
 				}else {
 					CEPlayer cePlayer = CEAPI.getCEPlayer(player);
@@ -225,6 +231,7 @@ public class EquipmentMenu extends MenuAbstract {
 						playerEquipment.setOffhandItemStack(itemStack);
 					}
 					this.updateMenuWithPreventAction();
+					addLastClickTime(EquipSlot.OFFHAND, System.currentTimeMillis());
 					return EquipmentAddReason.SUCCESS;
 				}
 			}
@@ -403,6 +410,10 @@ public class EquipmentMenu extends MenuAbstract {
 		}
 
 		if (itemName.startsWith(EquipmentMenu.EXTRA_SLOT)) {
+			if (isInLastClickCooldown(EquipSlot.EXTRA_SLOT)) {
+				return;
+			}
+
 			Map<String, ExtraSlotSettingsData> map = CustomEnchantment.instance().getMainConfig().getExtraSlotSettingMap();
 			ExtraSlotSettingsData data = map.entrySet().stream()
 					.filter(entry -> itemName.equals(EquipmentMenu.EXTRA_SLOT + "-" + entry.getKey()))
@@ -444,6 +455,10 @@ public class EquipmentMenu extends MenuAbstract {
 			}
 			ItemStack itemStack = playerEquipment.getActualOffhandItemStack();
 			if (itemStack != null) {
+				if (isInLastClickCooldown(EquipSlot.OFFHAND)) {
+					return;
+				}
+
 				if (!playerEquipment.hasWings()) {
 					player.getInventory().setItem(EquipmentSlot.OFF_HAND, null);
 				} else {
@@ -459,6 +474,10 @@ public class EquipmentMenu extends MenuAbstract {
 			if (equipSlot != null) {
 				ItemStack itemStack = equipSlot.getItemStack(player);
 				if (itemStack != null) {
+					if (isInLastClickCooldown(equipSlot)) {
+						return;
+					}
+
 					// Find first empty slot excluding equipment slots
 					int firstEmpty = -1;
 					for (int i = 0; i < 36; i++) { // Only check storage slots (0-35)

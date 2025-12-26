@@ -35,15 +35,12 @@ public class MainConfig implements IConfigurationLoader {
 	private Map<String, List<String>> entityGroupStringList = new LinkedHashMap<>();
 	@Path("ce-item-material-whitelist")
 	private List<String> ceItemMaterialWhitelist = new ArrayList<>();
-	@Path("move-event-period")
+	@Path("event.move-period")
 	@Getter
 	private long moveEventPeriod = 1000;
-	@Path("sneak-event-period")
+	@Path("event.sneak-period")
 	@Getter
 	private long sneakEventPeriod = 250;
-	@Path("enchant-disable-worlds")
-	@Getter
-	private List<String> enchantDisableWorlds = new ArrayList<>();
 	@Path("max-extra-slot-use-count")
 	@Getter
 	private int maxExtraSlotUseCount = 3;
@@ -68,23 +65,29 @@ public class MainConfig implements IConfigurationLoader {
 	@Path("combat-settings.require-weapon")
 	@Getter
 	private boolean combatSettingsRequireWeapon = true;
-	@Path("enchant-value")
+	@Path("enchant.disable-worlds")
+	@Getter
+	private List<String> enchantDisableWorlds = new ArrayList<>();
+	@Path("enchant.value")
 	private AdvancedConfigurationSection enchantValueConfig = new AdvancedConfigurationSection();
-	@Path("sigil-extra-slot")
+	@Path("sigil.extra-slot")
 	@Getter
 	private EquipSlot sigilExtraSlot = EquipSlot.EXTRA_SLOT_8;
-	@Path("outfit-extra-slot")
-	@Getter
-	private EquipSlot outfitExtraSlot = EquipSlot.EXTRA_SLOT_9;
-	@Path("outfit-task.per-player")
-	@Getter
-	private int outfitTaskPerPlayer = 5;
-	@Path("outfit-task.per-item")
-	@Getter
-	private int outfitTaskPerItem = 10;
-	@Path("sigil-display-enable")
+	@Path("sigil.display-enable")
 	@Getter
 	private boolean sigilDisplayEnable;
+	@Path("outfit.extra-slot")
+	@Getter
+	private EquipSlot outfitExtraSlot = EquipSlot.EXTRA_SLOT_9;
+	@Path("outfit.task.per-player")
+	@Getter
+	private int outfitTaskPerPlayer = 5;
+	@Path("outfit.task.per-item")
+	@Getter
+	private int outfitTaskPerItem = 10;
+	@Path("outfit.title-update-blacklist")
+	@Getter
+	private List<String> outfitTitleUpdateBlacklist = new ArrayList<>();
 
 	@Override
 	public void loadConfig(String s, ConfigurationSection config) {
@@ -98,7 +101,7 @@ public class MainConfig implements IConfigurationLoader {
 
 		CEWeaponFactory.setWhitelist(new MaterialList(MaterialList.getMaterialList(ceItemMaterialWhitelist)));
 
-		PlaceholderManager.getInstance().registerPlaceholder("ce", config.getConfigurationSection("enchant-value"));
+		PlaceholderManager.getInstance().registerPlaceholder("ce", config.getConfigurationSection("enchant.value"));
 	}
 
 	public boolean isEnchantDisableLocation(Location location) {

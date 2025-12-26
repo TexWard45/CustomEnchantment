@@ -10,6 +10,7 @@ import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.item.*;
 import com.bafmc.customenchantment.item.CEUnifyWeapon.Target;
 import com.bafmc.customenchantment.item.nametag.CENameTag;
+import com.bafmc.customenchantment.player.CEPlayer;
 import com.destroystokyo.paper.event.inventory.PrepareGrindstoneEvent;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -95,6 +96,18 @@ public class InventoryListener implements Listener {
 		}
 
 		e.setResult(ceItem.exportTo());
+	}
+
+	@EventHandler(priority = EventPriority.MONITOR)
+	public void onInventoryOpen(InventoryOpenEvent e) {
+		CEPlayer cePlayer = CEAPI.getCEPlayer((Player) e.getPlayer());
+		cePlayer.setTitleOpenInventory(ChatColor.stripColor(e.getView().getTitle()));
+	}
+
+	@EventHandler(priority = EventPriority.MONITOR)
+	public void onInventoryClose(InventoryCloseEvent e) {
+		CEPlayer cePlayer = CEAPI.getCEPlayer((Player) e.getPlayer());
+		cePlayer.setTitleOpenInventory(null);
 	}
 
 	@SuppressWarnings("deprecation")
