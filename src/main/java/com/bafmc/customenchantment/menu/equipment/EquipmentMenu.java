@@ -12,6 +12,7 @@ import com.bafmc.customenchantment.config.data.ExtraSlotSettingsData;
 import com.bafmc.customenchantment.item.CEItem;
 import com.bafmc.customenchantment.item.CEItemType;
 import com.bafmc.customenchantment.item.CEWeaponAbstract;
+import com.bafmc.customenchantment.item.CEWeaponType;
 import com.bafmc.customenchantment.item.artifact.CEArtifact;
 import com.bafmc.customenchantment.item.outfit.CEOutfit;
 import com.bafmc.customenchantment.item.protectdead.CEProtectDead;
@@ -174,10 +175,12 @@ public class EquipmentMenu extends MenuAbstract {
 		}else {
 			Material type = itemStack.getType();
 
-			String customType = null;
+			CEWeaponType weaponTypeEnum = null;
 			if (ceItem instanceof CEWeaponAbstract ceWeaponAbstract) {
-				customType = ceWeaponAbstract.getCustomType();
+				weaponTypeEnum = ceWeaponAbstract.getWeaponType();
 			}
+
+			String weaponType = weaponTypeEnum != null ? weaponTypeEnum.name() : null;
 
 			EquipSlot equipSlot = null;
 			EquipmentSlot equipmentSlot = null;
@@ -185,16 +188,16 @@ public class EquipmentMenu extends MenuAbstract {
 					|| type == Material.TURTLE_HELMET
 					|| MaterialUtils.isSimilar(type, "BANNER")
 					|| MaterialUtils.isSimilar(type, "HEAD")
-					|| "HELMET".equalsIgnoreCase(customType)) {
+					|| "HELMET".equalsIgnoreCase(weaponType)) {
 				equipSlot = EquipSlot.HELMET;
 				equipmentSlot = EquipmentSlot.HEAD;
-			}else if (MaterialUtils.isSimilar(type, "CHESTPLATE") || "CHESTPLATE".equalsIgnoreCase(customType)) {
+			}else if (MaterialUtils.isSimilar(type, "CHESTPLATE") || "CHESTPLATE".equalsIgnoreCase(weaponType)) {
 				equipSlot = EquipSlot.CHESTPLATE;
 				equipmentSlot = EquipmentSlot.CHEST;
-			}else if (MaterialUtils.isSimilar(type, "LEGGINGS") || "LEGGINGS".equalsIgnoreCase(customType)) {
+			}else if (MaterialUtils.isSimilar(type, "LEGGINGS") || "LEGGINGS".equalsIgnoreCase(weaponType)) {
 				equipSlot = EquipSlot.LEGGINGS;
 				equipmentSlot = EquipmentSlot.LEGS;
-			}else if (MaterialUtils.isSimilar(type, "BOOTS") || "BOOTS".equalsIgnoreCase(customType)) {
+			}else if (MaterialUtils.isSimilar(type, "BOOTS") || "BOOTS".equalsIgnoreCase(weaponType)) {
 				equipSlot = EquipSlot.BOOTS;
 				equipmentSlot = EquipmentSlot.FEET;
 			}
@@ -514,11 +517,7 @@ public class EquipmentMenu extends MenuAbstract {
 				return;
 			}
 			CEWeaponAbstract weaponAbstract = playerEquipment.getSlot(equipSlot);
-			customType = weaponAbstract != null ? weaponAbstract.getCustomType() : null;
-		}
-
-		if (customType == null || customType.isEmpty()) {
-			return;
+			customType = weaponAbstract != null ? weaponAbstract.getWeaponTypeName() : null;
 		}
 
 		String outfit = ceOutfit.getData().getPattern();

@@ -1,10 +1,12 @@
 package com.bafmc.customenchantment.config.item;
 
+import com.bafmc.bukkit.utils.EnumUtils;
 import com.bafmc.customenchantment.config.AbstractConfig;
 import com.bafmc.customenchantment.enchant.CEEnchantSimple;
 import com.bafmc.customenchantment.item.CEWeapon;
 import com.bafmc.customenchantment.item.CEWeaponData;
 import com.bafmc.customenchantment.item.CEWeaponStorage;
+import com.bafmc.customenchantment.item.CEWeaponType;
 import org.bukkit.inventory.ItemStack;
 
 public class CEWeaponConfig extends AbstractConfig {
@@ -22,7 +24,7 @@ public class CEWeaponConfig extends AbstractConfig {
             String customType = config.getString(path + ".custom-type");
             ItemStack itemStack = config.getItemStack(path + ".item", true, true);
             CEWeapon ceItem = new CEWeapon(itemStack);
-            ceItem.setCustomType(customType);
+            ceItem.setWeaponType(EnumUtils.valueOf(CEWeaponType.class, customType));
             for (String enchantFormat : config.getStringList(path + ".enchants")) {
                 String enchantName = null;
                 int level = 1;

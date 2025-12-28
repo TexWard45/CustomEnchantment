@@ -2,6 +2,7 @@ package com.bafmc.customenchantment.item;
 
 import com.bafmc.bukkit.bafframework.nms.NMSNBTTagCompound;
 import com.bafmc.bukkit.bafframework.nms.NMSNBTTagList;
+import com.bafmc.bukkit.utils.EnumUtils;
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.nms.CECraftItemStackNMS;
 import lombok.Getter;
@@ -29,7 +30,7 @@ public abstract class CEWeaponAbstract<T extends CEItemData> extends CEItem<T> {
 	private boolean removePattern;
 	@Getter
 	@Setter
-	private String customType;
+	private CEWeaponType weaponType;
 
 	public CEWeaponAbstract(String type, ItemStack itemStack) {
 		super(type, itemStack);
@@ -77,9 +78,9 @@ public abstract class CEWeaponAbstract<T extends CEItemData> extends CEItem<T> {
 		this.lastTimeModifier = this.newTimeModifier = tag.getLong("time");
 
 		if (tag.hasKey(CENBT.CUSTOM_TYPE)) {
-			this.customType = tag.getString(CENBT.CUSTOM_TYPE);
+			this.weaponType = EnumUtils.valueOf(CEWeaponType.class, tag.getString(CENBT.CUSTOM_TYPE));
 		} else {
-			this.customType = null;
+			this.weaponType = null;
 		}
 	}
 	
@@ -94,8 +95,8 @@ public abstract class CEWeaponAbstract<T extends CEItemData> extends CEItem<T> {
 		tag.setString(CENBT.TYPE, getType());
 		tag.setString(CENBT.SETTINGS, weaponSettingsName);
 
-		if (this.customType != null && !this.customType.isEmpty()) {
-			tag.setString(CENBT.CUSTOM_TYPE, this.customType);
+		if (this.weaponType != null) {
+			tag.setString(CENBT.CUSTOM_TYPE, this.weaponType.name());
 		}else {
 			tag.remove(CENBT.CUSTOM_TYPE);
 		}
@@ -191,5 +192,9 @@ public abstract class CEWeaponAbstract<T extends CEItemData> extends CEItem<T> {
 
     public WeaponSettings getWeaponSettings() {
 		return WeaponSettings.getSettings(getWeaponSettingsName());
+	}
+
+	public String getWeaponTypeName() {
+		return weaponType != null ? weaponType.name() : null;
 	}
 }

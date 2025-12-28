@@ -67,6 +67,7 @@ public class CustomEnchantment extends BafPlugin implements Listener {
 		super.onEnable();
 
 		getServer().getPluginManager().registerEvents(new MobDamageTrackerListener(), this);
+		getServer().getPluginManager().registerEvents(new SlowLineAttackListener(this), this);
 	}
 
 	public void registerModules() {
@@ -108,6 +109,14 @@ public class CustomEnchantment extends BafPlugin implements Listener {
 
 	public File getWeaponFolder() {
 		return new File(getDataFolder(), "weapon");
+	}
+
+	public File getSkinFolder() {
+		return new File(getDataFolder(), "skin");
+	}
+
+	public File getOutfitFolder() {
+		return new File(getDataFolder(), "outfit");
 	}
 
 	public File getPlayerDataFile(OfflinePlayer player) {

@@ -146,7 +146,7 @@ public class OutfitItemAsyncTask extends BukkitRunnable {
             return false;
         }
 
-        String customType = weapon.getCustomType();
+        String customType = weapon.getWeaponTypeName();
         if (customType == null || customType.isEmpty()) {
             return false;
         }
