@@ -124,5 +124,7 @@ public class EnchantModule extends PluginModule<CustomEnchantment> {
         new EffectDisableAutoSell().register();
         new EffectBlockForeverPotion().register();
         new EffectUnblockForeverPotion().register();
+        new EffectSetStaffParticle().register();
+        new EffectRemoveStaffParticle().register();
     }
 }

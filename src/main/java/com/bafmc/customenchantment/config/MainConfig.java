@@ -9,6 +9,7 @@ import com.bafmc.bukkit.feature.placeholder.PlaceholderManager;
 import com.bafmc.bukkit.utils.EquipSlot;
 import com.bafmc.customenchantment.api.EntityTypeList;
 import com.bafmc.customenchantment.api.MaterialList;
+import com.bafmc.customenchantment.api.ParticleAPI;
 import com.bafmc.customenchantment.config.data.ExtraSlotSettingsData;
 import com.bafmc.customenchantment.item.CEItem;
 import com.bafmc.customenchantment.item.CEWeaponFactory;
@@ -16,6 +17,7 @@ import com.bafmc.customenchantment.item.artifact.CEArtifact;
 import com.bafmc.customenchantment.item.outfit.CEOutfit;
 import com.bafmc.customenchantment.item.sigil.CESigil;
 import lombok.Getter;
+import net.minecraft.core.particles.ParticleOptions;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.configuration.ConfigurationSection;
@@ -44,9 +46,15 @@ public class MainConfig implements IConfigurationLoader {
 	@Path("max-extra-slot-use-count")
 	@Getter
 	private int maxExtraSlotUseCount = 3;
-	@Path("combat-time")
+	@Path("combat.time")
 	@Getter
 	private int combatTime = 10000;
+	@Path("combat.staff-min-required-attack-strength-scale")
+	@Getter
+	private double combatStaffMinRequiredAttackStrengthScale = 0.5;
+	@Path("combat.require-weapon")
+	@Getter
+	private boolean combatSettingsRequireWeapon = true;
 	@Path("unbreakable-armor.enable")
 	@Getter
 	private boolean unbreakableArmorEnable = true;
@@ -62,9 +70,6 @@ public class MainConfig implements IConfigurationLoader {
 	@Path("extra-slot-settings")
 	@ValueType(ExtraSlotSettingsData.class)
 	private Map<String, ExtraSlotSettingsData> extraSlotSettingMap = new LinkedHashMap<>();
-	@Path("combat-settings.require-weapon")
-	@Getter
-	private boolean combatSettingsRequireWeapon = true;
 	@Path("enchant.disable-worlds")
 	@Getter
 	private List<String> enchantDisableWorlds = new ArrayList<>();
@@ -88,9 +93,16 @@ public class MainConfig implements IConfigurationLoader {
 	@Path("outfit.title-update-blacklist")
 	@Getter
 	private List<String> outfitTitleUpdateBlacklist = new ArrayList<>();
+	@Path("staff-color")
+	@Getter
+	private String staffColor = "#FFCC00";
+	@Getter
+	private List<ParticleOptions> staffParticles;
 
 	@Override
 	public void loadConfig(String s, ConfigurationSection config) {
+		staffParticles = ParticleAPI.getDustColor(staffColor, 1.0f);
+
 		for (String key : materialGroupStringList.keySet()) {
 			MaterialList.defineMaterialList(key, MaterialList.getMaterialList(materialGroupStringList.get(key)));
 		}

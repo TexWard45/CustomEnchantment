@@ -139,13 +139,28 @@ public class PlayerEquipment extends CEPlayerExpansion {
     }
 
     public CEWeaponAbstract getSlot(EquipSlot slot, boolean check) {
+        return getSlot(slot, check, false);
+    }
+
+    public CEWeaponAbstract getSlot(EquipSlot slot, boolean check, boolean liveUpdate) {
         if (!slotMap.containsKey(slot)) {
             return null;
         }
         if (check && disableSlotMap.containsKey(slot)) {
             return null;
         }
-        return slotMap.get(slot);
+        CEWeaponAbstract ceWeaponAbstract = slotMap.get(slot);
+        if (liveUpdate) {
+            if (ceWeaponAbstract != null) {
+                ItemStack itemStack = slot.getItemStack(cePlayer.getPlayer());
+                if (ceWeaponAbstract.getDefaultItemStack().equals(itemStack)) {
+                    return ceWeaponAbstract;
+                }
+            }
+            return null;
+        }else {
+            return ceWeaponAbstract;
+        }
     }
 
     public void setSlot(EquipSlot slot, CEWeaponAbstract weapon) {

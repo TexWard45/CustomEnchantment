@@ -21,6 +21,10 @@ public class PlayerTemporaryStorage extends CEPlayerExpansion {
 	}
 
 	public void set(String key, Object value) {
+		if (value == null) {
+			unset(key);
+			return;
+		}
 		map.put(key, value);
 	}
 	

@@ -38,7 +38,7 @@ public class CustomAttributeType extends NMSAttributeType {
 	// Power is a custom attribute that can be used to calculate the player's overall power level, which can be used to balance the game.
 	public static final CustomAttributeType POWER = (CustomAttributeType) (new CustomAttributeType("POWER", "custom:player.power", 0, false)).register();
 	// Aoe range is a custom attribute that can be used to calculate the range of area of effect attacks.
-	public static final CustomAttributeType AOE_RANGE = (CustomAttributeType) (new CustomAttributeType("AOE_RANGE", "custom:player.aoe_range", 0)).register();
+	public static final CustomAttributeType AOE_RANGE = (CustomAttributeType) (new CustomAttributeType("AOE_RANGE", "custom:player.aoe_range", 1)).register();
 	// Aoe damage ratio is a custom attribute that can be used to calculate the damage dealt by area of effect attacks.
 	public static final CustomAttributeType AOE_DAMAGE_RATIO = (CustomAttributeType) (new CustomAttributeType("AOE_DAMAGE_RATIO", "custom:player.aoe_damage_ratio", 0, true)).register();
 	// Accuracy is a counter to the target's dodge chance and determines hit success.

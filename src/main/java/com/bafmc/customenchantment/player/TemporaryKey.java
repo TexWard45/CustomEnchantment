@@ -41,4 +41,6 @@ public class TemporaryKey {
     public static final String PARTICLE_ANGLE = "particle_angle";
     public static final String PARTICLE_COLOR = "particle_color";
     public static final String PARTICLE_CONTINUOUS = "particle_continuous";
+    public static final String STAFF_PARTICLE = "staff_particle";
+    public static final String STAFF_PARTICLE_TURN = "staff_particle_turn";
 }
