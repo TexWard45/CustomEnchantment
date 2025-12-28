@@ -1,0 +1,82 @@
+settings:
+  item-display: "{item_display} {level_color_bold}{level} ★"
+  levels:
+    1:
+      color: "&#9ca3af"
+    2:
+      color: "&#84cc16"
+    3:
+      color: "&#22c55e"
+    4:
+      color: "&#fde047"
+    5:
+      color: "&#fb923c"
+    6:
+      color: "&#38bdf8"
+    7:
+      color: "&#3b82f6"
+    8:
+      color: "&#e040fb"
+    9:
+      color: "&#7c4dff"
+    10:
+      color: "&#e91e63"
+    11:
+      color: "&#80deea"
+    12:
+      color: "&#607d8b"
+    13:
+      color: "&#c6ff00"
+    14:
+      color: "&#dd2c00"
+    15:
+      color: "&#d50000"
+list:
+  common:
+    display: Thường
+    item-lore:
+      - "Ⓑ&#94a3b8Bộ Trang Phục Thường"
+      - "Ⓑ"
+      - "{item_lore}"
+  rare:
+    display: Hiếm
+    item-lore:
+      - "Ⓑ&#22c55eBộ Trang Phục Hiếm"
+      - "Ⓑ"
+      - "{item_lore}"
+  epic:
+    display: Sử thi
+    item-lore:
+      - "Ⓑ&#0dcaf0Bộ Trang Phục Sử Thi"
+      - "Ⓑ"
+      - "{item_lore}"
+  legendary:
+    display: Huyền thoại
+    item-lore:
+      - "Ⓑ&#eab308Bộ Trang Phục Huyền Thoại"
+      - "Ⓑ"
+      - "{item_lore}"
+  supreme:
+    display: Tối thượng
+    item-lore:
+      - "Ⓑ&#f97316Bộ Trang Phục Tối Thượng"
+      - "Ⓑ"
+      - "{item_lore}"
+  ultimate:
+    display: Chiến thần
+    item-lore:
+      - "Ⓑ&#ef4444Bộ Trang Phục Chiến Thần"
+      - "Ⓑ"
+      - "{item_lore}"
+  event:
+    display: Sự kiện
+    item-lore:
+      - "Ⓑ&#ec4899Bộ Trang Phục Sự Kiện"
+      - "Ⓑ"
+      - "{item_lore}"
+  limit:
+    display: Giới hạn
+    item-lore:
+      - "Ⓑ&#a855f7Bộ Trang Phục Giới Hạn"
+      - "Ⓑ"
+      - "{item_lore}"

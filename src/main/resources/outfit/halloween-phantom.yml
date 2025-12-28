@@ -1,0 +1,83 @@
+# Armor
+# HELMET → CHESTPLATE → LEGGINGS → BOOTS
+
+# Melee Weapons
+# SWORD → DAGGER → SPEAR → GREATSWORD → AXE → HAMMER → STICK → STAFF
+
+# Ranged Weapons
+# BOW → CROSSBOW
+
+# Tools
+# PICKAXE → SHOVEL → HOE → FISHINGROD
+
+# Defensive
+# SHIELD
+
+# Cosmetic (no combat, no tool)
+# WINGS → HAT
+outfit:
+  halloween-phantom:
+    group: ultimate
+    max-level: 5
+    item:
+      type: PAPER
+      custom-model-data: 10402
+      display: "<GRADIENTS:9a542d,c98545,f7dd7e,813145>&lBộ Trang Phục Ngộ Không</GRADIENTS>"
+      glowing: true
+      lore:
+        - ""
+    enchant: "assassin"
+    levels:
+      1:
+        custom-types:
+          HELMET:
+            list:
+              - 'halloween-phantom-hat'
+              - 'halloween-phantom-helmet'
+          WINGS:
+            list:
+              - 'halloween-phantom-wings'
+        skins:
+          # =======================
+          # ARMOR
+          # =======================
+          HELMET: halloween-phantom-helmet
+          CHESTPLATE: halloween-phantom-chestplate
+          LEGGINGS: halloween-phantom-leggings
+          BOOTS: halloween-phantom-boots
+
+          # =======================
+          # MELEE WEAPONS
+          # =======================
+          SWORD: halloween-phantom-sword
+          DAGGER: halloween-phantom-dagger
+          SPEAR: halloween-phantom-spear
+          GREATSWORD: halloween-phantom-greatsword
+          AXE: halloween-phantom-axe
+          HAMMER: halloween-phantom-hammer
+          STICK: halloween-phantom-stick
+          STAFF: halloween-phantom-staff
+
+          # =======================
+          # RANGED WEAPONS
+          # =======================
+          BOW: halloween-phantom-bow
+          CROSSBOW: halloween-phantom-crossbow
+
+          # =======================
+          # TOOLS
+          # =======================
+          PICKAXE: halloween-phantom-pickaxe
+          SHOVEL: halloween-phantom-shovel
+          HOE: halloween-phantom-hoe
+          FISHINGROD: halloween-phantom-fishingrod
+
+          # =======================
+          # DEFENSIVE
+          # =======================
+          SHIELD: halloween-phantom-shield
+
+          # =======================
+          # COSMETIC
+          # =======================
+          WINGS: halloween-phantom-wings

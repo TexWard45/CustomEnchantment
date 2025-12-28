@@ -1,0 +1,210 @@
+weapon:
+
+  # =======================
+  # ARMOR
+  # =======================
+  example-helmet:
+    custom-type: HELMET
+    item:
+      type: NETHERITE_HELMET
+      display: "&aMũ Thử Nghiệm"
+      lore:
+        - "&7Thuộc bộ trang bị Thử Nghiệm"
+    enchants:
+      - "example 1"
+
+  example-chestplate:
+    custom-type: CHESTPLATE
+    item:
+      type: NETHERITE_CHESTPLATE
+      display: "&aGiáp Thử Nghiệm"
+      lore:
+        - "&7Thuộc bộ trang bị Thử Nghiệm"
+    enchants:
+      - "example 1"
+
+  example-leggings:
+    custom-type: LEGGINGS
+    item:
+      type: NETHERITE_LEGGINGS
+      display: "&aQuần Thử Nghiệm"
+      lore:
+        - "&7Thuộc bộ trang bị Thử Nghiệm"
+    enchants:
+      - "example 1"
+
+  example-boots:
+    custom-type: BOOTS
+    item:
+      type: NETHERITE_BOOTS
+      display: "&aGiày Thử Nghiệm"
+      lore:
+        - "&7Thuộc bộ trang bị Thử Nghiệm"
+    enchants:
+      - "example 1"
+
+  # =======================
+  # MELEE WEAPONS
+  # =======================
+  example-sword:
+    custom-type: SWORD
+    item:
+      type: NETHERITE_SWORD
+      display: "&aKiếm Thử Nghiệm"
+      lore:
+        - "&7Vũ khí Thử Nghiệm"
+    enchants:
+      - "example 1"
+
+  example-dagger:
+    custom-type: DAGGER
+    item:
+      type: NETHERITE_SWORD
+      display: "&aDao Găm Thử Nghiệm"
+      lore:
+        - "&7Dao Găm Thử Nghiệm"
+    enchants:
+      - "example 1"
+
+  example-spear:
+    custom-type: SPEAR
+    item:
+      type: NETHERITE_SWORD
+      display: "&aGiáo Thử Nghiệm"
+      lore:
+        - "&7Giáo Thử Nghiệm"
+    enchants:
+      - "example 1"
+
+  example-greatsword:
+    custom-type: GREATSWORD
+    item:
+      type: NETHERITE_SWORD
+      display: "&aĐại Kiếm Thử Nghiệm"
+      lore:
+        - "&7Đại Kiếm Thử Nghiệm"
+    enchants:
+      - "example 1"
+
+  example-axe:
+    custom-type: AXE
+    item:
+      type: NETHERITE_AXE
+      display: "&aRìu Thử Nghiệm"
+      lore:
+        - "&7Vũ khí Thử Nghiệm"
+    enchants:
+      - "example 1"
+
+  example-hammer:
+    custom-type: HAMMER
+    item:
+      type: NETHERITE_SWORD
+      display: "&aBúa Thử Nghiệm"
+      lore:
+        - "&7Búa Thử Nghiệm"
+    enchants:
+      - "example 1"
+
+  example-stick:
+    custom-type: STICK
+    item:
+      type: NETHERITE_SWORD
+      display: "&aGậy Thử Nghiệm"
+      lore:
+        - "&7Gậy Thử Nghiệm"
+    enchants:
+      - "example 1"
+
+  example-staff:
+    custom-type: STAFF
+    item:
+      type: NETHERITE_SWORD
+      display: "&aTrượng Thử Nghiệm"
+      lore:
+        - "&7Trượng Thử Nghiệm"
+    enchants:
+      - "example 1"
+    attributes:
+      - "type=ATTACK_DAMAGE,operation=0,amount=10,slot=HAND"
+      - "type=ATTACK_SPEED,operation=0,amount=-3.2,slot=HAND"
+      - "type=PLAYER_ENTITY_INTERACTION_RANGE,operation=0,amount=6,slot=HAND"
+
+  # =======================
+  # RANGED WEAPONS
+  # =======================
+  example-bow:
+    custom-type: BOW
+    item:
+      type: BOW
+      display: "&aCung Thử Nghiệm"
+      lore:
+        - "&7Cung Thử Nghiệm"
+    enchants:
+      - "example 1"
+
+  example-crossbow:
+    custom-type: CROSSBOW
+    item:
+      type: CROSSBOW
+      display: "&aNỏ Thử Nghiệm"
+      lore:
+        - "&7Nỏ Thử Nghiệm"
+    enchants:
+      - "example 1"
+
+  # =======================
+  # TOOLS
+  # =======================
+  example-pickaxe:
+    custom-type: PICKAXE
+    item:
+      type: NETHERITE_PICKAXE
+      display: "&aCuốc Thử Nghiệm"
+      lore:
+        - "&7Công cụ Thử Nghiệm"
+    enchants:
+      - "example 1"
+
+  example-shovel:
+    custom-type: SHOVEL
+    item:
+      type: NETHERITE_SHOVEL
+      display: "&aXẻng Thử Nghiệm"
+      lore:
+        - "&7Công cụ Thử Nghiệm"
+    enchants:
+      - "example 1"
+
+  example-hoe:
+    custom-type: HOE
+    item:
+      type: NETHERITE_HOE
+      display: "&aLiềm Thử Nghiệm"
+      lore:
+        - "&7Công cụ Thử Nghiệm"
+    enchants:
+      - "example 1"
+
+  example-fishingrod:
+    custom-type: FISHINGROD
+    item:
+      type: FISHING_ROD
+      display: "&aCần Câu Thử Nghiệm"
+      lore:
+        - "&7Cần Câu Thử Nghiệm"
+    enchants:
+      - "example 1"
+
+  # =======================
+  # DEFENSIVE
+  # =======================
+  example-shield:
+    custom-type: SHIELD
+    item:
+      type: SHIELD
+      display: "&aKhiên Thử Nghiệm"
+      lore:
+        - "&7Khiên Thử Nghiệm"
+    enchants:
+      - "example 1"

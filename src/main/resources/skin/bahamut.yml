@@ -1,0 +1,302 @@
+skin:
+  # =======================
+  # ARMOR
+  # =======================
+  bahamut-helmet:
+    item:
+      type: LEATHER_HELMET
+      color: '#8c1974'
+      custom-model-data: 10037
+      display: "&#80879f&lMũ Thiết Long"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  bahamut-chestplate:
+    item:
+      type: LEATHER_CHESTPLATE
+      color: '#8c1974'
+      custom-model-data: 10045
+      display: "&#80879f&lGiáp Thiết Long"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  bahamut-leggings:
+    item:
+      type: LEATHER_LEGGINGS
+      color: '#8c1974'
+      custom-model-data: 10045
+      display: "&#80879f&lQuần Thiết Long"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  bahamut-boots:
+    item:
+      type: LEATHER_BOOTS
+      color: '#8c1974'
+      custom-model-data: 10045
+      display: "&#80879f&lGiày Thiết Long"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  # =======================
+  # MELEE WEAPONS
+  # =======================
+  bahamut-sword:
+    item:
+      type: NETHERITE_SWORD
+      custom-model-data: 10038
+      display: "&#80879f&lKiếm Thiết Long"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  bahamut-dagger:
+    item:
+      type: NETHERITE_SWORD
+      custom-model-data: 10032
+      display: "&#80879f&lDao Găm Thiết Long"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  bahamut-spear:
+    item:
+      type: NETHERITE_SWORD
+      custom-model-data: 10036
+      display: "&#80879f&lGiáo Thiết Long"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  bahamut-greatsword:
+    item:
+      type: NETHERITE_SWORD
+      custom-model-data: 10030
+      display: "&#80879f&lĐại Kiếm Thiết Long"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  bahamut-axe:
+    item:
+      type: NETHERITE_AXE
+      custom-model-data: 10007
+      display: "&#80879f&lRìu Thiết Long"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  bahamut-hammer:
+    item:
+      type: NETHERITE_SWORD
+      custom-model-data: 10034
+      display: "&#80879f&lBúa Thiết Long"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  bahamut-staff:
+    item:
+      type: NETHERITE_SWORD
+      custom-model-data: 10037
+      display: "&#80879f&lTrượng Thiết Long"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  # =======================
+  # RANGED WEAPONS
+  # =======================
+  bahamut-bow:
+    item:
+      type: BOW
+      custom-model-data: 10043
+      display: "&#80879f&lCung Thiết Long"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  # =======================
+  # TOOLS
+  # =======================
+  bahamut-pickaxe:
+    item:
+      type: NETHERITE_PICKAXE
+      custom-model-data: 10007
+      display: "&#80879f&lCuốc Thiết Long"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  bahamut-shovel:
+    item:
+      type: NETHERITE_SHOVEL
+      custom-model-data: 10006
+      display: "&#80879f&lXẻng Thiết Long"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  bahamut-hoe:
+    item:
+      type: NETHERITE_HOE
+      custom-model-data: 10006
+      display: "&#80879f&lCúp Thiết Long"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  bahamut-fishingrod:
+    item:
+      type: FISHING_ROD
+      custom-model-data: 18716
+      display: "&#80879f&lCần Câu Thiết Long"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  # =======================
+  # DEFENSIVE
+  # =======================
+  bahamut-shield:
+    item:
+      type: SHIELD
+      custom-model-data: 17124
+      display: "&#80879f&lKhiên Thiết Long"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  # =======================
+  # COSMETIC
+  # =======================
+  bahamut-wings:
+    item:
+      type: PAPER
+      custom-model-data: 10203
+      display: "&#80879f&lCánh Thiết Long"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  bahamut-hat:
+    item:
+      type: PAPER
+      custom-model-data: 10201
+      display: "&#80879f&lNón Thiết Long"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  bahamut-hat2:
+    item:
+      type: PAPER
+      custom-model-data: 10200
+      display: "&#80879f&lNón Thiết Long 2"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"

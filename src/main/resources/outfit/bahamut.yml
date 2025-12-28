@@ -1,0 +1,64 @@
+outfit:
+  bahamut:
+    group: ultimate
+    max-level: 5
+    item:
+      type: PAPER
+      custom-model-data: 10198
+      display: "<GRADIENTS:413a3f,726566,adbed0,e9faff,80879f>&lBộ Trang Phục Thiết Long</GRADIENTS>"
+      glowing: true
+      lore:
+        - ""
+    enchant: "assassin"
+    levels:
+      1:
+        custom-types:
+          HELMET:
+            list:
+              - 'bahamut-hat'
+              - 'bahamut-hat2'
+              - 'bahamut-helmet'
+          WINGS:
+            list:
+              - 'bahamut-wings'
+        skins:
+          # =======================
+          # ARMOR
+          # =======================
+          HELMET: bahamut-helmet
+          CHESTPLATE: bahamut-chestplate
+          LEGGINGS: bahamut-leggings
+          BOOTS: bahamut-boots
+
+          # =======================
+          # MELEE WEAPONS
+          # =======================
+          SWORD: bahamut-sword
+          DAGGER: bahamut-dagger
+          SPEAR: bahamut-spear
+          GREATSWORD: bahamut-greatsword
+          AXE: bahamut-axe
+          HAMMER: bahamut-hammer
+          STAFF: bahamut-staff
+
+          # =======================
+          # RANGED WEAPONS
+          # =======================
+          BOW: bahamut-bow
+          # =======================
+          # TOOLS
+          # =======================
+          PICKAXE: bahamut-pickaxe
+          SHOVEL: bahamut-shovel
+          HOE: bahamut-hoe
+          FISHINGROD: bahamut-fishingrod
+
+          # =======================
+          # DEFENSIVE
+          # =======================
+          SHIELD: bahamut-shield
+
+          # =======================
+          # COSMETIC
+          # =======================
+          WINGS: bahamut-wings

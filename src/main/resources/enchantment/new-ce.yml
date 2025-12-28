@@ -101,7 +101,7 @@ planter:
 #           - "MESSAGE:&b&l***HydroForge: &e&l+20 &e&lHP &b&l***"
 flash:
   group: "supreme"
-  display: "Flash"
+  display: "Tốc biến"
   description:
     - "&eCó khả năng tốc biến đến phía trước khi nhấn Shift"
     - ""
@@ -111,7 +111,7 @@ flash:
     - ""
     - "&7&oTự động xoay đầu nhìn về hướng kẻ địch khi tốc biến"
     - ""
-    - "&eThời gian hồi: 20/16/12/8/4 giây"
+    - "&eThời gian hồi: 40/32/24/16/8 giây"
     - ""
     - "&cKhông thể ép chung với Dash, DoubleJump"
   applies-description:
@@ -201,7 +201,7 @@ flash:
         conditions:
           - ""
         effects:
-          - "ACTIVE_FLASH:8:true:0:1_8:EXPLOSION_NORMAL:&cTốc biến tiếp sau &e{time_left} &cgiây!"
+          - "ACTIVE_FLASH:8:true:8000:1_8:EXPLOSION_NORMAL:&cTốc biến tiếp sau &e{time_left} &cgiây!"
       unequip:
         type: ARMOR_UNDRESS
         chance: 100

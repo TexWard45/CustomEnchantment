@@ -1,9 +1,19 @@
+event:
+  move-period: 1000
+  sneak-period: 250
 log:
   random-book:
     enable: false
 combat-settings:
   require-weapon: true
 max-extra-slot-use-count: 8
+outfit:
+  extra-slot: EXTRA_SLOT_9
+  task:
+    per-player: 5
+    per-item: 10
+  title-update-blacklist:
+    - 'Kho đồ nâng cao (/e)'
 extra-slot-settings:
   artifact-default:
     max-count: 5
@@ -33,15 +43,33 @@ extra-slot-settings:
       - "sigil"
     slots:
       - EXTRA_SLOT_8
-sigil-extra-slot: EXTRA_SLOT_8
-sigil-display-enable: false
+  outfit-all:
+    max-count: 1
+    list:
+      - "outfit"
+    slots:
+      - EXTRA_SLOT_9
+sigil: 
+  extra-slot: EXTRA_SLOT_8
+  display-enable: false
 unbreakable-armor:
   enable: true
   player-per-tick: 1
   tick-interval: 1
 combat-time: 10000
-enchant-disable-worlds:
-  - ""
+enchant:
+  disable-worlds:
+    - ""
+  value:
+    lore:
+      equip: "&#e7eb02Khi trang bị:"
+      attack: "&#ff0000Khi tấn công:"
+      defense: "&#00e9ffKhi phòng thủ:"
+    stats:
+      damage: "&csát thương"
+      increase-damage: "&ctăng sát thương"
+      reduce-damage: "<GRADIENTS:00ad0e,05ff19>giảm sát thương</GRADIENTS>"
+      reflect-damage: "<GRADIENTS:d2d602,f8fc03>phản đòn</GRADIENTS>"
 effect-type-blacklist:
   - ""
 ce-item-material-whitelist:
@@ -410,13 +438,3 @@ material-group:
     - "NETHERITE_HOE"
   ALL_GEM:
     - "MAGMA_CREAM"
-enchant-value:
-  lore:
-    equip: "&#e7eb02Khi trang bị:"
-    attack: "&#ff0000Khi tấn công:"
-    defense: "&#00e9ffKhi phòng thủ:"
-  stats:
-    damage: "&csát thương"
-    increase-damage: "&ctăng sát thương"
-    reduce-damage: "<GRADIENTS:00ad0e,05ff19>giảm sát thương</GRADIENTS>"
-    reflect-damage: "<GRADIENTS:d2d602,f8fc03>phản đòn</GRADIENTS>"

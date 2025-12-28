@@ -1,0 +1,316 @@
+skin:
+  # =======================
+  # ARMOR
+  # =======================
+  wukong-helmet:
+    item:
+      type: LEATHER_HELMET
+      color: '#FFFFF8'
+      custom-model-data: 10030
+      display: "&#f7dd7e&lMũ Ngộ Không"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  wukong-chestplate:
+    item:
+      type: LEATHER_CHESTPLATE
+      color: '#FFFFF8'
+      custom-model-data: 10033
+      display: "&#f7dd7e&lGiáp Ngộ Không"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  wukong-leggings:
+    item:
+      type: LEATHER_LEGGINGS
+      color: '#FFFFF8'
+      custom-model-data: 10033
+      display: "&#f7dd7e&lQuần Ngộ Không"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  wukong-boots:
+    item:
+      type: LEATHER_BOOTS
+      color: '#FFFFF8'
+      custom-model-data: 10033
+      display: "&#f7dd7e&lGiày Ngộ Không"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  # =======================
+  # MELEE WEAPONS
+  # =======================
+  wukong-sword:
+    item:
+      type: NETHERITE_SWORD
+      custom-model-data: 10021
+      display: "&#f7dd7e&lKiếm Ngộ Không"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  wukong-dagger:
+    item:
+      type: NETHERITE_SWORD
+      custom-model-data: 10023
+      display: "&#f7dd7e&lDao Găm Ngộ Không"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  wukong-spear:
+    item:
+      type: NETHERITE_SWORD
+      custom-model-data: 10029
+      display: "&#f7dd7e&lGiáo Ngộ Không"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  wukong-greatsword:
+    item:
+      type: NETHERITE_SWORD
+      custom-model-data: 10024
+      display: "&#f7dd7e&lĐại Kiếm Ngộ Không"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  wukong-axe:
+    item:
+      type: NETHERITE_AXE
+      custom-model-data: 10006
+      display: "&#f7dd7e&lRìu Ngộ Không"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  wukong-hammer:
+    item:
+      type: NETHERITE_SWORD
+      custom-model-data: 10027
+      display: "&#f7dd7e&lBúa Ngộ Không"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  wukong-stick:
+    item:
+      type: NETHERITE_SWORD
+      custom-model-data: 10028
+      display: "&#f7dd7e&lGậy Như Ý"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  wukong-staff:
+    item:
+      type: NETHERITE_SWORD
+      custom-model-data: 10025
+      display: "&#f7dd7e&lTrượng Ngộ Không"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  # =======================
+  # RANGED WEAPONS
+  # =======================
+  wukong-bow:
+    item:
+      type: BOW
+      custom-model-data: 10031
+      display: "&#f7dd7e&lCung Ngộ Không"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  wukong-crossbow:
+    item:
+      type: CROSSBOW
+      custom-model-data: 17251
+      display: "&#f7dd7e&lNỏ Ngộ Không"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  # =======================
+  # TOOLS
+  # =======================
+  wukong-pickaxe:
+    item:
+      type: NETHERITE_PICKAXE
+      custom-model-data: 10006
+      display: "&#f7dd7e&lCuốc Ngộ Không"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  wukong-shovel:
+    item:
+      type: NETHERITE_SHOVEL
+      custom-model-data: 10005
+      display: "&#f7dd7e&lXẻng Ngộ Không"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  wukong-hoe:
+    item:
+      type: NETHERITE_HOE
+      custom-model-data: 10005
+      display: "&#f7dd7e&lCúp Ngộ Không"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  wukong-fishingrod:
+    item:
+      type: FISHING_ROD
+      custom-model-data: 18705
+      display: "&#f7dd7e&lCần Câu Ngộ Không"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  # =======================
+  # DEFENSIVE
+  # =======================
+  wukong-shield:
+    item:
+      type: SHIELD
+      custom-model-data: 17111
+      display: "&#f7dd7e&lKhiên Ngộ Không"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  # =======================
+  # COSMETIC
+  # =======================
+  wukong-wings:
+    item:
+      type: PAPER
+      custom-model-data: 10396
+      display: "&#f7dd7e&lKhiên Ngộ Không"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  wukong-hat:
+    item:
+      type: PAPER
+      custom-model-data: 10146
+      display: "&#f7dd7e&lNón Ngộ Không"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"

@@ -1,0 +1,316 @@
+skin:
+  # =======================
+  # ARMOR
+  # =======================
+  halloween-phantom-helmet:
+    item:
+      type: LEATHER_HELMET
+      color: '#fffffb'
+      custom-model-data: 10030
+      display: "&#f7dd7e&lMũ U Linh"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  halloween-phantom-chestplate:
+    item:
+      type: LEATHER_CHESTPLATE
+      color: '#fffffb'
+      custom-model-data: 10033
+      display: "&#f7dd7e&lGiáp U Linh"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  halloween-phantom-leggings:
+    item:
+      type: LEATHER_LEGGINGS
+      color: '#fffffb'
+      custom-model-data: 10033
+      display: "&#f7dd7e&lQuần U Linh"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  halloween-phantom-boots:
+    item:
+      type: LEATHER_BOOTS
+      color: '#fffffb'
+      custom-model-data: 10033
+      display: "&#f7dd7e&lGiày U Linh"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  # =======================
+  # MELEE WEAPONS
+  # =======================
+  halloween-phantom-sword:
+    item:
+      type: NETHERITE_SWORD
+      custom-model-data: 10021
+      display: "&#f7dd7e&lKiếm U Linh"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  halloween-phantom-dagger:
+    item:
+      type: NETHERITE_SWORD
+      custom-model-data: 10023
+      display: "&#f7dd7e&lDao Găm U Linh"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  halloween-phantom-spear:
+    item:
+      type: NETHERITE_SWORD
+      custom-model-data: 10029
+      display: "&#f7dd7e&lGiáo U Linh"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  halloween-phantom-greatsword:
+    item:
+      type: NETHERITE_SWORD
+      custom-model-data: 10024
+      display: "&#f7dd7e&lĐại Kiếm U Linh"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  halloween-phantom-axe:
+    item:
+      type: NETHERITE_AXE
+      custom-model-data: 10006
+      display: "&#f7dd7e&lRìu U Linh"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  halloween-phantom-hammer:
+    item:
+      type: NETHERITE_SWORD
+      custom-model-data: 10027
+      display: "&#f7dd7e&lBúa U Linh"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  halloween-phantom-stick:
+    item:
+      type: NETHERITE_SWORD
+      custom-model-data: 10028
+      display: "&#f7dd7e&lGậy Như Ý"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  halloween-phantom-staff:
+    item:
+      type: NETHERITE_SWORD
+      custom-model-data: 10025
+      display: "&#f7dd7e&lTrượng U Linh"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  # =======================
+  # RANGED WEAPONS
+  # =======================
+  halloween-phantom-bow:
+    item:
+      type: BOW
+      custom-model-data: 10031
+      display: "&#f7dd7e&lCung U Linh"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  halloween-phantom-crossbow:
+    item:
+      type: CROSSBOW
+      custom-model-data: 17251
+      display: "&#f7dd7e&lNỏ U Linh"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  # =======================
+  # TOOLS
+  # =======================
+  halloween-phantom-pickaxe:
+    item:
+      type: NETHERITE_PICKAXE
+      custom-model-data: 10006
+      display: "&#f7dd7e&lCuốc U Linh"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  halloween-phantom-shovel:
+    item:
+      type: NETHERITE_SHOVEL
+      custom-model-data: 10005
+      display: "&#f7dd7e&lXẻng U Linh"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  halloween-phantom-hoe:
+    item:
+      type: NETHERITE_HOE
+      custom-model-data: 10005
+      display: "&#f7dd7e&lCúp U Linh"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  halloween-phantom-fishingrod:
+    item:
+      type: FISHING_ROD
+      custom-model-data: 18705
+      display: "&#f7dd7e&lCần Câu U Linh"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  # =======================
+  # DEFENSIVE
+  # =======================
+  halloween-phantom-shield:
+    item:
+      type: SHIELD
+      custom-model-data: 17111
+      display: "&#f7dd7e&lKhiên U Linh"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  # =======================
+  # COSMETIC
+  # =======================
+  halloween-phantom-wings:
+    item:
+      type: PAPER
+      custom-model-data: 10396
+      display: "&#f7dd7e&lKhiên U Linh"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  halloween-phantom-hat:
+    item:
+      type: PAPER
+      custom-model-data: 10146
+      display: "&#f7dd7e&lNón U Linh"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"

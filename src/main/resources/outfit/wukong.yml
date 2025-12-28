@@ -1,0 +1,83 @@
+# Armor
+# HELMET → CHESTPLATE → LEGGINGS → BOOTS
+
+# Melee Weapons
+# SWORD → DAGGER → SPEAR → GREATSWORD → AXE → HAMMER → STICK → STAFF
+
+# Ranged Weapons
+# BOW → CROSSBOW
+
+# Tools
+# PICKAXE → SHOVEL → HOE → FISHINGROD
+
+# Defensive
+# SHIELD
+
+# Cosmetic (no combat, no tool)
+# WINGS → HAT
+outfit:
+  wukong:
+    group: ultimate
+    max-level: 5
+    item:
+      type: PAPER
+      custom-model-data: 10402
+      display: "<GRADIENTS:9a542d,c98545,f7dd7e,813145>&lBộ Trang Phục Ngộ Không</GRADIENTS>"
+      glowing: true
+      lore:
+        - ""
+    enchant: "assassin"
+    levels:
+      1:
+        custom-types:
+          HELMET:
+            list:
+              - 'wukong-hat'
+              - 'wukong-helmet'
+          WINGS:
+            list:
+              - 'wukong-wings'
+        skins:
+          # =======================
+          # ARMOR
+          # =======================
+          HELMET: wukong-helmet
+          CHESTPLATE: wukong-chestplate
+          LEGGINGS: wukong-leggings
+          BOOTS: wukong-boots
+
+          # =======================
+          # MELEE WEAPONS
+          # =======================
+          SWORD: wukong-sword
+          DAGGER: wukong-dagger
+          SPEAR: wukong-spear
+          GREATSWORD: wukong-greatsword
+          AXE: wukong-axe
+          HAMMER: wukong-hammer
+          STICK: wukong-stick
+          STAFF: wukong-staff
+
+          # =======================
+          # RANGED WEAPONS
+          # =======================
+          BOW: wukong-bow
+          CROSSBOW: wukong-crossbow
+
+          # =======================
+          # TOOLS
+          # =======================
+          PICKAXE: wukong-pickaxe
+          SHOVEL: wukong-shovel
+          HOE: wukong-hoe
+          FISHINGROD: wukong-fishingrod
+
+          # =======================
+          # DEFENSIVE
+          # =======================
+          SHIELD: wukong-shield
+
+          # =======================
+          # COSMETIC
+          # =======================
+          WINGS: wukong-wings

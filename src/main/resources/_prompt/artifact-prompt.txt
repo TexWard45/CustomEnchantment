@@ -1,0 +1,160 @@
+Bạn là một người thiết kế ý tưởng cho tựa game Minecraft Server chế độ Faction.
+
+Hiện tại, trong máy chủ có chức năng vật phẩm được gọi là Cổ vật. Cổ vật là một loại vật phẩm có thể trang bị.
+
+CỔ VẬT – PHÂN LOẠI ĐỘ HIẾM & TIÊU CHÍ
+
+Mỗi người chơi có thể trang bị tối đa:
+* 5 cổ vật không thuộc sự kiện
+* 5 cổ vật thuộc sự kiện
+
+Mỗi cổ vật có một trong 6 độ hiếm, với tiêu chí cụ thể như sau:
+
+1. Thường
+
+* Chỉ số cộng thêm: Tối đa 1 loại chỉ số (cụ thể hoặc phần trăm)
+* Hiệu ứng đặc biệt: Không có
+* Mục đích: Cổ vật cơ bản, dễ kiếm, dùng làm nguyên liệu nâng cấp
+
+2. Hiếm
+
+* Chỉ số cộng thêm: Tối đa 1 loại chỉ số (cụ thể hoặc phần trăm)
+* Hiệu ứng đặc biệt: 1 hiệu ứng đơn giản (ví dụ: kháng lửa, hồi máu nhẹ, tăng tốc trong nước)
+* Mục đích: Đưa người chơi vào giai đoạn build chỉ số cụ thể
+
+3. Sử thi
+
+* Chỉ số cộng thêm: Tối đa 2 loại chỉ số (cụ thể và/hoặc phần trăm)
+* Hiệu ứng đặc biệt: 1 hiệu ứng trung bình (ví dụ: tăng tốc độ tấn công khi dưới 50% máu)
+* Mục đích: Hỗ trợ giao tranh nhỏ, người chơi mid-game
+
+4. Huyền thoại
+
+* Chỉ số cộng thêm: Tối đa 2 loại chỉ số (ưu tiên combo build)
+* Hiệu ứng đặc biệt: 1–2 hiệu ứng trung bình (ví dụ: miễn nhiễm hiệu ứng trong 2s khi bị chí mạng)
+* Mục đích: Trang bị tiêu chuẩn cho PvP và War nhóm
+
+5. Tối thượng
+
+* Chỉ số cộng thêm: Tối đa 3 loại chỉ số (có thể kết hợp công – thủ, hoặc % mạnh)
+* Hiệu ứng đặc biệt: 1–2 hiệu ứng phức tạp (có điều kiện kích hoạt, combo như hồi máu khi hạ gục, tăng sát thương gần đồng minh)
+* Mục đích: Dành cho người chơi cày lâu dài hoặc VIP
+
+6. Chiến thần
+
+* Chỉ số cộng thêm: Tối đa 3 loại chỉ số, mạnh và ảnh hưởng rõ rệt
+* Hiệu ứng đặc biệt: 1–3 hiệu ứng từ đơn giản đến phức tạp, có thể gây áp lực mạnh (ví dụ: bỏ qua 50% kháng phép trong 3s sau chí mạng)
+* Mục đích: Trang bị cấp cao nhất, đến từ boss, sự kiện lớn hoặc công thức nâng cấp hiếm
+
+Các chỉ số hiện có trong máy chủ:
+CHỈ SỐ PHÒNG THỦ
+
+Máu tối đa (Max Health) - ❤
+Tim đỏ tối đa.
+
+Máu vàng (Max Absorption) - ❤
+Tim vàng tối đa.
+
+Tốc độ di chuyển (Movement Speed) - ⚡
+Tốc độ chạy.
+
+Tốc độ hồi phục (Health Regeneration) - ❤
+Lượng HP hồi mỗi giây.
+
+Giáp (Armor) - 🛡
+Giáp của trang bị.
+
+Sát thương nhận giảm (Damage Reduction) - 🛡
+Sát thương nhận giảm theo phần trăm. Cộng dồn với kháng cự.
+Nếu tỉ lệ là 100%, sát thương nhận được sẽ luôn là 0.
+
+Tỉ lệ né tránh (Dodge Chance) - 💨
+Tỉ lệ né đòn đánh từ kẻ địch.
+Nếu tỉ lệ là 100%, kẻ địch sẽ không thể đánh trúng.
+
+Kháng làm chậm (Slow Resistance) - 🛡
+Giảm làm chậm từ mọi nguồn theo phần trăm.
+Nếu tỉ lệ là 100%, sẽ không bị làm chậm từ mọi nguồn.
+
+Kháng khống chế (Magic Resistance) - 🛡
+Giảm thời gian khống chế theo phần trăm đối với choáng, cấm quay đầu, cấm nhảy.
+Không tính làm chậm.
+
+CHỈ SỐ TẤN CÔNG
+
+Sức tấn công (Attack Damage) - ⚔
+Tăng thêm sát thương gây ra.
+
+Tốc độ tấn công (Attack Speed) - ⚡
+Thời gian giữa các khoảng ra đòn.
+
+Tầm đánh (Attack Range) - 🏹
+Tăng hoặc giảm tầm đánh của đối thủ.
+
+Sát thương chí mạng (Critical Damage) - 💥
+Tăng thêm sát thương chí mạng khi tấn công.
+Nếu tỉ lệ là 20%, khi chí mạng gây 200% + (200% * 20%) = 240% sát thương.
+
+Tỉ lệ chí mạng (Critical Chance) - 🎯
+Tỉ lệ để đòn đánh gây gấp đôi sát thương.
+Nếu tỉ lệ là 100%, luôn gây gấp đôi sát thương khi tấn công.
+
+Xuyên giáp (Armor Penetration) - 🛡
+Phần trăm xuyên giáp khi tấn công.
+Nếu tỉ lệ là 100%, đòn tấn công sẽ bỏ qua giáp từ trang bị hay chỉ số của đối thủ.
+Điều này đồng nghĩa với gây sát thương chuẩn.
+
+Hút máu (Life Steal) - 🧛
+Phần trăm hút máu từ lượng sát thương gây ra.
+Nếu tỉ lệ là 100%, hồi lại lượng máu tương đương sát thương gây ra.
+
+Độ chính xác (Accuracy) - 💢
+Trái ngược với Dodge. Độ chính xác càng cao thì sẽ chống lại tỉ lệ né của kẻ thù.
+Ví dụ: độ chính xác là 170%, tỉ lệ né của kẻ thù là 80% thì tỉ lệ đánh trúng đòn là 170%-80% = 90%.
+
+CHỈ SỐ KHÁC
+
+Tổn thương (Vulnerability) - 💔
+Nhận thêm sát thương từ mọi nguồn theo phần trăm.
+Nếu tỉ lệ là 100%, sẽ nhận gấp đôi lượng sát thương từ mọi nguồn.
+Nếu tỉ lệ là 200%, sẽ nhận gấp ba lượng sát thương từ mọi nguồn.
+Chỉ số này dùng để hạn chế PvP kéo dài. Tăng khi chết và giảm khi không giao tranh hoặc có chỉ số Sức bền cao.
+Đã áp dụng trong sự kiện Mega War.
+
+Sức bền (Endurance) - 🔋
+Sức bền càng cao, chỉ số Tổn thương tăng càng chậm và giảm nhanh hơn khi không trong giao tranh.
+
+Phân rã (Decay) - ☠️
+Giảm toàn bộ chỉ số tấn công và phòng thủ (trừ HP) theo thời gian khi dính hiệu ứng.
+Tối đa về 0. Khi hiệu ứng kết thúc sẽ hồi lại toàn bộ chỉ số gốc.
+(Gợi ý: Áp dụng cho quái/boss hoặc các khu vực đặc biệt)
+
+Kháng hút máu (Lifesteal Protection) - 🩹
+Giảm khả năng bị hút máu từ đối thủ.
+Khi tỉ lệ là 100%, hiệu quả hút máu của đối thủ sẽ không còn.
+
+Nhiệm vụ của bạn:
+Hãy thiết kế 10 món cổ vật cho chế độ Minecraft Server Faction, liên quan đến hai loại quái là Bò và Gà, với các yêu cầu sau:
+
+Phân loại cổ vật:
+
+* 5 món cổ vật liên quan đến quái Bò, tập trung vào chỉ số phòng thủ.
+* 5 món cổ vật liên quan đến quái Gà, tập trung vào chỉ số tấn công.
+
+Yêu cầu cụ thể:
+
+* Mỗi nhóm (Bò và Gà) bao gồm:
+
+  * 3 món độ hiếm Thường
+  * 2 món độ hiếm Hiếm
+  * 1 món độ hiếm Sử thi
+* Tên cổ vật ngắn gọn, súc tích (ưu tiên độ dài từ 2 đến 3 từ), có phong cách như tên đồ vật.
+* Tên không bắt buộc phải chứa từ “Bò” hoặc “Gà”.
+* Mỗi cổ vật cần kèm theo gợi ý vật phẩm Minecraft đại diện (ví dụ: Feather, Iron Nugget, Leather...).
+
+Yêu cầu thiết kế hướng đến người chơi mới:
+
+* Cổ vật phải dễ hiểu, hỗ trợ tốt cho người mới bắt đầu.
+* Thiết kế đơn giản, dễ tiếp cận và thu hút.
+* Có hiệu quả rõ rệt trong cả PvE và PvP.
+* Phù hợp để farm ở giai đoạn đầu game, không yêu cầu cơ chế phức tạp.

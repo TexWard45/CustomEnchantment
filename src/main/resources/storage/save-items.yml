@@ -680,3 +680,15 @@ testulteavor:
     Unbreakable: true
     Damage: 10
     custom: H4sIAAAAAAAA/61Uy27TQBS9jUNeEqgUEAIJ6IIFGyOP38kGQgsSC2BRukIoGs9cpyPiB/aEtt/AmkWRWLCy+AOkbpD5kv4A38DETlJECRUS1pV9debMPWdmrqcH0INOKGIuJEYdaAgOmjv0O9CcJBlC49VrRbjMprlMIozZHo2l+ko1Lg9ThNY+0jSJu9CeD3YAoAHrNM9ViHhABsQwBgbcSDMRoYjfTkUupHiHCq+HmqqUGgJY+9D4tP2jA+2USolZDJcWVfR8P8l4D7QxRspOk1NJu3ATD2RGR2mWSGRyxDGXWXI4moh87qLNMaTTiVwmGlyp58zNjtJExFJxoQvXf69G+bJU+2ypf0o0uPZHrzNlDTbOKleavfoMuqBhPENmLluR4HyCM1Nr8LUswpd705PjI7YZqPemKhOPZ+n7zbI4KAuvLB6XhVnFlsp3KtQvi35ZWBW6XRbO988VrDC7ihrekgv0ieJUqKpl1YWHVbgLdFhzH1VEr0LVJLJXoUrYqERr1D85LrpwIcCxiKtFQQc6OUop4nF+unVd2BhKmYlgKvFZwkUoMMt7it1UrbczSSQ01QnyDlxc0p5T1UV3IhEjy2goB2OMMRPsvuomyt6MOI3oGDXovkgxo1IkcS3e3N19ug13PdNCDByqkyDo67bNXZ0ahOqeEbho25SZoanIlcg6sS3iu7bpk77pG57ZgtYwSqaxfHgPFov6m8vbK13mKSJfadIxXNch6OvI/VC3ue3rQRBw3bcD07CZa4UsXJg8R2Np+ZtmVc9/tby2tGy5ASWMB7ofBES3fUZ037FQdy3H8BkLCaW4sLz68CqN021+8OVo9nw8x/Ot+t4apBN6iNl9lqmbh9HJaPbzs9WtYGPI+65qBc/zDN1Gy9EpJ5buuwQ9DJGYbni2FUyDEOL80gpX560APwFaF4HEZQUAAA==
+model:
+  ==: org.bukkit.inventory.ItemStack
+  v: 3955
+  type: BOOK
+  amount: 64
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"text":"chest","italic":false,"color":"white"}'
+    item-name: '{"text":"chest","italic":false,"color":"white"}'
+    custom-model-data: 10006
+    custom: H4sIAAAAAAAA/w3LQQ6AIAwEwI0n5ODNZ/gm09CNEgQNLfH7OveJQETMzmqiyh4wZcX6jnK3Y5eWqzh1SyfNA+YmlfZIIhZe/0qd4qPTgA9VrRoMSgAAAA==

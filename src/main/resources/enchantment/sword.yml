@@ -3120,3 +3120,56 @@ arthritis:
           - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed
           - TARGET=ENEMY,DELAY=100 | ADD_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed:-0.9:2
           - TARGET=ENEMY,DELAY=150,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed
+testtest:
+  group: common
+  display: Inquisitive
+  description:
+    - "&eThưởng thêm kinh nghiệm người chơi"
+    - "&ekhi giết quái"
+  detail-description:
+    - "&eThưởng thêm kinh nghiệm người chơi"
+    - "&ekhi giết quái"
+    - ""
+    - "&eLượng kinh nghiệm:"
+    - "&e+5% Kinh nghiệm theo Thợ săn quái x Cấp"
+  applies-description:
+    - Kiếm
+  applies:
+    - ALL_SWORD
+  max-level: 10
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      hold:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:OFFHAND
+        effects:
+          - "MESSAGE:&7&l***Test: Active&7&l***"
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:OFFHAND
+        effects:
+          - "MESSAGE:&7&l***Test: Deactive&7&l***"
+      equip:
+        type: ARMOR_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:ARMOR
+        effects:
+          - "MESSAGE:&7&l***Test 2: Active&7&l***"
+      unequip:
+        type: ARMOR_UNDRESS
+        chance: 100
+        cooldown: 0
+        conditions:
+          - EQUIP_SLOT:ARMOR
+        effects:
+          - "MESSAGE:&7&l***Test 2: Deactive&7&l***"

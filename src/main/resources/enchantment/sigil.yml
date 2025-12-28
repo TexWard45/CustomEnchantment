@@ -1,0 +1,464 @@
+striker:
+  group: legendary
+  display: Striker
+  description:
+    - "&eNhận hiệu ứng tốc độ và nhảy cao"
+    - "&ekhi trang bị"
+  detail-description:
+    - "&eNhận hiệu ứng tốc độ và nhảy cao"
+    - "&ekhi trang bị"
+    - ""
+    - "&eHiệu ứng thuốc: Tốc độ, Nhảy cao"
+    - "&eCấp độ hiệu ứng: 1/2"
+    - "&eThời gian hiệu ứng: Vĩnh viễn"
+  applies-description:
+    - Giày
+  applies:
+    - ALL_BOOTS
+  max-level: 1
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - NAME=striker_particle_0,PERIOD=1 | PACKET_SPIRAL_REDSTONE_PARTICLE:10:-500:~_~_~+0.1_~:0_0_0:0_0_0:1:0:#3BF702,#45F702,#4FF702,#59F702,#63F702,#6DF702,#77F702,#81F702,#8BF702,#95F702:1:1:1:0.1,0.1:48:90:0
+          - NAME=striker_particle_1,PERIOD=1 | PACKET_SPIRAL_REDSTONE_PARTICLE:10:-500:~_~_~+0.1_~:0_0_0:0_0_0:1:0:#3BF702,#45F702,#4FF702,#59F702,#63F702,#6DF702,#77F702,#81F702,#8BF702,#95F702:1:1:1:0.1,0.1:48:270:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_TASK_ASYNC:striker_particle_0
+          - REMOVE_TASK_ASYNC:striker_particle_1
+      equip2:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - NAME=striker_move_particle_0,PERIOD=6 | PACKET_REDSTONE_PARTICLE:10:500:~_~_~+0.1_~:0.5_0_0.5:0_0_0:1:0:#3BF702,#45F702,#4FF702,#59F702,#63F702,#6DF702,#77F702,#81F702,#8BF702,#95F702:1
+          - NAME=striker_move_particle_1,PERIOD=6 | PACKET_REDSTONE_PARTICLE:10:500:~_~_~+0.1_~:0.5_0_0.5:0_0_0:1:0:#3BF702,#45F702,#4FF702,#59F702,#63F702,#6DF702,#77F702,#81F702,#8BF702,#95F702:1
+      unequip2:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_TASK_ASYNC:striker_move_particle_0
+          - REMOVE_TASK_ASYNC:striker_move_particle_1
+fighter:
+  group: legendary
+  display: Fighter
+  description:
+    - "&eNhận hiệu ứng tốc độ và nhảy cao"
+    - "&ekhi trang bị"
+  detail-description:
+    - "&eNhận hiệu ứng tốc độ và nhảy cao"
+    - "&ekhi trang bị"
+    - ""
+    - "&eHiệu ứng thuốc: Tốc độ, Nhảy cao"
+    - "&eCấp độ hiệu ứng: 1/2"
+    - "&eThời gian hiệu ứng: Vĩnh viễn"
+  applies-description:
+    - Giày
+  applies:
+    - ALL_BOOTS
+  max-level: 1
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - NAME=fighter_particle_0,PERIOD=1 | PACKET_SPIRAL_REDSTONE_PARTICLE:10:-500:~_~_~+0.1_~:0_0_0:0_0_0:1:0:#EF704E,#F0764C,#F17C4A,#F28248,#F38846,#F48E44,#F59442,#F69A40,#F7A03E,#F8A63C,#FFA63A,#FFA93A,#FFAC3A,#FFAF3A,#FFB23A,#FFB53A,#FFB83A,#FFBB3A,#FFBE3A,#FFC13A:1:1:1:0.1,0.1:48:90:0
+          - NAME=fighter_particle_1,PERIOD=1 | PACKET_SPIRAL_REDSTONE_PARTICLE:10:-500:~_~_~+0.1_~:0_0_0:0_0_0:1:0:#EF704E,#F0764C,#F17C4A,#F28248,#F38846,#F48E44,#F59442,#F69A40,#F7A03E,#F8A63C,#FFA63A,#FFA93A,#FFAC3A,#FFAF3A,#FFB23A,#FFB53A,#FFB83A,#FFBB3A,#FFBE3A,#FFC13A:1:1:1:0.1,0.1:48:270:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_TASK_ASYNC:fighter_particle_0
+          - REMOVE_TASK_ASYNC:fighter_particle_1
+      equip2:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - NAME=fighter_move_particle_0,PERIOD=6 | PACKET_REDSTONE_PARTICLE:10:500:~_~_~+0.1_~:0.5_0_0.5:0_0_0:1:0:#EF704E,#F0764C,#F17C4A,#F28248,#F38846,#F48E44,#F59442,#F69A40,#F7A03E,#F8A63C,#FFA63A,#FFA93A,#FFAC3A,#FFAF3A,#FFB23A,#FFB53A,#FFB83A,#FFBB3A,#FFBE3A,#FFC13A:1
+          - NAME=fighter_move_particle_1,PERIOD=6 | PACKET_REDSTONE_PARTICLE:10:500:~_~_~+0.1_~:0.5_0_0.5:0_0_0:1:0:#EF704E,#F0764C,#F17C4A,#F28248,#F38846,#F48E44,#F59442,#F69A40,#F7A03E,#F8A63C,#FFA63A,#FFA93A,#FFAC3A,#FFAF3A,#FFB23A,#FFB53A,#FFB83A,#FFBB3A,#FFBE3A,#FFC13A:1
+      unequip2:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_TASK_ASYNC:fighter_move_particle_0
+          - REMOVE_TASK_ASYNC:fighter_move_particle_1
+knight:
+  group: legendary
+  display: Knight
+  description:
+    - "&eNhận hiệu ứng tốc độ và nhảy cao"
+    - "&ekhi trang bị"
+  detail-description:
+    - "&eNhận hiệu ứng tốc độ và nhảy cao"
+    - "&ekhi trang bị"
+    - ""
+    - "&eHiệu ứng thuốc: Tốc độ, Nhảy cao"
+    - "&eCấp độ hiệu ứng: 1/2"
+    - "&eThời gian hiệu ứng: Vĩnh viễn"
+  applies-description:
+    - Giày
+  applies:
+    - ALL_BOOTS
+  max-level: 1
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - NAME=knight_particle_0,PERIOD=1 | PACKET_SPIRAL_REDSTONE_PARTICLE:10:-500:~_~_~+0.1_~:0_0_0:0_0_0:1:0:#B3002D,#BA032D,#C1062D,#C8092D,#CF0C2D,#D60F2D,#DD122D,#E4152D,#EB182D,#F21B2D:1:1:1:0.1,0.1:48:90:0
+          - NAME=knight_particle_1,PERIOD=1 | PACKET_SPIRAL_REDSTONE_PARTICLE:10:-500:~_~_~+0.1_~:0_0_0:0_0_0:1:0:#B3002D,#BA032D,#C1062D,#C8092D,#CF0C2D,#D60F2D,#DD122D,#E4152D,#EB182D,#F21B2D:1:1:1:0.1,0.1:48:270:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_TASK_ASYNC:knight_particle_0
+          - REMOVE_TASK_ASYNC:knight_particle_1
+      equip2:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - NAME=knight_move_particle_0,PERIOD=6 | PACKET_REDSTONE_PARTICLE:10:500:~_~_~+0.1_~:0.5_0_0.5:0_0_0:1:0:#B3002D,#BA032D,#C1062D,#C8092D,#CF0C2D,#D60F2D,#DD122D,#E4152D,#EB182D,#F21B2D:1
+          - NAME=knight_move_particle_1,PERIOD=6 | PACKET_REDSTONE_PARTICLE:10:500:~_~_~+0.1_~:0.5_0_0.5:0_0_0:1:0:#B3002D,#BA032D,#C1062D,#C8092D,#CF0C2D,#D60F2D,#DD122D,#E4152D,#EB182D,#F21B2D:1
+      unequip2:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_TASK_ASYNC:knight_move_particle_0
+          - REMOVE_TASK_ASYNC:knight_move_particle_1
+danceblade:
+  group: legendary
+  display: DanceBlade
+  description:
+    - "&eNhận hiệu ứng tốc độ và nhảy cao"
+    - "&ekhi trang bị"
+  detail-description:
+    - "&eNhận hiệu ứng tốc độ và nhảy cao"
+    - "&ekhi trang bị"
+    - ""
+    - "&eHiệu ứng thuốc: Tốc độ, Nhảy cao"
+    - "&eCấp độ hiệu ứng: 1/2"
+    - "&eThời gian hiệu ứng: Vĩnh viễn"
+  applies-description:
+    - Giày
+  applies:
+    - ALL_BOOTS
+  max-level: 1
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - NAME=danceblade_particle_0,PERIOD=1 | PACKET_SPIRAL_REDSTONE_PARTICLE:10:-500:~_~_~+0.1_~:0_0_0:0_0_0:1:0:#9D00FA,#A502F3,#AD04EC,#B506E5,#BD08DE,#C50AD7,#CD0CD0,#D50EC9,#DD10C2,#E512BB,#E51ABB,#E718AE,#E916A5,#EB149C,#ED1293,#EF108A,#F10E81,#F30C78,#F50A6F,#F70866:1:1:1:0.1,0.1:48:90:0
+          - NAME=danceblade_particle_1,PERIOD=1 | PACKET_SPIRAL_REDSTONE_PARTICLE:10:-500:~_~_~+0.1_~:0_0_0:0_0_0:1:0:#9D00FA,#A502F3,#AD04EC,#B506E5,#BD08DE,#C50AD7,#CD0CD0,#D50EC9,#DD10C2,#E512BB,#E51ABB,#E718AE,#E916A5,#EB149C,#ED1293,#EF108A,#F10E81,#F30C78,#F50A6F,#F70866:1:1:1:0.1,0.1:48:270:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_TASK_ASYNC:danceblade_particle_0
+          - REMOVE_TASK_ASYNC:danceblade_particle_1
+      equip2:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - NAME=danceblade_move_particle_0,PERIOD=6 | PACKET_REDSTONE_PARTICLE:10:500:~_~_~+0.1_~:0.5_0_0.5:0_0_0:1:0:#9D00FA,#A502F3,#AD04EC,#B506E5,#BD08DE,#C50AD7,#CD0CD0,#D50EC9,#DD10C2,#E512BB,#E51ABB,#E718AE,#E916A5,#EB149C,#ED1293,#EF108A,#F10E81,#F30C78,#F50A6F,#F70866:1
+          - NAME=danceblade_move_particle_1,PERIOD=6 | PACKET_REDSTONE_PARTICLE:10:500:~_~_~+0.1_~:0.5_0_0.5:0_0_0:1:0:#9D00FA,#A502F3,#AD04EC,#B506E5,#BD08DE,#C50AD7,#CD0CD0,#D50EC9,#DD10C2,#E512BB,#E51ABB,#E718AE,#E916A5,#EB149C,#ED1293,#EF108A,#F10E81,#F30C78,#F50A6F,#F70866:1
+      unequip2:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_TASK_ASYNC:danceblade_move_particle_0
+          - REMOVE_TASK_ASYNC:danceblade_move_particle_1
+archer:
+  group: legendary
+  display: Archer
+  description:
+    - "&eNhận hiệu ứng tốc độ và nhảy cao"
+    - "&ekhi trang bị"
+  detail-description:
+    - "&eNhận hiệu ứng tốc độ và nhảy cao"
+    - "&ekhi trang bị"
+    - ""
+    - "&eHiệu ứng thuốc: Tốc độ, Nhảy cao"
+    - "&eCấp độ hiệu ứng: 1/2"
+    - "&eThời gian hiệu ứng: Vĩnh viễn"
+  applies-description:
+    - Giày
+  applies:
+    - ALL_BOOTS
+  max-level: 1
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - NAME=archer_particle_0,PERIOD=1 | PACKET_SPIRAL_REDSTONE_PARTICLE:10:-500:~_~_~+0.1_~:0_0_0:0_0_0:1:0:#21A9FF,#29ACFF,#31AFFF,#39B2FF,#41B5FF,#49B8FF,#51BBFF,#59BEFF,#61C1FF,#69C4FF,#6DC6FE,#72C8FE,#77CAFE,#7CCCFE,#81CEFE,#86D0FE,#8BD2FE,#90D4FE,#95D6FE,#9AD8FE:1:1:1:0.1,0.1:48:90:0
+          - NAME=archer_particle_1,PERIOD=1 | PACKET_SPIRAL_REDSTONE_PARTICLE:10:-500:~_~_~+0.1_~:0_0_0:0_0_0:1:0:#21A9FF,#29ACFF,#31AFFF,#39B2FF,#41B5FF,#49B8FF,#51BBFF,#59BEFF,#61C1FF,#69C4FF,#6DC6FE,#72C8FE,#77CAFE,#7CCCFE,#81CEFE,#86D0FE,#8BD2FE,#90D4FE,#95D6FE,#9AD8FE:1:1:1:0.1,0.1:48:270:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_TASK_ASYNC:archer_particle_0
+          - REMOVE_TASK_ASYNC:archer_particle_1
+      equip2:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - NAME=archer_move_particle_0,PERIOD=6 | PACKET_REDSTONE_PARTICLE:10:500:~_~_~+0.1_~:0.5_0_0.5:0_0_0:1:0:#21A9FF,#29ACFF,#31AFFF,#39B2FF,#41B5FF,#49B8FF,#51BBFF,#59BEFF,#61C1FF,#69C4FF,#6DC6FE,#72C8FE,#77CAFE,#7CCCFE,#81CEFE,#86D0FE,#8BD2FE,#90D4FE,#95D6FE,#9AD8FE:1
+          - NAME=archer_move_particle_1,PERIOD=6 | PACKET_REDSTONE_PARTICLE:10:500:~_~_~+0.1_~:0.5_0_0.5:0_0_0:1:0:#21A9FF,#29ACFF,#31AFFF,#39B2FF,#41B5FF,#49B8FF,#51BBFF,#59BEFF,#61C1FF,#69C4FF,#6DC6FE,#72C8FE,#77CAFE,#7CCCFE,#81CEFE,#86D0FE,#8BD2FE,#90D4FE,#95D6FE,#9AD8FE:1
+      unequip2:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_TASK_ASYNC:archer_move_particle_0
+          - REMOVE_TASK_ASYNC:archer_move_particle_1
+poseidon:
+  group: legendary
+  display: Poseidon
+  description:
+    - "&eNhận hiệu ứng tốc độ và nhảy cao"
+    - "&ekhi trang bị"
+  detail-description:
+    - "&eNhận hiệu ứng tốc độ và nhảy cao"
+    - "&ekhi trang bị"
+    - ""
+    - "&eHiệu ứng thuốc: Tốc độ, Nhảy cao"
+    - "&eCấp độ hiệu ứng: 1/2"
+    - "&eThời gian hiệu ứng: Vĩnh viễn"
+  applies-description:
+    - Giày
+  applies:
+    - ALL_BOOTS
+  max-level: 1
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - NAME=poseidon_particle_0,PERIOD=1 | PACKET_SPIRAL_REDSTONE_PARTICLE:10:-500:~_~_~+0.1_~:0_0_0:0_0_0:1:0:#00AAAA,#00ADAD,#00B0B0,#00B3B3,#00B6B6,#00B9B9,#00BCBC,#00BFBF,#00C2C2,#00C5C5:1:1:1:0.1,0.1:48:90:0
+          - NAME=poseidon_particle_1,PERIOD=1 | PACKET_SPIRAL_REDSTONE_PARTICLE:10:-500:~_~_~+0.1_~:0_0_0:0_0_0:1:0:#00AAAA,#00ADAD,#00B0B0,#00B3B3,#00B6B6,#00B9B9,#00BCBC,#00BFBF,#00C2C2,#00C5C5:1:1:1:0.1,0.1:48:270:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_TASK_ASYNC:poseidon_particle_0
+          - REMOVE_TASK_ASYNC:poseidon_particle_1
+      equip2:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - NAME=poseidon_move_particle_0,PERIOD=6 | PACKET_REDSTONE_PARTICLE:10:500:~_~_~+0.1_~:0.5_0_0.5:0_0_0:1:0:#00AAAA,#00ADAD,#00B0B0,#00B3B3,#00B6B6,#00B9B9,#00BCBC,#00BFBF,#00C2C2,#00C5C5:1
+          - NAME=poseidon_move_particle_1,PERIOD=6 | PACKET_REDSTONE_PARTICLE:10:500:~_~_~+0.1_~:0.5_0_0.5:0_0_0:1:0:#00AAAA,#00ADAD,#00B0B0,#00B3B3,#00B6B6,#00B9B9,#00BCBC,#00BFBF,#00C2C2,#00C5C5:1
+      unequip2:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_TASK_ASYNC:poseidon_move_particle_0
+          - REMOVE_TASK_ASYNC:poseidon_move_particle_1
+reaper:
+  group: legendary
+  display: Reaper
+  description:
+    - "&eNhận hiệu ứng tốc độ và nhảy cao"
+    - "&ekhi trang bị"
+  detail-description:
+    - "&eNhận hiệu ứng tốc độ và nhảy cao"
+    - "&ekhi trang bị"
+    - ""
+    - "&eHiệu ứng thuốc: Tốc độ, Nhảy cao"
+    - "&eCấp độ hiệu ứng: 1/2"
+    - "&eThời gian hiệu ứng: Vĩnh viễn"
+  applies-description:
+    - Giày
+  applies:
+    - ALL_BOOTS
+  max-level: 1
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - NAME=reaper_particle_0,PERIOD=1 | PACKET_SPIRAL_REDSTONE_PARTICLE:10:-500:~_~_~+0.1_~:0_0_0:0_0_0:1:0:#4D032C,#51032E,#550330,#590332,#5D0334,#610336,#650338,#69033A,#6D033C,#71033E,#76023F,#7D0242,#840245,#8B0248,#92024B,#99024E,#A00251,#A70254,#AE0257,#B5025A:1:1:1:0.1,0.1:48:90:0
+          - NAME=reaper_particle_1,PERIOD=1 | PACKET_SPIRAL_REDSTONE_PARTICLE:10:-500:~_~_~+0.1_~:0_0_0:0_0_0:1:0:#4D032C,#51032E,#550330,#590332,#5D0334,#610336,#650338,#69033A,#6D033C,#71033E,#76023F,#7D0242,#840245,#8B0248,#92024B,#99024E,#A00251,#A70254,#AE0257,#B5025A:1:1:1:0.1,0.1:48:270:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_TASK_ASYNC:reaper_particle_0
+          - REMOVE_TASK_ASYNC:reaper_particle_1
+      equip2:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - NAME=reaper_move_particle_0,PERIOD=6 | PACKET_REDSTONE_PARTICLE:10:500:~_~_~+0.1_~:0.5_0_0.5:0_0_0:1:0:#4D032C,#51032E,#550330,#590332,#5D0334,#610336,#650338,#69033A,#6D033C,#71033E,#76023F,#7D0242,#840245,#8B0248,#92024B,#99024E,#A00251,#A70254,#AE0257,#B5025A:1
+          - NAME=reaper_move_particle_1,PERIOD=6 | PACKET_REDSTONE_PARTICLE:10:500:~_~_~+0.1_~:0.5_0_0.5:0_0_0:1:0:#4D032C,#51032E,#550330,#590332,#5D0334,#610336,#650338,#69033A,#6D033C,#71033E,#76023F,#7D0242,#840245,#8B0248,#92024B,#99024E,#A00251,#A70254,#AE0257,#B5025A:1
+      unequip2:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_TASK_ASYNC:reaper_move_particle_0
+          - REMOVE_TASK_ASYNC:reaper_move_particle_1
+assassin:
+  group: legendary
+  display: "Sát thủ"
+  description:
+    - "&eNhận hiệu ứng tốc độ và nhảy cao"
+    - "&ekhi trang bị"
+  detail-description:
+    - "&eNhận hiệu ứng tốc độ và nhảy cao"
+    - "&ekhi trang bị"
+    - ""
+    - "&eHiệu ứng thuốc: Tốc độ, Nhảy cao"
+    - "&eCấp độ hiệu ứng: 1/2"
+    - "&eThời gian hiệu ứng: Vĩnh viễn"
+  applies-description:
+    - Giày
+  applies:
+    - ALL_BOOTS
+  max-level: 1
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - NAME=assassin_particle_0,PERIOD=1 | PACKET_SPIRAL_REDSTONE_PARTICLE:10:-500:~_~_~+0.1_~:0_0_0:0_0_0:1:0:#395A6E,#3C6176,#3F687E,#426F86,#45768E,#487D96,#4B849E,#4E8BA6,#5192AE,#5499B6,#5C9ABD,#609DC0,#64A0C3,#68A3C6,#6CA6C9,#70A9CC,#74ACCF,#78AFD2,#7CB2D5,#80B5D8:1:1:1:0.1,0.1:48:90:0
+          - NAME=assassin_particle_1,PERIOD=1 | PACKET_SPIRAL_REDSTONE_PARTICLE:10:-500:~_~_~+0.1_~:0_0_0:0_0_0:1:0:#395A6E,#3C6176,#3F687E,#426F86,#45768E,#487D96,#4B849E,#4E8BA6,#5192AE,#5499B6,#5C9ABD,#609DC0,#64A0C3,#68A3C6,#6CA6C9,#70A9CC,#74ACCF,#78AFD2,#7CB2D5,#80B5D8:1:1:1:0.1,0.1:48:270:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_TASK_ASYNC:assassin_particle_0
+          - REMOVE_TASK_ASYNC:assassin_particle_1
+      equip2:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - NAME=assassin_move_particle_0,PERIOD=6 | PACKET_REDSTONE_PARTICLE:10:500:~_~_~+0.1_~:0.5_0_0.5:0_0_0:1:0:#395A6E,#3C6176,#3F687E,#426F86,#45768E,#487D96,#4B849E,#4E8BA6,#5192AE,#5499B6,#5C9ABD,#609DC0,#64A0C3,#68A3C6,#6CA6C9,#70A9CC,#74ACCF,#78AFD2,#7CB2D5,#80B5D8:1
+          - NAME=assassin_move_particle_1,PERIOD=6 | PACKET_REDSTONE_PARTICLE:10:500:~_~_~+0.1_~:0.5_0_0.5:0_0_0:1:0:#395A6E,#3C6176,#3F687E,#426F86,#45768E,#487D96,#4B849E,#4E8BA6,#5192AE,#5499B6,#5C9ABD,#609DC0,#64A0C3,#68A3C6,#6CA6C9,#70A9CC,#74ACCF,#78AFD2,#7CB2D5,#80B5D8:1
+      unequip2:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_TASK_ASYNC:assassin_move_particle_0
+          - REMOVE_TASK_ASYNC:assassin_move_particle_1

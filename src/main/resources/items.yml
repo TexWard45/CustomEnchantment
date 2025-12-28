@@ -221,6 +221,71 @@ weapon-settings:
       - "attribute_lore"
       - "end_default_lore"
       - "&7&oTrang bị ở kho đồ nâng cao (/e)"
+  skin-default:
+    template: default
+    lore-style:
+      - "begin_default_lore"
+      - "normal_enchant_lore"
+      - "custom_enchant_lore"
+      - "upper_blank_lore"
+      - "middle_default_lore"
+      - ""
+      - "extra_enchant_point"
+      - "extra_protect_destroy"
+      - "extra_protect_dead"
+      - "upper_blank_lore"
+      - "attribute_lore"
+      - "end_default_lore"
+  skin-default-unknown-enchant:
+    template: default
+    custom-enchant:
+      default-lore: "&7Unknown CE"
+    lore-style:
+      - "begin_default_lore"
+      - "normal_enchant_lore"
+      - "custom_enchant_lore"
+      - "upper_blank_lore"
+      - "middle_default_lore"
+      - ""
+      - "extra_enchant_point"
+      - "extra_protect_destroy"
+      - "extra_protect_dead"
+      - "upper_blank_lore"
+      - "attribute_lore"
+      - "end_default_lore"
+  skin-default-unify:
+    template: default
+    lore-style:
+      - "begin_default_lore"
+      - "normal_enchant_lore"
+      - "custom_enchant_lore"
+      - "upper_blank_lore"
+      - "middle_default_lore"
+      - ""
+      - "extra_enchant_point"
+      - "extra_protect_destroy"
+      - "extra_protect_dead"
+      - "upper_blank_lore"
+      - "attribute_lore"
+      - "end_default_lore"
+  skin-default-unknown-enchant-unify:
+    template: default
+    custom-enchant:
+      default-lore: "&7Unknown CE"
+    lore-style:
+      - "&8[&7Nhấp giữa để tháo trang phục&8]"
+      - "begin_default_lore"
+      - "normal_enchant_lore"
+      - "custom_enchant_lore"
+      - "upper_blank_lore"
+      - "middle_default_lore"
+      - ""
+      - "extra_enchant_point"
+      - "extra_protect_destroy"
+      - "extra_protect_dead"
+      - "upper_blank_lore"
+      - "attribute_lore"
+      - "end_default_lore"
 default-book:
   default:
     0:
@@ -1604,6 +1669,7 @@ weapon:
       - "type=PLAYER_ENTITY_INTERACTION_RANGE,operation=0,amount=-0.5,slot=HAND"
 
   knight-helmet:
+    custom-type: HELMET
     item:
       type: NETHERITE_HELMET
       display: "&f&lMũ &x&E&1&1&D&4&8&lH&x&E&5&3&3&5&9&li&x&E&9&4&9&6&A&lệ&x&E&D&5&F&7&B&lp&x&F&1&7&5&8&C&l &x&F&5&8&B&9&D&ls&x&F&9&A&1&A&E&lĩ &#9ca3af&l1 ★"
@@ -1620,6 +1686,7 @@ weapon:
       - "type=KNOCKBACK_RESISTANCE,operation=0,amount=1,slot=HEAD"
       - "type=MAX_HEALTH,operation=0,amount=4,slot=HEAD"
   knight-chestplate:
+    custom-type: CHESTPLATE
     item:
       type: NETHERITE_CHESTPLATE
       display: "&f&lGiáp &x&E&1&1&D&4&8&lH&x&E&5&3&3&5&9&li&x&E&9&4&9&6&A&lệ&x&E&D&5&F&7&B&lp&x&F&1&7&5&8&C&l &x&F&5&8&B&9&D&ls&x&F&9&A&1&A&E&lĩ &#9ca3af&l1 ★"
@@ -1638,6 +1705,7 @@ weapon:
       - "type=SLOW_RESISTANCE,operation=0,amount=5,slot=CHEST"
       - "type=MAGIC_RESISTANCE,operation=0,amount=4,slot=CHEST"
   knight-leggings:
+    custom-type: LEGGINGS
     item:
       type: NETHERITE_LEGGINGS
       display: "&f&lQuần &x&E&1&1&D&4&8&lH&x&E&5&3&3&5&9&li&x&E&9&4&9&6&A&lệ&x&E&D&5&F&7&B&lp&x&F&1&7&5&8&C&l &x&F&5&8&B&9&D&ls&x&F&9&A&1&A&E&lĩ &#9ca3af&l1 ★"
@@ -1654,6 +1722,7 @@ weapon:
       - "type=KNOCKBACK_RESISTANCE,operation=0,amount=1,slot=LEGS"
       - "type=MAX_HEALTH,operation=0,amount=6,slot=LEGS"
   knight-boots:
+    custom-type: BOOTS
     item:
       type: NETHERITE_BOOTS
       display: "&f&lỦng &x&E&1&1&D&4&8&lH&x&E&5&3&3&5&9&li&x&E&9&4&9&6&A&lệ&x&E&D&5&F&7&B&lp&x&F&1&7&5&8&C&l &x&F&5&8&B&9&D&ls&x&F&9&A&1&A&E&lĩ &#9ca3af&l1 ★"
@@ -1671,6 +1740,7 @@ weapon:
       - "type=MAX_HEALTH,operation=0,amount=2,slot=FEET"
       - "type=MOVEMENT_SPEED,operation=1,amount=0.05,slot=FEET"
   knight-sword:
+    custom-type: SWORD
     item:
       type: NETHERITE_SWORD
       display: "&f&lKiếm &x&E&1&1&D&4&8&lH&x&E&5&3&3&5&9&li&x&E&9&4&9&6&A&lệ&x&E&D&5&F&7&B&lp&x&F&1&7&5&8&C&l &x&F&5&8&B&9&D&ls&x&F&9&A&1&A&E&lĩ &#9ca3af&l1 ★"
@@ -5226,7 +5296,7 @@ sigil:
         - "&#3bf702Khi phòng thủ:"
         - "<GRADIENTS:9bf903,eaff82>» Tăng kháng hiệu ứng và kháng làm chậm, gấp đôi chỉ số</GRADIENTS>"
         - "<GRADIENTS:9bf903,eaff82>  nếu đang kích hoạt hiệu ứng Loạn kích                </GRADIENTS>"
-    enchant: "ironbeak"
+    enchant: "striker"
   fighter:
     group: common
     max-level: 5
@@ -5265,7 +5335,7 @@ sigil:
         - "&#B3002DKhi phòng thủ:"
         - "<GRADIENTS:#F72326,#ff8075>» Nhận giảm sát thương và tăng mạnh hồi phục</GRADIENTS>"
         - "<GRADIENTS:#F72326,#ff8075>  trong một khoảng thời gian                </GRADIENTS>"
-    enchant: "fighter"
+    enchant: "knight"
   danceblade:
     group: common
     max-level: 5
@@ -5285,7 +5355,7 @@ sigil:
         - "&#9d00faKhi phòng thủ:"
         - "<GRADIENTS:e51ab7,ff75e0>» Tăng thêm tốc độ di chuyển bản thân và làm chậm    </GRADIENTS>"
         - "<GRADIENTS:e51ab7,ff75e0>  tốc độ di chuyển kẻ địch trong một khoảng thời gian</GRADIENTS>"
-    enchant: "ironbeak"
+    enchant: "danceblade"
   archer:
     group: common
     max-level: 5
@@ -5305,7 +5375,7 @@ sigil:
         - "&#21a9ffKhi phòng thủ:"
         - "<GRADIENTS:6dc6fe,c4ecfe>» Tăng thêm tốc độ di chuyển bản thân trong một</GRADIENTS>"
         - "<GRADIENTS:6dc6fe,c4ecfe>  khoảng thời gian                             </GRADIENTS>"
-    enchant: "ironbeak"
+    enchant: "archer"
   poseidon:
     group: common
     max-level: 5
@@ -5324,7 +5394,7 @@ sigil:
         - ""
         - "&#00aaaaKhi phòng thủ:"
         - "<GRADIENTS:00cccc,00ffff>» Nhận một lượng tim vàng nhất định          </GRADIENTS>"
-    enchant: "ironbeak"
+    enchant: "poseidon"
   reaper:
     group: common
     max-level: 5
@@ -5344,7 +5414,7 @@ sigil:
         - ""
         - "&#4d032cKhi phòng thủ:"
         - "<GRADIENTS:76023f,b9015f>» Hồi lại một phần lượng máu đã mất           </GRADIENTS>"
-    enchant: "ironbeak"
+    enchant: "reaper"
 mask:
   zombie1:
     item:

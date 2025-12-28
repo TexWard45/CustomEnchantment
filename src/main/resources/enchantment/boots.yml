@@ -2,7 +2,7 @@
 # tag_potion: JUMP
 feather:
   group: legendary
-  display: Feather
+  display: "Nhanh nhảy"
   description:
     - "&eNhận hiệu ứng tốc độ và nhảy cao"
     - "&ekhi trang bị"
@@ -69,7 +69,7 @@ feather:
           - REMOVE_TASK_ASYNC:feather_particle_1
 gears:
   group: epic
-  display: Gears
+  display: "Chạy nhanh"
   description:
     - "&eNhận hiệu ứng tốc độ khi trang bị"
   detail-description:
@@ -95,7 +95,7 @@ gears:
           - ""
         effects:
           - ADD_FOREVER_POTION:gears:SPEED:0
-          - NAME=gears_particle_0,PERIOD=6 | PACKET_REDSTONE_PARTICLE:10:500:~_~_~+0.1_~:0.5_0_0.5:0_0_0:1:0:#55FFFF:1
+          - NAME=gears_particle_0,PERIOD=6 | PACKET_REDSTONE_PARTICLE:10:500:~_~_~+0.1_~:0.25_0_0.25:0_0_0:1:0:#55FFFF:1
       unequip:
         type: ARMOR_UNDRESS
         chance: 100
@@ -114,7 +114,7 @@ gears:
           - ""
         effects:
           - ADD_FOREVER_POTION:gears:SPEED:1
-          - NAME=gears_particle_0,PERIOD=5 | PACKET_REDSTONE_PARTICLE:10:500:~_~_~+0.1_~:0.5_0_0.5:0_0_0:1:0:#55FFFF:1
+          - NAME=gears_particle_0,PERIOD=5 | PACKET_REDSTONE_PARTICLE:10:500:~_~_~+0.1_~:0.25_0_0.25:0_0_0:1:0:#55FFFF:1
       unequip:
         type: ARMOR_UNDRESS
         chance: 100
@@ -133,7 +133,7 @@ gears:
           - ""
         effects:
           - ADD_FOREVER_POTION:gears:SPEED:2
-          - NAME=gears_particle_0,PERIOD=4 | PACKET_REDSTONE_PARTICLE:10:500:~_~_~+0.1_~:0.5_0_0.5:0_0_0:1:0:#55FFFF:1
+          - NAME=gears_particle_0,PERIOD=4 | PACKET_REDSTONE_PARTICLE:10:500:~_~_~+0.1_~:0.25_0_0.25:0_0_0:1:0:#55FFFF:1
       unequip:
         type: ARMOR_UNDRESS
         chance: 100
@@ -145,7 +145,7 @@ gears:
           - REMOVE_TASK_ASYNC:gears_particle_0
 springs:
   group: epic
-  display: Springs
+  display: "Nhảy cao"
   description:
     - "&eNhận hiệu ứng nhảy cao khi trang bị"
   detail-description:
@@ -397,7 +397,7 @@ sanguine:
         true-condition-break: true
 dash:
   group: "supreme"
-  display: "Dash"
+  display: "Lướt"
   description:
     - "&eCó khả năng lướt tới khi nhấn Shift"
   detail-description:

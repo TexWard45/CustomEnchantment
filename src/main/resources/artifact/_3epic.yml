@@ -1,2 +1,173 @@
 # &#0dcaf0Cổ Vật Sử Thi
 # Số lượng: 10
+cloakofairstream:
+  group: epic
+  max-level: 5
+  item:
+    type: LEATHER_CHESTPLATE
+    color: "#b3e5fc"
+    display: "&#b3e5fc&lÁo Choàng Khí Lưu"
+    flags:
+      - "HIDE_DYE"
+    glowing: true
+    lore:
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm máu tối đa, tốc độ di chuyển"
+      - "&7và kháng làm chậm"
+      - "&7» &7Miễn nhiễm hiệu ứng thuốc làm chậm"
+  enchant: "cloakofairstream"
+  attributes:
+    - "type=ARMOR,operation=0,amount=0,slot=FEET"
+greencompound:
+  group: epic
+  max-level: 5
+  item:
+    type: SLIME_BALL
+    display: "&#00e676&lHợp Chất Xanh"
+    flags:
+      - "HIDE_DYE"
+    glowing: true
+    lore:
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm máu tối đa, giáp và kích thước"
+      - "&7bù lại giảm tốc độ di chuyển"
+  enchant: "greencompound"
+graycompound:
+  group: epic
+  max-level: 5
+  item:
+    type: CLAY_BALL
+    display: "&#bdbdbd&lHợp Chất Xám"
+    flags:
+      - "HIDE_DYE"
+    glowing: true
+    lore:
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm sức tấn công, tốc độ di chuyển"
+      - "&7và giảm kích thước bù lại nhận thêm sát thương"
+      - "&7từ mọi nguồn"
+  enchant: "graycompound"
+soulcampfire:
+  group: epic
+  max-level: 5
+  item:
+    type: SOUL_CAMPFIRE
+    display: "&#3d5afe&lLửa Trại Xanh"
+    glowing: true
+    lore:
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm máu tối đa và lượng máu hồi mỗi giây"
+      - "&7cho bản thân và đồng minh xung quanh"
+  enchant: "soulcampfire"
+campfire:
+  group: epic
+  max-level: 5
+  item:
+    type: CAMPFIRE
+    display: "&#ff3d00&lLửa Trại Đỏ"
+    glowing: true
+    lore:
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm sức tấn công và tỉ lệ chí mạng"
+      - "&7cho bản thân và đồng minh xung quanh"
+  enchant: "campfire"
+eternalfrost:
+  group: epic
+  max-level: 5
+  item:
+    type: PACKED_ICE
+    display: "<GRADIENT:00b0ff>&lBăng Giá Vĩnh Cửu</GRADIENT:18ffff>"
+    glowing: true
+    lore:
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm máu tối đa và giáp"
+      - "&7» &7Làm chậm tốc độ đánh và tốc độ di chuyển"
+      - "&7của kẻ địch xunh quanh"
+  enchant: "eternalfrost"
+soulofgrassland:
+  group: epic
+  max-level: 5
+  item:
+    type: GRASS_BLOCK
+    display: "<GRADIENT:03C988>&lLinh Hồn Thảo Nguyên</GRADIENT:2E8A99>"
+    glowing: true
+    lore:
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm lượng máu hồi phục mỗi giây"
+      - ""
+      - "&eKhi di chuyển trên cỏ:"
+      - "&7» &7Nhận thêm tốc độ di chuyển và tăng mạnh"
+      - "&7hồi máu mỗi giây"
+  enchant: "soulofgrassland"
+greenapple:
+  group: epic
+  max-level: 5
+  item:
+    type: APPLE
+    display: "&#76ff03&lTáo Xanh"
+    glowing: true
+    lore:
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm tim vàng tối đa và tăng tỉ lệ"
+      - "&7kháng khống chế"
+      - ""
+      - "&eKhi ăn táo đỏ:"
+      - "&7» &7Nhận thêm hồi phục máu mỗi giây và một"
+      - "&7lượng tim vàng"
+  enchant: "greenapple"
+inksac:
+  group: epic
+  max-level: 5
+  item:
+    type: INK_SAC
+    display: "&#374151&lTúi Mực Đen Kịt"
+    glowing: true
+    lore:
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm tỉ lệ né tránh"
+      - ""
+      - "&eKhi bị tấn công:"
+      - "&7» &7Né tránh mỗi khoảng thời gian"
+  enchant: "inksac"
+blazerod:
+  group: epic
+  max-level: 5
+  item:
+    type: BLAZE_ROD
+    display: "&#ff3d00&lHỏa Trượng"
+    glowing: true
+    lore:
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm sức tấn công và tỉ lệ chí mạng"
+      - ""
+      - "&eKhi tấn công:"
+      - "&7» &7Gây cháy cho kẻ địch trong một khoảng thời gian"
+      - ""
+      - "&eKhi tấn công kẻ địch bị cháy:"
+      - "&7» &7Gây thêm sát thương"
+  enchant: "blazerod"
+darksteel:
+  group: epic
+  max-level: 5
+  item:
+    type: BLACKSTONE_WALL
+    display: "&#263238&lKim Loại Hắc Ám"
+    glowing: true
+    lore:
+      - "&eKhi tấn công:"
+      - "&7» &7Gây sát thương chuẩn"
+  enchant: "darksteel"
+rabbitear:
+  group: epic
+  max-level: 5
+  item:
+    type: RABBIT_FOOT
+    display: "&#ff9100&lTai Thỏ"
+    glowing: true
+    lore:
+      - "&eKhi trang bị:"
+      - "&7» &7Nhận thêm tốc độ di chuyển và tỉ lệ né tránh"
+      - ""
+      - "&eKhi có kẻ địch xung quanh:"
+      - "&7» &7Nhận thêm tốc độ di chuyển và tỉ lệ né tránh"
+  enchant: "rabbitear"

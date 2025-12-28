@@ -1,0 +1,36 @@
+# &#94a3b8Cổ Vật Thường
+freshgrass:
+  group: common
+  max-level: 5
+  item:
+    type: SHORT_GRASS
+    display: "&#76ff03&lCỏ Non"
+    glowing: true
+    lore:
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm hồi máu"
+  enchant: "freshgrass"
+steelbelt:
+  group: common
+  max-level: 5
+  item:
+    type: IRON_INGOT
+    display: "&#e0e0e0&lĐai Lưng Thép"
+    glowing: true
+    lore:
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm máu tối đa"
+  enchant: "steelbelt"
+wornstone:
+  group: common
+  max-level: 5
+  item:
+    type: STONE
+    display: "&#78909c&lHòn Đá Mòn"
+    glowing: true
+    lore:
+      - "&eKhi trang bị:"
+      - "&7» &7Tăng thêm giáp"
+  enchant: "wornstone"
+  attributes:
+    - "type=ARMOR,operation=0,amount=0,slot=FEET"
