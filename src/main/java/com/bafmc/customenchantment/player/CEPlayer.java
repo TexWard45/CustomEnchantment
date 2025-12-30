@@ -32,6 +32,9 @@ public class CEPlayer implements ICEPlayerEvent {
 	@Setter
 	@Getter
 	private String titleOpenInventory;
+	@Setter
+	@Getter
+	private boolean movingForward;
 
 	public static CEPlayerMap getCePlayerMap() {
 		if (cePlayerMap == null) {

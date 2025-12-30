@@ -12,7 +12,8 @@ public class EffectActiveDash extends EffectHook {
     private double power;
     private long cooldown;
     private String particleVersion;
-    private String particleName;
+    private String particleForwardName;
+    private String particleBackwardName;
     private String cooldownMessage;
 
 	public String getIdentify() {
@@ -27,10 +28,11 @@ public class EffectActiveDash extends EffectHook {
         this.power = Double.parseDouble(args[0]);
         this.cooldown = Long.parseLong(args[1]);
         this.particleVersion = args[2];
-        this.particleName = args[3];
+        this.particleForwardName = args[3];
+        this.particleBackwardName = args[4];
 
         this.cooldownMessage = "";
-        for (int i = 4; i < args.length; i++) {
+        for (int i = 5; i < args.length; i++) {
             this.cooldownMessage += args[i] + " ";
         }
 	}
@@ -42,7 +44,8 @@ public class EffectActiveDash extends EffectHook {
         storage.set(TemporaryKey.DASH_ENABLE, true);
         storage.set(TemporaryKey.DASH_POWER, power);
         storage.set(TemporaryKey.DASH_COOLDOWN, cooldown);
-        storage.set(TemporaryKey.DASH_PARTICLE, particleVersion + ":" + particleName);
+        storage.set(TemporaryKey.DASH_PARTICLE_FORWARD, particleVersion + ":" + particleForwardName);
+        storage.set(TemporaryKey.DASH_PARTICLE_BACKWARD, particleVersion + ":" + particleBackwardName);
         storage.set(TemporaryKey.DASH_COOLDOWN_MESSAGE, cooldownMessage);
 	}
 }

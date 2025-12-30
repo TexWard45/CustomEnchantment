@@ -21,7 +21,8 @@ public class TemporaryKey {
     public static final String DASH_COOLDOWN = "dash_cooldown";
     public static final String DASH_COOLDOWN_MESSAGE = "dash_cooldown_message";
     public static final String DASH_POWER = "dash_power";
-    public static final String DASH_PARTICLE = "dash_particle";
+    public static final String DASH_PARTICLE_FORWARD = "dash_particle_forward";
+    public static final String DASH_PARTICLE_BACKWARD = "dash_particle_backward";
     public static final String DASH_LAST_USE = "dash_last_use";
     public static final String DOUBLE_JUMP_ENABLE = "double_jump_enable";
     public static final String DOUBLE_JUMP_COOLDOWN = "double_jump_cooldown";

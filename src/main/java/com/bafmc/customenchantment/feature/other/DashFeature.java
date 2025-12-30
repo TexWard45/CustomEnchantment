@@ -1,16 +1,30 @@
 package com.bafmc.customenchantment.feature.other;
 
 import com.bafmc.customenchantment.CustomEnchantment;
+import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.api.ParticleAPI;
+import com.bafmc.customenchantment.player.CEPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
 
 public class DashFeature {
-    public static void dash(Player player, double power, String particle) {
-        Vector direction = player.getLocation().getDirection();
-        direction.multiply(1.25 * power);
+    public static void dash(Player player, double power, String particleForward, String particleBackward) {
+        CEPlayer cePlayer = CEAPI.getCEPlayer(player);
+        boolean movingForward = cePlayer.isMovingForward();
+
+        Vector direction = player.getLocation().getDirection().clone();
         direction.setY(0);
+        direction.normalize();
+
+        String particle = particleForward;
+
+        if (!movingForward) {
+            direction.multiply(-1);
+            particle = particleBackward;
+        }
+
+        direction.multiply(1.25 * power);
 
         player.setVelocity(direction);
 

@@ -19,14 +19,19 @@ import com.bafmc.customenchantment.guard.GuardManager;
 import com.bafmc.customenchantment.guard.PlayerGuard;
 import com.bafmc.customenchantment.item.CEItem;
 import com.bafmc.customenchantment.item.CEWeaponAbstract;
+import com.bafmc.customenchantment.item.CEWeaponType;
 import com.bafmc.customenchantment.player.*;
 import com.bafmc.customenchantment.player.PlayerAbility.Type;
 import com.bafmc.customenchantment.task.ArrowTask;
 import com.bafmc.customenchantment.utils.DamageUtils;
 import io.github.magiccheese1.damageindicator.api.DamageIndicatorAPI;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.Sound;
+import org.bukkit.attribute.Attribute;
+import org.bukkit.craftbukkit.entity.CraftPlayer;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -45,10 +50,17 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class EntityListener implements Listener {
-	private static ConcurrentHashMap<Entity, CEWeaponAbstract> arrowMap = new ConcurrentHashMap<Entity, CEWeaponAbstract>();
+	private static ConcurrentHashMap<Entity, ArrowData> arrowMap = new ConcurrentHashMap<>();
 	private CustomEnchantment plugin;
 	private GuardManager guardManager;
 	private boolean damageIndicatorPluginEnabled;
+
+	@AllArgsConstructor
+	@Getter
+	public static class ArrowData {
+		public CEWeaponAbstract weapon;
+		public float force;
+	}
 
 	public EntityListener(CustomEnchantment plugin) {
 		this.plugin = plugin;
@@ -91,6 +103,31 @@ public class EntityListener implements Listener {
 	}
 
 	@EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
+	public void onProjectile(EntityShootBowEvent e) {
+		Entity shooter = e.getEntity();
+		Entity arrow = e.getProjectile();
+
+		if (shooter instanceof Player player) {
+			float force = e.getForce();
+			force = (force) / 3;
+			force = (float) calculateForce(player, force);
+
+			arrow.setMetadata("ce_bow_force", new FixedMetadataValue(plugin, force));
+		}
+	}
+
+	private double calculateForce(Player player, float cooldown) {
+		cooldown = Math.min(1.0F, Math.max(0.0F, cooldown));
+
+		var nms = ((CraftPlayer) player).getHandle();
+		return (
+				1.0F - Math.sqrt(
+						1.0F - Math.pow(cooldown, nms.level().purpurConfig.newDamageCurvePower)
+				)
+		);
+	}
+
+	@EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
 	public void onProjectile(ProjectileLaunchEvent e) {
 		Projectile projectile = e.getEntity();
 		if (!(projectile instanceof Arrow) || !(((Arrow) projectile).getShooter() instanceof Player)) {
@@ -122,8 +159,13 @@ public class EntityListener implements Listener {
             return;
         }
 
+		float force = 1.0f;
+		if (projectile.hasMetadata("ce_bow_force")) {
+			force = projectile.getMetadata("ce_bow_force").get(0).asFloat();
+		}
+
         // Put arrow with weapon to arrowMap
-        putArrow(projectile, ceWeapon);
+        putArrow(projectile, ceWeapon, force);
 
 		CECallerList result = CECallerBuilder
 									.build(player)
@@ -139,7 +181,7 @@ public class EntityListener implements Listener {
 			long lastUse = storage.getLong(TemporaryKey.MULTIPLE_ARROW_LAST_USE, 0);
 
 			if (System.currentTimeMillis() - lastUse > cooldown) {
-				shootMultipleArrow(cePlayer, ceWeapon, projectile.getVelocity(), power, projectile.getFireTicks(), storage.getDouble(TemporaryKey.MULTIPLE_ARROW_DAMAGE_RATIO, 1d));
+				shootMultipleArrow(cePlayer, ceWeapon, projectile.getVelocity(), power, projectile.getFireTicks(), storage.getDouble(TemporaryKey.MULTIPLE_ARROW_DAMAGE_RATIO, 1d), force);
 				storage.set(TemporaryKey.MULTIPLE_ARROW_LAST_USE, System.currentTimeMillis());
 			}
 		}
@@ -167,12 +209,12 @@ public class EntityListener implements Listener {
         return material == Material.BOW || material == Material.CROSSBOW;
     }
 
-	public static void putArrow(Entity entity, CEWeaponAbstract weapon) {
-		arrowMap.put(entity, weapon);
+	public static void putArrow(Entity entity, CEWeaponAbstract weapon, float force) {
+		arrowMap.put(entity, new ArrowData(weapon, force));
 	}
 
 	public void shootMultipleArrow(CEPlayer cePlayer, CEWeaponAbstract ceWeapon, Vector vector, double power,
-			int fireTicks, double damageRatio) {
+			int fireTicks, double damageRatio, float force) {
 		Player player = cePlayer.getPlayer();
 		PlayerTemporaryStorage storage = cePlayer.getTemporaryStorage();
 
@@ -182,12 +224,12 @@ public class EntityListener implements Listener {
 		int amount = amountRange.getIntValue();
 
 		for (int i = 0; i < amount; i++) {
-			Arrow arrow = (Arrow) player.launchProjectile(Arrow.class,
+			Arrow arrow = player.launchProjectile(Arrow.class,
 					vector.setX(vector.getX() + velocityMod.getValue()).setY(vector.getY() + velocityMod.getValue())
 							.setZ(vector.getZ() + velocityMod.getValue()).multiply(power));
             arrow.setMetadata("ce_multi_arrow_damage_ratio", new FixedMetadataValue(plugin, damageRatio));
 			arrow.setFireTicks(fireTicks);
-			putArrow(arrow, ceWeapon);
+			putArrow(arrow, ceWeapon, force);
 		}
 	}
 
@@ -235,7 +277,23 @@ public class EntityListener implements Listener {
 		Entity defender = getRealEntity(e.getEntity());
 
 		if (attacker instanceof Player) {
-			CEPlayer cePlayer = (CEPlayer) CEAPI.getCEPlayer(((Player) attacker));
+			CEPlayer cePlayer = CEAPI.getCEPlayer(((Player) attacker));
+
+			if (e.getDamager() instanceof Arrow) {
+				ArrowData arrowData = arrowMap.get(e.getDamager());
+				CEWeaponAbstract arrowWeapon = arrowMap != null ? arrowData.getWeapon() : null;
+				if (arrowWeapon != null && CEWeaponType.BOW == arrowWeapon.getWeaponType()) {
+					double baseDamage = ((Player) attacker).getAttribute(Attribute.GENERIC_ATTACK_DAMAGE).getValue() * arrowData.force;
+					e.setDamage(baseDamage);
+				}
+			}
+
+			ItemStack mainHandItem = EquipSlot.MAINHAND.getItemStack((Player) attacker);
+			if (e.getDamager() instanceof Player && mainHandItem != null && mainHandItem.getType() == Material.BOW) {
+				e.setCancelled(true);
+				return;
+			}
+
 			PlayerAbility ability = cePlayer.getAbility();
 			if (ability.isCancel(Type.ATTACK)) {
 				e.setCancelled(true);
@@ -627,7 +685,12 @@ public class EntityListener implements Listener {
 			return damage;
 		}
 
-		CEWeaponAbstract weapon = arrowMap.get(attacker);
+		ArrowData arrowData = arrowMap.get(attacker);
+		if (arrowData == null) {
+			return damage;
+		}
+
+		CEWeaponAbstract weapon = arrowData.getWeapon();
 		if (weapon == null) {
 			return damage;
 		}
@@ -693,7 +756,12 @@ public class EntityListener implements Listener {
 			return damage;
 		}
 
-		CEWeaponAbstract weapon = arrowMap.get(attacker);
+		ArrowData arrowData = arrowMap.get(attacker);
+		if (arrowData == null) {
+			return damage;
+		}
+
+		CEWeaponAbstract weapon = arrowData.weapon;
 		if (weapon == null) {
 			return damage;
 		}

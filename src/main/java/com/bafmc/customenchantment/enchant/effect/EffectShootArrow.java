@@ -55,7 +55,7 @@ public class EffectShootArrow extends EffectHook {
 		Arrow arrow = player.getWorld().spawnArrow(spawnLocation, vector, (float) this.speed.getValue(),
 				(float) this.spread.getValue());
 		if (activeCE) {
-			EntityListener.putArrow(arrow, data.getWeaponAbstract());
+			EntityListener.putArrow(arrow, data.getWeaponAbstract(), 1f);
 		}
 	}
 }

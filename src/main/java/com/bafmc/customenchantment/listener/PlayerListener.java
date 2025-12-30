@@ -1,5 +1,6 @@
 package com.bafmc.customenchantment.listener;
 
+import com.bafmc.bukkit.api.FactionAPI;
 import com.bafmc.bukkit.bafframework.event.ItemEquipEvent;
 import com.bafmc.bukkit.feature.placeholder.Placeholder;
 import com.bafmc.bukkit.feature.placeholder.PlaceholderBuilder;
@@ -37,6 +38,7 @@ import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
+import org.bukkit.util.Vector;
 
 import java.util.Map;
 
@@ -329,12 +331,28 @@ public class PlayerListener implements Listener {
 			}
 
 			if (isDifferentLocation(from, to)) {
+				updateMoveDirection(cePlayer, from, to);
 				callMove(cePlayer, from, to);
 			}
 		} catch (Exception ex) {
 			System.out.println("Error Move at player " + player);
 			ex.printStackTrace();
 		}
+	}
+
+	public void updateMoveDirection(CEPlayer cePlayer, Location from, Location to) {
+		if (to == null) return;
+
+		Vector move = to.toVector().subtract(from.toVector());
+		move.setY(0);
+
+		if (move.lengthSquared() == 0) return;
+
+		Vector look = from.getDirection();
+		look.setY(0).normalize();
+
+		boolean forward = move.normalize().dot(look) >= 0;
+		cePlayer.setMovingForward(forward);
 	}
 
 	public boolean isDifferentLocation(Location from, Location to) {
@@ -415,7 +433,6 @@ public class PlayerListener implements Listener {
         }
 
         handleDash(e.getPlayer());
-        handleJump(e.getPlayer());
 		handleFlash(e.getPlayer());
 		callSneak(e.getPlayer());
     }
@@ -471,9 +488,10 @@ public class PlayerListener implements Listener {
         }
 
         double power = storage.getDouble(TemporaryKey.DASH_POWER);
-        String particle = storage.getString(TemporaryKey.DASH_PARTICLE);
+        String particleForward = storage.getString(TemporaryKey.DASH_PARTICLE_FORWARD);
+		String particleBackward = storage.getString(TemporaryKey.DASH_PARTICLE_BACKWARD);
 
-        DashFeature.dash(player, power, particle);
+        DashFeature.dash(player, power, particleForward, particleBackward);
         storage.set(TemporaryKey.DASH_LAST_USE, currentTime);
     }
 
@@ -563,5 +581,19 @@ public class PlayerListener implements Listener {
 			return;
 		}
 		storage.set(TemporaryKey.FLASH_LAST_USE, currentTime);
+	}
+
+	@EventHandler
+	public void onToggleFlight(PlayerToggleFlightEvent e) {
+		Player player = e.getPlayer();
+
+		if (!player.getGameMode().equals(GameMode.SURVIVAL)) return;
+
+		if (FactionAPI.isFactionSupport() && FactionAPI.isFlying(player)) {
+			return;
+		}
+
+		e.setCancelled(true);
+		handleJump(e.getPlayer());
 	}
 }

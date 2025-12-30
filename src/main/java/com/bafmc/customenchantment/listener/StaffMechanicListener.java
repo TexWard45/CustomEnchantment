@@ -2,6 +2,7 @@ package com.bafmc.customenchantment.listener;
 
 import com.bafmc.bukkit.utils.EquipSlot;
 import com.bafmc.bukkit.utils.RandomUtils;
+import com.bafmc.bukkit.utils.SoundUtils;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.api.ParticleSupport;
@@ -13,7 +14,9 @@ import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.core.particles.ParticleOptions;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.Sound;
 import org.bukkit.attribute.Attribute;
+import org.bukkit.craftbukkit.entity.CraftEntity;
 import org.bukkit.craftbukkit.entity.CraftPlayer;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
@@ -96,6 +99,8 @@ public class StaffMechanicListener implements Listener {
     private void shoot(Player player) {
         CEPlayer cePlayer = CEAPI.getCEPlayer(player);
 
+        SoundUtils.playWorld(player, Sound.ENTITY_FIREWORK_ROCKET_LAUNCH, 0.6f, 1.2f);
+
         double range = player.getAttribute(Attribute.PLAYER_ENTITY_INTERACTION_RANGE).getValue();
         double baseDamage = player.getAttribute(Attribute.GENERIC_ATTACK_DAMAGE).getValue();
         float cooldown = getAttackCooldown(player);
@@ -154,6 +159,7 @@ public class StaffMechanicListener implements Listener {
                 }
 
                 if (current.getBlock().getType().isSolid()) {
+                    SoundUtils.playWorld(current.getBlock().getLocation(), Sound.ENTITY_FIREWORK_ROCKET_BLAST_FAR, 0.6f, 1.2f);
                     cancel();
                     return;
                 }
@@ -193,7 +199,9 @@ public class StaffMechanicListener implements Listener {
                     .rayTrace(from.toVector(), ray, length) == null) continue;
 
             magicShot = true;
-            target.damage(calculateDamage(shooter, baseDamage, cooldown), shooter);
+//            target.damage(calculateDamage(shooter, baseDamage, cooldown), shooter);
+            ((CraftPlayer) shooter).getHandle().attack(((CraftEntity) target).getHandle(), cooldown, true, true);
+            SoundUtils.playWorld(target, Sound.ENTITY_FIREWORK_ROCKET_BLAST, 1, 1);
             magicShot = false;
             return true;
         }
@@ -206,6 +214,8 @@ public class StaffMechanicListener implements Listener {
      * ========================= */
 
     private double calculateDamage(Player player, double baseDamage, float cooldown) {
+        cooldown = Math.min(1.0F, Math.max(0.0F, cooldown));
+
         var nms = ((CraftPlayer) player).getHandle();
         return baseDamage * (
                 1.0F - Math.sqrt(
