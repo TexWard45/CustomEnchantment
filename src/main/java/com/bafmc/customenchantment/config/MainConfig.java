@@ -3,6 +3,7 @@ package com.bafmc.customenchantment.config;
 import com.bafmc.bukkit.config.AdvancedConfigurationSection;
 import com.bafmc.bukkit.config.IConfigurationLoader;
 import com.bafmc.bukkit.config.annotation.Configuration;
+import com.bafmc.bukkit.config.annotation.KeyType;
 import com.bafmc.bukkit.config.annotation.Path;
 import com.bafmc.bukkit.config.annotation.ValueType;
 import com.bafmc.bukkit.feature.placeholder.PlaceholderManager;
@@ -13,6 +14,7 @@ import com.bafmc.customenchantment.api.ParticleAPI;
 import com.bafmc.customenchantment.config.data.ExtraSlotSettingsData;
 import com.bafmc.customenchantment.item.CEItem;
 import com.bafmc.customenchantment.item.CEWeaponFactory;
+import com.bafmc.customenchantment.item.CEWeaponType;
 import com.bafmc.customenchantment.item.artifact.CEArtifact;
 import com.bafmc.customenchantment.item.outfit.CEOutfit;
 import com.bafmc.customenchantment.item.sigil.CESigil;
@@ -22,10 +24,7 @@ import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.configuration.ConfigurationSection;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Configuration
 public class MainConfig implements IConfigurationLoader {
@@ -93,11 +92,21 @@ public class MainConfig implements IConfigurationLoader {
 	@Path("outfit.title-update-blacklist")
 	@Getter
 	private List<String> outfitTitleUpdateBlacklist = new ArrayList<>();
-	@Path("staff-color")
+	@Path("staff.color")
 	@Getter
 	private String staffColor = "#FFCC00";
+	@Path("staff.speed")
+	@Getter
+	private double staffSpeed = 1.6;
+	@Path("staff.step-size")
+	@Getter
+	private double staffStepSize = 0.75;
 	@Getter
 	private List<ParticleOptions> staffParticles;
+	@Getter
+	@KeyType(CEWeaponType.class)
+	@Path("weapon-icon")
+	private Map<CEWeaponType, String> weaponIconMap = new HashMap<>();
 
 	@Override
 	public void loadConfig(String s, ConfigurationSection config) {

@@ -221,7 +221,7 @@ public class PlayerListener implements Listener {
 				newItemStack = ceNewWeapon.getDefaultItemStack();
 			}
 
-			if (oldItemStack != null && newItemStack != null && oldItemStack.equals(newItemStack)) {
+			if (oldItemStack != null && oldItemStack.equals(newItemStack)) {
 				return;
 			}
 		}
@@ -255,7 +255,7 @@ public class PlayerListener implements Listener {
 		if (ceNewWeapon != null) {
 			Map<EquipSlot, CEWeaponAbstract> map = CEAPI.getCEWeaponMap(player);
 			map.put(slot, ceNewWeapon);
-			
+
 			CEType ceType;
 
 			if (slot.isArmor()) {

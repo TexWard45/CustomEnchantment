@@ -30,7 +30,13 @@ public class UpdateJumpTask extends PlayerPerTickTask {
         CEPlayer cePlayer = CEAPI.getCEPlayer(player);
         PlayerTemporaryStorage storage = cePlayer.getTemporaryStorage();
         if (storage.isBoolean(TemporaryKey.DOUBLE_JUMP_ENABLE)) {
-            player.setAllowFlight(true);
+            double doubleJumpCooldown = storage.getDouble(TemporaryKey.DOUBLE_JUMP_COOLDOWN);
+            long doubleJumpLastUse = storage.getLong(TemporaryKey.DOUBLE_JUMP_LAST_USE);
+            if (System.currentTimeMillis() - doubleJumpLastUse < doubleJumpCooldown) {
+                player.setAllowFlight(false);
+            }else {
+                player.setAllowFlight(true);
+            }
         }else {
             if (FactionAPI.isFactionSupport() && FactionAPI.isFlying(player)) {
                 return;

@@ -6,11 +6,11 @@ import com.bafmc.bukkit.utils.SoundUtils;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.api.ParticleSupport;
+import com.bafmc.customenchantment.config.MainConfig;
 import com.bafmc.customenchantment.item.CEWeaponAbstract;
 import com.bafmc.customenchantment.item.CEWeaponType;
 import com.bafmc.customenchantment.player.CEPlayer;
 import com.bafmc.customenchantment.player.TemporaryKey;
-import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.core.particles.ParticleOptions;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -27,7 +27,6 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
-import org.joml.Vector3f;
 
 import java.util.List;
 
@@ -36,13 +35,9 @@ public class StaffMechanicListener implements Listener {
      * CONSTANTS
      * ========================= */
     private static final double HAND_OFFSET = 0.5;
-    private static final double SPEED_PER_TICK = 1.0;
     private static final double HITBOX_EXPAND = 0.15;
     private static final double PARTICLE_VIEW_DISTANCE_SQ = 64 * 64;
     private static boolean magicShot = false;
-
-    private static final ParticleOptions CYAN_PARTICLE =
-            new DustParticleOptions(new Vector3f(0f, 182f / 255f, 182f / 255f), 1.0f);
 
     /* ========================= */
 
@@ -67,7 +62,9 @@ public class StaffMechanicListener implements Listener {
         }
 
         Player player = event.getPlayer();
-        if (!isStaff(player)) return;
+        if (!isStaff(player)) {
+            return;
+        }
         if (!canAttackNow(player)) {
             event.setCancelled(true);
             return;
@@ -83,11 +80,17 @@ public class StaffMechanicListener implements Listener {
             return;
         }
 
-        if (!(event.getDamager() instanceof Player player)) return;
-        if (!isStaff(player)) return;
+        if (!(event.getDamager() instanceof Player player)) {
+            return;
+        }
+        if (!isStaff(player)) {
+            return;
+        }
 
         event.setCancelled(true);
-        if (!canAttackNow(player)) return;
+        if (!canAttackNow(player)) {
+            return;
+        }
 
         shoot(player);
     }
@@ -99,7 +102,7 @@ public class StaffMechanicListener implements Listener {
     private void shoot(Player player) {
         CEPlayer cePlayer = CEAPI.getCEPlayer(player);
 
-        SoundUtils.playWorld(player, Sound.ENTITY_FIREWORK_ROCKET_LAUNCH, 0.6f, 1.2f);
+        SoundUtils.playWorld(player, Sound.BLOCK_AMETHYST_BLOCK_HIT, 0.6f, 1.2f);
 
         double range = player.getAttribute(Attribute.PLAYER_ENTITY_INTERACTION_RANGE).getValue();
         double baseDamage = player.getAttribute(Attribute.GENERIC_ATTACK_DAMAGE).getValue();
@@ -113,7 +116,7 @@ public class StaffMechanicListener implements Listener {
                 .normalize()
                 .multiply(HAND_OFFSET);
 
-        double startOffset = RandomUtils.random(0.5, 1.25);
+        double startOffset = RandomUtils.random(0.5, 1.0);
 
         Location start = eye.clone()
                 .add(right)
@@ -121,51 +124,60 @@ public class StaffMechanicListener implements Listener {
 
         Location end = eye.clone().add(dir.multiply(range));
 
-        runProjectile(player, cePlayer, start, end, baseDamage, cooldown);
+        runProjectile(player, cePlayer, start, end, cooldown);
     }
 
     private void runProjectile(Player shooter, CEPlayer cePlayer, Location start, Location end,
-                               double baseDamage, float cooldown) {
+                               float cooldown) {
         List<ParticleOptions> staffParticles = CustomEnchantment.instance().getMainConfig().getStaffParticles();
 
+        MainConfig config = CustomEnchantment.instance().getMainConfig();
+
         double distance = start.distance(end);
-        int totalTicks = (int) Math.ceil(distance / SPEED_PER_TICK);
+
+        double stepSize = config.getStaffStepSize();
+        double speed = config.getStaffSpeed();
+
+        Vector direction = end.toVector()
+                .subtract(start.toVector())
+                .normalize();
+
+        int stepsPerTick = (int) Math.ceil(speed / stepSize);
 
         new BukkitRunnable() {
-            int tick = 0;
+            Location current = start.clone();
             Location prev = start.clone();
 
             @Override
             public void run() {
-                if (tick > totalTicks) {
-                    cancel();
-                    return;
+                for (int i = 0; i < stepsPerTick; i++) {
+
+                    prev = current.clone();
+                    current.add(direction.clone().multiply(stepSize));
+
+                    spawnParticle(current, cePlayer, staffParticles);
+
+                    if (hitEntity(shooter, prev, current, cooldown)) {
+                        cancel();
+                        return;
+                    }
+
+                    if (current.getBlock().getType().isSolid()) {
+                        SoundUtils.playWorld(
+                                current.getBlock().getLocation(),
+                                Sound.ENTITY_FIREWORK_ROCKET_BLAST_FAR,
+                                0.6f,
+                                1.2f
+                        );
+                        cancel();
+                        return;
+                    }
+
+                    if (current.distanceSquared(start) >= distance * distance) {
+                        cancel();
+                        return;
+                    }
                 }
-
-                double progress = (double) tick / totalTicks;
-
-                Vector pos = end.toVector()
-                        .subtract(start.toVector())
-                        .multiply(progress)
-                        .add(start.toVector());
-
-                Location current = pos.toLocation(start.getWorld());
-
-                spawnParticle(current, cePlayer, staffParticles);
-
-                if (hitEntity(shooter, prev, current, baseDamage, cooldown)) {
-                    cancel();
-                    return;
-                }
-
-                if (current.getBlock().getType().isSolid()) {
-                    SoundUtils.playWorld(current.getBlock().getLocation(), Sound.ENTITY_FIREWORK_ROCKET_BLAST_FAR, 0.6f, 1.2f);
-                    cancel();
-                    return;
-                }
-
-                prev = current;
-                tick++;
             }
 
         }.runTaskTimer(plugin, 0L, 1L);
@@ -176,7 +188,7 @@ public class StaffMechanicListener implements Listener {
      * ========================= */
 
     private boolean hitEntity(Player shooter, Location from, Location to,
-                              double baseDamage, float cooldown) {
+                              float cooldown) {
 
         Vector dir = to.toVector().subtract(from.toVector());
         double length = dir.length();
@@ -199,7 +211,6 @@ public class StaffMechanicListener implements Listener {
                     .rayTrace(from.toVector(), ray, length) == null) continue;
 
             magicShot = true;
-//            target.damage(calculateDamage(shooter, baseDamage, cooldown), shooter);
             ((CraftPlayer) shooter).getHandle().attack(((CraftEntity) target).getHandle(), cooldown, true, true);
             SoundUtils.playWorld(target, Sound.ENTITY_FIREWORK_ROCKET_BLAST, 1, 1);
             magicShot = false;
@@ -212,17 +223,6 @@ public class StaffMechanicListener implements Listener {
     /* =========================
      * DAMAGE & COOLDOWN
      * ========================= */
-
-    private double calculateDamage(Player player, double baseDamage, float cooldown) {
-        cooldown = Math.min(1.0F, Math.max(0.0F, cooldown));
-
-        var nms = ((CraftPlayer) player).getHandle();
-        return baseDamage * (
-                1.0F - Math.sqrt(
-                        1.0F - Math.pow(cooldown, nms.level().purpurConfig.newDamageCurvePower)
-                )
-        );
-    }
 
     private float getAttackCooldown(Player player) {
         return ((CraftPlayer) player).getHandle().getAttackStrengthScale(0.5F);
@@ -243,6 +243,7 @@ public class StaffMechanicListener implements Listener {
         CEPlayer cePlayer = CEAPI.getCEPlayer(player);
         CEWeaponAbstract weapon =
                 cePlayer.getEquipment().getSlot(EquipSlot.MAINHAND, true, true);
+
         return weapon != null && weapon.getWeaponType() == CEWeaponType.STAFF;
     }
 

@@ -1,11 +1,17 @@
 package com.bafmc.customenchantment.placeholder;
 
 import com.bafmc.bukkit.bafframework.nms.NMSAttributeType;
+import com.bafmc.bukkit.utils.EquipSlot;
 import com.bafmc.bukkit.utils.FormatUtils;
+import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.attribute.AttributeCalculate;
 import com.bafmc.customenchantment.attribute.CustomAttributeType;
+import com.bafmc.customenchantment.config.MainConfig;
 import com.bafmc.customenchantment.enchant.EffectUtil;
+import com.bafmc.customenchantment.item.CEItem;
+import com.bafmc.customenchantment.item.CEWeaponAbstract;
+import com.bafmc.customenchantment.item.CEWeaponType;
 import com.bafmc.customenchantment.player.CEPlayer;
 import com.bafmc.customenchantment.player.PlayerVanillaAttribute;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
@@ -160,6 +166,25 @@ public class CustomEnchantmentPlaceholder extends PlaceholderExpansion {
 
             CEPlayer cePlayer = CEAPI.getCEPlayer(player.getPlayer());
             return String.format("%-7s", FormatUtils.format(cePlayer.getCustomAttribute().getValue(customAttributeType) * 100.0) + "%");
+        }
+        if (params.startsWith("mainhand_icon")) {
+            CEPlayer cePlayer = CEAPI.getCEPlayer(player.getPlayer());
+            if (cePlayer == null) {
+                return "";
+            }
+
+            CEWeaponAbstract ceWeaponAbstract = cePlayer.getEquipment().getSlot(EquipSlot.MAINHAND);
+            if (ceWeaponAbstract == null) {
+                return "";
+            }
+
+            CEWeaponType ceWeaponType = ceWeaponAbstract.getWeaponType();
+            if (ceWeaponType == null) {
+                return "";
+            }
+
+            MainConfig mainConfig = CustomEnchantment.instance().getMainConfig();
+            return mainConfig.getWeaponIconMap().getOrDefault(ceWeaponType, "");
         }
         return null;
     }
