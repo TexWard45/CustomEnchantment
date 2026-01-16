@@ -19,7 +19,6 @@ import com.bafmc.customenchantment.item.artifact.CEArtifactGroupMap;
 import com.bafmc.customenchantment.item.outfit.CEOutfitGroupMap;
 import com.bafmc.customenchantment.item.sigil.CESigilGroupMap;
 import com.bafmc.customenchantment.listener.ListenerModule;
-import com.bafmc.customenchantment.listener.StaffMechanicListener;
 import com.bafmc.customenchantment.menu.MenuModule;
 import com.bafmc.customenchantment.placeholder.PlaceholderModule;
 import com.bafmc.customenchantment.player.PlayerModule;

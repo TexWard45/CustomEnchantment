@@ -15,6 +15,7 @@ public class CommandReload implements AbstractCommand {
 		public boolean onCommand(CommandSender sender, Argument arg) {
 			Bukkit.getScheduler().runTaskAsynchronously(CustomEnchantment.instance(), () -> {
 				CustomEnchantment.instance().getConfigModule().onReload();
+				CustomEnchantment.instance().getTaskModule().getPowerAsyncTask().setReloading(true);
 				CustomEnchantmentDebug.log(sender, "The configuration has been reloaded!");
 			});
 			return true;

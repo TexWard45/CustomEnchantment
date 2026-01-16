@@ -49,6 +49,7 @@ dependencies {
     compileOnly 'uk.antiperson:StackMob:5.9.2'
     compileOnly 'com.github.fierioziy:ParticleNativeAPI:4.3.0'
     compileOnly 'io.github.magiccheese1:DamageIndicator-Rebuild:2.2.0-Rebuild'
+    compileOnly 'org.apache.poi:poi-ooxml:5.2.5'
 
     compileOnly 'org.apache.commons:commons-lang3:3.14.0'
     compileOnly 'org.jetbrains:annotations:24.0.1'

@@ -13,8 +13,58 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 public class MainTest {
+    @Test
+    public void onTest() {
+        List<String> colors = List.of(
+                "&#FF0000", "&#FF1E00", "&#FF3C00", "&#FF5A00",
+                "&#FF7800", "&#FF9600", "&#FFB400", "&#FF8D00",
+                "&#F1FE00", "&#F0FF00", "&#C3FF00", "&#96FF00",
+                "&#69FF00", "&#3CFF00", "&#00FF1E", "&#00FF3C",
+                "&#00FF5A", "&#00FF78", "&#00FF96", "&#00FFB4",
+                "&#00FFD2", "&#00E9E8", "&#00D3FE", "&#00D2FF",
+                "&#00A5FF", "&#0078FF", "&#004BFF", "&#001EFF",
+                "&#3C00FF", "&#5A00FF", "&#7800FF", "&#9600FF",
+                "&#B400FF", "&#D200FF", "&#F000FF", "&#F700DA",
+                "&#FE00B5", "&#FF00B4", "&#FF0087", "&#FF005A",
+                "&#FF002D"
+        );
+
+        String text = "Vòng quay may mắn";
+
+        List<String> frames = generateFrames(colors, text);
+
+// debug
+        frames.forEach(str -> {
+            System.out.println("- \"" + str + "\"");
+        });
+    }
+
+    public static List<String> generateFrames(List<String> colors, String text) {
+        List<String> frames = new ArrayList<>();
+
+        int colorCount = colors.size();
+        int textLength = text.length();
+
+        for (int frame = 0; frame < colorCount; frame++) {
+            StringBuilder sb = new StringBuilder();
+
+            for (int i = 0; i < textLength; i++) {
+                // 🔥 MÀU CUỐI → LÊN ĐẦU (đúng ví dụ gốc của bạn)
+                int colorIndex = (colorCount - frame + i) % colorCount;
+                String color = colors.get(colorIndex);
+
+                sb.append(color).append("&l").append(text.charAt(i));
+            }
+
+            frames.add(sb.toString());
+        }
+
+        return frames;
+    }
+
 //    @Test
 //    public void onTest() {
 //        Map<Integer, Integer> levelCountMap = new LinkedHashMap<>();

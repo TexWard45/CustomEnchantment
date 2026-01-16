@@ -1,9 +1,11 @@
 package com.bafmc.customenchantment.menu.equipment;
 
 import com.bafmc.bukkit.bafframework.event.ItemEquipEvent;
+import com.bafmc.bukkit.bafframework.utils.MaterialUtils;
+import com.bafmc.bukkit.feature.placeholder.PlaceholderBuilder;
 import com.bafmc.bukkit.utils.EquipSlot;
 import com.bafmc.bukkit.utils.InventoryUtils;
-import com.bafmc.bukkit.utils.MaterialUtils;
+import com.bafmc.bukkit.utils.ItemStackUtils;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.CustomEnchantmentMessage;
 import com.bafmc.customenchantment.api.CEAPI;
@@ -33,10 +35,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class EquipmentMenu extends MenuAbstract {
 	public static final String MENU_NAME = "equipment";
@@ -44,7 +43,7 @@ public class EquipmentMenu extends MenuAbstract {
 	public static final String EXTRA_SLOT = "extra-slot";
 	public static final String PLAYER_INFO_SLOT = "player-info";
 	public static final String WINGS_SLOT = "wings";
-	public static final String WINGS_OFF_SLOT = "wings-off";
+	public static final String WINGS_OFF_SLOT = "wings-no-skin";
 	public static final String WINGS_TYPE = "WINGS";
 	public static final String HELMET_SLOT = "helmet";
 	public static final String CHESTPLATE_SLOT = "chestplate";
@@ -250,16 +249,144 @@ public class EquipmentMenu extends MenuAbstract {
 	}
 
 	public void updateMenu() {
-		updateSlots(HELMET_SLOT, EquipSlot.HELMET.getItemStack(player));
-		updateSlots(CHESTPLATE_SLOT, EquipSlot.CHESTPLATE.getItemStack(player));
-		updateSlots(LEGGINGS_SLOT, EquipSlot.LEGGINGS.getItemStack(player));
-		updateSlots(BOOTS_SLOT, EquipSlot.BOOTS.getItemStack(player));
-		updateSlots(MAINHAND_SLOT, EquipSlot.MAINHAND.getItemStack(player));
+		updateSlotsAdvance(HELMET_SLOT, EquipSlot.HELMET.getItemStack(player), null);
+		updateSlotsAdvance(CHESTPLATE_SLOT, EquipSlot.CHESTPLATE.getItemStack(player), null);
+		updateSlotsAdvance(LEGGINGS_SLOT, EquipSlot.LEGGINGS.getItemStack(player), null);
+		updateSlotsAdvance(BOOTS_SLOT, EquipSlot.BOOTS.getItemStack(player), null);
+		updateSlotsAdvance(MAINHAND_SLOT, EquipSlot.MAINHAND.getItemStack(player), null);
 		updateOffhandSlots();
 		updateProtectDeadSlots();
 		updateExtraSlots();
 		updatePlayerInfoSlots();
 		updateWingsSlots();
+	}
+
+	public void updateSlotsAdvance(String itemName, ItemStack itemStack, List<Integer> specificSlots) {
+		if (itemStack == null || itemStack.getType() == Material.AIR) {
+			updateSlots(itemName, null, specificSlots);
+			return;
+		}
+
+		NextSwapSkinStatus status = getSwapSkinIndex(itemName);
+
+		if (status == NextSwapSkinStatus.CAN_SWAP) {
+			ItemStack swapItemStack = getItemStack(player, itemName + "-swap");
+
+			if (swapItemStack != null) {
+				ItemMeta itemMeta = swapItemStack.getItemMeta();
+				String display = itemMeta.hasDisplayName() ? itemMeta.getDisplayName() : "";
+				List<String> lore = itemMeta.hasLore() ? itemMeta.getLore() : new ArrayList<>();
+
+				String itemDisplay = ItemStackUtils.getDisplayName(itemStack);
+				List<String> itemLore =  ItemStackUtils.getLore(itemStack);
+
+				PlaceholderBuilder placeholder = PlaceholderBuilder.builder();
+				placeholder.put("{item_display}", itemDisplay != null ? itemDisplay : MaterialUtils.getDisplayName(itemStack.getType()));
+				placeholder.put("{item_lore}", itemLore != null ? itemLore : Arrays.asList("__LORE_REMOVER__"));
+
+				display = placeholder.build().apply(display);
+				lore = placeholder.build().apply(lore);
+				lore.removeIf(line -> line.contains("__LORE_REMOVER__"));
+
+				itemStack = itemStack.clone();
+				ItemMeta newItemMeta = itemStack.getItemMeta();
+
+				newItemMeta.setDisplayName(display);
+				newItemMeta.setLore(lore);
+				itemStack.setItemMeta(newItemMeta);
+			}
+		}else if (status == NextSwapSkinStatus.SKIN_OFF) {
+			ItemStack noSkinItemStack = getItemStack(player, itemName + "-no-skin");
+
+			if (noSkinItemStack != null) {
+				itemStack = noSkinItemStack;
+			}
+		}else {
+			ItemStack equipItemStack = getItemStack(player, itemName + "-equip");
+
+			if (equipItemStack != null) {
+				ItemMeta itemMeta = equipItemStack.getItemMeta();
+				String display = itemMeta.hasDisplayName() ? itemMeta.getDisplayName() : "";
+				List<String> lore = itemMeta.hasLore() ? itemMeta.getLore() : new ArrayList<>();
+
+				String itemDisplay = ItemStackUtils.getDisplayName(itemStack);
+				List<String> itemLore =  ItemStackUtils.getLore(itemStack);
+
+				PlaceholderBuilder placeholder = PlaceholderBuilder.builder();
+				placeholder.put("{item_display}", itemDisplay != null ? itemDisplay : MaterialUtils.getDisplayName(itemStack.getType()));
+				placeholder.put("{item_lore}", itemLore != null ? itemLore : Arrays.asList("__LORE_REMOVER__"));
+
+				display = placeholder.build().apply(display);
+				lore = placeholder.build().apply(lore);
+				lore.removeIf(line -> line.contains("__LORE_REMOVER__"));
+
+				itemStack = itemStack.clone();
+				ItemMeta newItemMeta = itemStack.getItemMeta();
+				newItemMeta.setDisplayName(display);
+				newItemMeta.setLore(lore);
+				itemStack.setItemMeta(newItemMeta);
+			}
+		}
+
+		updateSlots(itemName, itemStack, specificSlots);
+	}
+
+	public enum NextSwapSkinStatus {
+		NO_SKIN, SKIN_OFF, CAN_SWAP;
+	}
+
+	public NextSwapSkinStatus getSwapSkinIndex(String itemName) {
+		PlayerEquipment playerEquipment = CEAPI.getCEPlayer(player).getEquipment();
+		CEOutfit ceOutfit = playerEquipment.getCEOutfit();
+		if (ceOutfit == null) {
+			return NextSwapSkinStatus.NO_SKIN;
+		}
+
+		String customType;
+		if (itemName.equals(WINGS_SLOT)) {
+			customType = WINGS_TYPE;
+		} else {
+			EquipSlot equipSlot = EQUIP_SLOT_MAP.get(itemName);
+			if (equipSlot == null) {
+				return NextSwapSkinStatus.NO_SKIN;
+			}
+			CEWeaponAbstract weaponAbstract = playerEquipment.getSlot(equipSlot);
+			// Try to get from player equipment if not found in slot
+			if (weaponAbstract == null) {
+				ItemStack itemStack = equipSlot.getItemStack(player);
+				CEItem ceItem = CEAPI.getCEItem(itemStack);
+				if (ceItem instanceof CEWeaponAbstract ceWeaponAbstract) {
+					weaponAbstract = ceWeaponAbstract;
+				}
+			}
+
+			customType = weaponAbstract != null ? weaponAbstract.getWeaponTypeName() : null;
+		}
+
+		if (customType == null) {
+			return NextSwapSkinStatus.NO_SKIN;
+		}
+
+		String outfit = ceOutfit.getData().getPattern();
+		List<String> skinList = ceOutfit.getData().getConfigByLevelData().getSkinListByCustomType(customType);
+		if (skinList == null || skinList.isEmpty()) {
+			return NextSwapSkinStatus.NO_SKIN;
+		}
+
+		int currentIndex = playerEquipment.getSkinIndex(outfit, customType);
+		if (currentIndex == -1) {
+			return NextSwapSkinStatus.SKIN_OFF;
+		}
+
+		int newIndex = customType.equals(WINGS_TYPE) && currentIndex + 1 >= skinList.size()
+				? -1
+				: (currentIndex + 1) % skinList.size();
+
+		if (currentIndex == newIndex) {
+			return NextSwapSkinStatus.NO_SKIN;
+		}
+
+		return NextSwapSkinStatus.CAN_SWAP;
 	}
 
 	public void autoUpdateMenu() {
@@ -283,12 +410,14 @@ public class EquipmentMenu extends MenuAbstract {
 		CEPlayer cePlayer = CEAPI.getCEPlayer(player);
 		PlayerEquipment playerEquipment = cePlayer.getEquipment();
 
+		ItemStack offhandItemStack = null;
 		if (playerEquipment.hasWings()) {
-			ItemStack offhandItem = playerEquipment.getOffhandItemStack();
-			updateSlots(OFFHAND_SLOT, offhandItem);
+			offhandItemStack = playerEquipment.getOffhandItemStack();
 		}else {
-			updateSlots(OFFHAND_SLOT, EquipSlot.OFFHAND.getItemStack(player));
+			offhandItemStack = EquipSlot.OFFHAND.getItemStack(player);
 		}
+
+		updateSlotsAdvance(OFFHAND_SLOT, offhandItemStack, null);
 	}
 
 	public void updateWingsSlots() {
@@ -301,7 +430,7 @@ public class EquipmentMenu extends MenuAbstract {
 		CEOutfit outfit = playerEquipment.getCEOutfit();
 
 		ItemStack itemStack = outfit != null ? getWingsItemStack(outfit, playerEquipment) : null;
-		updateTemporaryItem(slots, itemStack);
+		updateSlotsAdvance(WINGS_SLOT, itemStack, null);
 	}
 
 	private ItemStack getWingsItemStack(CEOutfit outfit, PlayerEquipment playerEquipment) {
@@ -368,7 +497,7 @@ public class EquipmentMenu extends MenuAbstract {
 				ItemStack itemStack = (weaponAbstract instanceof CEArtifact || weaponAbstract instanceof CESigil || weaponAbstract instanceof CEOutfit)
 						? weaponAbstract.getDefaultItemStack()
 						: null;
-				updateTemporaryItem(List.of(slots.get(i)), itemStack);
+				updateSlotsAdvance(EXTRA_SLOT + "-" + key, itemStack, List.of(slots.get(i)));
 			}
 		}
 	}

@@ -35,8 +35,6 @@ public class CustomAttributeType extends NMSAttributeType {
 	public static final CustomAttributeType MAGIC_RESISTANCE = (CustomAttributeType) (new CustomAttributeType("MAGIC_RESISTANCE", "custom:player.magic_resistance", 0, true)).register();
 	// Vulnerability is a bonus damage percentage taken by the player when attacked by other players.
 	public static final CustomAttributeType VULNERABILITY = (CustomAttributeType) (new CustomAttributeType("VULNERABILITY", "custom:player.vulnerability", 0, true)).register();
-	// Power is a custom attribute that can be used to calculate the player's overall power level, which can be used to balance the game.
-	public static final CustomAttributeType POWER = (CustomAttributeType) (new CustomAttributeType("POWER", "custom:player.power", 0, false)).register();
 	// Aoe range is a custom attribute that can be used to calculate the range of area of effect attacks.
 	public static final CustomAttributeType AOE_RANGE = (CustomAttributeType) (new CustomAttributeType("AOE_RANGE", "custom:player.aoe_range", 1)).register();
 	// Aoe damage ratio is a custom attribute that can be used to calculate the damage dealt by area of effect attacks.
@@ -45,6 +43,14 @@ public class CustomAttributeType extends NMSAttributeType {
 	public static final CustomAttributeType ACCURACY_CHANCE = (CustomAttributeType) (new CustomAttributeType("ACCURACY_CHANCE", "custom:player.accuracy_chance", 0, true)).register();
 	// Mining power affects the tool's effectiveness when breaking or mining blocks.
 	public static final CustomAttributeType MINING_POWER = (CustomAttributeType) (new CustomAttributeType("MINING_POWER", "custom:player.mining_power", 0)).register();
+	// Power is a custom attribute that can be used to calculate the player's overall power level, which can be used to balance the game.
+	public static final CustomAttributeType TOTAL_POWER = (CustomAttributeType) (new CustomAttributeType("TOTAL_POWER", "custom:player.total_power", 0, false)).register();
+	// Attack power affects the player's damage output.
+	public static final CustomAttributeType ATK_POWER = (CustomAttributeType) (new CustomAttributeType("ATK_POWER", "custom:player.atk_power", 0, false)).register();
+	// Defense power affects the player's damage reduction.
+	public static final CustomAttributeType DEF_POWER = (CustomAttributeType) (new CustomAttributeType("DEF_POWER", "custom:player.def_power", 0, false)).register();
+	// Grievous wounds reduce the effectiveness of healing effects on the player by a certain percentage between 0 and 100.
+	public static final CustomAttributeType GRIEVOUS_WOUNDS = (CustomAttributeType) (new CustomAttributeType("GRIEVOUS_WOUNDS", "custom:player.grievous_wounds", 0, true)).register();
 
 	private double baseValue;
 	private boolean percent;

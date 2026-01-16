@@ -129,7 +129,14 @@ public class StaffMechanicListener implements Listener {
 
     private void runProjectile(Player shooter, CEPlayer cePlayer, Location start, Location end,
                                float cooldown) {
-        List<ParticleOptions> staffParticles = CustomEnchantment.instance().getMainConfig().getStaffParticles();
+        List<ParticleOptions> staffParticles;
+
+        Object obj = cePlayer.getTemporaryStorage().get(TemporaryKey.STAFF_PARTICLE);
+        if (obj != null) {
+            staffParticles = (List<ParticleOptions>) obj;
+        }else {
+            staffParticles = CustomEnchantment.instance().getMainConfig().getStaffParticles();
+        }
 
         MainConfig config = CustomEnchantment.instance().getMainConfig();
 
@@ -144,14 +151,28 @@ public class StaffMechanicListener implements Listener {
 
         int stepsPerTick = (int) Math.ceil(speed / stepSize);
 
+        int currentTurn = cePlayer.getTemporaryStorage().getInt(TemporaryKey.STAFF_PARTICLE_TURN, 0);
+        int randomTurn = RandomUtils.random(0, staffParticles.size() / 2);
+
+        cePlayer.getTemporaryStorage().set(TemporaryKey.STAFF_PARTICLE_TURN, currentTurn + randomTurn);
+
         new BukkitRunnable() {
             Location current = start.clone();
             Location prev = start.clone();
+            int tickCount = 0;
 
             @Override
             public void run() {
-                for (int i = 0; i < stepsPerTick; i++) {
+                if (tickCount % 5 == 0) {
+                    SoundUtils.playWorld(
+                            current,
+                            Sound.BLOCK_AMETHYST_BLOCK_CHIME,
+                            0.6f,
+                            1.2f
+                    );
+                }
 
+                for (int i = 0; i < stepsPerTick; i++) {
                     prev = current.clone();
                     current.add(direction.clone().multiply(stepSize));
 
@@ -178,6 +199,8 @@ public class StaffMechanicListener implements Listener {
                         return;
                     }
                 }
+
+                tickCount++;
             }
 
         }.runTaskTimer(plugin, 0L, 1L);
@@ -259,10 +282,10 @@ public class StaffMechanicListener implements Listener {
 
         int turn = cePlayer.getTemporaryStorage().getInt(TemporaryKey.STAFF_PARTICLE_TURN, 0);
         if (turn >= staffParticles.size()) {
-            turn = 0;
+            turn = turn % staffParticles.size();
         }
 
-        ParticleOptions particle = staffParticles.get(turn % staffParticles.size());
+        ParticleOptions particle = staffParticles.get(turn);
 
         cePlayer.getTemporaryStorage().set(TemporaryKey.STAFF_PARTICLE_TURN, turn + 1);
 

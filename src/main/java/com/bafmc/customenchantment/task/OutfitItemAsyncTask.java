@@ -61,6 +61,10 @@ public class OutfitItemAsyncTask extends BukkitRunnable {
     }
 
     public void run() {
+        if (CustomEnchantment.instance().isInReload()) {
+            return;
+        }
+
         for (Player player : Bukkit.getOnlinePlayers()) {
             run(player);
         }

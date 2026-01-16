@@ -19,6 +19,21 @@ public abstract class MenuAbstract {
 	}
 	
 	public void updateSlots(String itemName, ItemStack itemStack) {
+		updateSlots(itemName, itemStack, null);
+	}
+
+	public void updateSlots(String itemName, ItemStack itemStack, List<Integer> specificSlots) {
+		if (specificSlots != null && !specificSlots.isEmpty()) {
+			for (Integer slot : specificSlots) {
+				if (itemStack == null || itemStack.getType() == Material.AIR) {
+					menuView.removeTemporaryItem(slot);
+				} else {
+					menuView.setTemporaryItem(slot, itemStack);
+				}
+			}
+			return;
+		}
+
 		for (Integer slot : getSlots(itemName)) {
 			if (itemStack == null || itemStack.getType() == Material.AIR) {
 				menuView.removeTemporaryItem(slot);
@@ -38,6 +53,9 @@ public abstract class MenuAbstract {
 	
 	public ItemStack getItemStack(Player player, String itemName) {
 		CItem cItem = menuView.getCMenu().getMenuItem().getCItemByName(itemName);
+		if (cItem == null) {
+			return null;
+		}
 		return cItem.getItemStack(player);
 	}
 }

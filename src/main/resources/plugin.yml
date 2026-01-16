@@ -6,6 +6,8 @@ author: TexWard
 depend: [BafFramework]
 softdepend: [CustomMenu, StackMob, Vouchers, ItemDropManager, mcMMO, PlaceholderAPI, PlaceholderAPIAddon, CustomShop, DamageIndicator, CustomFarm]
 description: Support for custom enchantment
+libraries:
+  - 'org.apache.poi:poi-ooxml:5.2.5'
 commands:
   customenchantment:
     description: CustomEnchantment main commands

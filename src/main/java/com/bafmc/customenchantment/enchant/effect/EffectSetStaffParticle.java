@@ -36,11 +36,25 @@ public class EffectSetStaffParticle extends EffectHook {
 			try {
 				data = new Particle.DustOptions(Color.fromRGB(color.getRed(), color.getGreen(), color.getBlue()), Integer.valueOf(args[1]));
 			} catch (Exception e) {
-
 			}
 			Vector3f vector = new Vector3f(data.getColor().getRed() / 255f, data.getColor().getGreen() / 255f, data.getColor().getBlue() / 255f);
 			this.particle.add(new DustParticleOptions(vector, data.getSize()));
 		}
+
+		int repeatCount = 1;
+		try {
+			repeatCount = Integer.parseInt(args[2]);
+		} catch (Exception ignored) {
+		}
+
+		List<ParticleOptions> repeatedParticles = new ArrayList<>();
+		for (ParticleOptions particleOption : this.particle) {
+			for (int i = 0; i < repeatCount; i++) {
+				repeatedParticles.add(particleOption);
+			}
+		}
+
+		this.particle = repeatedParticles;
 	}
 
 	public void execute(CEFunctionData data) {
