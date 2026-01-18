@@ -16,6 +16,14 @@ public class DamageUtils {
         net.minecraft.world.entity.LivingEntity armorWearer = ((org.bukkit.craftbukkit.entity.CraftLivingEntity) livingEntityBukkit).getHandle();
         net.minecraft.world.damagesource.DamageSource damageSource = ((org.bukkit.craftbukkit.damage.CraftDamageSource) damageSourceBukkit).getHandle();
         float armor = armorWearer.getArmorValue() * (1 - armorPenetration / 100.0F);
+
+        boolean newArmorMechanic = armorWearer.level().purpurConfig.newArmorMechanic; // Purpur
+        if (newArmorMechanic) {
+            float effectiveArmor = Math.max(0.0F, armor);
+            float damageMultiplier = 100.0F / (100.0F + effectiveArmor);
+            return damageAmount * damageMultiplier;
+        }
+
         float armorToughness =  (float) armorWearer.getAttributeValue(Attributes.ARMOR_TOUGHNESS);
         float f = 2.0F + armorToughness / 4.0F;
         float g = Mth.clamp(armor - damageAmount / f, armor * 0.2F, org.purpurmc.purpur.PurpurConfig.limitArmor ? 20F : Float.MAX_VALUE); // Purpur

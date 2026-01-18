@@ -59,6 +59,26 @@ public class CustomEnchantmentPlaceholder extends PlaceholderExpansion {
             String[] split = params.split("_");
 
             String type = split[2].toUpperCase().replace("-", "_");
+            String format = "%-7s";
+            if (split.length > 3) {
+                String last = split[split.length - 1];
+                // Nếu last là số, thay số trong format, giữ nguyên %- và s, nhưng phải > 0
+                boolean isNumber = true;
+                for (int i = 0; i < last.length(); i++) {
+                    if (!Character.isDigit(last.charAt(i))) {
+                        isNumber = false;
+                        break;
+                    }
+                }
+                if (isNumber) {
+                    int width = Integer.parseInt(last);
+                    if (width > 0) {
+                        format = "%-" + width + "s";
+                    }else {
+                        format = "%s";
+                    }
+                }
+            }
 
             Attribute attributePlayer = EffectUtil.getAttributeType(type);
 
@@ -69,7 +89,7 @@ public class CustomEnchantmentPlaceholder extends PlaceholderExpansion {
             if(playerServer == null) return null;
 
             if (attributePlayer == Attribute.GENERIC_ATTACK_DAMAGE) {
-                return String.format("%-7s", FormatUtils.format(
+                return String.format(format, FormatUtils.format(
                         AttributeCalculate.calculateAttributeModifier(
                                 1,
                                 attributeModifiers)));
@@ -80,14 +100,14 @@ public class CustomEnchantmentPlaceholder extends PlaceholderExpansion {
 
                 // attack speed each second = 4.0 / attack speed
                 if (mode.equals("0")) {
-                    return String.format("%-7s", FormatUtils.format(
+                    return String.format(format, FormatUtils.format(
                             AttributeCalculate.calculateAttributeModifier(
                                     4.0,
                                     attributeModifiers)));
                 }
                 // time take for each attack = 1 / attack speed
                 else if (mode.equals("1")) {
-                    return String.format("%-7s", decimalFormat.format(1 /
+                    return String.format(format, decimalFormat.format(1 /
                             AttributeCalculate.calculateAttributeModifier(
                                     4.0,
                                     attributeModifiers)));
@@ -100,63 +120,83 @@ public class CustomEnchantmentPlaceholder extends PlaceholderExpansion {
                         attributeModifiers);
 
                 if (value == 0.1) {
-                    return String.format("%-7s", "100%");
+                    return String.format(format, "100%");
                 }
 
                 if (value > 0.1) {
                     String positiveColor = split[3];
-                    return String.format("%-7s", positiveColor + FormatUtils.format((value / 0.1) * 100.0) + "%");
+                    return String.format(format, positiveColor + FormatUtils.format((value / 0.1) * 100.0) + "%");
                 } else {
                     String negativeColor = split[4];
-                    return String.format("%-7s", negativeColor + FormatUtils.format((value / 0.1) * 100.0) + "%");
+                    return String.format(format, negativeColor + FormatUtils.format((value / 0.1) * 100.0) + "%");
                 }
             }
 
             if (attributePlayer == Attribute.GENERIC_MAX_HEALTH) {
-                return String.format("%-7s", FormatUtils.format(
+                return String.format(format, FormatUtils.format(
                         AttributeCalculate.calculateAttributeModifier(
                                 20.0,
                                 attributeModifiers)));
             }
 
             if (attributePlayer == Attribute.GENERIC_SCALE) {
-                return String.format("%-7s", FormatUtils.format(
+                return String.format(format, FormatUtils.format(
                         AttributeCalculate.calculateAttributeModifier(
                                 1.0,
                                 attributeModifiers)));
             }
 
             if (attributePlayer == Attribute.PLAYER_ENTITY_INTERACTION_RANGE) {
-                return String.format("%-7s", FormatUtils.format(
+                return String.format(format, FormatUtils.format(
                         AttributeCalculate.calculateAttributeModifier(
                                 3.0,
                                 attributeModifiers)));
             }
 
             if (attributePlayer == Attribute.PLAYER_BLOCK_INTERACTION_RANGE) {
-                return String.format("%-7s", FormatUtils.format(
+                return String.format(format, FormatUtils.format(
                         AttributeCalculate.calculateAttributeModifier(
                                 4.5,
                                 attributeModifiers)));
             }
 
-            return String.format("%-7s", FormatUtils.format(AttributeCalculate.calculateAttributeModifier(
+            return String.format(format, FormatUtils.format(AttributeCalculate.calculateAttributeModifier(
                     0.0,
                     attributeModifiers)));
         }
 
         if (params.startsWith("custom_attribute_value_")) {
-            String type = params.substring(23).toUpperCase().replace("-", "_");
+            String[] split = params.split("_");
+            String type = split[3].toUpperCase().replace("-", "_");
+            String format = "%-7s";
+            if (split.length > 4) {
+                String last = split[split.length - 1];
+                boolean isNumber = true;
+                for (int i = 0; i < last.length(); i++) {
+                    if (!Character.isDigit(last.charAt(i))) {
+                        isNumber = false;
+                        break;
+                    }
+                }
+                if (isNumber) {
+                    int width = Integer.parseInt(last);
+                    if (width > 0) {
+                        format = "%-" + width + "s";
+                    }else {
+                        format = "%s";
+                    }
+                }
+            }
 
             NMSAttributeType customAttributeType = CustomAttributeType.valueOf(type);
 
             CEPlayer cePlayer = CEAPI.getCEPlayer(player.getPlayer());
 
             if (customAttributeType instanceof CustomAttributeType customAttributeType1 && customAttributeType1.isPercent()) {
-                return String.format("%-7s", FormatUtils.format(cePlayer.getCustomAttribute().getValue(customAttributeType)) + "%");
+                return String.format(format, FormatUtils.format(cePlayer.getCustomAttribute().getValue(customAttributeType)) + "%");
             }
 
-            return String.format("%-7s", FormatUtils.format(cePlayer.getCustomAttribute().getValue(customAttributeType)));
+            return String.format(format, FormatUtils.format(cePlayer.getCustomAttribute().getValue(customAttributeType)));
         }
 
         if (params.startsWith("custom_attribute_value_percent_")) {

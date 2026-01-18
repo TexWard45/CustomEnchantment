@@ -1,6 +1,7 @@
 package com.bafmc.customenchantment.player;
 
 import com.bafmc.bukkit.utils.EquipSlot;
+import com.bafmc.bukkit.utils.ItemStackUtils;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.config.data.ExtraSlotSettingsData;
 import com.bafmc.customenchantment.item.CEItem;
@@ -153,7 +154,7 @@ public class PlayerEquipment extends CEPlayerExpansion {
         if (liveUpdate) {
             if (ceWeaponAbstract != null) {
                 ItemStack itemStack = slot.getItemStack(cePlayer.getPlayer());
-                if (ceWeaponAbstract.getDefaultItemStack().equals(itemStack)) {
+                if (ItemStackUtils.isSimilarItem(ceWeaponAbstract.getDefaultItemStack(), itemStack, true)) {
                     return ceWeaponAbstract;
                 }
             }

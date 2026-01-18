@@ -18,8 +18,10 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class PowerAsyncTask extends BukkitRunnable {
     private CustomEnchantment plugin;
@@ -95,6 +97,23 @@ public class PowerAsyncTask extends BukkitRunnable {
         }
     }
 
+    // Set of row indices (D3=2, D4=3, ...) that are percentage-based attributes
+    private static final Set<Integer> PERCENTAGE_ROWS = new HashSet<>();
+    static {
+        // Fill with row indices of percentage attributes
+        PERCENTAGE_ROWS.add(6);  // Damage Reduction
+        PERCENTAGE_ROWS.add(8);  // Dodge Chance
+        PERCENTAGE_ROWS.add(9);  // Slow Resistance
+        PERCENTAGE_ROWS.add(10); // Magic Resistance
+        PERCENTAGE_ROWS.add(14); // Critical Chance
+        PERCENTAGE_ROWS.add(15); // Armor Penetration
+        PERCENTAGE_ROWS.add(16); // Life Steal
+        PERCENTAGE_ROWS.add(19); // Aoe Damage Ratio
+        PERCENTAGE_ROWS.add(20); // Accuracy Chance
+        PERCENTAGE_ROWS.add(21); // Grievous Wounds
+        // Add or remove as needed based on your attribute definitions
+    }
+
     public void run(Player player) {
         CEPlayer cePlayer = CEAPI.getCEPlayer(player);
         PlayerVanillaAttribute vanillaAttribute = cePlayer.getVanillaAttribute();
@@ -102,23 +121,30 @@ public class PowerAsyncTask extends BukkitRunnable {
 
         if (workbook == null || evaluator == null || sheet == null) return;
 
-        // Set all attributes from D3 to D24
-        for (Map.Entry<Integer, AttributeSetter> entry : ATTRIBUTE_SETTERS.entrySet()) {
-            setCellValue(entry.getKey(), 3, entry.getValue().get(player, vanillaAttribute, customAttribute));
+        synchronized (this) {
+            // Set all attributes from D3 to D24
+            for (Map.Entry<Integer, AttributeSetter> entry : ATTRIBUTE_SETTERS.entrySet()) {
+                double value = entry.getValue().get(player, vanillaAttribute, customAttribute);
+                // If this row is a percentage, convert 0-100 to 0-1
+                if (PERCENTAGE_ROWS.contains(entry.getKey())) {
+                    value = value / 100.0;
+                }
+                setCellValue(entry.getKey(), 3, value);
+            }
+
+            evaluator.clearAllCachedResultValues();
+            evaluator.evaluateAll();
+
+            double defensePower = Math.round(readEvaluatedCell(sheet, evaluator, 24, 11)); // L25
+            double attackPower = Math.round(readEvaluatedCell(sheet, evaluator, 25, 11));  // L26
+
+            customAttribute.addCustomAttribute("TOTAL_POWER",
+                    new RangeAttribute(CustomAttributeType.TOTAL_POWER, attackPower + defensePower, NMSAttributeOperation.ADD_NUMBER));
+            customAttribute.addCustomAttribute("ATK_POWER",
+                    new RangeAttribute(CustomAttributeType.ATK_POWER, attackPower, NMSAttributeOperation.ADD_NUMBER));
+            customAttribute.addCustomAttribute("DEF_POWER",
+                    new RangeAttribute(CustomAttributeType.DEF_POWER, defensePower, NMSAttributeOperation.ADD_NUMBER));
         }
-
-        evaluator.clearAllCachedResultValues();
-        evaluator.evaluateAll();
-
-        double defensePower = Math.round(readEvaluatedCell(sheet, evaluator, 24, 11)); // L25
-        double attackPower = Math.round(readEvaluatedCell(sheet, evaluator, 25, 11));  // L26
-
-        customAttribute.addCustomAttribute("TOTAL_POWER",
-                new RangeAttribute(CustomAttributeType.TOTAL_POWER, attackPower + defensePower, NMSAttributeOperation.ADD_NUMBER));
-        customAttribute.addCustomAttribute("ATK_POWER",
-                new RangeAttribute(CustomAttributeType.ATK_POWER, attackPower, NMSAttributeOperation.ADD_NUMBER));
-        customAttribute.addCustomAttribute("DEF_POWER",
-                new RangeAttribute(CustomAttributeType.DEF_POWER, defensePower, NMSAttributeOperation.ADD_NUMBER));
     }
 
     private void setCellValue(int rowIdx, int colIdx, double value) {

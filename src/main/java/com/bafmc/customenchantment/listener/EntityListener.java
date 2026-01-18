@@ -273,7 +273,8 @@ public class EntityListener implements Listener {
 			return;
 		}
 
-		Entity attacker = getRealEntity(e.getDamager());
+		Entity realAttacker = getRealEntity(e.getDamager());
+		Entity attacker = realAttacker;
 		Entity defender = getRealEntity(e.getEntity());
 
 		if (attacker instanceof Player) {
@@ -386,11 +387,11 @@ public class EntityListener implements Listener {
 			}
 		}
 
-		if (currentDamage != defaultDamage)
+		if (currentDamage != defaultDamage) {
 			e.setDamage(currentDamage);
+		}
 
 		double finalDamage = e.getFinalDamage();
-
 		if (attacker instanceof Player) {
 			handleLifeSteal((Player) attacker, finalDamage);
 		}
@@ -408,8 +409,8 @@ public class EntityListener implements Listener {
 			}
 		}
 
-		if (isCritical) {
-			SoundUtils.play(attacker, Sound.ENTITY_PLAYER_ATTACK_CRIT);
+		if (isCritical && realAttacker instanceof Player) {
+			SoundUtils.play(realAttacker, Sound.ENTITY_PLAYER_ATTACK_CRIT);
 		}
 
 		if (attacker instanceof Player) {
@@ -454,13 +455,6 @@ public class EntityListener implements Listener {
 						+ new DecimalFormat("#.##").format(e.getFinalDamage()));
 			}
 		}
-
-//		System.out.println("START");
-//		for (EntityDamageEvent.DamageModifier modifier : EntityDamageEvent.DamageModifier.values()) {
-//			System.out.println(modifier.name() + " " + e.getDamage(modifier));
-//		}
-//		System.out.println("FINAL " + e.getFinalDamage());
-//		System.out.println("END");
 	}
 
 	public boolean isLivingEntity(Entity entity) {
@@ -570,7 +564,7 @@ public class EntityListener implements Listener {
 			attributes = result.getOptionDataList();
 		}
 
-		if (handleArmorPenetration(pAttacker, defenser, e, attributes)) {
+		if (handleArmorPenetration(pAttacker, defenser, e, damage, attributes)) {
 			e.setDamage(damage);
 		}
 
@@ -671,7 +665,7 @@ public class EntityListener implements Listener {
 			attributes = pResult.getOptionDataList();
 		}
 
-		boolean handleArmorPenetration = handleArmorPenetration(pAttacker, pDefenser, e, attributes);
+		boolean handleArmorPenetration = handleArmorPenetration(pAttacker, pDefenser, e, damage, attributes);
 		if (handleDamageReduction || handleArmorPenetration) {
 			e.setDamage(damage);
 		}
@@ -742,7 +736,7 @@ public class EntityListener implements Listener {
             finalDamage *= attacker.getMetadata("ce_multi_arrow_damage_ratio").get(0).asDouble();
         }
 
-		boolean handleArmorPenetration = handleArmorPenetration(pAttacker, pDefenser, e, pResult.getOptionDataList());
+		boolean handleArmorPenetration = handleArmorPenetration(pAttacker, pDefenser, e, damage, pResult.getOptionDataList());
 		if (handleDamageReduction || handleArmorPenetration) {
 			e.setDamage(finalDamage);
 		}
@@ -788,7 +782,7 @@ public class EntityListener implements Listener {
 		damage = AttributeCalculate.calculate(CEAPI.getCEPlayer(pAttacker), CustomAttributeType.OPTION_ATTACK, damage,
 				result.getOptionDataList());
 
-		if (handleArmorPenetration(pAttacker, eDefenser, e, result.getOptionDataList())) {
+		if (handleArmorPenetration(pAttacker, eDefenser, e, damage, result.getOptionDataList())) {
 			e.setDamage(damage);
 		}
 
@@ -896,7 +890,7 @@ public class EntityListener implements Listener {
 		player.setHealth(Math.max(Math.min(event.getChangeValue(), player.getMaxHealth()), 0));
 	}
 
-	public boolean handleArmorPenetration(Entity attacker, Entity defender, EntityDamageByEntityEvent e, List<NMSAttribute> list) {
+	public boolean handleArmorPenetration(Entity attacker, Entity defender, EntityDamageByEntityEvent e, double damage, List<NMSAttribute> list) {
 		if (!(attacker instanceof LivingEntity) || !(defender instanceof LivingEntity)) {
 			return false;
 		}
@@ -915,7 +909,7 @@ public class EntityListener implements Listener {
 			return false;
 		}
 
-		e.setOverriddenFunction(EntityDamageEvent.DamageModifier.ARMOR, DamageUtils.getArmorDamageModifier((LivingEntity) defender, (float) e.getDamage(), e.getDamageSource(), (int) armorPenetration));
+		e.setOverriddenFunction(EntityDamageEvent.DamageModifier.ARMOR, DamageUtils.getArmorDamageModifier((LivingEntity) defender, (float) damage, e.getDamageSource(), (int) armorPenetration));
 		return true;
 	}
 }
