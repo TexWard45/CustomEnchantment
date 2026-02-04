@@ -105,7 +105,6 @@ public class StaffMechanicListener implements Listener {
         SoundUtils.playWorld(player, Sound.BLOCK_AMETHYST_BLOCK_HIT, 0.6f, 1.2f);
 
         double range = player.getAttribute(Attribute.PLAYER_ENTITY_INTERACTION_RANGE).getValue();
-        double baseDamage = player.getAttribute(Attribute.GENERIC_ATTACK_DAMAGE).getValue();
         float cooldown = getAttackCooldown(player);
 
         Location eye = player.getEyeLocation();
@@ -234,7 +233,7 @@ public class StaffMechanicListener implements Listener {
                     .rayTrace(from.toVector(), ray, length) == null) continue;
 
             magicShot = true;
-            ((CraftPlayer) shooter).getHandle().attack(((CraftEntity) target).getHandle(), cooldown, true, true);
+            ((CraftPlayer) shooter).getHandle().attack(((CraftEntity) target).getHandle(), cooldown, true, true, true);
             SoundUtils.playWorld(target, Sound.ENTITY_FIREWORK_ROCKET_BLAST, 1, 1);
             magicShot = false;
             return true;

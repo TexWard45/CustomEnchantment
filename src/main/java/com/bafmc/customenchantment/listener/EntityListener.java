@@ -402,9 +402,9 @@ public class EntityListener implements Listener {
 
 			if (attackerLivingEntity instanceof Player playerAttacker && defenderLivingEntity instanceof LivingEntity) {
 				if (isCritical) {
-					DamageIndicatorAPI.spawnIndicator(defenderLivingEntity, playerAttacker, DamageIndicatorAPI.getCriticalDamageFormat(), finalDamage);
+					DamageIndicatorAPI.spawnIndicator(defenderLivingEntity, playerAttacker, DamageIndicatorAPI.getCriticalDamageFormat(), finalDamage, DamageIndicatorAPI.getIndicatorTime(), 2);
 				} else {
-					DamageIndicatorAPI.spawnIndicator(defenderLivingEntity, playerAttacker, DamageIndicatorAPI.getDamageFormat(), finalDamage);
+					DamageIndicatorAPI.spawnIndicator(defenderLivingEntity, playerAttacker, DamageIndicatorAPI.getDamageFormat(), finalDamage, DamageIndicatorAPI.getIndicatorTime(), 2);
 				}
 			}
 		}
