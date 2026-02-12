@@ -10,19 +10,19 @@ When implementing any GitHub issue or feature ticket, **ALWAYS** use git worktre
 
 ```bash
 git fetch origin
-git worktree add ../CustomEnchantment-{issue-number}-{short-description} -b {branch-name}
+git worktree add ../{ProjectName}-{issue-number}-{short-description} -b {branch-name}
 ```
 
 ### 2. Naming Conventions
 
 **Worktree directory:**
 ```
-../CustomEnchantment-{issue-number}-{short-description}
+../{ProjectName}-{issue-number}-{short-description}
 ```
 
 Examples:
-- `../CustomEnchantment-15-fix-nms-attribute`
-- `../CustomEnchantment-31-feat-custom-enchant`
+- `../{ProjectName}-15-fix-nms-attribute`
+- `../{ProjectName}-31-feat-custom-enchant`
 
 **Branch naming:**
 ```
@@ -41,7 +41,7 @@ All work must be done in the worktree directory, NOT the main repository.
 git push -u origin {branch-name}
 gh pr create
 # After merge:
-git worktree remove ../CustomEnchantment-{issue-number}-{short-description}
+git worktree remove ../{ProjectName}-{issue-number}-{short-description}
 git branch -d {branch-name}
 ```
 
