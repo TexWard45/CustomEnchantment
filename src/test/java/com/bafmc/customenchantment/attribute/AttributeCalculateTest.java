@@ -123,7 +123,7 @@ class AttributeCalculateTest {
 
             double result = AttributeCalculate.calculate(100, modifiers);
 
-            assertEquals(110, result);
+            assertEquals(110.0, result, 0.0001);
         }
 
         @Test
@@ -301,8 +301,8 @@ class AttributeCalculateTest {
         @Test
         @DisplayName("Should filter attributes by type")
         void calculate_withMixedTypes_filtersCorrectly() {
-            NMSAttributeType type1 = mock(NMSAttributeType.class);
-            NMSAttributeType type2 = mock(NMSAttributeType.class);
+            CustomAttributeType type1 = mock(CustomAttributeType.class);
+            CustomAttributeType type2 = mock(CustomAttributeType.class);
 
             NMSAttribute attr1 = createMockAttribute(10, NMSAttributeOperation.ADD_NUMBER, type1);
             NMSAttribute attr2 = createMockAttribute(20, NMSAttributeOperation.ADD_NUMBER, type2);
@@ -311,39 +311,39 @@ class AttributeCalculateTest {
             List<NMSAttribute> modifiers = Arrays.asList(attr1, attr2, attr3);
 
             // Should only include attr1 and attr3 (type1)
-            double result = AttributeCalculate.calculate((CustomAttributeType) type1, 100, modifiers);
+            double result = AttributeCalculate.calculate(type1, 100, modifiers);
 
-            assertEquals(115, result);
+            assertEquals(115.0, result, 0.0001);
         }
 
         @Test
         @DisplayName("Should return base when no attributes match type")
         void calculate_withNoMatchingType_returnsBase() {
-            NMSAttributeType type1 = mock(NMSAttributeType.class);
-            NMSAttributeType type2 = mock(NMSAttributeType.class);
+            CustomAttributeType type1 = mock(CustomAttributeType.class);
+            CustomAttributeType type2 = mock(CustomAttributeType.class);
 
             NMSAttribute attr = createMockAttribute(50, NMSAttributeOperation.ADD_NUMBER, type2);
 
             List<NMSAttribute> modifiers = List.of(attr);
 
-            double result = AttributeCalculate.calculate((CustomAttributeType) type1, 100, modifiers);
+            double result = AttributeCalculate.calculate(type1, 100, modifiers);
 
-            assertEquals(100, result);
+            assertEquals(100.0, result, 0.0001);
         }
 
         @Test
         @DisplayName("Should handle null attribute type")
         void calculate_withNullAttributeType_skipsAttribute() {
-            NMSAttributeType type1 = mock(NMSAttributeType.class);
+            CustomAttributeType type1 = mock(CustomAttributeType.class);
 
             NMSAttribute attr1 = createMockAttribute(10, NMSAttributeOperation.ADD_NUMBER, type1);
             NMSAttribute attr2 = createMockAttribute(20, NMSAttributeOperation.ADD_NUMBER, null);
 
             List<NMSAttribute> modifiers = Arrays.asList(attr1, attr2);
 
-            double result = AttributeCalculate.calculate((CustomAttributeType) type1, 100, modifiers);
+            double result = AttributeCalculate.calculate(type1, 100, modifiers);
 
-            assertEquals(110, result);
+            assertEquals(110.0, result, 0.0001);
         }
     }
 
@@ -385,7 +385,7 @@ class AttributeCalculateTest {
 
             double result = AttributeCalculate.calculateAttributeModifier(100, modifiers);
 
-            assertEquals(110, result);
+            assertEquals(110.0, result, 0.0001);
         }
 
         @Test

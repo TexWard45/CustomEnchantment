@@ -2,11 +2,14 @@ package com.bafmc.customenchantment.guard;
 
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.task.GuardTask;
+import org.bukkit.Bukkit;
 import org.bukkit.scheduler.BukkitScheduler;
 import org.bukkit.Server;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
+import org.mockito.MockedStatic;
 import org.mockito.MockitoAnnotations;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -19,6 +22,7 @@ import static org.mockito.Mockito.*;
 public class GuardModuleTest {
 
     private GuardModule guardModule;
+    private MockedStatic<Bukkit> mockedBukkit;
 
     @Mock
     private CustomEnchantment mockPlugin;
@@ -33,10 +37,21 @@ public class GuardModuleTest {
     void setUp() {
         MockitoAnnotations.openMocks(this);
 
+        // Mock static Bukkit methods
+        mockedBukkit = mockStatic(Bukkit.class);
+        mockedBukkit.when(Bukkit::getScheduler).thenReturn(mockScheduler);
+
         when(mockPlugin.getServer()).thenReturn(mockServer);
         when(mockServer.getScheduler()).thenReturn(mockScheduler);
 
         guardModule = new GuardModule(mockPlugin);
+    }
+
+    @AfterEach
+    void tearDown() {
+        if (mockedBukkit != null) {
+            mockedBukkit.close();
+        }
     }
 
     // ==================== Constructor Tests ====================
@@ -95,6 +110,8 @@ public class GuardModuleTest {
 
         // Spy on the task to verify cancel is called
         GuardTask spyTask = spy(task);
+        // Stub cancel() to avoid "Not scheduled yet" exception
+        doNothing().when(spyTask).cancel();
 
         // Use reflection to set the spy task
         try {
@@ -151,6 +168,9 @@ public class GuardModuleTest {
 
         // Spy on task for cancel verification
         GuardTask spyTask = spy(guardModule.getGuardTask());
+        // Stub cancel() to avoid "Not scheduled yet" exception
+        doNothing().when(spyTask).cancel();
+
         try {
             java.lang.reflect.Field taskField = GuardModule.class.getDeclaredField("guardTask");
             taskField.setAccessible(true);

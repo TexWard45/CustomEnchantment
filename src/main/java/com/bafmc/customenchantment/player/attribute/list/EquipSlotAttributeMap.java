@@ -40,7 +40,8 @@ public class EquipSlotAttributeMap extends AbstractAttributeMap {
 
                 String slot = nmsAttribute.getSlot();
 
-                NMSAttributeSlot nmsSlot = NMSAttributeSlot.getByName(slot);
+                // Handle null slot - null means attribute applies to all slots
+                NMSAttributeSlot nmsSlot = (slot != null) ? NMSAttributeSlot.getByName(slot) : null;
                 if (nmsSlot == null || EquipSlotUtils.isSameSlot(equipSlot, nmsSlot)) {
                     attributeMap.put(type, nmsAttribute);
                 }
