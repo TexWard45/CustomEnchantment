@@ -245,7 +245,7 @@ class EquipSlotAttributeMapTest {
             CEWeaponAbstract helmet = createMockWeapon(
                 CustomAttributeType.DAMAGE_REDUCTION, 5.0, null
             );
-            slotMap.put(EquipSlot.HEAD, helmet);
+            slotMap.put(EquipSlot.HELMET, helmet);
 
             Multimap<CustomAttributeType, NMSAttribute> result = equipSlotAttributeMap.loadAttributeMap(mockData);
 
@@ -259,7 +259,7 @@ class EquipSlotAttributeMapTest {
             CEWeaponAbstract chestplate = createMockWeapon(
                 CustomAttributeType.DAMAGE_REDUCTION, 8.0, null
             );
-            slotMap.put(EquipSlot.CHEST, chestplate);
+            slotMap.put(EquipSlot.CHESTPLATE, chestplate);
 
             Multimap<CustomAttributeType, NMSAttribute> result = equipSlotAttributeMap.loadAttributeMap(mockData);
 
@@ -272,7 +272,7 @@ class EquipSlotAttributeMapTest {
             CEWeaponAbstract leggings = createMockWeapon(
                 CustomAttributeType.DAMAGE_REDUCTION, 6.0, null
             );
-            slotMap.put(EquipSlot.LEGS, leggings);
+            slotMap.put(EquipSlot.LEGGINGS, leggings);
 
             Multimap<CustomAttributeType, NMSAttribute> result = equipSlotAttributeMap.loadAttributeMap(mockData);
 
@@ -285,7 +285,7 @@ class EquipSlotAttributeMapTest {
             CEWeaponAbstract boots = createMockWeapon(
                 CustomAttributeType.DAMAGE_REDUCTION, 3.0, null
             );
-            slotMap.put(EquipSlot.FEET, boots);
+            slotMap.put(EquipSlot.BOOTS, boots);
 
             Multimap<CustomAttributeType, NMSAttribute> result = equipSlotAttributeMap.loadAttributeMap(mockData);
 
@@ -295,10 +295,10 @@ class EquipSlotAttributeMapTest {
         @Test
         @DisplayName("Combines armor set attributes")
         void loadAttributeMap_withFullArmorSet_combinesAttributes() {
-            slotMap.put(EquipSlot.HEAD, createMockWeapon(CustomAttributeType.DAMAGE_REDUCTION, 5.0, null));
-            slotMap.put(EquipSlot.CHEST, createMockWeapon(CustomAttributeType.DAMAGE_REDUCTION, 8.0, null));
-            slotMap.put(EquipSlot.LEGS, createMockWeapon(CustomAttributeType.DAMAGE_REDUCTION, 6.0, null));
-            slotMap.put(EquipSlot.FEET, createMockWeapon(CustomAttributeType.DAMAGE_REDUCTION, 3.0, null));
+            slotMap.put(EquipSlot.HELMET, createMockWeapon(CustomAttributeType.DAMAGE_REDUCTION, 5.0, null));
+            slotMap.put(EquipSlot.CHESTPLATE, createMockWeapon(CustomAttributeType.DAMAGE_REDUCTION, 8.0, null));
+            slotMap.put(EquipSlot.LEGGINGS, createMockWeapon(CustomAttributeType.DAMAGE_REDUCTION, 6.0, null));
+            slotMap.put(EquipSlot.BOOTS, createMockWeapon(CustomAttributeType.DAMAGE_REDUCTION, 3.0, null));
 
             Multimap<CustomAttributeType, NMSAttribute> result = equipSlotAttributeMap.loadAttributeMap(mockData);
 
@@ -332,8 +332,8 @@ class EquipSlotAttributeMapTest {
         void loadAttributeMap_withMixedNullAndValid_loadsOnlyValid() {
             slotMap.put(EquipSlot.MAINHAND, null);
             slotMap.put(EquipSlot.OFFHAND, createMockWeapon(CustomAttributeType.CRITICAL_DAMAGE, 2.0, null));
-            slotMap.put(EquipSlot.HEAD, null);
-            slotMap.put(EquipSlot.CHEST, createMockWeapon(CustomAttributeType.DAMAGE_REDUCTION, 5.0, null));
+            slotMap.put(EquipSlot.HELMET, null);
+            slotMap.put(EquipSlot.CHESTPLATE, createMockWeapon(CustomAttributeType.DAMAGE_REDUCTION, 5.0, null));
 
             Multimap<CustomAttributeType, NMSAttribute> result = equipSlotAttributeMap.loadAttributeMap(mockData);
 

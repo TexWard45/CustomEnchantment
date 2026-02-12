@@ -154,10 +154,10 @@ class AttributeMapDataTest {
         void slotMap_canContainMultipleSlots() {
             slotMap.put(EquipSlot.MAINHAND, mock(CEWeaponAbstract.class));
             slotMap.put(EquipSlot.OFFHAND, mock(CEWeaponAbstract.class));
-            slotMap.put(EquipSlot.HEAD, mock(CEWeaponAbstract.class));
-            slotMap.put(EquipSlot.CHEST, mock(CEWeaponAbstract.class));
-            slotMap.put(EquipSlot.LEGS, mock(CEWeaponAbstract.class));
-            slotMap.put(EquipSlot.FEET, mock(CEWeaponAbstract.class));
+            slotMap.put(EquipSlot.HELMET, mock(CEWeaponAbstract.class));
+            slotMap.put(EquipSlot.CHESTPLATE, mock(CEWeaponAbstract.class));
+            slotMap.put(EquipSlot.LEGGINGS, mock(CEWeaponAbstract.class));
+            slotMap.put(EquipSlot.BOOTS, mock(CEWeaponAbstract.class));
 
             AttributeMapData data = new AttributeMapData(mockPlayer, slotMap);
 

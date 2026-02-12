@@ -62,12 +62,15 @@ dependencies {
     testCompileOnly 'org.projectlombok:lombok:1.18.34'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.34'
 
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.1'
 
-    testImplementation 'org.mockito:mockito-inline:3.7.0'
-    testImplementation 'org.mockito:mockito-core:3.7.0'
-    testImplementation 'net.bytebuddy:byte-buddy:1.14.2'
+    testImplementation 'org.mockito:mockito-inline:5.2.0'
+    testImplementation 'org.mockito:mockito-core:5.2.0'
+    testImplementation 'org.mockito:mockito-junit-jupiter:5.2.0'
+    testImplementation 'net.bytebuddy:byte-buddy:1.14.11'
+    testImplementation 'net.bytebuddy:byte-buddy-agent:1.14.11'
+    testImplementation 'io.leangen.geantyref:geantyref:1.3.14'
 }
 
 jar.archiveFileName = "CustomEnchantment.jar"
@@ -87,4 +90,23 @@ publishing {
 
 test {
     useJUnitPlatform()
+
+    // Add JVM arguments to open modules for Mockito
+    jvmArgs = [
+        '--add-opens=java.base/java.lang=ALL-UNNAMED',
+        '--add-opens=java.base/java.util=ALL-UNNAMED',
+        '--add-opens=java.base/java.lang.reflect=ALL-UNNAMED',
+        '--add-opens=java.base/java.text=ALL-UNNAMED',
+        '--add-opens=java.desktop/java.awt.font=ALL-UNNAMED'
+    ]
+
+    // Increase max heap size for tests
+    maxHeapSize = '1G'
+
+    // Show test output
+    testLogging {
+        events "passed", "skipped", "failed"
+        exceptionFormat "full"
+        showStandardStreams = false
+    }
 }
