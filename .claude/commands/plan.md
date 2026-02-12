@@ -36,57 +36,52 @@ The planner agent will:
 ## Example Usage
 
 ```
-User: /plan I need to add real-time notifications when markets resolve
+User: /plan I need to add a custom enchant registration system
 
 Agent (planner):
-# Implementation Plan: Real-Time Market Resolution Notifications
+# Implementation Plan: Custom Enchant Registration System
 
 ## Requirements Restatement
-- Send notifications to users when markets they're watching resolve
-- Support multiple notification channels (in-app, email, webhook)
-- Ensure notifications are delivered reliably
-- Include market outcome and user's position result
+- Allow registration of custom enchant behaviors
+- Enchants trigger on combat/item events
+- Config-driven enchant definitions
+- Follow BafFramework ConditionHook/ExecuteHook patterns
 
 ## Implementation Phases
 
-### Phase 1: Database Schema
-- Add notifications table with columns: id, user_id, market_id, type, status, created_at
-- Add user_notification_preferences table for channel preferences
-- Create indexes on user_id and market_id for performance
+### Phase 1: Data Classes
+- Create EnchantData with enchant name, level, and parameters
+- Create EnchantConfig with @Configuration/@Path annotations
 
-### Phase 2: Notification Service
-- Create notification service in lib/notifications.ts
-- Implement notification queue using BullMQ/Redis
-- Add retry logic for failed deliveries
-- Create notification templates
+### Phase 2: Core Classes
+- Create AbstractEnchant base class with getIdentifier() and apply()
+- Create EnchantRegister extending SingletonRegister (strategy pattern)
+- Register built-in enchants (damage boost, lifesteal, etc.)
 
-### Phase 3: Integration Points
-- Hook into market resolution logic (when status changes to "resolved")
-- Query all users with positions in market
-- Enqueue notifications for each user
+### Phase 3: Event Integration
+- Create EnchantListener for EntityDamageByEntityEvent and PlayerInteractEvent
+- Check equipped items for custom enchant NBT tags
+- Invoke registered enchant behaviors
 
-### Phase 4: Frontend Components
-- Create NotificationBell component in header
-- Add NotificationList modal
-- Implement real-time updates via Supabase subscriptions
-- Add notification preferences page
+### Phase 4: Module Registration
+- Create EnchantModule extending PluginModule<YourPlugin>
+- Register in YourPlugin.registerModules()
+- Load enchant config in onReload()
 
 ## Dependencies
-- Redis (for queue)
-- Email service (SendGrid/Resend)
-- Supabase real-time subscriptions
+- BafFramework: StrategyRegister, ItemStackUtils
+- External: None
 
 ## Risks
-- HIGH: Email deliverability (SPF/DKIM required)
-- MEDIUM: Performance with 1000+ users per market
-- MEDIUM: Notification spam if markets resolve frequently
-- LOW: Real-time subscription overhead
+- MEDIUM: NMS compatibility for custom NBT tags across versions
+- LOW: Performance with many enchants checked per combat event
+- LOW: Enchant stacking/interaction edge cases
 
 ## Estimated Complexity: MEDIUM
-- Backend: 4-6 hours
-- Frontend: 3-4 hours
+- Core classes: 3-4 hours
+- Event handling: 2-3 hours
 - Testing: 2-3 hours
-- Total: 9-13 hours
+- Total: 7-10 hours
 
 **WAITING FOR CONFIRMATION**: Proceed with this plan? (yes/no/modify)
 ```
@@ -104,10 +99,10 @@ If you want changes, respond with:
 
 After planning:
 - Use `/tdd` to implement with test-driven development
-- Use `/build-and-fix` if build errors occur
+- Use `/gradle-build` if build errors occur
 - Use `/code-review` to review completed implementation
 
 ## Related Agents
 
 This command invokes the `planner` agent located at:
-`~/.claude/agents/planner.md`
+`.claude/agents/planner.md`

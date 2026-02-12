@@ -10,8 +10,6 @@
 
 Types: feat, fix, refactor, docs, test, chore, perf, ci
 
-Note: Attribution disabled globally via ~/.claude/settings.json.
-
 ## Pull Request Workflow
 
 When creating PRs:
@@ -42,7 +40,7 @@ When creating PRs:
 
 4. **Human Review** (See `human-review.md`)
    - Stage changes with `git add`
-   - Run verification: `pnpm typecheck && pnpm lint && pnpm test -- --run`
+   - Run verification: `./gradlew build test`
    - Show change summary to user
    - Wait for human approval before commit/push
    - NEVER auto-commit or push without explicit user request

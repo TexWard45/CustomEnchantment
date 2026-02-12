@@ -27,13 +27,13 @@ Optional but recommended:
 ### Types
 | Type | Use For | Example |
 |------|---------|---------|
-| `feat` | New features | `feat: Add user profile page` |
-| `fix` | Bug fixes | `fix: Resolve login timeout error` |
-| `refactor` | Code restructuring | `refactor: Extract auth logic to service` |
-| `docs` | Documentation | `docs: Add API endpoint reference` |
-| `test` | Testing | `test: Add E2E tests for checkout` |
+| `feat` | New features | `feat: Add custom enchant system` |
+| `fix` | Bug fixes | `fix: Resolve NPE in PlayerData lookup` |
+| `refactor` | Code restructuring | `refactor: Extract condition logic to hook` |
+| `docs` | Documentation | `docs: Add module lifecycle reference` |
+| `test` | Testing | `test: Add unit tests for ArgumentLine` |
 | `chore` | Maintenance | `chore: Update dependencies` |
-| `perf` | Performance | `perf: Optimize database queries` |
+| `perf` | Performance | `perf: Optimize menu rendering per tick` |
 
 ### Rules
 - Use imperative mood: "Add" not "Added" or "Adds"
@@ -47,14 +47,14 @@ Optional but recommended:
 
 | Priority | SLA | Criteria | Examples |
 |----------|-----|----------|----------|
-| **P0** | Immediate | System down, data loss, security vulnerability | Production crash, data breach, authentication bypass |
-| **P1** | 24 hours | Major feature broken, significant user impact | Can't save data, payments failing, core feature unusable |
-| **P2** | 1 week | Feature degraded, workaround exists | Slow performance, UI glitch, minor workflow broken |
-| **P3** | Backlog | Nice-to-have, cosmetic, minor inconvenience | Typo, UI polish, edge case handling |
+| **P0** | Immediate | System down, data loss, security vulnerability | Server crash, data corruption, exploit vulnerability |
+| **P1** | 24 hours | Major feature broken, significant user impact | Plugin fails to load, player data lost, core command broken |
+| **P2** | 1 week | Feature degraded, workaround exists | Slow TPS, menu glitch, minor config issue |
+| **P3** | Backlog | Nice-to-have, cosmetic, minor inconvenience | Typo, message formatting, edge case handling |
 
 ### When to Escalate
-- P2 → P1: Multiple users reporting, workaround complex
-- P1 → P0: Business impact, revenue loss, compliance risk
+- P2 -> P1: Multiple users reporting, workaround complex
+- P1 -> P0: Business impact, revenue loss, compliance risk
 
 ---
 
@@ -89,13 +89,13 @@ Optional but recommended:
 ### Common Anti-Patterns
 
 **Bad:** "Fix the bug"
-**Good:** "fix: Resolve null pointer exception in UserService.getProfile when user.email is undefined"
+**Good:** "fix: Resolve NPE in PlayerManager.getData when player disconnects during async task"
 
 **Bad:** "Make it faster"
-**Good:** "perf: Reduce dashboard load time from 3s to under 500ms by implementing query pagination"
+**Good:** "perf: Reduce menu open latency from 200ms to under 50ms by caching ItemStack builders"
 
 **Bad:** Tasks like "Implement feature"
-**Good:** Specific tasks like "Create UserProfile component", "Add getUserById query", "Write unit tests for profile loading"
+**Good:** Specific tasks like "Create MoneyCondition class", "Add getPlayerData method to PlayerManager", "Write unit tests for ArgumentLine parsing"
 
 ---
 
@@ -144,7 +144,7 @@ Use the appropriate template from `.github/ISSUE_TEMPLATE/`:
 - Issues: `#123` or `org/repo#123`
 - PRs: `#123` or `org/repo#123`
 - Commits: `abc1234` or full SHA
-- Files: `` `src/path/file.ts:123` ``
+- Files: `` `src/main/java/com/example/myplugin/MyClass.java:123` ``
 
 ### Relationship Keywords
 - `Fixes #123` - Closes issue when PR merges
@@ -173,33 +173,33 @@ Before submitting an issue, verify:
 ### Minimal Valid Issue
 ```markdown
 ## Summary
-Add loading spinner to submit button during form submission.
+Add cooldown feedback to command execution so players know when they can use it again.
 
 ## Problem
 ### Current Behavior
-Button shows no feedback when clicked, users click multiple times.
+Command silently fails during cooldown, players spam it repeatedly.
 
 ### Expected Behavior
-Button should show spinner and be disabled during submission.
+Command should send a message showing remaining cooldown time.
 
 ### Impact
-All users, causes duplicate submissions, medium severity.
+All players using commands with cooldowns, causes confusion, medium severity.
 
 ## Solution
 ### Approach
-Add loading state to form, show spinner in button, disable button.
+Add cooldown check with remaining time message in AbstractCommand.execute().
 
 ### Technical Details
-- Modify: `src/components/ContactForm.tsx`
+- Modify: `src/main/java/.../command/AbstractCommand.java`
 
 ## Tasks
-- [ ] Add isSubmitting state to form
-- [ ] Show spinner when submitting
-- [ ] Disable button during submission
+- [ ] Add cooldown remaining time calculation
+- [ ] Send formatted cooldown message to player
+- [ ] Write unit tests
 - [ ] Test
 
 ---
-**Priority:** P2 | **Effort:** S | **Labels:** enhancement, ui
+**Priority:** P2 | **Effort:** S | **Labels:** enhancement
 ```
 
 ### Comprehensive Issue

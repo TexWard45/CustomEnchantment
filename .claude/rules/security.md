@@ -6,31 +6,24 @@ Before ANY commit:
 - [ ] No hardcoded secrets (API keys, passwords, tokens)
 - [ ] All user inputs validated
 - [ ] SQL injection prevention (parameterized queries)
-- [ ] XSS prevention (sanitized HTML)
-- [ ] CSRF protection enabled
-- [ ] Authentication/authorization verified
-- [ ] Rate limiting on all endpoints
 - [ ] Error messages don't leak sensitive data
+- [ ] No sensitive data in config defaults (redis passwords, DB credentials)
 
 ## Secret Management
 
-```typescript
+```java
 // NEVER: Hardcoded secrets
-const apiKey = "sk-proj-xxxxx"
+private String redisPassword = "mySecretPass123";
 
-// ALWAYS: Environment variables
-const apiKey = process.env.OPENAI_API_KEY
-
-if (!apiKey) {
-  throw new Error('OPENAI_API_KEY not configured')
-}
+// ALWAYS: Load from config file (not committed to git)
+@Path("redis.password")
+private String redisPassword = "";
 ```
 
 ## Security Response Protocol
 
 If security issue found:
 1. STOP immediately
-2. Use **security-reviewer** agent
-3. Fix CRITICAL issues before continuing
-4. Rotate any exposed secrets
-5. Review entire codebase for similar issues
+2. Fix CRITICAL issues before continuing
+3. Rotate any exposed secrets
+4. Review entire codebase for similar issues

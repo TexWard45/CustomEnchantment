@@ -1,494 +1,242 @@
 ---
 name: security-review
-description: Use this skill when adding authentication, handling user input, working with secrets, creating API endpoints, or implementing payment/sensitive features. Provides comprehensive security checklist and patterns.
+description: Use this skill when handling player input, working with secrets, creating commands, or implementing sensitive features. Provides comprehensive security checklist for Bukkit plugins.
 ---
 
 # Security Review Skill
 
-This skill ensures all code follows security best practices and identifies potential vulnerabilities.
+This skill ensures all code follows security best practices for Bukkit plugin development.
 
 ## When to Activate
 
-- Implementing authentication or authorization
-- Handling user input or file uploads
-- Creating new API endpoints
-- Working with secrets or credentials
-- Implementing payment features
-- Storing or transmitting sensitive data
-- Integrating third-party APIs
+- Handling player input (commands, chat, signs)
+- Working with secrets or credentials (database, Redis, API keys)
+- Creating new commands with permissions
+- Implementing admin features
+- Storing or transmitting player data
+- Processing configuration files
+- Handling file I/O operations
 
 ## Security Checklist
 
 ### 1. Secrets Management
 
-#### ❌ NEVER Do This
-```typescript
-const apiKey = "sk-proj-xxxxx"  // Hardcoded secret
-const dbPassword = "password123" // In source code
+#### Never Do This
+```java
+// Hardcoded secret in source code
+@Path("database.password")
+private String password = "mySecretPass123";
+
+// API key in code
+private static final String API_KEY = "sk-xxxxx";
 ```
 
-#### ✅ ALWAYS Do This
-```typescript
-const apiKey = process.env.OPENAI_API_KEY
-const dbUrl = process.env.DATABASE_URL
+#### Always Do This
+```java
+// Empty defaults - loaded from config file
+@Path("database.password")
+private String password = "";
 
-// Verify secrets exist
-if (!apiKey) {
-  throw new Error('OPENAI_API_KEY not configured')
-}
+@Path("redis.password")
+private String redisPassword = "";
 ```
 
 #### Verification Steps
-- [ ] No hardcoded API keys, tokens, or passwords
-- [ ] All secrets in environment variables
-- [ ] `.env.local` in .gitignore
-- [ ] No secrets in git history
-- [ ] Production secrets in hosting platform (Vercel, Railway)
+- [ ] No hardcoded passwords, tokens, or API keys
+- [ ] All secrets in config files (not source code)
+- [ ] Config files with secrets in .gitignore
+- [ ] Default values are empty strings
 
 ### 2. Input Validation
 
-#### Always Validate User Input
-```typescript
-import { z } from 'zod'
-
-// Define validation schema
-const CreateUserSchema = z.object({
-  email: z.string().email(),
-  name: z.string().min(1).max(100),
-  age: z.number().int().min(0).max(150)
-})
-
-// Validate before processing
-export async function createUser(input: unknown) {
-  try {
-    const validated = CreateUserSchema.parse(input)
-    return await db.users.create(validated)
-  } catch (error) {
-    if (error instanceof z.ZodError) {
-      return { success: false, errors: error.errors }
+#### Validate Command Arguments
+```java
+@Override
+public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+    if (args.length < 1) {
+        sender.sendMessage("Usage: /mycommand <player>");
+        return true;
     }
-    throw error
-  }
-}
-```
 
-#### File Upload Validation
-```typescript
-function validateFileUpload(file: File) {
-  // Size check (5MB max)
-  const maxSize = 5 * 1024 * 1024
-  if (file.size > maxSize) {
-    throw new Error('File too large (max 5MB)')
-  }
+    // Validate player name (alphanumeric, 3-16 chars)
+    String playerName = args[0];
+    if (!playerName.matches("^[a-zA-Z0-9_]{3,16}$")) {
+        sender.sendMessage("Invalid player name");
+        return true;
+    }
 
-  // Type check
-  const allowedTypes = ['image/jpeg', 'image/png', 'image/gif']
-  if (!allowedTypes.includes(file.type)) {
-    throw new Error('Invalid file type')
-  }
-
-  // Extension check
-  const allowedExtensions = ['.jpg', '.jpeg', '.png', '.gif']
-  const extension = file.name.toLowerCase().match(/\.[^.]+$/)?.[0]
-  if (!extension || !allowedExtensions.includes(extension)) {
-    throw new Error('Invalid file extension')
-  }
-
-  return true
+    // Validate numeric input
+    try {
+        int amount = Integer.parseInt(args[1]);
+        if (amount < 0 || amount > 10000) {
+            sender.sendMessage("Amount must be 0-10000");
+            return true;
+        }
+    } catch (NumberFormatException e) {
+        sender.sendMessage("Invalid number");
+        return true;
+    }
 }
 ```
 
 #### Verification Steps
-- [ ] All user inputs validated with schemas
-- [ ] File uploads restricted (size, type, extension)
-- [ ] No direct use of user input in queries
-- [ ] Whitelist validation (not blacklist)
-- [ ] Error messages don't leak sensitive info
+- [ ] All command arguments validated
+- [ ] Numeric inputs have range checks
+- [ ] String inputs have length limits
+- [ ] No direct use of player input in file paths
 
-### 3. SQL Injection Prevention
+### 3. Permission Checks
 
-#### ❌ NEVER Concatenate SQL
-```typescript
-// DANGEROUS - SQL Injection vulnerability
-const query = `SELECT * FROM users WHERE email = '${userEmail}'`
-await db.query(query)
-```
+#### Always Check Permissions
+```java
+// Before any sensitive operation
+if (!player.hasPermission("myplugin.admin")) {
+    player.sendMessage("No permission");
+    return;
+}
 
-#### ✅ ALWAYS Use Parameterized Queries
-```typescript
-// Safe - parameterized query
-const { data } = await supabase
-  .from('users')
-  .select('*')
-  .eq('email', userEmail)
-
-// Or with raw SQL
-await db.query(
-  'SELECT * FROM users WHERE email = $1',
-  [userEmail]
-)
+// Check for specific actions
+if (!player.hasPermission("myplugin.command.give")) {
+    player.sendMessage("You cannot use this command");
+    return;
+}
 ```
 
 #### Verification Steps
-- [ ] All database queries use parameterized queries
+- [ ] All commands have permission checks
+- [ ] Admin commands require admin permissions
+- [ ] Sensitive operations gated by permissions
+- [ ] Permission nodes documented in plugin.yml
+
+### 4. SQL Injection Prevention
+
+#### Never Concatenate SQL
+```java
+// DANGEROUS
+String query = "SELECT * FROM players WHERE name = '" + playerName + "'";
+statement.execute(query);
+```
+
+#### Always Use Prepared Statements
+```java
+// SAFE
+PreparedStatement ps = connection.prepareStatement(
+    "SELECT * FROM players WHERE name = ?"
+);
+ps.setString(1, playerName);
+ResultSet rs = ps.executeQuery();
+```
+
+#### Verification Steps
+- [ ] All database queries use PreparedStatement
 - [ ] No string concatenation in SQL
-- [ ] ORM/query builder used correctly
-- [ ] Supabase queries properly sanitized
+- [ ] Player input never directly in queries
 
-### 4. Authentication & Authorization
+### 5. File Path Traversal Prevention
 
-#### JWT Token Handling
-```typescript
-// ❌ WRONG: localStorage (vulnerable to XSS)
-localStorage.setItem('token', token)
+#### Validate File Paths
+```java
+// DANGEROUS - player could use "../../../etc/passwd"
+File file = new File(dataFolder, playerInput);
 
-// ✅ CORRECT: httpOnly cookies
-res.setHeader('Set-Cookie',
-  `token=${token}; HttpOnly; Secure; SameSite=Strict; Max-Age=3600`)
-```
-
-#### Authorization Checks
-```typescript
-export async function deleteUser(userId: string, requesterId: string) {
-  // ALWAYS verify authorization first
-  const requester = await db.users.findUnique({
-    where: { id: requesterId }
-  })
-
-  if (requester.role !== 'admin') {
-    return NextResponse.json(
-      { error: 'Unauthorized' },
-      { status: 403 }
-    )
-  }
-
-  // Proceed with deletion
-  await db.users.delete({ where: { id: userId } })
-}
-```
-
-#### Row Level Security (Supabase)
-```sql
--- Enable RLS on all tables
-ALTER TABLE users ENABLE ROW LEVEL SECURITY;
-
--- Users can only view their own data
-CREATE POLICY "Users view own data"
-  ON users FOR SELECT
-  USING (auth.uid() = id);
-
--- Users can only update their own data
-CREATE POLICY "Users update own data"
-  ON users FOR UPDATE
-  USING (auth.uid() = id);
-```
-
-#### Verification Steps
-- [ ] Tokens stored in httpOnly cookies (not localStorage)
-- [ ] Authorization checks before sensitive operations
-- [ ] Row Level Security enabled in Supabase
-- [ ] Role-based access control implemented
-- [ ] Session management secure
-
-### 5. XSS Prevention
-
-#### Sanitize HTML
-```typescript
-import DOMPurify from 'isomorphic-dompurify'
-
-// ALWAYS sanitize user-provided HTML
-function renderUserContent(html: string) {
-  const clean = DOMPurify.sanitize(html, {
-    ALLOWED_TAGS: ['b', 'i', 'em', 'strong', 'p'],
-    ALLOWED_ATTR: []
-  })
-  return <div dangerouslySetInnerHTML={{ __html: clean }} />
-}
-```
-
-#### Content Security Policy
-```typescript
-// next.config.js
-const securityHeaders = [
-  {
-    key: 'Content-Security-Policy',
-    value: `
-      default-src 'self';
-      script-src 'self' 'unsafe-eval' 'unsafe-inline';
-      style-src 'self' 'unsafe-inline';
-      img-src 'self' data: https:;
-      font-src 'self';
-      connect-src 'self' https://api.example.com;
-    `.replace(/\s{2,}/g, ' ').trim()
-  }
-]
-```
-
-#### Verification Steps
-- [ ] User-provided HTML sanitized
-- [ ] CSP headers configured
-- [ ] No unvalidated dynamic content rendering
-- [ ] React's built-in XSS protection used
-
-### 6. CSRF Protection
-
-#### CSRF Tokens
-```typescript
-import { csrf } from '@/lib/csrf'
-
-export async function POST(request: Request) {
-  const token = request.headers.get('X-CSRF-Token')
-
-  if (!csrf.verify(token)) {
-    return NextResponse.json(
-      { error: 'Invalid CSRF token' },
-      { status: 403 }
-    )
-  }
-
-  // Process request
-}
-```
-
-#### SameSite Cookies
-```typescript
-res.setHeader('Set-Cookie',
-  `session=${sessionId}; HttpOnly; Secure; SameSite=Strict`)
-```
-
-#### Verification Steps
-- [ ] CSRF tokens on state-changing operations
-- [ ] SameSite=Strict on all cookies
-- [ ] Double-submit cookie pattern implemented
-
-### 7. Rate Limiting
-
-#### API Rate Limiting
-```typescript
-import rateLimit from 'express-rate-limit'
-
-const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, // 100 requests per window
-  message: 'Too many requests'
-})
-
-// Apply to routes
-app.use('/api/', limiter)
-```
-
-#### Expensive Operations
-```typescript
-// Aggressive rate limiting for searches
-const searchLimiter = rateLimit({
-  windowMs: 60 * 1000, // 1 minute
-  max: 10, // 10 requests per minute
-  message: 'Too many search requests'
-})
-
-app.use('/api/search', searchLimiter)
-```
-
-#### Verification Steps
-- [ ] Rate limiting on all API endpoints
-- [ ] Stricter limits on expensive operations
-- [ ] IP-based rate limiting
-- [ ] User-based rate limiting (authenticated)
-
-### 8. Sensitive Data Exposure
-
-#### Logging
-```typescript
-// ❌ WRONG: Logging sensitive data
-console.log('User login:', { email, password })
-console.log('Payment:', { cardNumber, cvv })
-
-// ✅ CORRECT: Redact sensitive data
-console.log('User login:', { email, userId })
-console.log('Payment:', { last4: card.last4, userId })
-```
-
-#### Error Messages
-```typescript
-// ❌ WRONG: Exposing internal details
-catch (error) {
-  return NextResponse.json(
-    { error: error.message, stack: error.stack },
-    { status: 500 }
-  )
-}
-
-// ✅ CORRECT: Generic error messages
-catch (error) {
-  console.error('Internal error:', error)
-  return NextResponse.json(
-    { error: 'An error occurred. Please try again.' },
-    { status: 500 }
-  )
+// SAFE - validate path stays within data folder
+File file = new File(dataFolder, playerInput);
+if (!file.getCanonicalPath().startsWith(dataFolder.getCanonicalPath())) {
+    throw new SecurityException("Path traversal attempt");
 }
 ```
 
 #### Verification Steps
-- [ ] No passwords, tokens, or secrets in logs
-- [ ] Error messages generic for users
-- [ ] Detailed errors only in server logs
-- [ ] No stack traces exposed to users
+- [ ] File paths validated against base directory
+- [ ] No direct use of player input in file names
+- [ ] Canonical path checks for traversal
 
-### 9. Blockchain Security (Solana)
+### 6. Thread Safety
 
-#### Wallet Verification
-```typescript
-import { verify } from '@solana/web3.js'
+#### Shared Data
+```java
+// DANGEROUS - Not thread-safe
+private Map<String, PlayerData> playerMap = new HashMap<>();
 
-async function verifyWalletOwnership(
-  publicKey: string,
-  signature: string,
-  message: string
-) {
-  try {
-    const isValid = verify(
-      Buffer.from(message),
-      Buffer.from(signature, 'base64'),
-      Buffer.from(publicKey, 'base64')
-    )
-    return isValid
-  } catch (error) {
-    return false
-  }
-}
+// SAFE - Thread-safe collection
+private Map<String, PlayerData> playerMap = new ConcurrentHashMap<>();
 ```
 
-#### Transaction Verification
-```typescript
-async function verifyTransaction(transaction: Transaction) {
-  // Verify recipient
-  if (transaction.to !== expectedRecipient) {
-    throw new Error('Invalid recipient')
-  }
+#### Bukkit API from Async
+```java
+// DANGEROUS - Bukkit API from async thread
+Bukkit.getScheduler().runTaskAsynchronously(plugin, () -> {
+    player.teleport(location); // CRASH RISK
+});
 
-  // Verify amount
-  if (transaction.amount > maxAmount) {
-    throw new Error('Amount exceeds limit')
-  }
+// SAFE - Schedule back to main thread
+Bukkit.getScheduler().runTaskAsynchronously(plugin, () -> {
+    Object result = database.query(...);
+    Bukkit.getScheduler().runTask(plugin, () -> {
+        player.sendMessage("Result: " + result);
+    });
+});
+```
 
-  // Verify user has sufficient balance
-  const balance = await getBalance(transaction.from)
-  if (balance < transaction.amount) {
-    throw new Error('Insufficient balance')
-  }
+#### Verification Steps
+- [ ] ConcurrentHashMap for shared data
+- [ ] No Bukkit API calls from async threads
+- [ ] Proper synchronization where needed
 
-  return true
+### 7. Error Handling
+
+#### Don't Leak Information
+```java
+// DANGEROUS - Exposes internal details
+catch (Exception e) {
+    player.sendMessage("Error: " + e.getMessage() + "\n" + e.getStackTrace());
+}
+
+// SAFE - Generic message to player, detailed log
+catch (Exception e) {
+    player.sendMessage("An error occurred. Please contact an admin.");
+    plugin.getLogger().severe("Error processing command: " + e.getMessage());
 }
 ```
 
 #### Verification Steps
-- [ ] Wallet signatures verified
-- [ ] Transaction details validated
-- [ ] Balance checks before transactions
-- [ ] No blind transaction signing
+- [ ] No stack traces sent to players
+- [ ] Error messages don't reveal internals
+- [ ] All exceptions logged with context
+- [ ] No `printStackTrace()` calls
 
-### 10. Dependency Security
+### 8. Deserialization Safety
 
-#### Regular Updates
-```bash
-# Check for vulnerabilities
-npm audit
-
-# Fix automatically fixable issues
-npm audit fix
-
-# Update dependencies
-npm update
-
-# Check for outdated packages
-npm outdated
-```
-
-#### Lock Files
-```bash
-# ALWAYS commit lock files
-git add package-lock.json
-
-# Use in CI/CD for reproducible builds
-npm ci  # Instead of npm install
+#### Validate Deserialized Data
+```java
+// When loading from config/file
+try {
+    PlayerData data = gson.fromJson(json, PlayerData.class);
+    if (data == null || data.getName() == null) {
+        plugin.getLogger().warning("Invalid player data");
+        return null;
+    }
+    return data;
+} catch (JsonSyntaxException e) {
+    plugin.getLogger().warning("Corrupted data: " + e.getMessage());
+    return null;
+}
 ```
 
 #### Verification Steps
-- [ ] Dependencies up to date
-- [ ] No known vulnerabilities (npm audit clean)
-- [ ] Lock files committed
-- [ ] Dependabot enabled on GitHub
-- [ ] Regular security updates
+- [ ] Null checks after deserialization
+- [ ] Type validation on loaded data
+- [ ] Graceful handling of corrupted files
 
-## Security Testing
+## Pre-Commit Security Checklist
 
-### Automated Security Tests
-```typescript
-// Test authentication
-test('requires authentication', async () => {
-  const response = await fetch('/api/protected')
-  expect(response.status).toBe(401)
-})
+Before ANY commit:
 
-// Test authorization
-test('requires admin role', async () => {
-  const response = await fetch('/api/admin', {
-    headers: { Authorization: `Bearer ${userToken}` }
-  })
-  expect(response.status).toBe(403)
-})
-
-// Test input validation
-test('rejects invalid input', async () => {
-  const response = await fetch('/api/users', {
-    method: 'POST',
-    body: JSON.stringify({ email: 'not-an-email' })
-  })
-  expect(response.status).toBe(400)
-})
-
-// Test rate limiting
-test('enforces rate limits', async () => {
-  const requests = Array(101).fill(null).map(() =>
-    fetch('/api/endpoint')
-  )
-
-  const responses = await Promise.all(requests)
-  const tooManyRequests = responses.filter(r => r.status === 429)
-
-  expect(tooManyRequests.length).toBeGreaterThan(0)
-})
-```
-
-## Pre-Deployment Security Checklist
-
-Before ANY production deployment:
-
-- [ ] **Secrets**: No hardcoded secrets, all in env vars
-- [ ] **Input Validation**: All user inputs validated
-- [ ] **SQL Injection**: All queries parameterized
-- [ ] **XSS**: User content sanitized
-- [ ] **CSRF**: Protection enabled
-- [ ] **Authentication**: Proper token handling
-- [ ] **Authorization**: Role checks in place
-- [ ] **Rate Limiting**: Enabled on all endpoints
-- [ ] **HTTPS**: Enforced in production
-- [ ] **Security Headers**: CSP, X-Frame-Options configured
-- [ ] **Error Handling**: No sensitive data in errors
-- [ ] **Logging**: No sensitive data logged
-- [ ] **Dependencies**: Up to date, no vulnerabilities
-- [ ] **Row Level Security**: Enabled in Supabase
-- [ ] **CORS**: Properly configured
-- [ ] **File Uploads**: Validated (size, type)
-- [ ] **Wallet Signatures**: Verified (if blockchain)
-
-## Resources
-
-- [OWASP Top 10](https://owasp.org/www-project-top-ten/)
-- [Next.js Security](https://nextjs.org/docs/security)
-- [Supabase Security](https://supabase.com/docs/guides/auth)
-- [Web Security Academy](https://portswigger.net/web-security)
-
----
-
-**Remember**: Security is not optional. One vulnerability can compromise the entire platform. When in doubt, err on the side of caution.
+- [ ] **Secrets**: No hardcoded credentials
+- [ ] **Input**: All player input validated
+- [ ] **SQL**: All queries use PreparedStatement
+- [ ] **Permissions**: All commands check permissions
+- [ ] **Files**: Path traversal prevented
+- [ ] **Threads**: Proper thread safety
+- [ ] **Errors**: No information leakage
+- [ ] **Logging**: No `printStackTrace()` or `System.out`

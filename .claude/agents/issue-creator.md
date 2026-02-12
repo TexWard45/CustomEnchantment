@@ -69,8 +69,8 @@ Create a detailed checklist of implementation steps:
 
 #### Code References
 ```markdown
-- `src/path/to/file.ts:123` - Relevant function
-- `src/another/file.ts` - Related component
+- `{YourModule}/src/main/java/.../MyClass.java:123` - Relevant method
+- `src/main/java/.../utils/MyUtils.java` - Related utility
 ```
 
 #### Useful Links
@@ -159,7 +159,7 @@ When creating an issue, output the complete markdown that can be directly copied
 ## Hints
 
 ### Code References
-- `path/to/file.ts:line` - Description
+- `Module/src/main/java/.../Class.java:line` - Description
 
 ### Useful Links
 - [Link text](url)
@@ -177,78 +177,74 @@ When creating an issue, output the complete markdown that can be directly copied
 
 ## Example Issue
 
-**Title:** `feat: Add dark mode toggle to settings page`
+**Title:** `feat: Add custom enchant registration system`
 
 ## Summary
 
-Add a dark mode toggle to the user settings page that allows users to switch between light and dark themes. This improves accessibility and user comfort, especially for users who work in low-light environments.
+Add a registration system for custom enchantments that integrates with the existing StrategyRegister pattern. This enables server owners to define custom enchant behaviors via config, similar to how conditions and executes work.
 
 ## Problem
 
 ### Current Behavior
-The application only supports light mode. Users cannot change the theme preference.
+Custom enchantments require hardcoded Java implementations. Server admins cannot add new enchant behaviors without code changes.
 
 ### Expected Behavior
-Users should be able to toggle between light and dark modes from the settings page. The preference should persist across sessions.
+Server admins should be able to register custom enchant behaviors via config files, using the same pattern as conditions/executes.
 
 ### Impact
-- **Who:** All users, especially those with light sensitivity
-- **Severity:** Medium - degraded experience for some users
-- **Frequency:** Constant for affected users
+- **Who:** Server admins, plugin developers
+- **Severity:** Medium - limits extensibility
+- **Frequency:** Every time a new enchant behavior is needed
 
 ## Solution
 
 ### Approach
-1. Add a theme context provider to manage theme state
-2. Create a toggle component in settings
-3. Persist preference to localStorage
-4. Apply theme classes to root element
+1. Create `AbstractEnchant` base class extending the strategy pattern
+2. Add `EnchantRegister` singleton for enchant registration
+3. Create `EnchantListener` for item/combat events
+4. Register in `CoreModule.onEnable()`
 
 ### Technical Details
 - Files to modify:
-  - `src/app/layout.tsx` - Add theme provider
-  - `src/app/settings/page.tsx` - Add toggle UI
-  - `src/styles/globals.css` - Add dark mode CSS variables
+  - `src/main/java/.../core/CoreModule.java` - Register enchant module
 - New files:
-  - `src/contexts/ThemeContext.tsx` - Theme provider
-  - `src/components/ui/ThemeToggle.tsx` - Toggle component
-- Dependencies: None (use CSS variables)
+  - `.../enchant/AbstractEnchant.java` - Base enchant class
+  - `.../enchant/EnchantRegister.java` - Singleton registry
+  - `.../enchant/EnchantListener.java` - Event listener
+- Dependencies: None (uses existing StrategyRegister)
 
 ### Alternatives Considered
-- **System preference only:** Rejected - users want manual control
-- **Tailwind dark mode:** Considered but CSS variables offer more flexibility
+- **Direct Bukkit Enchantment API:** Rejected - too limited for custom behaviors
+- **Per-enchant listener:** Rejected - EnchantRegister with strategy pattern is more extensible
 
 ## Tasks
 
-- [ ] Create ThemeContext with light/dark state
-- [ ] Add ThemeProvider to layout
-- [ ] Create ThemeToggle component
-- [ ] Add toggle to settings page
-- [ ] Define dark mode CSS variables
-- [ ] Persist theme to localStorage
-- [ ] Add system preference detection as default
-- [ ] Write unit tests for ThemeContext
-- [ ] Update settings page tests
-- [ ] Manual testing across browsers
+- [ ] Create AbstractEnchant with getIdentify() and apply() methods
+- [ ] Create EnchantRegister extending SingletonRegister
+- [ ] Create EnchantListener for EntityDamageByEntityEvent
+- [ ] Register in CoreModule.onEnable()
+- [ ] Add config support via @Configuration/@Path
+- [ ] Write unit tests with MockBukkit
+- [ ] Write integration test for enchant registration
+- [ ] Manual testing on test server
 
 ## Hints
 
 ### Code References
-- `src/app/layout.tsx:35` - Root layout where provider should wrap
-- `src/components/ui/index.ts` - Export new component here
+- `Bukkit/src/main/java/.../strategy/StrategyRegister.java` - Base pattern to follow
+- `src/main/java/.../condition/ConditionHook.java` - Similar implementation
 
 ### Useful Links
-- [Tailwind Dark Mode](https://tailwindcss.com/docs/dark-mode)
-- [prefers-color-scheme MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme)
+- [Paper API EntityDamageByEntityEvent](https://jd.papermc.io/paper/1.21.1/)
 
 ### Pitfalls
-- Flash of wrong theme on load - use blocking script in head
-- SSR hydration mismatch - defer theme detection to client
-- Don't forget to handle system preference changes
+- Don't call Bukkit API from async threads
+- Use `getIdentify()` with uppercase convention
+- Register in onEnable(), NOT onReload()
 
 ---
 
-**Priority:** P2 | **Effort:** M | **Labels:** feature, ui, accessibility
+**Priority:** P2 | **Effort:** M | **Labels:** feature, enhancement
 
 ---
 

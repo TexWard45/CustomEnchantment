@@ -42,7 +42,7 @@ git push -f
 ### Step 1: Stage Changes Only
 ```bash
 # OK to stage files
-git add src/path/to/file.tsx
+git add src/main/java/com/example/MyClass.java
 git add -A  # Only if user approves
 ```
 
@@ -51,9 +51,7 @@ After completing work, Claude MUST:
 
 1. **Run verification checks:**
    ```bash
-   pnpm typecheck
-   pnpm lint
-   pnpm test -- --run
+   ./gradlew build test
    ```
 
 2. **Display change summary:**
@@ -70,11 +68,11 @@ After completing work, Claude MUST:
 4. **Provide commit message suggestion:**
    ```
    Suggested commit message:
-   feat: Add knowledge graph visualization (#39)
+   feat: Add custom enchant system
 
-   - Add KnowledgeGraph component with React Flow
-   - Add graph node and edge components
-   - Integrate with Explore mode view toggle
+   - Add AbstractEnchant base class
+   - Add EnchantRegister with strategy pattern
+   - Add enchant listener for item events
    ```
 
 ### Step 3: Wait for Human Approval

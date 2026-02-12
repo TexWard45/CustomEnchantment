@@ -1,19 +1,19 @@
 # Build and Fix
 
-Incrementally fix TypeScript and build errors:
+Incrementally fix Java compilation and Gradle build errors:
 
-1. Run build: npm run build or pnpm build
+1. Run build: `./gradlew build`
 
 2. Parse error output:
-   - Group by file
-   - Sort by severity
+   - Group by module
+   - Sort by severity (compilation > dependency > test)
 
 3. For each error:
-   - Show error context (5 lines before/after)
+   - Show error context (file, line, message)
    - Explain the issue
    - Propose fix
    - Apply fix
-   - Re-run build
+   - Re-run build for affected module
    - Verify error resolved
 
 4. Stop if:
