@@ -1,6 +1,6 @@
 package com.bafmc.customenchantment.command;
 
-import com.bafmc.bukkit.command.AbstractCommand;
+import com.bafmc.bukkit.command.CommandRegistrar;
 import com.bafmc.bukkit.command.AdvancedCommandBuilder;
 import com.bafmc.bukkit.command.ArgumentType;
 import com.bafmc.bukkit.utils.EquipSlot;
@@ -9,7 +9,6 @@ import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.enchant.CEEnchant;
 import com.bafmc.customenchantment.enchant.CEEnchantSimple;
 import com.bafmc.customenchantment.item.*;
-import com.bafmc.customenchantment.nms.CECraftItemStackNMS;
 import com.bafmc.customenchantment.player.CEPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -18,7 +17,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class CommandAddEnchant implements AbstractCommand {
+public class CommandAddEnchant implements CommandRegistrar {
 
 	public void onRegister(AdvancedCommandBuilder builder) {
 		builder

@@ -13,10 +13,12 @@ import com.bafmc.bukkit.utils.InventoryUtils;
 import com.bafmc.bukkit.utils.StringUtils;
 
 public class GiveItemExecute extends ExecuteHook {
-	public String getIdentify() {
+	@Override
+	public String getIdentifier() {
 		return "GIVE_ITEM";
 	}
 
+	@Override
 	public void execute(Player player, String value) {
 		List<String> list = StringUtils.split(value, ":", 0);
 

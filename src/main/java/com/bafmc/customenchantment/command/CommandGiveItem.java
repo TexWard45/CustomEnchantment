@@ -15,7 +15,7 @@ import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.api.Parameter;
 import com.bafmc.customenchantment.enchant.CEEnchant;
 import com.bafmc.customenchantment.item.CEItemStorage;
-import com.bafmc.bukkit.command.AbstractCommand;
+import com.bafmc.bukkit.command.CommandRegistrar;
 import com.bafmc.bukkit.command.AdvancedCommandBuilder;
 import com.bafmc.bukkit.command.AdvancedCommandExecutor;
 import com.bafmc.bukkit.command.AdvancedTabCompleter;
@@ -23,7 +23,7 @@ import com.bafmc.bukkit.command.Argument;
 import com.bafmc.bukkit.command.ArgumentType;
 import com.bafmc.bukkit.utils.InventoryUtils;
 
-public class CommandGiveItem implements AbstractCommand {
+public class CommandGiveItem implements CommandRegistrar {
 	
 	private AdvancedCommandExecutor giveExecutor = new AdvancedCommandExecutor() {
 		public boolean onCommand(CommandSender sender, Argument arg) {

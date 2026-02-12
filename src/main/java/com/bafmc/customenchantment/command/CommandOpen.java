@@ -24,7 +24,7 @@ import com.bafmc.customenchantment.item.book.CEBookStorage;
 import com.bafmc.customenchantment.item.CEItem;
 import com.bafmc.customenchantment.item.CEItemStorage;
 import com.bafmc.customenchantment.item.CEItemType;
-import com.bafmc.bukkit.command.AbstractCommand;
+import com.bafmc.bukkit.command.CommandRegistrar;
 import com.bafmc.bukkit.command.AdvancedCommandBuilder;
 import com.bafmc.bukkit.command.AdvancedCommandExecutor;
 import com.bafmc.bukkit.command.AdvancedTabCompleter;
@@ -32,7 +32,7 @@ import com.bafmc.bukkit.command.Argument;
 import com.bafmc.bukkit.command.ArgumentType;
 import com.bafmc.bukkit.utils.ItemStackUtils;
 
-public class CommandOpen implements AbstractCommand {
+public class CommandOpen implements CommandRegistrar {
 	
 	private AdvancedCommandExecutor storageExecutor = new AdvancedCommandExecutor() {
 		public boolean onCommand(CommandSender sender, Argument arg) {

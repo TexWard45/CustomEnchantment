@@ -8,7 +8,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class CommandFullChance implements AbstractCommand {
+public class CommandFullChance implements CommandRegistrar {
 	public void onRegister(AdvancedCommandBuilder builder) {
 		builder
 			.subCommand("fullchance")

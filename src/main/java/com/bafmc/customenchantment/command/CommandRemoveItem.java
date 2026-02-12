@@ -7,7 +7,7 @@ import com.bafmc.customenchantment.item.VanillaItemStorage;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class CommandRemoveItem implements AbstractCommand {
+public class CommandRemoveItem implements CommandRegistrar {
 	
 	private AdvancedCommandExecutor removeExecutor = new AdvancedCommandExecutor() {
 		public boolean onCommand(CommandSender sender, Argument arg) {

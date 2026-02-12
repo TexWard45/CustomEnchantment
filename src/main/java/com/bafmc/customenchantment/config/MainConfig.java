@@ -122,7 +122,7 @@ public class MainConfig implements IConfigurationLoader {
 
 		CEWeaponFactory.setWhitelist(new MaterialList(MaterialList.getMaterialList(ceItemMaterialWhitelist)));
 
-		PlaceholderManager.getInstance().registerPlaceholder("ce", config.getConfigurationSection("enchant.value"));
+		PlaceholderManager.instance().registerPlaceholder("ce", config.getConfigurationSection("enchant.value"));
 	}
 
 	public boolean isEnchantDisableLocation(Location location) {

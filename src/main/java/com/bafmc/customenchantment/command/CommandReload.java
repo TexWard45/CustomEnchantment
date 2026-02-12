@@ -1,6 +1,6 @@
 package com.bafmc.customenchantment.command;
 
-import com.bafmc.bukkit.command.AbstractCommand;
+import com.bafmc.bukkit.command.CommandRegistrar;
 import com.bafmc.bukkit.command.AdvancedCommandBuilder;
 import com.bafmc.bukkit.command.AdvancedCommandExecutor;
 import com.bafmc.bukkit.command.Argument;
@@ -9,7 +9,7 @@ import com.bafmc.customenchantment.CustomEnchantmentDebug;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 
-public class CommandReload implements AbstractCommand {
+public class CommandReload implements CommandRegistrar {
 	
 	private AdvancedCommandExecutor reloadExecutor = new AdvancedCommandExecutor() {
 		public boolean onCommand(CommandSender sender, Argument arg) {

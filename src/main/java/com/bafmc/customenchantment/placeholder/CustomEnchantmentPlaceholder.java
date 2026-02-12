@@ -9,7 +9,6 @@ import com.bafmc.customenchantment.attribute.AttributeCalculate;
 import com.bafmc.customenchantment.attribute.CustomAttributeType;
 import com.bafmc.customenchantment.config.MainConfig;
 import com.bafmc.customenchantment.enchant.EffectUtil;
-import com.bafmc.customenchantment.item.CEItem;
 import com.bafmc.customenchantment.item.CEWeaponAbstract;
 import com.bafmc.customenchantment.item.CEWeaponType;
 import com.bafmc.customenchantment.player.CEPlayer;

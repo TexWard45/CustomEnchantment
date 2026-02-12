@@ -9,9 +9,6 @@ import com.bafmc.customenchantment.item.outfit.CEOutfit;
 import com.bafmc.customenchantment.item.outfit.CEOutfitData;
 import com.bafmc.customenchantment.item.outfit.CEOutfitGroup;
 import com.bafmc.customenchantment.item.outfit.CEOutfitStorage;
-import com.bafmc.customenchantment.item.skin.CESkin;
-import com.bafmc.customenchantment.item.skin.CESkinData;
-import com.bafmc.customenchantment.item.skin.CESkinStorage;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 

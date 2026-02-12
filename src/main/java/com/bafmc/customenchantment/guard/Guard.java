@@ -1,7 +1,6 @@
 package com.bafmc.customenchantment.guard;
 
 import com.bafmc.bukkit.bafframework.utils.EntityUtils;
-import com.bafmc.bukkit.utils.LocationUtils;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.listener.GuardListener;
 import com.bafmc.customenchantment.nms.EntityInsentientNMS;
@@ -91,7 +90,7 @@ public class Guard {
 	public boolean tickMove() {
 		Location entityLocation = entityInsentient.getEntity().getLocation();
 		Location playerLocation = playerGuard.getPlayer().getLocation();
-		if (LocationUtils.distance(entityLocation, playerLocation) > 2) {
+		if (entityLocation.distance(playerLocation) > 2) {
 			entityInsentient.moveTo(playerGuard.getPlayer().getLocation());
 			return true;
 		}
@@ -101,7 +100,7 @@ public class Guard {
 	public boolean tickAttack() {
 		Location entityLocation = entityInsentient.getEntity().getLocation();
 		Location playerLocation = playerGuard.getPlayer().getLocation();
-		if (LocationUtils.distance(entityLocation, playerLocation) > playerRange) {
+		if (entityLocation.distance(playerLocation) > playerRange) {
 			entityInsentient.getEntity().teleport(playerLocation);
 			return false;
 		}
@@ -129,9 +128,9 @@ public class Guard {
 			setNowTarget(true);
 			entityInsentient.setGoalTarget(enemyInsentientNMS);
 			setNowTarget(false);
-			
-			if (enemyLocation != null && LocationUtils.distance(playerLocation, enemyLocation) <= playerRange
-					&& LocationUtils.distance(entityLocation, enemyLocation) > attackRange) {
+
+			if (enemyLocation != null && playerLocation.distance(enemyLocation) <= playerRange
+					&& entityLocation.distance(enemyLocation) > attackRange) {
 				entityInsentient.getEntity().teleport(enemyLocation);
 			}
 			return true;

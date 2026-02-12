@@ -2,16 +2,12 @@ package com.bafmc.customenchantment.player.mining;
 
 import com.bafmc.bukkit.utils.Chance;
 import com.bafmc.customenchantment.CustomEnchantment;
-import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.api.MaterialData;
 import com.bafmc.customenchantment.api.MaterialList;
-import com.bafmc.customenchantment.player.CEPlayer;
 import com.bafmc.customenchantment.player.PlayerSpecialMining;
-import com.bafmc.customenchantment.player.TemporaryKey;
 import com.bafmc.customenchantment.task.SpecialMiningTask;
 import lombok.Getter;
 import org.bukkit.Location;
-import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;

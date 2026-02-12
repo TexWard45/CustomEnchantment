@@ -1,13 +1,11 @@
 package com.bafmc.customenchantment.command;
 
-import com.bafmc.bukkit.command.AbstractCommand;
+import com.bafmc.bukkit.command.CommandRegistrar;
 import com.bafmc.bukkit.command.AdvancedCommandBuilder;
 import com.bafmc.customenchantment.CustomEnchantmentMessage;
-import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.enchant.CEEnchantSimple;
 import com.bafmc.customenchantment.enchant.CEPlaceholder;
 import com.bafmc.customenchantment.item.randombook.CERandomBookPlayerFilter;
-import com.bafmc.customenchantment.player.CEPlayer;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
@@ -15,7 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class CommandFilterEnchant implements AbstractCommand {
+public class CommandFilterEnchant implements CommandRegistrar {
 
 	public void onRegister(AdvancedCommandBuilder builder) {
 		builder

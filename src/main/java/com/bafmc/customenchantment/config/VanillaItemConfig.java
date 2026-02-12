@@ -2,7 +2,6 @@ package com.bafmc.customenchantment.config;
 
 import com.bafmc.bukkit.config.AdvancedFileConfiguration;
 import com.bafmc.bukkit.utils.ItemStackUtils;
-import com.bafmc.customenchantment.CEItemStorageMap;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.item.*;
 

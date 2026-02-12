@@ -6,14 +6,14 @@ import org.bukkit.entity.Player;
 
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.player.CEPlayer;
-import com.bafmc.bukkit.command.AbstractCommand;
+import com.bafmc.bukkit.command.CommandRegistrar;
 import com.bafmc.bukkit.command.AdvancedCommandBuilder;
 import com.bafmc.bukkit.command.AdvancedCommandExecutor;
 import com.bafmc.bukkit.command.Argument;
 import com.bafmc.bukkit.command.ArgumentType;
 import com.bafmc.bukkit.utils.MessageUtils;
 
-public class CommandDebug implements AbstractCommand {
+public class CommandDebug implements CommandRegistrar {
 
 	public void onRegister(AdvancedCommandBuilder builder) {
 		builder

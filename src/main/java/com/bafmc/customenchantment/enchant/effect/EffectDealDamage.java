@@ -56,7 +56,7 @@ public class EffectDealDamage extends EffectHook {
 
 		double defaultValue = player.getHealth();
 		double currentValue = new RandomRange(format).getValue();
-		currentValue = DamageCalculator.getDameDeal(currentValue, player, enemy, potionAttacker, potionDefender,
+		currentValue = DamageCalculator.getDamageDeal(currentValue, player, enemy, potionAttacker, potionDefender,
 				armorEnable, defensePointsEnable, toughnessEnable);
 		
 		currentValue = defaultValue - currentValue;

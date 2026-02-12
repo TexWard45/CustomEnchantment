@@ -5,11 +5,10 @@ import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.item.CEItemType;
 import com.bafmc.customenchantment.item.VanillaItemStorage;
 import org.bukkit.Material;
-import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-public class CommandAddItem implements AbstractCommand {
+public class CommandAddItem implements CommandRegistrar {
 
 	public void onRegister(AdvancedCommandBuilder builder) {
 		builder

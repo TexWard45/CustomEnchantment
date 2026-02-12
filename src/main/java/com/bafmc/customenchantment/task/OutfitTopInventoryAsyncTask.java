@@ -2,7 +2,6 @@ package com.bafmc.customenchantment.task;
 
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.api.CEAPI;
-import com.bafmc.customenchantment.api.Parameter;
 import com.bafmc.customenchantment.item.*;
 import com.bafmc.customenchantment.item.outfit.CEOutfit;
 import com.bafmc.customenchantment.item.skin.CESkin;

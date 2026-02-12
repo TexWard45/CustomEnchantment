@@ -9,7 +9,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-public class CommandEnableHelmet implements AbstractCommand {
+public class CommandEnableHelmet implements CommandRegistrar {
 
 	public void onRegister(AdvancedCommandBuilder builder) {
 		builder

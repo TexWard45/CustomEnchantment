@@ -1,30 +1,19 @@
 package com.bafmc.customenchantment.task;
 
-import com.bafmc.bukkit.bafframework.event.ItemEquipEvent;
 import com.bafmc.bukkit.task.PlayerPerTickTask;
 import com.bafmc.bukkit.utils.EquipSlot;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.api.CEAPI;
-import com.bafmc.customenchantment.api.ItemPacketAPI;
-import com.bafmc.customenchantment.api.Parameter;
 import com.bafmc.customenchantment.item.*;
-import com.bafmc.customenchantment.item.outfit.CEOutfit;
-import com.bafmc.customenchantment.item.skin.CESkin;
 import com.bafmc.customenchantment.menu.equipment.EquipmentMenu;
 import com.bafmc.customenchantment.player.CEPlayer;
 import com.bafmc.customenchantment.player.PlayerEquipment;
-import lombok.Getter;
-import lombok.Setter;
-import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 import java.util.logging.Logger;
 

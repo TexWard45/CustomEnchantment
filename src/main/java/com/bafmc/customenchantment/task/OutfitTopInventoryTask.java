@@ -3,17 +3,12 @@ package com.bafmc.customenchantment.task;
 import com.bafmc.bukkit.task.PlayerPerTickTask;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.api.CEAPI;
-import com.bafmc.customenchantment.item.CEWeaponAbstract;
-import com.bafmc.customenchantment.menu.equipment.EquipmentMenu;
 import com.bafmc.customenchantment.player.CEPlayer;
 import com.bafmc.customenchantment.player.PlayerEquipment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryType;
-import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.PlayerInventory;
-
 import java.util.List;
 import java.util.logging.Logger;
 

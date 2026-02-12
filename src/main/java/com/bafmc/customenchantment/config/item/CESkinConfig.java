@@ -1,10 +1,6 @@
 package com.bafmc.customenchantment.config.item;
 
 import com.bafmc.customenchantment.config.AbstractConfig;
-import com.bafmc.customenchantment.enchant.CEEnchantSimple;
-import com.bafmc.customenchantment.item.CEWeapon;
-import com.bafmc.customenchantment.item.CEWeaponData;
-import com.bafmc.customenchantment.item.CEWeaponStorage;
 import com.bafmc.customenchantment.item.skin.CESkin;
 import com.bafmc.customenchantment.item.skin.CESkinData;
 import com.bafmc.customenchantment.item.skin.CESkinStorage;

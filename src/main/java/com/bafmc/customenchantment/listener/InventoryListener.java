@@ -269,7 +269,8 @@ public class InventoryListener implements Listener {
 		ItemMeta meta = itemStack0.getItemMeta();
 
 		String oldDisplay = meta.getDisplayName();
-		String renameText = anvil.getRenameText();
+		// Use PrepareAnvilEvent.getView().getRenameText() instead of deprecated anvil.getRenameText()
+		String renameText = e.getView().getRenameText();
 		
 		if (renameText.equals("%nametag%")) {
 			Player player = (Player) e.getInventory().getViewers().get(0);

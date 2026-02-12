@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.bafmc.bukkit.bafframework.nms.NMSAttribute;
-import com.bafmc.customenchantment.attribute.RangeAttribute;
-
 public class CECallerList extends ArrayList<CECaller> {
 
 	/**

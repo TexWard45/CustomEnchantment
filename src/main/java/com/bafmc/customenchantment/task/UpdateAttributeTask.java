@@ -3,15 +3,9 @@ package com.bafmc.customenchantment.task;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.attribute.CustomAttributeType;
-import com.bafmc.customenchantment.enchant.ModifyType;
-import com.bafmc.customenchantment.event.CEPlayerStatsModifyEvent;
 import com.bafmc.customenchantment.player.CEPlayer;
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class UpdateAttributeTask extends BukkitRunnable {
     private CustomEnchantment plugin;

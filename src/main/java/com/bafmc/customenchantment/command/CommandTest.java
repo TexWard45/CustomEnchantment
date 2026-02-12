@@ -2,9 +2,9 @@ package com.bafmc.customenchantment.command;
 
 import com.bafmc.bukkit.command.*;
 import com.bafmc.bukkit.utils.MessageUtils;
-import com.bafmc.customenchantment.CustomEnchantment;
+
 import com.bafmc.customenchantment.api.CEAPI;
-import com.bafmc.customenchantment.item.CEItemStorage;
+
 import com.bafmc.customenchantment.player.CEPlayer;
 import com.bafmc.customenchantment.player.TemporaryKey;
 import org.bukkit.Bukkit;
@@ -14,7 +14,7 @@ import org.bukkit.entity.Player;
 import java.util.Arrays;
 import java.util.List;
 
-public class CommandTest implements AbstractCommand {
+public class CommandTest implements CommandRegistrar {
 
 	public void onRegister(AdvancedCommandBuilder builder) {
 		builder

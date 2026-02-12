@@ -7,7 +7,6 @@ import com.bafmc.customenchantment.enchant.EffectHook;
 import com.bafmc.customenchantment.listener.EntityListener;
 import org.bukkit.Location;
 import org.bukkit.craftbukkit.CraftWorld;
-import org.bukkit.craftbukkit.entity.CraftBreezeWindCharge;
 import org.bukkit.entity.*;
 import org.bukkit.util.Vector;
 

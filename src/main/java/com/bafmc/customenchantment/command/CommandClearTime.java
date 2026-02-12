@@ -8,13 +8,13 @@ import org.bukkit.inventory.ItemStack;
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.item.CEItem;
 import com.bafmc.customenchantment.item.CEWeaponAbstract;
-import com.bafmc.bukkit.command.AbstractCommand;
+import com.bafmc.bukkit.command.CommandRegistrar;
 import com.bafmc.bukkit.command.AdvancedCommandBuilder;
 import com.bafmc.bukkit.command.AdvancedCommandExecutor;
 import com.bafmc.bukkit.command.Argument;
 import com.bafmc.bukkit.command.ArgumentType;
 
-public class CommandClearTime implements AbstractCommand {
+public class CommandClearTime implements CommandRegistrar {
 
 	public void onRegister(AdvancedCommandBuilder builder) {
 		builder

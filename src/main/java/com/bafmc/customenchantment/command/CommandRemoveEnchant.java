@@ -8,7 +8,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-public class CommandRemoveEnchant implements AbstractCommand {
+public class CommandRemoveEnchant implements CommandRegistrar {
 	
 	private AdvancedCommandExecutor removeExecutor = new AdvancedCommandExecutor() {
 		public boolean onCommand(CommandSender sender, Argument arg) {

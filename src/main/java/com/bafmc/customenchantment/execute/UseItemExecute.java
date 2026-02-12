@@ -12,10 +12,12 @@ import com.bafmc.customenchantment.item.CEItemUsable;
 import com.bafmc.bukkit.utils.StringUtils;
 
 public class UseItemExecute extends ExecuteHook {
-	public String getIdentify() {
+	@Override
+	public String getIdentifier() {
 		return "USE_ITEM";
 	}
 
+	@Override
 	public void execute(Player player, String value) {
 		List<String> list = StringUtils.split(value, ":", 0);
 

@@ -5,7 +5,7 @@ import com.bafmc.bukkit.command.*;
 import com.bafmc.bukkit.utils.MessageUtils;
 import org.bukkit.command.CommandSender;
 
-public class CommandDebugAll implements AbstractCommand {
+public class CommandDebugAll implements CommandRegistrar {
 	@Getter
 	public static boolean debugMode = false;
 

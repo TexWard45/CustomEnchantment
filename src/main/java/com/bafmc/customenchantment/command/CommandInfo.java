@@ -1,6 +1,6 @@
 package com.bafmc.customenchantment.command;
 
-import com.bafmc.bukkit.bafframework.nms.NMSAttributeType;
+
 import com.bafmc.bukkit.command.*;
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.attribute.CustomAttributeType;
@@ -13,7 +13,7 @@ import org.bukkit.entity.Player;
 
 import java.util.List;
 
-public class CommandInfo implements AbstractCommand {
+public class CommandInfo implements CommandRegistrar {
 
 	public void onRegister(AdvancedCommandBuilder builder) {
 		builder

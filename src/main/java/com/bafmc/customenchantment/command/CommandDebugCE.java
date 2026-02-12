@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class CommandDebugCE implements AbstractCommand {
+public class CommandDebugCE implements CommandRegistrar {
 	@Getter
 	private static List<String> togglePlayers = new ArrayList<>();
 

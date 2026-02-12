@@ -1,6 +1,6 @@
 package com.bafmc.customenchantment.command;
 
-import com.bafmc.bukkit.command.AbstractCommand;
+import com.bafmc.bukkit.command.CommandRegistrar;
 import com.bafmc.bukkit.command.AdvancedCommandBuilder;
 import com.bafmc.bukkit.command.ArgumentType;
 import com.bafmc.bukkit.utils.EquipSlot;
@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class CommandRemoveGem implements AbstractCommand {
+public class CommandRemoveGem implements CommandRegistrar {
 
 	public void onRegister(AdvancedCommandBuilder builder) {
 		builder

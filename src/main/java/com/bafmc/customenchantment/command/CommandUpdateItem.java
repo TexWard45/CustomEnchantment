@@ -7,7 +7,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-public class CommandUpdateItem implements AbstractCommand {
+public class CommandUpdateItem implements CommandRegistrar {
 	
 	private AdvancedCommandExecutor updateExecutor = new AdvancedCommandExecutor() {
 		public boolean onCommand(CommandSender sender, Argument arg) {

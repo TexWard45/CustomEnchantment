@@ -1,7 +1,6 @@
 package com.bafmc.customenchantment.listener;
 
 import com.bafmc.bukkit.feature.placeholder.PlaceholderBuilder;
-import com.bafmc.bukkit.utils.EnumUtils;
 import com.bafmc.bukkit.utils.InventoryUtils;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.CustomEnchantmentMessage;

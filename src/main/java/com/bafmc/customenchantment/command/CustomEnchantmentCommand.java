@@ -1,10 +1,10 @@
 package com.bafmc.customenchantment.command;
 
-import com.bafmc.bukkit.command.AbstractCommand;
+import com.bafmc.bukkit.command.CommandRegistrar;
 import com.bafmc.bukkit.command.AdvancedCommandBuilder;
 import com.bafmc.customenchantment.CustomEnchantment;
 
-public class CustomEnchantmentCommand implements AbstractCommand {
+public class CustomEnchantmentCommand implements CommandRegistrar {
 	private CustomEnchantment plugin;
 
 	public CustomEnchantmentCommand(CustomEnchantment plugin) {

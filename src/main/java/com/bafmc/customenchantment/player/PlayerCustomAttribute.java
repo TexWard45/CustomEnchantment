@@ -12,10 +12,6 @@ import com.bafmc.customenchantment.player.attribute.AttributeMapData;
 import com.bafmc.customenchantment.player.attribute.AttributeMapRegister;
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
-import net.minecraft.world.entity.player.Player;
-import org.bukkit.attribute.Attribute;
-import org.bukkit.craftbukkit.entity.CraftPlayer;
-
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;

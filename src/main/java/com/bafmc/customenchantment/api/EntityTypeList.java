@@ -7,7 +7,6 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.bukkit.entity.EntityType;
 
 import com.bafmc.bukkit.utils.EnumUtils;
-import org.bukkit.inventory.ItemFlag;
 
 public class EntityTypeList extends ArrayList<EntityType> {
 	/**

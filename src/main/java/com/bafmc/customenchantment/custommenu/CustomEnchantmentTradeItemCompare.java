@@ -8,7 +8,6 @@ import com.bafmc.customenchantment.api.Parameter;
 import com.bafmc.customenchantment.enchant.CEEnchantSimple;
 import com.bafmc.customenchantment.item.*;
 import com.bafmc.customenchantment.item.gem.CEGemSimple;
-import com.bafmc.customenchantment.item.gemdrill.CEGemDrill;
 import com.bafmc.customenchantment.item.gemdrill.CEGemDrillSimple;
 import com.bafmc.custommenu.menu.trade.TradeItemCompare;
 import com.bafmc.custommenu.menu.trade.TradeItemRequiredHistory;

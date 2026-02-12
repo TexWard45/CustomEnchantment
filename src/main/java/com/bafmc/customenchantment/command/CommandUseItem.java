@@ -11,13 +11,13 @@ import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.api.Parameter;
 import com.bafmc.customenchantment.item.CEItem;
 import com.bafmc.customenchantment.item.CEItemUsable;
-import com.bafmc.bukkit.command.AbstractCommand;
+import com.bafmc.bukkit.command.CommandRegistrar;
 import com.bafmc.bukkit.command.AdvancedCommandBuilder;
 import com.bafmc.bukkit.command.AdvancedCommandExecutor;
 import com.bafmc.bukkit.command.Argument;
 import com.bafmc.bukkit.command.ArgumentType;
 
-public class CommandUseItem implements AbstractCommand {
+public class CommandUseItem implements CommandRegistrar {
 	
 	private AdvancedCommandExecutor useExecutor = new AdvancedCommandExecutor() {
 		public boolean onCommand(CommandSender sender, Argument arg) {
