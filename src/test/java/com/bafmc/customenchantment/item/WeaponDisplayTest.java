@@ -4,6 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
 
 @DisplayName("WeaponDisplay Tests")
 class WeaponDisplayTest {
@@ -11,7 +12,8 @@ class WeaponDisplayTest {
     @Test
     @DisplayName("should create WeaponDisplay instance")
     void shouldCreateWeaponDisplayInstance() {
-        WeaponDisplay display = new WeaponDisplay();
+        CEWeaponAbstract mockWeapon = mock(CEWeaponAbstract.class);
+        WeaponDisplay display = new WeaponDisplay(mockWeapon);
         assertNotNull(display);
     }
 }

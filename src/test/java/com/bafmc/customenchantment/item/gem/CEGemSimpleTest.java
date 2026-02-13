@@ -19,7 +19,7 @@ class CEGemSimpleTest {
     @DisplayName("should store pattern")
     void shouldStorePattern() {
         CEGemSimple gem = new CEGemSimple("sapphire", 2);
-        assertEquals("sapphire", gem.getPattern());
+        assertEquals("sapphire", gem.getName());
     }
 
     @Test
@@ -47,6 +47,6 @@ class CEGemSimpleTest {
     @DisplayName("should handle null pattern")
     void shouldHandleNullPattern() {
         CEGemSimple gem = new CEGemSimple(null, 1);
-        assertNull(gem.getPattern());
+        assertNull(gem.getName());
     }
 }

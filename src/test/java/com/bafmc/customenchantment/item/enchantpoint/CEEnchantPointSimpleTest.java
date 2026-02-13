@@ -11,7 +11,7 @@ class CEEnchantPointSimpleTest {
     @Test
     @DisplayName("should create CEEnchantPointSimple instance")
     void shouldCreateCEEnchantPointSimpleInstance() {
-        CEEnchantPointSimple simple = new CEEnchantPointSimple();
+        CEEnchantPointSimple simple = new CEEnchantPointSimple("test-pattern", 0);
         assertNotNull(simple);
     }
 }

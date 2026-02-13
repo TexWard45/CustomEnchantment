@@ -9,18 +9,14 @@ import static org.junit.jupiter.api.Assertions.*;
 class CEItemRegisterTest {
 
     @Test
-    @DisplayName("should provide instance")
-    void shouldProvideInstance() {
-        CEItemRegister register = CEItemRegister.instance();
-        assertNotNull(register);
+    @DisplayName("should have static list field")
+    void shouldHaveStaticListField() {
+        assertNotNull(CEItemRegister.list);
     }
 
     @Test
-    @DisplayName("should return same instance on multiple calls")
-    void shouldReturnSameInstanceOnMultipleCalls() {
-        CEItemRegister register1 = CEItemRegister.instance();
-        CEItemRegister register2 = CEItemRegister.instance();
-
-        assertEquals(register1, register2);
+    @DisplayName("should return null for null ItemStack")
+    void shouldReturnNullForNullItemStack() {
+        assertNull(CEItemRegister.getCEItem(null));
     }
 }

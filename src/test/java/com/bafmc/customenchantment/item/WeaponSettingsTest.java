@@ -9,9 +9,9 @@ import static org.junit.jupiter.api.Assertions.*;
 class WeaponSettingsTest {
 
     @Test
-    @DisplayName("should create WeaponSettings instance")
+    @DisplayName("should create WeaponSettings instance via builder")
     void shouldCreateWeaponSettingsInstance() {
-        WeaponSettings settings = new WeaponSettings();
+        WeaponSettings settings = WeaponSettings.builder().build();
         assertNotNull(settings);
     }
 }
