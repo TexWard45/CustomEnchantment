@@ -25,6 +25,12 @@ repositories {
     }
 }
 
+configurations.all {
+    resolutionStrategy.capabilitiesResolution.withCapability('io.papermc.paper:paper-mojangapi') {
+        selectHighestVersion()
+    }
+}
+
 dependencies {
     compileOnly fileTree(dir: 'libs', include: ['*.jar'])
 
@@ -63,6 +69,7 @@ dependencies {
     testImplementation 'cn.dreeam.leaf:leaf-api:1.21.1-R0.1-SNAPSHOT'
     testImplementation 'cn.dreeam.leaf:leaf:1.21.1-R0.1-SNAPSHOT'
     testImplementation 'com.bafmc:BafFramework:1.0.0'
+    testImplementation 'org.apache.commons:commons-lang3:3.14.0'
     testImplementation 'com.bafmc:CustomMenu:1.0.0'
     testImplementation 'com.bafmc:CustomFarm:1.0.0'
     testImplementation 'com.bafmc:MobSlayer:1.0.0'
