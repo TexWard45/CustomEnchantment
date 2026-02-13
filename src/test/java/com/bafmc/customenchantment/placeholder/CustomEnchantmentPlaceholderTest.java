@@ -32,7 +32,8 @@ class CustomEnchantmentPlaceholderTest {
         @DisplayName("should have register method")
         void shouldHaveRegisterMethod() {
             try {
-                CustomEnchantmentPlaceholder.class.getDeclaredMethod("register");
+                // register() is inherited from PlaceholderExpansion, use getMethod not getDeclaredMethod
+                CustomEnchantmentPlaceholder.class.getMethod("register");
             } catch (NoSuchMethodException e) {
                 fail("CustomEnchantmentPlaceholder should have register method");
             }

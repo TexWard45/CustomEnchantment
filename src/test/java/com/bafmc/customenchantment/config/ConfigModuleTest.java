@@ -61,9 +61,10 @@ class ConfigModuleTest {
         @Test
         @DisplayName("ConfigModule should be parameterized with CustomEnchantment")
         void configModuleShouldBeParameterizedWithCustomEnchantment() {
-            // The generic type is CustomEnchantment
-            assertEquals(CustomEnchantment.class, mockPlugin.getClass().getInterfaces().length > 0 ?
-                    Object.class : mockPlugin.getClass());
+            // Verify ConfigModule extends PluginModule<CustomEnchantment> by checking
+            // the constructor accepts CustomEnchantment and getPlugin() returns it
+            assertSame(mockPlugin, configModule.getPlugin());
+            assertTrue(configModule instanceof com.bafmc.bukkit.module.PluginModule);
         }
     }
 

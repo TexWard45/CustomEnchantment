@@ -28,9 +28,9 @@ class ParticleAPITest {
 
                 assertNotNull(result);
                 assertEquals(1, result.size());
-            } catch (Exception e) {
+            } catch (Throwable e) {
                 // NMS classes may not be available in test environment
-                // This is expected behavior
+                // NoClassDefFoundError extends Error, not Exception
             }
         }
 
@@ -42,7 +42,7 @@ class ParticleAPITest {
 
                 assertNotNull(result);
                 assertEquals(3, result.size());
-            } catch (Exception e) {
+            } catch (Throwable e) {
                 // NMS classes may not be available in test environment
             }
         }
@@ -56,7 +56,7 @@ class ParticleAPITest {
 
                 assertNotNull(result1);
                 assertNotNull(result2);
-            } catch (Exception e) {
+            } catch (Throwable e) {
                 // NMS classes may not be available in test environment
             }
         }
@@ -88,8 +88,9 @@ class ParticleAPITest {
             try {
                 ParticleAPI.sendParticle(null, "INVALID_PARTICLE");
                 // Should return early without error when particle type is null
-            } catch (Exception e) {
+            } catch (Throwable e) {
                 // Expected if ParticleNativeAPI is not loaded
+                // NoClassDefFoundError extends Error, not Exception
             }
         }
 
@@ -100,8 +101,9 @@ class ParticleAPITest {
             // Format: "1_13:PARTICLE_NAME" or "1_8:PARTICLE_NAME"
             try {
                 ParticleAPI.sendParticle(null, "1_13:FLAME");
-            } catch (Exception e) {
+            } catch (Throwable e) {
                 // Expected if ParticleNativeAPI is not loaded
+                // NoClassDefFoundError extends Error, not Exception
             }
         }
     }

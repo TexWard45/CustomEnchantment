@@ -51,7 +51,9 @@ class BookCraftConfigTest {
         @Test
         @DisplayName("Should have Getter annotation from Lombok")
         void shouldHaveGetterAnnotationFromLombok() {
-            assertNotNull(BookCraftConfig.class.getAnnotation(lombok.Getter.class));
+            // Lombok @Getter has SOURCE retention, so verify by checking generated getter methods exist
+            assertDoesNotThrow(() -> BookCraftConfig.class.getMethod("getMoneyGroupRequireMap"),
+                    "Lombok @Getter should generate getMoneyGroupRequireMap method");
         }
 
         @Test

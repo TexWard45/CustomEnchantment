@@ -33,7 +33,7 @@ class CEAnvilMenuTest {
         void shouldHaveRegisterView1Method() {
             try {
                 CEAnvilMenu.class.getDeclaredMethod("registerView1",
-                    com.bafmc.customenchantment.item.CEItemType.class, Class.class);
+                    String.class, Class.class);
             } catch (NoSuchMethodException e) {
                 fail("CEAnvilMenu should have registerView1 method");
             }
@@ -44,7 +44,7 @@ class CEAnvilMenuTest {
         void shouldHaveRegisterView2Method() {
             try {
                 CEAnvilMenu.class.getDeclaredMethod("registerView2",
-                    com.bafmc.customenchantment.item.CEItemType.class, Class.class);
+                    String.class, Class.class);
             } catch (NoSuchMethodException e) {
                 fail("CEAnvilMenu should have registerView2 method");
             }

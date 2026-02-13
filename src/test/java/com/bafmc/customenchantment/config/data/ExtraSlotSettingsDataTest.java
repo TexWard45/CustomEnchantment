@@ -52,13 +52,24 @@ class ExtraSlotSettingsDataTest {
         @Test
         @DisplayName("Should have Getter annotation from Lombok")
         void shouldHaveGetterAnnotationFromLombok() {
-            assertNotNull(ExtraSlotSettingsData.class.getAnnotation(lombok.Getter.class));
+            // Lombok @Getter has SOURCE retention, so verify by checking generated getter methods exist
+            assertDoesNotThrow(() -> ExtraSlotSettingsData.class.getMethod("getMaxCount"),
+                    "Lombok @Getter should generate getMaxCount method");
+            assertDoesNotThrow(() -> ExtraSlotSettingsData.class.getMethod("getList"),
+                    "Lombok @Getter should generate getList method");
+            assertDoesNotThrow(() -> ExtraSlotSettingsData.class.getMethod("getSlots"),
+                    "Lombok @Getter should generate getSlots method");
         }
 
         @Test
         @DisplayName("Should have ToString annotation from Lombok")
         void shouldHaveToStringAnnotationFromLombok() {
-            assertNotNull(ExtraSlotSettingsData.class.getAnnotation(lombok.ToString.class));
+            // Lombok @ToString has SOURCE retention, so verify by checking toString output
+            ExtraSlotSettingsData testData = new ExtraSlotSettingsData();
+            String toString = testData.toString();
+            assertNotNull(toString);
+            assertTrue(toString.contains("ExtraSlotSettingsData"),
+                    "Lombok @ToString should generate toString containing class name");
         }
 
         @Test

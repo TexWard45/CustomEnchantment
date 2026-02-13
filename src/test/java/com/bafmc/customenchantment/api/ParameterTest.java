@@ -493,8 +493,8 @@ class ParameterTest {
         void shouldHandleDecimalOverflowByte() {
             Parameter param = new Parameter(Arrays.asList("300")); // Overflows byte
 
-            // Should return default when overflow occurs
-            assertEquals((byte) 44, param.getByte(0)); // 300 % 256 = 44 in Java byte cast
+            // Byte.valueOf("300") throws NumberFormatException, so getByte returns null default
+            assertNull(param.getByte(0));
         }
     }
 }
