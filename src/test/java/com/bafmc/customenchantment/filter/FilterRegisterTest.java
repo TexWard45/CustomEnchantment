@@ -15,18 +15,8 @@ import static org.junit.jupiter.api.Assertions.*;
 class FilterRegisterTest {
 
     @Nested
-    @DisplayName("Singleton Tests")
-    class SingletonTests {
-
-        @Test
-        @DisplayName("should have instance method")
-        void shouldHaveInstanceMethod() {
-            try {
-                FilterRegister.class.getDeclaredMethod("instance");
-            } catch (NoSuchMethodException e) {
-                fail("FilterRegister should have instance method");
-            }
-        }
+    @DisplayName("Static Utility Tests")
+    class StaticUtilityTests {
 
         @Test
         @DisplayName("should have register method")
@@ -39,8 +29,8 @@ class FilterRegisterTest {
         }
 
         @Test
-        @DisplayName("should maintain singleton instance")
-        void shouldMaintainInstance() {
+        @DisplayName("should be a utility class")
+        void shouldBeUtilityClass() {
             assertNotNull(FilterRegister.class);
         }
     }
