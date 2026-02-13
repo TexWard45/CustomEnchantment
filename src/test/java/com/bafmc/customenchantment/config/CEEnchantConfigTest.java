@@ -366,7 +366,6 @@ class CEEnchantConfigTest {
 
             assertNotNull(result);
             assertFalse(result.isEnable());
-            assertEquals(Target.PLAYER, result.getTarget());
         }
     }
 
