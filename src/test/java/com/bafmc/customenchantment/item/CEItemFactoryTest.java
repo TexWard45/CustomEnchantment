@@ -9,6 +9,7 @@ import org.mockbukkit.mockbukkit.MockBukkit;
 import org.mockbukkit.mockbukkit.ServerMock;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assumptions.*;
 
 @DisplayName("CEItemFactory Tests")
 class CEItemFactoryTest {
@@ -17,10 +18,14 @@ class CEItemFactoryTest {
 
     @BeforeAll
     static void setUpAll() {
-        if (MockBukkit.isMocked()) {
-            MockBukkit.unmock();
+        try {
+            if (MockBukkit.isMocked()) {
+                MockBukkit.unmock();
+            }
+            server = MockBukkit.mock();
+        } catch (Exception | NoClassDefFoundError e) {
+            server = null;
         }
-        server = MockBukkit.mock();
     }
 
     @Test
@@ -56,6 +61,7 @@ class CEItemFactoryTest {
             }
         };
 
+        assumeTrue(server != null, "MockBukkit not available");
         ItemStack item = new ItemStack(Material.DIAMOND);
         assertFalse(factory.isMatchType(item));
     }

@@ -9,19 +9,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * Comprehensive tests for mining-related effects:
- * - EffectEnableTelepathy
- * - EffectDisableTelepathy
- * - EffectEnableAutoSell
- * - EffectDisableAutoSell
- * - EffectAddFurnaceMining
- * - EffectRemoveFurnaceMining
- * - EffectAddVeinMining
- * - EffectRemoveVeinMining
- * - EffectAddExplosionMining
- * - EffectRemoveExplosionMining
- * - EffectAddBlockDropBonusMining
- * - EffectRemoveBlockDropBonusMining
+ * Comprehensive tests for mining-related effects.
  */
 @DisplayName("Mining Effects Tests")
 class MiningEffectTests extends EffectBaseTest {
@@ -38,10 +26,10 @@ class MiningEffectTests extends EffectBaseTest {
         }
 
         @Test
-        @DisplayName("should not be async")
-        void shouldNotBeAsync() {
+        @DisplayName("should be async by default")
+        void shouldBeAsyncByDefault() {
             EffectEnableTelepathy effect = new EffectEnableTelepathy();
-            assertFalse(effect.isAsync());
+            assertTrue(effect.isAsync());
         }
 
         @Test
@@ -65,10 +53,10 @@ class MiningEffectTests extends EffectBaseTest {
         }
 
         @Test
-        @DisplayName("should not be async")
-        void shouldNotBeAsync() {
+        @DisplayName("should be async by default")
+        void shouldBeAsyncByDefault() {
             EffectDisableTelepathy effect = new EffectDisableTelepathy();
-            assertFalse(effect.isAsync());
+            assertTrue(effect.isAsync());
         }
     }
 
@@ -84,10 +72,10 @@ class MiningEffectTests extends EffectBaseTest {
         }
 
         @Test
-        @DisplayName("should not be async")
-        void shouldNotBeAsync() {
+        @DisplayName("should be async by default")
+        void shouldBeAsyncByDefault() {
             EffectEnableAutoSell effect = new EffectEnableAutoSell();
-            assertFalse(effect.isAsync());
+            assertTrue(effect.isAsync());
         }
     }
 
@@ -103,10 +91,10 @@ class MiningEffectTests extends EffectBaseTest {
         }
 
         @Test
-        @DisplayName("should not be async")
-        void shouldNotBeAsync() {
+        @DisplayName("should be async by default")
+        void shouldBeAsyncByDefault() {
             EffectDisableAutoSell effect = new EffectDisableAutoSell();
-            assertFalse(effect.isAsync());
+            assertTrue(effect.isAsync());
         }
     }
 
@@ -122,17 +110,18 @@ class MiningEffectTests extends EffectBaseTest {
         }
 
         @Test
-        @DisplayName("should not be async")
-        void shouldNotBeAsync() {
+        @DisplayName("should be async by default")
+        void shouldBeAsyncByDefault() {
             EffectAddFurnaceMining effect = new EffectAddFurnaceMining();
-            assertFalse(effect.isAsync());
+            assertTrue(effect.isAsync());
         }
 
         @Test
         @DisplayName("should setup with valid args")
         void shouldSetupWithValidArgs() {
             EffectAddFurnaceMining effect = new EffectAddFurnaceMining();
-            String[] args = {"furnace_mining"};
+            // args: name, chance
+            String[] args = {"furnace_mining", "100"};
             assertSetupSucceeds(effect, args);
         }
     }
@@ -149,10 +138,10 @@ class MiningEffectTests extends EffectBaseTest {
         }
 
         @Test
-        @DisplayName("should not be async")
-        void shouldNotBeAsync() {
+        @DisplayName("should be async by default")
+        void shouldBeAsyncByDefault() {
             EffectRemoveFurnaceMining effect = new EffectRemoveFurnaceMining();
-            assertFalse(effect.isAsync());
+            assertTrue(effect.isAsync());
         }
 
         @Test
@@ -176,17 +165,18 @@ class MiningEffectTests extends EffectBaseTest {
         }
 
         @Test
-        @DisplayName("should not be async")
-        void shouldNotBeAsync() {
+        @DisplayName("should be async by default")
+        void shouldBeAsyncByDefault() {
             EffectAddVeinMining effect = new EffectAddVeinMining();
-            assertFalse(effect.isAsync());
+            assertTrue(effect.isAsync());
         }
 
         @Test
         @DisplayName("should setup with valid args")
         void shouldSetupWithValidArgs() {
             EffectAddVeinMining effect = new EffectAddVeinMining();
-            String[] args = {"vein_mining"};
+            // args: name, radius, chance, materialList
+            String[] args = {"vein_mining", "3", "100.0", "STONE"};
             assertSetupSucceeds(effect, args);
         }
     }
@@ -203,10 +193,10 @@ class MiningEffectTests extends EffectBaseTest {
         }
 
         @Test
-        @DisplayName("should not be async")
-        void shouldNotBeAsync() {
+        @DisplayName("should be async by default")
+        void shouldBeAsyncByDefault() {
             EffectRemoveVeinMining effect = new EffectRemoveVeinMining();
-            assertFalse(effect.isAsync());
+            assertTrue(effect.isAsync());
         }
 
         @Test
@@ -230,17 +220,18 @@ class MiningEffectTests extends EffectBaseTest {
         }
 
         @Test
-        @DisplayName("should not be async")
-        void shouldNotBeAsync() {
+        @DisplayName("should be async by default")
+        void shouldBeAsyncByDefault() {
             EffectAddExplosionMining effect = new EffectAddExplosionMining();
-            assertFalse(effect.isAsync());
+            assertTrue(effect.isAsync());
         }
 
         @Test
         @DisplayName("should setup with valid args")
         void shouldSetupWithValidArgs() {
             EffectAddExplosionMining effect = new EffectAddExplosionMining();
-            String[] args = {"explosion_mining"};
+            // args: name, radius, chance, breakBlock
+            String[] args = {"explosion_mining", "3", "100.0", "false"};
             assertSetupSucceeds(effect, args);
         }
     }
@@ -257,10 +248,10 @@ class MiningEffectTests extends EffectBaseTest {
         }
 
         @Test
-        @DisplayName("should not be async")
-        void shouldNotBeAsync() {
+        @DisplayName("should be async by default")
+        void shouldBeAsyncByDefault() {
             EffectRemoveExplosionMining effect = new EffectRemoveExplosionMining();
-            assertFalse(effect.isAsync());
+            assertTrue(effect.isAsync());
         }
 
         @Test
@@ -284,17 +275,18 @@ class MiningEffectTests extends EffectBaseTest {
         }
 
         @Test
-        @DisplayName("should not be async")
-        void shouldNotBeAsync() {
+        @DisplayName("should be async by default")
+        void shouldBeAsyncByDefault() {
             EffectAddBlockDropBonusMining effect = new EffectAddBlockDropBonusMining();
-            assertFalse(effect.isAsync());
+            assertTrue(effect.isAsync());
         }
 
         @Test
         @DisplayName("should setup with valid args")
         void shouldSetupWithValidArgs() {
             EffectAddBlockDropBonusMining effect = new EffectAddBlockDropBonusMining();
-            String[] args = {"block_drop_bonus"};
+            // args: name, type (BonusType: ALL, ONE, NONE), require, reward, amount (format: "chance amount"), removeItem, [chance]
+            String[] args = {"block_drop_bonus", "ALL", "STONE", "DIAMOND", "100 1", "false"};
             assertSetupSucceeds(effect, args);
         }
     }
@@ -311,10 +303,10 @@ class MiningEffectTests extends EffectBaseTest {
         }
 
         @Test
-        @DisplayName("should not be async")
-        void shouldNotBeAsync() {
+        @DisplayName("should be async by default")
+        void shouldBeAsyncByDefault() {
             EffectRemoveBlockDropBonusMining effect = new EffectRemoveBlockDropBonusMining();
-            assertFalse(effect.isAsync());
+            assertTrue(effect.isAsync());
         }
 
         @Test

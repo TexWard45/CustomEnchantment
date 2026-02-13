@@ -123,7 +123,7 @@ class AttributeEffectTests extends EffectBaseTest {
         @DisplayName("should setup with valid args")
         void shouldSetupWithValidArgs() {
             EffectAddAutoAttribute effect = new EffectAddAutoAttribute();
-            String[] args = {"GENERIC_MAX_HEALTH", "5.0", "0"};
+            String[] args = {"GENERIC_MAX_HEALTH", "health_mod", "0", "5.0", "0"};
             assertSetupSucceeds(effect, args);
         }
     }
@@ -143,7 +143,7 @@ class AttributeEffectTests extends EffectBaseTest {
         @DisplayName("should setup with valid args")
         void shouldSetupWithValidArgs() {
             EffectRemoveAutoAttribute effect = new EffectRemoveAutoAttribute();
-            String[] args = {"GENERIC_MAX_HEALTH"};
+            String[] args = {"GENERIC_MAX_HEALTH", "health_mod", "0"};
             assertSetupSucceeds(effect, args);
         }
     }
@@ -163,7 +163,8 @@ class AttributeEffectTests extends EffectBaseTest {
         @DisplayName("should setup with valid args")
         void shouldSetupWithValidArgs() {
             EffectAddCustomAttribute effect = new EffectAddCustomAttribute();
-            String[] args = {"custom_attr", "modifier_name", "5.0", "0"};
+            // args: attributeName, CustomAttributeType name, range, [operation]
+            String[] args = {"custom_attr", "OPTION_ATTACK", "5.0", "0"};
             assertSetupSucceeds(effect, args);
         }
     }

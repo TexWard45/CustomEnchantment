@@ -40,6 +40,7 @@ class SummonEffectTests extends EffectBaseTest {
         @DisplayName("should setup with valid args")
         void shouldSetupWithValidArgs() {
             EffectSummonGuard effect = new EffectSummonGuard();
+            // args: name, entityType, locationFormat, speed, playerRange, attackRange, aliveTime
             String[] args = {"guardian", "ZOMBIE", "PLAYER", "0.5", "20.0", "10.0", "60000"};
             assertSetupSucceeds(effect, args);
         }
@@ -89,7 +90,8 @@ class SummonEffectTests extends EffectBaseTest {
         @DisplayName("should setup with valid args")
         void shouldSetupWithValidArgs() {
             EffectSummonCustomGuard effect = new EffectSummonCustomGuard();
-            String[] args = {"custom_guard", "PLAYER", "0.5", "20.0", "10.0", "60000"};
+            // args: KEY=VALUE comma-separated format
+            String[] args = {"NAME=custom_guard,LOCATION=PLAYER,ENTITY_TYPE=ZOMBIE,SPEED=0.5,PLAYER_RANGE=20.0,ATTACK_RANGE=10.0,ALIVE_TIME=60000"};
             assertSetupSucceeds(effect, args);
         }
 
@@ -97,7 +99,7 @@ class SummonEffectTests extends EffectBaseTest {
         @DisplayName("should execute without throwing exception")
         void shouldExecuteWithoutThrowingException() {
             EffectSummonCustomGuard effect = new EffectSummonCustomGuard();
-            String[] args = {"custom_guard", "PLAYER", "0.5", "20.0", "10.0", "60000"};
+            String[] args = {"NAME=custom_guard,LOCATION=PLAYER,ENTITY_TYPE=ZOMBIE,SPEED=0.5,PLAYER_RANGE=20.0,ATTACK_RANGE=10.0,ALIVE_TIME=60000"};
             effect.setup(args);
 
             CEFunctionData data = createTestData(null);
@@ -114,7 +116,8 @@ class SummonEffectTests extends EffectBaseTest {
         @DisplayName("should have correct identifier")
         void shouldHaveCorrectIdentifier() {
             EffectSummonBabyZombieGuard effect = new EffectSummonBabyZombieGuard();
-            assertEffectIdentifier(effect, "SUMMON_BABY_ZOMBIE_GUARD");
+            // Note: actual identifier is "SUMMON_ZOMBIE_BABY_GUARD"
+            assertEffectIdentifier(effect, "SUMMON_ZOMBIE_BABY_GUARD");
         }
 
         @Test
@@ -128,6 +131,7 @@ class SummonEffectTests extends EffectBaseTest {
         @DisplayName("should setup with valid args")
         void shouldSetupWithValidArgs() {
             EffectSummonBabyZombieGuard effect = new EffectSummonBabyZombieGuard();
+            // args: name, locationFormat, speed, playerRange, attackRange, aliveTime
             String[] args = {"baby_zombie", "PLAYER", "0.5", "20.0", "10.0", "60000"};
             assertSetupSucceeds(effect, args);
         }

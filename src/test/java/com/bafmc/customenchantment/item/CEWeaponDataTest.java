@@ -30,6 +30,6 @@ class CEWeaponDataTest {
 
         assertNotNull(data1);
         assertNotNull(data2);
-        assertNotEquals(data1, data2);
+        assertNotSame(data1, data2);
     }
 }

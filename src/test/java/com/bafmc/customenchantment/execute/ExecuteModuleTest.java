@@ -74,7 +74,7 @@ class ExecuteModuleTest {
         @DisplayName("should have onDisable method")
         void shouldHaveOnDisableMethod() {
             try {
-                ExecuteModule.class.getDeclaredMethod("onDisable");
+                ExecuteModule.class.getMethod("onDisable");
             } catch (NoSuchMethodException e) {
                 fail("ExecuteModule should have onDisable method");
             }
@@ -84,7 +84,7 @@ class ExecuteModuleTest {
         @DisplayName("should have onReload method")
         void shouldHaveOnReloadMethod() {
             try {
-                ExecuteModule.class.getDeclaredMethod("onReload");
+                ExecuteModule.class.getMethod("onReload");
             } catch (NoSuchMethodException e) {
                 fail("ExecuteModule should have onReload method");
             }
@@ -94,7 +94,7 @@ class ExecuteModuleTest {
         @DisplayName("should have onSave method")
         void shouldHaveOnSaveMethod() {
             try {
-                ExecuteModule.class.getDeclaredMethod("onSave");
+                ExecuteModule.class.getMethod("onSave");
             } catch (NoSuchMethodException e) {
                 fail("ExecuteModule should have onSave method");
             }

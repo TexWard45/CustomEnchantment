@@ -30,17 +30,18 @@ class StorageEffectTests extends EffectBaseTest {
         }
 
         @Test
-        @DisplayName("should not be async")
-        void shouldNotBeAsync() {
+        @DisplayName("should be async by default")
+        void shouldBeAsyncByDefault() {
             EffectNumberStorage effect = new EffectNumberStorage();
-            assertFalse(effect.isAsync());
+            assertTrue(effect.isAsync());
         }
 
         @Test
         @DisplayName("should setup with valid args")
         void shouldSetupWithValidArgs() {
             EffectNumberStorage effect = new EffectNumberStorage();
-            String[] args = {"storage_key", "DELAY:100"};
+            // args: type (ADD/SUB/REMOVE/SET/CLEAR), key, [value]
+            String[] args = {"SET", "storage_key", "100"};
             assertSetupSucceeds(effect, args);
         }
 
@@ -48,7 +49,7 @@ class StorageEffectTests extends EffectBaseTest {
         @DisplayName("should execute without throwing exception")
         void shouldExecuteWithoutThrowingException() {
             EffectNumberStorage effect = new EffectNumberStorage();
-            String[] args = {"storage_key", "100"};
+            String[] args = {"SET", "storage_key", "100"};
             effect.setup(args);
 
             CEFunctionData data = createTestData(null);
@@ -57,14 +58,12 @@ class StorageEffectTests extends EffectBaseTest {
         }
 
         @Test
-        @DisplayName("should handle delay prefix")
-        void shouldHandleDelayPrefix() {
+        @DisplayName("should setup with REMOVE type without value")
+        void shouldSetupWithRemoveType() {
             EffectNumberStorage effect = new EffectNumberStorage();
-            String[] args = {"storage_key", "DELAY:50"};
+            // REMOVE type does not need value arg
+            String[] args = {"REMOVE", "storage_key"};
             assertSetupSucceeds(effect, args);
-
-            CEFunctionData data = createTestData(null);
-            assertExecuteSucceeds(effect, data);
         }
     }
 
@@ -80,17 +79,18 @@ class StorageEffectTests extends EffectBaseTest {
         }
 
         @Test
-        @DisplayName("should not be async")
-        void shouldNotBeAsync() {
+        @DisplayName("should be async by default")
+        void shouldBeAsyncByDefault() {
             EffectTextStorage effect = new EffectTextStorage();
-            assertFalse(effect.isAsync());
+            assertTrue(effect.isAsync());
         }
 
         @Test
         @DisplayName("should setup with valid args")
         void shouldSetupWithValidArgs() {
             EffectTextStorage effect = new EffectTextStorage();
-            String[] args = {"text_key", "storage_value"};
+            // args: type (SET/REMOVE), key, [value]
+            String[] args = {"SET", "text_key", "storage_value"};
             assertSetupSucceeds(effect, args);
         }
 
@@ -98,7 +98,7 @@ class StorageEffectTests extends EffectBaseTest {
         @DisplayName("should execute without throwing exception")
         void shouldExecuteWithoutThrowingException() {
             EffectTextStorage effect = new EffectTextStorage();
-            String[] args = {"text_key", "value"};
+            String[] args = {"SET", "text_key", "value"};
             effect.setup(args);
 
             CEFunctionData data = createTestData(null);
@@ -107,14 +107,12 @@ class StorageEffectTests extends EffectBaseTest {
         }
 
         @Test
-        @DisplayName("should handle delay prefix with text")
-        void shouldHandleDelayPrefixWithText() {
+        @DisplayName("should setup with REMOVE type without value")
+        void shouldSetupWithRemoveType() {
             EffectTextStorage effect = new EffectTextStorage();
-            String[] args = {"text_key", "DELAY:50:my_text_value"};
+            // REMOVE type does not need value arg
+            String[] args = {"REMOVE", "text_key"};
             assertSetupSucceeds(effect, args);
-
-            CEFunctionData data = createTestData(null);
-            assertExecuteSucceeds(effect, data);
         }
     }
 

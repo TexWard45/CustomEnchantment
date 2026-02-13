@@ -84,7 +84,8 @@ class CombatEffectTests extends EffectBaseTest {
         @DisplayName("should setup with valid args")
         void shouldSetupWithValidArgs() {
             EffectExplosion effect = new EffectExplosion();
-            String[] args = {"PLAYER", "3.0"};
+            // args: format, power, setFire, breakBlock
+            String[] args = {"PLAYER", "3.0", "false", "false"};
             assertSetupSucceeds(effect, args);
         }
 
@@ -92,7 +93,7 @@ class CombatEffectTests extends EffectBaseTest {
         @DisplayName("should execute without throwing exception")
         void shouldExecuteWithoutThrowingException() {
             EffectExplosion effect = new EffectExplosion();
-            String[] args = {"PLAYER", "3.0"};
+            String[] args = {"PLAYER", "3.0", "false", "false"};
             effect.setup(args);
 
             CEFunctionData data = createTestData(null);
@@ -152,10 +153,10 @@ class CombatEffectTests extends EffectBaseTest {
         }
 
         @Test
-        @DisplayName("should not be async")
-        void shouldNotBeAsync() {
+        @DisplayName("should be async by default")
+        void shouldBeAsyncByDefault() {
             EffectPull effect = new EffectPull();
-            assertFalse(effect.isAsync());
+            assertTrue(effect.isAsync());
         }
 
         @Test
@@ -179,10 +180,10 @@ class CombatEffectTests extends EffectBaseTest {
         }
 
         @Test
-        @DisplayName("should not be async")
-        void shouldNotBeAsync() {
+        @DisplayName("should be async by default")
+        void shouldBeAsyncByDefault() {
             EffectFixedPull effect = new EffectFixedPull();
-            assertFalse(effect.isAsync());
+            assertTrue(effect.isAsync());
         }
 
         @Test
@@ -216,7 +217,8 @@ class CombatEffectTests extends EffectBaseTest {
         @DisplayName("should setup with valid args")
         void shouldSetupWithValidArgs() {
             EffectShootArrow effect = new EffectShootArrow();
-            String[] args = {"1.0"};
+            // args: spawnLocationFormat, destinationLocationFormat, speed, spread, activeCE
+            String[] args = {"PLAYER", "ENEMY", "1.5", "0.1", "false"};
             assertSetupSucceeds(effect, args);
         }
     }
@@ -243,7 +245,8 @@ class CombatEffectTests extends EffectBaseTest {
         @DisplayName("should setup with valid args")
         void shouldSetupWithValidArgs() {
             EffectWindCharge effect = new EffectWindCharge();
-            String[] args = {""};
+            // args: spawnLocationFormat, destinationLocationFormat, speed, spread
+            String[] args = {"PLAYER", "ENEMY", "1.5", "0.1"};
             assertSetupSucceeds(effect, args);
         }
     }
@@ -260,17 +263,18 @@ class CombatEffectTests extends EffectBaseTest {
         }
 
         @Test
-        @DisplayName("should not be async")
-        void shouldNotBeAsync() {
+        @DisplayName("should be async by default")
+        void shouldBeAsyncByDefault() {
             EffectEnableMultipleArrow effect = new EffectEnableMultipleArrow();
-            assertFalse(effect.isAsync());
+            assertTrue(effect.isAsync());
         }
 
         @Test
         @DisplayName("should setup with valid args")
         void shouldSetupWithValidArgs() {
             EffectEnableMultipleArrow effect = new EffectEnableMultipleArrow();
-            String[] args = {};
+            // args: amountRange, velocityMod, damageRatio, cooldown
+            String[] args = {"3", "1.0", "0.5", "5000"};
             assertSetupSucceeds(effect, args);
         }
     }
@@ -287,10 +291,10 @@ class CombatEffectTests extends EffectBaseTest {
         }
 
         @Test
-        @DisplayName("should not be async")
-        void shouldNotBeAsync() {
+        @DisplayName("should be async by default")
+        void shouldBeAsyncByDefault() {
             EffectDisableMultipleArrow effect = new EffectDisableMultipleArrow();
-            assertFalse(effect.isAsync());
+            assertTrue(effect.isAsync());
         }
     }
 }

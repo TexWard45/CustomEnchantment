@@ -30,6 +30,6 @@ class CEGemDataTest {
         CEGemData cloned = data.clone();
 
         assertNotNull(cloned);
-        assertNotEquals(data, cloned);
+        assertNotSame(data, cloned);
     }
 }

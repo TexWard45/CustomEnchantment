@@ -30,6 +30,6 @@ class CEArtifactDataTest {
         CEArtifactData cloned = data.clone();
 
         assertNotNull(cloned);
-        assertNotEquals(data, cloned);
+        assertNotSame(data, cloned);
     }
 }

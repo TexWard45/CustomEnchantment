@@ -75,7 +75,7 @@ class CombatLogModuleTest {
         @DisplayName("should have onDisable method")
         void shouldHaveOnDisableMethod() {
             try {
-                CombatLogModule.class.getDeclaredMethod("onDisable");
+                CombatLogModule.class.getMethod("onDisable");
             } catch (NoSuchMethodException e) {
                 fail("CombatLogModule should have onDisable method");
             }
@@ -85,7 +85,7 @@ class CombatLogModuleTest {
         @DisplayName("should have onReload method")
         void shouldHaveOnReloadMethod() {
             try {
-                CombatLogModule.class.getDeclaredMethod("onReload");
+                CombatLogModule.class.getMethod("onReload");
             } catch (NoSuchMethodException e) {
                 fail("CombatLogModule should have onReload method");
             }
@@ -95,7 +95,7 @@ class CombatLogModuleTest {
         @DisplayName("should have onSave method")
         void shouldHaveOnSaveMethod() {
             try {
-                CombatLogModule.class.getDeclaredMethod("onSave");
+                CombatLogModule.class.getMethod("onSave");
             } catch (NoSuchMethodException e) {
                 fail("CombatLogModule should have onSave method");
             }

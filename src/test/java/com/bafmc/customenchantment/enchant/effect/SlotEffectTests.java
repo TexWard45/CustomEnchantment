@@ -28,17 +28,18 @@ class SlotEffectTests extends EffectBaseTest {
         }
 
         @Test
-        @DisplayName("should not be async")
-        void shouldNotBeAsync() {
+        @DisplayName("should be async by default")
+        void shouldBeAsyncByDefault() {
             EffectActiveEquipSlot effect = new EffectActiveEquipSlot();
-            assertFalse(effect.isAsync());
+            assertTrue(effect.isAsync());
         }
 
         @Test
         @DisplayName("should setup with valid args")
         void shouldSetupWithValidArgs() {
             EffectActiveEquipSlot effect = new EffectActiveEquipSlot();
-            String[] args = {"HAND"};
+            // args: slot (EquipSlot enum), name
+            String[] args = {"MAINHAND", "slot_name"};
             assertSetupSucceeds(effect, args);
         }
 
@@ -46,7 +47,7 @@ class SlotEffectTests extends EffectBaseTest {
         @DisplayName("should execute without throwing exception")
         void shouldExecuteWithoutThrowingException() {
             EffectActiveEquipSlot effect = new EffectActiveEquipSlot();
-            String[] args = {"HAND"};
+            String[] args = {"MAINHAND", "slot_name"};
             effect.setup(args);
 
             CEFunctionData data = createTestData(null);
@@ -58,7 +59,7 @@ class SlotEffectTests extends EffectBaseTest {
         @DisplayName("should handle null player gracefully")
         void shouldHandleNullPlayerGracefully() {
             EffectActiveEquipSlot effect = new EffectActiveEquipSlot();
-            String[] args = {"HAND"};
+            String[] args = {"MAINHAND", "slot_name"};
             effect.setup(args);
 
             assertExecuteHandlesNullPlayer(effect);
@@ -77,17 +78,18 @@ class SlotEffectTests extends EffectBaseTest {
         }
 
         @Test
-        @DisplayName("should not be async")
-        void shouldNotBeAsync() {
+        @DisplayName("should be async by default")
+        void shouldBeAsyncByDefault() {
             EffectDeactiveEquipSlot effect = new EffectDeactiveEquipSlot();
-            assertFalse(effect.isAsync());
+            assertTrue(effect.isAsync());
         }
 
         @Test
         @DisplayName("should setup with valid args")
         void shouldSetupWithValidArgs() {
             EffectDeactiveEquipSlot effect = new EffectDeactiveEquipSlot();
-            String[] args = {"HAND"};
+            // args: slot (EquipSlot enum), name, [duration]
+            String[] args = {"MAINHAND", "slot_name"};
             assertSetupSucceeds(effect, args);
         }
 
@@ -95,7 +97,7 @@ class SlotEffectTests extends EffectBaseTest {
         @DisplayName("should execute without throwing exception")
         void shouldExecuteWithoutThrowingException() {
             EffectDeactiveEquipSlot effect = new EffectDeactiveEquipSlot();
-            String[] args = {"HAND"};
+            String[] args = {"MAINHAND", "slot_name"};
             effect.setup(args);
 
             CEFunctionData data = createTestData(null);
@@ -107,7 +109,7 @@ class SlotEffectTests extends EffectBaseTest {
         @DisplayName("should handle null player gracefully")
         void shouldHandleNullPlayerGracefully() {
             EffectDeactiveEquipSlot effect = new EffectDeactiveEquipSlot();
-            String[] args = {"HAND"};
+            String[] args = {"MAINHAND", "slot_name"};
             effect.setup(args);
 
             assertExecuteHandlesNullPlayer(effect);

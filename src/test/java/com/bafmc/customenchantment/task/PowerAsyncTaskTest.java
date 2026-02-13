@@ -10,11 +10,13 @@ import org.junit.jupiter.api.Nested;
 import java.io.File;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assumptions.*;
 import static org.mockito.Mockito.*;
 
 /**
  * Tests for PowerAsyncTask - power calculation from Excel spreadsheet
  * Covers workbook loading, attribute mapping, power calculation, and async processing
+ * Requires Apache POI on classpath (compileOnly dependency).
  */
 @DisplayName("PowerAsyncTask Tests")
 class PowerAsyncTaskTest {
@@ -22,8 +24,18 @@ class PowerAsyncTaskTest {
     private PowerAsyncTask powerAsyncTask;
     private CustomEnchantment mockPlugin;
 
+    private static boolean isApachePOIAvailable() {
+        try {
+            Class.forName("org.apache.poi.ss.usermodel.Workbook");
+            return true;
+        } catch (ClassNotFoundException e) {
+            return false;
+        }
+    }
+
     @BeforeEach
     void setUp() {
+        assumeTrue(isApachePOIAvailable(), "Apache POI not available on test classpath");
         mockPlugin = mock(CustomEnchantment.class);
         File mockDataFolder = mock(File.class);
         when(mockPlugin.getDataFolder()).thenReturn(mockDataFolder);

@@ -30,17 +30,18 @@ class BonusEffectTests extends EffectBaseTest {
         }
 
         @Test
-        @DisplayName("should not be async")
-        void shouldNotBeAsync() {
+        @DisplayName("should be async by default")
+        void shouldBeAsyncByDefault() {
             EffectAddBlockBonus effect = new EffectAddBlockBonus();
-            assertFalse(effect.isAsync());
+            assertTrue(effect.isAsync());
         }
 
         @Test
         @DisplayName("should setup with valid args")
         void shouldSetupWithValidArgs() {
             EffectAddBlockBonus effect = new EffectAddBlockBonus();
-            String[] args = {"STONE", "10-20"};
+            // args: type, name, materialList, range, [operation], [chance]
+            String[] args = {"EXP", "block_bonus", "STONE", "10-20"};
             assertSetupSucceeds(effect, args);
         }
 
@@ -48,7 +49,7 @@ class BonusEffectTests extends EffectBaseTest {
         @DisplayName("should execute without throwing exception")
         void shouldExecuteWithoutThrowingException() {
             EffectAddBlockBonus effect = new EffectAddBlockBonus();
-            String[] args = {"STONE", "10"};
+            String[] args = {"EXP", "block_bonus", "STONE", "10"};
             effect.setup(args);
 
             CEFunctionData data = createTestData(null);
@@ -69,17 +70,18 @@ class BonusEffectTests extends EffectBaseTest {
         }
 
         @Test
-        @DisplayName("should not be async")
-        void shouldNotBeAsync() {
+        @DisplayName("should be async by default")
+        void shouldBeAsyncByDefault() {
             EffectRemoveBlockBonus effect = new EffectRemoveBlockBonus();
-            assertFalse(effect.isAsync());
+            assertTrue(effect.isAsync());
         }
 
         @Test
         @DisplayName("should setup with valid args")
         void shouldSetupWithValidArgs() {
             EffectRemoveBlockBonus effect = new EffectRemoveBlockBonus();
-            String[] args = {"STONE"};
+            // args: type, name
+            String[] args = {"EXP", "block_bonus"};
             assertSetupSucceeds(effect, args);
         }
 
@@ -87,7 +89,7 @@ class BonusEffectTests extends EffectBaseTest {
         @DisplayName("should execute without throwing exception")
         void shouldExecuteWithoutThrowingException() {
             EffectRemoveBlockBonus effect = new EffectRemoveBlockBonus();
-            String[] args = {"STONE"};
+            String[] args = {"EXP", "block_bonus"};
             effect.setup(args);
 
             CEFunctionData data = createTestData(null);
@@ -108,17 +110,18 @@ class BonusEffectTests extends EffectBaseTest {
         }
 
         @Test
-        @DisplayName("should not be async")
-        void shouldNotBeAsync() {
+        @DisplayName("should be async by default")
+        void shouldBeAsyncByDefault() {
             EffectAddMobBonus effect = new EffectAddMobBonus();
-            assertFalse(effect.isAsync());
+            assertTrue(effect.isAsync());
         }
 
         @Test
         @DisplayName("should setup with valid args")
         void shouldSetupWithValidArgs() {
             EffectAddMobBonus effect = new EffectAddMobBonus();
-            String[] args = {"ZOMBIE", "5-15"};
+            // args: type, name, entityTypeList, range, [operation], [chance]
+            String[] args = {"EXP", "mob_bonus", "ZOMBIE", "5-15"};
             assertSetupSucceeds(effect, args);
         }
 
@@ -126,7 +129,7 @@ class BonusEffectTests extends EffectBaseTest {
         @DisplayName("should execute without throwing exception")
         void shouldExecuteWithoutThrowingException() {
             EffectAddMobBonus effect = new EffectAddMobBonus();
-            String[] args = {"ZOMBIE", "5"};
+            String[] args = {"EXP", "mob_bonus", "ZOMBIE", "5"};
             effect.setup(args);
 
             CEFunctionData data = createTestData(null);
@@ -147,17 +150,18 @@ class BonusEffectTests extends EffectBaseTest {
         }
 
         @Test
-        @DisplayName("should not be async")
-        void shouldNotBeAsync() {
+        @DisplayName("should be async by default")
+        void shouldBeAsyncByDefault() {
             EffectRemoveMobBonus effect = new EffectRemoveMobBonus();
-            assertFalse(effect.isAsync());
+            assertTrue(effect.isAsync());
         }
 
         @Test
         @DisplayName("should setup with valid args")
         void shouldSetupWithValidArgs() {
             EffectRemoveMobBonus effect = new EffectRemoveMobBonus();
-            String[] args = {"ZOMBIE"};
+            // args: type, name
+            String[] args = {"EXP", "mob_bonus"};
             assertSetupSucceeds(effect, args);
         }
 
@@ -165,7 +169,7 @@ class BonusEffectTests extends EffectBaseTest {
         @DisplayName("should execute without throwing exception")
         void shouldExecuteWithoutThrowingException() {
             EffectRemoveMobBonus effect = new EffectRemoveMobBonus();
-            String[] args = {"ZOMBIE"};
+            String[] args = {"EXP", "mob_bonus"};
             effect.setup(args);
 
             CEFunctionData data = createTestData(null);

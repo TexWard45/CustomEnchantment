@@ -1,0 +1,8 @@
+{
+  "env": {
+    "TRACE_TO_LANGFUSE": "true",
+    "LANGFUSE_PUBLIC_KEY": "pk-lf-1c983f0a-cf10-4437-b1d6-44b8fe77bdb6",
+    "LANGFUSE_SECRET_KEY": "sk-lf-b1b2cf3b-0ca9-49c5-980f-67a1f051c97b",
+    "LANGFUSE_HOST": "http://localhost:3000"
+  }
+}

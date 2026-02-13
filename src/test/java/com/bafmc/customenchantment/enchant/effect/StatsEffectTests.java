@@ -31,17 +31,18 @@ class StatsEffectTests extends EffectBaseTest {
         }
 
         @Test
-        @DisplayName("should not be async")
-        void shouldNotBeAsync() {
+        @DisplayName("should be async by default")
+        void shouldBeAsyncByDefault() {
             EffectHealth effect = new EffectHealth();
-            assertFalse(effect.isAsync());
+            assertTrue(effect.isAsync());
         }
 
         @Test
         @DisplayName("should setup with valid args")
         void shouldSetupWithValidArgs() {
             EffectHealth effect = new EffectHealth();
-            String[] args = {"5-10"};
+            // args: modifyType, format
+            String[] args = {"ADD", "5-10"};
             assertSetupSucceeds(effect, args);
         }
 
@@ -49,7 +50,7 @@ class StatsEffectTests extends EffectBaseTest {
         @DisplayName("should execute without throwing exception")
         void shouldExecuteWithoutThrowingException() {
             EffectHealth effect = new EffectHealth();
-            String[] args = {"5"};
+            String[] args = {"ADD", "5"};
             effect.setup(args);
 
             CEFunctionData data = createTestData(null);
@@ -61,7 +62,7 @@ class StatsEffectTests extends EffectBaseTest {
         @DisplayName("should handle null player gracefully")
         void shouldHandleNullPlayerGracefully() {
             EffectHealth effect = new EffectHealth();
-            String[] args = {"5"};
+            String[] args = {"ADD", "5"};
             effect.setup(args);
 
             assertExecuteHandlesNullPlayer(effect);
@@ -80,17 +81,18 @@ class StatsEffectTests extends EffectBaseTest {
         }
 
         @Test
-        @DisplayName("should not be async")
-        void shouldNotBeAsync() {
+        @DisplayName("should be async by default")
+        void shouldBeAsyncByDefault() {
             EffectFood effect = new EffectFood();
-            assertFalse(effect.isAsync());
+            assertTrue(effect.isAsync());
         }
 
         @Test
         @DisplayName("should setup with valid args")
         void shouldSetupWithValidArgs() {
             EffectFood effect = new EffectFood();
-            String[] args = {"3-5"};
+            // args: modifyType, format
+            String[] args = {"ADD", "3-5"};
             assertSetupSucceeds(effect, args);
         }
 
@@ -98,7 +100,7 @@ class StatsEffectTests extends EffectBaseTest {
         @DisplayName("should execute without throwing exception")
         void shouldExecuteWithoutThrowingException() {
             EffectFood effect = new EffectFood();
-            String[] args = {"3"};
+            String[] args = {"ADD", "3"};
             effect.setup(args);
 
             CEFunctionData data = createTestData(null);
@@ -119,17 +121,18 @@ class StatsEffectTests extends EffectBaseTest {
         }
 
         @Test
-        @DisplayName("should not be async")
-        void shouldNotBeAsync() {
+        @DisplayName("should be async by default")
+        void shouldBeAsyncByDefault() {
             EffectOxygen effect = new EffectOxygen();
-            assertFalse(effect.isAsync());
+            assertTrue(effect.isAsync());
         }
 
         @Test
         @DisplayName("should setup with valid args")
         void shouldSetupWithValidArgs() {
             EffectOxygen effect = new EffectOxygen();
-            String[] args = {"10-20"};
+            // args: modifyType, format
+            String[] args = {"ADD", "10-20"};
             assertSetupSucceeds(effect, args);
         }
 
@@ -137,7 +140,7 @@ class StatsEffectTests extends EffectBaseTest {
         @DisplayName("should execute without throwing exception")
         void shouldExecuteWithoutThrowingException() {
             EffectOxygen effect = new EffectOxygen();
-            String[] args = {"10"};
+            String[] args = {"ADD", "10"};
             effect.setup(args);
 
             CEFunctionData data = createTestData(null);
@@ -158,17 +161,18 @@ class StatsEffectTests extends EffectBaseTest {
         }
 
         @Test
-        @DisplayName("should not be async")
-        void shouldNotBeAsync() {
+        @DisplayName("should be async by default")
+        void shouldBeAsyncByDefault() {
             EffectExp effect = new EffectExp();
-            assertFalse(effect.isAsync());
+            assertTrue(effect.isAsync());
         }
 
         @Test
         @DisplayName("should setup with valid args")
         void shouldSetupWithValidArgs() {
             EffectExp effect = new EffectExp();
-            String[] args = {"100-200"};
+            // args: modifyType, format
+            String[] args = {"ADD", "100-200"};
             assertSetupSucceeds(effect, args);
         }
 
@@ -176,7 +180,7 @@ class StatsEffectTests extends EffectBaseTest {
         @DisplayName("should execute without throwing exception")
         void shouldExecuteWithoutThrowingException() {
             EffectExp effect = new EffectExp();
-            String[] args = {"100"};
+            String[] args = {"ADD", "100"};
             effect.setup(args);
 
             CEFunctionData data = createTestData(null);
@@ -197,17 +201,18 @@ class StatsEffectTests extends EffectBaseTest {
         }
 
         @Test
-        @DisplayName("should not be async")
-        void shouldNotBeAsync() {
+        @DisplayName("should be async by default")
+        void shouldBeAsyncByDefault() {
             EffectAbsorptionHeart effect = new EffectAbsorptionHeart();
-            assertFalse(effect.isAsync());
+            assertTrue(effect.isAsync());
         }
 
         @Test
         @DisplayName("should setup with valid args")
         void shouldSetupWithValidArgs() {
             EffectAbsorptionHeart effect = new EffectAbsorptionHeart();
-            String[] args = {"2.0-4.0"};
+            // args: modifyType, format, [limit]
+            String[] args = {"ADD", "2.0-4.0"};
             assertSetupSucceeds(effect, args);
         }
 
@@ -215,7 +220,7 @@ class StatsEffectTests extends EffectBaseTest {
         @DisplayName("should execute without throwing exception")
         void shouldExecuteWithoutThrowingException() {
             EffectAbsorptionHeart effect = new EffectAbsorptionHeart();
-            String[] args = {"2.0"};
+            String[] args = {"ADD", "2.0"};
             effect.setup(args);
 
             CEFunctionData data = createTestData(null);
