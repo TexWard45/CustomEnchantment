@@ -2,9 +2,13 @@ package com.bafmc.customenchantment.api;
 
 import org.bukkit.Location;
 import org.bukkit.World;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import org.mockbukkit.mockbukkit.MockBukkit;
+import org.mockbukkit.mockbukkit.ServerMock;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -14,6 +18,27 @@ import static org.mockito.Mockito.*;
  */
 @DisplayName("LocationFormat Tests")
 class LocationFormatTest {
+
+    private static ServerMock server;
+
+    @BeforeAll
+    static void setUpAll() {
+        try {
+            if (MockBukkit.isMocked()) {
+                MockBukkit.unmock();
+            }
+            server = MockBukkit.mock();
+        } catch (Throwable e) {
+            server = null;
+        }
+    }
+
+    @AfterAll
+    static void tearDownAll() {
+        if (MockBukkit.isMocked()) {
+            MockBukkit.unmock();
+        }
+    }
 
     @Nested
     @DisplayName("Constructor Tests")
@@ -88,10 +113,9 @@ class LocationFormatTest {
 
             Location result = format.getLocation(null, eLocation);
 
-            // With only enemy location, the world reference uses null check
-            // which means ~ can't resolve, so result may be null
-            // This tests the current behavior
-            assertNotNull(result);
+            // With only enemy location and ~ for world, pLocation is null
+            // so the world reference cannot be resolved, resulting in null
+            assertNull(result);
         }
 
         @Test

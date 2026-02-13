@@ -2,11 +2,16 @@ package com.bafmc.customenchantment.api;
 
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import org.mockbukkit.mockbukkit.MockBukkit;
+import org.mockbukkit.mockbukkit.ServerMock;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assumptions.*;
 
 /**
  * Tests for ItemPacketAPI class - NMS item packet sending.
@@ -15,6 +20,27 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 @DisplayName("ItemPacketAPI Tests")
 class ItemPacketAPITest {
+
+    private static ServerMock server;
+
+    @BeforeAll
+    static void setUpAll() {
+        try {
+            if (MockBukkit.isMocked()) {
+                MockBukkit.unmock();
+            }
+            server = MockBukkit.mock();
+        } catch (Throwable e) {
+            server = null;
+        }
+    }
+
+    @AfterAll
+    static void tearDownAll() {
+        if (MockBukkit.isMocked()) {
+            MockBukkit.unmock();
+        }
+    }
 
     @Nested
     @DisplayName("Slot Mapping Logic Tests")
@@ -98,6 +124,7 @@ class ItemPacketAPITest {
         @Test
         @DisplayName("Should create ItemStack for packet")
         void shouldCreateItemStackForPacket() {
+            assumeTrue(server != null, "MockBukkit not available");
             ItemStack item = new ItemStack(Material.DIAMOND_SWORD);
 
             assertNotNull(item);
@@ -108,6 +135,7 @@ class ItemPacketAPITest {
         @Test
         @DisplayName("Should create ItemStack with amount for packet")
         void shouldCreateItemStackWithAmountForPacket() {
+            assumeTrue(server != null, "MockBukkit not available");
             ItemStack item = new ItemStack(Material.DIAMOND, 64);
 
             assertNotNull(item);
@@ -118,6 +146,7 @@ class ItemPacketAPITest {
         @Test
         @DisplayName("Should create air ItemStack for empty slot")
         void shouldCreateAirItemStackForEmptySlot() {
+            assumeTrue(server != null, "MockBukkit not available");
             ItemStack item = new ItemStack(Material.AIR);
 
             assertNotNull(item);

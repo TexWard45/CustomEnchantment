@@ -1,11 +1,15 @@
 package com.bafmc.customenchantment.api;
 
 import org.bukkit.entity.EntityType;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import org.mockbukkit.mockbukkit.MockBukkit;
+import org.mockbukkit.mockbukkit.ServerMock;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,6 +23,27 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 @DisplayName("EntityTypeList Tests")
 class EntityTypeListTest {
+
+    private static ServerMock server;
+
+    @BeforeAll
+    static void setUpAll() {
+        try {
+            if (MockBukkit.isMocked()) {
+                MockBukkit.unmock();
+            }
+            server = MockBukkit.mock();
+        } catch (Throwable e) {
+            server = null;
+        }
+    }
+
+    @AfterAll
+    static void tearDownAll() {
+        if (MockBukkit.isMocked()) {
+            MockBukkit.unmock();
+        }
+    }
 
     @BeforeEach
     void setUp() {

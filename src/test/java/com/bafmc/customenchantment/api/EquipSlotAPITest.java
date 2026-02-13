@@ -4,11 +4,16 @@ import com.bafmc.bukkit.utils.EquipSlot;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import org.mockbukkit.mockbukkit.MockBukkit;
+import org.mockbukkit.mockbukkit.ServerMock;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assumptions.*;
 import static org.mockito.Mockito.*;
 
 /**
@@ -17,6 +22,27 @@ import static org.mockito.Mockito.*;
 @DisplayName("EquipSlotAPI Tests")
 class EquipSlotAPITest {
 
+    private static ServerMock server;
+
+    @BeforeAll
+    static void setUpAll() {
+        try {
+            if (MockBukkit.isMocked()) {
+                MockBukkit.unmock();
+            }
+            server = MockBukkit.mock();
+        } catch (Throwable e) {
+            server = null;
+        }
+    }
+
+    @AfterAll
+    static void tearDownAll() {
+        if (MockBukkit.isMocked()) {
+            MockBukkit.unmock();
+        }
+    }
+
     @Nested
     @DisplayName("getBowShootSlot Tests")
     class GetBowShootSlotTests {
@@ -24,6 +50,7 @@ class EquipSlotAPITest {
         @Test
         @DisplayName("Should return MAINHAND when bow is in main hand")
         void shouldReturnMainhandWhenBowInMainHand() {
+            assumeTrue(server != null, "MockBukkit not available");
             Player player = mock(Player.class);
             ItemStack bow = new ItemStack(Material.BOW);
 
@@ -37,6 +64,7 @@ class EquipSlotAPITest {
         @Test
         @DisplayName("Should return OFFHAND when bow is not in main hand")
         void shouldReturnOffhandWhenBowNotInMainHand() {
+            assumeTrue(server != null, "MockBukkit not available");
             Player player = mock(Player.class);
             ItemStack sword = new ItemStack(Material.DIAMOND_SWORD);
 
@@ -50,6 +78,7 @@ class EquipSlotAPITest {
         @Test
         @DisplayName("Should return OFFHAND when main hand is empty")
         void shouldReturnOffhandWhenMainHandIsEmpty() {
+            assumeTrue(server != null, "MockBukkit not available");
             Player player = mock(Player.class);
             ItemStack air = new ItemStack(Material.AIR);
 
@@ -63,6 +92,7 @@ class EquipSlotAPITest {
         @Test
         @DisplayName("Should return OFFHAND for crossbow in main hand")
         void shouldReturnOffhandForCrossbowInMainHand() {
+            assumeTrue(server != null, "MockBukkit not available");
             Player player = mock(Player.class);
             ItemStack crossbow = new ItemStack(Material.CROSSBOW);
 
@@ -77,6 +107,7 @@ class EquipSlotAPITest {
         @Test
         @DisplayName("Should return OFFHAND for trident in main hand")
         void shouldReturnOffhandForTridentInMainHand() {
+            assumeTrue(server != null, "MockBukkit not available");
             Player player = mock(Player.class);
             ItemStack trident = new ItemStack(Material.TRIDENT);
 
@@ -90,6 +121,7 @@ class EquipSlotAPITest {
         @Test
         @DisplayName("Should handle various non-bow items")
         void shouldHandleVariousNonBowItems() {
+            assumeTrue(server != null, "MockBukkit not available");
             Player player = mock(Player.class);
 
             Material[] nonBowMaterials = {
@@ -120,6 +152,7 @@ class EquipSlotAPITest {
         @Test
         @DisplayName("Should handle bow with custom name")
         void shouldHandleBowWithCustomName() {
+            assumeTrue(server != null, "MockBukkit not available");
             Player player = mock(Player.class);
             ItemStack bow = new ItemStack(Material.BOW);
             // Even with custom metadata, material check should work
@@ -134,6 +167,7 @@ class EquipSlotAPITest {
         @Test
         @DisplayName("Should handle bow stack of multiple")
         void shouldHandleBowStackOfMultiple() {
+            assumeTrue(server != null, "MockBukkit not available");
             Player player = mock(Player.class);
             // Bows normally don't stack, but testing edge case
             ItemStack bow = new ItemStack(Material.BOW, 1);

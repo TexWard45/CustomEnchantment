@@ -2,9 +2,13 @@ package com.bafmc.customenchantment.api;
 
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import org.mockbukkit.mockbukkit.MockBukkit;
+import org.mockbukkit.mockbukkit.ServerMock;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -14,6 +18,27 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 @DisplayName("MaterialData Tests")
 class MaterialDataTest {
+
+    private static ServerMock server;
+
+    @BeforeAll
+    static void setUpAll() {
+        try {
+            if (MockBukkit.isMocked()) {
+                MockBukkit.unmock();
+            }
+            server = MockBukkit.mock();
+        } catch (Throwable e) {
+            server = null;
+        }
+    }
+
+    @AfterAll
+    static void tearDownAll() {
+        if (MockBukkit.isMocked()) {
+            MockBukkit.unmock();
+        }
+    }
 
     @Nested
     @DisplayName("Constructor with Material Tests")
