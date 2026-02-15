@@ -68,121 +68,239 @@ items:
     item:
       type: WHITE_STAINED_GLASS_PANE
       amount: 1
-      display: "&a&lMũ / Mặt Nạ / Nón (Chưa trang bị)"
+      display: "&#E6E6E6&lÔ Mũ / Mặt Nạ / Nón"
       lore:
         - ""
-        - "&cVật phẩm sẽ bị rơi ra khi chết nếu"
-        - "&ckhông có Ngọc bảo vệ hoặc Bùa bảo vệ"
+        - "&eTrạng thái: &7Chưa trang bị"
         - ""
-        - "&aNhấp vào Mũ để trang bị"
+        - "&f &aNhấp vào Mũ để trang bị"
     slots: "h"
+  helmet-swap:
+    item:
+      type: WHITE_STAINED_GLASS_PANE
+      amount: 1
+      display: "{item_display}"
+      lore:
+        - "{item_lore}"
+        - ""
+        - "&eTrạng thái: &aĐang trang bị"
+        - ""
+        - "&f &aNhấp trái để tháo trang bị"
+        - "&f &aNhấp phải để đổi trang phục"
+  helmet-equip:
+    item:
+      type: WHITE_STAINED_GLASS_PANE
+      amount: 1
+      display: "{item_display}"
+      lore:
+        - "{item_lore}"
+        - ""
+        - "&eTrạng thái: &aĐang trang bị"
+        - ""
+        - "&f &aNhấp trái để tháo trang bị"
   chestplate:
     item:
       type: WHITE_STAINED_GLASS_PANE
       amount: 1
-      display: "&a&lÁo giáp (Chưa trang bị)"
+      display: "&#E6E6E6&lÔ Áo giáp"
       lore:
         - ""
-        - "&cVật phẩm sẽ bị rơi ra khi chết nếu"
-        - "&ckhông có Ngọc bảo vệ hoặc Bùa bảo vệ"
+        - "&eTrạng thái: &7Chưa trang bị"
         - ""
-        - "&aNhấp vào Áo giáp để trang bị"
+        - "&f &aNhấp vào Áo giáp để trang bị"
     slots: "c"
+  chestplate-equip:
+    item:
+      type: WHITE_STAINED_GLASS_PANE
+      amount: 1
+      display: "{item_display}"
+      lore:
+        - "{item_lore}"
+        - ""
+        - "&eTrạng thái: &aĐang trang bị"
+        - ""
+        - "&f &aNhấp trái để tháo trang bị"
   leggings:
     item:
       type: WHITE_STAINED_GLASS_PANE
       amount: 1
-      display: "&a&lQuần (Chưa trang bị)"
+      display: "&a&lQuần"
       lore:
         - ""
-        - "&cVật phẩm sẽ bị rơi ra khi chết nếu"
-        - "&ckhông có Ngọc bảo vệ hoặc Bùa bảo vệ"
+        - "&eTrạng thái: &7Chưa trang bị"
         - ""
-        - "&aNhấp vào Quần để trang bị"
+        - "&f &aNhấp vào Quần để trang bị"
     slots: "l"
+  leggings-equip:
+    item:
+      type: WHITE_STAINED_GLASS_PANE
+      amount: 1
+      display: "{item_display}"
+      lore:
+        - "{item_lore}"
+        - ""
+        - "&eTrạng thái: &aĐang trang bị"
+        - ""
+        - "&f &aNhấp trái để tháo trang bị"
   boots:
     item:
       type: WHITE_STAINED_GLASS_PANE
       amount: 1
-      display: "&a&lGiày (Chưa trang bị)"
+      display: "&#E6E6E6&lÔ Giày"
       lore:
         - ""
-        - "&cVật phẩm sẽ bị rơi ra khi chết nếu"
-        - "&ckhông có Ngọc bảo vệ hoặc Bùa bảo vệ"
+        - "&eTrạng thái: &7Chưa trang bị"
         - ""
-        - "&aNhấp vào Giày để trang bị"
+        - "&f &aNhấp vào Giày để trang bị"
     slots: "b"
+  boots-equip:
+    item:
+      type: WHITE_STAINED_GLASS_PANE
+      amount: 1
+      display: "{item_display}"
+      lore:
+        - "{item_lore}"
+        - ""
+        - "&eTrạng thái: &aĐang trang bị"
+        - ""
+        - "&f &aNhấp trái để tháo trang bị"
   mainhand:
     item:
       type: WHITE_STAINED_GLASS_PANE
       amount: 1
-      display: "&a&lVũ khí / Công cụ (Chưa trang bị)"
+      display: "&#E6E6E6&lÔ Cầm chính / Vũ khí / Công cụ"
       lore:
         - ""
-        - "&cVật phẩm sẽ bị rơi ra khi chết nếu"
-        - "&ckhông có Ngọc bảo vệ hoặc Bùa bảo vệ"
+        - "&eTrạng thái: &7Chưa trang bị"
+        - ""
+        - "&f &aNhấp vào vật phẩm để trang bị"
     slots: "m"
+  mainhand-equip:
+    item:
+      type: WHITE_STAINED_GLASS_PANE
+      amount: 1
+      display: "{item_display}"
+      lore:
+        - "{item_lore}"
+        - ""
+        - "&eTrạng thái: &aĐang trang bị"
+        - ""
+        - "&f &aNhấp trái để tháo trang bị"
   offhand:
     item:
       type: WHITE_STAINED_GLASS_PANE
       amount: 1
-      display: "&a&lKhiên / Cánh / Ô phụ (Chưa trang bị)"
+      display: "&#E6E6E6&lÔ Cầm phụ / Khiên / Cánh"
       lore:
         - ""
-        - "&cVật phẩm sẽ bị rơi ra khi chết nếu"
-        - "&ckhông có Ngọc bảo vệ hoặc Bùa bảo vệ"
+        - "&eTrạng thái: &7Chưa trang bị"
         - ""
-        - "&aNhấp vào vật phẩm để trang bị"
+        - "&f &aNhấp vào vật phẩm để trang bị"
     slots: "f"
+  offhand-equip:
+    item:
+      type: WHITE_STAINED_GLASS_PANE
+      amount: 1
+      display: "{item_display}"
+      lore:
+        - "{item_lore}"
+        - ""
+        - "&eTrạng thái: &aĐang trang bị"
+        - ""
+        - "&f &aNhấp trái để tháo trang bị"
   extra-slot-artifact-default:
     item:
       type: WHITE_STAINED_GLASS_PANE
       amount: 1
-      display: "&a&lCổ vật (Chưa trang bị)"
+      display: "&#E6E6E6&lÔ Cổ vật"
       lore:
         - ""
-        - "&aCổ vật sẽ không bị rơi ra khi chết"
+        - "&eTrạng thái: &7Chưa trang bị"
         - ""
-        - "&aNhấp vào Cổ vật để trang bị"
+        - "&f &aNhấp vào Cổ vật để trang bị"
     slots: "a"
+  extra-slot-artifact-default-equip:
+    item:
+      type: WHITE_STAINED_GLASS_PANE
+      amount: 1
+      display: "{item_display}"
+      lore:
+        - "{item_lore}"
+        - ""
+        - "&eTrạng thái: &aĐang trang bị"
+        - ""
+        - "&f &aNhấp trái để tháo trang bị"
   extra-slot-artifact-event:
     item:
       type: WHITE_STAINED_GLASS_PANE
       amount: 1
-      display: "&a&lCổ vật &d&lSự Kiện &a&l(Chưa trang bị)"
+      display: "&#E6E6E6&lÔ Cổ vật &d&lSự Kiện"
       lore:
         - ""
-        - "&aCổ vật sẽ không bị rơi ra khi chết"
+        - "&eTrạng thái: &7Chưa trang bị"
         - ""
-        - "&aNhấp vào Cổ vật loại &d&lSự kiện &a&lđể trang bị"
+        - "&f &aNhấp vào Cổ vật để trang bị"
     slots: "e"
+  extra-slot-artifact-event-equip:
+    item:
+      type: WHITE_STAINED_GLASS_PANE
+      amount: 1
+      display: "{item_display}"
+      lore:
+        - "{item_lore}"
+        - ""
+        - "&eTrạng thái: &aĐang trang bị"
+        - ""
+        - "&f &aNhấp trái để tháo trang bị"
   extra-slot-sigil-all:
     item:
       type: GRAY_DYE
       amount: 1
-      display: "&a&lẤn &a&l(Chưa trang bị)"
+      display: "&#E6E6E6&lÔ Ấn"
       lore:
         - ""
-        - "&aẤn sẽ không bị rơi ra khi chết"
+        - "&eTrạng thái: &7Chưa trang bị"
         - ""
-        - "&aNhấp vào Ấn &a&lđể trang bị"
+        - "&f &aNhấp vào Ấn để trang bị"
     slots: "s"
+  extra-slot-sigil-all-equip:
+    item:
+      type: GRAY_DYE
+      amount: 1
+      display: "{item_display}"
+      lore:
+        - "{item_lore}"
+        - ""
+        - "&eTrạng thái: &aĐang trang bị"
+        - ""
+        - "&f &aNhấp trái để tháo trang bị"
   extra-slot-outfit-all:
     item:
       type: WHITE_STAINED_GLASS_PANE
       amount: 1
-      display: "&a&lBộ trang phục &a&l(Chưa trang bị)"
+      display: "&#E6E6E6&lÔ Bộ trang phục"
       lore:
         - ""
-        - "&aBộ trang phục sẽ không bị rơi ra khi chết"
+        - "&eTrạng thái: &7Chưa trang bị"
         - ""
-        - "&aNhấp vào Bộ trang phục &a&lđể trang bị"
+        - "&f &aNhấp vào Bộ trang phục để trang bị"
     slots: "o"
+  extra-slot-outfit-all-equip:
+    item:
+      type: WHITE_STAINED_GLASS_PANE
+      amount: 1
+      display: "{item_display}"
+      lore:
+        - "{item_lore}"
+        - ""
+        - "&eTrạng thái: &aĐang trang bị"
+        - ""
+        - "&f &aNhấp trái để tháo trang bị"
   protect-dead:
     item:
       type: WHITE_STAINED_GLASS_PANE
       amount: 1
-      display: "&a&lBùa bảo vệ (Chưa trang bị)"
+      display: "&#E6E6E6&lÔ Bùa bảo vệ"
       lore:
         - ""
         - "&7&oCó tác dụng bảo vệ toàn bộ vật phẩm và"
@@ -191,30 +309,42 @@ items:
         - "&7Tự động kích hoạt và tiêu hao 1 Bùa bảo vệ"
         - "&7nếu có ít nhất một vật phẩm hoặc kinh nghiệm"
         - "&7trong kho đồ rơi ra khi chết"
+        - ""
+        - "&eTrạng thái: &7Chưa trang bị"
+        - ""
+        - "&f &aNhấp vào Bùa bảo vệ để trang bị"
     slots: "p"
   wings:
     item:
       type: WHITE_STAINED_GLASS_PANE
       amount: 1
-      display: "&a&lCánh (Chưa trang bị)"
+      display: "&#E6E6E6&lÔ Cánh (Chưa trang bị)"
       lore:
         - ""
-        - "&cVật phẩm sẽ bị rơi ra khi chết nếu"
-        - "&ckhông có Ngọc bảo vệ hoặc Bùa bảo vệ"
+        - "&eTrạng thái: &7Chưa trang bị"
         - ""
-        - "&aNhấp vào Áo giáp để trang bị"
+        - "&f⚠ &cCần sở hữu Trang phục có kèm cánh để trang bị"
     slots: "w"
-  wings-off:
+  wings-swap:
     item:
       type: WHITE_STAINED_GLASS_PANE
       amount: 1
-      display: "&a&lTắt Cánh"
+      lore:
+        - "{item_lore}"
+        - ""
+        - "&eTrạng thái: &aĐang trang bị"
+        - ""
+        - "&f &aNhấp phải để đổi trang phục"
+  wings-no-skin:
+    item:
+      type: WHITE_STAINED_GLASS_PANE
+      amount: 1
+      display: "&#E6E6E6&lÔ Cánh"
       lore:
         - ""
-        - "&cVật phẩm sẽ bị rơi ra khi chết nếu"
-        - "&ckhông có Ngọc bảo vệ hoặc Bùa bảo vệ"
+        - "&eTrạng thái: &7Chưa trang bị"
         - ""
-        - "&aNhấp vào Áo giáp để trang bị"
+        - "&f &aNhấp phải để trang bị cánh"
   player-info:
     item:
       type: PLAYER_HEAD
@@ -246,8 +376,10 @@ items:
         - "&e%customenchantment_custom_attribute_value_magic-resistance% &#7E30E1Kháng khống chế 🛡"
         - ""
         - "&6&lChỉ số khác:"
-        - "&e%customenchantment_custom_attribute_value_power% &#FFD700Lực chiến ⚔"
-        - "&e%customenchantment_custom_attribute_value_mining_power% &#FF8800Sức khai phá ⛏"
+        - "&e%customenchantment_custom_attribute_value_total-power% &#FFD700Tổng lực chiến ⚔"
+        - "&e%customenchantment_custom_attribute_value_atk-power% &#FFD700ATK Lực chiến ⚔"
+        - "&e%customenchantment_custom_attribute_value_def-power% &#FFD700DEF Lực chiến ⚔"
+        - "&e%customenchantment_custom_attribute_value_mining-power% &#FF8800Sức khai phá ⛏"
         - "&e%customenchantment_custom_attribute_value_vulnerability% &#f8312fTổn thương 💔"
       skull-owner: "%player_name%"
     slots: "i"
