@@ -1,0 +1,54 @@
+# Tinkerer Menu - Migrated to CustomMenu BafFramework format
+type: 'tinkerer'
+title: '&9&lBàn dung luyện'
+row: 6
+
+items:
+  # Border/separator items
+  border:
+    type: default
+    item:
+      type: WHITE_STAINED_GLASS_PANE
+      amount: 1
+      display: '&7'
+    slot: 4,13,22,31,40
+
+  # Accept/Confirm button (top corners)
+  accept:
+    type: accept  # Custom item type
+    item:
+      type: WHITE_STAINED_GLASS_PANE
+      amount: 1
+      display: '&a&lNhấp trái để dung luyện'
+    slot: 0,8
+
+  # Tinker slots (left side) - slots where players place items
+  tinker:
+    type: tinker  # Custom item type
+    item:
+      type: LIGHT_GRAY_STAINED_GLASS_PANE
+      amount: 1
+      display: '&7Ô chứa vật phẩm cần dung luyện'
+    slot: 1,2,3,9,10,11,12,18,19,20,21,27,28,29,30,36,37,38,39,45,46,47,48
+
+  # Reward preview slots (right side)
+  reward:
+    type: default
+    item:
+      type: LIGHT_GRAY_STAINED_GLASS_PANE
+      amount: 1
+      display: '&7Ô chứa vật phẩm đã dung luyện'
+    slot: 5,6,7,14,15,16,17,23,24,25,26,32,33,34,35,41,42,43,44,50,51,52,53
+
+  # Return/back button
+  return:
+    type: default
+    item:
+      type: GRAY_STAINED_GLASS_PANE
+      amount: 1
+      display: '&cTrở về'
+    slot: 49
+    condition:
+      - 'click-type:left'
+    execute:
+      - 'return-menu'

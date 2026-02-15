@@ -16,6 +16,9 @@ commands:
   tinkerer:
     description: Tinkerer CustomEnchantment item
     usage: /<command>
+  tinkerer-new:
+    description: Tinkerer CustomEnchantment item (new API)
+    usage: /<command>
   bookcraft:
     description: Craft CustomEnchantment book
     usage: /<command>

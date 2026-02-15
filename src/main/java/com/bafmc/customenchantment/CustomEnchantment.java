@@ -70,16 +70,21 @@ public class CustomEnchantment extends BafPlugin implements Listener {
 	}
 
 	public void registerModules() {
-		registerModule((this.featureModule = new FeatureModule(this)));
+		// Phase 1: Register all hooks and strategies BEFORE loading configs
+		registerModule((this.featureModule = new FeatureModule(this)));      // Registers Condition/Execute/Requirement hooks
+		registerModule((this.enchantModule = new EnchantModule(this)));      // Registers EffectHook implementations
+		registerModule((this.attributeModule = new AttributeModule(this))); // Registers attribute-related hooks
+		registerModule((this.filterModule = new FilterModule(this)));       // Registers filter strategies
+		registerModule((this.executeModule = new ExecuteModule(this)));     // Registers execute hooks
+
+		// Phase 2: Load all configurations (requires hooks from Phase 1)
+		registerModule((this.configModule = new ConfigModule(this)));
+
+		// Phase 3: Register modules that depend on loaded configs
 		registerModule((this.customMenuModule = new CustomMenuModule(this)));
-		registerModule((this.attributeModule = new AttributeModule(this)));
-		registerModule((this.filterModule = new FilterModule(this)));
 		registerModule((this.commandModule = new CommandModule(this)));
 		registerModule((this.itemModule = new ItemModule(this)));
 		registerModule((this.playerModule = new PlayerModule(this)));
-		registerModule((this.executeModule = new ExecuteModule(this)));
-		registerModule((this.enchantModule = new EnchantModule(this)));
-		registerModule((this.configModule = new ConfigModule(this)));
 		registerModule((this.taskModule = new TaskModule(this)));
 		registerModule((this.guardModule = new GuardModule(this)));
 		registerModule((this.databaseModule = new DatabaseModule(this)));

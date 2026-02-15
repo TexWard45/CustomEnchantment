@@ -5,6 +5,7 @@ import com.bafmc.bukkit.command.AdvancedCommandExecutor;
 import com.bafmc.bukkit.command.Argument;
 import com.bafmc.bukkit.module.PluginModule;
 import com.bafmc.customenchantment.CustomEnchantment;
+import com.bafmc.customenchantment.command.TinkererCommand;
 import com.bafmc.customenchantment.menu.artifactupgrade.ArtifactUpgradeMenu;
 import com.bafmc.customenchantment.menu.bookcraft.BookCraftMenu;
 import com.bafmc.customenchantment.menu.bookupgrade.BookUpgradeMenu;
@@ -64,6 +65,7 @@ public class CommandModule extends PluginModule<CustomEnchantment> {
         }).end();
         artifactUpgradeBuilder.build();
 
+        // OLD: Legacy tinkerer command (kept for compatibility during migration)
         AdvancedCommandBuilder tinkererBuilder = AdvancedCommandBuilder.builder().plugin(getPlugin()).rootCommand("tinkerer");
         tinkererBuilder.commandExecutor(new AdvancedCommandExecutor() {
             public boolean onCommand(CommandSender sender, Argument arg) {
@@ -76,6 +78,15 @@ public class CommandModule extends PluginModule<CustomEnchantment> {
             }
         }).end();
         tinkererBuilder.build();
+
+        // NEW: Migrated tinkerer command using new CustomMenu BafFramework API
+        getPlugin().getLogger().info("[CommandModule] Registering /tinkerer-new command...");
+        AdvancedCommandBuilder tinkererNewBuilder = AdvancedCommandBuilder.builder()
+                .plugin(getPlugin())
+                .rootCommand("tinkerer-new");
+        tinkererNewBuilder.commandExecutor(new TinkererCommand(getPlugin())).end();
+        tinkererNewBuilder.build();
+        getPlugin().getLogger().info("[CommandModule] /tinkerer-new command registered successfully");
 
         AdvancedCommandBuilder anvilBuilder = AdvancedCommandBuilder.builder().plugin(getPlugin()).rootCommand("ceanvil");
         anvilBuilder.commandExecutor(new AdvancedCommandExecutor() {
