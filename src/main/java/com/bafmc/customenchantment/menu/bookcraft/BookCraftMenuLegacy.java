@@ -18,25 +18,25 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-public class BookCraftMenu extends MenuAbstract {
+public class BookCraftMenuLegacy extends MenuAbstract {
     public static final String MENU_NAME = "book-craft";
-    private static HashMap<String, BookCraftMenu> map = new HashMap<String, BookCraftMenu>();
+    private static HashMap<String, BookCraftMenuLegacy> map = new HashMap<String, BookCraftMenuLegacy>();
 
-    public static BookCraftMenu putBookCraftMenu(Player player, CMenuView cMenuView) {
-        BookCraftMenu menu = map.get(player.getName());
+    public static BookCraftMenuLegacy putBookCraftMenuLegacy(Player player, CMenuView cMenuView) {
+        BookCraftMenuLegacy menu = map.get(player.getName());
 
         if (menu == null) {
-            menu = new BookCraftMenu(cMenuView, player);
+            menu = new BookCraftMenuLegacy(cMenuView, player);
             map.put(player.getName(), menu);
         }
         return menu;
     }
 
-    public static BookCraftMenu getBookCraftMenu(Player player) {
+    public static BookCraftMenuLegacy getBookCraftMenuLegacy(Player player) {
         return map.get(player.getName());
     }
 
-    public static BookCraftMenu removeBookCraftMenu(Player player) {
+    public static BookCraftMenuLegacy removeBookCraftMenuLegacy(Player player) {
         return map.remove(player.getName());
     }
 
@@ -50,12 +50,13 @@ public class BookCraftMenu extends MenuAbstract {
 
     @Getter
     private List<BookData> list = new ArrayList<BookData>();
-    private FastCraft fastCraft;
+    // FastCraft disabled in legacy menu - use BookCraftCustomMenu for FastCraft support
+    // private FastCraft fastCraft;
 
-    public BookCraftMenu(CMenuView menuView, Player player) {
+    public BookCraftMenuLegacy(CMenuView menuView, Player player) {
         super(menuView, player);
 
-        this.fastCraft = new FastCraft(this);
+        // this.fastCraft = new FastCraft(this);
     }
 
     public BookAddReason addBook(ItemStack itemStack, CEEnchantSimple ceEnchantSimple) {
@@ -170,11 +171,12 @@ public class BookCraftMenu extends MenuAbstract {
 
     public BookcraftConfirmReason confirmUpgrade() {
         if (list.size() < 2) {
-            if(this.list.size() == 1 && fastCraft.getBookHighLevel() != null) {
-                return fastCraft.confirmUpgradeFastCraft();
-            } else {
+            // FastCraft disabled in legacy menu
+            // if(this.list.size() == 1 && fastCraft.getBookHighLevel() != null) {
+            //     return fastCraft.confirmUpgradeFastCraft();
+            // } else {
                 return BookcraftConfirmReason.NOT_ENOUGH_BOOK;
-            }
+            // }
         }
 
         String groupName = list.get(0).getCESimple().getCEEnchant().getGroupName();
@@ -205,7 +207,8 @@ public class BookCraftMenu extends MenuAbstract {
     }
 
     public void fastCraft(Player player) {
-        this.fastCraft.fastCraft(player);
+        // FastCraft disabled in legacy menu - use BookCraftCustomMenu for FastCraft support
+        // this.fastCraft.fastCraft(player);
     }
 
     public Player getPlayer() {

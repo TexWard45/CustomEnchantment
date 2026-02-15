@@ -381,6 +381,13 @@ public void handleClose() {
 - [ ] Implement `onReload()` to load YAML files
 - [ ] Use custom folder (e.g., `menu-new`) to avoid loading legacy menus
 
+### Command Registration
+
+- [ ] Create command class implementing `AdvancedCommandExecutor`
+- [ ] Register command in `CommandModule.onEnable()`
+- [ ] **IMPORTANT: Add command to `plugin.yml`** (e.g., `bookcraft-new`)
+- [ ] Initialize settings in config module (call `initializeSettings()`)
+
 ### Menu Class
 
 - [ ] Extend `AbstractMenu<MenuData, ExtraData>`

@@ -18,17 +18,17 @@ import org.bukkit.inventory.ItemStack;
 public class BookCraftMenuListener extends MenuListenerAbstract {
     @Override
     public String getMenuName() {
-        return BookCraftMenu.MENU_NAME;
+        return BookCraftMenuLegacy.MENU_NAME;
     }
 
     @Override
     public void onMenuOpen(CustomMenuOpenEvent e) {
-        BookCraftMenu.putBookCraftMenu(e.getCPlayer().getPlayer(), e.getCMenuView());
+        BookCraftMenuLegacy.putBookCraftMenuLegacy(e.getCPlayer().getPlayer(), e.getCMenuView());
     }
 
     @Override
     public void onMenuClose(CustomMenuCloseEvent e) {
-        BookCraftMenu.removeBookCraftMenu(e.getCPlayer().getPlayer()).returnItems();
+        BookCraftMenuLegacy.removeBookCraftMenuLegacy(e.getCPlayer().getPlayer()).returnItems();
     }
 
     @Override
@@ -36,11 +36,11 @@ public class BookCraftMenuListener extends MenuListenerAbstract {
         Player player = e.getCPlayer().getPlayer();
         String name = e.getClickedCItem().getName();
 
-        BookCraftMenu bookCraftMenu = BookCraftMenu.getBookCraftMenu(player);
+        BookCraftMenuLegacy bookCraftMenu = BookCraftMenuLegacy.getBookCraftMenuLegacy(player);
         if (name.equals("book1") || name.equals("book2")) {
             bookCraftMenu.returnBook(e.getClickedCItem().getName());
         } else if (name.equals("remind")) {
-            BookCraftMenu.BookcraftConfirmReason reason = bookCraftMenu.confirmUpgrade();
+            BookCraftMenuLegacy.BookcraftConfirmReason reason = bookCraftMenu.confirmUpgrade();
             CustomEnchantmentMessage.send(player, "menu.bookcraft.confirm." + EnumUtils.toConfigStyle(reason));
         }
     }
@@ -60,10 +60,10 @@ public class BookCraftMenuListener extends MenuListenerAbstract {
             return;
         }
 
-        BookCraftMenu bookCraftMenu = BookCraftMenu.getBookCraftMenu(player);
-        BookCraftMenu.BookAddReason reason = bookCraftMenu.addBook(clickedItem, ((CEBook) ceItem).getData().getCESimple());
+        BookCraftMenuLegacy bookCraftMenu = BookCraftMenuLegacy.getBookCraftMenuLegacy(player);
+        BookCraftMenuLegacy.BookAddReason reason = bookCraftMenu.addBook(clickedItem, ((CEBook) ceItem).getData().getCESimple());
 
-        if (reason == BookCraftMenu.BookAddReason.SUCCESS) {
+        if (reason == BookCraftMenuLegacy.BookAddReason.SUCCESS) {
             e.setCurrentItem(null);
         }
 

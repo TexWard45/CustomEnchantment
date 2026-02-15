@@ -6,8 +6,9 @@ import com.bafmc.bukkit.command.Argument;
 import com.bafmc.bukkit.module.PluginModule;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.command.TinkererCommand;
+import com.bafmc.customenchantment.command.BookCraftCommand;
 import com.bafmc.customenchantment.menu.artifactupgrade.ArtifactUpgradeMenu;
-import com.bafmc.customenchantment.menu.bookcraft.BookCraftMenu;
+import com.bafmc.customenchantment.menu.bookcraft.BookCraftMenuLegacy;
 import com.bafmc.customenchantment.menu.bookupgrade.BookUpgradeMenu;
 import com.bafmc.custommenu.api.CustomMenuAPI;
 import org.bukkit.command.CommandSender;
@@ -33,7 +34,7 @@ public class CommandModule extends PluginModule<CustomEnchantment> {
                     return true;
                 }
                 Player player = (Player) sender;
-                CustomMenuAPI.getCPlayer(player).openCustomMenu(BookCraftMenu.MENU_NAME, true);
+                CustomMenuAPI.getCPlayer(player).openCustomMenu(BookCraftMenuLegacy.MENU_NAME, true);
                 return true;
             }
         }).end();
@@ -87,6 +88,15 @@ public class CommandModule extends PluginModule<CustomEnchantment> {
         tinkererNewBuilder.commandExecutor(new TinkererCommand(getPlugin())).end();
         tinkererNewBuilder.build();
         getPlugin().getLogger().info("[CommandModule] /tinkerer-new command registered successfully");
+
+        // NEW: Migrated bookcraft command using new CustomMenu BafFramework API
+        getPlugin().getLogger().info("[CommandModule] Registering /bookcraft-new command...");
+        AdvancedCommandBuilder bookcraftNewBuilder = AdvancedCommandBuilder.builder()
+                .plugin(getPlugin())
+                .rootCommand("bookcraft-new");
+        bookcraftNewBuilder.commandExecutor(new BookCraftCommand(getPlugin())).end();
+        bookcraftNewBuilder.build();
+        getPlugin().getLogger().info("[CommandModule] /bookcraft-new command registered successfully");
 
         AdvancedCommandBuilder anvilBuilder = AdvancedCommandBuilder.builder().plugin(getPlugin()).rootCommand("ceanvil");
         anvilBuilder.commandExecutor(new AdvancedCommandExecutor() {

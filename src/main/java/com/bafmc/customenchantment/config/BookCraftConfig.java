@@ -1,13 +1,20 @@
 package com.bafmc.customenchantment.config;
 
 import com.bafmc.bukkit.api.EconomyAPI;
+import com.bafmc.bukkit.config.AdvancedFileConfiguration;
 import com.bafmc.bukkit.config.annotation.Configuration;
 import com.bafmc.bukkit.config.annotation.Path;
 import com.bafmc.bukkit.config.annotation.ValueType;
+import com.bafmc.bukkit.utils.StringUtils;
+import com.bafmc.customenchantment.CustomEnchantment;
+import com.bafmc.customenchantment.menu.bookcraft.BookCraftCustomMenu;
+import com.bafmc.customenchantment.menu.bookcraft.BookCraftMenuLegacy;
+import com.bafmc.customenchantment.menu.bookcraft.BookCraftSettings;
 import lombok.Getter;
 import org.bukkit.entity.Player;
 
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 @Configuration
@@ -44,5 +51,25 @@ public class BookCraftConfig {
 		}
 		EconomyAPI.takeMoney(player, getMoneyRequire(groupName)*amount);
 		return true;
+	}
+
+	/**
+	 * Initialize BookCraft settings for both legacy and new CustomMenu API
+	 * Loads slot configuration from book-craft.yml
+	 */
+	public void initializeSettings() {
+		// Load slot positions from config (similar to TinkererConfig)
+		AdvancedFileConfiguration config = new AdvancedFileConfiguration(CustomEnchantment.instance().getBookCraftFile());
+		List<Integer> bookSlots = StringUtils.getIntList(config.getString("book-slots"), ",", "-");
+		int previewSlot = config.getInt("preview-slot", 22);
+		int acceptSlot = config.getInt("accept-slot", 31);
+
+		BookCraftSettings settings = new BookCraftSettings(bookSlots, previewSlot, acceptSlot);
+
+		// Legacy menu (disabled FastCraft)
+		// BookCraftMenuLegacy doesn't need settings currently
+
+		// NEW: Set settings for new CustomMenu API
+		BookCraftCustomMenu.setSettings(settings);
 	}
 }

@@ -23,6 +23,9 @@ commands:
     description: Craft CustomEnchantment book
     usage: /<command>
     aliases: [bookc, cecraft]
+  bookcraft-new:
+    description: Craft CustomEnchantment book (new API)
+    usage: /<command>
   bookupgrade:
     description: Craft CustomEnchantment book
     usage: /<command>

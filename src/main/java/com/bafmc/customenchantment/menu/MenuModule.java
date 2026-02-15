@@ -7,6 +7,7 @@ import com.bafmc.bukkit.module.PluginModule;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.item.CEItemType;
 import com.bafmc.customenchantment.listener.CMenuListener;
+import com.bafmc.customenchantment.menu.bookcraft.BookCraftCustomMenu;
 import com.bafmc.customenchantment.menu.tinkerer.TinkererCustomMenu;
 import com.bafmc.customenchantment.menu.anvil.*;
 import com.bafmc.customenchantment.menu.artifactupgrade.ArtifactUpgradeMenuListener;
@@ -86,8 +87,12 @@ public class MenuModule extends PluginModule<CustomEnchantment> {
             getPlugin().getLogger().info("[MenuModule] Registering TinkererCustomMenu with MenuRegister...");
             MenuRegister.instance().registerStrategy(TinkererCustomMenu.class);
             getPlugin().getLogger().info("[MenuModule] TinkererCustomMenu registered successfully");
+
+            getPlugin().getLogger().info("[MenuModule] Registering BookCraftCustomMenu with MenuRegister...");
+            MenuRegister.instance().registerStrategy(BookCraftCustomMenu.class);
+            getPlugin().getLogger().info("[MenuModule] BookCraftCustomMenu registered successfully");
         } catch (Exception e) {
-            getPlugin().getLogger().severe("[MenuModule] Failed to register TinkererCustomMenu: " + e.getMessage());
+            getPlugin().getLogger().severe("[MenuModule] Failed to register menus: " + e.getMessage());
             e.printStackTrace();
         }
     }

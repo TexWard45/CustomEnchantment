@@ -8,7 +8,6 @@ import com.bafmc.customenchantment.enchant.CEEnchantSimple;
 import com.bafmc.customenchantment.item.book.CEBook;
 import com.bafmc.customenchantment.item.CEItem;
 import com.bafmc.customenchantment.menu.data.BookData;
-import com.bafmc.custommenu.menu.CItem;
 import com.bafmc.bukkit.utils.InventoryUtils;
 import com.bafmc.bukkit.utils.ItemStackUtils;
 import org.bukkit.entity.Player;
@@ -28,9 +27,9 @@ public class FastCraft {
     private int minLevel, maxLevel, pos;
     private Player player;
     //
-    private BookCraftMenu bookcraftMenu;
+    private BookCraftCustomMenu bookcraftMenu;
 
-    public FastCraft(BookCraftMenu bookcraftMenu) {
+    public FastCraft(BookCraftCustomMenu bookcraftMenu) {
         this.bookcraftMenu = bookcraftMenu;
     }
 
@@ -61,7 +60,7 @@ public class FastCraft {
             return;
         }
 
-        Player player = bookcraftMenu.getPlayer();
+        Player player = bookcraftMenu.getOwner();
 
         if(!this.demoBook.get(level).isEmpty()){
             for(int i = 0 ; i < this.usedBook.get(level).size() ; ++i){
@@ -83,17 +82,17 @@ public class FastCraft {
         }
     }
 
-    public BookCraftMenu.BookcraftConfirmReason confirmUpgradeFastCraft() {
-        Player player = bookcraftMenu.getPlayer();
+    public BookCraftExtraData.BookConfirmReason confirmUpgradeFastCraft() {
+        Player player = bookcraftMenu.getOwner();
         List<BookData> list = bookcraftMenu.getList();
         String groupName = list.get(0).getCESimple().getCEEnchant().getGroupName();
 
         if (!CustomEnchantment.instance().getBookCraftConfig().payMoney(player, groupName, (double)(this.cntBook.get(this.pos)))) {
-            return BookCraftMenu.BookcraftConfirmReason.NOT_ENOUGH_MONEY;
+            return BookCraftExtraData.BookConfirmReason.NOT_ENOUGH_MONEY;
         }
 
         //Return CE in book1-slot and update menu
-        bookcraftMenu.returnBook(0);
+        bookcraftMenu.returnBook(BookCraftCustomMenu.getSettings().getBookSlot(0));
         bookcraftMenu.updateMenu();
 
         //Remove CE-used
@@ -110,7 +109,7 @@ public class FastCraft {
         this.bookHighLevel = null;
         this.cntBook.clear();
 
-        return BookCraftMenu.BookcraftConfirmReason.SUCCESS;
+        return BookCraftExtraData.BookConfirmReason.SUCCESS;
     }
 
     private BookData upgradeBookData(BookData book1, BookData book2){
@@ -353,19 +352,21 @@ public class FastCraft {
                 bookcraftMenu.updateSlots("preview", CEAPI.getCEBookItemStack(this.bookHighLevel.getCESimple()));
 
                 //Update price to upgrade CE in accept-slot
-                CItem cItem = bookcraftMenu.getMenuView().getCMenu().getMenuItem().getCItemByName("accept");
-
-                if (cItem == null) {
-                    return;
-                }
-
-                ItemStack itemStack = cItem.getItemStack(player);
-
                 String groupName = bookcraftMenu.getList().get(0).getCESimple().getCEEnchant().getGroupName();
+                double moneyRequired = CustomEnchantment.instance().getBookCraftConfig().getMoneyRequire(groupName) * (double)(this.cntBook.get(this.pos));
+
+                // Update accept button with money placeholder
                 HashMap<String, String> placeholder = new HashMap<String, String>();
-                placeholder.put("%money%", String.valueOf(CustomEnchantment.instance().getBookCraftConfig().getMoneyRequire(groupName)*(double)(this.cntBook.get(this.pos))));
-                itemStack = ItemStackUtils.setItemStack(itemStack, placeholder);
-                bookcraftMenu.updateSlots("accept", itemStack);
+                placeholder.put("%money%", String.valueOf(moneyRequired));
+
+                // Get accept button from inventory
+                int acceptSlot = BookCraftCustomMenu.getSettings().getAcceptSlot();
+                ItemStack acceptItem = bookcraftMenu.getInventory().getItem(acceptSlot);
+
+                if (acceptItem != null && !acceptItem.getType().isAir()) {
+                    acceptItem = ItemStackUtils.setItemStack(acceptItem, placeholder);
+                    bookcraftMenu.updateSlots("accept", acceptItem);
+                }
             }
         } else {
             this.array.clear();
