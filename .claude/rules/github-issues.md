@@ -151,6 +151,287 @@ Use the appropriate template from `.github/ISSUE_TEMPLATE/`:
 - `Relates to #123` - Connected but doesn't close
 - `Blocked by #123` - Dependency
 - `Supersedes #123` - Replaces old issue
+- `Parent: #123` - This is a child issue of a larger feature
+- `Phase 1: #123, Phase 2: #124` - Links to sibling phases
+
+---
+
+## Parent/Child Issues (Phased Implementation)
+
+### When to Use Parent/Child Structure
+
+Use when a feature has **multiple implementation phases** or is too large for a single issue.
+
+**Examples:**
+- Multi-phase migrations (Phase 1: Basic, Phase 2: Advanced, Phase 3: Optimization)
+- Large features broken into components
+- Epic-level features with multiple sub-tasks
+
+### Parent Issue Requirements
+
+**Parent issues MUST include:**
+
+```markdown
+## Overview
+[High-level description of the entire feature]
+
+## Phases
+
+### Phase 1: [Name] (#<issue-number>)
+- **Goal:** [What this phase achieves]
+- **Deliverables:** [Key outputs]
+- **Status:** ✅ Completed / 🚧 In Progress / ⏳ Pending
+
+### Phase 2: [Name] (#<issue-number>)
+- **Goal:** [What this phase achieves]
+- **Deliverables:** [Key outputs]
+- **Depends on:** Phase 1
+- **Status:** ✅ Completed / 🚧 In Progress / ⏳ Pending
+
+### Phase 3: [Name] (#<issue-number>)
+- **Goal:** [What this phase achieves]
+- **Deliverables:** [Key outputs]
+- **Depends on:** Phase 2
+- **Status:** ⏳ Pending
+
+## Documentation
+
+Each phase MUST create documentation in:
+`.claude/docs/issues/<issue-number>/`
+
+See: [Phased Implementation Rule](.claude/rules/phased-implementation.md)
+
+## Success Criteria
+- [ ] All phases completed
+- [ ] Each phase documented
+- [ ] Lessons documented for future work
+```
+
+### Child Issue Requirements
+
+**Each child issue (phase) MUST include:**
+
+```markdown
+## Parent Issue
+**Parent:** #<parent-issue-number> - [Parent Feature Name]
+
+## Phase Information
+**Current Phase:** Phase N of M
+**Previous Phases:**
+- Phase 1 (#<issue-number>): [Name] - ✅ Completed
+- Phase 2 (#<issue-number>): [Name] - ✅ Completed
+
+**Next Phases:**
+- Phase N+1 (#<issue-number>): [Name] - ⏳ Pending
+
+## Lessons Applied from Previous Phases
+
+From Phase 1 (#<issue-number>):
+- ✅ Applied: [Pattern/lesson]
+- ✅ Avoided: [Pitfall]
+
+From Phase 2 (#<issue-number>):
+- ✅ Applied: [Pattern/lesson]
+- ✅ Avoided: [Pitfall]
+
+See: `.claude/docs/issues/<prev-issue-number>/`
+
+## New Lessons for Future Phases
+
+Document here what Phase N+1 should know:
+- Pattern: [New pattern discovered]
+- Pitfall: [Mistake to avoid]
+- Process: [Process improvement]
+
+Will be documented in: `.claude/docs/issues/<current-issue-number>/`
+
+## Tasks
+- [ ] Read previous phase documentation
+- [ ] Apply lessons from previous phases
+- [ ] [Implementation tasks...]
+- [ ] Document lessons for next phase
+- [ ] Update parent issue status
+```
+
+### Example: Multi-Phase Feature
+
+#### Parent Issue (#25: CustomMenu Migration)
+
+```markdown
+## Summary
+Migrate all menus from legacy CustomMenu API to BafFramework CustomMenu.
+
+## Phases
+
+### Phase 1: Basic Menu Migration (#28)
+- **Goal:** Migrate simple menus and establish patterns
+- **Deliverables:**
+  - 3 simple menus migrated
+  - BafFramework patterns documented
+  - Migration guide created
+- **Status:** ✅ Completed (2024-01-15)
+
+### Phase 2: BookCraft Menu + FastCraft (#30)
+- **Goal:** Migrate complex menu with multi-mode feature
+- **Deliverables:**
+  - BookCraft menu migrated
+  - FastCraft feature implemented
+  - Edge cases tested
+- **Depends on:** Phase 1 (patterns established)
+- **Status:** ✅ Completed (2024-02-15)
+
+### Phase 3: Shop & Trade Menus (#32)
+- **Goal:** Apply lessons to remaining menus
+- **Deliverables:**
+  - Shop menu migrated
+  - Trade menu migrated
+  - Performance optimization
+- **Depends on:** Phase 2 (multi-mode patterns)
+- **Status:** 🚧 In Progress
+
+### Phase 4: Performance & Polish (#35)
+- **Goal:** Optimize all menus and finalize migration
+- **Deliverables:**
+  - Performance testing
+  - Final cleanup
+  - Complete documentation
+- **Depends on:** Phase 3 (all menus migrated)
+- **Status:** ⏳ Pending
+
+## Documentation
+Each phase documented in `.claude/docs/issues/<phase-number>/`
+
+## Success Criteria
+- [ ] All menus migrated to BafFramework
+- [ ] Performance equal or better than legacy
+- [ ] Complete test coverage
+- [ ] Documentation for future maintenance
+```
+
+#### Child Issue (#30: Phase 2 - BookCraft)
+
+```markdown
+## Parent Issue
+**Parent:** #25 - CustomMenu Migration
+
+## Phase Information
+**Current Phase:** Phase 2 of 4
+
+**Previous Phases:**
+- Phase 1 (#28): Basic Menu Migration - ✅ Completed
+
+**Next Phases:**
+- Phase 3 (#32): Shop & Trade Menus - ⏳ Pending
+
+## Lessons Applied from Phase 1
+
+From Phase 1 (#28 - see `.claude/docs/issues/28/`):
+- ✅ Applied: ItemData pattern for YAML integration
+- ✅ Applied: MenuData/ExtraData separation
+- ✅ Applied: AbstractItem pattern for click handlers
+- ✅ Avoided: Manual slot management (use Settings class)
+
+## Implementation
+
+[Standard issue content: Summary, Problem, Solution, Tasks...]
+
+## New Lessons for Phase 3
+
+**Document for Phase 3 (#32):**
+
+1. **Multi-Mode Features**
+   - Pattern: Mode Router with state cleanup
+   - Pitfall: Document all modes BEFORE coding
+   - See: `.claude/docs/issues/30/LESSONS_FOR_NEXT_PHASE.md`
+
+2. **Resource Operations**
+   - Pattern: Before/after verification
+   - Pitfall: Distinguish created vs original leftovers
+   - See: `.claude/docs/issues/30/ENGINEERING_LESSONS.md`
+
+3. **Testing**
+   - Pattern: Test state transitions, not just states
+   - Coverage: 8 edge cases for FastCraft
+   - See: `.claude/docs/issues/30/FASTCRAFT_EDGE_CASES.md`
+
+**Expected Improvement:**
+- Phase 1: 3 iterations (learning)
+- Phase 2: 7 iterations (complex, new patterns)
+- Phase 3: 2 iterations (applying lessons) ← GOAL
+
+## Documentation
+Will be created in: `.claude/docs/issues/30/`
+
+## Tasks
+- [x] Read Phase 1 documentation
+- [x] Apply ItemData pattern
+- [ ] Implement BookCraft menu
+- [ ] Implement FastCraft feature
+- [ ] Test all edge cases
+- [ ] Document lessons for Phase 3
+- [ ] Update parent issue (#25) status
+```
+
+### Labels for Phased Issues
+
+**Parent issues:**
+- `epic` or `parent-issue`
+- `effort:XL`
+- `multi-phase`
+
+**Child issues:**
+- `phase-1`, `phase-2`, etc.
+- Individual effort label
+- `child-issue`
+
+### Navigating Phase Hierarchy
+
+**From parent issue:**
+```markdown
+- Phase 1: #28
+- Phase 2: #30
+- Phase 3: #32
+```
+
+**From child issue:**
+```markdown
+Parent: #25
+Previous: #28 (Phase 1)
+Current: #30 (Phase 2)
+Next: #32 (Phase 3)
+```
+
+**In commits:**
+```
+feat: Implement BookCraft menu
+
+Parent: #25 (CustomMenu Migration)
+Phase: 2 of 4 (#30)
+Previous: #28 (Basic patterns established)
+
+Applied from Phase 1:
+- ItemData pattern
+- MenuData/ExtraData separation
+
+See: .claude/docs/issues/28/
+```
+
+### Closing Parent Issues
+
+**Only close parent when ALL child issues are complete:**
+
+```markdown
+## Status Update - 2024-02-15
+
+- [x] Phase 1 (#28): Basic Migration ✅
+- [x] Phase 2 (#30): BookCraft + FastCraft ✅
+- [x] Phase 3 (#32): Shop & Trade ✅
+- [x] Phase 4 (#35): Performance & Polish ✅
+
+All phases complete. Closing parent issue.
+
+Final documentation: `.claude/docs/issues/25/`
+```
 
 ---
 
