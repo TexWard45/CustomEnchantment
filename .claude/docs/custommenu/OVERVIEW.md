@@ -207,3 +207,6 @@ MenuRegister.instance().registerStrategy(ShopMenu.class);
 - [Commands](COMMANDS.md) - Admin commands
 - [Creating Menus Tutorial](TUTORIAL_MENUS.md)
 - [Creating Items Tutorial](TUTORIAL_ITEMS.md)
+- [Advanced Patterns](ADVANCED_PATTERNS.md) - Handler strategy, template items, state machines, paginated lists
+- [Migration Guide](MIGRATION_GUIDE.md) - Migrating from legacy CustomMenu to BafFramework
+- [FastCraft Refactoring](FASTCRAFT_REFACTORING.md) - FastCraft mode implementation patterns

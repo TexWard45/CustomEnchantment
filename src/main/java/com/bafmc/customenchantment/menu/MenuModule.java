@@ -8,6 +8,20 @@ import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.item.CEItemType;
 import com.bafmc.customenchantment.listener.CMenuListener;
 import com.bafmc.customenchantment.menu.bookcraft.BookCraftCustomMenu;
+import com.bafmc.customenchantment.menu.ceanvil.CEAnvilCustomMenu;
+import com.bafmc.customenchantment.menu.ceanvil.handler.BookHandler;
+import com.bafmc.customenchantment.menu.ceanvil.handler.DefaultHandler;
+import com.bafmc.customenchantment.menu.ceanvil.handler.EnchantPointHandler;
+import com.bafmc.customenchantment.menu.ceanvil.handler.GemHandler;
+import com.bafmc.customenchantment.menu.ceanvil.handler.GemDrillHandler;
+import com.bafmc.customenchantment.menu.ceanvil.handler.ProtectDeadHandler;
+import com.bafmc.customenchantment.menu.ceanvil.handler.ProtectDestroyHandler;
+import com.bafmc.customenchantment.menu.ceanvil.handler.LoreFormatHandler;
+import com.bafmc.customenchantment.menu.ceanvil.handler.EraseEnchantHandler;
+import com.bafmc.customenchantment.menu.ceanvil.handler.RemoveEnchantHandler;
+import com.bafmc.customenchantment.menu.ceanvil.handler.RemoveEnchantPointHandler;
+import com.bafmc.customenchantment.menu.ceanvil.handler.RemoveGemHandler;
+import com.bafmc.customenchantment.menu.ceanvil.handler.RemoveProtectDeadHandler;
 import com.bafmc.customenchantment.menu.tinkerer.TinkererCustomMenu;
 import com.bafmc.customenchantment.menu.anvil.*;
 import com.bafmc.customenchantment.menu.artifactupgrade.ArtifactUpgradeMenuListener;
@@ -91,10 +105,30 @@ public class MenuModule extends PluginModule<CustomEnchantment> {
             getPlugin().getLogger().info("[MenuModule] Registering BookCraftCustomMenu with MenuRegister...");
             MenuRegister.instance().registerStrategy(BookCraftCustomMenu.class);
             getPlugin().getLogger().info("[MenuModule] BookCraftCustomMenu registered successfully");
+
+            getPlugin().getLogger().info("[MenuModule] Registering CEAnvilCustomMenu with MenuRegister...");
+            MenuRegister.instance().registerStrategy(CEAnvilCustomMenu.class);
+            registerCEAnvilHandlers();
+            getPlugin().getLogger().info("[MenuModule] CEAnvilCustomMenu registered successfully");
         } catch (Exception e) {
             getPlugin().getLogger().severe("[MenuModule] Failed to register menus: " + e.getMessage());
             e.printStackTrace();
         }
+    }
+
+    private void registerCEAnvilHandlers() {
+        CEAnvilCustomMenu.registerHandler(CEItemType.BOOK, BookHandler::new);
+        CEAnvilCustomMenu.registerHandler(CEItemType.ENCHANT_POINT, EnchantPointHandler::new);
+        CEAnvilCustomMenu.registerHandler(CEItemType.GEM, GemHandler::new);
+        CEAnvilCustomMenu.registerHandler(CEItemType.GEM_DRILL, GemDrillHandler::new);
+        CEAnvilCustomMenu.registerHandler(CEItemType.PROTECT_DEAD, ProtectDeadHandler::new);
+        CEAnvilCustomMenu.registerHandler(CEItemType.PROTECT_DESTROY, ProtectDestroyHandler::new);
+        CEAnvilCustomMenu.registerHandler(CEItemType.LORE_FORMAT, LoreFormatHandler::new);
+        CEAnvilCustomMenu.registerHandler(CEItemType.EARSE_ENCHANT, EraseEnchantHandler::new);
+        CEAnvilCustomMenu.registerHandler(CEItemType.REMOVE_ENCHANT, RemoveEnchantHandler::new);
+        CEAnvilCustomMenu.registerHandler(CEItemType.REMOVE_ENCHANT_POINT, RemoveEnchantPointHandler::new);
+        CEAnvilCustomMenu.registerHandler(CEItemType.REMOVE_GEM, RemoveGemHandler::new);
+        CEAnvilCustomMenu.registerHandler(CEItemType.REMOVE_PROTECT_DEAD, RemoveProtectDeadHandler::new);
     }
 
     @Override

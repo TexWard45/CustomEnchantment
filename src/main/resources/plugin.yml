@@ -33,6 +33,9 @@ commands:
   ceanvil:
     description: Anvil CustomEnchantment item
     usage: /<command>
+  ceanvil-new:
+    description: Anvil CustomEnchantment item (new API)
+    usage: /<command>
   nametag:
     description: Nametag for CustomEnchantment item
     usage: /<command>

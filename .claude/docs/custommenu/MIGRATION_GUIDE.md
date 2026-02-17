@@ -636,3 +636,4 @@ For more details, see:
 - [MENU_SYSTEM.md](MENU_SYSTEM.md) - Core menu system
 - [MENU_ITEMS.md](MENU_ITEMS.md) - Custom item types
 - [CONFIGURATION.md](CONFIGURATION.md) - YAML format reference
+- [ADVANCED_PATTERNS.md](ADVANCED_PATTERNS.md) - Handler strategy, template items, state machines, paginated lists (for complex menus like CE Anvil)

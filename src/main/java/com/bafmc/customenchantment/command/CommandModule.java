@@ -98,6 +98,15 @@ public class CommandModule extends PluginModule<CustomEnchantment> {
         bookcraftNewBuilder.build();
         getPlugin().getLogger().info("[CommandModule] /bookcraft-new command registered successfully");
 
+        // NEW: Migrated ceanvil command using new CustomMenu BafFramework API
+        getPlugin().getLogger().info("[CommandModule] Registering /ceanvil-new command...");
+        AdvancedCommandBuilder ceanvilNewBuilder = AdvancedCommandBuilder.builder()
+                .plugin(getPlugin())
+                .rootCommand("ceanvil-new");
+        ceanvilNewBuilder.commandExecutor(new CEAnvilCommand(getPlugin())).end();
+        ceanvilNewBuilder.build();
+        getPlugin().getLogger().info("[CommandModule] /ceanvil-new command registered successfully");
+
         AdvancedCommandBuilder anvilBuilder = AdvancedCommandBuilder.builder().plugin(getPlugin()).rootCommand("ceanvil");
         anvilBuilder.commandExecutor(new AdvancedCommandExecutor() {
             public boolean onCommand(CommandSender sender, Argument arg) {
