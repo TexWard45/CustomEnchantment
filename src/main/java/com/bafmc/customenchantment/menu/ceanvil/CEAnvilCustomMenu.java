@@ -2,11 +2,8 @@ package com.bafmc.customenchantment.menu.ceanvil;
 
 import com.bafmc.bukkit.bafframework.custommenu.menu.AbstractMenu;
 import com.bafmc.bukkit.bafframework.custommenu.menu.data.ClickData;
-import com.bafmc.bukkit.bafframework.custommenu.menu.data.ItemData;
 import com.bafmc.bukkit.bafframework.custommenu.menu.data.MenuData;
 import com.bafmc.bukkit.bafframework.custommenu.menu.item.list.DefaultItem;
-import com.bafmc.bukkit.feature.placeholder.Placeholder;
-import com.bafmc.bukkit.feature.placeholder.PlaceholderBuilder;
 import com.bafmc.bukkit.utils.InventoryUtils;
 import com.bafmc.bukkit.utils.ItemStackUtils;
 import com.bafmc.customenchantment.CustomEnchantmentLog;
@@ -56,22 +53,8 @@ public class CEAnvilCustomMenu extends AbstractMenu<MenuData, CEAnvilExtraData> 
 
     @Override
     public void setupItems() {
-        // Cannot call super.setupItems() because template items (confirm-book, etc.)
-        // have no slot: property. The framework's displayItemStack() calls
-        // setItem(getSlots()) which NPEs on null slots, crashing the entire forEach loop.
-        // Instead, iterate manually and skip items without slots.
-        for (ItemData itemData : getMenuData().getItemMap().values()) {
-            List<Integer> slots = itemData.getSlots();
-            if (slots != null && !slots.isEmpty()) {
-                setupItem(itemData);
-            }
-        }
+        super.setupItems();
         extraData.getSettings().initialize(getMenuData());
-    }
-
-    @Override
-    public void handleClick(ClickData data) {
-        super.handleClick(data);
     }
 
     @Override
@@ -105,44 +88,6 @@ public class CEAnvilCustomMenu extends AbstractMenu<MenuData, CEAnvilExtraData> 
 
     public CEAnvilExtraData getExtraData() {
         return extraData;
-    }
-
-    public void updateSlots(String itemName, ItemStack itemStack) {
-        CEAnvilSettings settings = extraData.getSettings();
-        List<Integer> slots = settings.getSlots(itemName);
-
-        for (int slot : slots) {
-            if (itemStack == null || itemStack.getType() == Material.AIR) {
-                ItemStack defaultItem = settings.getDefaultItemStack(itemName);
-                inventory.setItem(slot, defaultItem);
-            } else {
-                inventory.setItem(slot, itemStack);
-            }
-        }
-    }
-
-    public ItemStack getTemplateItemStack(String templateName) {
-        MenuData menuData = getMenuData();
-        if (menuData == null || menuData.getItemMap() == null) {
-            return null;
-        }
-        ItemData data = menuData.getItemMap().get(templateName);
-        if (data == null) {
-            return null;
-        }
-        return data.getItemStackBuilder().getItemStack();
-    }
-
-    public ItemStack getTemplateItemStack(String templateName, Placeholder placeholder) {
-        MenuData menuData = getMenuData();
-        if (menuData == null || menuData.getItemMap() == null) {
-            return null;
-        }
-        ItemData data = menuData.getItemMap().get(templateName);
-        if (data == null) {
-            return null;
-        }
-        return data.getItemStackBuilder().getItemStack(placeholder);
     }
 
     // ==================== Business Logic ====================

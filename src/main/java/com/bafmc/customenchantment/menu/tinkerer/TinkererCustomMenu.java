@@ -65,12 +65,6 @@ public class TinkererCustomMenu extends AbstractMenu<MenuData, TinkererExtraData
         }
     }
 
-    @Override
-    public void handleClick(ClickData data) {
-        // Menu GUI click - delegate to item-based routing
-        super.handleClick(data);
-    }
-
     /**
      * Handle clicks in player's inventory - add CE items to tinkerer
      * This method is called automatically by the framework for player inventory clicks

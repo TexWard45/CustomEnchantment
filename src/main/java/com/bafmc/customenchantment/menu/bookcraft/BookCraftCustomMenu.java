@@ -2,16 +2,12 @@ package com.bafmc.customenchantment.menu.bookcraft;
 
 import com.bafmc.bukkit.bafframework.custommenu.menu.AbstractMenu;
 import com.bafmc.bukkit.bafframework.custommenu.menu.data.ClickData;
-import com.bafmc.bukkit.bafframework.custommenu.menu.data.ItemData;
 import com.bafmc.bukkit.bafframework.custommenu.menu.data.MenuData;
 import com.bafmc.bukkit.bafframework.custommenu.menu.item.list.DefaultItem;
 import com.bafmc.bukkit.feature.placeholder.Placeholder;
 import com.bafmc.bukkit.feature.placeholder.PlaceholderBuilder;
-import com.bafmc.bukkit.utils.ColorUtils;
 import com.bafmc.bukkit.utils.EnumUtils;
 import com.bafmc.bukkit.utils.InventoryUtils;
-import com.bafmc.bukkit.utils.ItemStackBuilder;
-import com.bafmc.bukkit.utils.ItemStackUtils;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.CustomEnchantmentMessage;
 import com.bafmc.customenchantment.api.CEAPI;
@@ -24,14 +20,11 @@ import com.bafmc.customenchantment.menu.bookcraft.item.BookReturnItem;
 import com.bafmc.customenchantment.menu.bookcraft.item.BookSlotItem;
 import com.bafmc.customenchantment.menu.data.BookData;
 import lombok.Getter;
-import org.bukkit.Bukkit;
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -46,10 +39,6 @@ public class BookCraftCustomMenu extends AbstractMenu<MenuData, BookCraftExtraDa
 
     @Getter
     private static BookCraftSettings settings;
-
-    // ItemData from YAML (captured during setupItems)
-    private ItemData remindItemData;
-    private ItemData acceptItemData;
 
     public BookCraftCustomMenu() {
         // Constructor - menu instance created
@@ -78,50 +67,12 @@ public class BookCraftCustomMenu extends AbstractMenu<MenuData, BookCraftExtraDa
 
     @Override
     public void setupItems() {
-        // First, set up all YAML-defined items (borders, placeholders, buttons)
         super.setupItems();
-
-        // Capture item templates from inventory (already set up from YAML)
-        // Both "remind" and "accept" are at the same slot, so one will be there
-        // We need to get them from the item registry instead
-        captureItemTemplates();
 
         // Then, overlay the dynamic book items on top
         if (extraData != null && extraData.getBookList() != null) {
             updateMenu();
         }
-    }
-
-    /**
-     * Capture ItemData from YAML-created items
-     * Stores ItemData references for building ItemStacks with placeholders
-     */
-    private void captureItemTemplates() {
-        MenuData menuData = getMenuData();
-        if (menuData == null || menuData.getItemMap() == null) {
-            Bukkit.getLogger().warning("[BookCraft] MenuData or ItemMap is null, cannot capture item data");
-            return;
-        }
-
-        var itemMap = menuData.getItemMap();
-
-        // Store ItemData for remind item
-        remindItemData = itemMap.get("remind");
-        if (remindItemData == null) {
-            Bukkit.getLogger().warning("[BookCraft] Could not load 'remind' item data from YAML");
-        }
-
-        // Store ItemData for accept item
-        acceptItemData = itemMap.get("accept");
-        if (acceptItemData == null) {
-            Bukkit.getLogger().warning("[BookCraft] Could not load 'accept' item data from YAML");
-        }
-    }
-
-    @Override
-    public void handleClick(ClickData data) {
-        // Menu GUI click - delegate to item-based routing
-        super.handleClick(data);
     }
 
     /**
@@ -325,20 +276,7 @@ public class BookCraftCustomMenu extends AbstractMenu<MenuData, BookCraftExtraDa
      */
     private void showRemindButton() {
         int slot = settings.getAcceptSlot();
-
-        if (remindItemData == null) {
-            Bukkit.getLogger().warning("[BookCraft] Remind item data not loaded from YAML!");
-            return;
-        }
-
-        // Get ItemStackBuilder from ItemData (default type is "item")
-        ItemStackBuilder itemStackBuilder = remindItemData.getRootConfig().getItemStackBuilder("item");
-
-        // Build Placeholder (no custom placeholders for remind button)
-        Placeholder placeholder = PlaceholderBuilder.builder().build();
-
-        // Get ItemStack with placeholders applied
-        ItemStack remindItem = itemStackBuilder.getItemStack(placeholder);
+        ItemStack remindItem = getTemplateItemStack("remind");
         inventory.setItem(slot, remindItem);
     }
 
@@ -352,26 +290,17 @@ public class BookCraftCustomMenu extends AbstractMenu<MenuData, BookCraftExtraDa
 
         int slot = settings.getAcceptSlot();
 
-        if (acceptItemData == null) {
-            Bukkit.getLogger().warning("[BookCraft] Accept item data not loaded from YAML!");
-            return;
-        }
-
         // Calculate money requirement
         String groupName = list.get(0).getCESimple().getCEEnchant().getGroupName();
         double basePrice = CustomEnchantment.instance().getBookCraftConfig().getMoneyRequire(groupName);
         double totalPrice = basePrice * multiplier;
-
-        // Get ItemStackBuilder from ItemData (default type is "item")
-        ItemStackBuilder itemStackBuilder = acceptItemData.getRootConfig().getItemStackBuilder("item");
 
         // Build Placeholder with money value
         Placeholder placeholder = PlaceholderBuilder.builder()
                 .put("%money%", String.valueOf((long)totalPrice))
                 .build();
 
-        // Get ItemStack with placeholders applied
-        ItemStack acceptItem = itemStackBuilder.getItemStack(placeholder);
+        ItemStack acceptItem = getTemplateItemStack("accept", placeholder);
         inventory.setItem(slot, acceptItem);
     }
 
@@ -545,14 +474,4 @@ public class BookCraftCustomMenu extends AbstractMenu<MenuData, BookCraftExtraDa
         return extraData.getBookList();
     }
 
-    /**
-     * Update slots (for FastCraft compatibility)
-     */
-    public void updateSlots(String slotName, ItemStack itemStack) {
-        if ("preview".equals(slotName)) {
-            inventory.setItem(settings.getPreviewSlot(), itemStack);
-        } else if ("accept".equals(slotName)) {
-            inventory.setItem(settings.getAcceptSlot(), itemStack);
-        }
-    }
 }

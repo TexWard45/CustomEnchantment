@@ -10,7 +10,7 @@ Represents the configuration of a menu loaded from YAML.
 @Configuration
 @Getter
 @Setter
-public class MenuData {
+public class MenuData implements IConfigurationLoader {
     private String id;                                    // Menu identifier (filename)
     @Path
     private String type;                                  // Menu type (e.g., "default", "page")
@@ -20,20 +20,28 @@ public class MenuData {
     private int row = 1;                                  // Number of rows (1-6)
     @Path("data")
     private AdvancedConfigurationSection dataConfig;      // Custom data section
+    @Path("layout")
+    private List<String> layout;                          // Optional character-grid layout
     @Path("items")
     @ValueType(ItemData.class)
     private Map<String, ItemData> itemMap;                // Item configurations
 }
 ```
 
+MenuData implements `IConfigurationLoader` to post-process the layout after all fields are populated. When a `layout:` section is present, it parses the character grid into a `Map<String, List<Integer>>` and resolves single-character `slot:` references in ItemData to their corresponding slot numbers. The layout map is then discarded — after loading, `ItemData.slots` is always `List<Integer>` regardless of whether the menu uses layout mode or direct slots.
+
 ### YAML Structure
 
 ```yaml
 type: 'default'                # Menu type
 title: '&8&lMy Menu'           # Title with color codes
-row: 3                         # 3 rows = 27 slots
+row: 3                         # 3 rows = 27 slots (auto-derived from layout if present)
 data:                          # Custom data (optional)
   custom-key: value
+layout:                        # Optional character-grid layout
+  - 'ooooooooo'
+  - 'o.......o'
+  - 'ooooooooo'
 items:                         # Item definitions
   item-id:
     # ... item configuration
@@ -48,9 +56,21 @@ String title = menuData.getTitle();
 int slots = menuData.getRow() * 9;
 Map<String, ItemData> items = menuData.getItemMap();
 
-// Custom data
+// Custom data (via MenuData)
 AdvancedConfigurationSection data = menuData.getDataConfig();
 String customValue = data.getString("custom-key");
+
+// Custom data (via AbstractMenu convenience — null-safe)
+String customValue = getDataConfig().getString("custom-key");
+
+// Template items — fetch YAML item's ItemStack by name
+ItemStack item = getTemplateItemStack("confirm-upgrade");
+ItemStack itemWithPh = getTemplateItemStack("confirm-cost", placeholder);
+
+// Named slot operations
+List<Integer> slots = getSlotsByName("confirm");
+updateSlots("confirm", newItemStack);   // Update all slots of named item
+updateSlots("confirm", null);           // Reset to YAML default
 ```
 
 ## ItemData
@@ -72,8 +92,9 @@ public class ItemData implements IConfigurationLoader {
     @Path("item")
     private ItemStackBuilder itemStackBuilder;                // Item appearance
     @Path("slot")
-    private String slotFormat;                                // Slot specification
-    private List<Integer> slots;                              // Parsed slots
+    private String slotFormat;                                // Slot specification (numeric or layout char)
+    @Setter
+    private List<Integer> slots;                              // Parsed slots (set by ItemData or MenuData layout)
     @Path("condition")
     private List<String> conditionFormat;                     // Display conditions
     private Condition condition;                              // Parsed condition
@@ -142,7 +163,15 @@ slot: 0-8,45-53    # Top row and bottom row
 
 # Complex
 slot: 0,2,4,6,8,10-16,27-35
+
+# Layout character reference (requires layout: section)
+slot: 'o'          # Resolves to all positions of 'o' in the layout grid
+
+# Template item (no slot — fetched by code via getTemplateItemStack())
+# Simply omit the slot field
 ```
+
+When a `layout:` section is present in the menu YAML, single-character `slot:` values are resolved against the layout grid. Multi-character and numeric values are parsed normally even when layout is present.
 
 ### Accessing Item Data
 
@@ -336,12 +365,20 @@ playerData.setMenu(null);
 2. MenuData populated (via @Configuration annotations)
    ↓
 3. ItemData parsed for each item in items map
+   ├── Conditions and Executes parsed from string lists
+   └── Slots parsed from slotFormat (numeric → List<Integer>, non-numeric → empty list)
    ↓
-4. Conditions and Executes parsed from string lists
+4. MenuData.loadConfig() runs (IConfigurationLoader)
+   ├── If layout: present → parse character grid → Map<String, List<Integer>>
+   ├── Resolve single-char slot references → overwrite ItemData.slots
+   └── Auto-derive row from layout size
    ↓
 5. Menu opened with optional ExtraData
    ↓
 6. AbstractMenu.setupMenu() creates inventory
+   ├── setupInventory() — creates Bukkit inventory
+   ├── initializeSlotCache() — caches item name → slot mappings
+   └── setupItems() — places items (skips template items without slots)
    ↓
 7. AbstractItem.setupItemStack() creates display items
    ↓

@@ -130,10 +130,11 @@ items:
 |--------|------------------|
 | `settings.title` | `title` (root level) |
 | `rows: 6` | `row: 6` |
-| `layout` grid | Direct `slot` numbers |
-| `slots: 'b'` | `slot: 4,13,22,31,40` |
+| `layout` grid + `slots: 'b'` | `layout:` grid + `slot: 'b'` (character-grid now supported!) |
 | No `type` field | `type: 'menu-type'` **required** |
 | `settings.actions` | Not needed (framework handles) |
+
+**Note:** BafFramework now supports character-grid layout! You can use `layout:` with single-character `slot:` references, or use direct numeric slot numbers, or mix both in the same menu. See [CONFIGURATION.md](CONFIGURATION.md#layout-character-grid) for details.
 
 ### Slot Number Conversion
 
@@ -402,7 +403,7 @@ public void handleClose() {
 - [ ] Add `type` field matching `getType()`
 - [ ] Move `settings.title` to root `title`
 - [ ] Change `rows` to `row`
-- [ ] Convert character-grid layout to direct slot numbers
+- [ ] Convert character-grid layout to `layout:` section (or use direct slot numbers)
 - [ ] Add `type` field to each item (matching registered item types)
 - [ ] Remove `settings.actions` (framework handles)
 

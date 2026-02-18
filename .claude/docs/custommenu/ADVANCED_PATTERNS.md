@@ -142,7 +142,7 @@ handlerFactoryMap.put("sword", SwordUpgradeHandler::new);  // Fresh instance eac
 
 **Problem:** A confirm button has multiple different appearances depending on context (e.g., "Confirm upgrade", "Confirm brew", "Confirm repair", "Not enough materials"). You want these configurable in YAML but they shouldn't display by default.
 
-**Solution:** Define items in YAML without a `slot:` property. Override `setupItems()` to skip them. Fetch them as templates at runtime.
+**Solution:** Define items in YAML without a `slot:` property. The framework automatically skips them during `setupItems()`. Fetch them as templates at runtime using the built-in `getTemplateItemStack()` API.
 
 ### YAML Configuration
 
@@ -192,22 +192,16 @@ items:
         - '&fClick to confirm'
 ```
 
-### Override setupItems()
+### Framework Built-in Support
 
-The framework's default `super.setupItems()` calls `setItem(getSlots())` on every item — this **crashes with NPE** on items without a `slot:` property.
+The framework's `setupItems()` automatically skips items without slots — **no override needed**. Template items are safely ignored during menu setup.
+
+If you need custom post-setup logic, you can still override `setupItems()` and call `super.setupItems()`:
 
 ```java
 @Override
 public void setupItems() {
-    // Cannot call super.setupItems() because template items have no slot.
-    // The framework's displayItemStack() calls setItem(getSlots()) which
-    // NPEs on null slots, crashing the entire forEach loop.
-    for (ItemData itemData : getMenuData().getItemMap().values()) {
-        List<Integer> slots = itemData.getSlots();
-        if (slots != null && !slots.isEmpty()) {
-            setupItem(itemData);  // Only setup items that have slots
-        }
-    }
+    super.setupItems();  // Safe — automatically skips template items
 
     // Initialize any custom settings after items are set up
     extraData.getSettings().initialize(getMenuData());
@@ -216,49 +210,34 @@ public void setupItems() {
 
 ### Fetch Templates at Runtime
 
-Add helper methods to your menu class:
+`AbstractMenu` provides built-in methods for template item access:
 
 ```java
-/** Fetch a template item's ItemStack by name from YAML */
-public ItemStack getTemplateItemStack(String templateName) {
-    MenuData menuData = getMenuData();
-    if (menuData == null || menuData.getItemMap() == null) return null;
-
-    ItemData data = menuData.getItemMap().get(templateName);
-    if (data == null) return null;
-
-    return data.getItemStackBuilder().getItemStack();
-}
-
-/** Fetch a template item's ItemStack with placeholder replacement */
-public ItemStack getTemplateItemStack(String templateName, Placeholder placeholder) {
-    MenuData menuData = getMenuData();
-    if (menuData == null || menuData.getItemMap() == null) return null;
-
-    ItemData data = menuData.getItemMap().get(templateName);
-    if (data == null) return null;
-
-    return data.getItemStackBuilder().getItemStack(placeholder);
-}
-```
-
-Usage in handler:
-
-```java
-// Simple template
+// Simple template — returns ItemStack or null if not found
 ItemStack confirmItem = menu.getTemplateItemStack("confirm-upgrade");
-menu.updateSlots("confirm", confirmItem);
 
-// Template with placeholders
+// Template with placeholder replacement
 Placeholder ph = PlaceholderBuilder.builder().set("cost", "500").build();
 ItemStack confirmItem = menu.getTemplateItemStack("confirm-with-cost", ph);
+
+// Update named slots with a template
 menu.updateSlots("confirm", confirmItem);
+
+// Reset named slots to YAML default appearance
+menu.updateSlots("confirm", null);
+
+// Get slot numbers by item name
+List<Integer> slots = menu.getSlotsByName("confirm");
+
+// Access custom data section (null-safe)
+String sound = menu.getDataConfig().getString("sound");
 ```
 
 **Benefits:**
 - Server admins can customize all messages/appearances in YAML without recompiling
 - No hardcoded ItemStack creation in Java code
 - Placeholder support for dynamic values like cost, chance, etc.
+- No need to override `setupItems()` just for template items
 
 ---
 
@@ -583,7 +562,9 @@ preview1(far left) ← preview2 ← preview3(CENTER) → preview4 → preview5(f
 
 ## Settings Cache Pattern
 
-**When to use:** You need to look up slot numbers and default ItemStacks by item name throughout the menu's lifecycle.
+**When to use:** You need to look up slot numbers and default ItemStacks by item name throughout the menu's lifecycle, AND you need extra per-menu cached data (e.g., preview index order, custom settings) beyond what the built-in `getSlotsByName()`/`updateSlots()` provide.
+
+**Note:** For simple slot lookups and updates, use the built-in `AbstractMenu` methods (`getSlotsByName()`, `updateSlots()`, `getTemplateItemStack()`) instead. The Settings Cache Pattern is only needed when you require additional cached state.
 
 **Problem:** Repeatedly calling `getMenuData().getItemMap().get("confirm").getSlots()` is verbose and error-prone.
 

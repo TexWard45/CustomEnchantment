@@ -28,12 +28,17 @@ public abstract class AbstractMenu<M extends MenuData, E extends ExtraData> exte
 | `registerItems()` | Registers item types for this menu (abstract) |
 | `setupMenu(Player, MenuData)` | Initializes the menu for a player |
 | `setupInventory()` | Creates the Bukkit inventory |
-| `setupItems()` | Places all items in the inventory |
+| `setupItems()` | Places all items in the inventory (skips items without slots) |
 | `openInventory()` | Opens the inventory for the player |
 | `reopenInventory()` | Refreshes and reopens the inventory |
 | `handleClick(ClickData)` | Processes click events on menu items |
 | `handlePlayerInventoryClick(ClickData)` | Processes click events on player inventory (default: no-op) |
 | `handleClose()` | Called when menu is closed |
+| `getTemplateItemStack(String)` | Fetch a YAML item's ItemStack by name (template or slotted) |
+| `getTemplateItemStack(String, Placeholder)` | Fetch a YAML item's ItemStack with placeholder replacement |
+| `getSlotsByName(String)` | Get slot numbers for an item by name |
+| `updateSlots(String, ItemStack)` | Update all slots of a named item (null resets to YAML default) |
+| `getDataConfig()` | Get the menu's custom `data:` config section (null-safe) |
 
 #### Lifecycle
 
@@ -44,7 +49,8 @@ public abstract class AbstractMenu<M extends MenuData, E extends ExtraData> exte
    ├── setOwner(player)
    ├── setMenuData(menuData)
    ├── setupInventory() - creates Bukkit inventory
-   └── setupItems() - places items
+   ├── initializeSlotCache() - caches item name → slot mappings
+   └── setupItems() - places items (skips template items without slots)
 4. openInventory() - shows to player
 5. handleClick(clickData) - on user interaction
 6. handleClose() - on inventory close

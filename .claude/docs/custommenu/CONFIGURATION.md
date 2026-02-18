@@ -122,6 +122,44 @@ row: 5    # 45 slots
 row: 6    # 54 slots (max)
 ```
 
+When using `layout:`, `row` is auto-derived from the number of layout lines if omitted or smaller.
+
+### Layout (Character Grid)
+
+Optional visual layout that maps characters to slot numbers. Parsed once during YAML loading — zero runtime overhead after loading.
+
+```yaml
+layout:
+  - 'ooooooooo'
+  - 'o.......o'
+  - 'o.......o'
+  - 'o.......o'
+  - 'o.......o'
+  - 'boo.c.oon'
+
+items:
+  border:
+    slot: 'o'        # resolves to [0,1,2,3,4,5,6,7,8,9,17,18,26,27,35,36,44,46,47,48,49,50,51,52,53]
+  content:
+    slot: '.'        # resolves to [10,11,12,13,14,15,16,19,20,21,22,23,24,25,28,29,30,31,32,33,34]
+  back:
+    slot: 'b'        # resolves to [45]
+  next:
+    slot: 'n'        # resolves to [53]
+  confirm:
+    slot: 'c'        # resolves to [49]
+```
+
+**Rules:**
+- Each layout line represents one row (max 9 characters per line, max 6 lines)
+- Slot calculation: `row_index * 9 + column_index` (0-indexed)
+- Items reference layout characters with a **single character** in `slot:`
+- Numeric `slot:` values still work alongside layout (e.g., `slot: 10,11`)
+- Items without `slot:` are template items (not placed in inventory)
+- `row:` can be omitted when using layout — auto-derived from grid size
+
+**Mixed mode:** You can use layout references for some items and numeric slots for others in the same menu. Only single-character `slot:` values that match a layout character are resolved; numeric or multi-character values are parsed normally.
+
 ### Custom Data
 
 Menu-wide data accessible in code:
@@ -135,9 +173,13 @@ data:
 
 Access:
 ```java
+// Via MenuData directly
 AdvancedConfigurationSection data = menuData.getDataConfig();
 String category = data.getString("shop-category");
 double discount = data.getDouble("discount");
+
+// Via AbstractMenu convenience method (null-safe)
+String category = menu.getDataConfig().getString("shop-category");
 ```
 
 ## Item Configuration
@@ -197,7 +239,7 @@ item:
 
 #### slot
 
-Slot specification:
+Slot specification (numeric or layout character):
 
 ```yaml
 # Single slot
@@ -214,6 +256,12 @@ slot: 0-8,45-53
 
 # Complex
 slot: 0,2,4,6,8,10-16,27-35
+
+# Layout character reference (requires layout: section)
+slot: 'o'
+
+# No slot — template item (not placed in inventory, fetched by code)
+# (simply omit the slot field)
 ```
 
 Slot layout (6-row inventory):

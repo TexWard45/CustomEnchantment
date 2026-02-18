@@ -1,14 +1,20 @@
 # Book Craft Menu - Migrated to CustomMenu BafFramework format
-# Legacy layout:
-#   Row 0: ooooooooo (border)
-#   Row 1: oooboBooo (book1=12, book2=14, border)
-#   Row 2: oooopoooo (preview=22, border)
-#   Row 3: ooooaoooo (accept=31, border)
-#   Row 4: ooooRoooo (return=40, border)
-
+# o = border
+# b = book1
+# B = book2
+# p = preview
+# a = accept/remind
+# R = return
 type: 'book-craft'
 title: '&4&lBàn nâng cấp sách'
 row: 5
+
+layout:
+  - 'ooooooooo'
+  - 'oooboBooo'
+  - 'oooopoooo'
+  - 'ooooaoooo'
+  - 'ooooRoooo'
 
 items:
   # Red border covering all empty slots
@@ -18,7 +24,7 @@ items:
       type: RED_STAINED_GLASS_PANE
       amount: 1
       display: '&7'
-    slot: 0,1,2,3,4,5,6,7,8,9,10,11,13,15,16,17,18,19,20,21,23,24,25,26,27,28,29,30,32,33,34,35,36,37,38,39,41,42,43,44
+    slot: 'o'
 
   # Book slot 1 (left)
   book1:
@@ -27,7 +33,7 @@ items:
       type: LIGHT_GRAY_STAINED_GLASS_PANE
       amount: 1
       display: '&fÔ 1'
-    slot: 12
+    slot: 'b'
 
   # Book slot 2 (right)
   book2:
@@ -36,7 +42,7 @@ items:
       type: LIGHT_GRAY_STAINED_GLASS_PANE
       amount: 1
       display: '&fÔ 2'
-    slot: 14
+    slot: 'B'
 
   # Preview slot (shows combined result)
   preview:
@@ -45,7 +51,7 @@ items:
       type: BLACK_STAINED_GLASS_PANE
       amount: 1
       display: '&fXem trước'
-    slot: 22
+    slot: 'p'
 
   # Remind item (default state when no books or only 1 book)
   remind:
@@ -57,9 +63,9 @@ items:
       lore:
         - '&agiống nhau để tiến hành'
         - '&aghép'
-    slot: 31
+    slot: 'a'
 
-  # Accept button (shows when 2 books present, higher priority)
+  # Accept button (shows when 2 books present)
   accept:
     type: accept
     item:
@@ -69,7 +75,7 @@ items:
       lore:
         - '&a%money%$'
         - '&ađể tiến hành ghép sách'
-    slot: 31
+    slot: 'a'
 
   # Return button (bottom center)
   return:
@@ -78,4 +84,4 @@ items:
       type: GRAY_STAINED_GLASS_PANE
       amount: 1
       display: '&cTrở về'
-    slot: 40
+    slot: 'R'

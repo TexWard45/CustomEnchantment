@@ -404,7 +404,24 @@ items:
     slot: 0-8                  # Slot range
     # OR
     slot: 0-8,45-53            # Combined ranges and individual
+    # OR
+    slot: 'o'                  # Layout character reference (requires layout: section)
+    # OR omit slot entirely for template items (fetched by code)
 ```
+
+### Template Items (No Slot)
+
+Items defined without a `slot:` property are **template items** — they are not placed in the inventory during `setupItems()`. Instead, they serve as reusable YAML-defined appearances that can be fetched at runtime:
+
+```java
+// Fetch template by name
+ItemStack item = menu.getTemplateItemStack("confirm-upgrade");
+
+// Fetch with placeholder replacement
+ItemStack item = menu.getTemplateItemStack("confirm-cost", placeholder);
+```
+
+See [ADVANCED_PATTERNS.md](ADVANCED_PATTERNS.md#template-items-no-slot-items) for detailed usage patterns.
 
 ### Conditions and Executes
 
