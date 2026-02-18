@@ -125,6 +125,15 @@ public class CommandModule extends PluginModule<CustomEnchantment> {
         artifactUpgradeNewBuilder.build();
         getPlugin().getLogger().info("[CommandModule] /artifactupgrade-new command registered successfully");
 
+        // NEW: Migrated equipment command using new CustomMenu BafFramework API
+        getPlugin().getLogger().info("[CommandModule] Registering /equipment-new command...");
+        AdvancedCommandBuilder equipmentNewBuilder = AdvancedCommandBuilder.builder()
+                .plugin(getPlugin())
+                .rootCommand("equipment-new");
+        equipmentNewBuilder.commandExecutor(new EquipmentCommand(getPlugin())).end();
+        equipmentNewBuilder.build();
+        getPlugin().getLogger().info("[CommandModule] /equipment-new command registered successfully");
+
         AdvancedCommandBuilder anvilBuilder = AdvancedCommandBuilder.builder().plugin(getPlugin()).rootCommand("ceanvil");
         anvilBuilder.commandExecutor(new AdvancedCommandExecutor() {
             public boolean onCommand(CommandSender sender, Argument arg) {

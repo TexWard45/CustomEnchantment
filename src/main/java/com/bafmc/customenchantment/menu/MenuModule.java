@@ -24,6 +24,7 @@ import com.bafmc.customenchantment.menu.ceanvil.handler.RemoveGemHandler;
 import com.bafmc.customenchantment.menu.ceanvil.handler.RemoveProtectDeadHandler;
 import com.bafmc.customenchantment.menu.artifactupgrade.ArtifactUpgradeCustomMenu;
 import com.bafmc.customenchantment.menu.bookupgrade.BookUpgradeCustomMenu;
+import com.bafmc.customenchantment.menu.equipment.EquipmentCustomMenu;
 import com.bafmc.customenchantment.menu.tinkerer.TinkererCustomMenu;
 import com.bafmc.customenchantment.menu.anvil.*;
 import com.bafmc.customenchantment.menu.artifactupgrade.ArtifactUpgradeMenuListener;
@@ -120,6 +121,10 @@ public class MenuModule extends PluginModule<CustomEnchantment> {
             getPlugin().getLogger().info("[MenuModule] Registering ArtifactUpgradeCustomMenu with MenuRegister...");
             MenuRegister.instance().registerStrategy(ArtifactUpgradeCustomMenu.class);
             getPlugin().getLogger().info("[MenuModule] ArtifactUpgradeCustomMenu registered successfully");
+
+            getPlugin().getLogger().info("[MenuModule] Registering EquipmentCustomMenu with MenuRegister...");
+            MenuRegister.instance().registerStrategy(EquipmentCustomMenu.class);
+            getPlugin().getLogger().info("[MenuModule] EquipmentCustomMenu registered successfully");
         } catch (Exception e) {
             getPlugin().getLogger().severe("[MenuModule] Failed to register menus: " + e.getMessage());
             e.printStackTrace();

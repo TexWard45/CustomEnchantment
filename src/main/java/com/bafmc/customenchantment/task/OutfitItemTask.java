@@ -5,6 +5,7 @@ import com.bafmc.bukkit.utils.EquipSlot;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.item.*;
+import com.bafmc.customenchantment.menu.equipment.EquipmentCustomMenu;
 import com.bafmc.customenchantment.menu.equipment.EquipmentMenu;
 import com.bafmc.customenchantment.player.CEPlayer;
 import com.bafmc.customenchantment.player.PlayerEquipment;
@@ -101,6 +102,11 @@ public class OutfitItemTask extends PlayerPerTickTask {
         EquipmentMenu menu = EquipmentMenu.getMenu(player);
         if (menu != null) {
             menu.updateMenuWithPreventAction();
+            return;
+        }
+        EquipmentCustomMenu newMenu = EquipmentCustomMenu.getMenu(player);
+        if (newMenu != null) {
+            newMenu.updateMenuWithPreventAction();
         }
     }
 

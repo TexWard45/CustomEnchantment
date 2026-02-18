@@ -42,6 +42,9 @@ commands:
   artifactupgrade-new:
     description: Artifact upgrade menu (new API)
     usage: /<command>
+  equipment-new:
+    description: Equipment menu (new API)
+    usage: /<command>
   nametag:
     description: Nametag for CustomEnchantment item
     usage: /<command>
