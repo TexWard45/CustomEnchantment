@@ -57,7 +57,7 @@ items:
 
   # Remind item (default state when no books or only 1 book)
   remind:
-    type: default
+    type: accept
     item:
       type: ENCHANTING_TABLE
       amount: 1
@@ -67,8 +67,8 @@ items:
         - '&aghép'
     slot: 'a'
 
-  # Accept button (shows when 2 books present)
-  accept:
+  # Accept button template (shown when 2 books present, replaces remind via updateSlots)
+  accept-button:
     type: accept
     item:
       type: ENCHANTING_TABLE
@@ -77,7 +77,6 @@ items:
       lore:
         - '&a%money%$'
         - '&ađể tiến hành ghép sách'
-    slot: 'a'
 
   # Return button (bottom center)
   return:

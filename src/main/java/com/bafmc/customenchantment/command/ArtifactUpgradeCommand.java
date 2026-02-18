@@ -27,7 +27,7 @@ public class ArtifactUpgradeCommand implements AdvancedCommandExecutor {
 
         Player player = (Player) sender;
 
-        ArtifactUpgradeSettings settings = com.bafmc.customenchantment.menu.artifactupgrade.ArtifactUpgradeMenu.getSettings();
+        ArtifactUpgradeSettings settings = ArtifactUpgradeCustomMenu.getSettings();
         if (settings == null) {
             plugin.getLogger().severe("[ArtifactUpgradeCommand] ArtifactUpgradeSettings is NULL!");
             player.sendMessage("\u00a7cError: Artifact upgrade settings not loaded!");

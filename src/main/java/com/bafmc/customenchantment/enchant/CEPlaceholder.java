@@ -3,7 +3,7 @@ package com.bafmc.customenchantment.enchant;
 import com.bafmc.bukkit.utils.NumberUtils;
 import com.bafmc.bukkit.utils.StringUtils;
 import com.bafmc.customenchantment.CustomEnchantment;
-import com.bafmc.customenchantment.menu.bookupgrade.BookUpgradeMenu;
+import com.bafmc.customenchantment.menu.bookupgrade.BookUpgradeCustomMenu;
 import com.bafmc.customenchantment.menu.bookupgrade.data.BookUpgradeData;
 import com.bafmc.customenchantment.player.PlayerTemporaryStorage;
 import org.bukkit.entity.LivingEntity;
@@ -172,7 +172,7 @@ public class CEPlaceholder {
 	}
 
     public static int getEnchantRequiredXp(CEEnchantSimple ceEnchantSimple) {
-        BookUpgradeData bookUpgradeData = BookUpgradeMenu.getSettings().getBookUpgradeData(ceEnchantSimple.getName(), ceEnchantSimple.getLevel());
+        BookUpgradeData bookUpgradeData = BookUpgradeCustomMenu.getSettings().getBookUpgradeData(ceEnchantSimple.getName(), ceEnchantSimple.getLevel());
         if (bookUpgradeData == null) {
             return 0;
         }
@@ -181,7 +181,7 @@ public class CEPlaceholder {
     }
 
     public static String getEnchantProgress(CEEnchantSimple ceEnchantSimple) {
-        BookUpgradeData bookUpgradeData = BookUpgradeMenu.getSettings().getBookUpgradeData(ceEnchantSimple.getName(), ceEnchantSimple.getLevel());
+        BookUpgradeData bookUpgradeData = BookUpgradeCustomMenu.getSettings().getBookUpgradeData(ceEnchantSimple.getName(), ceEnchantSimple.getLevel());
         if (bookUpgradeData == null) {
             StringBuilder builder = new StringBuilder();
             for (int i = 0; i < 10; i++) {

@@ -33,6 +33,9 @@ import com.bafmc.customenchantment.player.CEPlayer;
 import com.bafmc.bukkit.utils.EnumUtils;
 import org.bukkit.inventory.ItemStack;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -41,6 +44,9 @@ import java.util.Map;
 public class BookUpgradeCustomMenu extends AbstractMenu<MenuData, BookUpgradeExtraData> {
 
     public static final String MENU_NAME = "book-upgrade";
+
+    @Getter @Setter
+    private static BookUpgradeSettings settings;
 
     @Override
     public String getType() {

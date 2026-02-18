@@ -82,7 +82,6 @@ public class ConfigModule extends PluginModule<CustomEnchantment> {
 
         AdvancedFileConfiguration bookCraftConfig = new AdvancedFileConfiguration(getPlugin().getBookCraftFile());
         getPlugin().setBookCraftConfig(bookCraftConfig.get(BookCraftConfig.class));
-        getPlugin().getBookCraftConfig().initializeSettings(); // NEW: Initialize BookCraft settings
 
         BookUpgradeConfig bookUpgradeConfig = new BookUpgradeConfig();
         bookUpgradeConfig.loadConfig(getPlugin().getBookUpgradeFile());

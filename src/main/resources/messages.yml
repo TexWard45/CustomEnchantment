@@ -110,26 +110,25 @@ command:
       - "&eLấy mã màu hex ở &fhttps://htmlcolorcodes.com/color-picker/"
       - "&eLiên hệ ngay Admin nếu có thắc mắc về việc đặt tên màu!"
 menu:
-  bookcraft:
+  book-craft:
+    must-be-one:
+      - "DANGER Chỉ nhận sách có số lượng 1!"
+    not-support-item:
+      - "DANGER Không thể ghép vật phẩm này!"
     add-book:
       success: ""
-      different-enchant:
-        - "DANGER Không cùng loại phù phép!"
-      different-level:
-        - "DANGER Không cùng cấp độ phù phép!"
+      full-slot:
+        - "DANGER Tối đa 2 sách cho 1 lần ghép!"
+      not-match-book:
+        - "DANGER Không cùng loại hoặc cấp độ phù phép!"
       max-level:
         - "DANGER Sách đã đạt cấp độ tối đa!"
-      enough-book:
-        - "DANGER Tối đa 2 sách cho 1 lần ghép!"
-      not-craft-enchant:
-        - "DANGER Không thể ghép sách này!"
     confirm:
       success:
         - "SUCCESS Ghép sách thành công!"
+      nothing: ""
       not-enough-money:
         - "DANGER Không đủ tiền để ghép sách!"
-      not-enough-book:
-        - "DANGER Yêu cầu 2 sách cùng loại và cấp độ để ghép!"
   bookupgrade:
     add-book:
       success: ""

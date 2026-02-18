@@ -31,11 +31,17 @@ import com.bafmc.customenchantment.menu.artifactupgrade.item.SelectedArtifactIte
 import com.bafmc.customenchantment.player.CEPlayer;
 import org.bukkit.inventory.ItemStack;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.List;
 
 public class ArtifactUpgradeCustomMenu extends AbstractMenu<MenuData, ArtifactUpgradeExtraData> {
 
     public static final String MENU_NAME = "artifact-upgrade";
+
+    @Getter @Setter
+    private static ArtifactUpgradeSettings settings;
 
     @Override
     public String getType() {

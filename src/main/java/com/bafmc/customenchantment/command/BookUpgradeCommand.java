@@ -27,7 +27,7 @@ public class BookUpgradeCommand implements AdvancedCommandExecutor {
 
         Player player = (Player) sender;
 
-        BookUpgradeSettings settings = com.bafmc.customenchantment.menu.bookupgrade.BookUpgradeMenu.getSettings();
+        BookUpgradeSettings settings = BookUpgradeCustomMenu.getSettings();
         if (settings == null) {
             plugin.getLogger().severe("[BookUpgradeCommand] BookUpgradeSettings is NULL!");
             player.sendMessage("\u00a7cError: Book upgrade settings not loaded!");

@@ -19,7 +19,6 @@ import com.bafmc.customenchantment.menu.bookcraft.item.BookPreviewItem;
 import com.bafmc.customenchantment.menu.bookcraft.item.BookReturnItem;
 import com.bafmc.customenchantment.menu.bookcraft.item.BookSlotItem;
 import com.bafmc.customenchantment.menu.data.BookData;
-import lombok.Getter;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
@@ -37,15 +36,10 @@ public class BookCraftCustomMenu extends AbstractMenu<MenuData, BookCraftExtraDa
 
     public static final String MENU_NAME = "book-craft";
 
-    @Getter
-    private static BookCraftSettings settings;
+    private static final String[] BOOK_ITEM_NAMES = {"book1", "book2"};
 
     public BookCraftCustomMenu() {
         // Constructor - menu instance created
-    }
-
-    public static void setSettings(BookCraftSettings settings) {
-        BookCraftCustomMenu.settings = settings;
     }
 
     @Override
@@ -140,8 +134,14 @@ public class BookCraftCustomMenu extends AbstractMenu<MenuData, BookCraftExtraDa
     public BookCraftExtraData.BookAddReason addBook(ItemStack itemStack, BookData bookData) {
         List<BookData> list = extraData.getBookList();
 
-        if (list.size() >= settings.getSize()) {
+        if (list.size() >= BOOK_ITEM_NAMES.length) {
             return BookCraftExtraData.BookAddReason.FULL_SLOT;
+        }
+
+        // Check if book is already at max level (can't combine further)
+        int maxLevel = bookData.getCESimple().getCEEnchant().getMaxLevel();
+        if (bookData.getCESimple().getLevel() >= maxLevel) {
+            return BookCraftExtraData.BookAddReason.MAX_LEVEL;
         }
 
         // Check if books match (if there's already one book)
@@ -173,7 +173,9 @@ public class BookCraftCustomMenu extends AbstractMenu<MenuData, BookCraftExtraDa
     }
 
     /**
-     * Compare two CE books for matching (name, level, success %, destroy %)
+     * Compare two CE books for matching (name and level only)
+     * Success% and destroy% are intentionally NOT compared — books with different
+     * stats are meant to be combined (result takes MAX success, MIN destroy).
      */
     private boolean compareBooks(CEEnchantSimple book1, CEEnchantSimple book2) {
         if (!book1.getName().equals(book2.getName())) {
@@ -181,14 +183,6 @@ public class BookCraftCustomMenu extends AbstractMenu<MenuData, BookCraftExtraDa
         }
 
         if (book1.getLevel() != book2.getLevel()) {
-            return false;
-        }
-
-        if (book1.getSuccess().getValue() != book2.getSuccess().getValue()) {
-            return false;
-        }
-
-        if (book1.getDestroy().getValue() != book2.getDestroy().getValue()) {
             return false;
         }
 
@@ -200,23 +194,22 @@ public class BookCraftCustomMenu extends AbstractMenu<MenuData, BookCraftExtraDa
      */
     public void updateMenu() {
         List<BookData> list = extraData.getBookList();
-        int size = settings.getSize();
 
-        for (int i = 0; i < size; i++) {
-            int bookSlot = settings.getBookSlot(i);
+        for (int i = 0; i < BOOK_ITEM_NAMES.length; i++) {
+            String itemName = BOOK_ITEM_NAMES[i];
 
             if (i < list.size()) {
                 BookData data = list.get(i);
-                inventory.setItem(bookSlot, data.getItemStack());
+                updateSlots(itemName, data.getItemStack());
             } else {
                 // Restore default display for empty slots
-                inventory.setItem(bookSlot, getTemplateItemStack("book" + (i + 1)));
+                updateSlots(itemName, null);
             }
         }
 
-        // Clear preview and show remind button when less than 2 books
+        // Clear preview when less than 2 books
         if (list.size() < 2) {
-            inventory.setItem(settings.getPreviewSlot(), getTemplateItemStack("preview"));
+            updateSlots("preview", null);
         }
 
         // Reset to remind button when menu is empty
@@ -240,13 +233,13 @@ public class BookCraftCustomMenu extends AbstractMenu<MenuData, BookCraftExtraDa
             ItemStack resultItem = CEAPI.getCEBookItemStack(result);
 
             // Set preview
-            inventory.setItem(settings.getPreviewSlot(), resultItem);
+            updateSlots("preview", resultItem);
 
             // Show accept button (hide remind) and update price for regular 2-book mode
             showAcceptButton(1.0);  // Regular mode = 1x price (not FastCraft multiplier)
         } else {
             // Clear preview
-            inventory.setItem(settings.getPreviewSlot(), getTemplateItemStack("preview"));
+            updateSlots("preview", null);
 
             // Show remind button (hide accept)
             showRemindButton();
@@ -272,12 +265,10 @@ public class BookCraftCustomMenu extends AbstractMenu<MenuData, BookCraftExtraDa
     }
 
     /**
-     * Show remind button (when less than 2 books)
+     * Show remind button (when less than 2 books) - resets to YAML default
      */
     private void showRemindButton() {
-        int slot = settings.getAcceptSlot();
-        ItemStack remindItem = getTemplateItemStack("remind");
-        inventory.setItem(slot, remindItem);
+        updateSlots("remind", null);
     }
 
     /**
@@ -287,8 +278,6 @@ public class BookCraftCustomMenu extends AbstractMenu<MenuData, BookCraftExtraDa
     private void showAcceptButton(double multiplier) {
         List<BookData> list = extraData.getBookList();
         if (list.isEmpty()) return;
-
-        int slot = settings.getAcceptSlot();
 
         // Calculate money requirement
         String groupName = list.get(0).getCESimple().getCEEnchant().getGroupName();
@@ -300,16 +289,24 @@ public class BookCraftCustomMenu extends AbstractMenu<MenuData, BookCraftExtraDa
                 .put("%money%", String.valueOf((long)totalPrice))
                 .build();
 
-        ItemStack acceptItem = getTemplateItemStack("accept", placeholder);
-        inventory.setItem(slot, acceptItem);
+        updateSlots("remind", getTemplateItemStack("accept-button", placeholder));
     }
 
     /**
-     * Return book at clicked slot to player
+     * Return book by item name to player
+     * @param itemName YAML item key ("book1" or "book2")
      */
-    public void returnBook(int slot) {
+    public void returnBook(String itemName) {
         List<BookData> list = extraData.getBookList();
-        int index = settings.getBookIndex(slot);
+
+        // Map item name to list index
+        int index = -1;
+        for (int i = 0; i < BOOK_ITEM_NAMES.length; i++) {
+            if (BOOK_ITEM_NAMES[i].equals(itemName)) {
+                index = i;
+                break;
+            }
+        }
 
         if (index < 0 || index >= list.size()) {
             return;
@@ -365,8 +362,7 @@ public class BookCraftCustomMenu extends AbstractMenu<MenuData, BookCraftExtraDa
             // Must have 2+ books AND at least one slot marked for removal (actual combining occurred)
             if (extraData.getFastCraft().getTotalBooksUsed() < 2 || extraData.getFastCraft().getSlotsToRemoveCount() == 0) {
                 // Clear the invalid FastCraft result from display
-                inventory.setItem(settings.getPreviewSlot(), getTemplateItemStack("preview"));
-                inventory.setItem(settings.getAcceptSlot(), null);
+                updateSlots("preview", null);
                 showRemindButton();
                 extraData.setFastCraft(null);
                 return BookCraftExtraData.BookConfirmReason.NOTHING;
@@ -450,20 +446,20 @@ public class BookCraftCustomMenu extends AbstractMenu<MenuData, BookCraftExtraDa
             if (validResult) {
                 // Show FastCraft result
                 ItemStack resultItem = CEAPI.getCEBookItemStack(fastCraft.getFinalResult().getCESimple());
-                inventory.setItem(settings.getPreviewSlot(), resultItem);
+                updateSlots("preview", resultItem);
                 // Use inventory books consumed for price (not total books including menu)
                 int inventoryBooksConsumed = fastCraft.getSlotsToRemoveCount();
                 showAcceptButton(inventoryBooksConsumed);
             } else {
                 // Result is same level as input with only 1 book - don't show
                 showRemindButton();
-                inventory.setItem(settings.getPreviewSlot(), getTemplateItemStack("preview"));
+                updateSlots("preview", null);
                 extraData.setFastCraft(null);  // Clear invalid FastCraft
             }
         } else {
             // Not enough books for FastCraft, show remind button
             showRemindButton();
-            inventory.setItem(settings.getPreviewSlot(), getTemplateItemStack("preview"));
+            updateSlots("preview", null);
         }
     }
 

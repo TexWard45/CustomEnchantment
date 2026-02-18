@@ -6,7 +6,6 @@ import com.bafmc.bukkit.bafframework.custommenu.menu.builder.MenuOpener;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.menu.bookcraft.BookCraftCustomMenu;
 import com.bafmc.customenchantment.menu.bookcraft.BookCraftExtraData;
-import com.bafmc.customenchantment.menu.bookcraft.BookCraftSettings;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -31,14 +30,8 @@ public class BookCraftCommand implements AdvancedCommandExecutor {
 
         Player player = (Player) sender;
 
-        // Create ExtraData with BookCraftSettings
+        // Create ExtraData
         BookCraftExtraData extraData = new BookCraftExtraData();
-        BookCraftSettings settings = BookCraftCustomMenu.getSettings();
-
-        if (settings == null) {
-            player.sendMessage("§cError: BookCraft settings not loaded!");
-            return true;
-        }
 
         // Open menu using new MenuOpener API
         try {
@@ -50,7 +43,6 @@ public class BookCraftCommand implements AdvancedCommandExecutor {
                     .build();
         } catch (Exception e) {
             plugin.getLogger().severe("[BookCraftCommand] Exception opening menu: " + e.getMessage());
-            e.printStackTrace();
             player.sendMessage("§cError opening menu: " + e.getMessage());
         }
 

@@ -16,7 +16,7 @@ public class BookSlotItem extends AbstractItem<BookCraftCustomMenu> {
 
     @Override
     public void handleClick(ClickData data) {
-        // Return book at this slot to player
-        menu.returnBook(data.getClickedSlot());
+        // Return book by YAML item name ("book1" or "book2")
+        menu.returnBook(itemData.getId());
     }
 }

@@ -36,7 +36,8 @@ public class BookCraftExtraData extends ExtraData {
     public enum BookAddReason {
         SUCCESS,
         FULL_SLOT,
-        NOT_MATCH_BOOK
+        NOT_MATCH_BOOK,
+        MAX_LEVEL
     }
 
     /**

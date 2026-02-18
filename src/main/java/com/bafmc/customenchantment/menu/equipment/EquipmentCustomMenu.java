@@ -47,6 +47,12 @@ import java.util.*;
 
 public class EquipmentCustomMenu extends AbstractMenu<MenuData, EquipmentExtraData> {
 
+	public enum EquipmentAddReason {
+		SUCCESS, NOT_SUPPORT_ITEM, UNDRESS_FIRST,
+		ADD_EXTRA_SLOT, MAX_EXTRA_SLOT, DUPLICATE_EXTRA_SLOT, NOTHING, NO_EXTRA_SLOT,
+		ADD_PROTECT_DEAD, EXCEED_PROTECT_DEAD, DIFFERENT_PROTECT_DEAD
+	}
+
 	public static final String MENU_NAME = "equipment";
 	public static final String PROTECT_DEAD_SLOT = "protect-dead";
 	public static final String EXTRA_SLOT = "extra-slot";
@@ -157,7 +163,7 @@ public class EquipmentCustomMenu extends AbstractMenu<MenuData, EquipmentExtraDa
 		}
 
 		CEItem ceItem = CEAPI.getCEItem(clickedItem);
-		EquipmentMenu.EquipmentAddReason reason = addItem(data.getEvent(), clickedItem, ceItem);
+		EquipmentAddReason reason = addItem(data.getEvent(), clickedItem, ceItem);
 		CustomEnchantmentMessage.send(data.getPlayer(), "menu.equipment.add-equipment." + EnumUtils.toConfigStyle(reason));
 	}
 
@@ -174,33 +180,33 @@ public class EquipmentCustomMenu extends AbstractMenu<MenuData, EquipmentExtraDa
 
 	// ==================== Add Item (3 paths) ====================
 
-	public EquipmentMenu.EquipmentAddReason addItem(InventoryClickEvent e, ItemStack itemStack, CEItem ceItem) {
+	public EquipmentAddReason addItem(InventoryClickEvent e, ItemStack itemStack, CEItem ceItem) {
 		ExtraSlotSettingsData extraSlot = CustomEnchantment.instance().getMainConfig().getExtraSlotSettings(ceItem);
 		if (extraSlot != null && ceItem instanceof CEWeaponAbstract ceWeaponAbstract) {
 			if (itemStack.getAmount() > 1) {
-				return EquipmentMenu.EquipmentAddReason.NOTHING;
+				return EquipmentAddReason.NOTHING;
 			}
 
 			PlayerEquipment playerEquipment = CEAPI.getCEPlayer(owner).getEquipment();
 			int maxExtraSlotUseCount = getMaxExtraSlotUseCount(ceWeaponAbstract);
 			if (maxExtraSlotUseCount <= 0) {
-				return EquipmentMenu.EquipmentAddReason.NO_EXTRA_SLOT;
+				return EquipmentAddReason.NO_EXTRA_SLOT;
 			}
 
 			int emptyIndex = getEmptyExtraSlotIndex(ceWeaponAbstract);
 			if (emptyIndex != -1) {
 				if (checkDuplicateExtraSlot(ceWeaponAbstract)) {
-					return EquipmentMenu.EquipmentAddReason.DUPLICATE_EXTRA_SLOT;
+					return EquipmentAddReason.DUPLICATE_EXTRA_SLOT;
 				}
 			} else {
-				return EquipmentMenu.EquipmentAddReason.MAX_EXTRA_SLOT;
+				return EquipmentAddReason.MAX_EXTRA_SLOT;
 			}
 
 			playerEquipment.setSlot(extraSlot.getSlot(emptyIndex), ceWeaponAbstract, true);
 			updateMenuWithPreventAction();
 			e.setCurrentItem(null);
 			extraData.addLastClickTime(EquipSlot.EXTRA_SLOT, System.currentTimeMillis());
-			return EquipmentMenu.EquipmentAddReason.ADD_EXTRA_SLOT;
+			return EquipmentAddReason.ADD_EXTRA_SLOT;
 		} else if (ceItem instanceof CEProtectDead protectDead && protectDead.getData().isAdvancedMode()) {
 			CEPlayer cePlayer = CEAPI.getCEPlayer(owner);
 			PlayerStorage playerStorage = cePlayer.getStorage();
@@ -214,19 +220,19 @@ public class EquipmentCustomMenu extends AbstractMenu<MenuData, EquipmentExtraDa
 				StorageUtils.setProtectDeadAmount(playerStorage, StorageUtils.getProtectDeadAmount(playerStorage) + protectDead.getData().getExtraPoint());
 				this.updateMenuWithPreventAction();
 				e.setCurrentItem(null);
-				return EquipmentMenu.EquipmentAddReason.ADD_PROTECT_DEAD;
+				return EquipmentAddReason.ADD_PROTECT_DEAD;
 			} else {
 				if (StorageUtils.isDifferentProtectDead(playerStorage, protectDead.getData().getPattern())) {
-					return EquipmentMenu.EquipmentAddReason.DIFFERENT_PROTECT_DEAD;
+					return EquipmentAddReason.DIFFERENT_PROTECT_DEAD;
 				} else {
 					int newAmount = amount + protectDead.getData().getExtraPoint();
 					if (newAmount > protectDead.getData().getMaxPoint()) {
-						return EquipmentMenu.EquipmentAddReason.EXCEED_PROTECT_DEAD;
+						return EquipmentAddReason.EXCEED_PROTECT_DEAD;
 					}
 					StorageUtils.setProtectDeadAmount(playerStorage, StorageUtils.getProtectDeadAmount(playerStorage) + protectDead.getData().getExtraPoint());
 					this.updateMenuWithPreventAction();
 					e.setCurrentItem(null);
-					return EquipmentMenu.EquipmentAddReason.ADD_PROTECT_DEAD;
+					return EquipmentAddReason.ADD_PROTECT_DEAD;
 				}
 			}
 		} else {
@@ -262,20 +268,20 @@ public class EquipmentCustomMenu extends AbstractMenu<MenuData, EquipmentExtraDa
 			if (equipSlot != null) {
 				ItemStack oldItemStack = equipSlot.getItemStack(owner);
 				if (oldItemStack.getAmount() > 1) {
-					return EquipmentMenu.EquipmentAddReason.NOTHING;
+					return EquipmentAddReason.NOTHING;
 				}
 				owner.getInventory().setItem(equipmentSlot, itemStack);
 				this.updateMenuWithPreventAction();
 				e.setCurrentItem(oldItemStack);
 				extraData.addLastClickTime(equipSlot, System.currentTimeMillis());
-				return EquipmentMenu.EquipmentAddReason.SUCCESS;
+				return EquipmentAddReason.SUCCESS;
 			} else {
 				if (owner.getInventory().getItem(EquipmentSlot.HAND).getType() == Material.AIR) {
 					owner.getInventory().setItem(EquipmentSlot.HAND, itemStack);
 					this.updateMenuWithPreventAction();
 					e.setCurrentItem(null);
 					extraData.addLastClickTime(EquipSlot.MAINHAND, System.currentTimeMillis());
-					return EquipmentMenu.EquipmentAddReason.SUCCESS;
+					return EquipmentAddReason.SUCCESS;
 				} else {
 					CEPlayer cePlayer = CEAPI.getCEPlayer(owner);
 					PlayerEquipment playerEquipment = cePlayer.getEquipment();
@@ -291,7 +297,7 @@ public class EquipmentCustomMenu extends AbstractMenu<MenuData, EquipmentExtraDa
 					}
 					this.updateMenuWithPreventAction();
 					extraData.addLastClickTime(EquipSlot.OFFHAND, System.currentTimeMillis());
-					return EquipmentMenu.EquipmentAddReason.SUCCESS;
+					return EquipmentAddReason.SUCCESS;
 				}
 			}
 		}

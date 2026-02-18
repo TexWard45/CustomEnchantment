@@ -9,7 +9,7 @@ import com.bafmc.bukkit.utils.PathUtils;
 import com.bafmc.bukkit.utils.RandomRangeInt;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.enchant.CEEnchantSimple;
-import com.bafmc.customenchantment.menu.bookupgrade.BookUpgradeMenu;
+import com.bafmc.customenchantment.menu.bookupgrade.BookUpgradeCustomMenu;
 import com.bafmc.customenchantment.menu.bookupgrade.BookUpgradeSettings;
 import com.bafmc.customenchantment.menu.bookupgrade.data.BookUpgradeData;
 import com.bafmc.customenchantment.menu.bookupgrade.data.BookUpgradeLevelData;
@@ -23,15 +23,15 @@ import java.util.Set;
 
 public class BookUpgradeConfig extends AbstractConfig {
 	protected void loadConfig() {
-        if (BookUpgradeMenu.getSettings() == null) {
+        if (BookUpgradeCustomMenu.getSettings() == null) {
             BookUpgradeSettings settings = new BookUpgradeSettings();
-            BookUpgradeMenu.setSettings(settings);
+            BookUpgradeCustomMenu.setSettings(settings);
 
             Execute broadcastUpgradeSuccess = new Execute(config.getStringList("settings.broadcast-upgrade-success"));
             settings.setBroadcastUpgradeSuccessExecute(broadcastUpgradeSuccess);
         }
 
-        BookUpgradeSettings settings = BookUpgradeMenu.getSettings();
+        BookUpgradeSettings settings = BookUpgradeCustomMenu.getSettings();
 
         Map<String, XpGroup> xpGroupMap = loadXpGroup(config);
         settings.putAllXpGroupMap(xpGroupMap);
@@ -106,14 +106,14 @@ public class BookUpgradeConfig extends AbstractConfig {
                 if (config.isSet(PathUtils.of(path, groupName, level, "xp"))) {
                     xp = new RandomRangeInt(config.getString(PathUtils.of(path, groupName, level, "xp")));
                 }else {
-                    xp = BookUpgradeMenu.getSettings().getXp(groupName, Integer.valueOf(level));
+                    xp = BookUpgradeCustomMenu.getSettings().getXp(groupName, Integer.valueOf(level));
                 }
 
                 int requiredXp = 0;
                 if (config.isSet(PathUtils.of(path, groupName, level, "required-xp"))) {
                     requiredXp = config.getInt(PathUtils.of(path, groupName, level, "required-xp"));
                 }else {
-                    requiredXp = BookUpgradeMenu.getSettings().getRequiredXp(groupName, Integer.valueOf(level));
+                    requiredXp = BookUpgradeCustomMenu.getSettings().getRequiredXp(groupName, Integer.valueOf(level));
                 }
 
                 String nextEnchantName = config.getString(PathUtils.of(path, groupName, level, "upgrade-enchant.name"));
