@@ -8,6 +8,8 @@
 type: 'book-craft'
 title: '&4&lBàn nâng cấp sách'
 row: 5
+sound:
+  open: 'ENTITY_EXPERIENCE_ORB_PICKUP'
 
 layout:
   - 'ooooooooo'

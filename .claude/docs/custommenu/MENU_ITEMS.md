@@ -447,11 +447,15 @@ items:
       # Executed if condition is true
       true-execute:
         - 'PLAYER_MESSAGE &aSuccess!'
-        - 'PLAY_SOUND ENTITY_PLAYER_LEVELUP'
 
       # Executed if condition is false
       false-execute:
         - 'PLAYER_MESSAGE &cNo permission!'
+
+      # Optional sounds (format: SOUND_NAME or SOUND_NAME volume pitch)
+      click-sound: 'UI_BUTTON_CLICK'              # Plays on every click
+      true-sound: 'ENTITY_PLAYER_LEVELUP'         # Plays when condition passes
+      false-sound: 'ENTITY_VILLAGER_NO 0.7 1.0'   # Plays when condition fails
 ```
 
 ### Custom Data

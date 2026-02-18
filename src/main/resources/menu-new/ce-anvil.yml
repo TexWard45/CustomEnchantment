@@ -10,8 +10,9 @@
 type: 'ce-anvil'
 title: '&8&lLò rèn'
 row: 5
+sound:
+  open: 'ENTITY_EXPERIENCE_ORB_PICKUP'
 data:
-  sound: ENTITY_EXPERIENCE_ORB_PICKUP
   default-view:
     enchant-group:
       - "common"

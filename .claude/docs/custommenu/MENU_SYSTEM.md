@@ -29,7 +29,7 @@ public abstract class AbstractMenu<M extends MenuData, E extends ExtraData> exte
 | `setupMenu(Player, MenuData)` | Initializes the menu for a player |
 | `setupInventory()` | Creates the Bukkit inventory |
 | `setupItems()` | Places all items in the inventory (skips items without slots) |
-| `openInventory()` | Opens the inventory for the player |
+| `openInventory()` | Opens the inventory for the player (plays open sound if configured) |
 | `reopenInventory()` | Refreshes and reopens the inventory |
 | `handleClick(ClickData)` | Processes click events on menu items |
 | `handlePlayerInventoryClick(ClickData)` | Processes click events on player inventory (default: no-op) |
@@ -51,9 +51,9 @@ public abstract class AbstractMenu<M extends MenuData, E extends ExtraData> exte
    ├── setupInventory() - creates Bukkit inventory
    ├── initializeSlotCache() - caches item name → slot mappings
    └── setupItems() - places items (skips template items without slots)
-4. openInventory() - shows to player
+4. openInventory() - shows to player, plays open sound if configured
 5. handleClick(clickData) - on user interaction
-6. handleClose() - on inventory close
+6. handleClose() - on inventory close (close sound played by PlayerData.closeMenu())
 ```
 
 ### MenuRegister

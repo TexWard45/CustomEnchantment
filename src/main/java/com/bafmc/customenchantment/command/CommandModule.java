@@ -107,6 +107,24 @@ public class CommandModule extends PluginModule<CustomEnchantment> {
         ceanvilNewBuilder.build();
         getPlugin().getLogger().info("[CommandModule] /ceanvil-new command registered successfully");
 
+        // NEW: Migrated bookupgrade command using new CustomMenu BafFramework API
+        getPlugin().getLogger().info("[CommandModule] Registering /bookupgrade-new command...");
+        AdvancedCommandBuilder bookUpgradeNewBuilder = AdvancedCommandBuilder.builder()
+                .plugin(getPlugin())
+                .rootCommand("bookupgrade-new");
+        bookUpgradeNewBuilder.commandExecutor(new BookUpgradeCommand(getPlugin())).end();
+        bookUpgradeNewBuilder.build();
+        getPlugin().getLogger().info("[CommandModule] /bookupgrade-new command registered successfully");
+
+        // NEW: Migrated artifactupgrade command using new CustomMenu BafFramework API
+        getPlugin().getLogger().info("[CommandModule] Registering /artifactupgrade-new command...");
+        AdvancedCommandBuilder artifactUpgradeNewBuilder = AdvancedCommandBuilder.builder()
+                .plugin(getPlugin())
+                .rootCommand("artifactupgrade-new");
+        artifactUpgradeNewBuilder.commandExecutor(new ArtifactUpgradeCommand(getPlugin())).end();
+        artifactUpgradeNewBuilder.build();
+        getPlugin().getLogger().info("[CommandModule] /artifactupgrade-new command registered successfully");
+
         AdvancedCommandBuilder anvilBuilder = AdvancedCommandBuilder.builder().plugin(getPlugin()).rootCommand("ceanvil");
         anvilBuilder.commandExecutor(new AdvancedCommandExecutor() {
             public boolean onCommand(CommandSender sender, Argument arg) {

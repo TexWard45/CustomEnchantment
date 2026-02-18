@@ -7,6 +7,8 @@
 type: 'tinkerer'
 title: '&9&lBàn dung luyện'
 row: 6
+sound:
+  open: 'ENTITY_EXPERIENCE_ORB_PICKUP'
 
 layout:
   - 'aooobOOOa'

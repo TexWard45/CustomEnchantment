@@ -129,8 +129,9 @@ This allows for:
 ### Data-Driven Configuration
 
 Menus are defined in YAML files and loaded into data classes:
-- `MenuData` - Menu configuration (title, rows, items)
-- `ItemData` - Item configuration (material, slots, conditions, executes)
+- `MenuData` - Menu configuration (title, rows, items, open/close sounds)
+- `ItemData` - Item configuration (material, slots, conditions, executes, click/true/false sounds)
+- `SoundData` - Parsed sound value object (sound enum, volume, pitch)
 
 ### Plugin Extension System
 

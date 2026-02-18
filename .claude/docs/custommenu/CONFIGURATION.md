@@ -160,6 +160,18 @@ items:
 
 **Mixed mode:** You can use layout references for some items and numeric slots for others in the same menu. Only single-character `slot:` values that match a layout character are resolved; numeric or multi-character values are parsed normally.
 
+### Sound
+
+Optional menu-level sounds for open and close events. Format: `SOUND_NAME` (default vol=1, pitch=1) or `SOUND_NAME volume pitch`.
+
+```yaml
+sound:
+  open: 'BLOCK_CHEST_OPEN'
+  close: 'BLOCK_CHEST_CLOSE 0.8 1.2'
+```
+
+Omit the `sound:` section entirely for no menu-level sounds (fully backward compatible).
+
 ### Custom Data
 
 Menu-wide data accessible in code:
@@ -299,7 +311,12 @@ execute:
     - 'CLOSE'
   false-execute:               # Executed if condition fails
     - 'PLAYER_MESSAGE &cNo permission!'
+  click-sound: 'UI_BUTTON_CLICK'              # Plays on every click (optional)
+  true-sound: 'ENTITY_PLAYER_LEVELUP'         # Plays when condition passes (optional)
+  false-sound: 'ENTITY_VILLAGER_NO 0.7 1.0'   # Plays when condition fails (optional)
 ```
+
+Sound format: `SOUND_NAME` (vol=1, pitch=1) or `SOUND_NAME volume pitch`. All sound fields are optional — omit for no sound.
 
 See [Executes](../features/EXECUTES.md) for available executes.
 
@@ -348,6 +365,9 @@ ItemStack emptyItem = itemData.getRootConfig().getItemStack("empty-item");
 type: 'default'
 title: '&8&lWeapon Shop'
 row: 6
+sound:
+  open: 'BLOCK_CHEST_OPEN'
+  close: 'BLOCK_CHEST_CLOSE 0.8 1.2'
 data:
   category: weapons
   tax-rate: 0.05
@@ -382,16 +402,17 @@ items:
     condition:
       - 'PERMISSION shop.buy'
     execute:
+      click-sound: 'UI_BUTTON_CLICK'
       condition:
         - 'HAS_MONEY 1000'
       true-execute:
         - 'TAKE_MONEY 1000'
         - 'GIVE_ITEM diamond_sword'
         - 'PLAYER_MESSAGE &aPurchased Diamond Sword!'
-        - 'PLAY_SOUND ENTITY_PLAYER_LEVELUP'
+      true-sound: 'ENTITY_PLAYER_LEVELUP'
       false-execute:
         - 'PLAYER_MESSAGE &cNot enough money!'
-        - 'PLAY_SOUND ENTITY_VILLAGER_NO'
+      false-sound: 'ENTITY_VILLAGER_NO'
 
   # Close button
   close:

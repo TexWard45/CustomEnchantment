@@ -36,6 +36,12 @@ commands:
   ceanvil-new:
     description: Anvil CustomEnchantment item (new API)
     usage: /<command>
+  bookupgrade-new:
+    description: Book upgrade menu (new API)
+    usage: /<command>
+  artifactupgrade-new:
+    description: Artifact upgrade menu (new API)
+    usage: /<command>
   nametag:
     description: Nametag for CustomEnchantment item
     usage: /<command>

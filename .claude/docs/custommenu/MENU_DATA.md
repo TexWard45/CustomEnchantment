@@ -22,6 +22,12 @@ public class MenuData implements IConfigurationLoader {
     private AdvancedConfigurationSection dataConfig;      // Custom data section
     @Path("layout")
     private List<String> layout;                          // Optional character-grid layout
+    @Path("sound.open")
+    private String openSoundFormat;                       // Open sound format (optional)
+    @Path("sound.close")
+    private String closeSoundFormat;                      // Close sound format (optional)
+    private SoundData openSoundData;                      // Parsed open sound (null if not set)
+    private SoundData closeSoundData;                     // Parsed close sound (null if not set)
     @Path("items")
     @ValueType(ItemData.class)
     private Map<String, ItemData> itemMap;                // Item configurations
@@ -36,6 +42,9 @@ MenuData implements `IConfigurationLoader` to post-process the layout after all 
 type: 'default'                # Menu type
 title: '&8&lMy Menu'           # Title with color codes
 row: 3                         # 3 rows = 27 slots (auto-derived from layout if present)
+sound:                         # Optional sounds
+  open: 'BLOCK_CHEST_OPEN'
+  close: 'BLOCK_CHEST_CLOSE 0.8 1.2'
 data:                          # Custom data (optional)
   custom-key: value
 layout:                        # Optional character-grid layout
@@ -107,6 +116,15 @@ public class ItemData implements IConfigurationLoader {
     @Path("execute.false-execute")
     private List<String> falseExecuteFormat;                  // Actions if condition false
     private Execute falseExecute;                             // Parsed false execute
+    @Path("execute.click-sound")
+    private String clickSoundFormat;                          // Click sound format (optional)
+    @Path("execute.true-sound")
+    private String trueSoundFormat;                           // True-condition sound format (optional)
+    @Path("execute.false-sound")
+    private String falseSoundFormat;                          // False-condition sound format (optional)
+    private SoundData clickSoundData;                         // Parsed click sound (null if not set)
+    private SoundData trueSoundData;                          // Parsed true sound (null if not set)
+    private SoundData falseSoundData;                         // Parsed false sound (null if not set)
 
     // Methods
     public ItemStack getItemStack();                          // Get item without placeholders
@@ -144,6 +162,9 @@ items:
         - 'PLAYER_MESSAGE &aClicked!'
       false-execute:                 # If click condition false
         - 'PLAYER_MESSAGE &cNo permission!'
+      click-sound: 'UI_BUTTON_CLICK'              # Sound on every click (optional)
+      true-sound: 'ENTITY_PLAYER_LEVELUP'         # Sound when condition passes (optional)
+      false-sound: 'ENTITY_VILLAGER_NO 0.7 1.0'   # Sound when condition fails (optional)
 ```
 
 ### Slot Format
@@ -366,12 +387,14 @@ playerData.setMenu(null);
    ↓
 3. ItemData parsed for each item in items map
    ├── Conditions and Executes parsed from string lists
-   └── Slots parsed from slotFormat (numeric → List<Integer>, non-numeric → empty list)
+   ├── Slots parsed from slotFormat (numeric → List<Integer>, non-numeric → empty list)
+   └── Sound formats parsed into SoundData (click/true/false, null if not set)
    ↓
 4. MenuData.loadConfig() runs (IConfigurationLoader)
    ├── If layout: present → parse character grid → Map<String, List<Integer>>
    ├── Resolve single-char slot references → overwrite ItemData.slots
-   └── Auto-derive row from layout size
+   ├── Auto-derive row from layout size
+   └── Parse open/close sound formats into SoundData (null if not set)
    ↓
 5. Menu opened with optional ExtraData
    ↓

@@ -209,14 +209,14 @@ public class BookCraftCustomMenu extends AbstractMenu<MenuData, BookCraftExtraDa
                 BookData data = list.get(i);
                 inventory.setItem(bookSlot, data.getItemStack());
             } else {
-                // Clear empty slots
-                inventory.setItem(bookSlot, null);
+                // Restore default display for empty slots
+                inventory.setItem(bookSlot, getTemplateItemStack("book" + (i + 1)));
             }
         }
 
         // Clear preview and show remind button when less than 2 books
         if (list.size() < 2) {
-            inventory.setItem(settings.getPreviewSlot(), null);
+            inventory.setItem(settings.getPreviewSlot(), getTemplateItemStack("preview"));
         }
 
         // Reset to remind button when menu is empty
@@ -246,7 +246,7 @@ public class BookCraftCustomMenu extends AbstractMenu<MenuData, BookCraftExtraDa
             showAcceptButton(1.0);  // Regular mode = 1x price (not FastCraft multiplier)
         } else {
             // Clear preview
-            inventory.setItem(settings.getPreviewSlot(), null);
+            inventory.setItem(settings.getPreviewSlot(), getTemplateItemStack("preview"));
 
             // Show remind button (hide accept)
             showRemindButton();
@@ -365,7 +365,7 @@ public class BookCraftCustomMenu extends AbstractMenu<MenuData, BookCraftExtraDa
             // Must have 2+ books AND at least one slot marked for removal (actual combining occurred)
             if (extraData.getFastCraft().getTotalBooksUsed() < 2 || extraData.getFastCraft().getSlotsToRemoveCount() == 0) {
                 // Clear the invalid FastCraft result from display
-                inventory.setItem(settings.getPreviewSlot(), null);
+                inventory.setItem(settings.getPreviewSlot(), getTemplateItemStack("preview"));
                 inventory.setItem(settings.getAcceptSlot(), null);
                 showRemindButton();
                 extraData.setFastCraft(null);
@@ -457,13 +457,13 @@ public class BookCraftCustomMenu extends AbstractMenu<MenuData, BookCraftExtraDa
             } else {
                 // Result is same level as input with only 1 book - don't show
                 showRemindButton();
-                inventory.setItem(settings.getPreviewSlot(), null);
+                inventory.setItem(settings.getPreviewSlot(), getTemplateItemStack("preview"));
                 extraData.setFastCraft(null);  // Clear invalid FastCraft
             }
         } else {
             // Not enough books for FastCraft, show remind button
             showRemindButton();
-            inventory.setItem(settings.getPreviewSlot(), null);
+            inventory.setItem(settings.getPreviewSlot(), getTemplateItemStack("preview"));
         }
     }
 
