@@ -21,7 +21,7 @@ commands:
     usage: /<command>
     aliases: [bookc, cecraft]
   bookupgrade:
-    description: Craft CustomEnchantment book
+    description: Upgrade CustomEnchantment book
     usage: /<command>
     aliases: [bookup, ceup]
   ceanvil:
@@ -35,7 +35,7 @@ commands:
     usage: /<command>
     aliases: [e, equip]
   artifactupgrade:
-    description: Equipment for CustomEnchantment item
+    description: Upgrade artifact item
     usage: /<command>
     aliases: [au, aup]
   cefilter:

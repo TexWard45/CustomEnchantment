@@ -38,9 +38,13 @@ dependencies {
     compileOnly 'cn.dreeam.leaf:leaf:1.21.1-R0.1-SNAPSHOT'
 
     compileOnly 'net.citizensnpcs:Citizens:2.0.35'
-    compileOnly 'com.bafmc:BafFramework:1.0.0'
+
+    // TEMPORARY: Changed to implementation for migration development
+    // TODO: Change back to compileOnly before final deployment
+    implementation 'com.bafmc:BafFramework:1.0.0'
+    implementation 'com.bafmc:CustomMenu:1.0.0'
+
     compileOnly 'com.bafmc:FindItem:1.0.0'
-    compileOnly 'com.bafmc:CustomMenu:1.0.0'
     compileOnly 'com.bafmc:CustomFarm:1.0.0'
     compileOnly 'com.bafmc:CustomShop:1.0.0'
     compileOnly 'com.bafmc:CustomMobDrop:1.0.0'

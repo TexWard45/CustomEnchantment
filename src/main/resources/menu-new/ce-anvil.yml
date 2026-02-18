@@ -1,0 +1,332 @@
+# CE Anvil Menu - Migrated to CustomMenu BafFramework format
+# o = border
+# s = slot1
+# S = slot2
+# 1-5 = preview1-5
+# p = previous-page
+# n = next-page
+# a = confirm
+# R = return
+type: 'ce-anvil'
+title: '&8&lLò rèn'
+row: 5
+sound:
+  open: 'ENTITY_EXPERIENCE_ORB_PICKUP'
+data:
+  default-view:
+    enchant-group:
+      - "common"
+      - "rare"
+      - "epic"
+      - "legendary"
+      - "supreme"
+      - "ultimate"
+      - "event"
+  # Preview display order mapping: index 0->preview3, 1->preview2, etc.
+  # This preserves the center-first spiral pattern
+  preview-index-order: [3, 2, 4, 1, 5]
+
+layout:
+  - 'ooooooooo'
+  - 'ooosoSooo'
+  - 'op12345no'
+  - 'ooooaoooo'
+  - 'ooooRoooo'
+
+items:
+  # ============================================================
+  # BORDER - Static decorative items
+  # ============================================================
+  border:
+    type: default
+    item:
+      type: RED_STAINED_GLASS_PANE
+      amount: 1
+      display: '&7'
+    slot: 'o'
+
+  # ============================================================
+  # INTERACTIVE SLOTS - Items that respond to clicks
+  # ============================================================
+  slot1:
+    type: anvil-slot
+    item:
+      type: LIGHT_GRAY_STAINED_GLASS_PANE
+      amount: 1
+      display: '&fÔ 1'
+      lore:
+        - ''
+        - '&eNhấp chọn trang bị bất kì từ kho đồ'
+    slot: 's'
+    data:
+      slot-name: slot1
+
+  slot2:
+    type: anvil-slot
+    item:
+      type: LIGHT_GRAY_STAINED_GLASS_PANE
+      amount: 1
+      display: '&fÔ 2'
+      lore:
+        - ''
+        - '&eNhấp chọn vật phẩm sử dụng từ kho đồ'
+    slot: 'S'
+    data:
+      slot-name: slot2
+
+  # ============================================================
+  # PREVIEW SLOTS - Dynamic display area
+  # ============================================================
+  preview1:
+    type: anvil-preview
+    item:
+      type: BLACK_STAINED_GLASS_PANE
+      amount: 1
+      display: '&fXem trước'
+    slot: '1'
+    data:
+      preview-name: preview1
+
+  preview2:
+    type: anvil-preview
+    item:
+      type: BLACK_STAINED_GLASS_PANE
+      amount: 1
+      display: '&fXem trước'
+    slot: '2'
+    data:
+      preview-name: preview2
+
+  preview3:
+    type: anvil-preview
+    item:
+      type: BLACK_STAINED_GLASS_PANE
+      amount: 1
+      display: '&fXem trước'
+    slot: '3'
+    data:
+      preview-name: preview3
+
+  preview4:
+    type: anvil-preview
+    item:
+      type: BLACK_STAINED_GLASS_PANE
+      amount: 1
+      display: '&fXem trước'
+    slot: '4'
+    data:
+      preview-name: preview4
+
+  preview5:
+    type: anvil-preview
+    item:
+      type: BLACK_STAINED_GLASS_PANE
+      amount: 1
+      display: '&fXem trước'
+    slot: '5'
+    data:
+      preview-name: preview5
+
+  # ============================================================
+  # CONFIRM BUTTON - Active confirm slot
+  # ============================================================
+  confirm:
+    type: anvil-confirm
+    item:
+      type: ANVIL
+      amount: 1
+      display: '&eHãy chọn vật phẩm và trang bị tương ứng'
+      lore:
+        - '&echo 2 ô trên'
+    slot: 'a'
+
+  # ============================================================
+  # CONFIRM TEMPLATES - No slot, appearance-only definitions
+  # Views fetch these as ItemStack templates
+  # ============================================================
+  confirm-enchant-point:
+    type: default
+    item:
+      type: ANVIL
+      amount: 1
+      display: '&eXác nhận ép ngọc đột phá'
+      lore:
+        - ''
+        - '&fNhấp để ép'
+
+  confirm-book:
+    type: default
+    item:
+      type: ANVIL
+      amount: 1
+      display: '&eXác nhận ép sách phù phép'
+      lore:
+        - ''
+        - '&fNhấp để ép'
+
+  confirm-remove-enchant:
+    type: default
+    item:
+      type: ANVIL
+      amount: 1
+      display: '&eXác nhận tách sách phù phép'
+      lore:
+        - ''
+        - '&fNhấp để tách'
+
+  confirm-lore-format:
+    type: default
+    item:
+      type: ANVIL
+      amount: 1
+      display: '&eXác nhận thay đổi định dạng vật phẩm'
+      lore:
+        - ''
+        - '&fNhấp để xác nhận'
+
+  confirm-protect-dead:
+    type: default
+    item:
+      type: ANVIL
+      amount: 1
+      display: '&eXác nhận ép ngọc bảo vệ'
+      lore:
+        - ''
+        - '&fNhấp để ép'
+
+  confirm-gem-drill:
+    type: default
+    item:
+      type: ANVIL
+      amount: 1
+      display: '&eXác nhận đục lỗ ô ngọc'
+      lore:
+        - ''
+        - "&aTỉ lệ thành công: &f100%'"
+        - ''
+        - '&fNhấp để khoan'
+
+  confirm-gem-drill-max:
+    type: default
+    item:
+      type: ANVIL
+      amount: 1
+      display: '&cĐã đạt số lượng ô ngọc tối đa'
+
+  confirm-gem-drill-with-chance:
+    type: default
+    item:
+      type: ANVIL
+      amount: 1
+      display: '&eXác nhận đục lỗ ô ngọc'
+      lore:
+        - ''
+        - '&aTỉ lệ thành công: &f{chance}%'
+        - ''
+        - '&c&oThất bại sẽ mất Máy Khoan'
+        - ''
+        - '&fNhấp để khoan'
+
+  confirm-gem:
+    type: default
+    item:
+      type: ANVIL
+      amount: 1
+      display: '&eXác nhận khảm ngọc'
+      lore:
+        - ''
+        - '&fNhấp để khảm'
+
+  confirm-remove-protect-dead:
+    type: default
+    item:
+      type: ANVIL
+      amount: 1
+      display: '&eXác nhận tách ngọc bảo vệ'
+      lore:
+        - ''
+        - '&fNhấp để tách'
+
+  confirm-remove-gem:
+    type: default
+    item:
+      type: ANVIL
+      amount: 1
+      display: '&eXác nhận tách ngọc khảm'
+      lore:
+        - ''
+        - '&fNhấp để tách'
+
+  confirm-remove-enchant-point:
+    type: default
+    item:
+      type: ANVIL
+      amount: 1
+      display: '&eXác nhận tách ngọc đột phá'
+      lore:
+        - ''
+        - '&fNhấp để tách'
+
+  confirm-protect-destroy:
+    type: default
+    item:
+      type: ANVIL
+      amount: 1
+      display: '&eXác nhận ép cuộn giấy bảo vệ'
+      lore:
+        - ''
+        - '&fNhấp để ép'
+
+  # ============================================================
+  # PAGINATION
+  # ============================================================
+  previous-page:
+    type: anvil-page
+    item:
+      type: RED_STAINED_GLASS_PANE
+      amount: 1
+      display: '&7'
+    slot: 'p'
+    data:
+      page-action: previous-page
+
+  next-page:
+    type: anvil-page
+    item:
+      type: RED_STAINED_GLASS_PANE
+      amount: 1
+      display: '&7'
+    slot: 'n'
+    data:
+      page-action: next-page
+
+  # Page indicator templates (no slot - used by views dynamically)
+  has-previous-page:
+    type: default
+    item:
+      type: YELLOW_STAINED_GLASS_PANE
+      amount: 1
+      display: '&cTrang trước'
+
+  has-next-page:
+    type: default
+    item:
+      type: GREEN_STAINED_GLASS_PANE
+      amount: 1
+      display: '&aTrang kế'
+
+  # ============================================================
+  # RETURN BUTTON
+  # ============================================================
+  return:
+    type: default
+    item:
+      type: GRAY_STAINED_GLASS_PANE
+      amount: 1
+      display: '&cTrở về'
+    slot: 'R'
+    execute:
+      condition:
+        - 'CLICK_TYPE LEFT'
+      true-execute:
+        - 'RETURN_MENU'

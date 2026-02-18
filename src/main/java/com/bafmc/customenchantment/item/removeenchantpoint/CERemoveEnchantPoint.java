@@ -63,7 +63,7 @@ public class CERemoveEnchantPoint extends CEItem<CERemoveEnchantPointData> {
         }
 
         int maxEnchantSlot = ceWeapon.getWeaponSettings().getEnchantPoint() + ceWeapon.getWeaponData().getExtraEnchantPoint();
-        if (ceWeapon.getWeaponEnchant().getTotalEnchantPoint() >= maxEnchantSlot - 1) {
+        if (ceWeapon.getWeaponEnchant().getTotalEnchantPoint() > maxEnchantSlot - 1) {
             return new ApplyReason("remove-book-first", ApplyResult.CANCEL);
         }
 

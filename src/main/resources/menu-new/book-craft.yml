@@ -1,0 +1,88 @@
+# Book Craft Menu - Migrated to CustomMenu BafFramework format
+# o = border
+# b = book1
+# B = book2
+# p = preview
+# a = accept/remind
+# R = return
+type: 'book-craft'
+title: '&4&lBàn nâng cấp sách'
+row: 5
+sound:
+  open: 'ENTITY_EXPERIENCE_ORB_PICKUP'
+
+layout:
+  - 'ooooooooo'
+  - 'oooboBooo'
+  - 'oooopoooo'
+  - 'ooooaoooo'
+  - 'ooooRoooo'
+
+items:
+  # Red border covering all empty slots
+  border:
+    type: default
+    item:
+      type: RED_STAINED_GLASS_PANE
+      amount: 1
+      display: '&7'
+    slot: 'o'
+
+  # Book slot 1 (left)
+  book1:
+    type: book
+    item:
+      type: LIGHT_GRAY_STAINED_GLASS_PANE
+      amount: 1
+      display: '&fÔ 1'
+    slot: 'b'
+
+  # Book slot 2 (right)
+  book2:
+    type: book
+    item:
+      type: LIGHT_GRAY_STAINED_GLASS_PANE
+      amount: 1
+      display: '&fÔ 2'
+    slot: 'B'
+
+  # Preview slot (shows combined result)
+  preview:
+    type: preview
+    item:
+      type: BLACK_STAINED_GLASS_PANE
+      amount: 1
+      display: '&fXem trước'
+    slot: 'p'
+
+  # Remind item (default state when no books or only 1 book)
+  remind:
+    type: accept
+    item:
+      type: ENCHANTING_TABLE
+      amount: 1
+      display: '&aYêu cầu 2 sách phù phép'
+      lore:
+        - '&agiống nhau để tiến hành'
+        - '&aghép'
+    slot: 'a'
+
+  # Accept button template (shown when 2 books present, replaces remind via updateSlots)
+  accept-button:
+    type: accept
+    item:
+      type: ENCHANTING_TABLE
+      amount: 1
+      display: '&aCần:'
+      lore:
+        - '&a%money%$'
+        - '&ađể tiến hành ghép sách'
+
+  # Return button (bottom center)
+  return:
+    type: return
+    item:
+      type: GRAY_STAINED_GLASS_PANE
+      amount: 1
+      display: '&cTrở về'
+    slot: 'R'

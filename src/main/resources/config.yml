@@ -4,9 +4,11 @@ event:
 log:
   random-book:
     enable: false
-combat-settings:
-  require-weapon: true
 max-extra-slot-use-count: 8
+combat: 
+  time: 10000
+  staff-min-required-attack-strength-scale: 0.5
+  require-weapon: true
 outfit:
   extra-slot: EXTRA_SLOT_9
   task:
@@ -14,6 +16,10 @@ outfit:
     per-item: 10
   title-update-blacklist:
     - 'Kho đồ nâng cao (/e)'
+staff:
+  color: '#55FFFF'
+  speed: '1.0'
+  step-size: '0.5'
 extra-slot-settings:
   artifact-default:
     max-count: 5
@@ -56,7 +62,6 @@ unbreakable-armor:
   enable: true
   player-per-tick: 1
   tick-interval: 1
-combat-time: 10000
 enchant:
   disable-worlds:
     - ""
@@ -70,6 +75,19 @@ enchant:
       increase-damage: "&ctăng sát thương"
       reduce-damage: "<GRADIENTS:00ad0e,05ff19>giảm sát thương</GRADIENTS>"
       reflect-damage: "<GRADIENTS:d2d602,f8fc03>phản đòn</GRADIENTS>"
+weapon-icon:
+  SWORD: ''
+  DAGGER: ''
+  SPEAR: ''
+  GREATSWORD: ''
+  AXE: ''
+  HAMMER: ''
+  STICK: ''
+  STAFF: ''
+  SCYTHE: ''
+  BOW: ''
+  CROSSBOW: ''
+  TRIDENT: ''
 effect-type-blacklist:
   - ""
 ce-item-material-whitelist:

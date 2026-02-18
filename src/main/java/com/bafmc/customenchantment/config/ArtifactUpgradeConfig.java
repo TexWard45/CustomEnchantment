@@ -6,7 +6,7 @@ import com.bafmc.bukkit.feature.requirement.RequirementList;
 import com.bafmc.bukkit.feature.requirement.RequirementManager;
 import com.bafmc.bukkit.utils.PathUtils;
 import com.bafmc.customenchantment.CustomEnchantment;
-import com.bafmc.customenchantment.menu.artifactupgrade.ArtifactUpgradeMenu;
+import com.bafmc.customenchantment.menu.artifactupgrade.ArtifactUpgradeCustomMenu;
 import com.bafmc.customenchantment.menu.artifactupgrade.ArtifactUpgradeSettings;
 import com.bafmc.customenchantment.menu.artifactupgrade.data.ArtifactUpgradeData;
 import com.bafmc.customenchantment.menu.artifactupgrade.data.ArtifactUpgradeLevelData;
@@ -17,12 +17,12 @@ import java.util.Set;
 
 public class ArtifactUpgradeConfig extends AbstractConfig {
 	protected void loadConfig() {
-        if (ArtifactUpgradeMenu.getSettings() == null) {
+        if (ArtifactUpgradeCustomMenu.getSettings() == null) {
             ArtifactUpgradeSettings settings = new ArtifactUpgradeSettings();
-            ArtifactUpgradeMenu.setSettings(settings);
+            ArtifactUpgradeCustomMenu.setSettings(settings);
         }
 
-        ArtifactUpgradeSettings settings = ArtifactUpgradeMenu.getSettings();
+        ArtifactUpgradeSettings settings = ArtifactUpgradeCustomMenu.getSettings();
 
         Execute broadcastUpgradeSuccess = new Execute(config.getStringList("settings.broadcast-upgrade-success"));
         settings.setBroadcastUpgradeSuccessExecute(broadcastUpgradeSuccess);

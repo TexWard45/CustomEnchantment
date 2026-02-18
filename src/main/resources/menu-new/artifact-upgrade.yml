@@ -1,0 +1,123 @@
+# Artifact Upgrade Menu - Migrated to CustomMenu BafFramework format
+# o = border
+# O = border2
+# b = selected-artifact (artifact slot)
+# B = preview-artifact (preview slot)
+# P = ingredient-preview (ingredient slots, spiral order)
+# a = remind (confirm/status slot)
+# R = return
+type: 'artifact-upgrade'
+title: '&8&lNâng cấp Cổ vật'
+row: 6
+sound:
+  open: 'ENTITY_EXPERIENCE_ORB_PICKUP'
+
+layout:
+  - 'oooOOOooo'
+  - 'oOOObOOOo'
+  - 'oOPPPPPOo'
+  - 'oOOOBOOOo'
+  - 'oooOaOooo'
+  - 'ooooRoooo'
+
+items:
+  # ============================================================
+  # BORDER - Static decorative items
+  # ============================================================
+  border:
+    type: default
+    item:
+      type: ORANGE_STAINED_GLASS_PANE
+      amount: 1
+      display: '&7'
+    slot: 'o'
+
+  border2:
+    type: default
+    item:
+      type: YELLOW_STAINED_GLASS_PANE
+      amount: 1
+      display: '&7'
+    slot: 'O'
+
+  # ============================================================
+  # INTERACTIVE SLOTS
+  # ============================================================
+  selected-artifact:
+    type: selected-artifact
+    item:
+      type: LIGHT_GRAY_STAINED_GLASS_PANE
+      amount: 1
+      display: '&eChọn cổ vật cần nâng cấp'
+    slot: 'b'
+
+  preview-artifact:
+    type: preview-artifact
+    item:
+      type: BLACK_STAINED_GLASS_PANE
+      amount: 1
+      display: '&fÔ xem trước'
+    slot: 'B'
+
+  ingredient-preview:
+    type: artifact-ingredient-preview
+    item:
+      type: BLACK_STAINED_GLASS_PANE
+      amount: 1
+      display: '&fÔ nguyên liệu'
+    slot: 'P'
+
+  # ============================================================
+  # REMIND / CONFIRM SLOT
+  # ============================================================
+  remind:
+    type: artifact-remind
+    item:
+      type: ANVIL
+      amount: 1
+      display: '&eHãy chọn cổ vật cần nâng cấp'
+    slot: 'a'
+
+  # ============================================================
+  # TEMPLATE ITEMS (no slot - fetched by code as ItemStack templates)
+  # ============================================================
+  remind-ingredient:
+    type: default
+    item:
+      type: ANVIL
+      amount: 1
+      display: '&eHãy chọn nguyên liệu'
+      lore:
+        - '&7&oNguyên liệu bao gồm cổ vật khác'
+
+  remind-artifact-confirm:
+    type: default
+    item:
+      type: ANVIL
+      amount: 1
+      display: '&d&lXác nhận nâng cấp'
+      lore:
+        - ''
+        - '{requirement_description}'
+        - ''
+        - '&aTỉ lệ thành công: &f{chance}%'
+        - ''
+        - '&c&oThất bại sẽ mất hết nguyên liệu'
+        - ''
+        - '&aNhấp để xác nhận nâng cấp'
+
+  # ============================================================
+  # RETURN BUTTON
+  # ============================================================
+  return:
+    type: default
+    item:
+      type: GRAY_STAINED_GLASS_PANE
+      amount: 1
+      display: '&cTrở về'
+    slot: 'R'
+    execute:
+      condition:
+        - 'CLICK_TYPE LEFT'
+      true-execute:
+        - 'RETURN_MENU'

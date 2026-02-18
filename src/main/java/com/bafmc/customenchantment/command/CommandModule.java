@@ -1,17 +1,8 @@
 package com.bafmc.customenchantment.command;
 
 import com.bafmc.bukkit.command.AdvancedCommandBuilder;
-import com.bafmc.bukkit.command.AdvancedCommandExecutor;
-import com.bafmc.bukkit.command.Argument;
 import com.bafmc.bukkit.module.PluginModule;
 import com.bafmc.customenchantment.CustomEnchantment;
-import com.bafmc.customenchantment.menu.artifactupgrade.ArtifactUpgradeMenu;
-import com.bafmc.customenchantment.menu.bookcraft.BookCraftMenu;
-import com.bafmc.customenchantment.menu.bookupgrade.BookUpgradeMenu;
-import com.bafmc.custommenu.api.CustomMenuAPI;
-import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
-import org.bukkit.event.inventory.InventoryType;
 
 public class CommandModule extends PluginModule<CustomEnchantment> {
     public CommandModule(CustomEnchantment plugin) {
@@ -25,86 +16,41 @@ public class CommandModule extends PluginModule<CustomEnchantment> {
 
         builder.build();
 
-        AdvancedCommandBuilder bookCraftBuilder = AdvancedCommandBuilder.builder().plugin(getPlugin()).rootCommand("bookcraft");
-        bookCraftBuilder.commandExecutor(new AdvancedCommandExecutor() {
-            public boolean onCommand(CommandSender sender, Argument arg) {
-                if (!(sender instanceof Player)) {
-                    return true;
-                }
-                Player player = (Player) sender;
-                CustomMenuAPI.getCPlayer(player).openCustomMenu(BookCraftMenu.MENU_NAME, true);
-                return true;
-            }
-        }).end();
-        bookCraftBuilder.build();
-
-        AdvancedCommandBuilder bookUpgradeBuilder = AdvancedCommandBuilder.builder().plugin(getPlugin()).rootCommand("bookupgrade");
-        bookUpgradeBuilder.commandExecutor(new AdvancedCommandExecutor() {
-            public boolean onCommand(CommandSender sender, Argument arg) {
-                if (!(sender instanceof Player)) {
-                    return true;
-                }
-                Player player = (Player) sender;
-                CustomMenuAPI.getCPlayer(player).openCustomMenu(BookUpgradeMenu.MENU_NAME, true);
-                return true;
-            }
-        }).end();
-        bookUpgradeBuilder.build();
-
-        AdvancedCommandBuilder artifactUpgradeBuilder = AdvancedCommandBuilder.builder().plugin(getPlugin()).rootCommand("artifactupgrade");
-        artifactUpgradeBuilder.commandExecutor(new AdvancedCommandExecutor() {
-            public boolean onCommand(CommandSender sender, Argument arg) {
-                if (!(sender instanceof Player)) {
-                    return true;
-                }
-                Player player = (Player) sender;
-                CustomMenuAPI.getCPlayer(player).openCustomMenu(ArtifactUpgradeMenu.MENU_NAME, true);
-                return true;
-            }
-        }).end();
-        artifactUpgradeBuilder.build();
-
-        AdvancedCommandBuilder tinkererBuilder = AdvancedCommandBuilder.builder().plugin(getPlugin()).rootCommand("tinkerer");
-        tinkererBuilder.commandExecutor(new AdvancedCommandExecutor() {
-            public boolean onCommand(CommandSender sender, Argument arg) {
-                if (!(sender instanceof Player)) {
-                    return true;
-                }
-                Player player = (Player) sender;
-                CustomMenuAPI.getCPlayer(player).openCustomMenu("tinkerer", true);
-                return true;
-            }
-        }).end();
+        AdvancedCommandBuilder tinkererBuilder = AdvancedCommandBuilder.builder()
+                .plugin(getPlugin())
+                .rootCommand("tinkerer");
+        tinkererBuilder.commandExecutor(new TinkererCommand(getPlugin())).end();
         tinkererBuilder.build();
 
-        AdvancedCommandBuilder anvilBuilder = AdvancedCommandBuilder.builder().plugin(getPlugin()).rootCommand("ceanvil");
-        anvilBuilder.commandExecutor(new AdvancedCommandExecutor() {
-            public boolean onCommand(CommandSender sender, Argument arg) {
-                if (!(sender instanceof Player)) {
-                    return true;
-                }
-                Player player = (Player) sender;
-                CustomMenuAPI.getCPlayer(player).openCustomMenu("ce-anvil", true);
-                return true;
-            }
-        }).end();
-        anvilBuilder.build();
+        AdvancedCommandBuilder bookcraftBuilder = AdvancedCommandBuilder.builder()
+                .plugin(getPlugin())
+                .rootCommand("bookcraft");
+        bookcraftBuilder.commandExecutor(new BookCraftCommand(getPlugin())).end();
+        bookcraftBuilder.build();
 
-        AdvancedCommandBuilder equipment = AdvancedCommandBuilder.builder().plugin(getPlugin()).rootCommand("equipment");
-        equipment.commandExecutor(new AdvancedCommandExecutor() {
-            public boolean onCommand(CommandSender sender, Argument arg) {
-                if (!(sender instanceof Player)) {
-                    return true;
-                }
-                Player player = (Player) sender;
-                if (player.getOpenInventory().getTopInventory().getType() != InventoryType.CRAFTING) {
-                    player.closeInventory();
-                }
-                CustomMenuAPI.getCPlayer(player).openCustomMenu("equipment", true);
-                return true;
-            }
-        }).end();
-        equipment.build();
+        AdvancedCommandBuilder ceanvilBuilder = AdvancedCommandBuilder.builder()
+                .plugin(getPlugin())
+                .rootCommand("ceanvil");
+        ceanvilBuilder.commandExecutor(new CEAnvilCommand(getPlugin())).end();
+        ceanvilBuilder.build();
+
+        AdvancedCommandBuilder bookUpgradeBuilder = AdvancedCommandBuilder.builder()
+                .plugin(getPlugin())
+                .rootCommand("bookupgrade");
+        bookUpgradeBuilder.commandExecutor(new BookUpgradeCommand(getPlugin())).end();
+        bookUpgradeBuilder.build();
+
+        AdvancedCommandBuilder artifactUpgradeBuilder = AdvancedCommandBuilder.builder()
+                .plugin(getPlugin())
+                .rootCommand("artifactupgrade");
+        artifactUpgradeBuilder.commandExecutor(new ArtifactUpgradeCommand(getPlugin())).end();
+        artifactUpgradeBuilder.build();
+
+        AdvancedCommandBuilder equipmentBuilder = AdvancedCommandBuilder.builder()
+                .plugin(getPlugin())
+                .rootCommand("equipment");
+        equipmentBuilder.commandExecutor(new EquipmentCommand(getPlugin())).end();
+        equipmentBuilder.build();
 
         AdvancedCommandBuilder nameTagBuilder = AdvancedCommandBuilder.builder().plugin(getPlugin()).rootCommand("nametag");
         new CommandNameTag().onRegister(nameTagBuilder);

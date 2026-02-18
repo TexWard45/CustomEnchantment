@@ -404,7 +404,24 @@ items:
     slot: 0-8                  # Slot range
     # OR
     slot: 0-8,45-53            # Combined ranges and individual
+    # OR
+    slot: 'o'                  # Layout character reference (requires layout: section)
+    # OR omit slot entirely for template items (fetched by code)
 ```
+
+### Template Items (No Slot)
+
+Items defined without a `slot:` property are **template items** — they are not placed in the inventory during `setupItems()`. Instead, they serve as reusable YAML-defined appearances that can be fetched at runtime:
+
+```java
+// Fetch template by name
+ItemStack item = menu.getTemplateItemStack("confirm-upgrade");
+
+// Fetch with placeholder replacement
+ItemStack item = menu.getTemplateItemStack("confirm-cost", placeholder);
+```
+
+See [ADVANCED_PATTERNS.md](ADVANCED_PATTERNS.md#template-items-no-slot-items) for detailed usage patterns.
 
 ### Conditions and Executes
 
@@ -430,11 +447,15 @@ items:
       # Executed if condition is true
       true-execute:
         - 'PLAYER_MESSAGE &aSuccess!'
-        - 'PLAY_SOUND ENTITY_PLAYER_LEVELUP'
 
       # Executed if condition is false
       false-execute:
         - 'PLAYER_MESSAGE &cNo permission!'
+
+      # Optional sounds (format: SOUND_NAME or SOUND_NAME volume pitch)
+      click-sound: 'UI_BUTTON_CLICK'              # Plays on every click
+      true-sound: 'ENTITY_PLAYER_LEVELUP'         # Plays when condition passes
+      false-sound: 'ENTITY_VILLAGER_NO 0.7 1.0'   # Plays when condition fails
 ```
 
 ### Custom Data

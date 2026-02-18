@@ -1,0 +1,70 @@
+# Tinkerer Menu - Migrated to CustomMenu BafFramework format
+# a = accept
+# b = border
+# o = tinker
+# O = reward
+# R = return
+type: 'tinkerer'
+title: '&9&lBàn dung luyện'
+row: 6
+sound:
+  open: 'ENTITY_EXPERIENCE_ORB_PICKUP'
+
+layout:
+  - 'aooobOOOa'
+  - 'oooobOOOO'
+  - 'oooobOOOO'
+  - 'oooobOOOO'
+  - 'oooobOOOO'
+  - 'ooooROOOO'
+
+items:
+  # Border/separator items
+  border:
+    type: default
+    item:
+      type: WHITE_STAINED_GLASS_PANE
+      amount: 1
+      display: '&7'
+    slot: 'b'
+
+  # Accept/Confirm button (top corners)
+  accept:
+    type: accept
+    item:
+      type: WHITE_STAINED_GLASS_PANE
+      amount: 1
+      display: '&a&lNhấp trái để dung luyện'
+    slot: 'a'
+
+  # Tinker slots (left side) - slots where players place items
+  tinker:
+    type: tinker
+    item:
+      type: LIGHT_GRAY_STAINED_GLASS_PANE
+      amount: 1
+      display: '&7Ô chứa vật phẩm cần dung luyện'
+    slot: 'o'
+
+  # Reward preview slots (right side)
+  reward:
+    type: default
+    item:
+      type: LIGHT_GRAY_STAINED_GLASS_PANE
+      amount: 1
+      display: '&7Ô chứa vật phẩm đã dung luyện'
+    slot: 'O'
+
+  # Return button
+  return:
+    type: default
+    item:
+      type: GRAY_STAINED_GLASS_PANE
+      amount: 1
+      display: '&cTrở về'
+    slot: 'R'
+    execute:
+      condition:
+        - 'CLICK_TYPE LEFT'
+      true-execute:
+        - 'RETURN_MENU'

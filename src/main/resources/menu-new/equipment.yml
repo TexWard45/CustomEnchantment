@@ -1,0 +1,427 @@
+# Equipment Menu - Migrated to CustomMenu BafFramework format
+# x = border
+# h = helmet
+# c = chestplate
+# l = leggings
+# b = boots
+# m = mainhand
+# f = offhand
+# a = extra-slot-artifact-default
+# e = extra-slot-artifact-event
+# s = extra-slot-sigil-all
+# o = extra-slot-outfit-all
+# p = protect-dead
+# w = wings
+# i = player-info
+# R = return
+type: 'equipment'
+title: '&8&lKho đồ nâng cao (/e)'
+row: 6
+sound:
+  open: 'ENTITY_EXPERIENCE_ORB_PICKUP'
+
+layout:
+  - 'xxxxxxxxx'
+  - 'xhfxixaax'
+  - 'xcmxsxaax'
+  - 'xlwxpxaex'
+  - 'xboxxxexx'
+  - 'xxxxRxxxx'
+
+items:
+  border:
+    type: default
+    item:
+      type: BLACK_STAINED_GLASS_PANE
+      amount: 1
+      display: '&7'
+      lore:
+        - ''
+        - '&cVật phẩm sẽ bị rơi ra khi chết nếu'
+        - '&ckhông có Ngọc bảo vệ hoặc Bùa bảo vệ'
+    slot: 'x'
+
+  helmet:
+    type: equipment-slot
+    item:
+      type: WHITE_STAINED_GLASS_PANE
+      amount: 1
+      display: '&#E6E6E6&lÔ Mũ / Mặt Nạ / Nón'
+      lore:
+        - ''
+        - '&eTrạng thái: &7Chưa trang bị'
+        - ''
+        - '&f &aNhấp vào Mũ để trang bị'
+    slot: 'h'
+
+  chestplate:
+    type: equipment-slot
+    item:
+      type: WHITE_STAINED_GLASS_PANE
+      amount: 1
+      display: '&#E6E6E6&lÔ Áo giáp'
+      lore:
+        - ''
+        - '&eTrạng thái: &7Chưa trang bị'
+        - ''
+        - '&f &aNhấp vào Áo giáp để trang bị'
+    slot: 'c'
+
+  leggings:
+    type: equipment-slot
+    item:
+      type: WHITE_STAINED_GLASS_PANE
+      amount: 1
+      display: '&a&lQuần'
+      lore:
+        - ''
+        - '&eTrạng thái: &7Chưa trang bị'
+        - ''
+        - '&f &aNhấp vào Quần để trang bị'
+    slot: 'l'
+
+  boots:
+    type: equipment-slot
+    item:
+      type: WHITE_STAINED_GLASS_PANE
+      amount: 1
+      display: '&#E6E6E6&lÔ Giày'
+      lore:
+        - ''
+        - '&eTrạng thái: &7Chưa trang bị'
+        - ''
+        - '&f &aNhấp vào Giày để trang bị'
+    slot: 'b'
+
+  mainhand:
+    type: equipment-slot
+    item:
+      type: WHITE_STAINED_GLASS_PANE
+      amount: 1
+      display: '&#E6E6E6&lÔ Cầm chính / Vũ khí / Công cụ'
+      lore:
+        - ''
+        - '&eTrạng thái: &7Chưa trang bị'
+        - ''
+        - '&f &aNhấp vào vật phẩm để trang bị'
+    slot: 'm'
+
+  offhand:
+    type: equipment-slot
+    item:
+      type: WHITE_STAINED_GLASS_PANE
+      amount: 1
+      display: '&#E6E6E6&lÔ Cầm phụ / Khiên / Cánh'
+      lore:
+        - ''
+        - '&eTrạng thái: &7Chưa trang bị'
+        - ''
+        - '&f &aNhấp vào vật phẩm để trang bị'
+    slot: 'f'
+
+  extra-slot-artifact-default:
+    type: extra-slot-equipment
+    item:
+      type: WHITE_STAINED_GLASS_PANE
+      amount: 1
+      display: '&#E6E6E6&lÔ Cổ vật'
+      lore:
+        - ''
+        - '&eTrạng thái: &7Chưa trang bị'
+        - ''
+        - '&f &aNhấp vào Cổ vật để trang bị'
+    slot: 'a'
+
+  extra-slot-artifact-event:
+    type: extra-slot-equipment
+    item:
+      type: WHITE_STAINED_GLASS_PANE
+      amount: 1
+      display: '&#E6E6E6&lÔ Cổ vật &d&lSự Kiện'
+      lore:
+        - ''
+        - '&eTrạng thái: &7Chưa trang bị'
+        - ''
+        - '&f &aNhấp vào Cổ vật để trang bị'
+    slot: 'e'
+
+  extra-slot-sigil-all:
+    type: extra-slot-equipment
+    item:
+      type: GRAY_DYE
+      amount: 1
+      display: '&#E6E6E6&lÔ Ấn'
+      lore:
+        - ''
+        - '&eTrạng thái: &7Chưa trang bị'
+        - ''
+        - '&f &aNhấp vào Ấn để trang bị'
+    slot: 's'
+
+  extra-slot-outfit-all:
+    type: extra-slot-equipment
+    item:
+      type: WHITE_STAINED_GLASS_PANE
+      amount: 1
+      display: '&#E6E6E6&lÔ Bộ trang phục'
+      lore:
+        - ''
+        - '&eTrạng thái: &7Chưa trang bị'
+        - ''
+        - '&f &aNhấp vào Bộ trang phục để trang bị'
+    slot: 'o'
+
+  protect-dead:
+    type: protect-dead-equipment
+    item:
+      type: WHITE_STAINED_GLASS_PANE
+      amount: 1
+      display: '&#E6E6E6&lÔ Bùa bảo vệ'
+      lore:
+        - ''
+        - '&7&oCó tác dụng bảo vệ toàn bộ vật phẩm và'
+        - '&7&okinh nghiệm không bị rơi ra khi chết'
+        - ''
+        - '&7Tự động kích hoạt và tiêu hao 1 Bùa bảo vệ'
+        - '&7nếu có ít nhất một vật phẩm hoặc kinh nghiệm'
+        - '&7trong kho đồ rơi ra khi chết'
+        - ''
+        - '&eTrạng thái: &7Chưa trang bị'
+        - ''
+        - '&f &aNhấp vào Bùa bảo vệ để trang bị'
+    slot: 'p'
+
+  wings:
+    type: wings-equipment
+    item:
+      type: WHITE_STAINED_GLASS_PANE
+      amount: 1
+      display: '&#E6E6E6&lÔ Cánh (Chưa trang bị)'
+      lore:
+        - ''
+        - '&eTrạng thái: &7Chưa trang bị'
+        - ''
+        - '&f⚠ &cCần sở hữu Trang phục có kèm cánh để trang bị'
+    slot: 'w'
+
+  player-info:
+    type: player-info-equipment
+    item:
+      type: PLAYER_HEAD
+      amount: 1
+      display: '&a&lThông số cá nhân'
+      lore:
+        - ''
+        - '&c&lChỉ số tấn công:'
+        - '&e%customenchantment_attribute_value_attack-damage% &cSức tấn công ⚔'
+        - '&e%customenchantment_attribute_value_attack-speed_0% &#00FF7FTốc độ tấn công ⚡'
+        - '&ex%customenchantment_custom_attribute_value_critical-damage%&#ff4500Sát thương chí mạng 💥'
+        - '&e%customenchantment_custom_attribute_value_critical-chance% &#ffd700Tỉ lệ chí mạng 🎯'
+        - '&e%customenchantment_custom_attribute_value_armor-penetration% &#00BFFFXuyên giáp 🛡'
+        - '&e%customenchantment_custom_attribute_value_life-steal% &#8b0000Hút máu 🧛'
+        - '&e%customenchantment_attribute_value_player-entity-interaction-range% &#00FFFFTầm tấn công ↔'
+        - '&e%customenchantment_custom_attribute_value_aoe-range% &#3FC3FFPhạm vi đánh lan 🌐'
+        - '&e%customenchantment_custom_attribute_value_aoe-damage-ratio% &#FF6B3FSát thương đánh lan ✴'
+        - '&e%customenchantment_custom_attribute_value_accuracy-chance% &#3afe00Độ chính xác 🎯'
+        - ''
+        - '&b&lChỉ số phòng thủ:'
+        - '&e%customenchantment_attribute_value_max-health% &#d15feeSinh lực tối đa &f🩷'
+        - '&e%customenchantment_attribute_value_max-absorption% &#ffc400Tim vàng tối đa &f💛'
+        - '&e%customenchantment_custom_attribute_value_health-regeneration% &#32cd32HP hồi mỗi giây &f💚'
+        - '&e%customenchantment_attribute_value_armor% &#0284c7Giáp 🛡'
+        - '&e%customenchantment_custom_attribute_value_damage-reduction% &#64748bSát thương nhận giảm 🛡'
+        - '&e%customenchantment_attribute_value_movement-speed_&a_&c% &#8aefebTốc độ di chuyển &f⚡'
+        - '&e%customenchantment_custom_attribute_value_dodge-chance% &#f59e0bTỉ lệ né tránh 💨'
+        - '&e%customenchantment_custom_attribute_value_slow-resistance% &#00ccddKháng làm chậm 🛡'
+        - '&e%customenchantment_custom_attribute_value_magic-resistance% &#7E30E1Kháng khống chế 🛡'
+        - ''
+        - '&6&lChỉ số khác:'
+        - '&e%customenchantment_custom_attribute_value_total-power% &#FFD700Tổng lực chiến ⚔'
+        - '&e%customenchantment_custom_attribute_value_atk-power% &#FFD700ATK Lực chiến ⚔'
+        - '&e%customenchantment_custom_attribute_value_def-power% &#FFD700DEF Lực chiến ⚔'
+        - '&e%customenchantment_custom_attribute_value_mining-power% &#FF8800Sức khai phá ⛏'
+        - '&e%customenchantment_custom_attribute_value_vulnerability% &#f8312fTổn thương 💔'
+      skull-owner: '%player_name%'
+    slot: 'i'
+
+  # TEMPLATE ITEMS (no slot - fetched by code for dynamic rendering)
+  helmet-swap:
+    type: default
+    item:
+      type: WHITE_STAINED_GLASS_PANE
+      amount: 1
+      display: '{item_display}'
+      lore:
+        - '{item_lore}'
+        - ''
+        - '&eTrạng thái: &aĐang trang bị'
+        - ''
+        - '&f &aNhấp trái để tháo trang bị'
+        - '&f &aNhấp phải để đổi trang phục'
+
+  helmet-equip:
+    type: default
+    item:
+      type: WHITE_STAINED_GLASS_PANE
+      amount: 1
+      display: '{item_display}'
+      lore:
+        - '{item_lore}'
+        - ''
+        - '&eTrạng thái: &aĐang trang bị'
+        - ''
+        - '&f &aNhấp trái để tháo trang bị'
+
+  chestplate-equip:
+    type: default
+    item:
+      type: WHITE_STAINED_GLASS_PANE
+      amount: 1
+      display: '{item_display}'
+      lore:
+        - '{item_lore}'
+        - ''
+        - '&eTrạng thái: &aĐang trang bị'
+        - ''
+        - '&f &aNhấp trái để tháo trang bị'
+
+  leggings-equip:
+    type: default
+    item:
+      type: WHITE_STAINED_GLASS_PANE
+      amount: 1
+      display: '{item_display}'
+      lore:
+        - '{item_lore}'
+        - ''
+        - '&eTrạng thái: &aĐang trang bị'
+        - ''
+        - '&f &aNhấp trái để tháo trang bị'
+
+  boots-equip:
+    type: default
+    item:
+      type: WHITE_STAINED_GLASS_PANE
+      amount: 1
+      display: '{item_display}'
+      lore:
+        - '{item_lore}'
+        - ''
+        - '&eTrạng thái: &aĐang trang bị'
+        - ''
+        - '&f &aNhấp trái để tháo trang bị'
+
+  mainhand-equip:
+    type: default
+    item:
+      type: WHITE_STAINED_GLASS_PANE
+      amount: 1
+      display: '{item_display}'
+      lore:
+        - '{item_lore}'
+        - ''
+        - '&eTrạng thái: &aĐang trang bị'
+        - ''
+        - '&f &aNhấp trái để tháo trang bị'
+
+  offhand-equip:
+    type: default
+    item:
+      type: WHITE_STAINED_GLASS_PANE
+      amount: 1
+      display: '{item_display}'
+      lore:
+        - '{item_lore}'
+        - ''
+        - '&eTrạng thái: &aĐang trang bị'
+        - ''
+        - '&f &aNhấp trái để tháo trang bị'
+
+  extra-slot-artifact-default-equip:
+    type: default
+    item:
+      type: WHITE_STAINED_GLASS_PANE
+      amount: 1
+      display: '{item_display}'
+      lore:
+        - '{item_lore}'
+        - ''
+        - '&eTrạng thái: &aĐang trang bị'
+        - ''
+        - '&f &aNhấp trái để tháo trang bị'
+
+  extra-slot-artifact-event-equip:
+    type: default
+    item:
+      type: WHITE_STAINED_GLASS_PANE
+      amount: 1
+      display: '{item_display}'
+      lore:
+        - '{item_lore}'
+        - ''
+        - '&eTrạng thái: &aĐang trang bị'
+        - ''
+        - '&f &aNhấp trái để tháo trang bị'
+
+  extra-slot-sigil-all-equip:
+    type: default
+    item:
+      type: GRAY_DYE
+      amount: 1
+      display: '{item_display}'
+      lore:
+        - '{item_lore}'
+        - ''
+        - '&eTrạng thái: &aĐang trang bị'
+        - ''
+        - '&f &aNhấp trái để tháo trang bị'
+
+  extra-slot-outfit-all-equip:
+    type: default
+    item:
+      type: WHITE_STAINED_GLASS_PANE
+      amount: 1
+      display: '{item_display}'
+      lore:
+        - '{item_lore}'
+        - ''
+        - '&eTrạng thái: &aĐang trang bị'
+        - ''
+        - '&f &aNhấp trái để tháo trang bị'
+
+  wings-swap:
+    type: default
+    item:
+      type: WHITE_STAINED_GLASS_PANE
+      amount: 1
+      lore:
+        - '{item_lore}'
+        - ''
+        - '&eTrạng thái: &aĐang trang bị'
+        - ''
+        - '&f &aNhấp phải để đổi trang phục'
+
+  wings-no-skin:
+    type: default
+    item:
+      type: WHITE_STAINED_GLASS_PANE
+      amount: 1
+      display: '&#E6E6E6&lÔ Cánh'
+      lore:
+        - ''
+        - '&eTrạng thái: &7Chưa trang bị'
+        - ''
+        - '&f &aNhấp phải để trang bị cánh'
+
+  return:
+    type: default
+    item:
+      type: GRAY_STAINED_GLASS_PANE
+      amount: 1
+      display: '&cTrở về'
+    slot: 'R'
+    execute:
+      condition:
+        - 'CLICK_TYPE LEFT'
+      true-execute:
+        - 'RETURN_MENU'

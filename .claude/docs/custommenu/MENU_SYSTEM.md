@@ -28,11 +28,17 @@ public abstract class AbstractMenu<M extends MenuData, E extends ExtraData> exte
 | `registerItems()` | Registers item types for this menu (abstract) |
 | `setupMenu(Player, MenuData)` | Initializes the menu for a player |
 | `setupInventory()` | Creates the Bukkit inventory |
-| `setupItems()` | Places all items in the inventory |
-| `openInventory()` | Opens the inventory for the player |
+| `setupItems()` | Places all items in the inventory (skips items without slots) |
+| `openInventory()` | Opens the inventory for the player (plays open sound if configured) |
 | `reopenInventory()` | Refreshes and reopens the inventory |
-| `handleClick(ClickData)` | Processes click events |
+| `handleClick(ClickData)` | Processes click events on menu items |
+| `handlePlayerInventoryClick(ClickData)` | Processes click events on player inventory (default: no-op) |
 | `handleClose()` | Called when menu is closed |
+| `getTemplateItemStack(String)` | Fetch a YAML item's ItemStack by name (template or slotted) |
+| `getTemplateItemStack(String, Placeholder)` | Fetch a YAML item's ItemStack with placeholder replacement |
+| `getSlotsByName(String)` | Get slot numbers for an item by name |
+| `updateSlots(String, ItemStack)` | Update all slots of a named item (null resets to YAML default) |
+| `getDataConfig()` | Get the menu's custom `data:` config section (null-safe) |
 
 #### Lifecycle
 
@@ -43,10 +49,11 @@ public abstract class AbstractMenu<M extends MenuData, E extends ExtraData> exte
    ├── setOwner(player)
    ├── setMenuData(menuData)
    ├── setupInventory() - creates Bukkit inventory
-   └── setupItems() - places items
-4. openInventory() - shows to player
+   ├── initializeSlotCache() - caches item name → slot mappings
+   └── setupItems() - places items (skips template items without slots)
+4. openInventory() - shows to player, plays open sound if configured
 5. handleClick(clickData) - on user interaction
-6. handleClose() - on inventory close
+6. handleClose() - on inventory close (close sound played by PlayerData.closeMenu())
 ```
 
 ### MenuRegister
@@ -299,6 +306,80 @@ public void handleClose() {
     savePlayerProgress();
 }
 ```
+
+### Player Inventory Click Handling
+
+By default, clicks on the player's bottom inventory while a menu is open are cancelled but not handled. Override `handlePlayerInventoryClick(ClickData)` to implement custom behavior for player inventory interactions.
+
+**Common use cases:**
+- Storage menus - deposit items from player inventory
+- Shop menus - sell items from player inventory
+- Crafting menus - transfer materials from player inventory
+
+```java
+@Override
+public void handlePlayerInventoryClick(ClickData data) {
+    // data.isPlayerInventory() is always true
+    // data.getClickedSlot() is relative to player inventory (0-35)
+
+    ItemStack clickedItem = data.getEvent().getCurrentItem();
+    Player player = data.getPlayer();
+
+    // Example: Deposit item into storage
+    if (data.getEvent().getClick() == ClickType.LEFT) {
+        depositItemToStorage(player, clickedItem);
+        player.getInventory().setItem(data.getClickedSlot(), null);
+        reopenInventory();
+    }
+
+    // Example: Handle shift-click for bulk transfer
+    if (data.getEvent().isShiftClick()) {
+        depositAllSimilarItems(player, clickedItem.getType());
+        reopenInventory();
+    }
+}
+```
+
+**Slot mapping:**
+- Player inventory slots 0-35
+  - 0-8: Hotbar (bottom row)
+  - 9-35: Main inventory (3 rows)
+- `data.getClickedSlot()` returns the **relative slot** (0-35), not raw slot
+- `data.isPlayerInventory()` is `true` for player inventory clicks, `false` for menu clicks
+
+**Example: Storage Menu**
+
+```java
+public class StorageMenu extends AbstractMenu<MenuData, ExtraData> {
+
+    @Override
+    public void handlePlayerInventoryClick(ClickData data) {
+        ItemStack item = data.getEvent().getCurrentItem();
+
+        // Validate item type
+        if (!isAcceptableItem(item)) {
+            data.getPlayer().sendMessage("§cThis storage only accepts certain items!");
+            return;
+        }
+
+        // Add to storage
+        boolean success = addToStorage(item);
+
+        if (success) {
+            // Remove from player inventory
+            data.getPlayer().getInventory().setItem(data.getClickedSlot(), null);
+            data.getPlayer().sendMessage("§aItem deposited!");
+
+            // Refresh display
+            reopenInventory();
+        } else {
+            data.getPlayer().sendMessage("§cStorage is full!");
+        }
+    }
+}
+```
+
+**Note:** If you don't override `handlePlayerInventoryClick()`, player inventory clicks will be cancelled but won't trigger any action (default no-op behavior).
 
 ## Async Operations
 

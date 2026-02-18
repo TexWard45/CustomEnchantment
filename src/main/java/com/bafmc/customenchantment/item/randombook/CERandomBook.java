@@ -10,7 +10,7 @@ import com.bafmc.customenchantment.enchant.CEPlaceholder;
 import com.bafmc.customenchantment.item.*;
 import com.bafmc.customenchantment.item.book.CEBook;
 import com.bafmc.customenchantment.item.book.CEBookStorage;
-import com.bafmc.customenchantment.menu.tinkerer.TinkererMenu;
+import com.bafmc.customenchantment.menu.tinkerer.TinkererCustomMenu;
 import com.bafmc.customenchantment.menu.tinkerer.TinkererReward;
 import com.bafmc.customenchantment.menu.tinkerer.TinkererSettings;
 import com.bafmc.customenchantment.nms.CECraftItemStackNMS;
@@ -98,7 +98,7 @@ public class CERandomBook extends CEItemUsable<CERandomBookData> {
 				InventoryUtils.addItem(player, Arrays.asList(itemStack));
 				CustomEnchantmentMessage.send(player, "ce-item." + getType() + ".success", placeholder);
 			} else {
-				TinkererSettings settings = TinkererMenu.getSettings();
+				TinkererSettings settings = TinkererCustomMenu.getSettings();
 				TinkererReward reward = settings.getReward(ceBook);
 				if (reward != null) {
 					reward.getExecute().execute(player);

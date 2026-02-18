@@ -1,0 +1,131 @@
+# Book Upgrade Menu - Migrated to CustomMenu BafFramework format
+# o = border
+# O = border2
+# b = book-upgrade (main book slot)
+# B = book-result (preview/result slot)
+# P = ingredient-preview (ingredient slots)
+# a = remind (confirm/status slot)
+# R = return
+type: 'book-upgrade'
+title: '&5&lBàn đột phá'
+row: 6
+sound:
+  open: 'ENTITY_EXPERIENCE_ORB_PICKUP'
+
+layout:
+  - 'oooOOOooo'
+  - 'oOOObOOOo'
+  - 'oOPPPPPOo'
+  - 'oOOOBOOOo'
+  - 'oooOaOooo'
+  - 'ooooRoooo'
+
+items:
+  # ============================================================
+  # BORDER - Static decorative items
+  # ============================================================
+  border:
+    type: default
+    item:
+      type: PURPLE_STAINED_GLASS_PANE
+      amount: 1
+      display: '&7'
+    slot: 'o'
+
+  border2:
+    type: default
+    item:
+      type: MAGENTA_STAINED_GLASS_PANE
+      amount: 1
+      display: '&7'
+    slot: 'O'
+
+  # ============================================================
+  # INTERACTIVE SLOTS
+  # ============================================================
+  book-upgrade:
+    type: book-upgrade-slot
+    item:
+      type: LIGHT_GRAY_STAINED_GLASS_PANE
+      amount: 1
+      display: '&eChọn sách cần đột phá'
+    slot: 'b'
+
+  book-result:
+    type: book-result
+    item:
+      type: BLACK_STAINED_GLASS_PANE
+      amount: 1
+      display: '&fÔ xem trước'
+    slot: 'B'
+
+  ingredient-preview:
+    type: ingredient-preview
+    item:
+      type: BLACK_STAINED_GLASS_PANE
+      amount: 1
+      display: '&fÔ nguyên liệu'
+    slot: 'P'
+
+  # ============================================================
+  # REMIND / CONFIRM SLOT
+  # ============================================================
+  remind:
+    type: book-upgrade-remind
+    item:
+      type: END_PORTAL_FRAME
+      amount: 1
+      display: '&eHãy chọn sách cần đột phá'
+    slot: 'a'
+
+  # ============================================================
+  # TEMPLATE ITEMS (no slot - fetched by code as ItemStack templates)
+  # ============================================================
+  remind-xp:
+    type: default
+    item:
+      type: END_PORTAL_FRAME
+      amount: 1
+      display: '&eHãy chọn sách cùng loại làm nguyên liệu'
+
+  remind-xp-confirm:
+    type: default
+    item:
+      type: END_PORTAL_FRAME
+      amount: 1
+      display: '&aXác nhận ép kinh nghiệm đột phá'
+      lore:
+        - '&7&oNguyên liệu sẽ mất sau khi ép'
+
+  remind-book-confirm:
+    type: default
+    item:
+      type: END_PORTAL_FRAME
+      amount: 1
+      display: '&d&lXác nhận đột phá'
+      lore:
+        - ''
+        - '{requirement_description}'
+        - ''
+        - '&aTỉ lệ thành công: &f{chance}%'
+        - ''
+        - '&c&oThất bại sẽ mất hết nguyên liệu và'
+        - '&c&ogiảm tiến độ đột phá sách phù phép'
+        - ''
+        - '&aNhấp để xác nhận đột phá'
+
+  # ============================================================
+  # RETURN BUTTON
+  # ============================================================
+  return:
+    type: default
+    item:
+      type: GRAY_STAINED_GLASS_PANE
+      amount: 1
+      display: '&cTrở về'
+    slot: 'R'
+    execute:
+      condition:
+        - 'CLICK_TYPE LEFT'
+      true-execute:
+        - 'RETURN_MENU'

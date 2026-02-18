@@ -6,7 +6,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import com.bafmc.bukkit.feature.execute.Execute;
 import org.bukkit.inventory.ItemStack;
 
-import com.bafmc.customenchantment.menu.tinkerer.TinkererMenu;
+import com.bafmc.customenchantment.menu.tinkerer.TinkererCustomMenu;
 import com.bafmc.customenchantment.menu.tinkerer.TinkererReward;
 import com.bafmc.customenchantment.menu.tinkerer.TinkererSettings;
 import com.bafmc.bukkit.config.AdvancedConfigurationSection;
@@ -21,7 +21,7 @@ public class TinkererConfig extends AbstractConfig {
 		List<Integer> rewardSlots = StringUtils.getIntList(config.getString("reward-slots"), ",", "-");
 
 		TinkererSettings settings = new TinkererSettings(map, tinkerSlots, rewardSlots);
-		TinkererMenu.setSettings(settings);
+		TinkererCustomMenu.setSettings(settings);
 	}
 
 	public ConcurrentHashMap<String, TinkererReward> getTinkererRewardMap(AdvancedConfigurationSection config) {
