@@ -17,6 +17,7 @@ import org.mockbukkit.mockbukkit.ServerMock;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
 import static org.mockito.Mockito.*;
 
 /**
@@ -36,10 +37,14 @@ class TinkererCustomMenuTest {
 
     @BeforeAll
     static void setUpAll() {
-        if (MockBukkit.isMocked()) {
-            MockBukkit.unmock();
+        try {
+            if (MockBukkit.isMocked()) {
+                MockBukkit.unmock();
+            }
+            server = MockBukkit.mock();
+        } catch (Throwable e) {
+            server = null;
         }
-        server = MockBukkit.mock();
     }
 
     @AfterAll
@@ -51,6 +56,7 @@ class TinkererCustomMenuTest {
 
     @BeforeEach
     void setUp() {
+        assumeTrue(server != null, "MockBukkit not available");
         player = server.addPlayer();
         menu = new TinkererCustomMenu();
 

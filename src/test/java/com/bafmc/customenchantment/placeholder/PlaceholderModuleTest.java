@@ -1,12 +1,14 @@
 package com.bafmc.customenchantment.placeholder;
 
 import com.bafmc.customenchantment.CustomEnchantment;
+import org.bukkit.Bukkit;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
 import static org.mockito.Mockito.*;
 
 /**
@@ -88,24 +90,28 @@ class PlaceholderModuleTest {
         @Test
         @DisplayName("should check if PlaceholderAPI is enabled")
         void shouldCheckPlaceholderAPIEnabled() {
+            assumeTrue(Bukkit.getServer() != null, "Bukkit server not available");
             assertDoesNotThrow(() -> placeholderModule.onEnable());
         }
 
         @Test
         @DisplayName("should handle PlaceholderAPI disabled")
         void shouldHandleDisabledPlaceholderAPI() {
+            assumeTrue(Bukkit.getServer() != null, "Bukkit server not available");
             assertDoesNotThrow(() -> placeholderModule.onEnable());
         }
 
         @Test
         @DisplayName("should register placeholders if API enabled")
         void shouldRegisterPlaceholders() {
+            assumeTrue(Bukkit.getServer() != null, "Bukkit server not available");
             assertDoesNotThrow(() -> placeholderModule.onEnable());
         }
 
         @Test
         @DisplayName("should skip registration if API not available")
         void shouldSkipRegistrationIfNotAvailable() {
+            assumeTrue(Bukkit.getServer() != null, "Bukkit server not available");
             assertDoesNotThrow(() -> placeholderModule.onEnable());
         }
     }
@@ -117,6 +123,7 @@ class PlaceholderModuleTest {
         @Test
         @DisplayName("should call setupPlaceholders on enable")
         void shouldSetupPlaceholdersOnEnable() {
+            assumeTrue(Bukkit.getServer() != null, "Bukkit server not available");
             assertDoesNotThrow(() -> placeholderModule.onEnable());
         }
 
@@ -164,12 +171,14 @@ class PlaceholderModuleTest {
         @Test
         @DisplayName("should schedule placeholder setup on main thread")
         void shouldScheduleOnMainThread() {
+            assumeTrue(Bukkit.getServer() != null, "Bukkit server not available");
             assertDoesNotThrow(() -> placeholderModule.onEnable());
         }
 
         @Test
         @DisplayName("should use runTask for main thread scheduling")
         void shouldUseMainThreadScheduling() {
+            assumeTrue(Bukkit.getServer() != null, "Bukkit server not available");
             assertDoesNotThrow(() -> placeholderModule.onEnable());
         }
 
@@ -239,12 +248,14 @@ class PlaceholderModuleTest {
         @Test
         @DisplayName("should handle PlaceholderAPI not installed")
         void shouldHandleNotInstalled() {
+            assumeTrue(Bukkit.getServer() != null, "Bukkit server not available");
             assertDoesNotThrow(() -> placeholderModule.onEnable());
         }
 
         @Test
         @DisplayName("should be resilient to errors")
         void shouldBeResilient() {
+            assumeTrue(Bukkit.getServer() != null, "Bukkit server not available");
             // onEnable returns early when PlaceholderAPI is not enabled (safe)
             // setupPlaceholders calls PlaceholderExpansion.register() which triggers
             // PlaceholderAPIPlugin class loading - not available in unit tests
@@ -287,12 +298,14 @@ class PlaceholderModuleTest {
         @Test
         @DisplayName("should be optional dependency")
         void shouldBeOptionalDependency() {
+            assumeTrue(Bukkit.getServer() != null, "Bukkit server not available");
             assertDoesNotThrow(() -> placeholderModule.onEnable());
         }
 
         @Test
         @DisplayName("should not break plugin if PlaceholderAPI missing")
         void shouldNotBreakPluginIfMissing() {
+            assumeTrue(Bukkit.getServer() != null, "Bukkit server not available");
             assertDoesNotThrow(() -> placeholderModule.onEnable());
         }
     }

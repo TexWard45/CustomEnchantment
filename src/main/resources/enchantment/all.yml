@@ -2618,9 +2618,12 @@ bloodarmor:
   - ''
   - '&eKhi ngoài giao tranh:'
   - '&7» &7Lập tức hồi đầy thanh máu'
+  - ''
+  - '&eMáu tối đa: 10% x Cấp'
+  - '&eHồi máu tối đa: 1% x Cấp'
   applies-description:
   - Thanh công cụ
-  max-level: 1
+  max-level: 5
   enchant-point: 1
   valuable: 0
   levels:
@@ -2632,8 +2635,124 @@ bloodarmor:
         conditions:
         - EQUIP_SLOT:EXTRA_SLOT
         effects:
+        - ADD_ATTRIBUTE:MAX_HEALTH:bloodarmor_max_health:0.1:2
+        - ADD_CUSTOM_ATTRIBUTE:bloodarmor_health_regeneration_percent:HEALTH_REGENERATION_PERCENT:1.0:0
+        - ADD_CUSTOM_ATTRIBUTE:bloodarmor_slow_resistance:SLOW_RESISTANCE:50:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:EXTRA_SLOT
+        effects:
+        - REMOVE_ATTRIBUTE:MAX_HEALTH:bloodarmor_max_health
+        - REMOVE_CUSTOM_ATTRIBUTE:bloodarmor_health_regeneration_percent
+        - REMOVE_CUSTOM_ATTRIBUTE:bloodarmor_slow_resistance
+      auto:
+        type: AUTO
+        chance: 100
+        cooldown: 1000
+        conditions:
+        - NEGATIVE=true | IN_COMBAT
+        effects:
+        - HEALTH:SET:%player_max_value%
+    '2':
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:EXTRA_SLOT
+        effects:
         - ADD_ATTRIBUTE:MAX_HEALTH:bloodarmor_max_health:0.2:2
-        - ADD_CUSTOM_ATTRIBUTE:bloodarmor_health_regeneration_percent:HEALTH_REGENERATION_PERCENT:2.5:0
+        - ADD_CUSTOM_ATTRIBUTE:bloodarmor_health_regeneration_percent:HEALTH_REGENERATION_PERCENT:2.0:0
+        - ADD_CUSTOM_ATTRIBUTE:bloodarmor_slow_resistance:SLOW_RESISTANCE:50:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:EXTRA_SLOT
+        effects:
+        - REMOVE_ATTRIBUTE:MAX_HEALTH:bloodarmor_max_health
+        - REMOVE_CUSTOM_ATTRIBUTE:bloodarmor_health_regeneration_percent
+        - REMOVE_CUSTOM_ATTRIBUTE:bloodarmor_slow_resistance
+      auto:
+        type: AUTO
+        chance: 100
+        cooldown: 1000
+        conditions:
+        - NEGATIVE=true | IN_COMBAT
+        effects:
+        - HEALTH:SET:%player_max_value%
+    '3':
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:EXTRA_SLOT
+        effects:
+        - ADD_ATTRIBUTE:MAX_HEALTH:bloodarmor_max_health:0.3:2
+        - ADD_CUSTOM_ATTRIBUTE:bloodarmor_health_regeneration_percent:HEALTH_REGENERATION_PERCENT:3.0:0
+        - ADD_CUSTOM_ATTRIBUTE:bloodarmor_slow_resistance:SLOW_RESISTANCE:50:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:EXTRA_SLOT
+        effects:
+        - REMOVE_ATTRIBUTE:MAX_HEALTH:bloodarmor_max_health
+        - REMOVE_CUSTOM_ATTRIBUTE:bloodarmor_health_regeneration_percent
+        - REMOVE_CUSTOM_ATTRIBUTE:bloodarmor_slow_resistance
+      auto:
+        type: AUTO
+        chance: 100
+        cooldown: 1000
+        conditions:
+        - NEGATIVE=true | IN_COMBAT
+        effects:
+        - HEALTH:SET:%player_max_value%
+    '4':
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:EXTRA_SLOT
+        effects:
+        - ADD_ATTRIBUTE:MAX_HEALTH:bloodarmor_max_health:0.4:2
+        - ADD_CUSTOM_ATTRIBUTE:bloodarmor_health_regeneration_percent:HEALTH_REGENERATION_PERCENT:4.0:0
+        - ADD_CUSTOM_ATTRIBUTE:bloodarmor_slow_resistance:SLOW_RESISTANCE:50:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:EXTRA_SLOT
+        effects:
+        - REMOVE_ATTRIBUTE:MAX_HEALTH:bloodarmor_max_health
+        - REMOVE_CUSTOM_ATTRIBUTE:bloodarmor_health_regeneration_percent
+        - REMOVE_CUSTOM_ATTRIBUTE:bloodarmor_slow_resistance
+      auto:
+        type: AUTO
+        chance: 100
+        cooldown: 1000
+        conditions:
+        - NEGATIVE=true | IN_COMBAT
+        effects:
+        - HEALTH:SET:%player_max_value%
+    '5':
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+        - EQUIP_SLOT:EXTRA_SLOT
+        effects:
+        - ADD_ATTRIBUTE:MAX_HEALTH:bloodarmor_max_health:0.5:2
+        - ADD_CUSTOM_ATTRIBUTE:bloodarmor_health_regeneration_percent:HEALTH_REGENERATION_PERCENT:5.0:0
         - ADD_CUSTOM_ATTRIBUTE:bloodarmor_slow_resistance:SLOW_RESISTANCE:50:0
       unequip:
         type: EXTRA_SLOT_UNEQUIP
