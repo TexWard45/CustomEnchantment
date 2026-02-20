@@ -15,6 +15,7 @@ import com.bafmc.customenchantment.enchant.CECallerBuilder;
 import com.bafmc.customenchantment.enchant.CEFunctionData;
 import com.bafmc.customenchantment.enchant.CEType;
 import com.bafmc.customenchantment.event.CEPlayerStatsModifyEvent;
+import com.bafmc.customenchantment.menu.equipment.EquipmentCustomMenu;
 import com.bafmc.customenchantment.feature.other.DashFeature;
 import com.bafmc.customenchantment.feature.other.DoubleJumpFeature;
 import com.bafmc.customenchantment.feature.other.FlashFeature;
@@ -119,6 +120,7 @@ public class PlayerListener implements Listener {
 				.setExecuteLater(false)
 				.call();
 
+		EquipmentCustomMenu.removeMenu(player);
 		cePlayer.onQuit();
 	}
 

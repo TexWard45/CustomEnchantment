@@ -5,12 +5,10 @@ import com.bafmc.bukkit.bafframework.custommenu.menu.data.ClickData;
 import com.bafmc.bukkit.bafframework.custommenu.menu.data.ItemData;
 import com.bafmc.bukkit.bafframework.custommenu.menu.data.MenuData;
 import com.bafmc.bukkit.bafframework.custommenu.menu.item.list.DefaultItem;
-import com.bafmc.bukkit.bafframework.event.ItemEquipEvent;
 import com.bafmc.bukkit.bafframework.utils.MaterialUtils;
 import com.bafmc.bukkit.feature.placeholder.PlaceholderBuilder;
 import com.bafmc.bukkit.utils.EnumUtils;
 import com.bafmc.bukkit.utils.EquipSlot;
-import com.bafmc.bukkit.utils.InventoryUtils;
 import com.bafmc.bukkit.utils.ItemStackUtils;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.CustomEnchantmentMessage;
@@ -20,11 +18,14 @@ import com.bafmc.customenchantment.config.data.ExtraSlotSettingsData;
 import com.bafmc.customenchantment.item.CEItem;
 import com.bafmc.customenchantment.item.CEItemType;
 import com.bafmc.customenchantment.item.CEWeaponAbstract;
-import com.bafmc.customenchantment.item.CEWeaponType;
 import com.bafmc.customenchantment.item.artifact.CEArtifact;
 import com.bafmc.customenchantment.item.outfit.CEOutfit;
 import com.bafmc.customenchantment.item.protectdead.CEProtectDead;
 import com.bafmc.customenchantment.item.sigil.CESigil;
+import com.bafmc.customenchantment.menu.equipment.handler.ArmorWeaponHandler;
+import com.bafmc.customenchantment.menu.equipment.handler.EquipmentSlotHandler;
+import com.bafmc.customenchantment.menu.equipment.handler.ExtraSlotHandler;
+import com.bafmc.customenchantment.menu.equipment.handler.ProtectDeadHandler;
 import com.bafmc.customenchantment.menu.equipment.item.EquipmentSlotItem;
 import com.bafmc.customenchantment.menu.equipment.item.ExtraSlotEquipmentItem;
 import com.bafmc.customenchantment.menu.equipment.item.PlayerInfoEquipmentItem;
@@ -38,12 +39,12 @@ import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.scheduler.BukkitTask;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class EquipmentCustomMenu extends AbstractMenu<MenuData, EquipmentExtraData> {
 
@@ -67,11 +68,11 @@ public class EquipmentCustomMenu extends AbstractMenu<MenuData, EquipmentExtraDa
 	public static final String MAINHAND_SLOT = "mainhand";
 	public static final String OFFHAND_SLOT = "offhand";
 
-	private static final Map<String, EquipmentCustomMenu> menuMap = new HashMap<>();
-	private static final Map<String, Long> swapSkinCooldowns = new HashMap<>();
+	private static final Map<String, EquipmentCustomMenu> menuMap = new ConcurrentHashMap<>();
+	private static final Map<String, Long> swapSkinCooldowns = new ConcurrentHashMap<>();
 	private static final long SWAP_SKIN_COOLDOWN_MS = 1000;
 
-	private static final Map<String, EquipSlot> EQUIP_SLOT_MAP = Map.of(
+	public static final Map<String, EquipSlot> EQUIP_SLOT_MAP = Map.of(
 			EquipSlot.HELMET.name().toLowerCase(), EquipSlot.HELMET,
 			EquipSlot.CHESTPLATE.name().toLowerCase(), EquipSlot.CHESTPLATE,
 			EquipSlot.LEGGINGS.name().toLowerCase(), EquipSlot.LEGGINGS,
@@ -79,13 +80,8 @@ public class EquipmentCustomMenu extends AbstractMenu<MenuData, EquipmentExtraDa
 			EquipSlot.MAINHAND.name().toLowerCase(), EquipSlot.MAINHAND
 	);
 
-	private static final Map<EquipSlot, EquipmentSlot> EQUIPMENT_SLOT_MAP = Map.of(
-			EquipSlot.HELMET, EquipmentSlot.HEAD,
-			EquipSlot.CHESTPLATE, EquipmentSlot.CHEST,
-			EquipSlot.LEGGINGS, EquipmentSlot.LEGS,
-			EquipSlot.BOOTS, EquipmentSlot.FEET,
-			EquipSlot.MAINHAND, EquipmentSlot.HAND
-	);
+	private BukkitTask updateTask;
+	private List<EquipmentSlotHandler> handlers;
 
 	private final List<String> itemInteractList = Arrays.asList(
 			PROTECT_DEAD_SLOT,
@@ -96,6 +92,12 @@ public class EquipmentCustomMenu extends AbstractMenu<MenuData, EquipmentExtraDa
 			EquipSlot.OFFHAND.name().toLowerCase(),
 			EquipSlot.MAINHAND.name().toLowerCase()
 	);
+
+	// ==================== Accessors ====================
+
+	public Player getOwner() {
+		return owner;
+	}
 
 	// ==================== Static Singleton ====================
 
@@ -112,6 +114,7 @@ public class EquipmentCustomMenu extends AbstractMenu<MenuData, EquipmentExtraDa
 	}
 
 	public static EquipmentCustomMenu removeMenu(Player player) {
+		swapSkinCooldowns.remove(player.getName());
 		EquipmentCustomMenu menu = menuMap.remove(player.getName());
 		if (menu != null) {
 			menu.extraData.setRemoved(true);
@@ -145,6 +148,11 @@ public class EquipmentCustomMenu extends AbstractMenu<MenuData, EquipmentExtraDa
 	@Override
 	public void setupItems() {
 		super.setupItems();
+		handlers = List.of(
+				new ExtraSlotHandler(this),
+				new ProtectDeadHandler(this),
+				new ArmorWeaponHandler(this)
+		);
 		putMenu(owner, this);
 		updateMenu();
 		autoUpdateMenu();
@@ -169,6 +177,9 @@ public class EquipmentCustomMenu extends AbstractMenu<MenuData, EquipmentExtraDa
 
 	@Override
 	public void handleClose() {
+		if (updateTask != null) {
+			updateTask.cancel();
+		}
 		removeMenu(owner);
 	}
 
@@ -178,136 +189,20 @@ public class EquipmentCustomMenu extends AbstractMenu<MenuData, EquipmentExtraDa
 		return extraData.isInUpdateMenu();
 	}
 
-	// ==================== Add Item (3 paths) ====================
+	// ==================== Add Item (handler delegation) ====================
 
 	public EquipmentAddReason addItem(InventoryClickEvent e, ItemStack itemStack, CEItem ceItem) {
-		ExtraSlotSettingsData extraSlot = CustomEnchantment.instance().getMainConfig().getExtraSlotSettings(ceItem);
-		if (extraSlot != null && ceItem instanceof CEWeaponAbstract ceWeaponAbstract) {
-			if (itemStack.getAmount() > 1) {
-				return EquipmentAddReason.NOTHING;
-			}
-
-			PlayerEquipment playerEquipment = CEAPI.getCEPlayer(owner).getEquipment();
-			int maxExtraSlotUseCount = getMaxExtraSlotUseCount(ceWeaponAbstract);
-			if (maxExtraSlotUseCount <= 0) {
-				return EquipmentAddReason.NO_EXTRA_SLOT;
-			}
-
-			int emptyIndex = getEmptyExtraSlotIndex(ceWeaponAbstract);
-			if (emptyIndex != -1) {
-				if (checkDuplicateExtraSlot(ceWeaponAbstract)) {
-					return EquipmentAddReason.DUPLICATE_EXTRA_SLOT;
-				}
-			} else {
-				return EquipmentAddReason.MAX_EXTRA_SLOT;
-			}
-
-			playerEquipment.setSlot(extraSlot.getSlot(emptyIndex), ceWeaponAbstract, true);
-			updateMenuWithPreventAction();
-			e.setCurrentItem(null);
-			extraData.addLastClickTime(EquipSlot.EXTRA_SLOT, System.currentTimeMillis());
-			return EquipmentAddReason.ADD_EXTRA_SLOT;
-		} else if (ceItem instanceof CEProtectDead protectDead && protectDead.getData().isAdvancedMode()) {
-			CEPlayer cePlayer = CEAPI.getCEPlayer(owner);
-			PlayerStorage playerStorage = cePlayer.getStorage();
-
-			String type = StorageUtils.getProtectDeadType(playerStorage);
-			int amount = StorageUtils.getProtectDeadAmount(playerStorage);
-
-			if (type == null) {
-				type = protectDead.getData().getPattern();
-				StorageUtils.setProtectDeadType(playerStorage, type);
-				StorageUtils.setProtectDeadAmount(playerStorage, StorageUtils.getProtectDeadAmount(playerStorage) + protectDead.getData().getExtraPoint());
-				this.updateMenuWithPreventAction();
-				e.setCurrentItem(null);
-				return EquipmentAddReason.ADD_PROTECT_DEAD;
-			} else {
-				if (StorageUtils.isDifferentProtectDead(playerStorage, protectDead.getData().getPattern())) {
-					return EquipmentAddReason.DIFFERENT_PROTECT_DEAD;
-				} else {
-					int newAmount = amount + protectDead.getData().getExtraPoint();
-					if (newAmount > protectDead.getData().getMaxPoint()) {
-						return EquipmentAddReason.EXCEED_PROTECT_DEAD;
-					}
-					StorageUtils.setProtectDeadAmount(playerStorage, StorageUtils.getProtectDeadAmount(playerStorage) + protectDead.getData().getExtraPoint());
-					this.updateMenuWithPreventAction();
-					e.setCurrentItem(null);
-					return EquipmentAddReason.ADD_PROTECT_DEAD;
-				}
-			}
-		} else {
-			Material type = itemStack.getType();
-
-			CEWeaponType weaponTypeEnum = null;
-			if (ceItem instanceof CEWeaponAbstract ceWeaponAbstract) {
-				weaponTypeEnum = ceWeaponAbstract.getWeaponType();
-			}
-
-			String weaponType = weaponTypeEnum != null ? weaponTypeEnum.name() : null;
-
-			EquipSlot equipSlot = null;
-			EquipmentSlot equipmentSlot = null;
-			if (MaterialUtils.isSimilar(type, "HELMET")
-					|| type == Material.TURTLE_HELMET
-					|| MaterialUtils.isSimilar(type, "BANNER")
-					|| MaterialUtils.isSimilar(type, "HEAD")
-					|| "HELMET".equalsIgnoreCase(weaponType)) {
-				equipSlot = EquipSlot.HELMET;
-				equipmentSlot = EquipmentSlot.HEAD;
-			} else if (MaterialUtils.isSimilar(type, "CHESTPLATE") || "CHESTPLATE".equalsIgnoreCase(weaponType)) {
-				equipSlot = EquipSlot.CHESTPLATE;
-				equipmentSlot = EquipmentSlot.CHEST;
-			} else if (MaterialUtils.isSimilar(type, "LEGGINGS") || "LEGGINGS".equalsIgnoreCase(weaponType)) {
-				equipSlot = EquipSlot.LEGGINGS;
-				equipmentSlot = EquipmentSlot.LEGS;
-			} else if (MaterialUtils.isSimilar(type, "BOOTS") || "BOOTS".equalsIgnoreCase(weaponType)) {
-				equipSlot = EquipSlot.BOOTS;
-				equipmentSlot = EquipmentSlot.FEET;
-			}
-
-			if (equipSlot != null) {
-				ItemStack oldItemStack = equipSlot.getItemStack(owner);
-				if (oldItemStack.getAmount() > 1) {
-					return EquipmentAddReason.NOTHING;
-				}
-				owner.getInventory().setItem(equipmentSlot, itemStack);
-				this.updateMenuWithPreventAction();
-				e.setCurrentItem(oldItemStack);
-				extraData.addLastClickTime(equipSlot, System.currentTimeMillis());
-				return EquipmentAddReason.SUCCESS;
-			} else {
-				if (owner.getInventory().getItem(EquipmentSlot.HAND).getType() == Material.AIR) {
-					owner.getInventory().setItem(EquipmentSlot.HAND, itemStack);
-					this.updateMenuWithPreventAction();
-					e.setCurrentItem(null);
-					extraData.addLastClickTime(EquipSlot.MAINHAND, System.currentTimeMillis());
-					return EquipmentAddReason.SUCCESS;
-				} else {
-					CEPlayer cePlayer = CEAPI.getCEPlayer(owner);
-					PlayerEquipment playerEquipment = cePlayer.getEquipment();
-					if (!playerEquipment.hasWings()) {
-						e.setCurrentItem(EquipSlot.OFFHAND.getItemStack(owner));
-						owner.getInventory().setItem(EquipmentSlot.OFF_HAND, itemStack);
-					} else {
-						ItemEquipEvent itemEquipEvent = new ItemEquipEvent(owner, EquipSlot.OFFHAND, playerEquipment.getOffhandItemStack(), itemStack);
-						Bukkit.getPluginManager().callEvent(itemEquipEvent);
-
-						e.setCurrentItem(playerEquipment.getOffhandItemStack());
-						playerEquipment.setOffhandItemStack(itemStack);
-					}
-					this.updateMenuWithPreventAction();
-					extraData.addLastClickTime(EquipSlot.OFFHAND, System.currentTimeMillis());
-					return EquipmentAddReason.SUCCESS;
-				}
+		for (EquipmentSlotHandler handler : handlers) {
+			if (handler.canAdd(itemStack, ceItem)) {
+				return handler.add(e, itemStack, ceItem);
 			}
 		}
+		return EquipmentAddReason.NOT_SUPPORT_ITEM;
 	}
 
-	// ==================== Return Item (4 paths) ====================
+	// ==================== Return Item (handler delegation) ====================
 
 	public void returnItem(String itemName, int slot) {
-		PlayerEquipment playerEquipment = CEAPI.getCEPlayer(owner).getEquipment();
-
 		if (itemInteractList.contains(itemName) || itemName.startsWith(EXTRA_SLOT)) {
 			if (owner.getInventory().firstEmpty() == -1) {
 				CustomEnchantmentMessage.send(owner, "menu.equipment.return-item.no-empty-slot");
@@ -315,90 +210,10 @@ public class EquipmentCustomMenu extends AbstractMenu<MenuData, EquipmentExtraDa
 			}
 		}
 
-		if (itemName.startsWith(EXTRA_SLOT)) {
-			if (extraData.isInLastClickCooldown(EquipSlot.EXTRA_SLOT)) {
+		for (EquipmentSlotHandler handler : handlers) {
+			if (handler.canReturn(itemName)) {
+				handler.returnItem(itemName, slot);
 				return;
-			}
-
-			Map<String, ExtraSlotSettingsData> map = CustomEnchantment.instance().getMainConfig().getExtraSlotSettingMap();
-			ExtraSlotSettingsData data = map.entrySet().stream()
-					.filter(entry -> itemName.equals(EXTRA_SLOT + "-" + entry.getKey()))
-					.map(Map.Entry::getValue)
-					.findFirst()
-					.orElse(null);
-
-			if (data != null) {
-				List<Integer> extraSlots = getSlotsByName(itemName);
-				int index = extraSlots.indexOf(slot);
-				if (index != -1) {
-					CEWeaponAbstract weaponAbstract = playerEquipment.getSlot(data.getSlot(index));
-					if (weaponAbstract != null) {
-						playerEquipment.setSlot(data.getSlot(index), null, true);
-						InventoryUtils.addItem(owner, weaponAbstract.getDefaultItemStack());
-						updateMenuWithPreventAction();
-					}
-				}
-			}
-		} else if (itemName.equals(PROTECT_DEAD_SLOT)) {
-			if (getSlotsByName(PROTECT_DEAD_SLOT).contains(slot)) {
-				CEPlayer cePlayer = CEAPI.getCEPlayer(owner);
-				PlayerStorage playerStorage = cePlayer.getStorage();
-				String type = StorageUtils.getProtectDeadType(playerStorage);
-				if (type != null) {
-					CEItem ceItem = CEAPI.getCEItemByStorage(CEItemType.PROTECT_DEAD, type);
-					if (ceItem instanceof CEProtectDead protectDead && protectDead.getData().isAdvancedMode()) {
-						StorageUtils.useProtectDead(playerStorage);
-						InventoryUtils.addItem(owner, protectDead.exportTo());
-					} else {
-						StorageUtils.removeProtectDead(playerStorage);
-					}
-					updateMenu();
-				}
-			}
-		} else if (itemName.equals(EquipSlot.OFFHAND.name().toLowerCase())) {
-			if (playerEquipment.hasWings() && !playerEquipment.hasOffhandItemStack()) {
-				return;
-			}
-			ItemStack itemStack = playerEquipment.getActualOffhandItemStack();
-			if (itemStack != null) {
-				if (extraData.isInLastClickCooldown(EquipSlot.OFFHAND)) {
-					return;
-				}
-
-				if (!playerEquipment.hasWings()) {
-					owner.getInventory().setItem(EquipmentSlot.OFF_HAND, null);
-				} else {
-					ItemEquipEvent itemEquipEvent = new ItemEquipEvent(owner, EquipSlot.OFFHAND, itemStack, null);
-					Bukkit.getPluginManager().callEvent(itemEquipEvent);
-					playerEquipment.setOffhandItemStack(null);
-				}
-				InventoryUtils.addItem(owner, itemStack);
-				updateMenuWithPreventAction();
-			}
-		} else {
-			EquipSlot equipSlot = EQUIP_SLOT_MAP.get(itemName);
-			if (equipSlot != null) {
-				ItemStack itemStack = equipSlot.getItemStack(owner);
-				if (itemStack != null) {
-					if (extraData.isInLastClickCooldown(equipSlot)) {
-						return;
-					}
-
-					int firstEmpty = -1;
-					for (int i = 0; i < 36; i++) {
-						if (owner.getInventory().getItem(i) == null) {
-							firstEmpty = i;
-							break;
-						}
-					}
-
-					if (firstEmpty != -1) {
-						owner.getInventory().setItem(EQUIPMENT_SLOT_MAP.get(equipSlot), null);
-						owner.getInventory().setItem(firstEmpty, itemStack);
-					}
-
-					updateMenuWithPreventAction();
-				}
 			}
 		}
 	}
@@ -483,27 +298,7 @@ public class EquipmentCustomMenu extends AbstractMenu<MenuData, EquipmentExtraDa
 			updateSlots(itemName, null);
 			return;
 		}
-
-		NextSwapSkinStatus status = getSwapSkinIndex(itemName);
-
-		if (status == NextSwapSkinStatus.CAN_SWAP) {
-			ItemStack swapTemplate = getTemplateItemStackForEquipment(itemName + "-swap");
-			if (swapTemplate != null) {
-				itemStack = applyItemPlaceholders(itemStack, swapTemplate);
-			}
-		} else if (status == NextSwapSkinStatus.SKIN_OFF) {
-			ItemStack noSkinTemplate = getTemplateItemStackForEquipment(itemName + "-no-skin");
-			if (noSkinTemplate != null) {
-				itemStack = noSkinTemplate;
-			}
-		} else {
-			ItemStack equipTemplate = getTemplateItemStackForEquipment(itemName + "-equip");
-			if (equipTemplate != null) {
-				itemStack = applyItemPlaceholders(itemStack, equipTemplate);
-			}
-		}
-
-		updateSlots(itemName, itemStack);
+		updateSlots(itemName, applySkinTemplate(itemName, itemStack));
 	}
 
 	public NextSwapSkinStatus getSwapSkinIndex(String itemName) {
@@ -557,6 +352,21 @@ public class EquipmentCustomMenu extends AbstractMenu<MenuData, EquipmentExtraDa
 		}
 
 		return NextSwapSkinStatus.CAN_SWAP;
+	}
+
+	private ItemStack applySkinTemplate(String itemName, ItemStack itemStack) {
+		NextSwapSkinStatus status = getSwapSkinIndex(itemName);
+		if (status == NextSwapSkinStatus.CAN_SWAP) {
+			ItemStack swapTemplate = getTemplateItemStackForEquipment(itemName + "-swap");
+			if (swapTemplate != null) return applyItemPlaceholders(itemStack, swapTemplate);
+		} else if (status == NextSwapSkinStatus.SKIN_OFF) {
+			ItemStack noSkinTemplate = getTemplateItemStackForEquipment(itemName + "-no-skin");
+			if (noSkinTemplate != null) return noSkinTemplate;
+		} else {
+			ItemStack equipTemplate = getTemplateItemStackForEquipment(itemName + "-equip");
+			if (equipTemplate != null) return applyItemPlaceholders(itemStack, equipTemplate);
+		}
+		return itemStack;
 	}
 
 	private ItemStack getTemplateItemStackForEquipment(String name) {
@@ -711,86 +521,18 @@ public class EquipmentCustomMenu extends AbstractMenu<MenuData, EquipmentExtraDa
 			inventory.setItem(slot, getTemplateItemStack(itemName));
 			return;
 		}
-
-		NextSwapSkinStatus status = getSwapSkinIndex(itemName);
-
-		if (status == NextSwapSkinStatus.CAN_SWAP) {
-			ItemStack swapTemplate = getTemplateItemStackForEquipment(itemName + "-swap");
-			if (swapTemplate != null) {
-				itemStack = applyItemPlaceholders(itemStack, swapTemplate);
-			}
-		} else if (status == NextSwapSkinStatus.SKIN_OFF) {
-			ItemStack noSkinTemplate = getTemplateItemStackForEquipment(itemName + "-no-skin");
-			if (noSkinTemplate != null) {
-				itemStack = noSkinTemplate;
-			}
-		} else {
-			ItemStack equipTemplate = getTemplateItemStackForEquipment(itemName + "-equip");
-			if (equipTemplate != null) {
-				itemStack = applyItemPlaceholders(itemStack, equipTemplate);
-			}
-		}
-
-		inventory.setItem(slot, itemStack);
+		inventory.setItem(slot, applySkinTemplate(itemName, itemStack));
 	}
 
 	// ==================== Auto Update ====================
 
 	private void autoUpdateMenu() {
-		new BukkitRunnable() {
-			public void run() {
-				if (extraData.isRemoved() || !owner.isOnline()) {
-					cancel();
-					return;
-				}
-				updatePlayerInfoSlots();
+		updateTask = Bukkit.getScheduler().runTaskTimer(CustomEnchantment.instance(), () -> {
+			if (extraData.isRemoved() || !owner.isOnline()) {
+				updateTask.cancel();
+				return;
 			}
-		}.runTaskTimer(CustomEnchantment.instance(), 0, 5);
-	}
-
-	// ==================== Extra Slot Helpers ====================
-
-	public int getMaxExtraSlotUseCount(CEWeaponAbstract ceItem) {
-		return CustomEnchantment.instance().getMainConfig().getExtraSlotSettings(ceItem).getMaxCount();
-	}
-
-	public int getEmptyExtraSlotIndex(CEWeaponAbstract ceWeaponAbstract) {
-		PlayerEquipment playerEquipment = CEAPI.getCEPlayer(owner).getEquipment();
-		playerEquipment.sortExtraSlot();
-
-		ExtraSlotSettingsData data = CustomEnchantment.instance().getMainConfig().getExtraSlotSettings(ceWeaponAbstract);
-
-		int maxArtifactUseCount = getMaxExtraSlotUseCount(ceWeaponAbstract);
-		for (int i = 0; i < maxArtifactUseCount; i++) {
-			if (playerEquipment.getSlot(data.getSlot(i)) == null) {
-				return i;
-			}
-		}
-		return -1;
-	}
-
-	public boolean checkDuplicateExtraSlot(CEWeaponAbstract ceWeaponAbstract) {
-		PlayerEquipment playerEquipment = CEAPI.getCEPlayer(owner).getEquipment();
-		ExtraSlotSettingsData data = CustomEnchantment.instance().getMainConfig().getExtraSlotSettings(ceWeaponAbstract);
-		String targetPattern = ceWeaponAbstract.getData().getPattern();
-		int maxArtifactUseCount = getMaxExtraSlotUseCount(ceWeaponAbstract);
-
-		for (int i = 0; i < maxArtifactUseCount; i++) {
-			CEWeaponAbstract weaponAbstract = playerEquipment.getSlot(data.getSlot(i));
-			if (weaponAbstract == null) continue;
-
-			String existingPattern = switch (weaponAbstract) {
-				case CEArtifact artifact -> artifact.getData().getPattern();
-				case CESigil sigil -> sigil.getData().getId();
-				case CEOutfit outfit -> outfit.getData().getId();
-				default -> null;
-			};
-
-			if (targetPattern.equals(existingPattern)) {
-				return true;
-			}
-		}
-
-		return false;
+			updatePlayerInfoSlots();
+		}, 0, 5);
 	}
 }
