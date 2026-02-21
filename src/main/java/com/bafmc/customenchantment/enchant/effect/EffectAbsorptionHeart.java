@@ -8,6 +8,7 @@ import org.bukkit.craftbukkit.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 
 import com.bafmc.customenchantment.api.CEAPI;
+import com.bafmc.customenchantment.constant.CEConstants;
 import com.bafmc.customenchantment.enchant.CEFunctionData;
 import com.bafmc.customenchantment.enchant.CEPlaceholder;
 import com.bafmc.customenchantment.enchant.EffectHook;
@@ -42,8 +43,8 @@ public class EffectAbsorptionHeart extends EffectHook {
 
 		String format = this.format;
 		Map<String, String> map = CEPlaceholder.getCEFunctionDataPlaceholder(format, data);
-		map.put("%player_value%", String.valueOf(entityPlayer.getAbsorptionAmount()));
-		map.put("%enemy_value%",
+		map.put(CEConstants.Placeholder.PLAYER_VALUE, String.valueOf(entityPlayer.getAbsorptionAmount()));
+		map.put(CEConstants.Placeholder.ENEMY_VALUE,
 				data.getEnemyPlayer() != null ? String.valueOf(
 						(((CraftPlayer) data.getEnemyPlayer()).getHandle()).getAbsorptionAmount())
 						: "0");

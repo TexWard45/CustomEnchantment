@@ -10,6 +10,7 @@ import com.bafmc.bukkit.bafframework.feature.requirement.RequirementManager;
 import com.bafmc.bukkit.feature.execute.Execute;
 import com.bafmc.bukkit.feature.placeholder.PlaceholderBuilder;
 import com.bafmc.bukkit.feature.requirement.AbstractRequirement;
+import com.bafmc.customenchantment.constant.CEConstants;
 import com.bafmc.bukkit.feature.requirement.RequirementList;
 import com.bafmc.bukkit.bafframework.feature.requirement.ItemRequirement;
 import com.bafmc.bukkit.utils.InventoryUtils;
@@ -375,8 +376,8 @@ public class BookUpgradeCustomMenu extends AbstractMenu<MenuData, BookUpgradeExt
         }
 
         PlaceholderBuilder placeholderBuilder = PlaceholderBuilder.builder();
-        placeholderBuilder.put("{requirement_description}", requirementLore);
-        placeholderBuilder.put("{chance}", StringUtils.formatNumber(bookUpgradeData.getSuccessChance().getChance() * 100));
+        placeholderBuilder.put(CEConstants.ItemPlaceholder.REQUIREMENT_DESCRIPTION, requirementLore);
+        placeholderBuilder.put(CEConstants.ItemPlaceholder.CHANCE, StringUtils.formatNumber(bookUpgradeData.getSuccessChance().getChance() * 100));
 
         ItemStackUtils.setItemStack(confirmItem, placeholderBuilder.build());
         updateSlots("remind", confirmItem);
@@ -427,10 +428,10 @@ public class BookUpgradeCustomMenu extends AbstractMenu<MenuData, BookUpgradeExt
         Map<String, String> placeholder = new LinkedHashMap<>();
 
         if (extraData.hasBookIngredients()) {
-            placeholder.put("%enchant_future_xp%", StringUtils.formatNumber(getMinFutureXp()));
-            placeholder.put("%enchant_future_xp1%", StringUtils.formatNumber(getMinFutureXp()));
-            placeholder.put("%enchant_future_xp2%", StringUtils.formatNumber(getMaxFutureXp()));
-            placeholder.put("%enchant_future_progress%", getEnchantFutureProgress());
+            placeholder.put(CEConstants.Placeholder.ENCHANT_FUTURE_XP, StringUtils.formatNumber(getMinFutureXp()));
+            placeholder.put(CEConstants.Placeholder.ENCHANT_FUTURE_XP1, StringUtils.formatNumber(getMinFutureXp()));
+            placeholder.put(CEConstants.Placeholder.ENCHANT_FUTURE_XP2, StringUtils.formatNumber(getMaxFutureXp()));
+            placeholder.put(CEConstants.Placeholder.ENCHANT_FUTURE_PROGRESS, getEnchantFutureProgress());
         }
 
         return placeholder;
@@ -451,8 +452,8 @@ public class BookUpgradeCustomMenu extends AbstractMenu<MenuData, BookUpgradeExt
         }
 
         PlaceholderBuilder placeholderBuilder = PlaceholderBuilder.builder();
-        placeholderBuilder.put("{player_name}", owner.getName());
-        placeholderBuilder.put("{book_display}", itemStack.getItemMeta().getDisplayName());
+        placeholderBuilder.put(CEConstants.ItemPlaceholder.PLAYER_NAME, owner.getName());
+        placeholderBuilder.put(CEConstants.ItemPlaceholder.BOOK_DISPLAY, itemStack.getItemMeta().getDisplayName());
 
         execute.execute(owner, placeholderBuilder.build());
     }

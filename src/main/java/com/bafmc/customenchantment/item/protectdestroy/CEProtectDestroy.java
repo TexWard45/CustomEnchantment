@@ -3,6 +3,7 @@ package com.bafmc.customenchantment.item.protectdestroy;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.bafmc.customenchantment.constant.CEConstants;
 import com.bafmc.customenchantment.item.*;
 import org.bukkit.inventory.ItemStack;
 
@@ -69,8 +70,8 @@ public class CEProtectDestroy extends CEItem<CEProtectDestroyData> {
 		ApplyReason reason = new ApplyReason("success", ApplyResult.SUCCESS);
 		reason.setWriteLogs(true);
 		reason.setSource(ceWeapon);
-		reason.putData("pattern", this.data.getPattern());
-		reason.putData("weapon", ItemStackUtils.toString(ceWeapon.getDefaultItemStack()));
+		reason.putData(CEConstants.DataKey.PATTERN, this.data.getPattern());
+		reason.putData(CEConstants.DataKey.WEAPON, ItemStackUtils.toString(ceWeapon.getDefaultItemStack()));
 		return reason;
 	}
 	

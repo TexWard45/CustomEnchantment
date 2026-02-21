@@ -1,6 +1,7 @@
 package com.bafmc.customenchantment.item.loreformat;
 
 import com.bafmc.customenchantment.CustomEnchantment;
+import com.bafmc.customenchantment.constant.CEConstants;
 import com.bafmc.customenchantment.item.*;
 import com.bafmc.customenchantment.nms.CECraftItemStackNMS;
 import com.bafmc.bukkit.utils.ItemStackUtils;
@@ -66,8 +67,8 @@ public class CELoreFormat extends CEItem<CELoreFormatData> {
 		ApplyReason reason = new ApplyReason("success", ApplyResult.SUCCESS);
 		reason.setWriteLogs(true);
 		reason.setSource(ceWeapon);
-		reason.putData("pattern", this.data.getPattern());
-		reason.putData("weapon", ItemStackUtils.toString(ceWeapon.getDefaultItemStack()));
+		reason.putData(CEConstants.DataKey.PATTERN, this.data.getPattern());
+		reason.putData(CEConstants.DataKey.WEAPON, ItemStackUtils.toString(ceWeapon.getDefaultItemStack()));
 		return reason;
 	}
 	

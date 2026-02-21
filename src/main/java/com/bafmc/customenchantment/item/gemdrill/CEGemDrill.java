@@ -5,6 +5,7 @@ import com.bafmc.bukkit.utils.Chance;
 import com.bafmc.bukkit.utils.ItemStackUtils;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.api.MaterialData;
+import com.bafmc.customenchantment.constant.CEConstants;
 import com.bafmc.customenchantment.item.*;
 import com.bafmc.customenchantment.nms.CECraftItemStackNMS;
 import org.bukkit.inventory.ItemStack;
@@ -83,8 +84,8 @@ public class CEGemDrill extends CEItem<CEGemDrillData> {
 
 		ApplyReason reason = new ApplyReason("success", ApplyResult.SUCCESS);
 		reason.setWriteLogs(true);
-		reason.putData("pattern", this.data.getPattern());
-		reason.putData("weapon", ItemStackUtils.toString(ceWeapon.getDefaultItemStack()));
+		reason.putData(CEConstants.DataKey.PATTERN, this.data.getPattern());
+		reason.putData(CEConstants.DataKey.WEAPON, ItemStackUtils.toString(ceWeapon.getDefaultItemStack()));
 		return reason;
 	}
 	

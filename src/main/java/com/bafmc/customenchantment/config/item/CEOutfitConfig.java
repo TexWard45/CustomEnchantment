@@ -4,6 +4,7 @@ import com.bafmc.bukkit.config.AdvancedConfigurationSection;
 import com.bafmc.bukkit.feature.placeholder.PlaceholderBuilder;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.api.MaterialList;
+import com.bafmc.customenchantment.constant.CEConstants;
 import com.bafmc.customenchantment.config.AbstractConfig;
 import com.bafmc.customenchantment.item.outfit.CEOutfit;
 import com.bafmc.customenchantment.item.outfit.CEOutfitData;
@@ -38,7 +39,7 @@ public class CEOutfitConfig extends AbstractConfig {
             ItemMeta itemMeta = itemStack.getItemMeta();
             if (outfitGroup.getItemDisplay() != null) {
                 PlaceholderBuilder placeholderBuilder = PlaceholderBuilder.builder();
-                placeholderBuilder.put("{item_display}", itemMeta.hasDisplayName() ? itemMeta.getDisplayName() : "");
+                placeholderBuilder.put(CEConstants.ItemPlaceholder.ITEM_DISPLAY, itemMeta.hasDisplayName() ? itemMeta.getDisplayName() : "");
 
                 String itemDisplay = outfitGroup.getItemDisplay();
                 itemMeta.setDisplayName(placeholderBuilder.build().apply(itemDisplay));
@@ -46,7 +47,7 @@ public class CEOutfitConfig extends AbstractConfig {
 
             if (outfitGroup.getItemLore() != null) {
                 PlaceholderBuilder placeholderBuilder = PlaceholderBuilder.builder();
-                placeholderBuilder.put("{item_lore}", itemMeta.hasLore() ? itemMeta.getLore() : new ArrayList<>());
+                placeholderBuilder.put(CEConstants.ItemPlaceholder.ITEM_LORE, itemMeta.hasLore() ? itemMeta.getLore() : new ArrayList<>());
                 itemMeta.setLore(placeholderBuilder.build().apply(outfitGroup.getItemLore()));
             }
             itemStack.setItemMeta(itemMeta);

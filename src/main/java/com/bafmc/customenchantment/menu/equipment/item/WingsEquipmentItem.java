@@ -1,5 +1,6 @@
 package com.bafmc.customenchantment.menu.equipment.item;
 
+import com.bafmc.customenchantment.constant.CEConstants;
 import com.bafmc.bukkit.bafframework.custommenu.menu.data.ClickData;
 import com.bafmc.bukkit.bafframework.custommenu.menu.item.AbstractItem;
 import com.bafmc.customenchantment.menu.equipment.EquipmentCustomMenu;
@@ -9,7 +10,7 @@ public class WingsEquipmentItem extends AbstractItem<EquipmentCustomMenu> {
 
 	@Override
 	public String getType() {
-		return "wings-equipment";
+		return CEConstants.MenuItemType.WINGS_EQUIPMENT;
 	}
 
 	@Override

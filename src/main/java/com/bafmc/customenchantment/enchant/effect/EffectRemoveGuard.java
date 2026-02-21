@@ -2,6 +2,7 @@ package com.bafmc.customenchantment.enchant.effect;
 
 import com.bafmc.bukkit.utils.StringUtils;
 import com.bafmc.customenchantment.CustomEnchantment;
+import com.bafmc.customenchantment.constant.CEConstants;
 import com.bafmc.customenchantment.enchant.CEFunctionData;
 import com.bafmc.customenchantment.enchant.EffectHook;
 import com.bafmc.customenchantment.guard.PlayerGuard;
@@ -34,7 +35,7 @@ public class EffectRemoveGuard extends EffectHook {
 		PlayerGuard playerGuard = CustomEnchantment.instance().getGuardModule().getGuardManager().getPlayerGuard(player);
 
 		for (String name : nameList) {
-			String guardName = name.replace("%player%", player.getName());
+			String guardName = name.replace(CEConstants.Placeholder.PLAYER, player.getName());
 			playerGuard.removeGuardByName(guardName);
 		}
 	}

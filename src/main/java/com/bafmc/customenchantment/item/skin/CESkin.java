@@ -2,6 +2,7 @@ package com.bafmc.customenchantment.item.skin;
 
 import com.bafmc.bukkit.bafframework.nms.NMSNBTTagCompound;
 import com.bafmc.customenchantment.CustomEnchantment;
+import com.bafmc.customenchantment.constant.CEConstants;
 import com.bafmc.customenchantment.item.*;
 import org.bukkit.ChatColor;
 import org.bukkit.inventory.ItemStack;
@@ -24,7 +25,7 @@ public class CESkin extends CEUnify<CESkinData> {
 	}
 
 	public String getWeaponSettingsName() {
-		return getUnifyWeapon().isSet() ? "skin-" + super.getWeaponSettingsName() + "-unify" : "skin-" + super.getWeaponSettingsName();
+		return getUnifyWeapon().isSet() ? CEConstants.ItemPrefix.SKIN + super.getWeaponSettingsName() + CEConstants.EquipmentSuffix.UNIFY : CEConstants.ItemPrefix.SKIN + super.getWeaponSettingsName();
 	}
 
 	public String getDisplay(String display) {
@@ -33,9 +34,9 @@ public class CESkin extends CEUnify<CESkinData> {
 		CEUnifyData data = (CEUnifyData) item.getData();
 
 		if (display.contains(ChatColor.BOLD.toString())) {
-			return data.getBoldDisplay().replace("%display%", display);
+			return data.getBoldDisplay().replace(CEConstants.Placeholder.DISPLAY, display);
 		} else {
-			return data.getNormalDisplay().replace("%display%", display);
+			return data.getNormalDisplay().replace(CEConstants.Placeholder.DISPLAY, display);
 		}
 	}
 }

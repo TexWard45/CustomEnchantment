@@ -3,6 +3,7 @@ package com.bafmc.customenchantment.item.mask;
 import com.bafmc.bukkit.bafframework.nms.NMSNBTTagCompound;
 import com.bafmc.bukkit.utils.MaterialUtils;
 import com.bafmc.customenchantment.CustomEnchantment;
+import com.bafmc.customenchantment.constant.CEConstants;
 import com.bafmc.customenchantment.item.*;
 import com.bafmc.customenchantment.item.banner.CEBanner;
 import org.bukkit.ChatColor;
@@ -34,7 +35,7 @@ public class CEMask extends CEUnify<CEMaskData> {
 	}
 
 	public String getWeaponSettingsName() {
-		return getUnifyWeapon().isSet() ? "mask-" + super.getWeaponSettingsName() + "-unify" : "mask-" + super.getWeaponSettingsName();
+		return getUnifyWeapon().isSet() ? CEConstants.ItemPrefix.MASK + super.getWeaponSettingsName() + CEConstants.EquipmentSuffix.UNIFY : CEConstants.ItemPrefix.MASK + super.getWeaponSettingsName();
 	}
 
 	public String getDisplay(String display) {
@@ -43,9 +44,9 @@ public class CEMask extends CEUnify<CEMaskData> {
 		CEUnifyData data = (CEUnifyData) item.getData();
 
 		if (display.contains(ChatColor.BOLD.toString())) {
-			return data.getBoldDisplay().replace("%display%", display);
+			return data.getBoldDisplay().replace(CEConstants.Placeholder.DISPLAY, display);
 		} else {
-			return data.getNormalDisplay().replace("%display%", display);
+			return data.getNormalDisplay().replace(CEConstants.Placeholder.DISPLAY, display);
 		}
 	}
 }

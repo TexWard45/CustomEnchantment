@@ -4,6 +4,7 @@ import com.bafmc.bukkit.utils.EquipSlot;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.api.Parameter;
+import com.bafmc.customenchantment.constant.CEConstants;
 import com.bafmc.customenchantment.item.*;
 import com.bafmc.customenchantment.item.outfit.CEOutfit;
 import com.bafmc.customenchantment.item.skin.CESkin;
@@ -116,7 +117,7 @@ public class OutfitItemAsyncTask extends BukkitRunnable {
             return;
         }
 
-        int skinIndex = cePlayer.getEquipment().getSkinIndex(outfit.getData().getPattern(), "WINGS");
+        int skinIndex = cePlayer.getEquipment().getSkinIndex(outfit.getData().getPattern(), CEConstants.EquipmentType.WINGS);
         CEWeaponAbstract ceWeaponAbstract = cePlayer.getEquipment().getWings();
         if (skinIndex == -1) {
             if (ceWeaponAbstract != null) {
@@ -126,7 +127,7 @@ public class OutfitItemAsyncTask extends BukkitRunnable {
             return;
         }
 
-        String skinName = outfit.getData().getConfigByLevelData().getSkinByIndex("WINGS", skinIndex);
+        String skinName = outfit.getData().getConfigByLevelData().getSkinByIndex(CEConstants.EquipmentType.WINGS, skinIndex);
         if (skinName == null || skinName.isEmpty()) {
             return;
         }

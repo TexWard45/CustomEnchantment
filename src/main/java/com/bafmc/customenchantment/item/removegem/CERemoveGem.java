@@ -2,6 +2,7 @@ package com.bafmc.customenchantment.item.removegem;
 
 import com.bafmc.bukkit.bafframework.nms.NMSNBTTagCompound;
 import com.bafmc.customenchantment.CustomEnchantment;
+import com.bafmc.customenchantment.constant.CEConstants;
 import com.bafmc.customenchantment.item.*;
 import com.bafmc.customenchantment.item.gem.CEGem;
 import com.bafmc.customenchantment.item.gem.CEGemSimple;
@@ -71,9 +72,9 @@ public class CERemoveGem extends CEItem<CERemoveGemData> {
 		reason.setPlaceholder(placeholder);
 		reason.setRewards(Arrays.asList(itemStack));
 		reason.setWriteLogs(true);
-		reason.putData("pattern", getData().getPattern());
-		reason.putData("enchant", ceGemSimple.getName());
-		reason.putData("level", ceGemSimple.getLevel());
+		reason.putData(CEConstants.DataKey.PATTERN, getData().getPattern());
+		reason.putData(CEConstants.DataKey.ENCHANT, ceGemSimple.getName());
+		reason.putData(CEConstants.DataKey.LEVEL, ceGemSimple.getLevel());
 		return reason;
 	}
 

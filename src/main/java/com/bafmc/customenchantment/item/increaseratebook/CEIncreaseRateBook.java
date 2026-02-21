@@ -3,6 +3,7 @@ package com.bafmc.customenchantment.item.increaseratebook;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.bafmc.customenchantment.constant.CEConstants;
 import com.bafmc.customenchantment.item.*;
 import com.bafmc.customenchantment.item.book.CEBook;
 import com.bafmc.customenchantment.item.book.CEBookData;
@@ -62,8 +63,8 @@ public class CEIncreaseRateBook extends CEItem<CEIncreaseRateBookData> {
 
 	public Map<String, String> getPlaceholder(CEIncreaseRateBookData data) {
 		Map<String, String> map = new HashMap<String, String>();
-		map.put("%success%", String.valueOf((int) data.getSuccess()));
-		map.put("%destroy%", String.valueOf((int) data.getDestroy()));
+		map.put(CEConstants.Placeholder.SUCCESS, String.valueOf((int) data.getSuccess()));
+		map.put(CEConstants.Placeholder.DESTROY, String.valueOf((int) data.getDestroy()));
 		return map;
 	}
 
@@ -104,13 +105,13 @@ public class CEIncreaseRateBook extends CEItem<CEIncreaseRateBookData> {
 		
 		ApplyReason reason = new ApplyReason("success", ApplyResult.SUCCESS);
 		reason.setWriteLogs(true);
-		reason.putData("pattern", this.data.getPattern());
-		reason.putData("enchant", ceEnchantSimple.getName());
-		reason.putData("level", ceEnchantSimple.getLevel());
-		reason.putData("old-success", ceEnchantSimple.getSuccess().getValue());
-		reason.putData("old-destroy", ceEnchantSimple.getDestroy().getValue());
-		reason.putData("new-success", newSuccess);
-		reason.putData("new-destroy", newDestroy);
+		reason.putData(CEConstants.DataKey.PATTERN, this.data.getPattern());
+		reason.putData(CEConstants.DataKey.ENCHANT, ceEnchantSimple.getName());
+		reason.putData(CEConstants.DataKey.LEVEL, ceEnchantSimple.getLevel());
+		reason.putData(CEConstants.DataKey.OLD_SUCCESS, ceEnchantSimple.getSuccess().getValue());
+		reason.putData(CEConstants.DataKey.OLD_DESTROY, ceEnchantSimple.getDestroy().getValue());
+		reason.putData(CEConstants.DataKey.NEW_SUCCESS, newSuccess);
+		reason.putData(CEConstants.DataKey.NEW_DESTROY, newDestroy);
 		return reason;
 	}
 

@@ -7,6 +7,8 @@ import com.bafmc.customenchantment.enchant.CEEnchant;
 import com.bafmc.customenchantment.enchant.CEGroup;
 import com.bafmc.customenchantment.enchant.CEEnchantSimple;
 
+import com.bafmc.customenchantment.constant.CEConstants;
+
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -140,7 +142,7 @@ public class CERandomBookFilter {
 		String key = line.substring(0, line.indexOf("="));
 		String value = line.substring(line.indexOf("=") + 1, line.length());
 
-		if (key.equals("PUT_GROUP")) {
+		if (key.equals(CEConstants.FilterDirective.PUT_GROUP)) {
 			CEGroup group = CEAPI.getCEGroup(value);
 			if (group == null) {
 				return;
@@ -148,7 +150,7 @@ public class CERandomBookFilter {
 			for (CEEnchant enchant : group.getEnchantList()) {
 				addEnchant(enchant);
 			}
-		} else if (key.equals("REMOVE_GROUP")) {
+		} else if (key.equals(CEConstants.FilterDirective.REMOVE_GROUP)) {
 			CEGroup group = CEAPI.getCEGroup(value);
 			if (group == null) {
 				return;
@@ -156,21 +158,21 @@ public class CERandomBookFilter {
 			for (CEEnchant enchant : group.getEnchantList()) {
 				removeEnchant(enchant);
 			}
-		} else if (key.equals("ADD_ENCHANT")) {
+		} else if (key.equals(CEConstants.FilterDirective.ADD_ENCHANT)) {
 			CEEnchant enchant = CEAPI.getCEEnchant(value);
 			addEnchant(enchant);
-		} else if (key.equals("REMOVE_ENCHANT")) {
+		} else if (key.equals(CEConstants.FilterDirective.REMOVE_ENCHANT)) {
 			CEEnchant enchant = CEAPI.getCEEnchant(value);
 			removeEnchant(enchant);
-		} else if (key.equals("MIN_LEVEL")) {
+		} else if (key.equals(CEConstants.FilterDirective.MIN_LEVEL)) {
 			this.minLevel = Integer.valueOf(value);
-		} else if (key.equals("MAX_LEVEL")) {
+		} else if (key.equals(CEConstants.FilterDirective.MAX_LEVEL)) {
 			this.maxLevel = Integer.valueOf(value);
-		} else if (key.equals("SUCCESS")) {
+		} else if (key.equals(CEConstants.FilterDirective.SUCCESS)) {
 			this.success = Integer.valueOf(value);
-		} else if (key.equals("DESTROY")) {
+		} else if (key.equals(CEConstants.FilterDirective.DESTROY)) {
 			this.destroy = Integer.valueOf(value);
-		} else if (key.equals("LEVEL_SIGMA")) {
+		} else if (key.equals(CEConstants.FilterDirective.LEVEL_SIGMA)) {
             this.sigma = Double.valueOf(value);
         }
 

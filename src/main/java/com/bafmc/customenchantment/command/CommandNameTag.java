@@ -3,6 +3,7 @@ package com.bafmc.customenchantment.command;
 import com.bafmc.bukkit.command.*;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.CustomEnchantmentMessage;
+import com.bafmc.customenchantment.constant.CEConstants;
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.item.CEItemType;
 import com.bafmc.customenchantment.item.nametag.CENameTag;
@@ -68,7 +69,7 @@ public class CommandNameTag implements CommandRegistrar {
 				return true;
 			}
 			
-			placeholder.put("%display%", display);
+			placeholder.put(CEConstants.Placeholder.DISPLAY, display);
 			CustomEnchantmentMessage.send(player, "command.nametag.show", placeholder);
 			return true;
 		}
@@ -94,7 +95,7 @@ public class CommandNameTag implements CommandRegistrar {
 			CEPlayer cePlayer = CEAPI.getCEPlayer(player);
 			cePlayer.getNameTag().setDisplay(arg.getToEnd("<display>"));
 			
-			placeholder.put("%display%", display);
+			placeholder.put(CEConstants.Placeholder.DISPLAY, display);
 			CustomEnchantmentMessage.send(player, "command.nametag.set", placeholder);
 			return true;
 		}
@@ -117,7 +118,7 @@ public class CommandNameTag implements CommandRegistrar {
 				return true;
 			}
 			
-			placeholder.put("%display%", display);
+			placeholder.put(CEConstants.Placeholder.DISPLAY, display);
 			CustomEnchantmentMessage.send(player, "command.nametag.preview", placeholder);
 			return true;
 		}

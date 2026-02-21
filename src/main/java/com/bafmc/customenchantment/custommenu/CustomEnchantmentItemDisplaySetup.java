@@ -2,6 +2,7 @@ package com.bafmc.customenchantment.custommenu;
 
 import com.bafmc.bukkit.api.PlaceholderAPI;
 import com.bafmc.bukkit.config.AdvancedConfigurationSection;
+import com.bafmc.customenchantment.constant.CEConstants;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.api.Parameter;
@@ -27,7 +28,7 @@ public class CustomEnchantmentItemDisplaySetup extends ItemDisplaySetup {
 			return CustomEnchantment.instance().getCeItemStorageMap().get(dataConfig.getString("type")).getItemStackByParameter(parameter);
 		}
 
-		if (dataConfig.getString("type").equals("storage")) {
+		if (dataConfig.getString("type").equals(CEConstants.ItemDisplayType.STORAGE)) {
 			String name = PlaceholderAPI.setPlaceholders(player, dataConfig.getString("name"));
 
 			if (name != null) {
@@ -37,7 +38,7 @@ public class CustomEnchantmentItemDisplaySetup extends ItemDisplaySetup {
 			}
 		}
 
-		if (dataConfig.getString("type").equals("gem")) {
+		if (dataConfig.getString("type").equals(CEConstants.ItemDisplayType.GEM)) {
 			String name = PlaceholderAPI.setPlaceholders(player, dataConfig.getString("name"));
 			int level = dataConfig.getInt("level", 1);
 

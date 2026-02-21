@@ -1,5 +1,6 @@
 package com.bafmc.customenchantment.menu.bookcraft.item;
 
+import com.bafmc.customenchantment.constant.CEConstants;
 import com.bafmc.bukkit.bafframework.custommenu.menu.data.ClickData;
 import com.bafmc.bukkit.bafframework.custommenu.menu.item.AbstractItem;
 import com.bafmc.bukkit.utils.EnumUtils;
@@ -15,7 +16,7 @@ public class BookAcceptItem extends AbstractItem<BookCraftCustomMenu> {
 
     @Override
     public String getType() {
-        return "accept";
+        return CEConstants.MenuItemType.ACCEPT;
     }
 
     @Override

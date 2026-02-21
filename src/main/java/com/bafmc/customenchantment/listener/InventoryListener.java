@@ -7,6 +7,7 @@ import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.CustomEnchantmentLog;
 import com.bafmc.customenchantment.CustomEnchantmentMessage;
 import com.bafmc.customenchantment.api.CEAPI;
+import com.bafmc.customenchantment.constant.CEConstants;
 import com.bafmc.customenchantment.item.*;
 import com.bafmc.customenchantment.item.CEUnifyWeapon.Target;
 import com.bafmc.customenchantment.item.nametag.CENameTag;
@@ -154,12 +155,12 @@ public class InventoryListener implements Listener {
 				reason.setPlayer(player);
 				reason.setCEItem1(ceItem1);
 				reason.setCEItem2(ceItem0);
-				reason.putData("pattern", ceItem1.getData().getPattern());
+				reason.putData(CEConstants.DataKey.PATTERN, ceItem1.getData().getPattern());
 
 				String oldDisplay = itemStack0.hasItemMeta() ? itemStack0.getItemMeta().getDisplayName() : null;
 				String newDisplay = resultItem.hasItemMeta() ? resultItem.getItemMeta().getDisplayName() : null;
-				reason.putData("old-display", oldDisplay);
-				reason.putData("new-display", newDisplay);
+				reason.putData(CEConstants.DataKey.OLD_DISPLAY, oldDisplay);
+				reason.putData(CEConstants.DataKey.NEW_DISPLAY, newDisplay);
 				CustomEnchantmentLog.writeItemActionLogs(reason);
 
 				CustomEnchantmentMessage.send(player,
@@ -272,10 +273,10 @@ public class InventoryListener implements Listener {
 		// Use PrepareAnvilEvent.getView().getRenameText() instead of deprecated anvil.getRenameText()
 		String renameText = e.getView().getRenameText();
 		
-		if (renameText.equals("%nametag%")) {
+		if (renameText.equals(CEConstants.Placeholder.NAMETAG)) {
 			Player player = (Player) e.getInventory().getViewers().get(0);
 			renameText = CEAPI.getCEPlayer(player).getNameTag().getDisplay();
-			renameText = renameText == null ? "%nametag%" : renameText;
+			renameText = renameText == null ? CEConstants.Placeholder.NAMETAG : renameText;
 		}
 		
 		String newDisplay = nametag.getNewDisplay(renameText);

@@ -10,6 +10,7 @@ import com.bafmc.bukkit.utils.EnumUtils;
 import com.bafmc.bukkit.utils.InventoryUtils;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.CustomEnchantmentMessage;
+import com.bafmc.customenchantment.constant.CEConstants;
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.enchant.CEEnchantSimple;
 import com.bafmc.customenchantment.item.CEItem;
@@ -286,7 +287,7 @@ public class BookCraftCustomMenu extends AbstractMenu<MenuData, BookCraftExtraDa
 
         // Build Placeholder with money value
         Placeholder placeholder = PlaceholderBuilder.builder()
-                .put("%money%", String.valueOf((long)totalPrice))
+                .put(CEConstants.Placeholder.MONEY, String.valueOf((long)totalPrice))
                 .build();
 
         updateSlots("remind", getTemplateItemStack("accept-button", placeholder));

@@ -10,6 +10,7 @@ import com.bafmc.bukkit.bafframework.feature.requirement.RequirementManager;
 import com.bafmc.bukkit.feature.execute.Execute;
 import com.bafmc.bukkit.feature.placeholder.PlaceholderBuilder;
 import com.bafmc.bukkit.feature.requirement.RequirementList;
+import com.bafmc.customenchantment.constant.CEConstants;
 import com.bafmc.bukkit.utils.Chance;
 import com.bafmc.bukkit.utils.InventoryUtils;
 import com.bafmc.bukkit.utils.ItemStackUtils;
@@ -257,8 +258,8 @@ public class ArtifactUpgradeCustomMenu extends AbstractMenu<MenuData, ArtifactUp
                 }
 
                 PlaceholderBuilder placeholderBuilder = PlaceholderBuilder.builder();
-                placeholderBuilder.put("{requirement_description}", requirementLore);
-                placeholderBuilder.put("{chance}", StringUtils.formatNumber(getChance()));
+                placeholderBuilder.put(CEConstants.ItemPlaceholder.REQUIREMENT_DESCRIPTION, requirementLore);
+                placeholderBuilder.put(CEConstants.ItemPlaceholder.CHANCE, StringUtils.formatNumber(getChance()));
 
                 ItemStackUtils.setItemStack(confirmItem, placeholderBuilder.build());
                 updateSlots("remind", confirmItem);
@@ -292,8 +293,8 @@ public class ArtifactUpgradeCustomMenu extends AbstractMenu<MenuData, ArtifactUp
         }
 
         PlaceholderBuilder placeholderBuilder = PlaceholderBuilder.builder();
-        placeholderBuilder.put("{player_name}", owner.getName());
-        placeholderBuilder.put("{artifact_display}", itemStack.getItemMeta().getDisplayName());
+        placeholderBuilder.put(CEConstants.ItemPlaceholder.PLAYER_NAME, owner.getName());
+        placeholderBuilder.put(CEConstants.ItemPlaceholder.ARTIFACT_DISPLAY, itemStack.getItemMeta().getDisplayName());
 
         execute.execute(owner, placeholderBuilder.build());
     }

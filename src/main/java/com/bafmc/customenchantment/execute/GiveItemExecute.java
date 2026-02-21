@@ -2,6 +2,7 @@ package com.bafmc.customenchantment.execute;
 
 import java.util.List;
 
+import com.bafmc.customenchantment.constant.CEConstants;
 import com.bafmc.bukkit.feature.execute.ExecuteHook;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -24,7 +25,7 @@ public class GiveItemExecute extends ExecuteHook {
 
 		List<ItemStack> itemStacks = null;
 
-		if (list.get(0).equals("storage")) {
+		if (list.get(0).equals(CEConstants.ItemDisplayType.STORAGE)) {
 			itemStacks = CEAPI.getVanillaItemStacks(list.get(1));
 		} else {
 			itemStacks = CustomEnchantment.instance().getCeItemStorageMap().get(list.get(0))

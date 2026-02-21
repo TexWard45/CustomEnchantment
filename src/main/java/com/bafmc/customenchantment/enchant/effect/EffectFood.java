@@ -7,6 +7,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 import com.bafmc.customenchantment.api.CEAPI;
+import com.bafmc.customenchantment.constant.CEConstants;
 import com.bafmc.customenchantment.enchant.CEFunctionData;
 import com.bafmc.customenchantment.enchant.CEPlaceholder;
 import com.bafmc.customenchantment.enchant.EffectHook;
@@ -38,8 +39,8 @@ public class EffectFood extends EffectHook {
 
 		String format = this.format;
 		Map<String, String> map = CEPlaceholder.getCEFunctionDataPlaceholder(format, data);
-		map.put("%player_value%", String.valueOf(player.getFoodLevel()));
-		map.put("%enemy_value%",
+		map.put(CEConstants.Placeholder.PLAYER_VALUE, String.valueOf(player.getFoodLevel()));
+		map.put(CEConstants.Placeholder.ENEMY_VALUE,
 				data.getEnemyPlayer() != null ? String.valueOf(data.getEnemyPlayer().getFoodLevel()) : "0");
 
 		format = CEPlaceholder.setPlaceholder(format, map);

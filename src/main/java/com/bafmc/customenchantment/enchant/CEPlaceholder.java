@@ -3,6 +3,7 @@ package com.bafmc.customenchantment.enchant;
 import com.bafmc.bukkit.utils.NumberUtils;
 import com.bafmc.bukkit.utils.StringUtils;
 import com.bafmc.customenchantment.CustomEnchantment;
+import com.bafmc.customenchantment.constant.CEConstants;
 import com.bafmc.customenchantment.menu.bookupgrade.BookUpgradeCustomMenu;
 import com.bafmc.customenchantment.menu.bookupgrade.data.BookUpgradeData;
 import com.bafmc.customenchantment.player.PlayerTemporaryStorage;
@@ -49,53 +50,53 @@ public class CEPlaceholder {
 
 		if (data.getPlayer() != null) {
 			Player player = data.getPlayer();
-			if (text.contains("%player_name%")) {
-				map.put("%player_name%", player.getName());
-				map.put("%player%", player.getName());
+			if (text.contains(CEConstants.Placeholder.PLAYER_NAME)) {
+				map.put(CEConstants.Placeholder.PLAYER_NAME, player.getName());
+				map.put(CEConstants.Placeholder.PLAYER, player.getName());
 			}
 		}
 
 		if (data.getLivingEntity() != null) {
 			LivingEntity entity = data.getLivingEntity();
-			if (text.contains("%player_health%")) {
-				map.put("%player_health%", String.valueOf(entity.getHealth()));
+			if (text.contains(CEConstants.Placeholder.PLAYER_HEALTH)) {
+				map.put(CEConstants.Placeholder.PLAYER_HEALTH, String.valueOf(entity.getHealth()));
 			}
 		}
 
 		if (data.getEnemyPlayer() != null) {
 			Player enemy = data.getEnemyPlayer();
-			if (text.contains("%enemy_name%")) {
-				map.put("%enemy_name%", enemy.getName());
-				map.put("%enemy%", enemy.getName());
+			if (text.contains(CEConstants.Placeholder.ENEMY_NAME)) {
+				map.put(CEConstants.Placeholder.ENEMY_NAME, enemy.getName());
+				map.put(CEConstants.Placeholder.ENEMY, enemy.getName());
 			}
 		}
 
 		if (data.getEnemyLivingEntity() != null) {
 			LivingEntity entity = data.getEnemyLivingEntity();
-			if (text.contains("%entity_name%")) {
-				map.put("%entity_name%", entity.getName());
+			if (text.contains(CEConstants.Placeholder.ENTITY_NAME)) {
+				map.put(CEConstants.Placeholder.ENTITY_NAME, entity.getName());
 			}
 		}
 
 
 		if (data.getEnemyLivingEntity() != null) {
 			LivingEntity entity = data.getEnemyLivingEntity();
-			if (text.contains("%enemy_health%")) {
-				map.put("%enemy_health%", String.valueOf(entity.getHealth()));
+			if (text.contains(CEConstants.Placeholder.ENEMY_HEALTH)) {
+				map.put(CEConstants.Placeholder.ENEMY_HEALTH, String.valueOf(entity.getHealth()));
 			}
 		}
 
-		if (data.getLivingEntity() != null && data.getEnemyLivingEntity() != null && text.contains("%distance%")) {
+		if (data.getLivingEntity() != null && data.getEnemyLivingEntity() != null && text.contains(CEConstants.Placeholder.DISTANCE)) {
 			if (!data.getLivingEntity().getWorld().equals(data.getEnemyLivingEntity().getWorld())) {
-				map.put("%distance%", String.valueOf(99999));
+				map.put(CEConstants.Placeholder.DISTANCE, String.valueOf(99999));
 			} else {
-				map.put("%distance%", String.valueOf(
+				map.put(CEConstants.Placeholder.DISTANCE, String.valueOf(
 						data.getLivingEntity().getLocation().distance(data.getEnemyLivingEntity().getLocation())));
 			}
 		}
 
-		if (text.contains("%damage%")) {
-			map.put("%damage%", String.valueOf(data.get("damage")));
+		if (text.contains(CEConstants.Placeholder.DAMAGE)) {
+			map.put(CEConstants.Placeholder.DAMAGE, String.valueOf(data.get("damage")));
 		}
 
 		if (text.contains("%damage_")) {
@@ -116,8 +117,8 @@ public class CEPlaceholder {
 			}
 		}
 
-		if (text.contains("%time%")) {
-			map.put("%time%", String.valueOf(System.currentTimeMillis()));
+		if (text.contains(CEConstants.Placeholder.TIME)) {
+			map.put(CEConstants.Placeholder.TIME, String.valueOf(System.currentTimeMillis()));
 		}
 
 		return map;
@@ -145,29 +146,29 @@ public class CEPlaceholder {
         String groupBookDisplayMaxLevel = null;
 
         if (ce.getMaxLevel() > 1) {
-            groupBookDisplayMaxLevel = bookDisplayGroup.replace("%enchant_level%", NumberUtils.toRomanNumber(1) + "-" + NumberUtils.toRomanNumber(ce.getMaxLevel()));
+            groupBookDisplayMaxLevel = bookDisplayGroup.replace(CEConstants.Placeholder.ENCHANT_LEVEL, NumberUtils.toRomanNumber(1) + "-" + NumberUtils.toRomanNumber(ce.getMaxLevel()));
         }else {
-            groupBookDisplayMaxLevel = bookDisplayGroup.replace("%enchant_level%", NumberUtils.toRomanNumber(1));
+            groupBookDisplayMaxLevel = bookDisplayGroup.replace(CEConstants.Placeholder.ENCHANT_LEVEL, NumberUtils.toRomanNumber(1));
         }
 
 		Map<String, String> map = new LinkedHashMap<>();
-        map.put("%group_enchant_display%", enchantDisplayGroup);
-        map.put("%group_book_display%", bookDisplayGroup);
-        map.put("%group_book_display_max_level%", groupBookDisplayMaxLevel);
-        map.put("%group_display%", displayGroup);
-        map.put("%group_prefix%", prefixGroup);
-		map.put("%enchant_display%", display);
-        map.put("%enchant_display_half_1%", display.substring(0, display.length() / 2));
-        map.put("%enchant_display_half_2%", display.substring(display.length() / 2));
-		map.put("%enchant_level%", levelStr);
-		map.put("%enchant_success%", String.valueOf((int) success));
-		map.put("%enchant_destroy%", String.valueOf((int) destroy));
-        map.put("%enchant_xp%", StringUtils.formatNumber(Math.min(xp, requiredXp)));
-        map.put("%enchant_required_xp%", StringUtils.formatNumber(requiredXp));
-		map.put("%enchant_description%", description);
-		map.put("%enchant_detail_description%", detailDescription);
-		map.put("%enchant_applies_description%", appliesDescription);
-        map.put("%enchant_progress%", getEnchantProgress(ceEnchantSimple));
+        map.put(CEConstants.Placeholder.GROUP_ENCHANT_DISPLAY, enchantDisplayGroup);
+        map.put(CEConstants.Placeholder.GROUP_BOOK_DISPLAY, bookDisplayGroup);
+        map.put(CEConstants.Placeholder.GROUP_BOOK_DISPLAY_MAX_LEVEL, groupBookDisplayMaxLevel);
+        map.put(CEConstants.Placeholder.GROUP_DISPLAY, displayGroup);
+        map.put(CEConstants.Placeholder.GROUP_PREFIX, prefixGroup);
+		map.put(CEConstants.Placeholder.ENCHANT_DISPLAY, display);
+        map.put(CEConstants.Placeholder.ENCHANT_DISPLAY_HALF_1, display.substring(0, display.length() / 2));
+        map.put(CEConstants.Placeholder.ENCHANT_DISPLAY_HALF_2, display.substring(display.length() / 2));
+		map.put(CEConstants.Placeholder.ENCHANT_LEVEL, levelStr);
+		map.put(CEConstants.Placeholder.ENCHANT_SUCCESS, String.valueOf((int) success));
+		map.put(CEConstants.Placeholder.ENCHANT_DESTROY, String.valueOf((int) destroy));
+        map.put(CEConstants.Placeholder.ENCHANT_XP, StringUtils.formatNumber(Math.min(xp, requiredXp)));
+        map.put(CEConstants.Placeholder.ENCHANT_REQUIRED_XP, StringUtils.formatNumber(requiredXp));
+		map.put(CEConstants.Placeholder.ENCHANT_DESCRIPTION, description);
+		map.put(CEConstants.Placeholder.ENCHANT_DETAIL_DESCRIPTION, detailDescription);
+		map.put(CEConstants.Placeholder.ENCHANT_APPLIES_DESCRIPTION, appliesDescription);
+        map.put(CEConstants.Placeholder.ENCHANT_PROGRESS, getEnchantProgress(ceEnchantSimple));
 		return map;
 	}
 

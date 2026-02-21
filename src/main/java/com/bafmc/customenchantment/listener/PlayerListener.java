@@ -10,6 +10,7 @@ import com.bafmc.bukkit.utils.MessageUtils;
 import com.bafmc.bukkit.utils.StringUtils;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.api.CEAPI;
+import com.bafmc.customenchantment.constant.CEConstants;
 import com.bafmc.customenchantment.attribute.CustomAttributeType;
 import com.bafmc.customenchantment.enchant.CECallerBuilder;
 import com.bafmc.customenchantment.enchant.CEFunctionData;
@@ -482,7 +483,7 @@ public class PlayerListener implements Listener {
             String dashCooldownMessage = storage.getString(TemporaryKey.DASH_COOLDOWN_MESSAGE);
             double timeLeft = (dashCooldown - (currentTime - dashLastUse)) / 1000d;
 
-            Placeholder placeholder = PlaceholderBuilder.builder().put("{time_left}", StringUtils.formatNumber(timeLeft)).build();
+            Placeholder placeholder = PlaceholderBuilder.builder().put(CEConstants.ItemPlaceholder.TIME_LEFT, StringUtils.formatNumber(timeLeft)).build();
             dashCooldownMessage = placeholder.apply(dashCooldownMessage);
 
             MessageUtils.send(player, dashCooldownMessage);
@@ -532,7 +533,7 @@ public class PlayerListener implements Listener {
             String doubleJumpCooldownMessage = storage.getString(TemporaryKey.DOUBLE_JUMP_COOLDOWN_MESSAGE);
             double timeLeft = (doubleJumpCooldown - (currentTime - doubleJumpLastUse)) / 1000d;
 
-            Placeholder placeholder = PlaceholderBuilder.builder().put("{time_left}", StringUtils.formatNumber(timeLeft)).build();
+            Placeholder placeholder = PlaceholderBuilder.builder().put(CEConstants.ItemPlaceholder.TIME_LEFT, StringUtils.formatNumber(timeLeft)).build();
             doubleJumpCooldownMessage = placeholder.apply(doubleJumpCooldownMessage);
 
             MessageUtils.send(player, doubleJumpCooldownMessage);
@@ -566,7 +567,7 @@ public class PlayerListener implements Listener {
 			String flashCooldownMessage = storage.getString(TemporaryKey.FLASH_COOLDOWN_MESSAGE);
 			double timeLeft = (flashCooldown - (currentTime - flashLastUse)) / 1000d;
 
-			Placeholder placeholder = PlaceholderBuilder.builder().put("{time_left}", StringUtils.formatNumber(timeLeft)).build();
+			Placeholder placeholder = PlaceholderBuilder.builder().put(CEConstants.ItemPlaceholder.TIME_LEFT, StringUtils.formatNumber(timeLeft)).build();
 			flashCooldownMessage = placeholder.apply(flashCooldownMessage);
 
 			MessageUtils.send(player, flashCooldownMessage);

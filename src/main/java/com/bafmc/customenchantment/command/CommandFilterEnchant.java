@@ -3,6 +3,7 @@ package com.bafmc.customenchantment.command;
 import com.bafmc.bukkit.command.CommandRegistrar;
 import com.bafmc.bukkit.command.AdvancedCommandBuilder;
 import com.bafmc.customenchantment.CustomEnchantmentMessage;
+import com.bafmc.customenchantment.constant.CEConstants;
 import com.bafmc.customenchantment.enchant.CEEnchantSimple;
 import com.bafmc.customenchantment.enchant.CEPlaceholder;
 import com.bafmc.customenchantment.item.randombook.CERandomBookPlayerFilter;
@@ -97,7 +98,7 @@ public class CommandFilterEnchant implements CommandRegistrar {
                     String enchantListComma = String.join(", ", enchantList);
 
                     Map<String, String> placeholder = new HashMap<>();
-                    placeholder.put("%enchant_list%", enchantListComma);
+                    placeholder.put(CEConstants.Placeholder.ENCHANT_LIST, enchantListComma);
 
                     CustomEnchantmentMessage.send(player, "command.cefilter.list.success", placeholder);
                     return true;

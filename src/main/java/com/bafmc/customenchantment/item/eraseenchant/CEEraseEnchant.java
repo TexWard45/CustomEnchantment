@@ -3,6 +3,7 @@ package com.bafmc.customenchantment.item.eraseenchant;
 import com.bafmc.bukkit.bafframework.utils.EnchantmentUtils;
 import com.bafmc.bukkit.utils.NumberUtils;
 import com.bafmc.customenchantment.CustomEnchantment;
+import com.bafmc.customenchantment.constant.CEConstants;
 import com.bafmc.customenchantment.item.*;
 import com.bafmc.customenchantment.nms.CECraftItemStackNMS;
 import com.bafmc.bukkit.bafframework.nms.NMSNBTTagCompound;
@@ -78,13 +79,13 @@ public class CEEraseEnchant extends CEItem<CEEraseEnchantData> {
 		
 		ApplyReason reason = new ApplyReason("success", ApplyResult.SUCCESS);
 		Map<String, String> placeholder = new LinkedHashMap<String, String>();
-		placeholder.put("%enchant_display%", EnchantmentUtils.getDisplayName(enchantment));
-		placeholder.put("%enchant_level%", "" + NumberUtils.toRomanNumber(level));
+		placeholder.put(CEConstants.Placeholder.ENCHANT_DISPLAY, EnchantmentUtils.getDisplayName(enchantment));
+		placeholder.put(CEConstants.Placeholder.ENCHANT_LEVEL, "" + NumberUtils.toRomanNumber(level));
 		reason.setPlaceholder(placeholder);
 		reason.setWriteLogs(true);
-		reason.putData("pattern", getData().getPattern());
-		reason.putData("enchant", enchantment.getName());
-		reason.putData("level", level);
+		reason.putData(CEConstants.DataKey.PATTERN, getData().getPattern());
+		reason.putData(CEConstants.DataKey.ENCHANT, enchantment.getName());
+		reason.putData(CEConstants.DataKey.LEVEL, level);
 		return reason;
 	}
 	

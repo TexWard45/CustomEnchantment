@@ -3,6 +3,7 @@ package com.bafmc.customenchantment.enchant.effect;
 import com.bafmc.bukkit.utils.RandomRange;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.api.CEAPI;
+import com.bafmc.customenchantment.constant.CEConstants;
 import com.bafmc.customenchantment.enchant.CEFunctionData;
 import com.bafmc.customenchantment.enchant.CEPlaceholder;
 import com.bafmc.customenchantment.enchant.EffectHook;
@@ -40,11 +41,11 @@ public class EffectTrueDamage extends EffectHook {
 
 		String format = this.format;
 		Map<String, String> map = CEPlaceholder.getCEFunctionDataPlaceholder(format, data);
-		map.put("%player_value%", String.valueOf(player.getHealth()));
-		map.put("%enemy_value%",
+		map.put(CEConstants.Placeholder.PLAYER_VALUE, String.valueOf(player.getHealth()));
+		map.put(CEConstants.Placeholder.ENEMY_VALUE,
 				data.getEnemyLivingEntity() != null ? String.valueOf(data.getEnemyLivingEntity().getHealth()) : "0");
-		map.put("%player_max_value%", String.valueOf(player.getMaxHealth()));
-		map.put("%enemy_max_value%", data.getEnemyLivingEntity() != null ? String.valueOf(data.getEnemyLivingEntity().getMaxHealth()) : "0");
+		map.put(CEConstants.Placeholder.PLAYER_MAX_VALUE, String.valueOf(player.getMaxHealth()));
+		map.put(CEConstants.Placeholder.ENEMY_MAX_VALUE, data.getEnemyLivingEntity() != null ? String.valueOf(data.getEnemyLivingEntity().getMaxHealth()) : "0");
 
 		format = CEPlaceholder.setPlaceholder(format, map);
 

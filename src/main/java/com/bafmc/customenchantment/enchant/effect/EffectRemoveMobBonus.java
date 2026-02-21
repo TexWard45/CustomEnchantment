@@ -3,6 +3,7 @@ package com.bafmc.customenchantment.enchant.effect;
 import org.bukkit.entity.Player;
 
 import com.bafmc.customenchantment.api.CEAPI;
+import com.bafmc.customenchantment.constant.CEConstants;
 import com.bafmc.customenchantment.enchant.CEFunctionData;
 import com.bafmc.customenchantment.enchant.EffectHook;
 import com.bafmc.customenchantment.player.CEPlayer;
@@ -28,11 +29,11 @@ public class EffectRemoveMobBonus extends EffectHook {
 		}
 
 		CEPlayer cePlayer = CEAPI.getCEPlayer(player);
-		if (type.equals("EXP")) {
+		if (type.equals(CEConstants.RewardType.EXP)) {
 			cePlayer.getMobBonus().getExpBonus().remove(name);
-		} else if (type.equals("MONEY")) {
+		} else if (type.equals(CEConstants.RewardType.MONEY)) {
 			cePlayer.getMobBonus().getMoneyBonus().remove(name);
-		} else if (type.equals("MS_EXP")) {
+		} else if (type.equals(CEConstants.RewardType.MS_EXP)) {
 			cePlayer.getMobBonus().getMobSlayerExpBonus().remove(name);
 		}
 	}

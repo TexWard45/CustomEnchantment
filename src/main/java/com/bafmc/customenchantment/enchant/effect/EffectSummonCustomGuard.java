@@ -3,6 +3,7 @@ package com.bafmc.customenchantment.enchant.effect;
 import com.bafmc.bukkit.utils.LocationUtils;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.api.LocationFormat;
+import com.bafmc.customenchantment.constant.CEConstants;
 import com.bafmc.customenchantment.enchant.CEFunctionData;
 import com.bafmc.customenchantment.enchant.EffectHook;
 import com.bafmc.customenchantment.guard.Guard;
@@ -97,7 +98,7 @@ public class EffectSummonCustomGuard extends EffectHook {
 
 		PlayerGuard playerGuard = CustomEnchantment.instance().getGuardModule().getGuardManager().getPlayerGuard(player);
 
-		String name = this.name.replace("%player%", player.getName()).replace("%random_id%",
+		String name = this.name.replace(CEConstants.Placeholder.PLAYER, player.getName()).replace(CEConstants.Placeholder.RANDOM_ID,
 				"" + System.nanoTime());
 
 		if (playerGuard.containsGuardName(name)) {

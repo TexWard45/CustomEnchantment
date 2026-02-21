@@ -1,5 +1,6 @@
 package com.bafmc.customenchantment.menu.tinkerer.item;
 
+import com.bafmc.customenchantment.constant.CEConstants;
 import com.bafmc.bukkit.bafframework.custommenu.menu.data.ClickData;
 import com.bafmc.bukkit.bafframework.custommenu.menu.item.AbstractItem;
 import com.bafmc.bukkit.utils.EnumUtils;
@@ -16,7 +17,7 @@ public class TinkerAcceptItem extends AbstractItem<TinkererCustomMenu> {
 
     @Override
     public String getType() {
-        return "accept";
+        return CEConstants.MenuItemType.ACCEPT;
     }
 
     @Override

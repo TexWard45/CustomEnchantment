@@ -7,6 +7,7 @@ import com.bafmc.bukkit.utils.ItemStackUtils;
 import com.bafmc.bukkit.utils.StringUtils;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.api.MaterialData;
+import com.bafmc.customenchantment.constant.CEConstants;
 import com.bafmc.customenchantment.item.*;
 import com.bafmc.customenchantment.item.gemdrill.CEGemDrillSimple;
 import com.bafmc.customenchantment.nms.CECraftItemStackNMS;
@@ -82,16 +83,16 @@ public class CEGem extends CEItem<CEGemData> {
 			return map;
 		}
 
-		map.put("{gem_applies_description}", StringUtils.toString(data.getConfigData().getAppliesDescription()));
-		map.put("{gem_level}", String.valueOf(data.getLevel()));
+		map.put(CEConstants.ItemPlaceholder.GEM_APPLIES_DESCRIPTION, StringUtils.toString(data.getConfigData().getAppliesDescription()));
+		map.put(CEConstants.ItemPlaceholder.GEM_LEVEL, String.valueOf(data.getLevel()));
 
 		if (CEGemSettings.getSettings().containsGemLevelSettings(data.getLevel())) {
-			map.put("{level_color}", CEGemSettings.getSettings().getGemLevelSettings(data.getLevel()).getColor());
+			map.put(CEConstants.ItemPlaceholder.LEVEL_COLOR, CEGemSettings.getSettings().getGemLevelSettings(data.getLevel()).getColor());
 			// Fix auto replace bold color
-			map.put("{level_color_bold}", CEGemSettings.getSettings().getGemLevelSettings(data.getLevel()).getColor() + "&l");
+			map.put(CEConstants.ItemPlaceholder.LEVEL_COLOR_BOLD, CEGemSettings.getSettings().getGemLevelSettings(data.getLevel()).getColor() + "&l");
 		}else {
-			map.put("{level_color}", "");
-			map.put("{level_color_bold}", "");
+			map.put(CEConstants.ItemPlaceholder.LEVEL_COLOR, "");
+			map.put(CEConstants.ItemPlaceholder.LEVEL_COLOR_BOLD, "");
 		}
 
 		return map;
@@ -119,7 +120,7 @@ public class CEGem extends CEItem<CEGemData> {
 		int gemTypeCount = data.getGemTypeCount(getData().getPattern());
 		if (gemTypeCount >= getData().getConfigData().getLimitPerItem()) {
 			PlaceholderBuilder builder = PlaceholderBuilder.builder();
-			builder.put("{limit}", String.valueOf(getData().getConfigData().getLimitPerItem()));
+			builder.put(CEConstants.ItemPlaceholder.LIMIT, String.valueOf(getData().getConfigData().getLimitPerItem()));
 			ApplyReason applyReason = new ApplyReason("reach-limit-per-item", ApplyResult.CANCEL);
 			applyReason.setPlaceholder(builder.build());
 			return applyReason;
@@ -130,8 +131,8 @@ public class CEGem extends CEItem<CEGemData> {
 		ApplyReason reason = new ApplyReason("success", ApplyResult.SUCCESS);
 		reason.setWriteLogs(true);
 		reason.setSource(ceWeapon);
-		reason.putData("pattern", this.data.getPattern());
-		reason.putData("weapon", ItemStackUtils.toString(ceWeapon.getDefaultItemStack()));
+		reason.putData(CEConstants.DataKey.PATTERN, this.data.getPattern());
+		reason.putData(CEConstants.DataKey.WEAPON, ItemStackUtils.toString(ceWeapon.getDefaultItemStack()));
 		return reason;
 	}
 	
@@ -160,7 +161,7 @@ public class CEGem extends CEItem<CEGemData> {
 		int gemTypeCount = data.getGemTypeCount(getData().getPattern());
 		if (gemTypeCount >= getData().getConfigData().getLimitPerItem()) {
 			PlaceholderBuilder builder = PlaceholderBuilder.builder();
-			builder.put("{limit}", String.valueOf(getData().getConfigData().getLimitPerItem()));
+			builder.put(CEConstants.ItemPlaceholder.LIMIT, String.valueOf(getData().getConfigData().getLimitPerItem()));
 			ApplyReason applyReason = new ApplyReason("reach-limit-per-item", ApplyResult.CANCEL);
 			applyReason.setPlaceholder(builder.build());
 			return applyReason;

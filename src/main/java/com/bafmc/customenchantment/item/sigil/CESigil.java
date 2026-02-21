@@ -6,6 +6,7 @@ import com.bafmc.bukkit.utils.ColorUtils;
 import com.bafmc.bukkit.utils.ItemStackUtils;
 import com.bafmc.bukkit.utils.SparseMap;
 import com.bafmc.customenchantment.CustomEnchantment;
+import com.bafmc.customenchantment.constant.CEConstants;
 import com.bafmc.customenchantment.api.MaterialData;
 import com.bafmc.customenchantment.enchant.CEEnchantSimple;
 import com.bafmc.customenchantment.item.CEItemType;
@@ -94,12 +95,12 @@ public class CESigil extends CEWeaponAbstract<CESigilData> {
 
         CESigilGroup group = CustomEnchantment.instance().getCeSigilGroupMap().get(data.getConfigData().getGroup());
         if (group != null) {
-            map.put("{level}", String.valueOf(data.getLevel()));
+            map.put(CEConstants.ItemPlaceholder.LEVEL, String.valueOf(data.getLevel()));
 
             SparseMap<String> levelColors = group.getLevelColors();
-            map.put("{level_color}", levelColors.containsKey(data.getLevel()) ? group.getLevelColors().get(data.getLevel()) : "");
+            map.put(CEConstants.ItemPlaceholder.LEVEL_COLOR, levelColors.containsKey(data.getLevel()) ? group.getLevelColors().get(data.getLevel()) : "");
             // Fix auto replace bold color
-            map.put("{level_color_bold}", levelColors.containsKey(data.getLevel()) ? group.getLevelColors().get(data.getLevel()) + "&l" : "");
+            map.put(CEConstants.ItemPlaceholder.LEVEL_COLOR_BOLD, levelColors.containsKey(data.getLevel()) ? group.getLevelColors().get(data.getLevel()) + "&l" : "");
         }
         return map;
     }
@@ -131,6 +132,6 @@ public class CESigil extends CEWeaponAbstract<CESigilData> {
     }
 
     public String getWeaponSettingsName() {
-        return "sigil-" + super.getWeaponSettingsName();
+        return CEConstants.ItemPrefix.SIGIL + super.getWeaponSettingsName();
     }
 }
