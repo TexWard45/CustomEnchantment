@@ -520,6 +520,7 @@ hammer:
           - TARGET=ENEMY | DURABILITY:REMOVE:CHESTPLATE:1
           - TARGET=ENEMY | DURABILITY:REMOVE:LEGGINGS:1
           - TARGET=ENEMY | DURABILITY:REMOVE:BOOTS:1
+          - "MESSAGE:&e&l***Hammer: &7&l-1 Armor Durability &7&l> &f&l%enemy_name%&e&l***"
     "2":
       attack:
         type: ATTACK
@@ -533,6 +534,7 @@ hammer:
           - TARGET=ENEMY | DURABILITY:REMOVE:CHESTPLATE:2
           - TARGET=ENEMY | DURABILITY:REMOVE:LEGGINGS:2
           - TARGET=ENEMY | DURABILITY:REMOVE:BOOTS:2
+          - "MESSAGE:&e&l***Hammer: &7&l-2 Armor Durability &7&l> &f&l%enemy_name%&e&l***"
     "3":
       attack:
         type: ATTACK
@@ -546,6 +548,7 @@ hammer:
           - TARGET=ENEMY | DURABILITY:REMOVE:CHESTPLATE:3
           - TARGET=ENEMY | DURABILITY:REMOVE:LEGGINGS:3
           - TARGET=ENEMY | DURABILITY:REMOVE:BOOTS:3
+          - "MESSAGE:&e&l***Hammer: &7&l-3 Armor Durability &7&l> &f&l%enemy_name%&e&l***"
     "4":
       attack:
         type: ATTACK
@@ -559,6 +562,7 @@ hammer:
           - TARGET=ENEMY | DURABILITY:REMOVE:CHESTPLATE:4
           - TARGET=ENEMY | DURABILITY:REMOVE:LEGGINGS:4
           - TARGET=ENEMY | DURABILITY:REMOVE:BOOTS:4
+          - "MESSAGE:&e&l***Hammer: &7&l-4 Armor Durability &7&l> &f&l%enemy_name%&e&l***"
     "5":
       attack:
         type: ATTACK
@@ -572,6 +576,7 @@ hammer:
           - TARGET=ENEMY | DURABILITY:REMOVE:CHESTPLATE:5
           - TARGET=ENEMY | DURABILITY:REMOVE:LEGGINGS:5
           - TARGET=ENEMY | DURABILITY:REMOVE:BOOTS:5
+          - "MESSAGE:&e&l***Hammer: &7&l-5 Armor Durability &7&l> &f&l%enemy_name%&e&l***"
 urchin:
   group: epic
   display: Urchin
@@ -1035,6 +1040,7 @@ blacksmith:
           - ATTACK:-0.05:2
         effects:
           - DURABILITY:ADD:HELMET,CHESTPLATE,LEGGINGS,BOOTS:2
+          - "MESSAGE:&6&l***Blacksmith: &a&lRepair +2 &7&l-5% ATK&6&l***"
     "2":
       attack:
         type: ATTACK
@@ -1046,6 +1052,7 @@ blacksmith:
           - ATTACK:-0.10:2
         effects:
           - DURABILITY:ADD:HELMET,CHESTPLATE,LEGGINGS,BOOTS:4
+          - "MESSAGE:&6&l***Blacksmith: &a&lRepair +4 &7&l-10% ATK&6&l***"
     "3":
       attack:
         type: ATTACK
@@ -1057,6 +1064,7 @@ blacksmith:
           - ATTACK:-0.15:2
         effects:
           - DURABILITY:ADD:HELMET,CHESTPLATE,LEGGINGS,BOOTS:6
+          - "MESSAGE:&6&l***Blacksmith: &a&lRepair +6 &7&l-15% ATK&6&l***"
     "4":
       attack:
         type: ATTACK
@@ -1068,6 +1076,7 @@ blacksmith:
           - ATTACK:-0.20:2
         effects:
           - DURABILITY:ADD:HELMET,CHESTPLATE,LEGGINGS,BOOTS:8
+          - "MESSAGE:&6&l***Blacksmith: &a&lRepair +8 &7&l-20% ATK&6&l***"
     "5":
       attack:
         type: ATTACK
@@ -1079,6 +1088,7 @@ blacksmith:
           - ATTACK:-0.25:2
         effects:
           - DURABILITY:ADD:HELMET,CHESTPLATE,LEGGINGS,BOOTS:10
+          - "MESSAGE:&6&l***Blacksmith: &a&lRepair +10 &7&l-25% ATK&6&l***"
 devour:
   group: legendary
   display: Devour
@@ -1269,6 +1279,8 @@ smite:
           - TARGET=ENEMY | HEALTH:<=:20
         options:
           - ATTACK:9999:0
+        effects:
+          - "MESSAGE:&e&l***Smite: &c&lExecute&e&l***"
     "2":
       attack:
         type: ATTACK
@@ -1280,6 +1292,8 @@ smite:
           - TARGET=ENEMY | HEALTH:<=:20
         options:
           - ATTACK:9999:0
+        effects:
+          - "MESSAGE:&e&l***Smite: &c&lExecute&e&l***"
     "3":
       attack:
         type: ATTACK
@@ -1291,6 +1305,8 @@ smite:
           - TARGET=ENEMY | HEALTH:<=:20
         options:
           - ATTACK:9999:0
+        effects:
+          - "MESSAGE:&e&l***Smite: &c&lExecute&e&l***"
     "4":
       attack:
         type: ATTACK
@@ -1302,6 +1318,8 @@ smite:
           - TARGET=ENEMY | HEALTH:<=:20
         options:
           - ATTACK:9999:0
+        effects:
+          - "MESSAGE:&e&l***Smite: &c&lExecute&e&l***"
     "5":
       attack:
         type: ATTACK
@@ -1313,6 +1331,8 @@ smite:
           - TARGET=ENEMY | HEALTH:<=:20
         options:
           - ATTACK:9999:0
+        effects:
+          - "MESSAGE:&e&l***Smite: &c&lExecute&e&l***"
 dissect:
   group: common
   display: Dissect

@@ -70,6 +70,8 @@ cactus:
           - DEFENSE:0.05:2
         effects:
           - TARGET=ENEMY | HEALTH:REMOVE:0.5
+          - MESSAGE:&6&l***Cactus: &7&lGiảm sát thương & gây 0.5 máu lên %enemy_name%&6&l***
+          - TARGET=ENEMY | MESSAGE:&6&l***Cactus: &7&lBị gai đâm 0.5 máu bởi %player_name%&6&l***
     "2":
       defense:
         type: DEFENSE
@@ -82,6 +84,8 @@ cactus:
           - DEFENSE:0.10:2
         effects:
           - TARGET=ENEMY | HEALTH:REMOVE:1
+          - MESSAGE:&6&l***Cactus: &7&lGiảm sát thương & gây 1 máu lên %enemy_name%&6&l***
+          - TARGET=ENEMY | MESSAGE:&6&l***Cactus: &7&lBị gai đâm 1 máu bởi %player_name%&6&l***
     "3":
       defense:
         type: DEFENSE
@@ -94,6 +98,8 @@ cactus:
           - DEFENSE:0.15:2
         effects:
           - TARGET=ENEMY | HEALTH:REMOVE:1.5
+          - MESSAGE:&6&l***Cactus: &7&lGiảm sát thương & gây 1.5 máu lên %enemy_name%&6&l***
+          - TARGET=ENEMY | MESSAGE:&6&l***Cactus: &7&lBị gai đâm 1.5 máu bởi %player_name%&6&l***
     "4":
       defense:
         type: DEFENSE
@@ -106,6 +112,8 @@ cactus:
           - DEFENSE:0.20:2
         effects:
           - TARGET=ENEMY | HEALTH:REMOVE:2
+          - MESSAGE:&6&l***Cactus: &7&lGiảm sát thương & gây 2 máu lên %enemy_name%&6&l***
+          - TARGET=ENEMY | MESSAGE:&6&l***Cactus: &7&lBị gai đâm 2 máu bởi %player_name%&6&l***
     "5":
       defense:
         type: DEFENSE
@@ -118,6 +126,8 @@ cactus:
           - DEFENSE:0.25:2
         effects:
           - TARGET=ENEMY | HEALTH:REMOVE:2.5
+          - MESSAGE:&6&l***Cactus: &7&lGiảm sát thương & gây 2.5 máu lên %enemy_name%&6&l***
+          - TARGET=ENEMY | MESSAGE:&6&l***Cactus: &7&lBị gai đâm 2.5 máu bởi %player_name%&6&l***
 drunk:
   group: epic
   display: Drunk
@@ -234,6 +244,7 @@ enlightened:
           - EQUIP_SLOT:ARMOR
         effects:
           - HEALTH:ADD:1
+          - MESSAGE:&a&l***Enlightened: &6&lHồi 1 máu khi bị tấn công&a&l***
       arrow_defense:
         type: ARROW_DEFENSE
         chance: 50
@@ -242,6 +253,7 @@ enlightened:
           - EQUIP_SLOT:ARMOR
         effects:
           - HEALTH:ADD:1
+          - MESSAGE:&a&l***Enlightened: &6&lHồi 1 máu khi bị bắn&a&l***
     "2":
       defense:
         type: DEFENSE
@@ -251,6 +263,7 @@ enlightened:
           - EQUIP_SLOT:ARMOR
         effects:
           - HEALTH:ADD:2
+          - MESSAGE:&a&l***Enlightened: &6&lHồi 2 máu khi bị tấn công&a&l***
       arrow_defense:
         type: ARROW_DEFENSE
         chance: 50
@@ -259,6 +272,7 @@ enlightened:
           - EQUIP_SLOT:ARMOR
         effects:
           - HEALTH:ADD:2
+          - MESSAGE:&a&l***Enlightened: &6&lHồi 2 máu khi bị bắn&a&l***
     "3":
       defense:
         type: DEFENSE
@@ -268,6 +282,7 @@ enlightened:
           - EQUIP_SLOT:ARMOR
         effects:
           - HEALTH:ADD:3
+          - MESSAGE:&a&l***Enlightened: &6&lHồi 3 máu khi bị tấn công&a&l***
       arrow_defense:
         type: ARROW_DEFENSE
         chance: 50
@@ -276,6 +291,7 @@ enlightened:
           - EQUIP_SLOT:ARMOR
         effects:
           - HEALTH:ADD:3
+          - MESSAGE:&a&l***Enlightened: &6&lHồi 3 máu khi bị bắn&a&l***
     "4":
       defense:
         type: DEFENSE
@@ -285,6 +301,7 @@ enlightened:
           - EQUIP_SLOT:ARMOR
         effects:
           - HEALTH:ADD:4
+          - MESSAGE:&a&l***Enlightened: &6&lHồi 4 máu khi bị tấn công&a&l***
       arrow_defense:
         type: ARROW_DEFENSE
         chance: 50
@@ -293,6 +310,7 @@ enlightened:
           - EQUIP_SLOT:ARMOR
         effects:
           - HEALTH:ADD:4
+          - MESSAGE:&a&l***Enlightened: &6&lHồi 4 máu khi bị bắn&a&l***
     "5":
       defense:
         type: DEFENSE
@@ -302,6 +320,7 @@ enlightened:
           - EQUIP_SLOT:ARMOR
         effects:
           - HEALTH:ADD:5
+          - MESSAGE:&a&l***Enlightened: &6&lHồi 5 máu khi bị tấn công&a&l***
       arrow_defense:
         type: ARROW_DEFENSE
         chance: 50
@@ -310,6 +329,7 @@ enlightened:
           - EQUIP_SLOT:ARMOR
         effects:
           - HEALTH:ADD:5
+          - MESSAGE:&a&l***Enlightened: &6&lHồi 5 máu khi bị bắn&a&l***
 savior:
   group: legendary
   display: Savior
@@ -342,6 +362,8 @@ savior:
           - EQUIP_SLOT:ARMOR
         options:
           - DEFENSE:0.5:2
+        effects:
+          - MESSAGE:&6&l***Savior: &7&lGiảm 50% sát thương nhận vào&6&l***
     "2":
       defense:
         type: DEFENSE
@@ -351,6 +373,8 @@ savior:
           - EQUIP_SLOT:ARMOR
         options:
           - DEFENSE:0.5:2
+        effects:
+          - MESSAGE:&6&l***Savior: &7&lGiảm 50% sát thương nhận vào&6&l***
     "3":
       defense:
         type: DEFENSE
@@ -360,6 +384,8 @@ savior:
           - EQUIP_SLOT:ARMOR
         options:
           - DEFENSE:0.5:2
+        effects:
+          - MESSAGE:&6&l***Savior: &7&lGiảm 50% sát thương nhận vào&6&l***
     "4":
       defense:
         type: DEFENSE
@@ -369,6 +395,8 @@ savior:
           - EQUIP_SLOT:ARMOR
         options:
           - DEFENSE:0.5:2
+        effects:
+          - MESSAGE:&6&l***Savior: &7&lGiảm 50% sát thương nhận vào&6&l***
     "5":
       defense:
         type: DEFENSE
@@ -378,6 +406,8 @@ savior:
           - EQUIP_SLOT:ARMOR
         options:
           - DEFENSE:0.5:2
+        effects:
+          - MESSAGE:&6&l***Savior: &7&lGiảm 50% sát thương nhận vào&6&l***
 fortify:
   group: rare
   display: Fortify
@@ -411,6 +441,8 @@ fortify:
           - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
           - TARGET=ENEMY | ADD_POTION:WEAKNESS:0:20
+          - MESSAGE:&6&l***Fortify: &7&lGây suy yếu lên %enemy_name% &f(00:01)&6&l***
+          - TARGET=ENEMY | MESSAGE:&6&l***Fortify: &7&lBị suy yếu bởi %player_name% &f(00:01)&6&l***
     "2":
       defense:
         type: DEFENSE
@@ -421,6 +453,8 @@ fortify:
           - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
           - TARGET=ENEMY | ADD_POTION:WEAKNESS:0:40
+          - MESSAGE:&6&l***Fortify: &7&lGây suy yếu lên %enemy_name% &f(00:02)&6&l***
+          - TARGET=ENEMY | MESSAGE:&6&l***Fortify: &7&lBị suy yếu bởi %player_name% &f(00:02)&6&l***
     "3":
       defense:
         type: DEFENSE
@@ -431,6 +465,8 @@ fortify:
           - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
           - TARGET=ENEMY | ADD_POTION:WEAKNESS:0:60
+          - MESSAGE:&6&l***Fortify: &7&lGây suy yếu lên %enemy_name% &f(00:03)&6&l***
+          - TARGET=ENEMY | MESSAGE:&6&l***Fortify: &7&lBị suy yếu bởi %player_name% &f(00:03)&6&l***
     "4":
       defense:
         type: DEFENSE
@@ -441,6 +477,8 @@ fortify:
           - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
           - TARGET=ENEMY | ADD_POTION:WEAKNESS:0:80
+          - MESSAGE:&6&l***Fortify: &7&lGây suy yếu lên %enemy_name% &f(00:04)&6&l***
+          - TARGET=ENEMY | MESSAGE:&6&l***Fortify: &7&lBị suy yếu bởi %player_name% &f(00:04)&6&l***
     "5":
       defense:
         type: DEFENSE
@@ -451,6 +489,8 @@ fortify:
           - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
           - TARGET=ENEMY | ADD_POTION:WEAKNESS:0:100
+          - MESSAGE:&6&l***Fortify: &7&lGây suy yếu lên %enemy_name% &f(00:05)&6&l***
+          - TARGET=ENEMY | MESSAGE:&6&l***Fortify: &7&lBị suy yếu bởi %player_name% &f(00:05)&6&l***
 frozen:
   group: epic
   display: Frozen
@@ -484,6 +524,8 @@ frozen:
         effects:
           - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:freeze_movement_speed:-0.1:1
           - TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:freeze_movement_speed
+          - MESSAGE:&6&l***Frozen: &7&lLàm chậm %enemy_name% -10% tốc độ &f(00:02)&6&l***
+          - TARGET=ENEMY | MESSAGE:&6&l***Frozen: &7&lBị đóng băng -10% tốc độ bởi %player_name% &f(00:02)&6&l***
     "2":
       defense:
         type: DEFENSE
@@ -495,6 +537,8 @@ frozen:
         effects:
           - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:freeze_movement_speed:-0.15:1
           - TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:freeze_movement_speed
+          - MESSAGE:&6&l***Frozen: &7&lLàm chậm %enemy_name% -15% tốc độ &f(00:02)&6&l***
+          - TARGET=ENEMY | MESSAGE:&6&l***Frozen: &7&lBị đóng băng -15% tốc độ bởi %player_name% &f(00:02)&6&l***
     "3":
       defense:
         type: DEFENSE
@@ -506,6 +550,8 @@ frozen:
         effects:
           - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:freeze_movement_speed:-0.2:1
           - TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:freeze_movement_speed
+          - MESSAGE:&6&l***Frozen: &7&lLàm chậm %enemy_name% -20% tốc độ &f(00:02)&6&l***
+          - TARGET=ENEMY | MESSAGE:&6&l***Frozen: &7&lBị đóng băng -20% tốc độ bởi %player_name% &f(00:02)&6&l***
     "4":
       defense:
         type: DEFENSE
@@ -517,6 +563,8 @@ frozen:
         effects:
           - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:freeze_movement_speed:-0.25:1
           - TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:freeze_movement_speed
+          - MESSAGE:&6&l***Frozen: &7&lLàm chậm %enemy_name% -25% tốc độ &f(00:02)&6&l***
+          - TARGET=ENEMY | MESSAGE:&6&l***Frozen: &7&lBị đóng băng -25% tốc độ bởi %player_name% &f(00:02)&6&l***
     "5":
       defense:
         type: DEFENSE
@@ -528,6 +576,8 @@ frozen:
         effects:
           - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:freeze_movement_speed:-0.3:1
           - TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:freeze_movement_speed
+          - MESSAGE:&6&l***Frozen: &7&lLàm chậm %enemy_name% -30% tốc độ &f(00:02)&6&l***
+          - TARGET=ENEMY | MESSAGE:&6&l***Frozen: &7&lBị đóng băng -30% tốc độ bởi %player_name% &f(00:02)&6&l***
 hellforged:
   group: supreme
   display: HellForged
@@ -554,6 +604,7 @@ hellforged:
         cooldown: 1000
         effects:
           - DURABILITY:ADD:AUTO:2
+          - MESSAGE:&a&l***HellForged: &6&lSửa chữa +2 độ bền khi di chuyển&a&l***
         conditions:
           - EQUIP_SLOT:ARMOR
 hulk:
@@ -671,6 +722,7 @@ implants:
           - FOOD:<:19
         effects:
           - FOOD:ADD:1
+          - MESSAGE:&a&l***Implants: &6&lHồi +1 thức ăn khi di chuyển&a&l***
     "2":
       move:
         type: MOVE
@@ -681,6 +733,7 @@ implants:
           - FOOD:<:19
         effects:
           - FOOD:ADD:1
+          - MESSAGE:&a&l***Implants: &6&lHồi +1 thức ăn khi di chuyển&a&l***
     "3":
       move:
         type: MOVE
@@ -691,6 +744,7 @@ implants:
           - FOOD:<:19
         effects:
           - FOOD:ADD:1
+          - MESSAGE:&a&l***Implants: &6&lHồi +1 thức ăn khi di chuyển&a&l***
     "4":
       move:
         type: MOVE
@@ -701,6 +755,7 @@ implants:
           - FOOD:<:19
         effects:
           - FOOD:ADD:1
+          - MESSAGE:&a&l***Implants: &6&lHồi +1 thức ăn khi di chuyển&a&l***
     "5":
       move:
         type: MOVE
@@ -711,6 +766,7 @@ implants:
           - FOOD:<:19
         effects:
           - FOOD:ADD:1
+          - MESSAGE:&a&l***Implants: &6&lHồi +1 thức ăn khi di chuyển&a&l***
 insomnia:
   group: epic
   display: Insomnia
@@ -820,6 +876,8 @@ molten:
           - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
           - TARGET=ENEMY | ON_FIRE:40
+          - MESSAGE:&6&l***Molten: &7&lĐốt cháy %enemy_name% &f(00:02)&6&l***
+          - TARGET=ENEMY | MESSAGE:&6&l***Molten: &7&lBị bốc lửa bởi %player_name% &f(00:02)&6&l***
     "2":
       defense:
         type: DEFENSE
@@ -830,6 +888,8 @@ molten:
           - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
           - TARGET=ENEMY | ON_FIRE:60
+          - MESSAGE:&6&l***Molten: &7&lĐốt cháy %enemy_name% &f(00:03)&6&l***
+          - TARGET=ENEMY | MESSAGE:&6&l***Molten: &7&lBị bốc lửa bởi %player_name% &f(00:03)&6&l***
     "3":
       defense:
         type: DEFENSE
@@ -840,6 +900,8 @@ molten:
           - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
           - TARGET=ENEMY | ON_FIRE:80
+          - MESSAGE:&6&l***Molten: &7&lĐốt cháy %enemy_name% &f(00:04)&6&l***
+          - TARGET=ENEMY | MESSAGE:&6&l***Molten: &7&lBị bốc lửa bởi %player_name% &f(00:04)&6&l***
 ninja:
   group: supreme
   display: Ninja
@@ -945,6 +1007,7 @@ nursery:
         cooldown: 3000
         effects:
           - HEALTH:ADD:1
+          - MESSAGE:&a&l***Nursery: &6&lHồi +1 máu khi di chuyển&a&l***
         conditions:
           - EQUIP_SLOT:ARMOR
     "2":
@@ -954,6 +1017,7 @@ nursery:
         cooldown: 3000
         effects:
           - HEALTH:ADD:1
+          - MESSAGE:&a&l***Nursery: &6&lHồi +1 máu khi di chuyển&a&l***
         conditions:
           - EQUIP_SLOT:ARMOR
     "3":
@@ -963,6 +1027,7 @@ nursery:
         cooldown: 3000
         effects:
           - HEALTH:ADD:2
+          - MESSAGE:&a&l***Nursery: &6&lHồi +2 máu khi di chuyển&a&l***
         conditions:
           - EQUIP_SLOT:ARMOR
     "4":
@@ -972,6 +1037,7 @@ nursery:
         cooldown: 3000
         effects:
           - HEALTH:ADD:2
+          - MESSAGE:&a&l***Nursery: &6&lHồi +2 máu khi di chuyển&a&l***
         conditions:
           - EQUIP_SLOT:ARMOR
     "5":
@@ -981,6 +1047,7 @@ nursery:
         cooldown: 3000
         effects:
           - HEALTH:ADD:3
+          - MESSAGE:&a&l***Nursery: &6&lHồi +3 máu khi di chuyển&a&l***
         conditions:
           - EQUIP_SLOT:ARMOR
 overload:
@@ -1205,6 +1272,8 @@ paingiver:
           - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
           - TARGET=ENEMY | ADD_POTION:POISON:0:80
+          - MESSAGE:&6&l***PainGiver: &7&lGây độc lên %enemy_name% &f(00:04)&6&l***
+          - TARGET=ENEMY | MESSAGE:&6&l***PainGiver: &7&lBị nhiễm độc bởi %player_name% &f(00:04)&6&l***
     "2":
       defense:
         type: DEFENSE
@@ -1215,6 +1284,8 @@ paingiver:
           - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
           - TARGET=ENEMY | ADD_POTION:POISON:0:80
+          - MESSAGE:&6&l***PainGiver: &7&lGây độc lên %enemy_name% &f(00:04)&6&l***
+          - TARGET=ENEMY | MESSAGE:&6&l***PainGiver: &7&lBị nhiễm độc bởi %player_name% &f(00:04)&6&l***
     "3":
       defense:
         type: DEFENSE
@@ -1225,6 +1296,8 @@ paingiver:
           - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
           - TARGET=ENEMY | ADD_POTION:POISON:1:80
+          - MESSAGE:&6&l***PainGiver: &7&lGây độc II lên %enemy_name% &f(00:04)&6&l***
+          - TARGET=ENEMY | MESSAGE:&6&l***PainGiver: &7&lBị nhiễm độc II bởi %player_name% &f(00:04)&6&l***
     "4":
       defense:
         type: DEFENSE
@@ -1235,6 +1308,8 @@ paingiver:
           - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
           - TARGET=ENEMY | ADD_POTION:POISON:1:80
+          - MESSAGE:&6&l***PainGiver: &7&lGây độc II lên %enemy_name% &f(00:04)&6&l***
+          - TARGET=ENEMY | MESSAGE:&6&l***PainGiver: &7&lBị nhiễm độc II bởi %player_name% &f(00:04)&6&l***
     "5":
       defense:
         type: DEFENSE
@@ -1245,6 +1320,8 @@ paingiver:
           - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
           - TARGET=ENEMY | ADD_POTION:POISON:3:80
+          - MESSAGE:&6&l***PainGiver: &7&lGây độc IV lên %enemy_name% &f(00:04)&6&l***
+          - TARGET=ENEMY | MESSAGE:&6&l***PainGiver: &7&lBị nhiễm độc IV bởi %player_name% &f(00:04)&6&l***
 recover:
   group: rare
   display: Recover
@@ -1273,6 +1350,7 @@ recover:
           - EQUIP_SLOT:ARMOR
         effects:
           - HEALTH:ADD:(%player_max_value%-%player_health%)*5/100
+          - MESSAGE:&a&l***Recover: &6&lHồi 5% máu đã mất khi hạ %enemy_name%&a&l***
     "2":
       kill_player:
         type: KILL_PLAYER
@@ -1282,6 +1360,7 @@ recover:
           - EQUIP_SLOT:ARMOR
         effects:
           - HEALTH:ADD:(%player_max_value%-%player_health%)*10/100
+          - MESSAGE:&a&l***Recover: &6&lHồi 10% máu đã mất khi hạ %enemy_name%&a&l***
     "3":
       kill_player:
         type: KILL_PLAYER
@@ -1291,6 +1370,7 @@ recover:
           - EQUIP_SLOT:ARMOR
         effects:
           - HEALTH:ADD:(%player_max_value%-%player_health%)*15/100
+          - MESSAGE:&a&l***Recover: &6&lHồi 15% máu đã mất khi hạ %enemy_name%&a&l***
     "4":
       kill_player:
         type: KILL_PLAYER
@@ -1300,6 +1380,7 @@ recover:
           - EQUIP_SLOT:ARMOR
         effects:
           - HEALTH:ADD:(%player_max_value%-%player_health%)*20/100
+          - MESSAGE:&a&l***Recover: &6&lHồi 20% máu đã mất khi hạ %enemy_name%&a&l***
     "5":
       kill_player:
         type: KILL_PLAYER
@@ -1309,6 +1390,7 @@ recover:
           - EQUIP_SLOT:ARMOR
         effects:
           - HEALTH:ADD:(%player_max_value%-%player_health%)*25/100
+          - MESSAGE:&a&l***Recover: &6&lHồi 25% máu đã mất khi hạ %enemy_name%&a&l***
 rocket:
   group: rare
   display: Rocket
@@ -1338,6 +1420,7 @@ rocket:
           - HEALTH:<=:10
         effects:
           - PULL:xE_1_zE
+          - MESSAGE:&6&l***Rocket: &7&lĐẩy lùi kẻ địch khi thấp máu&6&l***
     "2":
       defense:
         type: DEFENSE
@@ -1348,6 +1431,7 @@ rocket:
           - HEALTH:<=:10
         effects:
           - PULL:xE*1.25_1_zE*1.25
+          - MESSAGE:&6&l***Rocket: &7&lĐẩy lùi kẻ địch khi thấp máu&6&l***
     "3":
       defense:
         type: DEFENSE
@@ -1358,6 +1442,7 @@ rocket:
           - HEALTH:<=:10
         effects:
           - PULL:xE*1.5_1_zE*1.5
+          - MESSAGE:&6&l***Rocket: &7&lĐẩy lùi kẻ địch khi thấp máu&6&l***
     "4":
       defense:
         type: DEFENSE
@@ -1368,6 +1453,7 @@ rocket:
           - HEALTH:<=:10
         effects:
           - PULL:xE*1.75_1_zE*1.75
+          - MESSAGE:&6&l***Rocket: &7&lĐẩy lùi kẻ địch khi thấp máu&6&l***
     "5":
       defense:
         type: DEFENSE
@@ -1378,6 +1464,7 @@ rocket:
           - HEALTH:<=:10
         effects:
           - PULL:xE*2_1_zE*2
+          - MESSAGE:&6&l***Rocket: &7&lĐẩy lùi kẻ địch khi thấp máu&6&l***
 smokebomb:
   group: legendary
   display: SmokeBomb
@@ -1415,6 +1502,8 @@ smokebomb:
           - TARGET=ENEMY | ADD_POTION:BLINDNESS:0:40
           - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:smokebomb_movement_speed:-0.1:1
           - TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:smokebomb_movement_speed
+          - MESSAGE:&6&l***SmokeBomb: &7&lLàm mù & chậm %enemy_name% &f(00:02)&6&l***
+          - TARGET=ENEMY | MESSAGE:&6&l***SmokeBomb: &7&lBị mù và chậm bởi %player_name% &f(00:02)&6&l***
     "2":
       defense:
         type: DEFENSE
@@ -1428,6 +1517,8 @@ smokebomb:
           - TARGET=ENEMY | ADD_POTION:BLINDNESS:0:40
           - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:smokebomb_movement_speed:-0.15:1
           - TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:smokebomb_movement_speed
+          - MESSAGE:&6&l***SmokeBomb: &7&lLàm mù & chậm %enemy_name% &f(00:02)&6&l***
+          - TARGET=ENEMY | MESSAGE:&6&l***SmokeBomb: &7&lBị mù và chậm bởi %player_name% &f(00:02)&6&l***
     "3":
       defense:
         type: DEFENSE
@@ -1441,6 +1532,8 @@ smokebomb:
           - TARGET=ENEMY | ADD_POTION:BLINDNESS:0:60
           - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:smokebomb_movement_speed:-0.2:1
           - TARGET=ENEMY,DELAY=60,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:smokebomb_movement_speed
+          - MESSAGE:&6&l***SmokeBomb: &7&lLàm mù & chậm %enemy_name% &f(00:03)&6&l***
+          - TARGET=ENEMY | MESSAGE:&6&l***SmokeBomb: &7&lBị mù và chậm bởi %player_name% &f(00:03)&6&l***
     "4":
       defense:
         type: DEFENSE
@@ -1454,6 +1547,8 @@ smokebomb:
           - TARGET=ENEMY | ADD_POTION:BLINDNESS:0:60
           - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:smokebomb_movement_speed:-0.25:1
           - TARGET=ENEMY,DELAY=60,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:smokebomb_movement_speed
+          - MESSAGE:&6&l***SmokeBomb: &7&lLàm mù & chậm %enemy_name% &f(00:03)&6&l***
+          - TARGET=ENEMY | MESSAGE:&6&l***SmokeBomb: &7&lBị mù và chậm bởi %player_name% &f(00:03)&6&l***
     "5":
       defense:
         type: DEFENSE
@@ -1467,6 +1562,8 @@ smokebomb:
           - TARGET=ENEMY | ADD_POTION:BLINDNESS:0:80
           - TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:smokebomb_movement_speed:-0.3:1
           - TARGET=ENEMY,DELAY=80,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:smokebomb_movement_speed
+          - MESSAGE:&6&l***SmokeBomb: &7&lLàm mù & chậm %enemy_name% &f(00:04)&6&l***
+          - TARGET=ENEMY | MESSAGE:&6&l***SmokeBomb: &7&lBị mù và chậm bởi %player_name% &f(00:04)&6&l***
 stormcaller:
   group: rare
   display: StormCaller
@@ -1497,6 +1594,8 @@ stormcaller:
           - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
           - TARGET=ENEMY | LIGHTNING:~_~_~_~
+          - MESSAGE:&6&l***StormCaller: &7&lĐánh sét lên %enemy_name%&6&l***
+          - TARGET=ENEMY | MESSAGE:&6&l***StormCaller: &7&lBị sét đánh bởi %player_name%&6&l***
     "2":
       defense:
         type: DEFENSE
@@ -1507,6 +1606,8 @@ stormcaller:
           - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
           - TARGET=ENEMY | LIGHTNING:~_~_~_~
+          - MESSAGE:&6&l***StormCaller: &7&lĐánh sét lên %enemy_name%&6&l***
+          - TARGET=ENEMY | MESSAGE:&6&l***StormCaller: &7&lBị sét đánh bởi %player_name%&6&l***
     "3":
       defense:
         type: DEFENSE
@@ -1517,6 +1618,8 @@ stormcaller:
           - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
           - TARGET=ENEMY | LIGHTNING:~_~_~_~
+          - MESSAGE:&6&l***StormCaller: &7&lĐánh sét lên %enemy_name%&6&l***
+          - TARGET=ENEMY | MESSAGE:&6&l***StormCaller: &7&lBị sét đánh bởi %player_name%&6&l***
     "4":
       defense:
         type: DEFENSE
@@ -1527,6 +1630,8 @@ stormcaller:
           - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
           - TARGET=ENEMY | LIGHTNING:~_~_~_~
+          - MESSAGE:&6&l***StormCaller: &7&lĐánh sét lên %enemy_name%&6&l***
+          - TARGET=ENEMY | MESSAGE:&6&l***StormCaller: &7&lBị sét đánh bởi %player_name%&6&l***
     "5":
       defense:
         type: DEFENSE
@@ -1537,6 +1642,8 @@ stormcaller:
           - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
           - TARGET=ENEMY | LIGHTNING:~_~_~_~
+          - MESSAGE:&6&l***StormCaller: &7&lĐánh sét lên %enemy_name%&6&l***
+          - TARGET=ENEMY | MESSAGE:&6&l***StormCaller: &7&lBị sét đánh bởi %player_name%&6&l***
 trickster:
   group: epic
   display: Trickster
@@ -1570,6 +1677,7 @@ trickster:
         effects:
           - PACKET_PARTICLE:CLOUD:10:500:~_~_~+1_~:0.5_0.5_0.5:0.1:12
           - TELEPORT:~_xE+4*sin(eyawP+90)_yE_zE+4*cos(eyawP+90)_yawP+180_pitchP
+          - MESSAGE:&6&l***Trickster: &7&lChặn đòn và dịch chuyển sau lưng %enemy_name%&6&l***
     "2":
       defense:
         type: DEFENSE
@@ -1583,6 +1691,7 @@ trickster:
         effects:
           - PACKET_PARTICLE:CLOUD:10:500:~_~_~+1_~:0.5_0.5_0.5:0.1:14
           - TELEPORT:~_xE+4*sin(eyawP+90)_yE_zE+4*cos(eyawP+90)_yawP+180_pitchP
+          - MESSAGE:&6&l***Trickster: &7&lChặn đòn và dịch chuyển sau lưng %enemy_name%&6&l***
     "3":
       defense:
         type: DEFENSE
@@ -1596,6 +1705,7 @@ trickster:
         effects:
           - PACKET_PARTICLE:CLOUD:10:500:~_~_~+1_~:0.5_0.5_0.5:0.1:16
           - TELEPORT:~_xE+4*sin(eyawP+90)_yE_zE+4*cos(eyawP+90)_yawP+180_pitchP
+          - MESSAGE:&6&l***Trickster: &7&lChặn đòn và dịch chuyển sau lưng %enemy_name%&6&l***
     "4":
       defense:
         type: DEFENSE
@@ -1609,6 +1719,7 @@ trickster:
         effects:
           - PACKET_PARTICLE:CLOUD:10:500:~_~_~+1_~:0.5_0.5_0.5:0.1:18
           - TELEPORT:~_xE+4*sin(eyawP+90)_yE_zE+4*cos(eyawP+90)_yawP+180_pitchP
+          - MESSAGE:&6&l***Trickster: &7&lChặn đòn và dịch chuyển sau lưng %enemy_name%&6&l***
     "5":
       defense:
         type: DEFENSE
@@ -1622,6 +1733,7 @@ trickster:
         effects:
           - PACKET_PARTICLE:CLOUD:10:500:~_~_~+1_~:0.5_0.5_0.5:0.1:20
           - TELEPORT:~_xE+4*sin(eyawP+90)_yE_zE+4*cos(eyawP+90)_yawP+180_pitchP
+          - MESSAGE:&6&l***Trickster: &7&lChặn đòn và dịch chuyển sau lưng %enemy_name%&6&l***
 valor:
   group: supreme
   display: Valor
@@ -1657,6 +1769,7 @@ valor:
           - DEFENSE:0.5:2
         effects:
           - DURABILITY:ADD:AUTO:10
+          - MESSAGE:&6&l***Valor: &7&lGiảm sát thương & hồi +10 độ bền giáp&6&l***
     "2":
       defense:
         type: DEFENSE
@@ -1668,6 +1781,7 @@ valor:
           - DEFENSE:0.1:2
         effects:
           - DURABILITY:ADD:AUTO:10
+          - MESSAGE:&6&l***Valor: &7&lGiảm sát thương & hồi +10 độ bền giáp&6&l***
     "3":
       defense:
         type: DEFENSE
@@ -1679,6 +1793,7 @@ valor:
           - DEFENSE:0.15:2
         effects:
           - DURABILITY:ADD:AUTO:10
+          - MESSAGE:&6&l***Valor: &7&lGiảm sát thương & hồi +10 độ bền giáp&6&l***
     "4":
       defense:
         type: DEFENSE
@@ -1690,6 +1805,7 @@ valor:
           - DEFENSE:0.2:2
         effects:
           - DURABILITY:ADD:AUTO:10
+          - MESSAGE:&6&l***Valor: &7&lGiảm sát thương & hồi +10 độ bền giáp&6&l***
     "5":
       defense:
         type: DEFENSE
@@ -1701,6 +1817,7 @@ valor:
           - DEFENSE:0.25:2
         effects:
           - DURABILITY:ADD:AUTO:10
+          - MESSAGE:&6&l***Valor: &7&lGiảm sát thương & hồi +10 độ bền giáp&6&l***
 voodoo:
   group: legendary
   display: Voodoo
@@ -1734,6 +1851,8 @@ voodoo:
         effects:
           - TARGET=ENEMY | ADD_ATTRIBUTE:ATTACK_DAMAGE:voodoo_attack_damage:-0.05:1
           - TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:ATTACK_DAMAGE:voodoo_attack_damage
+          - MESSAGE:&6&l***Voodoo: &7&lGiảm 5% ATK của %enemy_name% &f(00:02)&6&l***
+          - TARGET=ENEMY | MESSAGE:&6&l***Voodoo: &7&lBị giảm 5% ATK bởi %player_name% &f(00:02)&6&l***
     "2":
       equip:
         type: DEFENSE
@@ -1745,6 +1864,8 @@ voodoo:
         effects:
           - TARGET=ENEMY | ADD_ATTRIBUTE:ATTACK_DAMAGE:voodoo_attack_damage:-0.1:1
           - TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:ATTACK_DAMAGE:voodoo_attack_damage
+          - MESSAGE:&6&l***Voodoo: &7&lGiảm 10% ATK của %enemy_name% &f(00:02)&6&l***
+          - TARGET=ENEMY | MESSAGE:&6&l***Voodoo: &7&lBị giảm 10% ATK bởi %player_name% &f(00:02)&6&l***
     "3":
       equip:
         type: DEFENSE
@@ -1756,6 +1877,8 @@ voodoo:
         effects:
           - TARGET=ENEMY | ADD_ATTRIBUTE:ATTACK_DAMAGE:voodoo_attack_damage:-0.15:1
           - TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:ATTACK_DAMAGE:voodoo_attack_damage
+          - MESSAGE:&6&l***Voodoo: &7&lGiảm 15% ATK của %enemy_name% &f(00:02)&6&l***
+          - TARGET=ENEMY | MESSAGE:&6&l***Voodoo: &7&lBị giảm 15% ATK bởi %player_name% &f(00:02)&6&l***
     "4":
       equip:
         type: DEFENSE
@@ -1767,6 +1890,8 @@ voodoo:
         effects:
           - TARGET=ENEMY | ADD_ATTRIBUTE:ATTACK_DAMAGE:voodoo_attack_damage:-0.2:1
           - TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:ATTACK_DAMAGE:voodoo_attack_damage
+          - MESSAGE:&6&l***Voodoo: &7&lGiảm 20% ATK của %enemy_name% &f(00:02)&6&l***
+          - TARGET=ENEMY | MESSAGE:&6&l***Voodoo: &7&lBị giảm 20% ATK bởi %player_name% &f(00:02)&6&l***
     "5":
       equip:
         type: DEFENSE
@@ -1778,6 +1903,8 @@ voodoo:
         effects:
           - TARGET=ENEMY | ADD_ATTRIBUTE:ATTACK_DAMAGE:voodoo_attack_damage:-0.25:1
           - TARGET=ENEMY,DELAY=40,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:ATTACK_DAMAGE:voodoo_attack_damage
+          - MESSAGE:&6&l***Voodoo: &7&lGiảm 25% ATK của %enemy_name% &f(00:02)&6&l***
+          - TARGET=ENEMY | MESSAGE:&6&l***Voodoo: &7&lBị giảm 25% ATK bởi %player_name% &f(00:02)&6&l***
 durable:
   group: common
   display: Durable
@@ -1806,6 +1933,7 @@ durable:
           - EQUIP_SLOT:ARMOR
         effects:
           - DURABILITY:ADD:AUTO:1
+          - MESSAGE:&6&l***Durable: &7&lHồi +1 độ bền giáp khi bị tấn công&6&l***
     "2":
       defense:
         type: DEFENSE
@@ -1815,6 +1943,7 @@ durable:
           - EQUIP_SLOT:ARMOR
         effects:
           - DURABILITY:ADD:AUTO:2
+          - MESSAGE:&6&l***Durable: &7&lHồi +2 độ bền giáp khi bị tấn công&6&l***
     "3":
       defense:
         type: DEFENSE
@@ -1824,6 +1953,7 @@ durable:
           - EQUIP_SLOT:ARMOR
         effects:
           - DURABILITY:ADD:AUTO:3
+          - MESSAGE:&6&l***Durable: &7&lHồi +3 độ bền giáp khi bị tấn công&6&l***
     "4":
       defense:
         type: DEFENSE
@@ -1833,6 +1963,7 @@ durable:
           - EQUIP_SLOT:ARMOR
         effects:
           - DURABILITY:ADD:AUTO:4
+          - MESSAGE:&6&l***Durable: &7&lHồi +4 độ bền giáp khi bị tấn công&6&l***
     "5":
       defense:
         type: DEFENSE
@@ -1842,6 +1973,7 @@ durable:
           - EQUIP_SLOT:ARMOR
         effects:
           - DURABILITY:ADD:AUTO:5
+          - MESSAGE:&6&l***Durable: &7&lHồi +5 độ bền giáp khi bị tấn công&6&l***
     "6":
       defense:
         type: DEFENSE
@@ -1851,6 +1983,7 @@ durable:
           - EQUIP_SLOT:ARMOR
         effects:
           - DURABILITY:ADD:AUTO:6
+          - MESSAGE:&6&l***Durable: &7&lHồi +6 độ bền giáp khi bị tấn công&6&l***
     "7":
       defense:
         type: DEFENSE
@@ -1860,6 +1993,7 @@ durable:
           - EQUIP_SLOT:ARMOR
         effects:
           - DURABILITY:ADD:AUTO:7
+          - MESSAGE:&6&l***Durable: &7&lHồi +7 độ bền giáp khi bị tấn công&6&l***
     "8":
       defense:
         type: DEFENSE
@@ -1869,6 +2003,7 @@ durable:
           - EQUIP_SLOT:ARMOR
         effects:
           - DURABILITY:ADD:AUTO:8
+          - MESSAGE:&6&l***Durable: &7&lHồi +8 độ bền giáp khi bị tấn công&6&l***
     "9":
       defense:
         type: DEFENSE
@@ -1878,6 +2013,7 @@ durable:
           - EQUIP_SLOT:ARMOR
         effects:
           - DURABILITY:ADD:AUTO:9
+          - MESSAGE:&6&l***Durable: &7&lHồi +9 độ bền giáp khi bị tấn công&6&l***
     "10":
       defense:
         type: DEFENSE
@@ -1887,6 +2023,7 @@ durable:
           - EQUIP_SLOT:ARMOR
         effects:
           - DURABILITY:ADD:AUTO:10
+          - MESSAGE:&6&l***Durable: &7&lHồi +10 độ bền giáp khi bị tấn công&6&l***
 hearty:
   group: event
   display: Hearty
@@ -1917,6 +2054,7 @@ hearty:
         conditions:
           - EQUIP_SLOT:ARMOR
         effects:
+          - MESSAGE:&a&l***Hearty: &6&lHồi 16 máu trong &f(00:20)&a&l***
           - DELAY=25 | HEALTH:ADD:1
           - DELAY=50 | HEALTH:ADD:1
           - DELAY=75 | HEALTH:ADD:1
@@ -1940,6 +2078,7 @@ hearty:
         conditions:
           - EQUIP_SLOT:ARMOR
         effects:
+          - MESSAGE:&a&l***Hearty: &6&lHồi 16 máu trong &f(00:20)&a&l***
           - DELAY=25 | HEALTH:ADD:1
           - DELAY=50 | HEALTH:ADD:1
           - DELAY=75 | HEALTH:ADD:1
@@ -1964,6 +2103,7 @@ hearty:
         conditions:
           - EQUIP_SLOT:ARMOR
         effects:
+          - MESSAGE:&a&l***Hearty: &6&lHồi 16 máu trong &f(00:10)&a&l***
           - DELAY=12 | HEALTH:ADD:1
           - DELAY=25 | HEALTH:ADD:1
           - DELAY=37 | HEALTH:ADD:1
@@ -1987,6 +2127,7 @@ hearty:
         conditions:
           - EQUIP_SLOT:ARMOR
         effects:
+          - MESSAGE:&a&l***Hearty: &6&lHồi 16 máu trong &f(00:10)&a&l***
           - DELAY=12 | HEALTH:ADD:1
           - DELAY=25 | HEALTH:ADD:1
           - DELAY=37 | HEALTH:ADD:1
@@ -2011,6 +2152,7 @@ hearty:
         conditions:
           - EQUIP_SLOT:ARMOR
         effects:
+          - MESSAGE:&a&l***Hearty: &6&lHồi 16 máu trong &f(00:05)&a&l***
           - DELAY=6 | HEALTH:ADD:1
           - DELAY=12 | HEALTH:ADD:1
           - DELAY=18 | HEALTH:ADD:1
@@ -2034,6 +2176,7 @@ hearty:
         conditions:
           - EQUIP_SLOT:ARMOR
         effects:
+          - MESSAGE:&a&l***Hearty: &6&lHồi 16 máu trong &f(00:05)&a&l***
           - DELAY=6 | HEALTH:ADD:1
           - DELAY=12 | HEALTH:ADD:1
           - DELAY=18 | HEALTH:ADD:1
@@ -2058,6 +2201,7 @@ hearty:
         conditions:
           - EQUIP_SLOT:ARMOR
         effects:
+          - MESSAGE:&a&l***Hearty: &6&lHồi 16 máu trong &f(00:02)&a&l***
           - DELAY=3 | HEALTH:ADD:1
           - DELAY=6 | HEALTH:ADD:1
           - DELAY=9 | HEALTH:ADD:1
@@ -2081,6 +2225,7 @@ hearty:
         conditions:
           - EQUIP_SLOT:ARMOR
         effects:
+          - MESSAGE:&a&l***Hearty: &6&lHồi 16 máu trong &f(00:02)&a&l***
           - DELAY=3 | HEALTH:ADD:1
           - DELAY=6 | HEALTH:ADD:1
           - DELAY=9 | HEALTH:ADD:1
@@ -2128,6 +2273,7 @@ absorb:
           - EQUIP_SLOT:ARMOR
         effects:
           - ABSORPTION_HEART:ADD:%damage%*10/100:20
+          - MESSAGE:&a&l***Absorb: &6&lHấp thụ 10% sát thương thành tim vàng&a&l***
     "2":
       defense:
         type: DEFENSE
@@ -2137,6 +2283,7 @@ absorb:
           - EQUIP_SLOT:ARMOR
         effects:
           - ABSORPTION_HEART:ADD:%damage%*20/100:20
+          - MESSAGE:&a&l***Absorb: &6&lHấp thụ 20% sát thương thành tim vàng&a&l***
     "3":
       defense:
         type: DEFENSE
@@ -2146,6 +2293,7 @@ absorb:
           - EQUIP_SLOT:ARMOR
         effects:
           - ABSORPTION_HEART:ADD:%damage%*30/100:20
+          - MESSAGE:&a&l***Absorb: &6&lHấp thụ 30% sát thương thành tim vàng&a&l***
     "4":
       defense:
         type: DEFENSE
@@ -2155,6 +2303,7 @@ absorb:
           - EQUIP_SLOT:ARMOR
         effects:
           - ABSORPTION_HEART:ADD:%damage%*40/100:20
+          - MESSAGE:&a&l***Absorb: &6&lHấp thụ 40% sát thương thành tim vàng&a&l***
     "5":
       defense:
         type: DEFENSE
@@ -2164,6 +2313,7 @@ absorb:
           - EQUIP_SLOT:ARMOR
         effects:
           - ABSORPTION_HEART:ADD:%damage%*50/100:20
+          - MESSAGE:&a&l***Absorb: &6&lHấp thụ 50% sát thương thành tim vàng&a&l***
 vitality:
   group: legendary
   display: Vitality
@@ -2270,6 +2420,7 @@ guzzle:
         effects:
           - FOOD:REMOVE:1
           - HEALTH:ADD:1
+          - MESSAGE:&a&l***Guzzle: &6&lChuyển hóa thức ăn thành +1 máu khi thấp máu&a&l***
     "2":
       defense:
         type: DEFENSE
@@ -2282,6 +2433,7 @@ guzzle:
         effects:
           - FOOD:REMOVE:1
           - HEALTH:ADD:2
+          - MESSAGE:&a&l***Guzzle: &6&lChuyển hóa thức ăn thành +2 máu khi thấp máu&a&l***
     "3":
       defense:
         type: DEFENSE
@@ -2294,6 +2446,7 @@ guzzle:
         effects:
           - FOOD:REMOVE:1
           - HEALTH:ADD:3
+          - MESSAGE:&a&l***Guzzle: &6&lChuyển hóa thức ăn thành +3 máu khi thấp máu&a&l***
     "4":
       defense:
         type: DEFENSE
@@ -2306,6 +2459,7 @@ guzzle:
         effects:
           - FOOD:REMOVE:1
           - HEALTH:ADD:4
+          - MESSAGE:&a&l***Guzzle: &6&lChuyển hóa thức ăn thành +4 máu khi thấp máu&a&l***
     "5":
       defense:
         type: DEFENSE
@@ -2318,6 +2472,7 @@ guzzle:
         effects:
           - FOOD:REMOVE:1
           - HEALTH:ADD:5
+          - MESSAGE:&a&l***Guzzle: &6&lChuyển hóa thức ăn thành +5 máu khi thấp máu&a&l***
 sunfire:
   group: legendary
   display: Sunfire
@@ -2367,6 +2522,8 @@ sunfire:
         target-effects:
           - TARGET=ENEMY | ON_FIRE:40
           - TARGET=ENEMY | DEAL_DAMAGE:0.25+%player_value%*5/100:false:true:true:true:true
+          - MESSAGE:&6&l***Sunfire: &7&lĐốt cháy kẻ địch gần bên&6&l***
+          - TARGET=ENEMY | MESSAGE:&6&l***Sunfire: &7&lBị đốt cháy bởi %player_name%&6&l***
       unequip:
         type: ARMOR_UNDRESS
         chance: 100
@@ -2401,6 +2558,8 @@ sunfire:
         target-effects:
           - TARGET=ENEMY | ON_FIRE:40
           - TARGET=ENEMY | DEAL_DAMAGE:0.5+%player_value%*7.5/100:false:true:true:true:true
+          - MESSAGE:&6&l***Sunfire: &7&lĐốt cháy kẻ địch gần bên&6&l***
+          - TARGET=ENEMY | MESSAGE:&6&l***Sunfire: &7&lBị đốt cháy bởi %player_name%&6&l***
       unequip:
         type: ARMOR_UNDRESS
         chance: 100
@@ -2435,6 +2594,8 @@ sunfire:
         target-effects:
           - TARGET=ENEMY | ON_FIRE:40
           - TARGET=ENEMY | DEAL_DAMAGE:1+%player_value%*10/100:false:true:true:true:true
+          - MESSAGE:&6&l***Sunfire: &7&lĐốt cháy kẻ địch gần bên&6&l***
+          - TARGET=ENEMY | MESSAGE:&6&l***Sunfire: &7&lBị đốt cháy bởi %player_name%&6&l***
       unequip:
         type: ARMOR_UNDRESS
         chance: 100
@@ -2469,6 +2630,8 @@ sunfire:
         target-effects:
           - TARGET=ENEMY | ON_FIRE:40
           - TARGET=ENEMY | DEAL_DAMAGE:30+%player_value%*75/100:false:true:true:true:true
+          - MESSAGE:&6&l***Sunfire: &7&lĐốt cháy kẻ địch gần bên&6&l***
+          - TARGET=ENEMY | MESSAGE:&6&l***Sunfire: &7&lBị đốt cháy bởi %player_name%&6&l***
       unequip:
         type: ARMOR_UNDRESS
         chance: 100

@@ -123,6 +123,8 @@ abnegation:
         effects:
         - TARGET=ENEMY | HEALTH:REMOVE:%enemy_value%*50/100
         - HEALTH:REMOVE:%player_value%*50/100
+        - "MESSAGE:&c&l***Abnegation: &4&lSacrifice 50% HP &7&l> &f&l%enemy_name%&c&l***"
+        - TARGET=ENEMY | MESSAGE:&c&l***&4&lAbnegation &7&lby &f&l%enemy_name%&c&l***
     '2':
       defense:
         type: DEFENSE
@@ -135,6 +137,8 @@ abnegation:
         effects:
         - TARGET=ENEMY | HEALTH:REMOVE:%enemy_value%*50/100
         - HEALTH:REMOVE:%player_value%*50/100
+        - "MESSAGE:&c&l***Abnegation: &4&lSacrifice 50% HP &7&l> &f&l%enemy_name%&c&l***"
+        - TARGET=ENEMY | MESSAGE:&c&l***&4&lAbnegation &7&lby &f&l%enemy_name%&c&l***
     '3':
       defense:
         type: DEFENSE
@@ -147,6 +151,8 @@ abnegation:
         effects:
         - TARGET=ENEMY | HEALTH:REMOVE:%enemy_value%*50/100
         - HEALTH:REMOVE:%player_value%*50/100
+        - "MESSAGE:&c&l***Abnegation: &4&lSacrifice 50% HP &7&l> &f&l%enemy_name%&c&l***"
+        - TARGET=ENEMY | MESSAGE:&c&l***&4&lAbnegation &7&lby &f&l%enemy_name%&c&l***
 endurance:
   group: supreme
   display: Endurance
@@ -665,6 +671,7 @@ phoenix:
         - HEALTH_PERCENT:<=:25
         effects:
         - HEALTH:SET:%player_max_value%
+        - "MESSAGE:&c&l***Phoenix: &a&lFull Heal&c&l***"
     '2':
       defense:
         type: DEFENSE
@@ -675,6 +682,7 @@ phoenix:
         - HEALTH_PERCENT:<=:25
         effects:
         - HEALTH:SET:%player_max_value%
+        - "MESSAGE:&c&l***Phoenix: &a&lFull Heal&c&l***"
     '3':
       defense:
         type: DEFENSE
@@ -685,6 +693,7 @@ phoenix:
         - HEALTH_PERCENT:<=:25
         effects:
         - HEALTH:SET:%player_max_value%
+        - "MESSAGE:&c&l***Phoenix: &a&lFull Heal&c&l***"
 aegis:
   group: ultimate
   display: Aegis
@@ -717,6 +726,7 @@ aegis:
         - HEALTH_PERCENT:<=:25
         effects:
         - ABSORPTION_HEART:SET:20:20
+        - "MESSAGE:&6&l***Aegis: &e&l+20 Absorption &f(0:01)&6&l***"
     '2':
       defense:
         type: DEFENSE
@@ -727,6 +737,7 @@ aegis:
         - HEALTH_PERCENT:<=:25
         effects:
         - ABSORPTION_HEART:SET:20:20
+        - "MESSAGE:&6&l***Aegis: &e&l+20 Absorption &f(0:01)&6&l***"
     '3':
       defense:
         type: DEFENSE
@@ -737,3 +748,4 @@ aegis:
         - HEALTH_PERCENT:<=:25
         effects:
         - ABSORPTION_HEART:SET:20:20
+        - "MESSAGE:&6&l***Aegis: &e&l+20 Absorption &f(0:01)&6&l***"
