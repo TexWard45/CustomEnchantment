@@ -135,3 +135,19 @@ test {
         showStandardStreams = false
     }
 }
+
+// Copy JAR to server plugins folder after build
+// Toggle: -PcopyToServer=true/false or set in gradle.properties
+tasks.register('copyToServer') {
+    doLast {
+        def source = layout.buildDirectory.file("libs/CustomEnchantment.jar").get().asFile
+        def target = file(findProperty('copyToServerPath'))
+        target.parentFile.mkdirs()
+        source.withInputStream { input -> target.withOutputStream { output -> output << input } }
+        println "Copied ${source} -> ${target}"
+    }
+}
+
+if (findProperty('copyToServer') == 'true') {
+    build.finalizedBy(tasks.named('copyToServer'))
+}
