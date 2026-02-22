@@ -2,62 +2,70 @@ skin:
   # =======================
   # ARMOR
   # =======================
-  halloween-phantom-helmet:
+  beats-helmet:
     item:
       type: LEATHER_HELMET
-      color: '#fffffb'
-      custom-model-data: 10006
-      display: "&#f7dd7e&lMũ U Linh"
+      unbreakable: true
+      color: '#6a5bfc'
+      custom-model-data: 10022
+      display: "&#f7dd7e&lMũ Âm Vực"
       lore:
         - "TEST"
       flags:
         - HIDE_ADDITIONAL_TOOLTIP
         - HIDE_DYE
+        - HIDE_UNBREAKABLE
     display:
       normal: "&f%display%"
       bold: "&f%display%"
 
-  halloween-phantom-chestplate:
+  beats-chestplate:
     item:
       type: LEATHER_CHESTPLATE
-      color: '#fffffb'
-      custom-model-data: 10007
-      display: "&#f7dd7e&lGiáp U Linh"
+      unbreakable: true
+      color: '#6a5bfc'
+      custom-model-data: 10024
+      display: "&#f7dd7e&lGiáp Âm Vực"
       lore:
         - "TEST"
       flags:
         - HIDE_ADDITIONAL_TOOLTIP
         - HIDE_DYE
+        - HIDE_UNBREAKABLE
     display:
       normal: "&f%display%"
       bold: "&f%display%"
 
-  halloween-phantom-leggings:
+  beats-leggings:
     item:
       type: LEATHER_LEGGINGS
-      color: '#fffffb'
-      custom-model-data: 10006
-      display: "&#f7dd7e&lQuần U Linh"
+      unbreakable: true
+      color: '#6a5bfc'
+      custom-model-data: 10024
+      display: "&#f7dd7e&lQuần Âm Vực"
       lore:
         - "TEST"
       flags:
         - HIDE_ADDITIONAL_TOOLTIP
         - HIDE_DYE
+        - HIDE_UNBREAKABLE
     display:
       normal: "&f%display%"
       bold: "&f%display%"
 
-  halloween-phantom-boots:
+  beats-boots:
     item:
       type: LEATHER_BOOTS
-      color: '#fffffb'
-      custom-model-data: 10006
-      display: "&#f7dd7e&lGiày U Linh"
+      unbreakable: true
+      color: '#6a5bfc'
+      custom-model-data: 10024
+      display: "&#f7dd7e&lGiày Âm Vực"
       lore:
         - "TEST"
       flags:
         - HIDE_ADDITIONAL_TOOLTIP
         - HIDE_DYE
+        - HIDE_UNBREAKABLE
     display:
       normal: "&f%display%"
       bold: "&f%display%"
@@ -65,100 +73,130 @@ skin:
   # =======================
   # MELEE WEAPONS
   # =======================
-  halloween-phantom-sword:
+  beats-sword:
     item:
       type: NETHERITE_SWORD
-      custom-model-data: 10039
-      display: "&#f7dd7e&lKiếm U Linh"
+      unbreakable: true
+      custom-model-data: 10067
+      display: "&#f7dd7e&lKiếm Âm Vực"
       lore:
         - "TEST"
       flags:
         - HIDE_ADDITIONAL_TOOLTIP
         - HIDE_DYE
+        - HIDE_UNBREAKABLE
     display:
       normal: "&f%display%"
       bold: "&f%display%"
 
-  halloween-phantom-dagger:
+  beats-spear:
     item:
       type: NETHERITE_SWORD
-      custom-model-data: 10040
-      display: "&#f7dd7e&lDao Găm U Linh"
+      unbreakable: true
+      custom-model-data: 10065
+      display: "&#f7dd7e&lGiáo Âm Vực"
       lore:
         - "TEST"
       flags:
         - HIDE_ADDITIONAL_TOOLTIP
         - HIDE_DYE
+        - HIDE_UNBREAKABLE
     display:
       normal: "&f%display%"
       bold: "&f%display%"
 
-  halloween-phantom-spear:
+  beats-greatsword:
     item:
       type: NETHERITE_SWORD
-      custom-model-data: 10044
-      display: "&#f7dd7e&lGiáo U Linh"
+      unbreakable: true
+      custom-model-data: 10062
+      display: "&#f7dd7e&lĐại Kiếm Âm Vực"
       lore:
         - "TEST"
       flags:
         - HIDE_ADDITIONAL_TOOLTIP
         - HIDE_DYE
+        - HIDE_UNBREAKABLE
     display:
       normal: "&f%display%"
       bold: "&f%display%"
 
-  halloween-phantom-greatsword:
-    item:
-      type: NETHERITE_SWORD
-      custom-model-data: 10041
-      display: "&#f7dd7e&lĐại Kiếm U Linh"
-      lore:
-        - "TEST"
-      flags:
-        - HIDE_ADDITIONAL_TOOLTIP
-        - HIDE_DYE
-    display:
-      normal: "&f%display%"
-      bold: "&f%display%"
-
-  halloween-phantom-axe:
+  beats-axe:
     item:
       type: NETHERITE_AXE
-      custom-model-data: 10008
-      display: "&#f7dd7e&lRìu U Linh"
+      unbreakable: true
+      custom-model-data: 10011
+      display: "&#f7dd7e&lRìu Âm Vực"
       lore:
         - "TEST"
       flags:
         - HIDE_ADDITIONAL_TOOLTIP
         - HIDE_DYE
+        - HIDE_UNBREAKABLE
     display:
       normal: "&f%display%"
       bold: "&f%display%"
 
-  halloween-phantom-hammer:
+  beats-hammer:
     item:
       type: NETHERITE_SWORD
-      custom-model-data: 10042
-      display: "&#f7dd7e&lBúa U Linh"
+      unbreakable: true
+      custom-model-data: 10063
+      display: "&#f7dd7e&lBúa Âm Vực"
       lore:
         - "TEST"
       flags:
         - HIDE_ADDITIONAL_TOOLTIP
         - HIDE_DYE
+        - HIDE_UNBREAKABLE
     display:
       normal: "&f%display%"
       bold: "&f%display%"
 
-  halloween-phantom-staff:
+  beats-staff:
     item:
       type: NETHERITE_SWORD
-      custom-model-data: 10045
-      display: "&#f7dd7e&lTrượng U Linh"
+      unbreakable: true
+      custom-model-data: 10066
+      display: "&#f7dd7e&lTrượng Âm Vực"
       lore:
         - "TEST"
       flags:
         - HIDE_ADDITIONAL_TOOLTIP
         - HIDE_DYE
+        - HIDE_UNBREAKABLE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  beats-scythe:
+    item:
+      type: NETHERITE_SWORD
+      unbreakable: true
+      custom-model-data: 10064
+      display: "&#f7dd7e&lLưỡi Hái Âm Vực"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+        - HIDE_UNBREAKABLE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  beats-trident:
+    item:
+      type: NETHERITE_SWORD
+      unbreakable: true
+      custom-model-data: 10068
+      display: "&#f7dd7e&lĐinh Ba Âm Vực"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+        - HIDE_UNBREAKABLE
     display:
       normal: "&f%display%"
       bold: "&f%display%"
@@ -166,30 +204,34 @@ skin:
   # =======================
   # RANGED WEAPONS
   # =======================
-  halloween-phantom-bow:
+  beats-bow:
     item:
       type: BOW
-      custom-model-data: 10005
-      display: "&#f7dd7e&lCung U Linh"
+      custom-model-data: 10025
+      unbreakable: true
+      display: "&#f7dd7e&lCung Âm Vực"
       lore:
         - "TEST"
       flags:
         - HIDE_ADDITIONAL_TOOLTIP
         - HIDE_DYE
+        - HIDE_UNBREAKABLE
     display:
       normal: "&f%display%"
       bold: "&f%display%"
 
-  halloween-phantom-crossbow:
+  beats-crossbow:
     item:
       type: CROSSBOW
-      custom-model-data: 17230
-      display: "&#f7dd7e&lNỏ U Linh"
+      unbreakable: true
+      custom-model-data: 17245
+      display: "&#f7dd7e&lNỏ Âm Vực"
       lore:
         - "TEST"
       flags:
         - HIDE_ADDITIONAL_TOOLTIP
         - HIDE_DYE
+        - HIDE_UNBREAKABLE
     display:
       normal: "&f%display%"
       bold: "&f%display%"
@@ -197,58 +239,62 @@ skin:
   # =======================
   # TOOLS
   # =======================
-  halloween-phantom-pickaxe:
+  beats-pickaxe:
     item:
       type: NETHERITE_PICKAXE
-      custom-model-data: 10008
-      display: "&#f7dd7e&lCuốc U Linh"
+      custom-model-data: 10010
+      display: "&#f7dd7e&lCuốc Âm Vực"
       lore:
         - "TEST"
       flags:
         - HIDE_ADDITIONAL_TOOLTIP
         - HIDE_DYE
+        - HIDE_UNBREAKABLE
     display:
       normal: "&f%display%"
       bold: "&f%display%"
 
-  halloween-phantom-shovel:
+  beats-shovel:
     item:
       type: NETHERITE_SHOVEL
-      custom-model-data: 10007
-      display: "&#f7dd7e&lXẻng U Linh"
+      custom-model-data: 10009
+      display: "&#f7dd7e&lXẻng Âm Vực"
       lore:
         - "TEST"
       flags:
         - HIDE_ADDITIONAL_TOOLTIP
         - HIDE_DYE
+        - HIDE_UNBREAKABLE
     display:
       normal: "&f%display%"
       bold: "&f%display%"
 
-  halloween-phantom-hoe:
+  beats-hoe:
     item:
       type: NETHERITE_HOE
-      custom-model-data: 10007
-      display: "&#f7dd7e&lCúp U Linh"
+      custom-model-data: 10009
+      display: "&#f7dd7e&lCúp Âm Vực"
       lore:
         - "TEST"
       flags:
         - HIDE_ADDITIONAL_TOOLTIP
         - HIDE_DYE
+        - HIDE_UNBREAKABLE
     display:
       normal: "&f%display%"
       bold: "&f%display%"
 
-  halloween-phantom-fishingrod:
+  beats-fishingrod:
     item:
       type: FISHING_ROD
-      custom-model-data: 18681
-      display: "&#f7dd7e&lCần Câu U Linh"
+      custom-model-data: 18699
+      display: "&#f7dd7e&lCần Câu Âm Vực"
       lore:
         - "TEST"
       flags:
         - HIDE_ADDITIONAL_TOOLTIP
         - HIDE_DYE
+        - HIDE_UNBREAKABLE
     display:
       normal: "&f%display%"
       bold: "&f%display%"
@@ -256,16 +302,18 @@ skin:
   # =======================
   # DEFENSIVE
   # =======================
-  halloween-phantom-shield:
+  beats-shield:
     item:
       type: SHIELD
-      custom-model-data: 17085
-      display: "&#f7dd7e&lKhiên U Linh"
+      unbreakable: true
+      custom-model-data: 17105
+      display: "&#f7dd7e&lKhiên Âm Vực"
       lore:
         - "TEST"
       flags:
         - HIDE_ADDITIONAL_TOOLTIP
         - HIDE_DYE
+        - HIDE_UNBREAKABLE
     display:
       normal: "&f%display%"
       bold: "&f%display%"
@@ -273,30 +321,32 @@ skin:
   # =======================
   # COSMETIC
   # =======================
-  halloween-phantom-wings:
+  beats-wings:
     item:
       type: PAPER
-      custom-model-data: 10051
-      display: "&#f7dd7e&lKhiên U Linh"
+      custom-model-data: 10126
+      display: "&#f7dd7e&lKhiên Âm Vực"
       lore:
         - "TEST"
       flags:
         - HIDE_ADDITIONAL_TOOLTIP
         - HIDE_DYE
+        - HIDE_UNBREAKABLE
     display:
       normal: "&f%display%"
       bold: "&f%display%"
 
-  halloween-phantom-hat:
+  beats-hat:
     item:
       type: PAPER
-      custom-model-data: 10063
-      display: "&#f7dd7e&lNón U Linh"
+      custom-model-data: 10127
+      display: "&#f7dd7e&lNón Âm Vực"
       lore:
         - "TEST"
       flags:
         - HIDE_ADDITIONAL_TOOLTIP
         - HIDE_DYE
+        - HIDE_UNBREAKABLE
     display:
       normal: "&f%display%"
       bold: "&f%display%"

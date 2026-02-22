@@ -1,8 +1,8 @@
 money-require:
-  common: 50000
-  rare: 200000
-  epic: 500000
-  legendary: 1000000
-  supreme: 2000000
-  ultimate: 5000000
-  event: 5000000
+  common: 1000
+  rare: 2000
+  epic: 5000
+  legendary: 10000
+  supreme: 20000
+  ultimate: 50000
+  event: 50000

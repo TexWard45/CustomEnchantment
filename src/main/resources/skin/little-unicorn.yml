@@ -2,62 +2,70 @@ skin:
   # =======================
   # ARMOR
   # =======================
-  halloween-phantom-helmet:
+  little-unicorn-helmet:
     item:
       type: LEATHER_HELMET
-      color: '#fffffb'
-      custom-model-data: 10006
-      display: "&#f7dd7e&lMũ U Linh"
+      unbreakable: true
+      color: '#fffbe5'
+      custom-model-data: 10052
+      display: "&#f7dd7e&lMũ Kỳ Lân"
       lore:
         - "TEST"
       flags:
         - HIDE_ADDITIONAL_TOOLTIP
         - HIDE_DYE
+        - HIDE_UNBREAKABLE
     display:
       normal: "&f%display%"
       bold: "&f%display%"
 
-  halloween-phantom-chestplate:
+  little-unicorn-chestplate:
     item:
       type: LEATHER_CHESTPLATE
-      color: '#fffffb'
-      custom-model-data: 10007
-      display: "&#f7dd7e&lGiáp U Linh"
+      unbreakable: true
+      color: '#fffbe5'
+      custom-model-data: 10064
+      display: "&#f7dd7e&lGiáp Kỳ Lân"
       lore:
         - "TEST"
       flags:
         - HIDE_ADDITIONAL_TOOLTIP
         - HIDE_DYE
+        - HIDE_UNBREAKABLE
     display:
       normal: "&f%display%"
       bold: "&f%display%"
 
-  halloween-phantom-leggings:
+  little-unicorn-leggings:
     item:
       type: LEATHER_LEGGINGS
-      color: '#fffffb'
-      custom-model-data: 10006
-      display: "&#f7dd7e&lQuần U Linh"
+      unbreakable: true
+      color: '#fffbe5'
+      custom-model-data: 10064
+      display: "&#f7dd7e&lQuần Kỳ Lân"
       lore:
         - "TEST"
       flags:
         - HIDE_ADDITIONAL_TOOLTIP
         - HIDE_DYE
+        - HIDE_UNBREAKABLE
     display:
       normal: "&f%display%"
       bold: "&f%display%"
 
-  halloween-phantom-boots:
+  little-unicorn-boots:
     item:
       type: LEATHER_BOOTS
-      color: '#fffffb'
-      custom-model-data: 10006
-      display: "&#f7dd7e&lGiày U Linh"
+      unbreakable: true
+      color: '#fffbe5'
+      custom-model-data: 10064
+      display: "&#f7dd7e&lGiày Kỳ Lân"
       lore:
         - "TEST"
       flags:
         - HIDE_ADDITIONAL_TOOLTIP
         - HIDE_DYE
+        - HIDE_UNBREAKABLE
     display:
       normal: "&f%display%"
       bold: "&f%display%"
@@ -65,100 +73,130 @@ skin:
   # =======================
   # MELEE WEAPONS
   # =======================
-  halloween-phantom-sword:
+  little-unicorn-sword:
     item:
       type: NETHERITE_SWORD
-      custom-model-data: 10039
-      display: "&#f7dd7e&lKiếm U Linh"
+      unbreakable: true
+      custom-model-data: 10074
+      display: "&#f7dd7e&lKiếm Kỳ Lân"
       lore:
         - "TEST"
       flags:
         - HIDE_ADDITIONAL_TOOLTIP
         - HIDE_DYE
+        - HIDE_UNBREAKABLE
     display:
       normal: "&f%display%"
       bold: "&f%display%"
 
-  halloween-phantom-dagger:
+  little-unicorn-spear:
     item:
       type: NETHERITE_SWORD
-      custom-model-data: 10040
-      display: "&#f7dd7e&lDao Găm U Linh"
+      unbreakable: true
+      custom-model-data: 10072
+      display: "&#f7dd7e&lGiáo Kỳ Lân"
       lore:
         - "TEST"
       flags:
         - HIDE_ADDITIONAL_TOOLTIP
         - HIDE_DYE
+        - HIDE_UNBREAKABLE
     display:
       normal: "&f%display%"
       bold: "&f%display%"
 
-  halloween-phantom-spear:
+  little-unicorn-dagger:
     item:
       type: NETHERITE_SWORD
-      custom-model-data: 10044
-      display: "&#f7dd7e&lGiáo U Linh"
+      unbreakable: true
+      custom-model-data: 10070
+      display: "&#f7dd7e&lĐoản Kiếm Kỳ Lân"
       lore:
         - "TEST"
       flags:
         - HIDE_ADDITIONAL_TOOLTIP
         - HIDE_DYE
+        - HIDE_UNBREAKABLE
     display:
       normal: "&f%display%"
       bold: "&f%display%"
 
-  halloween-phantom-greatsword:
-    item:
-      type: NETHERITE_SWORD
-      custom-model-data: 10041
-      display: "&#f7dd7e&lĐại Kiếm U Linh"
-      lore:
-        - "TEST"
-      flags:
-        - HIDE_ADDITIONAL_TOOLTIP
-        - HIDE_DYE
-    display:
-      normal: "&f%display%"
-      bold: "&f%display%"
-
-  halloween-phantom-axe:
+  little-unicorn-axe:
     item:
       type: NETHERITE_AXE
-      custom-model-data: 10008
-      display: "&#f7dd7e&lRìu U Linh"
+      unbreakable: true
+      custom-model-data: 10012
+      display: "&#f7dd7e&lRìu Kỳ Lân"
       lore:
         - "TEST"
       flags:
         - HIDE_ADDITIONAL_TOOLTIP
         - HIDE_DYE
+        - HIDE_UNBREAKABLE
     display:
       normal: "&f%display%"
       bold: "&f%display%"
 
-  halloween-phantom-hammer:
+  little-unicorn-hammer:
     item:
       type: NETHERITE_SWORD
-      custom-model-data: 10042
-      display: "&#f7dd7e&lBúa U Linh"
+      unbreakable: true
+      custom-model-data: 10069
+      display: "&#f7dd7e&lBúa Kỳ Lân"
       lore:
         - "TEST"
       flags:
         - HIDE_ADDITIONAL_TOOLTIP
         - HIDE_DYE
+        - HIDE_UNBREAKABLE
     display:
       normal: "&f%display%"
       bold: "&f%display%"
 
-  halloween-phantom-staff:
+  little-unicorn-staff:
     item:
       type: NETHERITE_SWORD
-      custom-model-data: 10045
-      display: "&#f7dd7e&lTrượng U Linh"
+      unbreakable: true
+      custom-model-data: 10073
+      display: "&#f7dd7e&lTrượng Kỳ Lân"
       lore:
         - "TEST"
       flags:
         - HIDE_ADDITIONAL_TOOLTIP
         - HIDE_DYE
+        - HIDE_UNBREAKABLE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  little-unicorn-scythe:
+    item:
+      type: NETHERITE_SWORD
+      unbreakable: true
+      custom-model-data: 10071
+      display: "&#f7dd7e&lLưỡi Hái Kỳ Lân"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+        - HIDE_UNBREAKABLE
+    display:
+      normal: "&f%display%"
+      bold: "&f%display%"
+
+  little-unicorn-trident:
+    item:
+      type: NETHERITE_SWORD
+      unbreakable: true
+      custom-model-data: 10075
+      display: "&#f7dd7e&lĐinh Ba Kỳ Lân"
+      lore:
+        - "TEST"
+      flags:
+        - HIDE_ADDITIONAL_TOOLTIP
+        - HIDE_DYE
+        - HIDE_UNBREAKABLE
     display:
       normal: "&f%display%"
       bold: "&f%display%"
@@ -166,30 +204,34 @@ skin:
   # =======================
   # RANGED WEAPONS
   # =======================
-  halloween-phantom-bow:
+  little-unicorn-bow:
     item:
       type: BOW
-      custom-model-data: 10005
-      display: "&#f7dd7e&lCung U Linh"
+      custom-model-data: 10067
+      unbreakable: true
+      display: "&#f7dd7e&lCung Kỳ Lân"
       lore:
         - "TEST"
       flags:
         - HIDE_ADDITIONAL_TOOLTIP
         - HIDE_DYE
+        - HIDE_UNBREAKABLE
     display:
       normal: "&f%display%"
       bold: "&f%display%"
 
-  halloween-phantom-crossbow:
+  little-unicorn-crossbow:
     item:
       type: CROSSBOW
-      custom-model-data: 17230
-      display: "&#f7dd7e&lNỏ U Linh"
+      unbreakable: true
+      custom-model-data: 17271
+      display: "&#f7dd7e&lNỏ Kỳ Lân"
       lore:
         - "TEST"
       flags:
         - HIDE_ADDITIONAL_TOOLTIP
         - HIDE_DYE
+        - HIDE_UNBREAKABLE
     display:
       normal: "&f%display%"
       bold: "&f%display%"
@@ -197,58 +239,62 @@ skin:
   # =======================
   # TOOLS
   # =======================
-  halloween-phantom-pickaxe:
+  little-unicorn-pickaxe:
     item:
       type: NETHERITE_PICKAXE
-      custom-model-data: 10008
-      display: "&#f7dd7e&lCuốc U Linh"
+      custom-model-data: 10011
+      display: "&#f7dd7e&lCuốc Kỳ Lân"
       lore:
         - "TEST"
       flags:
         - HIDE_ADDITIONAL_TOOLTIP
         - HIDE_DYE
+        - HIDE_UNBREAKABLE
     display:
       normal: "&f%display%"
       bold: "&f%display%"
 
-  halloween-phantom-shovel:
+  little-unicorn-shovel:
     item:
       type: NETHERITE_SHOVEL
-      custom-model-data: 10007
-      display: "&#f7dd7e&lXẻng U Linh"
+      custom-model-data: 10010
+      display: "&#f7dd7e&lXẻng Kỳ Lân"
       lore:
         - "TEST"
       flags:
         - HIDE_ADDITIONAL_TOOLTIP
         - HIDE_DYE
+        - HIDE_UNBREAKABLE
     display:
       normal: "&f%display%"
       bold: "&f%display%"
 
-  halloween-phantom-hoe:
+  little-unicorn-hoe:
     item:
       type: NETHERITE_HOE
-      custom-model-data: 10007
-      display: "&#f7dd7e&lCúp U Linh"
+      custom-model-data: 10010
+      display: "&#f7dd7e&lCúp Kỳ Lân"
       lore:
         - "TEST"
       flags:
         - HIDE_ADDITIONAL_TOOLTIP
         - HIDE_DYE
+        - HIDE_UNBREAKABLE
     display:
       normal: "&f%display%"
       bold: "&f%display%"
 
-  halloween-phantom-fishingrod:
+  little-unicorn-fishingrod:
     item:
       type: FISHING_ROD
-      custom-model-data: 18681
-      display: "&#f7dd7e&lCần Câu U Linh"
+      custom-model-data: 18736
+      display: "&#f7dd7e&lCần Câu Kỳ Lân"
       lore:
         - "TEST"
       flags:
         - HIDE_ADDITIONAL_TOOLTIP
         - HIDE_DYE
+        - HIDE_UNBREAKABLE
     display:
       normal: "&f%display%"
       bold: "&f%display%"
@@ -256,16 +302,18 @@ skin:
   # =======================
   # DEFENSIVE
   # =======================
-  halloween-phantom-shield:
+  little-unicorn-shield:
     item:
       type: SHIELD
-      custom-model-data: 17085
-      display: "&#f7dd7e&lKhiên U Linh"
+      unbreakable: true
+      custom-model-data: 17146
+      display: "&#f7dd7e&lKhiên Kỳ Lân"
       lore:
         - "TEST"
       flags:
         - HIDE_ADDITIONAL_TOOLTIP
         - HIDE_DYE
+        - HIDE_UNBREAKABLE
     display:
       normal: "&f%display%"
       bold: "&f%display%"
@@ -273,30 +321,32 @@ skin:
   # =======================
   # COSMETIC
   # =======================
-  halloween-phantom-wings:
+  little-unicorn-wings:
     item:
       type: PAPER
-      custom-model-data: 10051
-      display: "&#f7dd7e&lKhiên U Linh"
+      custom-model-data: 10315
+      display: "&#f7dd7e&lKhiên Kỳ Lân"
       lore:
         - "TEST"
       flags:
         - HIDE_ADDITIONAL_TOOLTIP
         - HIDE_DYE
+        - HIDE_UNBREAKABLE
     display:
       normal: "&f%display%"
       bold: "&f%display%"
 
-  halloween-phantom-hat:
+  little-unicorn-hat:
     item:
       type: PAPER
-      custom-model-data: 10063
-      display: "&#f7dd7e&lNón U Linh"
+      custom-model-data: 10313
+      display: "&#f7dd7e&lNón Kỳ Lân"
       lore:
         - "TEST"
       flags:
         - HIDE_ADDITIONAL_TOOLTIP
         - HIDE_DYE
+        - HIDE_UNBREAKABLE
     display:
       normal: "&f%display%"
       bold: "&f%display%"

@@ -425,7 +425,7 @@ dash:
         conditions:
           - ""
         effects:
-          - "ACTIVE_DASH:1:20000:1_8:EXPLOSION_NORMAL:&cLướt tiếp sau &e{time_left} &cgiây!"
+          - "ACTIVE_DASH:1:20000:1_8:EXPLOSION_NORMAL:CLOUD:&cLướt tiếp sau &e{time_left} &cgiây!"
       unequip:
         type: ARMOR_UNDRESS
         chance: 100
@@ -442,7 +442,7 @@ dash:
         conditions:
           - ""
         effects:
-          - "ACTIVE_DASH:1:16000:1_8:EXPLOSION_NORMAL:&cLướt tiếp sau &e{time_left} &cgiây!"
+          - "ACTIVE_DASH:1:16000:1_8:EXPLOSION_NORMAL:CLOUD:&cLướt tiếp sau &e{time_left} &cgiây!"
       unequip:
         type: ARMOR_UNDRESS
         chance: 100
@@ -459,7 +459,7 @@ dash:
         conditions:
           - ""
         effects:
-          - "ACTIVE_DASH:1:12000:1_8:EXPLOSION_NORMAL:&cLướt tiếp sau &e{time_left} &cgiây!"
+          - "ACTIVE_DASH:1:12000:1_8:EXPLOSION_NORMAL:CLOUD:&cLướt tiếp sau &e{time_left} &cgiây!"
       unequip:
         type: ARMOR_UNDRESS
         chance: 100
@@ -476,7 +476,7 @@ dash:
         conditions:
           - ""
         effects:
-          - "ACTIVE_DASH:1:8000:1_8:EXPLOSION_NORMAL:&cLướt tiếp sau &e{time_left} &cgiây!"
+          - "ACTIVE_DASH:1:8000:1_8:EXPLOSION_NORMAL:CLOUD:&cLướt tiếp sau &e{time_left} &cgiây!"
       unequip:
         type: ARMOR_UNDRESS
         chance: 100
@@ -493,7 +493,7 @@ dash:
         conditions:
           - ""
         effects:
-          - "ACTIVE_DASH:1:4000:1_8:EXPLOSION_NORMAL:&cLướt tiếp sau &e{time_left} &cgiây!"
+          - "ACTIVE_DASH:1:4000:1_8:EXPLOSION_NORMAL:CLOUD:&cLướt tiếp sau &e{time_left} &cgiây!"
       unequip:
         type: ARMOR_UNDRESS
         chance: 100
@@ -508,10 +508,10 @@ doublejump:
   display: "DoubleJump"
   description:
     - "&eCó khả năng nhảy thêm lần nữa"
-    - "&ekhi nhấn Shift trên không"
+    - "&ekhi nhấn Space trên không"
   detail-description:
     - "&eCó khả năng nhảy thêm lần nữa"
-    - "&ekhi nhấn Shift trên không"
+    - "&ekhi nhấn Space trên không"
     - ""
     - "&eThời gian hồi: 20/16/12/8/4 giây"
     - ""

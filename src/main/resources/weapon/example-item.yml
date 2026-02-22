@@ -7,9 +7,12 @@ weapon:
     custom-type: HELMET
     item:
       type: NETHERITE_HELMET
+      unbreakable: true
       display: "&aMũ Thử Nghiệm"
       lore:
         - "&7Thuộc bộ trang bị Thử Nghiệm"
+      flags:
+        - HIDE_UNBREAKABLE
     enchants:
       - "example 1"
 
@@ -17,9 +20,12 @@ weapon:
     custom-type: CHESTPLATE
     item:
       type: NETHERITE_CHESTPLATE
+      unbreakable: true
       display: "&aGiáp Thử Nghiệm"
       lore:
         - "&7Thuộc bộ trang bị Thử Nghiệm"
+      flags:
+        - HIDE_UNBREAKABLE
     enchants:
       - "example 1"
 
@@ -27,9 +33,12 @@ weapon:
     custom-type: LEGGINGS
     item:
       type: NETHERITE_LEGGINGS
+      unbreakable: true
       display: "&aQuần Thử Nghiệm"
       lore:
         - "&7Thuộc bộ trang bị Thử Nghiệm"
+      flags:
+        - HIDE_UNBREAKABLE
     enchants:
       - "example 1"
 
@@ -37,9 +46,12 @@ weapon:
     custom-type: BOOTS
     item:
       type: NETHERITE_BOOTS
+      unbreakable: true
       display: "&aGiày Thử Nghiệm"
       lore:
         - "&7Thuộc bộ trang bị Thử Nghiệm"
+      flags:
+        - HIDE_UNBREAKABLE
     enchants:
       - "example 1"
 
@@ -50,9 +62,13 @@ weapon:
     custom-type: SWORD
     item:
       type: NETHERITE_SWORD
+      unbreakable: true
+      custom-model-data: 10047
       display: "&aKiếm Thử Nghiệm"
       lore:
         - "&7Vũ khí Thử Nghiệm"
+      flags:
+        - HIDE_UNBREAKABLE
     enchants:
       - "example 1"
 
@@ -60,19 +76,30 @@ weapon:
     custom-type: DAGGER
     item:
       type: NETHERITE_SWORD
+      unbreakable: true
+      custom-model-data: 10048
       display: "&aDao Găm Thử Nghiệm"
       lore:
         - "&7Dao Găm Thử Nghiệm"
+      flags:
+        - HIDE_UNBREAKABLE
     enchants:
       - "example 1"
+    attributes:
+      - "type=ATTACK_DAMAGE,operation=0,amount=2,slot=HAND"
+      - "type=ATTACK_SPEED,operation=0,amount=-2.0,slot=HAND"
 
   example-spear:
     custom-type: SPEAR
     item:
       type: NETHERITE_SWORD
+      unbreakable: true
+      custom-model-data: 10049
       display: "&aGiáo Thử Nghiệm"
       lore:
         - "&7Giáo Thử Nghiệm"
+      flags:
+        - HIDE_UNBREAKABLE
     enchants:
       - "example 1"
 
@@ -80,9 +107,13 @@ weapon:
     custom-type: GREATSWORD
     item:
       type: NETHERITE_SWORD
+      unbreakable: true
+      custom-model-data: 10050
       display: "&aĐại Kiếm Thử Nghiệm"
       lore:
         - "&7Đại Kiếm Thử Nghiệm"
+      flags:
+        - HIDE_UNBREAKABLE
     enchants:
       - "example 1"
 
@@ -90,9 +121,13 @@ weapon:
     custom-type: AXE
     item:
       type: NETHERITE_AXE
+      unbreakable: true
+      custom-model-data: 10009
       display: "&aRìu Thử Nghiệm"
       lore:
         - "&7Vũ khí Thử Nghiệm"
+      flags:
+        - HIDE_UNBREAKABLE
     enchants:
       - "example 1"
 
@@ -100,9 +135,13 @@ weapon:
     custom-type: HAMMER
     item:
       type: NETHERITE_SWORD
+      unbreakable: true
+      custom-model-data: 10051
       display: "&aBúa Thử Nghiệm"
       lore:
         - "&7Búa Thử Nghiệm"
+      flags:
+        - HIDE_UNBREAKABLE
     enchants:
       - "example 1"
 
@@ -110,9 +149,13 @@ weapon:
     custom-type: STICK
     item:
       type: NETHERITE_SWORD
+      unbreakable: true
+      custom-model-data: 10053
       display: "&aGậy Thử Nghiệm"
       lore:
         - "&7Gậy Thử Nghiệm"
+      flags:
+        - HIDE_UNBREAKABLE
     enchants:
       - "example 1"
 
@@ -120,15 +163,49 @@ weapon:
     custom-type: STAFF
     item:
       type: NETHERITE_SWORD
+      unbreakable: true
+      custom-model-data: 10052
       display: "&aTrượng Thử Nghiệm"
       lore:
         - "&7Trượng Thử Nghiệm"
+      flags:
+        - HIDE_UNBREAKABLE
     enchants:
       - "example 1"
     attributes:
       - "type=ATTACK_DAMAGE,operation=0,amount=10,slot=HAND"
-      - "type=ATTACK_SPEED,operation=0,amount=-3.2,slot=HAND"
-      - "type=PLAYER_ENTITY_INTERACTION_RANGE,operation=0,amount=6,slot=HAND"
+      - "type=ATTACK_SPEED,operation=0,amount=-2.4,slot=HAND"
+      - "type=PLAYER_ENTITY_INTERACTION_RANGE,operation=0,amount=8,slot=HAND"
+      - "type=PLAYER_BLOCK_INTERACTION_RANGE,operation=0,amount=8,slot=HAND"
+      - "type=AOE_RANGE,operation=0,amount=5,slot=HAND"
+      - "type=AOE_DAMAGE_RATIO,operation=0,amount=100,slot=HAND"
+
+  example-scythe:
+    custom-type: SCYTHE
+    item:
+      type: NETHERITE_SWORD
+      unbreakable: true
+      custom-model-data: 10054
+      display: "&aGậy Thử Nghiệm"
+      lore:
+        - "&7Gậy Thử Nghiệm"
+      flags:
+        - HIDE_UNBREAKABLE
+    enchants:
+      - "example 1"
+
+  example-trident:
+    custom-type: TRIDENT
+    item:
+      type: TRIDENT
+      unbreakable: true
+      display: "&aĐinh Ba Thử Nghiệm"
+      lore:
+        - "&7Đinh Ba Thử Nghiệm"
+      flags:
+        - HIDE_UNBREAKABLE
+    enchants:
+      - "example 1"
 
   # =======================
   # RANGED WEAPONS
@@ -137,9 +214,12 @@ weapon:
     custom-type: BOW
     item:
       type: BOW
+      unbreakable: true
       display: "&aCung Thử Nghiệm"
       lore:
         - "&7Cung Thử Nghiệm"
+      flags:
+        - HIDE_UNBREAKABLE
     enchants:
       - "example 1"
 
@@ -147,9 +227,12 @@ weapon:
     custom-type: CROSSBOW
     item:
       type: CROSSBOW
+      unbreakable: true
       display: "&aNỏ Thử Nghiệm"
       lore:
         - "&7Nỏ Thử Nghiệm"
+      flags:
+        - HIDE_UNBREAKABLE
     enchants:
       - "example 1"
 
@@ -160,9 +243,12 @@ weapon:
     custom-type: PICKAXE
     item:
       type: NETHERITE_PICKAXE
+      unbreakable: true
       display: "&aCuốc Thử Nghiệm"
       lore:
         - "&7Công cụ Thử Nghiệm"
+      flags:
+        - HIDE_UNBREAKABLE
     enchants:
       - "example 1"
 
@@ -170,9 +256,12 @@ weapon:
     custom-type: SHOVEL
     item:
       type: NETHERITE_SHOVEL
+      unbreakable: true
       display: "&aXẻng Thử Nghiệm"
       lore:
         - "&7Công cụ Thử Nghiệm"
+      flags:
+        - HIDE_UNBREAKABLE
     enchants:
       - "example 1"
 
@@ -180,9 +269,12 @@ weapon:
     custom-type: HOE
     item:
       type: NETHERITE_HOE
+      unbreakable: true
       display: "&aLiềm Thử Nghiệm"
       lore:
         - "&7Công cụ Thử Nghiệm"
+      flags:
+        - HIDE_UNBREAKABLE
     enchants:
       - "example 1"
 
@@ -190,9 +282,12 @@ weapon:
     custom-type: FISHINGROD
     item:
       type: FISHING_ROD
+      unbreakable: true
       display: "&aCần Câu Thử Nghiệm"
       lore:
         - "&7Cần Câu Thử Nghiệm"
+      flags:
+        - HIDE_UNBREAKABLE
     enchants:
       - "example 1"
 

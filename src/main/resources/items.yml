@@ -76,7 +76,9 @@ weapon-settings:
         MOVEMENT_SPEED: "&#8aefeb%operation% %amount% Tốc độ di chuyển"
         DODGE_CHANCE: "&#f59e0b%operation% %amount% Tỉ lệ né tránh"
         ACCURACY_CHANCE: "&#3afe00%operation% %amount% Độ chính xác"
-        POWER: "&#FFD700%operation% %amount% Lực chiến"
+        TOTAL_POWER: "&#FFD700%operation% %amount% Tổng Lực chiến"
+        ATK_POWER: "&#FFD700%operation% %amount% ATK Lực chiến"
+        DEF_POWER: "&#FFD700%operation% %amount% DEF Lực chiến"
         HEALTH_REGENERATION: "&#32cd32%operation% %amount% Hồi phục"
         MINING_POWER: "&#FF8800%operation% %amount% Sức khai phá"
   default-unknown-enchant:
@@ -4460,43 +4462,43 @@ gem:
     limit-per-item: 5
     levels:
       1:
-        custom-model-data: 1
+        custom-model-data: 100010001
         attributes:
           - "type=MAX_HEALTH,name=max-health,operation=0,amount=1,slot=ARMOR"
       2:
-        custom-model-data: 1
+        custom-model-data: 100010001
         attributes:
           - "type=MAX_HEALTH,name=max-health,operation=0,amount=2,slot=ARMOR"
       3:
-        custom-model-data: 2
+        custom-model-data: 100010002
         attributes:
           - "type=MAX_HEALTH,name=max-health,operation=0,amount=3,slot=ARMOR"
       4:
-        custom-model-data: 2
+        custom-model-data: 100010002
         attributes:
           - "type=MAX_HEALTH,name=max-health,operation=0,amount=4,slot=ARMOR"
       5:
-        custom-model-data: 3
+        custom-model-data: 100010003
         attributes:
           - "type=MAX_HEALTH,name=max-health,operation=0,amount=5,slot=ARMOR"
       6:
-        custom-model-data: 3
+        custom-model-data: 100010003
         attributes:
           - "type=MAX_HEALTH,name=max-health,operation=0,amount=6,slot=ARMOR"
       7:
-        custom-model-data: 4
+        custom-model-data: 100010004
         attributes:
           - "type=MAX_HEALTH,name=max-health,operation=0,amount=7,slot=ARMOR"
       8:
-        custom-model-data: 4
+        custom-model-data: 100010004
         attributes:
           - "type=MAX_HEALTH,name=max-health,operation=0,amount=8,slot=ARMOR"
       9:
-        custom-model-data: 5
+        custom-model-data: 100010005
         attributes:
           - "type=MAX_HEALTH,name=max-health,operation=0,amount=9,slot=ARMOR"
       10:
-        custom-model-data: 5
+        custom-model-data: 100010005
         attributes:
           - "type=MAX_HEALTH,name=max-health,operation=0,amount=10,slot=ARMOR"
   attack-damage:
@@ -4527,43 +4529,43 @@ gem:
     limit-per-item: 5
     levels:
       1:
-        custom-model-data: 1
+        custom-model-data: 100010002
         attributes:
           - "type=ATTACK_DAMAGE,name=attack-damage,operation=0,amount=0.5,slot=HAND"
       2:
-        custom-model-data: 1
+        custom-model-data: 100010002
         attributes:
           - "type=ATTACK_DAMAGE,name=attack-damage,operation=0,amount=1,slot=HAND"
       3:
-        custom-model-data: 2
+        custom-model-data: 100010003
         attributes:
           - "type=ATTACK_DAMAGE,name=attack-damage,operation=0,amount=1.5,slot=HAND"
       4:
-        custom-model-data: 2
+        custom-model-data: 100010003
         attributes:
           - "type=ATTACK_DAMAGE,name=attack-damage,operation=0,amount=2,slot=HAND"
       5:
-        custom-model-data: 3
+        custom-model-data: 100010004
         attributes:
           - "type=ATTACK_DAMAGE,name=attack-damage,operation=0,amount=2.5,slot=HAND"
       6:
-        custom-model-data: 3
+        custom-model-data: 100010004
         attributes:
           - "type=ATTACK_DAMAGE,name=attack-damage,operation=0,amount=3,slot=HAND"
       7:
-        custom-model-data: 4
+        custom-model-data: 100010005
         attributes:
           - "type=ATTACK_DAMAGE,name=attack-damage,operation=0,amount=3.5,slot=HAND"
       8:
-        custom-model-data: 4
+        custom-model-data: 100010005
         attributes:
           - "type=ATTACK_DAMAGE,name=attack-damage,operation=0,amount=4,slot=HAND"
       9:
-        custom-model-data: 5
+        custom-model-data: 100010006
         attributes:
           - "type=ATTACK_DAMAGE,name=attack-damage,operation=0,amount=4.5,slot=HAND"
       10:
-        custom-model-data: 5
+        custom-model-data: 100010006
         attributes:
           - "type=ATTACK_DAMAGE,name=attack-damage,operation=0,amount=5,slot=HAND"
   movement-speed:
@@ -4590,43 +4592,43 @@ gem:
     limit-per-item: 5
     levels:
       1:
-        custom-model-data: 1
+        custom-model-data: 10001
         attributes:
           - "type=MOVEMENT_SPEED,name=movement-speed,operation=1,amount=0.01,slot=ARMOR"
       2:
-        custom-model-data: 1
+        custom-model-data: 10001
         attributes:
           - "type=MOVEMENT_SPEED,name=movement-speed,operation=1,amount=0.02,slot=ARMOR"
       3:
-        custom-model-data: 2
+        custom-model-data: 10002
         attributes:
           - "type=MOVEMENT_SPEED,name=movement-speed,operation=1,amount=0.03,slot=ARMOR"
       4:
-        custom-model-data: 2
+        custom-model-data: 10002
         attributes:
           - "type=MOVEMENT_SPEED,name=movement-speed,operation=1,amount=0.04,slot=ARMOR"
       5:
-        custom-model-data: 3
+        custom-model-data: 10003
         attributes:
           - "type=MOVEMENT_SPEED,name=movement-speed,operation=1,amount=0.05,slot=ARMOR"
       6:
-        custom-model-data: 3
+        custom-model-data: 10003
         attributes:
           - "type=MOVEMENT_SPEED,name=movement-speed,operation=1,amount=0.06,slot=ARMOR"
       7:
-        custom-model-data: 4
+        custom-model-data: 10004
         attributes:
           - "type=MOVEMENT_SPEED,name=movement-speed,operation=1,amount=0.07,slot=ARMOR"
       8:
-        custom-model-data: 4
+        custom-model-data: 10004
         attributes:
           - "type=MOVEMENT_SPEED,name=movement-speed,operation=1,amount=0.08,slot=ARMOR"
       9:
-        custom-model-data: 5
+        custom-model-data: 10005
         attributes:
           - "type=MOVEMENT_SPEED,name=movement-speed,operation=1,amount=0.09,slot=ARMOR"
       10:
-        custom-model-data: 5
+        custom-model-data: 10005
         attributes:
           - "type=MOVEMENT_SPEED,name=movement-speed,operation=1,amount=0.10,slot=ARMOR"
   health-regeneration:
@@ -4653,43 +4655,43 @@ gem:
     limit-per-item: 5
     levels:
       1:
-        custom-model-data: 1
+        custom-model-data: 10001
         attributes:
           - "type=HEALTH_REGENERATION,name=health-regeneration,operation=0,amount=0.1,slot=ARMOR"
       2:
-        custom-model-data: 1
+        custom-model-data: 10001
         attributes:
           - "type=HEALTH_REGENERATION,name=health-regeneration,operation=0,amount=0.2,slot=ARMOR"
       3:
-        custom-model-data: 2
+        custom-model-data: 10002
         attributes:
           - "type=HEALTH_REGENERATION,name=health-regeneration,operation=0,amount=0.3,slot=ARMOR"
       4:
-        custom-model-data: 2
+        custom-model-data: 10002
         attributes:
           - "type=HEALTH_REGENERATION,name=health-regeneration,operation=0,amount=0.4,slot=ARMOR"
       5:
-        custom-model-data: 3
+        custom-model-data: 10003
         attributes:
           - "type=HEALTH_REGENERATION,name=health-regeneration,operation=0,amount=0.5,slot=ARMOR"
       6:
-        custom-model-data: 3
+        custom-model-data: 10003
         attributes:
           - "type=HEALTH_REGENERATION,name=health-regeneration,operation=0,amount=0.6,slot=ARMOR"
       7:
-        custom-model-data: 4
+        custom-model-data: 10004
         attributes:
           - "type=HEALTH_REGENERATION,name=health-regeneration,operation=0,amount=0.7,slot=ARMOR"
       8:
-        custom-model-data: 4
+        custom-model-data: 10004
         attributes:
           - "type=HEALTH_REGENERATION,name=health-regeneration,operation=0,amount=0.8,slot=ARMOR"
       9:
-        custom-model-data: 5
+        custom-model-data: 10005
         attributes:
           - "type=HEALTH_REGENERATION,name=health-regeneration,operation=0,amount=0.9,slot=ARMOR"
       10:
-        custom-model-data: 5
+        custom-model-data: 10005
         attributes:
           - "type=HEALTH_REGENERATION,name=health-regeneration,operation=0,amount=1,slot=ARMOR"
   critical-chance:
@@ -4720,43 +4722,43 @@ gem:
     limit-per-item: 5
     levels:
       1:
-        custom-model-data: 1
+        custom-model-data: 10001
         attributes:
           - "type=CRITICAL_CHANCE,name=critical-chance,operation=0,amount=2,slot=HAND"
       2:
-        custom-model-data: 1
+        custom-model-data: 10001
         attributes:
           - "type=CRITICAL_CHANCE,name=critical-chance,operation=0,amount=4,slot=HAND"
       3:
-        custom-model-data: 2
+        custom-model-data: 10002
         attributes:
           - "type=CRITICAL_CHANCE,name=critical-chance,operation=0,amount=6,slot=HAND"
       4:
-        custom-model-data: 2
+        custom-model-data: 10002
         attributes:
           - "type=CRITICAL_CHANCE,name=critical-chance,operation=0,amount=8,slot=HAND"
       5:
-        custom-model-data: 3
+        custom-model-data: 10003
         attributes:
           - "type=CRITICAL_CHANCE,name=critical-chance,operation=0,amount=10,slot=HAND"
       6:
-        custom-model-data: 3
+        custom-model-data: 10003
         attributes:
           - "type=CRITICAL_CHANCE,name=critical-chance,operation=0,amount=12,slot=HAND"
       7:
-        custom-model-data: 4
+        custom-model-data: 10004
         attributes:
           - "type=CRITICAL_CHANCE,name=critical-chance,operation=0,amount=14,slot=HAND"
       8:
-        custom-model-data: 4
+        custom-model-data: 10004
         attributes:
           - "type=CRITICAL_CHANCE,name=critical-chance,operation=0,amount=16,slot=HAND"
       9:
-        custom-model-data: 5
+        custom-model-data: 10005
         attributes:
           - "type=CRITICAL_CHANCE,name=critical-chance,operation=0,amount=18,slot=HAND"
       10:
-        custom-model-data: 5
+        custom-model-data: 10005
         attributes:
           - "type=CRITICAL_CHANCE,name=critical-chance,operation=0,amount=20,slot=HAND"
   critical-damage:
@@ -4787,43 +4789,43 @@ gem:
     limit-per-item: 5
     levels:
       1:
-        custom-model-data: 1
+        custom-model-data: 10001
         attributes:
           - "type=CRITICAL_DAMAGE,name=critical-damage,operation=0,amount=0.01,slot=HAND"
       2:
-        custom-model-data: 1
+        custom-model-data: 10001
         attributes:
           - "type=CRITICAL_DAMAGE,name=critical-damage,operation=0,amount=0.02,slot=HAND"
       3:
-        custom-model-data: 2
+        custom-model-data: 10002
         attributes:
           - "type=CRITICAL_DAMAGE,name=critical-damage,operation=0,amount=0.03,slot=HAND"
       4:
-        custom-model-data: 2
+        custom-model-data: 10002
         attributes:
           - "type=CRITICAL_DAMAGE,name=critical-damage,operation=0,amount=0.04,slot=HAND"
       5:
-        custom-model-data: 3
+        custom-model-data: 10003
         attributes:
           - "type=CRITICAL_DAMAGE,name=critical-damage,operation=0,amount=0.05,slot=HAND"
       6:
-        custom-model-data: 3
+        custom-model-data: 10003
         attributes:
           - "type=CRITICAL_DAMAGE,name=critical-damage,operation=0,amount=0.06,slot=HAND"
       7:
-        custom-model-data: 4
+        custom-model-data: 10004
         attributes:
           - "type=CRITICAL_DAMAGE,name=critical-damage,operation=0,amount=0.07,slot=HAND"
       8:
-        custom-model-data: 4
+        custom-model-data: 10004
         attributes:
           - "type=CRITICAL_DAMAGE,name=critical-damage,operation=0,amount=0.08,slot=HAND"
       9:
-        custom-model-data: 5
+        custom-model-data: 10005
         attributes:
           - "type=CRITICAL_DAMAGE,name=critical-damage,operation=0,amount=0.09,slot=HAND"
       10:
-        custom-model-data: 5
+        custom-model-data: 10005
         attributes:
           - "type=CRITICAL_DAMAGE,name=critical-damage,operation=0,amount=0.10,slot=HAND"
   attack-speed:
@@ -4854,43 +4856,43 @@ gem:
     limit-per-item: 5
     levels:
       1:
-        custom-model-data: 1
+        custom-model-data: 10001
         attributes:
           - "type=ATTACK_SPEED,name=attack-speed,operation=1,amount=0.01,slot=HAND"
       2:
-        custom-model-data: 1
+        custom-model-data: 10001
         attributes:
           - "type=ATTACK_SPEED,name=attack-speed,operation=1,amount=0.02,slot=HAND"
       3:
-        custom-model-data: 2
+        custom-model-data: 10002
         attributes:
           - "type=ATTACK_SPEED,name=attack-speed,operation=1,amount=0.03,slot=HAND"
       4:
-        custom-model-data: 2
+        custom-model-data: 10002
         attributes:
           - "type=ATTACK_SPEED,name=attack-speed,operation=1,amount=0.04,slot=HAND"
       5:
-        custom-model-data: 3
+        custom-model-data: 10003
         attributes:
           - "type=ATTACK_SPEED,name=attack-speed,operation=1,amount=0.05,slot=HAND"
       6:
-        custom-model-data: 3
+        custom-model-data: 10003
         attributes:
           - "type=ATTACK_SPEED,name=attack-speed,operation=1,amount=0.06,slot=HAND"
       7:
-        custom-model-data: 4
+        custom-model-data: 10004
         attributes:
           - "type=ATTACK_SPEED,name=attack-speed,operation=1,amount=0.07,slot=HAND"
       8:
-        custom-model-data: 4
+        custom-model-data: 10004
         attributes:
           - "type=ATTACK_SPEED,name=attack-speed,operation=1,amount=0.08,slot=HAND"
       9:
-        custom-model-data: 5
+        custom-model-data: 10005
         attributes:
           - "type=ATTACK_SPEED,name=attack-speed,operation=1,amount=0.09,slot=HAND"
       10:
-        custom-model-data: 5
+        custom-model-data: 10005
         attributes:
           - "type=ATTACK_SPEED,name=attack-speed,operation=1,amount=0.10,slot=HAND"
   life-steal:
@@ -4921,43 +4923,43 @@ gem:
     limit-per-item: 5
     levels:
       1:
-        custom-model-data: 1
+        custom-model-data: 10001
         attributes:
           - "type=LIFE_STEAL,name=life-steal,operation=0,amount=0.75,slot=HAND"
       2:
-        custom-model-data: 1
+        custom-model-data: 10001
         attributes:
           - "type=LIFE_STEAL,name=life-steal,operation=0,amount=1.5,slot=HAND"
       3:
-        custom-model-data: 2
+        custom-model-data: 10002
         attributes:
           - "type=LIFE_STEAL,name=life-steal,operation=0,amount=2.25,slot=HAND"
       4:
-        custom-model-data: 2
+        custom-model-data: 10002
         attributes:
           - "type=LIFE_STEAL,name=life-steal,operation=0,amount=3,slot=HAND"
       5:
-        custom-model-data: 3
+        custom-model-data: 10003
         attributes:
           - "type=LIFE_STEAL,name=life-steal,operation=0,amount=3.75,slot=HAND"
       6:
-        custom-model-data: 3
+        custom-model-data: 10003
         attributes:
           - "type=LIFE_STEAL,name=life-steal,operation=0,amount=4.5,slot=HAND"
       7:
-        custom-model-data: 4
+        custom-model-data: 10004
         attributes:
           - "type=LIFE_STEAL,name=life-steal,operation=0,amount=5.25,slot=HAND"
       8:
-        custom-model-data: 4
+        custom-model-data: 10004
         attributes:
           - "type=LIFE_STEAL,name=life-steal,operation=0,amount=6,slot=HAND"
       9:
-        custom-model-data: 5
+        custom-model-data: 10005
         attributes:
           - "type=LIFE_STEAL,name=life-steal,operation=0,amount=6.75,slot=HAND"
       10:
-        custom-model-data: 5
+        custom-model-data: 10005
         attributes:
           - "type=LIFE_STEAL,name=life-steal,operation=0,amount=7.5,slot=HAND"
   damage-reduction:
@@ -4984,43 +4986,43 @@ gem:
     limit-per-item: 5
     levels:
       1:
-        custom-model-data: 1
+        custom-model-data: 10001
         attributes:
           - "type=DAMAGE_REDUCTION,name=damage-reduction,operation=0,amount=0.25,slot=ARMOR"
       2:
-        custom-model-data: 1
+        custom-model-data: 10001
         attributes:
           - "type=DAMAGE_REDUCTION,name=damage-reduction,operation=0,amount=0.5,slot=ARMOR"
       3:
-        custom-model-data: 2
+        custom-model-data: 10002
         attributes:
           - "type=DAMAGE_REDUCTION,name=damage-reduction,operation=0,amount=0.75,slot=ARMOR"
       4:
-        custom-model-data: 2
+        custom-model-data: 10002
         attributes:
           - "type=DAMAGE_REDUCTION,name=damage-reduction,operation=0,amount=1,slot=ARMOR"
       5:
-        custom-model-data: 3
+        custom-model-data: 10003
         attributes:
           - "type=DAMAGE_REDUCTION,name=damage-reduction,operation=0,amount=1.25,slot=ARMOR"
       6:
-        custom-model-data: 3
+        custom-model-data: 10003
         attributes:
           - "type=DAMAGE_REDUCTION,name=damage-reduction,operation=0,amount=1.5,slot=ARMOR"
       7:
-        custom-model-data: 4
+        custom-model-data: 10004
         attributes:
           - "type=DAMAGE_REDUCTION,name=damage-reduction,operation=0,amount=1.75,slot=ARMOR"
       8:
-        custom-model-data: 4
+        custom-model-data: 10004
         attributes:
           - "type=DAMAGE_REDUCTION,name=damage-reduction,operation=0,amount=2,slot=ARMOR"
       9:
-        custom-model-data: 5
+        custom-model-data: 10005
         attributes:
           - "type=DAMAGE_REDUCTION,name=damage-reduction,operation=0,amount=2.25,slot=ARMOR"
       10:
-        custom-model-data: 5
+        custom-model-data: 10005
         attributes:
           - "type=DAMAGE_REDUCTION,name=damage-reduction,operation=0,amount=2.5,slot=ARMOR"
   armor:
@@ -5047,43 +5049,43 @@ gem:
     limit-per-item: 1
     levels:
       1:
-        custom-model-data: 1
+        custom-model-data: 10001
         attributes:
           - "type=ARMOR,name=armor,operation=0,amount=2,slot=ARMOR"
       2:
-        custom-model-data: 1
+        custom-model-data: 10001
         attributes:
           - "type=ARMOR,name=armor,operation=0,amount=4,slot=ARMOR"
       3:
-        custom-model-data: 2
+        custom-model-data: 10002
         attributes:
           - "type=ARMOR,name=armor,operation=0,amount=6,slot=ARMOR"
       4:
-        custom-model-data: 2
+        custom-model-data: 10002
         attributes:
           - "type=ARMOR,name=armor,operation=0,amount=8,slot=ARMOR"
       5:
-        custom-model-data: 3
+        custom-model-data: 10003
         attributes:
           - "type=ARMOR,name=armor,operation=0,amount=10,slot=ARMOR"
       6:
-        custom-model-data: 3
+        custom-model-data: 10003
         attributes:
           - "type=ARMOR,name=armor,operation=0,amount=12,slot=ARMOR"
       7:
-        custom-model-data: 4
+        custom-model-data: 10004
         attributes:
           - "type=ARMOR,name=armor,operation=0,amount=14,slot=ARMOR"
       8:
-        custom-model-data: 4
+        custom-model-data: 10004
         attributes:
           - "type=ARMOR,name=armor,operation=0,amount=16,slot=ARMOR"
       9:
-        custom-model-data: 5
+        custom-model-data: 10005
         attributes:
           - "type=ARMOR,name=armor,operation=0,amount=18,slot=ARMOR"
       10:
-        custom-model-data: 5
+        custom-model-data: 10005
         attributes:
           - "type=ARMOR,name=armor,operation=0,amount=20,slot=ARMOR"
   armor-penetration:
@@ -5114,43 +5116,43 @@ gem:
     limit-per-item: 5
     levels:
       1:
-        custom-model-data: 1
+        custom-model-data: 10001
         attributes:
           - "type=ARMOR_PENETRATION,name=armor-penetration,operation=0,amount=1,slot=HAND"
       2:
-        custom-model-data: 1
+        custom-model-data: 10001
         attributes:
           - "type=ARMOR_PENETRATION,name=armor-penetration,operation=0,amount=2,slot=HAND"
       3:
-        custom-model-data: 2
+        custom-model-data: 10002
         attributes:
           - "type=ARMOR_PENETRATION,name=armor-penetration,operation=0,amount=3,slot=HAND"
       4:
-        custom-model-data: 2
+        custom-model-data: 10002
         attributes:
           - "type=ARMOR_PENETRATION,name=armor-penetration,operation=0,amount=4,slot=HAND"
       5:
-        custom-model-data: 3
+        custom-model-data: 10003
         attributes:
           - "type=ARMOR_PENETRATION,name=armor-penetration,operation=0,amount=5,slot=HAND"
       6:
-        custom-model-data: 3
+        custom-model-data: 10003
         attributes:
           - "type=ARMOR_PENETRATION,name=armor-penetration,operation=0,amount=6,slot=HAND"
       7:
-        custom-model-data: 4
+        custom-model-data: 10004
         attributes:
           - "type=ARMOR_PENETRATION,name=armor-penetration,operation=0,amount=7,slot=HAND"
       8:
-        custom-model-data: 4
+        custom-model-data: 10004
         attributes:
           - "type=ARMOR_PENETRATION,name=armor-penetration,operation=0,amount=8,slot=HAND"
       9:
-        custom-model-data: 5
+        custom-model-data: 10005
         attributes:
           - "type=ARMOR_PENETRATION,name=armor-penetration,operation=0,amount=9,slot=HAND"
       10:
-        custom-model-data: 5
+        custom-model-data: 10005
         attributes:
           - "type=ARMOR_PENETRATION,name=armor-penetration,operation=0,amount=10,slot=HAND"
   mining-power:
@@ -5177,43 +5179,43 @@ gem:
     limit-per-item: 5
     levels:
       1:
-        custom-model-data: 1
+        custom-model-data: 10001
         attributes:
           - "type=MINING_POWER,name=mining-power,operation=0,amount=1,slot=HAND"
       2:
-        custom-model-data: 1
+        custom-model-data: 10001
         attributes:
           - "type=MINING_POWER,name=mining-power,operation=0,amount=2,slot=HAND"
       3:
-        custom-model-data: 2
+        custom-model-data: 10002
         attributes:
           - "type=MINING_POWER,name=mining-power,operation=0,amount=3,slot=HAND"
       4:
-        custom-model-data: 2
+        custom-model-data: 10002
         attributes:
           - "type=MINING_POWER,name=mining-power,operation=0,amount=4,slot=HAND"
       5:
-        custom-model-data: 3
+        custom-model-data: 10003
         attributes:
           - "type=MINING_POWER,name=mining-power,operation=0,amount=5,slot=HAND"
       6:
-        custom-model-data: 3
+        custom-model-data: 10003
         attributes:
           - "type=MINING_POWER,name=mining-power,operation=0,amount=6,slot=HAND"
       7:
-        custom-model-data: 4
+        custom-model-data: 10004
         attributes:
           - "type=MINING_POWER,name=mining-power,operation=0,amount=7,slot=HAND"
       8:
-        custom-model-data: 4
+        custom-model-data: 10004
         attributes:
           - "type=MINING_POWER,name=mining-power,operation=0,amount=8,slot=HAND"
       9:
-        custom-model-data: 5
+        custom-model-data: 10005
         attributes:
           - "type=MINING_POWER,name=mining-power,operation=0,amount=9,slot=HAND"
       10:
-        custom-model-data: 5
+        custom-model-data: 10005
         attributes:
           - "type=MINING_POWER,name=mining-power,operation=0,amount=10,slot=HAND"
 sigil:

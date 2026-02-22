@@ -1,0 +1,149 @@
+settings:
+  title: "&5&lBàn đột phá"
+  rows: 6
+  sound: ENTITY_EXPERIENCE_ORB_PICKUP
+  actions:
+    "1":
+      inventory-type: CHEST
+      slots: 0-53
+      cancel-drag: true
+      cancel-click-type:
+        - LEFT
+        - RIGHT
+        - SHIFT_RIGHT
+        - SHIFT_LEFT
+        - NUMBER_KEY
+      cancel-inventory-action:
+        - MOVE_TO_OTHER_INVENTORY
+        - DROP_ALL_SLOT
+        - DROP_ALL_CURSOR
+        - DROP_ONE_SLOT
+        - DROP_ONE_CURSOR
+    "2":
+      inventory-type: PLAYER
+      slots: 0-35
+      cancel-drag: true
+      cancel-click-type:
+        - LEFT
+        - RIGHT
+        - SHIFT_RIGHT
+        - SHIFT_LEFT
+        - NUMBER_KEY
+
+# a = accept
+# o = border
+# b = book1
+# B = book2
+# p = preview
+layout:
+  - "oooOOOooo"
+  - "oOOObOOOo"
+  - "oOPPPPPOo"
+  - "oOOOBOOOo"
+  - "oooOaOooo"
+  - "ooooRoooo"
+
+items:
+  border:
+    item:
+      type: PURPLE_STAINED_GLASS_PANE
+      amount: 1
+      display: "&7"
+    slots: "o"
+  border2:
+    item:
+      type: MAGENTA_STAINED_GLASS_PANE
+      amount: 1
+      display: "&7"
+    slots: "O"
+  remind:
+    item:
+      type: END_PORTAL_FRAME
+      amount: 1
+      display: "&eHãy chọn sách cần đột phá"
+    slots: "a"
+  remind-xp:
+    item:
+      type: END_PORTAL_FRAME
+      amount: 1
+      display: "&eHãy chọn sách cùng loại làm nguyên liệu"
+  remind-xp-confirm:
+    item:
+      type: END_PORTAL_FRAME
+      amount: 1
+      display: "&aXác nhận ép kinh nghiệm đột phá"
+      lore:
+        - "&7&oNguyên liệu sẽ mất sau khi ép"
+  remind-book-confirm:
+    item:
+      type: END_PORTAL_FRAME
+      amount: 1
+      display: "&d&lXác nhận đột phá"
+      lore:
+        - ""
+        - "{requirement_description}"
+        - ""
+        - "&aTỉ lệ thành công: &f{chance}%"
+        - ""
+        - "&c&oThất bại sẽ mất hết nguyên liệu và"
+        - "&c&ogiảm tiến độ đột phá sách phù phép"
+        - ""
+        - "&aNhấp để xác nhận đột phá"
+  accept:
+    item:
+      type: END_PORTAL_FRAME
+      amount: 1
+      display: "&aXác nhận đột phá"
+    slots: "a"
+    priority: -1
+  book-upgrade:
+    item:
+      type: LIGHT_GRAY_STAINED_GLASS_PANE
+      amount: 1
+      display: "&eChọn sách cần đột phá"
+    slots: "b"
+  book-result:
+    item:
+      type: BLACK_STAINED_GLASS_PANE
+      amount: 1
+      display: "&fÔ xem trước"
+    slots: "B"
+  ingredient-preview:
+    item:
+      type: BLACK_STAINED_GLASS_PANE
+      amount: 1
+      display: "&fÔ nguyên liệu"
+    slots: "P"
+  return:
+    item:
+      type: GRAY_STAINED_GLASS_PANE
+      amount: 1
+      display: "&cTrở về"
+    slots: "R"
+    priority:
+      condition:
+        - HAS_PREVIOUS_MENU
+      true-condition-priority: 1
+      false-condition-priority: -1
+    command:
+      "1":
+        condition:
+          - CLICK_TYPE LEFT
+        true-condition:
+          execute:
+            - RETURN_CLOSE_MENU
+          step: BREAK
+  close:
+    item:
+      type: RED_STAINED_GLASS_PANE
+      amount: 1
+      display: "&cĐóng"
+    slots: "R"
+    command:
+      "1":
+        condition:
+          - CLICK_TYPE LEFT
+        true-condition:
+          execute:
+            - RETURN_CLOSE_MENU
+          step: BREAK

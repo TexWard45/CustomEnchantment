@@ -16,68 +16,68 @@
 # Cosmetic (no combat, no tool)
 # WINGS → HAT
 outfit:
-  wukong:
+  beats:
     group: ultimate
     max-level: 5
     item:
       type: PAPER
-      custom-model-data: 10402
-      display: "<GRADIENTS:9a542d,c98545,f7dd7e,813145>&lBộ Trang Phục Ngộ Không</GRADIENTS>"
+      custom-model-data: 10403
+      display: "<GRADIENTS:#7019fb,#6a5bfc,#34d6fd,#32fcfe>&lBộ Trang Phục Âm Vực</GRADIENTS>"
       glowing: true
       lore:
         - ""
-    enchant: "wukong"
+    enchant: "beats"
     levels:
       1:
         custom-types:
           HELMET:
             list:
-              - 'wukong-hat'
-              - 'wukong-helmet'
+              - 'beats-hat'
+              - 'beats-helmet'
           WINGS:
             list:
-              - 'wukong-wings'
+              - 'beats-wings'
         skins:
           # =======================
           # ARMOR
           # =======================
-          HELMET: wukong-helmet
-          CHESTPLATE: wukong-chestplate
-          LEGGINGS: wukong-leggings
-          BOOTS: wukong-boots
+          HELMET: beats-helmet
+          CHESTPLATE: beats-chestplate
+          LEGGINGS: beats-leggings
+          BOOTS: beats-boots
 
           # =======================
           # MELEE WEAPONS
           # =======================
-          SWORD: wukong-sword
-          DAGGER: wukong-dagger
-          SPEAR: wukong-spear
-          GREATSWORD: wukong-greatsword
-          AXE: wukong-axe
-          HAMMER: wukong-hammer
-          STICK: wukong-stick
-          STAFF: wukong-staff
+          SWORD: beats-sword
+          SPEAR: beats-spear
+          AXE: beats-axe
+          HAMMER: beats-hammer
+          GREATSWORD: beats-greatsword
+          STAFF: beats-staff
+          SCYTHE: beats-scythe
+          TRIDENT: beats-trident
 
           # =======================
           # RANGED WEAPONS
           # =======================
-          BOW: wukong-bow
-          CROSSBOW: wukong-crossbow
+          BOW: beats-bow
+          CROSSBOW: beats-crossbow
 
           # =======================
           # TOOLS
           # =======================
-          PICKAXE: wukong-pickaxe
-          SHOVEL: wukong-shovel
-          HOE: wukong-hoe
-          FISHINGROD: wukong-fishingrod
+          PICKAXE: beats-pickaxe
+          SHOVEL: beats-shovel
+          HOE: beats-hoe
+          FISHINGROD: beats-fishingrod
 
           # =======================
           # DEFENSIVE
           # =======================
-          SHIELD: wukong-shield
+          SHIELD: beats-shield
 
           # =======================
           # COSMETIC
           # =======================
-          WINGS: wukong-wings
+          WINGS: beats-wings

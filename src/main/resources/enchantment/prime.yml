@@ -2770,7 +2770,7 @@ primedash:
         conditions:
           - ""
         effects:
-          - "ACTIVE_DASH:1:3600:1_8:EXPLOSION_NORMAL:&cLướt tiếp sau &e{time_left} &cgiây!"
+          - "ACTIVE_DASH:1:3600:1_8:EXPLOSION_NORMAL:CLOUD:&cLướt tiếp sau &e{time_left} &cgiây!"
       unequip:
         type: ARMOR_UNDRESS
         chance: 100
@@ -2787,7 +2787,7 @@ primedash:
         conditions:
           - ""
         effects:
-          - "ACTIVE_DASH:1:3200:1_8:EXPLOSION_NORMAL:&cLướt tiếp sau &e{time_left} &cgiây!"
+          - "ACTIVE_DASH:1:3200:1_8:EXPLOSION_NORMAL:CLOUD:&cLướt tiếp sau &e{time_left} &cgiây!"
       unequip:
         type: ARMOR_UNDRESS
         chance: 100
@@ -2804,7 +2804,7 @@ primedash:
         conditions:
           - ""
         effects:
-          - "ACTIVE_DASH:1:2800:1_8:EXPLOSION_NORMAL:&cLướt tiếp sau &e{time_left} &cgiây!"
+          - "ACTIVE_DASH:1:2800:1_8:EXPLOSION_NORMAL:CLOUD:&cLướt tiếp sau &e{time_left} &cgiây!"
       unequip:
         type: ARMOR_UNDRESS
         chance: 100
@@ -2821,7 +2821,7 @@ primedash:
         conditions:
           - ""
         effects:
-          - "ACTIVE_DASH:1:2400:1_8:EXPLOSION_NORMAL:&cLướt tiếp sau &e{time_left} &cgiây!"
+          - "ACTIVE_DASH:1:2400:1_8:EXPLOSION_NORMAL:CLOUD:&cLướt tiếp sau &e{time_left} &cgiây!"
       unequip:
         type: ARMOR_UNDRESS
         chance: 100
@@ -2838,7 +2838,7 @@ primedash:
         conditions:
           - ""
         effects:
-          - "ACTIVE_DASH:1:2000:1_8:EXPLOSION_NORMAL:&cLướt tiếp sau &e{time_left} &cgiây!"
+          - "ACTIVE_DASH:1:2000:1_8:EXPLOSION_NORMAL:CLOUD:&cLướt tiếp sau &e{time_left} &cgiây!"
       unequip:
         type: ARMOR_UNDRESS
         chance: 100

@@ -21,12 +21,12 @@ outfit:
     max-level: 5
     item:
       type: PAPER
-      custom-model-data: 10402
-      display: "<GRADIENTS:9a542d,c98545,f7dd7e,813145>&lBộ Trang Phục Ngộ Không</GRADIENTS>"
+      custom-model-data: 10062
+      display: "<GRADIENTS:#2b3f4d,#289672,#59c54b,#a2d957>&lBộ Trang Phục U Linh</GRADIENTS>"
       glowing: true
       lore:
         - ""
-    enchant: "assassin"
+    enchant: "halloweenphantom"
     levels:
       1:
         custom-types:
@@ -55,7 +55,6 @@ outfit:
           GREATSWORD: halloween-phantom-greatsword
           AXE: halloween-phantom-axe
           HAMMER: halloween-phantom-hammer
-          STICK: halloween-phantom-stick
           STAFF: halloween-phantom-staff
 
           # =======================

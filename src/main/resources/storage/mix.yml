@@ -12,9 +12,10 @@ barrier:
   display: " "
 color:
   type: STICK
-  display: "%iridiumcolorapi_gradient_FB4141,FFC145,ECE852,5CB338_&l⚔ Mega Faction ⚔%"
+  display: "<GRADIENTS:F72C5B,FF748B,A7D477,E4F1AC>&lNhà Hạt Giống</GRADIENTS>"
   lore:
-    - "&6|&a|||&6|"
+    - "&#FF0000&lV&#FF5A00&lò&#FFB400&ln&#F0FF00&lg&#96FF00&l &#3CFF00&lQ&#00FF1E&lu&#00FF78&la&#00FFD2&ly&#00D2FF&l &#0078FF&lM&#001EFF&la&#3C00FF&ly&#9600FF&l &#F000FF&lM&#FF00B4&lắ&#FF005A&ln"
+    - "<GRADIENTS:FF0000,FF5A00,FFB400,F0FF00,96FF00,3CFF00>&lVòng Quay May Mắn</GRADIENTS>"
 rough-aquamarine:
   type: PLAYER_HEAD
   skull-owner: "textures:eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNWE1OGEzOGY3N2I1ZjBmMzYxMGIxNjRkYTI5ZTkwMTY2MWI0NjI4YTQ4MmQ1ZjcwMmI3MTA1NGY2NjVlMzUyYyJ9fX0="

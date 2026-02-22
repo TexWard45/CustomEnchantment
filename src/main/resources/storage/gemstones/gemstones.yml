@@ -5,181 +5,181 @@
 # &#ff4400Nguyên liệu siêu hiếm
 gem-ruby-1:
   type: RED_DYE
-  custom-model-data: 1
+  custom-model-data: 10002
 gem-ruby-2:
   type: RED_DYE
-  custom-model-data: 2
+  custom-model-data: 10003
 gem-ruby-3:
   type: RED_DYE
-  custom-model-data: 3
+  custom-model-data: 10004
 gem-ruby-4:
   type: RED_DYE
-  custom-model-data: 4
+  custom-model-data: 10005
 gem-ruby-5:
   type: RED_DYE
-  custom-model-data: 5
+  custom-model-data: 10006
 gem-amber-1:
   type: ORANGE_DYE
-  custom-model-data: 1
+  custom-model-data: 10001
 gem-amber-2:
   type: ORANGE_DYE
-  custom-model-data: 2
+  custom-model-data: 10002
 gem-amber-3:
   type: ORANGE_DYE
-  custom-model-data: 3
+  custom-model-data: 10003
 gem-amber-4:
   type: ORANGE_DYE
-  custom-model-data: 4
+  custom-model-data: 10004
 gem-amber-5:
   type: ORANGE_DYE
-  custom-model-data: 5
+  custom-model-data: 10005
 gem-sapphire-1:
   type: LIGHT_BLUE_DYE
-  custom-model-data: 1
+  custom-model-data: 10001
 gem-sapphire-2:
   type: LIGHT_BLUE_DYE
-  custom-model-data: 2
+  custom-model-data: 10002
 gem-sapphire-3:
   type: LIGHT_BLUE_DYE
-  custom-model-data: 3
+  custom-model-data: 10003
 gem-sapphire-4:
   type: LIGHT_BLUE_DYE
-  custom-model-data: 4
+  custom-model-data: 10004
 gem-sapphire-5:
   type: LIGHT_BLUE_DYE
-  custom-model-data: 5
+  custom-model-data: 10005
 gem-jade-1:
   type: LIME_DYE
-  custom-model-data: 1
+  custom-model-data: 10001
 gem-jade-2:
   type: LIME_DYE
-  custom-model-data: 2
+  custom-model-data: 10002
 gem-jade-3:
   type: LIME_DYE
-  custom-model-data: 3
+  custom-model-data: 10003
 gem-jade-4:
   type: LIME_DYE
-  custom-model-data: 4
+  custom-model-data: 10004
 gem-jade-5:
   type: LIME_DYE
-  custom-model-data: 5
+  custom-model-data: 10005
 gem-amethyst-1:
   type: PURPLE_DYE
-  custom-model-data: 1
+  custom-model-data: 10001
 gem-amethyst-2:
   type: PURPLE_DYE
-  custom-model-data: 2
+  custom-model-data: 10002
 gem-amethyst-3:
   type: PURPLE_DYE
-  custom-model-data: 3
+  custom-model-data: 10003
 gem-amethyst-4:
   type: PURPLE_DYE
-  custom-model-data: 4
+  custom-model-data: 10004
 gem-amethyst-5:
   type: PURPLE_DYE
-  custom-model-data: 5
+  custom-model-data: 10005
 gem-opal-1:
   type: WHITE_DYE
-  custom-model-data: 1
+  custom-model-data: 10001
 gem-opal-2:
   type: WHITE_DYE
-  custom-model-data: 2
+  custom-model-data: 10002
 gem-opal-3:
   type: WHITE_DYE
-  custom-model-data: 3
+  custom-model-data: 10003
 gem-opal-4:
   type: WHITE_DYE
-  custom-model-data: 4
+  custom-model-data: 10004
 gem-opal-5:
   type: WHITE_DYE
-  custom-model-data: 5
+  custom-model-data: 10005
 gem-topaz-1:
   type: YELLOW_DYE
-  custom-model-data: 1
+  custom-model-data: 10001
 gem-topaz-2:
   type: YELLOW_DYE
-  custom-model-data: 2
+  custom-model-data: 10002
 gem-topaz-3:
   type: YELLOW_DYE
-  custom-model-data: 3
+  custom-model-data: 10003
 gem-topaz-4:
   type: YELLOW_DYE
-  custom-model-data: 4
+  custom-model-data: 10004
 gem-topaz-5:
   type: YELLOW_DYE
-  custom-model-data: 5
+  custom-model-data: 10005
 gem-jasper-1:
   type: MAGENTA_DYE
-  custom-model-data: 1
+  custom-model-data: 10001
 gem-jasper-2:
   type: MAGENTA_DYE
-  custom-model-data: 2
+  custom-model-data: 10002
 gem-jasper-3:
   type: MAGENTA_DYE
-  custom-model-data: 3
+  custom-model-data: 10003
 gem-jasper-4:
   type: MAGENTA_DYE
-  custom-model-data: 4
+  custom-model-data: 10004
 gem-jasper-5:
   type: MAGENTA_DYE
-  custom-model-data: 5
+  custom-model-data: 10005
 gem-onyx-1:
   type: BLACK_DYE
-  custom-model-data: 1
+  custom-model-data: 10001
 gem-onyx-2:
   type: BLACK_DYE
-  custom-model-data: 2
+  custom-model-data: 10002
 gem-onyx-3:
   type: BLACK_DYE
-  custom-model-data: 3
+  custom-model-data: 10003
 gem-onyx-4:
   type: BLACK_DYE
-  custom-model-data: 4
+  custom-model-data: 10004
 gem-onyx-5:
   type: BLACK_DYE
-  custom-model-data: 5
+  custom-model-data: 10005
 gem-aquamarine-1:
   type: BLUE_DYE
-  custom-model-data: 1
+  custom-model-data: 10001
 gem-aquamarine-2:
   type: BLUE_DYE
-  custom-model-data: 2
+  custom-model-data: 10002
 gem-aquamarine-3:
   type: BLUE_DYE
-  custom-model-data: 3
+  custom-model-data: 10003
 gem-aquamarine-4:
   type: BLUE_DYE
-  custom-model-data: 4
+  custom-model-data: 10004
 gem-aquamarine-5:
   type: BLUE_DYE
-  custom-model-data: 5
+  custom-model-data: 10005
 gem-citrine-1:
   type: BROWN_DYE
-  custom-model-data: 1
+  custom-model-data: 10001
 gem-citrine-2:
   type: BROWN_DYE
-  custom-model-data: 2
+  custom-model-data: 10002
 gem-citrine-3:
   type: BROWN_DYE
-  custom-model-data: 3
+  custom-model-data: 10003
 gem-citrine-4:
   type: BROWN_DYE
-  custom-model-data: 4
+  custom-model-data: 10004
 gem-citrine-5:
   type: BROWN_DYE
-  custom-model-data: 5
+  custom-model-data: 10005
 gem-peridot-1:
   type: GREEN_DYE
-  custom-model-data: 1
+  custom-model-data: 10001
 gem-peridot-2:
   type: GREEN_DYE
-  custom-model-data: 2
+  custom-model-data: 10002
 gem-peridot-3:
   type: GREEN_DYE
-  custom-model-data: 3
+  custom-model-data: 10003
 gem-peridot-4:
   type: GREEN_DYE
-  custom-model-data: 4
+  custom-model-data: 10004
 gem-peridot-5:
   type: GREEN_DYE
-  custom-model-data: 5
+  custom-model-data: 10005
