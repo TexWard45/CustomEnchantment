@@ -454,5 +454,16 @@ material-group:
     #- 'GOLDEN_HOE'
     - "DIAMOND_HOE"
     - "NETHERITE_HOE"
+  ALL_LOG_BLOCK:
+    - "OAK_LOG"
+    - "SPRUCE_LOG"
+    - "BIRCH_LOG"
+    - "JUNGLE_LOG"
+    - "ACACIA_LOG"
+    - "DARK_OAK_LOG"
+    - "MANGROVE_LOG"
+    - "CHERRY_LOG"
+    - "CRIMSON_STEM"
+    - "WARPED_STEM"
   ALL_GEM:
     - "MAGMA_CREAM"
