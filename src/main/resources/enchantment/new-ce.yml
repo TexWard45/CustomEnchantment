@@ -7,6 +7,12 @@ hasten:
   detail-description:
     - "&eCó tỉ lệ nhận hiệu ứng vội vàng trong"
     - "&emột khoảng thời gian khi đào quặng"
+    - ""
+    - "&eHiệu ứng thuốc: Vội vàng"
+    - "&eCấp hiệu ứng: I/I/II/II/III"
+    - "&eTỉ lệ kích hoạt: 15%/20%/25%/30%/35%"
+    - "&eThời gian hiệu ứng: 3/4/5/6/8 giây"
+    - "&eThời gian hồi: 10 giây"
   applies-description:
     - Cúp
   applies:
@@ -14,6 +20,57 @@ hasten:
   max-level: 5
   enchant-point: 1
   valuable: 0
+  levels:
+    "1":
+      mining:
+        type: MINING
+        chance: 15
+        cooldown: 10000
+        conditions:
+          - "EQUIP_SLOT:MAINHAND"
+        effects:
+          - "ADD_POTION:FAST_DIGGING:0:60"
+          - "MESSAGE:&e&l***Hasten: &b&lHaste I &f(0:03)&e&l***"
+    "2":
+      mining:
+        type: MINING
+        chance: 20
+        cooldown: 10000
+        conditions:
+          - "EQUIP_SLOT:MAINHAND"
+        effects:
+          - "ADD_POTION:FAST_DIGGING:0:80"
+          - "MESSAGE:&e&l***Hasten: &b&lHaste I &f(0:04)&e&l***"
+    "3":
+      mining:
+        type: MINING
+        chance: 25
+        cooldown: 10000
+        conditions:
+          - "EQUIP_SLOT:MAINHAND"
+        effects:
+          - "ADD_POTION:FAST_DIGGING:1:100"
+          - "MESSAGE:&e&l***Hasten: &b&lHaste II &f(0:05)&e&l***"
+    "4":
+      mining:
+        type: MINING
+        chance: 30
+        cooldown: 10000
+        conditions:
+          - "EQUIP_SLOT:MAINHAND"
+        effects:
+          - "ADD_POTION:FAST_DIGGING:1:120"
+          - "MESSAGE:&e&l***Hasten: &b&lHaste II &f(0:06)&e&l***"
+    "5":
+      mining:
+        type: MINING
+        chance: 35
+        cooldown: 10000
+        conditions:
+          - "EQUIP_SLOT:MAINHAND"
+        effects:
+          - "ADD_POTION:FAST_DIGGING:2:160"
+          - "MESSAGE:&e&l***Hasten: &b&lHaste III &f(0:08)&e&l***"
 planter:
   group: epic
   display: Planter
@@ -23,6 +80,8 @@ planter:
   detail-description:
     - "&eCó cơ hội gieo hạt giống phù hợp trên"
     - "&ethanh công cụ vào kích thước 3x3 ô đất"
+    - ""
+    - "&eTỉ lệ kích hoạt: 20%/40%/60%/80%/100%"
   applies-description:
     - Cuốc
   applies:
@@ -30,6 +89,92 @@ planter:
   max-level: 5
   enchant-point: 1
   valuable: 0
+  levels:
+    "1":
+      equip:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:MAINHAND"
+        effects:
+          - "ADD_EXPLOSION_MINING:planter:3:20:true:true:CE_HARVEST_BLOCK"
+      unequip:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:MAINHAND"
+        effects:
+          - "REMOVE_EXPLOSION_MINING:planter"
+    "2":
+      equip:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:MAINHAND"
+        effects:
+          - "ADD_EXPLOSION_MINING:planter:3:40:true:true:CE_HARVEST_BLOCK"
+      unequip:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:MAINHAND"
+        effects:
+          - "REMOVE_EXPLOSION_MINING:planter"
+    "3":
+      equip:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:MAINHAND"
+        effects:
+          - "ADD_EXPLOSION_MINING:planter:3:60:true:true:CE_HARVEST_BLOCK"
+      unequip:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:MAINHAND"
+        effects:
+          - "REMOVE_EXPLOSION_MINING:planter"
+    "4":
+      equip:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:MAINHAND"
+        effects:
+          - "ADD_EXPLOSION_MINING:planter:3:80:true:true:CE_HARVEST_BLOCK"
+      unequip:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:MAINHAND"
+        effects:
+          - "REMOVE_EXPLOSION_MINING:planter"
+    "5":
+      equip:
+        type: HOLD
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:MAINHAND"
+        effects:
+          - "ADD_EXPLOSION_MINING:planter:3:100:true:true:CE_HARVEST_BLOCK"
+      unequip:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:MAINHAND"
+        effects:
+          - "REMOVE_EXPLOSION_MINING:planter"
 # hydroforge:
 #   group: epic
 #   display: HydroForge

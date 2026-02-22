@@ -51,7 +51,7 @@ items:
         - ''
         - '&eTrạng thái: &7Chưa trang bị'
         - ''
-        - '&f &aNhấp vào Mũ để trang bị'
+        - '&f &aNhấp vào Mũ để trang bị'
     slot: 'h'
 
   chestplate:
@@ -64,7 +64,7 @@ items:
         - ''
         - '&eTrạng thái: &7Chưa trang bị'
         - ''
-        - '&f &aNhấp vào Áo giáp để trang bị'
+        - '&f &aNhấp vào Áo giáp để trang bị'
     slot: 'c'
 
   leggings:
@@ -77,7 +77,7 @@ items:
         - ''
         - '&eTrạng thái: &7Chưa trang bị'
         - ''
-        - '&f &aNhấp vào Quần để trang bị'
+        - '&f &aNhấp vào Quần để trang bị'
     slot: 'l'
 
   boots:
@@ -90,7 +90,7 @@ items:
         - ''
         - '&eTrạng thái: &7Chưa trang bị'
         - ''
-        - '&f &aNhấp vào Giày để trang bị'
+        - '&f &aNhấp vào Giày để trang bị'
     slot: 'b'
 
   mainhand:
@@ -103,7 +103,7 @@ items:
         - ''
         - '&eTrạng thái: &7Chưa trang bị'
         - ''
-        - '&f &aNhấp vào vật phẩm để trang bị'
+        - '&f &aNhấp vào vật phẩm để trang bị'
     slot: 'm'
 
   offhand:
@@ -116,7 +116,7 @@ items:
         - ''
         - '&eTrạng thái: &7Chưa trang bị'
         - ''
-        - '&f &aNhấp vào vật phẩm để trang bị'
+        - '&f &aNhấp vào vật phẩm để trang bị'
     slot: 'f'
 
   extra-slot-artifact-default:
@@ -129,7 +129,7 @@ items:
         - ''
         - '&eTrạng thái: &7Chưa trang bị'
         - ''
-        - '&f &aNhấp vào Cổ vật để trang bị'
+        - '&f &aNhấp vào Cổ vật để trang bị'
     slot: 'a'
 
   extra-slot-artifact-event:
@@ -142,7 +142,7 @@ items:
         - ''
         - '&eTrạng thái: &7Chưa trang bị'
         - ''
-        - '&f &aNhấp vào Cổ vật để trang bị'
+        - '&f &aNhấp vào Cổ vật để trang bị'
     slot: 'e'
 
   extra-slot-sigil-all:
@@ -155,7 +155,7 @@ items:
         - ''
         - '&eTrạng thái: &7Chưa trang bị'
         - ''
-        - '&f &aNhấp vào Ấn để trang bị'
+        - '&f &aNhấp vào Ấn để trang bị'
     slot: 's'
 
   extra-slot-outfit-all:
@@ -168,7 +168,7 @@ items:
         - ''
         - '&eTrạng thái: &7Chưa trang bị'
         - ''
-        - '&f &aNhấp vào Bộ trang phục để trang bị'
+        - '&f &aNhấp vào Bộ trang phục để trang bị'
     slot: 'o'
 
   protect-dead:
@@ -188,7 +188,7 @@ items:
         - ''
         - '&eTrạng thái: &7Chưa trang bị'
         - ''
-        - '&f &aNhấp vào Bùa bảo vệ để trang bị'
+        - '&f &aNhấp vào Bùa bảo vệ để trang bị'
     slot: 'p'
 
   wings:
@@ -256,8 +256,8 @@ items:
         - ''
         - '&eTrạng thái: &aĐang trang bị'
         - ''
-        - '&f &aNhấp trái để tháo trang bị'
-        - '&f &aNhấp phải để đổi trang phục'
+        - '&f &aNhấp trái để tháo trang bị'
+        - '&f &aNhấp phải để đổi trang phục'
 
   helmet-equip:
     type: default
@@ -270,7 +270,7 @@ items:
         - ''
         - '&eTrạng thái: &aĐang trang bị'
         - ''
-        - '&f &aNhấp trái để tháo trang bị'
+        - '&f &aNhấp trái để tháo trang bị'
 
   chestplate-equip:
     type: default
@@ -283,7 +283,7 @@ items:
         - ''
         - '&eTrạng thái: &aĐang trang bị'
         - ''
-        - '&f &aNhấp trái để tháo trang bị'
+        - '&f &aNhấp trái để tháo trang bị'
 
   leggings-equip:
     type: default
@@ -296,7 +296,7 @@ items:
         - ''
         - '&eTrạng thái: &aĐang trang bị'
         - ''
-        - '&f &aNhấp trái để tháo trang bị'
+        - '&f &aNhấp trái để tháo trang bị'
 
   boots-equip:
     type: default
@@ -309,7 +309,7 @@ items:
         - ''
         - '&eTrạng thái: &aĐang trang bị'
         - ''
-        - '&f &aNhấp trái để tháo trang bị'
+        - '&f &aNhấp trái để tháo trang bị'
 
   mainhand-equip:
     type: default
@@ -322,7 +322,7 @@ items:
         - ''
         - '&eTrạng thái: &aĐang trang bị'
         - ''
-        - '&f &aNhấp trái để tháo trang bị'
+        - '&f &aNhấp trái để tháo trang bị'
 
   offhand-equip:
     type: default
@@ -335,7 +335,7 @@ items:
         - ''
         - '&eTrạng thái: &aĐang trang bị'
         - ''
-        - '&f &aNhấp trái để tháo trang bị'
+        - '&f &aNhấp trái để tháo trang bị'
 
   extra-slot-artifact-default-equip:
     type: default
@@ -348,7 +348,7 @@ items:
         - ''
         - '&eTrạng thái: &aĐang trang bị'
         - ''
-        - '&f &aNhấp trái để tháo trang bị'
+        - '&f &aNhấp trái để tháo trang bị'
 
   extra-slot-artifact-event-equip:
     type: default
@@ -361,7 +361,7 @@ items:
         - ''
         - '&eTrạng thái: &aĐang trang bị'
         - ''
-        - '&f &aNhấp trái để tháo trang bị'
+        - '&f &aNhấp trái để tháo trang bị'
 
   extra-slot-sigil-all-equip:
     type: default
@@ -374,7 +374,7 @@ items:
         - ''
         - '&eTrạng thái: &aĐang trang bị'
         - ''
-        - '&f &aNhấp trái để tháo trang bị'
+        - '&f &aNhấp trái để tháo trang bị'
 
   extra-slot-outfit-all-equip:
     type: default
@@ -387,7 +387,7 @@ items:
         - ''
         - '&eTrạng thái: &aĐang trang bị'
         - ''
-        - '&f &aNhấp trái để tháo trang bị'
+        - '&f &aNhấp trái để tháo trang bị'
 
   wings-swap:
     type: default
@@ -399,7 +399,7 @@ items:
         - ''
         - '&eTrạng thái: &aĐang trang bị'
         - ''
-        - '&f &aNhấp phải để đổi trang phục'
+        - '&f &aNhấp phải để đổi trang phục'
 
   wings-no-skin:
     type: default
@@ -411,7 +411,7 @@ items:
         - ''
         - '&eTrạng thái: &7Chưa trang bị'
         - ''
-        - '&f &aNhấp phải để trang bị cánh'
+        - '&f &aNhấp phải để trang bị cánh'
 
   return:
     type: default

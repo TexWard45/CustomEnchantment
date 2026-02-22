@@ -1,0 +1,1789 @@
+# Legendary Artifact Enchantments
+# Tier scaling: ATK_DMG 2.0/lvl, MAX_HEALTH 8/lvl, CRIT_CHANCE 4%/lvl,
+# CRIT_DAMAGE 4%/lvl, HP_REGEN 3.0/lvl, MOVE_SPEED 0.012/lvl, MAX_ABSORPTION 6/lvl
+lightningrod:
+  group: "artifact"
+  display: "Lightning Rod"
+  description:
+    - "&7Tăng thêm tỉ lệ chí mạng và sát thương chí mạng"
+    - "&7Mỗi khoảng thời gian khi có kẻ địch xung quanh"
+    - "&7sẽ tấn công ngẫu nhiên kẻ địch bằng sét"
+  applies-description:
+    - "Cổ vật"
+  applies:
+    - "ALL_GEM"
+  max-level: 5
+  enchant-point: 0
+  valuable: 0
+  levels:
+    1:
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_CUSTOM_ATTRIBUTE:lightningrod_crit:CRITICAL_CHANCE:4:0"
+          - "ADD_CUSTOM_ATTRIBUTE:lightningrod_critdmg:CRITICAL_DAMAGE:4:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_CUSTOM_ATTRIBUTE:lightningrod_crit"
+          - "REMOVE_CUSTOM_ATTRIBUTE:lightningrod_critdmg"
+      aura:
+        type: AUTO
+        chance: 100
+        cooldown: 10000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+          - "IN_COMBAT"
+        except-player: true
+        except-enemy: false
+        min-distance: 0
+        max-distance: 4
+        target-conditions:
+          - "CAN_ATTACK"
+        target-effects:
+          - "TARGET=ENEMY | HEALTH:REMOVE:2"
+          - "TARGET=ENEMY | ADD_POTION:SLOW:2:20"
+          - "TARGET=ENEMY | MESSAGE:&c&l***Lightning Rod: &e&lSét đánh!&c&l***"
+        effects:
+          - "MESSAGE:&6&l***Lightning Rod: &e&lSét đánh kẻ địch!&6&l***"
+    2:
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_CUSTOM_ATTRIBUTE:lightningrod_crit:CRITICAL_CHANCE:8:0"
+          - "ADD_CUSTOM_ATTRIBUTE:lightningrod_critdmg:CRITICAL_DAMAGE:8:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_CUSTOM_ATTRIBUTE:lightningrod_crit"
+          - "REMOVE_CUSTOM_ATTRIBUTE:lightningrod_critdmg"
+      aura:
+        type: AUTO
+        chance: 100
+        cooldown: 9000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+          - "IN_COMBAT"
+        except-player: true
+        except-enemy: false
+        min-distance: 0
+        max-distance: 4.5
+        target-conditions:
+          - "CAN_ATTACK"
+        target-effects:
+          - "TARGET=ENEMY | HEALTH:REMOVE:3"
+          - "TARGET=ENEMY | ADD_POTION:SLOW:2:20"
+          - "TARGET=ENEMY | MESSAGE:&c&l***Lightning Rod: &e&lSét đánh!&c&l***"
+        effects:
+          - "MESSAGE:&6&l***Lightning Rod: &e&lSét đánh kẻ địch!&6&l***"
+    3:
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_CUSTOM_ATTRIBUTE:lightningrod_crit:CRITICAL_CHANCE:12:0"
+          - "ADD_CUSTOM_ATTRIBUTE:lightningrod_critdmg:CRITICAL_DAMAGE:12:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_CUSTOM_ATTRIBUTE:lightningrod_crit"
+          - "REMOVE_CUSTOM_ATTRIBUTE:lightningrod_critdmg"
+      aura:
+        type: AUTO
+        chance: 100
+        cooldown: 8000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+          - "IN_COMBAT"
+        except-player: true
+        except-enemy: false
+        min-distance: 0
+        max-distance: 5
+        target-conditions:
+          - "CAN_ATTACK"
+        target-effects:
+          - "TARGET=ENEMY | HEALTH:REMOVE:4"
+          - "TARGET=ENEMY | ADD_POTION:SLOW:3:20"
+          - "TARGET=ENEMY | MESSAGE:&c&l***Lightning Rod: &e&lSét đánh!&c&l***"
+        effects:
+          - "MESSAGE:&6&l***Lightning Rod: &e&lSét đánh kẻ địch!&6&l***"
+    4:
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_CUSTOM_ATTRIBUTE:lightningrod_crit:CRITICAL_CHANCE:16:0"
+          - "ADD_CUSTOM_ATTRIBUTE:lightningrod_critdmg:CRITICAL_DAMAGE:16:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_CUSTOM_ATTRIBUTE:lightningrod_crit"
+          - "REMOVE_CUSTOM_ATTRIBUTE:lightningrod_critdmg"
+      aura:
+        type: AUTO
+        chance: 100
+        cooldown: 7000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+          - "IN_COMBAT"
+        except-player: true
+        except-enemy: false
+        min-distance: 0
+        max-distance: 5.5
+        target-conditions:
+          - "CAN_ATTACK"
+        target-effects:
+          - "TARGET=ENEMY | HEALTH:REMOVE:5"
+          - "TARGET=ENEMY | ADD_POTION:SLOW:3:20"
+          - "TARGET=ENEMY | MESSAGE:&c&l***Lightning Rod: &e&lSét đánh!&c&l***"
+        effects:
+          - "MESSAGE:&6&l***Lightning Rod: &e&lSét đánh kẻ địch!&6&l***"
+    5:
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_CUSTOM_ATTRIBUTE:lightningrod_crit:CRITICAL_CHANCE:20:0"
+          - "ADD_CUSTOM_ATTRIBUTE:lightningrod_critdmg:CRITICAL_DAMAGE:20:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_CUSTOM_ATTRIBUTE:lightningrod_crit"
+          - "REMOVE_CUSTOM_ATTRIBUTE:lightningrod_critdmg"
+      aura:
+        type: AUTO
+        chance: 100
+        cooldown: 6000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+          - "IN_COMBAT"
+        except-player: true
+        except-enemy: false
+        min-distance: 0
+        max-distance: 6
+        target-conditions:
+          - "CAN_ATTACK"
+        target-effects:
+          - "TARGET=ENEMY | HEALTH:REMOVE:6"
+          - "TARGET=ENEMY | ADD_POTION:SLOW:3:20"
+          - "TARGET=ENEMY | MESSAGE:&c&l***Lightning Rod: &e&lSét đánh!&c&l***"
+        effects:
+          - "MESSAGE:&6&l***Lightning Rod: &e&lSét đánh kẻ địch!&6&l***"
+frostbound_mantle:
+  group: "artifact"
+  display: "Frostbound Mantle"
+  description:
+    - "&7Tăng thêm máu tối đa và hồi máu mỗi giây"
+    - "&7Có tỉ lệ làm chậm kẻ địch khi bị tấn công"
+  applies-description:
+    - "Cổ vật"
+  applies:
+    - "ALL_GEM"
+  max-level: 5
+  enchant-point: 0
+  valuable: 0
+  levels:
+    1:
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:MAX_HEALTH:frostbound_mantle_hp:8:0"
+          - "ADD_CUSTOM_ATTRIBUTE:frostbound_mantle_regen:HEALTH_REGENERATION:3.0:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:MAX_HEALTH:frostbound_mantle_hp"
+          - "REMOVE_CUSTOM_ATTRIBUTE:frostbound_mantle_regen"
+      defense:
+        type: DEFENSE
+        chance: 40
+        cooldown: 5000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "TARGET=ENEMY | ADD_POTION:SLOW:0:60"
+          - "MESSAGE:&6&l***Frostbound Mantle: &b&lLàm chậm kẻ địch!&6&l***"
+    2:
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:MAX_HEALTH:frostbound_mantle_hp:16:0"
+          - "ADD_CUSTOM_ATTRIBUTE:frostbound_mantle_regen:HEALTH_REGENERATION:6.0:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:MAX_HEALTH:frostbound_mantle_hp"
+          - "REMOVE_CUSTOM_ATTRIBUTE:frostbound_mantle_regen"
+      defense:
+        type: DEFENSE
+        chance: 45
+        cooldown: 5000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "TARGET=ENEMY | ADD_POTION:SLOW:0:80"
+          - "MESSAGE:&6&l***Frostbound Mantle: &b&lLàm chậm kẻ địch!&6&l***"
+    3:
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:MAX_HEALTH:frostbound_mantle_hp:24:0"
+          - "ADD_CUSTOM_ATTRIBUTE:frostbound_mantle_regen:HEALTH_REGENERATION:9.0:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:MAX_HEALTH:frostbound_mantle_hp"
+          - "REMOVE_CUSTOM_ATTRIBUTE:frostbound_mantle_regen"
+      defense:
+        type: DEFENSE
+        chance: 50
+        cooldown: 4000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "TARGET=ENEMY | ADD_POTION:SLOW:1:60"
+          - "MESSAGE:&6&l***Frostbound Mantle: &b&lLàm chậm kẻ địch!&6&l***"
+    4:
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:MAX_HEALTH:frostbound_mantle_hp:32:0"
+          - "ADD_CUSTOM_ATTRIBUTE:frostbound_mantle_regen:HEALTH_REGENERATION:12.0:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:MAX_HEALTH:frostbound_mantle_hp"
+          - "REMOVE_CUSTOM_ATTRIBUTE:frostbound_mantle_regen"
+      defense:
+        type: DEFENSE
+        chance: 55
+        cooldown: 4000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "TARGET=ENEMY | ADD_POTION:SLOW:1:80"
+          - "MESSAGE:&6&l***Frostbound Mantle: &b&lLàm chậm kẻ địch!&6&l***"
+    5:
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:MAX_HEALTH:frostbound_mantle_hp:40:0"
+          - "ADD_CUSTOM_ATTRIBUTE:frostbound_mantle_regen:HEALTH_REGENERATION:15.0:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:MAX_HEALTH:frostbound_mantle_hp"
+          - "REMOVE_CUSTOM_ATTRIBUTE:frostbound_mantle_regen"
+      defense:
+        type: DEFENSE
+        chance: 60
+        cooldown: 3000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "TARGET=ENEMY | ADD_POTION:SLOW:2:60"
+          - "MESSAGE:&6&l***Frostbound Mantle: &b&lLàm chậm kẻ địch!&6&l***"
+purificationcharm:
+  group: "artifact"
+  display: "Purification Charm"
+  description:
+    - "&7Tăng thêm hồi máu mỗi giây"
+    - "&7Mỗi khoảng thời gian sẽ tự động thanh lọc"
+    - "&7các hiệu ứng tiêu cực"
+  applies-description:
+    - "Cổ vật"
+  applies:
+    - "ALL_GEM"
+  max-level: 5
+  enchant-point: 0
+  valuable: 0
+  levels:
+    1:
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_CUSTOM_ATTRIBUTE:purificationcharm_regen:HEALTH_REGENERATION:3.0:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_CUSTOM_ATTRIBUTE:purificationcharm_regen"
+      cleanse:
+        type: AUTO
+        chance: 100
+        cooldown: 15000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_POTION:SLOW"
+          - "REMOVE_POTION:POISON"
+          - "REMOVE_POTION:WITHER"
+          - "REMOVE_POTION:WEAKNESS"
+          - "REMOVE_POTION:CONFUSION"
+          - "REMOVE_POTION:BLINDNESS"
+          - "REMOVE_POTION:HUNGER"
+          - "MESSAGE:&6&l***Purification Charm: &a&lThanh lọc!&6&l***"
+    2:
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_CUSTOM_ATTRIBUTE:purificationcharm_regen:HEALTH_REGENERATION:6.0:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_CUSTOM_ATTRIBUTE:purificationcharm_regen"
+      cleanse:
+        type: AUTO
+        chance: 100
+        cooldown: 13000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_POTION:SLOW"
+          - "REMOVE_POTION:POISON"
+          - "REMOVE_POTION:WITHER"
+          - "REMOVE_POTION:WEAKNESS"
+          - "REMOVE_POTION:CONFUSION"
+          - "REMOVE_POTION:BLINDNESS"
+          - "REMOVE_POTION:HUNGER"
+          - "MESSAGE:&6&l***Purification Charm: &a&lThanh lọc!&6&l***"
+    3:
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_CUSTOM_ATTRIBUTE:purificationcharm_regen:HEALTH_REGENERATION:9.0:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_CUSTOM_ATTRIBUTE:purificationcharm_regen"
+      cleanse:
+        type: AUTO
+        chance: 100
+        cooldown: 11000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_POTION:SLOW"
+          - "REMOVE_POTION:POISON"
+          - "REMOVE_POTION:WITHER"
+          - "REMOVE_POTION:WEAKNESS"
+          - "REMOVE_POTION:CONFUSION"
+          - "REMOVE_POTION:BLINDNESS"
+          - "REMOVE_POTION:HUNGER"
+          - "MESSAGE:&6&l***Purification Charm: &a&lThanh lọc!&6&l***"
+    4:
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_CUSTOM_ATTRIBUTE:purificationcharm_regen:HEALTH_REGENERATION:12.0:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_CUSTOM_ATTRIBUTE:purificationcharm_regen"
+      cleanse:
+        type: AUTO
+        chance: 100
+        cooldown: 9000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_POTION:SLOW"
+          - "REMOVE_POTION:POISON"
+          - "REMOVE_POTION:WITHER"
+          - "REMOVE_POTION:WEAKNESS"
+          - "REMOVE_POTION:CONFUSION"
+          - "REMOVE_POTION:BLINDNESS"
+          - "REMOVE_POTION:HUNGER"
+          - "MESSAGE:&6&l***Purification Charm: &a&lThanh lọc!&6&l***"
+    5:
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_CUSTOM_ATTRIBUTE:purificationcharm_regen:HEALTH_REGENERATION:15.0:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_CUSTOM_ATTRIBUTE:purificationcharm_regen"
+      cleanse:
+        type: AUTO
+        chance: 100
+        cooldown: 7000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_POTION:SLOW"
+          - "REMOVE_POTION:POISON"
+          - "REMOVE_POTION:WITHER"
+          - "REMOVE_POTION:WEAKNESS"
+          - "REMOVE_POTION:CONFUSION"
+          - "REMOVE_POTION:BLINDNESS"
+          - "REMOVE_POTION:HUNGER"
+          - "MESSAGE:&6&l***Purification Charm: &a&lThanh lọc!&6&l***"
+beastvinewhip:
+  group: "artifact"
+  display: "Beast Vine Whip"
+  description:
+    - "&7Tăng thêm sức tấn công và tỉ lệ chí mạng"
+    - "&7Mỗi khoảng thời gian khi chiến đấu sẽ tăng"
+    - "&7thêm sức tấn công và tốc độ đánh"
+  applies-description:
+    - "Cổ vật"
+  applies:
+    - "ALL_GEM"
+  max-level: 5
+  enchant-point: 0
+  valuable: 0
+  levels:
+    1:
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:ATTACK_DAMAGE:beastvinewhip_atk:2:0"
+          - "ADD_CUSTOM_ATTRIBUTE:beastvinewhip_crit:CRITICAL_CHANCE:4:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:ATTACK_DAMAGE:beastvinewhip_atk"
+          - "REMOVE_CUSTOM_ATTRIBUTE:beastvinewhip_crit"
+      combat_buff:
+        type: AUTO
+        chance: 100
+        cooldown: 8000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+          - "IN_COMBAT"
+        effects:
+          - "ADD_ATTRIBUTE:ATTACK_DAMAGE:beastvinewhip_bonus_atk:2:0"
+          - "ADD_ATTRIBUTE:ATTACK_SPEED:beastvinewhip_bonus_atkspd:0.05:0"
+          - "NAME=beastvinewhip_buff,DELAY=60 | REMOVE_ATTRIBUTE:ATTACK_DAMAGE:beastvinewhip_bonus_atk"
+          - "NAME=beastvinewhip_buff2,DELAY=60 | REMOVE_ATTRIBUTE:ATTACK_SPEED:beastvinewhip_bonus_atkspd"
+          - "MESSAGE:&6&l***Beast Vine Whip: &c&lCuồng nộ!&6&l***"
+    2:
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:ATTACK_DAMAGE:beastvinewhip_atk:4:0"
+          - "ADD_CUSTOM_ATTRIBUTE:beastvinewhip_crit:CRITICAL_CHANCE:8:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:ATTACK_DAMAGE:beastvinewhip_atk"
+          - "REMOVE_CUSTOM_ATTRIBUTE:beastvinewhip_crit"
+      combat_buff:
+        type: AUTO
+        chance: 100
+        cooldown: 7000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+          - "IN_COMBAT"
+        effects:
+          - "ADD_ATTRIBUTE:ATTACK_DAMAGE:beastvinewhip_bonus_atk:3:0"
+          - "ADD_ATTRIBUTE:ATTACK_SPEED:beastvinewhip_bonus_atkspd:0.05:0"
+          - "NAME=beastvinewhip_buff,DELAY=60 | REMOVE_ATTRIBUTE:ATTACK_DAMAGE:beastvinewhip_bonus_atk"
+          - "NAME=beastvinewhip_buff2,DELAY=60 | REMOVE_ATTRIBUTE:ATTACK_SPEED:beastvinewhip_bonus_atkspd"
+          - "MESSAGE:&6&l***Beast Vine Whip: &c&lCuồng nộ!&6&l***"
+    3:
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:ATTACK_DAMAGE:beastvinewhip_atk:6:0"
+          - "ADD_CUSTOM_ATTRIBUTE:beastvinewhip_crit:CRITICAL_CHANCE:12:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:ATTACK_DAMAGE:beastvinewhip_atk"
+          - "REMOVE_CUSTOM_ATTRIBUTE:beastvinewhip_crit"
+      combat_buff:
+        type: AUTO
+        chance: 100
+        cooldown: 6000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+          - "IN_COMBAT"
+        effects:
+          - "ADD_ATTRIBUTE:ATTACK_DAMAGE:beastvinewhip_bonus_atk:4:0"
+          - "ADD_ATTRIBUTE:ATTACK_SPEED:beastvinewhip_bonus_atkspd:0.05:0"
+          - "NAME=beastvinewhip_buff,DELAY=80 | REMOVE_ATTRIBUTE:ATTACK_DAMAGE:beastvinewhip_bonus_atk"
+          - "NAME=beastvinewhip_buff2,DELAY=80 | REMOVE_ATTRIBUTE:ATTACK_SPEED:beastvinewhip_bonus_atkspd"
+          - "MESSAGE:&6&l***Beast Vine Whip: &c&lCuồng nộ!&6&l***"
+    4:
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:ATTACK_DAMAGE:beastvinewhip_atk:8:0"
+          - "ADD_CUSTOM_ATTRIBUTE:beastvinewhip_crit:CRITICAL_CHANCE:16:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:ATTACK_DAMAGE:beastvinewhip_atk"
+          - "REMOVE_CUSTOM_ATTRIBUTE:beastvinewhip_crit"
+      combat_buff:
+        type: AUTO
+        chance: 100
+        cooldown: 5000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+          - "IN_COMBAT"
+        effects:
+          - "ADD_ATTRIBUTE:ATTACK_DAMAGE:beastvinewhip_bonus_atk:5:0"
+          - "ADD_ATTRIBUTE:ATTACK_SPEED:beastvinewhip_bonus_atkspd:0.05:0"
+          - "NAME=beastvinewhip_buff,DELAY=80 | REMOVE_ATTRIBUTE:ATTACK_DAMAGE:beastvinewhip_bonus_atk"
+          - "NAME=beastvinewhip_buff2,DELAY=80 | REMOVE_ATTRIBUTE:ATTACK_SPEED:beastvinewhip_bonus_atkspd"
+          - "MESSAGE:&6&l***Beast Vine Whip: &c&lCuồng nộ!&6&l***"
+    5:
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:ATTACK_DAMAGE:beastvinewhip_atk:10:0"
+          - "ADD_CUSTOM_ATTRIBUTE:beastvinewhip_crit:CRITICAL_CHANCE:20:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:ATTACK_DAMAGE:beastvinewhip_atk"
+          - "REMOVE_CUSTOM_ATTRIBUTE:beastvinewhip_crit"
+      combat_buff:
+        type: AUTO
+        chance: 100
+        cooldown: 4000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+          - "IN_COMBAT"
+        effects:
+          - "ADD_ATTRIBUTE:ATTACK_DAMAGE:beastvinewhip_bonus_atk:6:0"
+          - "ADD_ATTRIBUTE:ATTACK_SPEED:beastvinewhip_bonus_atkspd:0.05:0"
+          - "NAME=beastvinewhip_buff,DELAY=100 | REMOVE_ATTRIBUTE:ATTACK_DAMAGE:beastvinewhip_bonus_atk"
+          - "NAME=beastvinewhip_buff2,DELAY=100 | REMOVE_ATTRIBUTE:ATTACK_SPEED:beastvinewhip_bonus_atkspd"
+          - "MESSAGE:&6&l***Beast Vine Whip: &c&lCuồng nộ!&6&l***"
+seedofvitality:
+  group: "artifact"
+  display: "Seed of Vitality"
+  description:
+    - "&7Tăng thêm máu tối đa và tim vàng tối đa"
+    - "&7Có tỉ lệ nhận thêm tim vàng khi bị tấn công"
+  applies-description:
+    - "Cổ vật"
+  applies:
+    - "ALL_GEM"
+  max-level: 5
+  enchant-point: 0
+  valuable: 0
+  levels:
+    1:
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:MAX_HEALTH:seedofvitality_hp:8:0"
+          - "ADD_ATTRIBUTE:MAX_ABSORPTION:seedofvitality_absorb:6:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:MAX_HEALTH:seedofvitality_hp"
+          - "REMOVE_ATTRIBUTE:MAX_ABSORPTION:seedofvitality_absorb"
+      defense:
+        type: DEFENSE
+        chance: 30
+        cooldown: 8000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ABSORPTION_HEART:ADD:2:100"
+          - "MESSAGE:&6&l***Seed of Vitality: &e&l+2 Tim vàng!&6&l***"
+    2:
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:MAX_HEALTH:seedofvitality_hp:16:0"
+          - "ADD_ATTRIBUTE:MAX_ABSORPTION:seedofvitality_absorb:12:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:MAX_HEALTH:seedofvitality_hp"
+          - "REMOVE_ATTRIBUTE:MAX_ABSORPTION:seedofvitality_absorb"
+      defense:
+        type: DEFENSE
+        chance: 35
+        cooldown: 7000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ABSORPTION_HEART:ADD:3:100"
+          - "MESSAGE:&6&l***Seed of Vitality: &e&l+3 Tim vàng!&6&l***"
+    3:
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:MAX_HEALTH:seedofvitality_hp:24:0"
+          - "ADD_ATTRIBUTE:MAX_ABSORPTION:seedofvitality_absorb:18:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:MAX_HEALTH:seedofvitality_hp"
+          - "REMOVE_ATTRIBUTE:MAX_ABSORPTION:seedofvitality_absorb"
+      defense:
+        type: DEFENSE
+        chance: 40
+        cooldown: 6000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ABSORPTION_HEART:ADD:4:120"
+          - "MESSAGE:&6&l***Seed of Vitality: &e&l+4 Tim vàng!&6&l***"
+    4:
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:MAX_HEALTH:seedofvitality_hp:32:0"
+          - "ADD_ATTRIBUTE:MAX_ABSORPTION:seedofvitality_absorb:24:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:MAX_HEALTH:seedofvitality_hp"
+          - "REMOVE_ATTRIBUTE:MAX_ABSORPTION:seedofvitality_absorb"
+      defense:
+        type: DEFENSE
+        chance: 45
+        cooldown: 5000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ABSORPTION_HEART:ADD:5:120"
+          - "MESSAGE:&6&l***Seed of Vitality: &e&l+5 Tim vàng!&6&l***"
+    5:
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:MAX_HEALTH:seedofvitality_hp:40:0"
+          - "ADD_ATTRIBUTE:MAX_ABSORPTION:seedofvitality_absorb:30:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:MAX_HEALTH:seedofvitality_hp"
+          - "REMOVE_ATTRIBUTE:MAX_ABSORPTION:seedofvitality_absorb"
+      defense:
+        type: DEFENSE
+        chance: 50
+        cooldown: 4000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ABSORPTION_HEART:ADD:6:160"
+          - "MESSAGE:&6&l***Seed of Vitality: &e&l+6 Tim vàng!&6&l***"
+lifependant:
+  group: "artifact"
+  display: "Life Pendant"
+  description:
+    - "&7Tăng thêm máu tối đa và hồi máu mỗi giây"
+    - "&7Có tỉ lệ nhận hồi phục khi bị tấn công"
+  applies-description:
+    - "Cổ vật"
+  applies:
+    - "ALL_GEM"
+  max-level: 5
+  enchant-point: 0
+  valuable: 0
+  levels:
+    1:
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:MAX_HEALTH:lifependant_hp:8:0"
+          - "ADD_CUSTOM_ATTRIBUTE:lifependant_regen:HEALTH_REGENERATION:3.0:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:MAX_HEALTH:lifependant_hp"
+          - "REMOVE_CUSTOM_ATTRIBUTE:lifependant_regen"
+      defense:
+        type: DEFENSE
+        chance: 25
+        cooldown: 5000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_POTION:REGENERATION:0:60"
+          - "MESSAGE:&6&l***Life Pendant: &a&lHồi phục!&6&l***"
+    2:
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:MAX_HEALTH:lifependant_hp:16:0"
+          - "ADD_CUSTOM_ATTRIBUTE:lifependant_regen:HEALTH_REGENERATION:6.0:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:MAX_HEALTH:lifependant_hp"
+          - "REMOVE_CUSTOM_ATTRIBUTE:lifependant_regen"
+      defense:
+        type: DEFENSE
+        chance: 30
+        cooldown: 5000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_POTION:REGENERATION:0:80"
+          - "MESSAGE:&6&l***Life Pendant: &a&lHồi phục!&6&l***"
+    3:
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:MAX_HEALTH:lifependant_hp:24:0"
+          - "ADD_CUSTOM_ATTRIBUTE:lifependant_regen:HEALTH_REGENERATION:9.0:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:MAX_HEALTH:lifependant_hp"
+          - "REMOVE_CUSTOM_ATTRIBUTE:lifependant_regen"
+      defense:
+        type: DEFENSE
+        chance: 35
+        cooldown: 4000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_POTION:REGENERATION:1:60"
+          - "MESSAGE:&6&l***Life Pendant: &a&lHồi phục!&6&l***"
+    4:
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:MAX_HEALTH:lifependant_hp:32:0"
+          - "ADD_CUSTOM_ATTRIBUTE:lifependant_regen:HEALTH_REGENERATION:12.0:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:MAX_HEALTH:lifependant_hp"
+          - "REMOVE_CUSTOM_ATTRIBUTE:lifependant_regen"
+      defense:
+        type: DEFENSE
+        chance: 40
+        cooldown: 4000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_POTION:REGENERATION:1:80"
+          - "MESSAGE:&6&l***Life Pendant: &a&lHồi phục!&6&l***"
+    5:
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:MAX_HEALTH:lifependant_hp:40:0"
+          - "ADD_CUSTOM_ATTRIBUTE:lifependant_regen:HEALTH_REGENERATION:15.0:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:MAX_HEALTH:lifependant_hp"
+          - "REMOVE_CUSTOM_ATTRIBUTE:lifependant_regen"
+      defense:
+        type: DEFENSE
+        chance: 45
+        cooldown: 3000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_POTION:REGENERATION:1:100"
+          - "MESSAGE:&6&l***Life Pendant: &a&lHồi phục!&6&l***"
+lanternofinferno:
+  group: "artifact"
+  display: "Lantern of Inferno"
+  description:
+    - "&7Tăng thêm sức tấn công và tỉ lệ chí mạng"
+    - "&7Mỗi khoảng thời gian sẽ đốt cháy kẻ địch xung quanh"
+  applies-description:
+    - "Cổ vật"
+  applies:
+    - "ALL_GEM"
+  max-level: 5
+  enchant-point: 0
+  valuable: 0
+  levels:
+    1:
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:ATTACK_DAMAGE:lanternofinferno_atk:2:0"
+          - "ADD_CUSTOM_ATTRIBUTE:lanternofinferno_crit:CRITICAL_CHANCE:4:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:ATTACK_DAMAGE:lanternofinferno_atk"
+          - "REMOVE_CUSTOM_ATTRIBUTE:lanternofinferno_crit"
+      aura:
+        type: AUTO
+        chance: 100
+        cooldown: 3000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+          - "IN_COMBAT"
+        except-player: true
+        except-enemy: false
+        min-distance: 0
+        max-distance: 3
+        target-conditions:
+          - "CAN_ATTACK"
+        target-effects:
+          - "TARGET=ENEMY | ON_FIRE:40"
+        effects: []
+    2:
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:ATTACK_DAMAGE:lanternofinferno_atk:4:0"
+          - "ADD_CUSTOM_ATTRIBUTE:lanternofinferno_crit:CRITICAL_CHANCE:8:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:ATTACK_DAMAGE:lanternofinferno_atk"
+          - "REMOVE_CUSTOM_ATTRIBUTE:lanternofinferno_crit"
+      aura:
+        type: AUTO
+        chance: 100
+        cooldown: 3000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+          - "IN_COMBAT"
+        except-player: true
+        except-enemy: false
+        min-distance: 0
+        max-distance: 3.5
+        target-conditions:
+          - "CAN_ATTACK"
+        target-effects:
+          - "TARGET=ENEMY | ON_FIRE:50"
+        effects: []
+    3:
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:ATTACK_DAMAGE:lanternofinferno_atk:6:0"
+          - "ADD_CUSTOM_ATTRIBUTE:lanternofinferno_crit:CRITICAL_CHANCE:12:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:ATTACK_DAMAGE:lanternofinferno_atk"
+          - "REMOVE_CUSTOM_ATTRIBUTE:lanternofinferno_crit"
+      aura:
+        type: AUTO
+        chance: 100
+        cooldown: 2500
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+          - "IN_COMBAT"
+        except-player: true
+        except-enemy: false
+        min-distance: 0
+        max-distance: 4
+        target-conditions:
+          - "CAN_ATTACK"
+        target-effects:
+          - "TARGET=ENEMY | ON_FIRE:60"
+        effects: []
+    4:
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:ATTACK_DAMAGE:lanternofinferno_atk:8:0"
+          - "ADD_CUSTOM_ATTRIBUTE:lanternofinferno_crit:CRITICAL_CHANCE:16:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:ATTACK_DAMAGE:lanternofinferno_atk"
+          - "REMOVE_CUSTOM_ATTRIBUTE:lanternofinferno_crit"
+      aura:
+        type: AUTO
+        chance: 100
+        cooldown: 2500
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+          - "IN_COMBAT"
+        except-player: true
+        except-enemy: false
+        min-distance: 0
+        max-distance: 4.5
+        target-conditions:
+          - "CAN_ATTACK"
+        target-effects:
+          - "TARGET=ENEMY | ON_FIRE:70"
+        effects: []
+    5:
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:ATTACK_DAMAGE:lanternofinferno_atk:10:0"
+          - "ADD_CUSTOM_ATTRIBUTE:lanternofinferno_crit:CRITICAL_CHANCE:20:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:ATTACK_DAMAGE:lanternofinferno_atk"
+          - "REMOVE_CUSTOM_ATTRIBUTE:lanternofinferno_crit"
+      aura:
+        type: AUTO
+        chance: 100
+        cooldown: 2000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+          - "IN_COMBAT"
+        except-player: true
+        except-enemy: false
+        min-distance: 0
+        max-distance: 5
+        target-conditions:
+          - "CAN_ATTACK"
+        target-effects:
+          - "TARGET=ENEMY | ON_FIRE:80"
+        effects: []
+lanternofspecters:
+  group: "artifact"
+  display: "Lantern of Specters"
+  description:
+    - "&7Tăng thêm máu tối đa và hồi máu mỗi giây"
+    - "&7Mỗi khoảng thời gian sẽ làm chậm kẻ địch xung quanh"
+  applies-description:
+    - "Cổ vật"
+  applies:
+    - "ALL_GEM"
+  max-level: 5
+  enchant-point: 0
+  valuable: 0
+  levels:
+    1:
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:MAX_HEALTH:lanternofspecters_hp:8:0"
+          - "ADD_CUSTOM_ATTRIBUTE:lanternofspecters_regen:HEALTH_REGENERATION:3.0:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:MAX_HEALTH:lanternofspecters_hp"
+          - "REMOVE_CUSTOM_ATTRIBUTE:lanternofspecters_regen"
+      aura:
+        type: AUTO
+        chance: 100
+        cooldown: 3000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+          - "IN_COMBAT"
+        except-player: true
+        except-enemy: false
+        min-distance: 0
+        max-distance: 3
+        target-conditions:
+          - "CAN_ATTACK"
+        target-effects:
+          - "TARGET=ENEMY | ADD_POTION:SLOW:0:40"
+        effects: []
+    2:
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:MAX_HEALTH:lanternofspecters_hp:16:0"
+          - "ADD_CUSTOM_ATTRIBUTE:lanternofspecters_regen:HEALTH_REGENERATION:6.0:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:MAX_HEALTH:lanternofspecters_hp"
+          - "REMOVE_CUSTOM_ATTRIBUTE:lanternofspecters_regen"
+      aura:
+        type: AUTO
+        chance: 100
+        cooldown: 3000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+          - "IN_COMBAT"
+        except-player: true
+        except-enemy: false
+        min-distance: 0
+        max-distance: 3.5
+        target-conditions:
+          - "CAN_ATTACK"
+        target-effects:
+          - "TARGET=ENEMY | ADD_POTION:SLOW:0:60"
+        effects: []
+    3:
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:MAX_HEALTH:lanternofspecters_hp:24:0"
+          - "ADD_CUSTOM_ATTRIBUTE:lanternofspecters_regen:HEALTH_REGENERATION:9.0:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:MAX_HEALTH:lanternofspecters_hp"
+          - "REMOVE_CUSTOM_ATTRIBUTE:lanternofspecters_regen"
+      aura:
+        type: AUTO
+        chance: 100
+        cooldown: 2500
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+          - "IN_COMBAT"
+        except-player: true
+        except-enemy: false
+        min-distance: 0
+        max-distance: 4
+        target-conditions:
+          - "CAN_ATTACK"
+        target-effects:
+          - "TARGET=ENEMY | ADD_POTION:SLOW:1:40"
+        effects: []
+    4:
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:MAX_HEALTH:lanternofspecters_hp:32:0"
+          - "ADD_CUSTOM_ATTRIBUTE:lanternofspecters_regen:HEALTH_REGENERATION:12.0:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:MAX_HEALTH:lanternofspecters_hp"
+          - "REMOVE_CUSTOM_ATTRIBUTE:lanternofspecters_regen"
+      aura:
+        type: AUTO
+        chance: 100
+        cooldown: 2500
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+          - "IN_COMBAT"
+        except-player: true
+        except-enemy: false
+        min-distance: 0
+        max-distance: 4.5
+        target-conditions:
+          - "CAN_ATTACK"
+        target-effects:
+          - "TARGET=ENEMY | ADD_POTION:SLOW:1:60"
+        effects: []
+    5:
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:MAX_HEALTH:lanternofspecters_hp:40:0"
+          - "ADD_CUSTOM_ATTRIBUTE:lanternofspecters_regen:HEALTH_REGENERATION:15.0:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:MAX_HEALTH:lanternofspecters_hp"
+          - "REMOVE_CUSTOM_ATTRIBUTE:lanternofspecters_regen"
+      aura:
+        type: AUTO
+        chance: 100
+        cooldown: 2000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+          - "IN_COMBAT"
+        except-player: true
+        except-enemy: false
+        min-distance: 0
+        max-distance: 5
+        target-conditions:
+          - "CAN_ATTACK"
+        target-effects:
+          - "TARGET=ENEMY | ADD_POTION:SLOW:2:40"
+        effects: []
+glowinksac:
+  group: "artifact"
+  display: "Glow Ink Sac"
+  description:
+    - "&7Tăng thêm hồi máu mỗi giây và tốc độ di chuyển"
+    - "&7Có tỉ lệ nhận buff ngẫu nhiên khi tấn công"
+    - "&7hoặc bị tấn công"
+  applies-description:
+    - "Cổ vật"
+  applies:
+    - "ALL_GEM"
+  max-level: 5
+  enchant-point: 0
+  valuable: 0
+  levels:
+    1:
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_CUSTOM_ATTRIBUTE:glowinksac_regen:HEALTH_REGENERATION:3.0:0"
+          - "ADD_ATTRIBUTE:MOVEMENT_SPEED:glowinksac_speed:0.012:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_CUSTOM_ATTRIBUTE:glowinksac_regen"
+          - "REMOVE_ATTRIBUTE:MOVEMENT_SPEED:glowinksac_speed"
+      attack:
+        type: ATTACK
+        chance: 20
+        cooldown: 8000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_POTION:INCREASE_DAMAGE:0:60"
+          - "MESSAGE:&6&l***Glow Ink Sac: &c&lSức mạnh!&6&l***"
+      defense:
+        type: DEFENSE
+        chance: 20
+        cooldown: 8000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_POTION:SPEED:0:60"
+          - "MESSAGE:&6&l***Glow Ink Sac: &b&lTốc độ!&6&l***"
+    2:
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_CUSTOM_ATTRIBUTE:glowinksac_regen:HEALTH_REGENERATION:6.0:0"
+          - "ADD_ATTRIBUTE:MOVEMENT_SPEED:glowinksac_speed:0.024:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_CUSTOM_ATTRIBUTE:glowinksac_regen"
+          - "REMOVE_ATTRIBUTE:MOVEMENT_SPEED:glowinksac_speed"
+      attack:
+        type: ATTACK
+        chance: 25
+        cooldown: 7000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_POTION:INCREASE_DAMAGE:0:80"
+          - "MESSAGE:&6&l***Glow Ink Sac: &c&lSức mạnh!&6&l***"
+      defense:
+        type: DEFENSE
+        chance: 25
+        cooldown: 7000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_POTION:SPEED:0:80"
+          - "MESSAGE:&6&l***Glow Ink Sac: &b&lTốc độ!&6&l***"
+    3:
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_CUSTOM_ATTRIBUTE:glowinksac_regen:HEALTH_REGENERATION:9.0:0"
+          - "ADD_ATTRIBUTE:MOVEMENT_SPEED:glowinksac_speed:0.036:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_CUSTOM_ATTRIBUTE:glowinksac_regen"
+          - "REMOVE_ATTRIBUTE:MOVEMENT_SPEED:glowinksac_speed"
+      attack:
+        type: ATTACK
+        chance: 30
+        cooldown: 6000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_POTION:INCREASE_DAMAGE:0:100"
+          - "MESSAGE:&6&l***Glow Ink Sac: &c&lSức mạnh!&6&l***"
+      defense:
+        type: DEFENSE
+        chance: 30
+        cooldown: 6000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_POTION:SPEED:0:100"
+          - "MESSAGE:&6&l***Glow Ink Sac: &b&lTốc độ!&6&l***"
+    4:
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_CUSTOM_ATTRIBUTE:glowinksac_regen:HEALTH_REGENERATION:12.0:0"
+          - "ADD_ATTRIBUTE:MOVEMENT_SPEED:glowinksac_speed:0.048:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_CUSTOM_ATTRIBUTE:glowinksac_regen"
+          - "REMOVE_ATTRIBUTE:MOVEMENT_SPEED:glowinksac_speed"
+      attack:
+        type: ATTACK
+        chance: 35
+        cooldown: 5000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_POTION:INCREASE_DAMAGE:1:60"
+          - "MESSAGE:&6&l***Glow Ink Sac: &c&lSức mạnh!&6&l***"
+      defense:
+        type: DEFENSE
+        chance: 35
+        cooldown: 5000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_POTION:SPEED:1:60"
+          - "MESSAGE:&6&l***Glow Ink Sac: &b&lTốc độ!&6&l***"
+    5:
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_CUSTOM_ATTRIBUTE:glowinksac_regen:HEALTH_REGENERATION:15.0:0"
+          - "ADD_ATTRIBUTE:MOVEMENT_SPEED:glowinksac_speed:0.06:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_CUSTOM_ATTRIBUTE:glowinksac_regen"
+          - "REMOVE_ATTRIBUTE:MOVEMENT_SPEED:glowinksac_speed"
+      attack:
+        type: ATTACK
+        chance: 40
+        cooldown: 4000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_POTION:INCREASE_DAMAGE:1:80"
+          - "MESSAGE:&6&l***Glow Ink Sac: &c&lSức mạnh!&6&l***"
+      defense:
+        type: DEFENSE
+        chance: 40
+        cooldown: 4000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_POTION:SPEED:1:80"
+          - "MESSAGE:&6&l***Glow Ink Sac: &b&lTốc độ!&6&l***"
+hornofrally:
+  group: "artifact"
+  display: "Horn of Rally"
+  description:
+    - "&7Tăng thêm máu tối đa, hồi máu mỗi giây"
+    - "&7và tốc độ di chuyển"
+    - "&7Mỗi khoảng thời gian sẽ buff tốc độ và hồi phục"
+    - "&7cho đồng minh xung quanh"
+  applies-description:
+    - "Cổ vật"
+  applies:
+    - "ALL_GEM"
+  max-level: 5
+  enchant-point: 0
+  valuable: 0
+  levels:
+    1:
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:MAX_HEALTH:hornofrally_hp:8:0"
+          - "ADD_CUSTOM_ATTRIBUTE:hornofrally_regen:HEALTH_REGENERATION:3.0:0"
+          - "ADD_ATTRIBUTE:MOVEMENT_SPEED:hornofrally_speed:0.012:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:MAX_HEALTH:hornofrally_hp"
+          - "REMOVE_CUSTOM_ATTRIBUTE:hornofrally_regen"
+          - "REMOVE_ATTRIBUTE:MOVEMENT_SPEED:hornofrally_speed"
+      aura:
+        type: AUTO
+        chance: 100
+        cooldown: 5000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        except-player: true
+        except-enemy: true
+        min-distance: 0
+        max-distance: 3
+        target-effects:
+          - "TARGET=ENEMY | ADD_POTION:SPEED:0:60"
+          - "TARGET=ENEMY | ADD_POTION:REGENERATION:0:60"
+        effects: []
+    2:
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:MAX_HEALTH:hornofrally_hp:16:0"
+          - "ADD_CUSTOM_ATTRIBUTE:hornofrally_regen:HEALTH_REGENERATION:6.0:0"
+          - "ADD_ATTRIBUTE:MOVEMENT_SPEED:hornofrally_speed:0.024:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:MAX_HEALTH:hornofrally_hp"
+          - "REMOVE_CUSTOM_ATTRIBUTE:hornofrally_regen"
+          - "REMOVE_ATTRIBUTE:MOVEMENT_SPEED:hornofrally_speed"
+      aura:
+        type: AUTO
+        chance: 100
+        cooldown: 5000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        except-player: true
+        except-enemy: true
+        min-distance: 0
+        max-distance: 3.5
+        target-effects:
+          - "TARGET=ENEMY | ADD_POTION:SPEED:0:80"
+          - "TARGET=ENEMY | ADD_POTION:REGENERATION:0:80"
+        effects: []
+    3:
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:MAX_HEALTH:hornofrally_hp:24:0"
+          - "ADD_CUSTOM_ATTRIBUTE:hornofrally_regen:HEALTH_REGENERATION:9.0:0"
+          - "ADD_ATTRIBUTE:MOVEMENT_SPEED:hornofrally_speed:0.036:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:MAX_HEALTH:hornofrally_hp"
+          - "REMOVE_CUSTOM_ATTRIBUTE:hornofrally_regen"
+          - "REMOVE_ATTRIBUTE:MOVEMENT_SPEED:hornofrally_speed"
+      aura:
+        type: AUTO
+        chance: 100
+        cooldown: 4000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        except-player: true
+        except-enemy: true
+        min-distance: 0
+        max-distance: 4
+        target-effects:
+          - "TARGET=ENEMY | ADD_POTION:SPEED:0:100"
+          - "TARGET=ENEMY | ADD_POTION:REGENERATION:0:100"
+        effects: []
+    4:
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:MAX_HEALTH:hornofrally_hp:32:0"
+          - "ADD_CUSTOM_ATTRIBUTE:hornofrally_regen:HEALTH_REGENERATION:12.0:0"
+          - "ADD_ATTRIBUTE:MOVEMENT_SPEED:hornofrally_speed:0.048:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:MAX_HEALTH:hornofrally_hp"
+          - "REMOVE_CUSTOM_ATTRIBUTE:hornofrally_regen"
+          - "REMOVE_ATTRIBUTE:MOVEMENT_SPEED:hornofrally_speed"
+      aura:
+        type: AUTO
+        chance: 100
+        cooldown: 4000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        except-player: true
+        except-enemy: true
+        min-distance: 0
+        max-distance: 4.5
+        target-effects:
+          - "TARGET=ENEMY | ADD_POTION:SPEED:1:60"
+          - "TARGET=ENEMY | ADD_POTION:REGENERATION:1:60"
+        effects: []
+    5:
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:MAX_HEALTH:hornofrally_hp:40:0"
+          - "ADD_CUSTOM_ATTRIBUTE:hornofrally_regen:HEALTH_REGENERATION:15.0:0"
+          - "ADD_ATTRIBUTE:MOVEMENT_SPEED:hornofrally_speed:0.06:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:MAX_HEALTH:hornofrally_hp"
+          - "REMOVE_CUSTOM_ATTRIBUTE:hornofrally_regen"
+          - "REMOVE_ATTRIBUTE:MOVEMENT_SPEED:hornofrally_speed"
+      aura:
+        type: AUTO
+        chance: 100
+        cooldown: 3000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        except-player: true
+        except-enemy: true
+        min-distance: 0
+        max-distance: 5
+        target-effects:
+          - "TARGET=ENEMY | ADD_POTION:SPEED:1:80"
+          - "TARGET=ENEMY | ADD_POTION:REGENERATION:1:80"
+        effects: []

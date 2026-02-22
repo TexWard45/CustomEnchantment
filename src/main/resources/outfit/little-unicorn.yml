@@ -1,0 +1,83 @@
+# Armor
+# HELMET → CHESTPLATE → LEGGINGS → BOOTS
+
+# Melee Weapons
+# SWORD → DAGGER → SPEAR → GREATSWORD → AXE → HAMMER → STICK → STAFF → SCYTHE
+
+# Ranged Weapons
+# BOW → CROSSBOW
+
+# Tools
+# PICKAXE → SHOVEL → HOE → FISHINGROD
+
+# Defensive
+# SHIELD
+
+# Cosmetic (no combat, no tool)
+# WINGS → HAT
+outfit:
+  little-unicorn:
+    group: ultimate
+    max-level: 5
+    item:
+      type: PAPER
+      custom-model-data: 10312
+      display: "<GRADIENTS:#F91965,#FF3F9E,#F83466,#F83466,#FFB326,#FFCD4A,#19F88A,#3CFFBC,#22A6F7,#42C7FF,#8C25F6,#903FFF>&lBộ Trang Phục Kỳ Lân</GRADIENTS>"
+      glowing: true
+      lore:
+        - ""
+    enchant: "littleunicorn"
+    levels:
+      1:
+        custom-types:
+          HELMET:
+            list:
+              - 'little-unicorn-hat'
+              - 'little-unicorn-helmet'
+          WINGS:
+            list:
+              - 'little-unicorn-wings'
+        skins:
+          # =======================
+          # ARMOR
+          # =======================
+          HELMET: little-unicorn-helmet
+          CHESTPLATE: little-unicorn-chestplate
+          LEGGINGS: little-unicorn-leggings
+          BOOTS: little-unicorn-boots
+
+          # =======================
+          # MELEE WEAPONS
+          # =======================
+          SWORD: little-unicorn-sword
+          SPEAR: little-unicorn-spear
+          AXE: little-unicorn-axe
+          DAGGER: little-unicorn-dagger
+          HAMMER: little-unicorn-hammer
+          STAFF: little-unicorn-staff
+          SCYTHE: little-unicorn-scythe
+          TRIDENT: little-unicorn-trident
+
+          # =======================
+          # RANGED WEAPONS
+          # =======================
+          BOW: little-unicorn-bow
+          CROSSBOW: little-unicorn-crossbow
+
+          # =======================
+          # TOOLS
+          # =======================
+          PICKAXE: little-unicorn-pickaxe
+          SHOVEL: little-unicorn-shovel
+          HOE: little-unicorn-hoe
+          FISHINGROD: little-unicorn-fishingrod
+
+          # =======================
+          # DEFENSIVE
+          # =======================
+          SHIELD: little-unicorn-shield
+
+          # =======================
+          # COSMETIC
+          # =======================
+          WINGS: little-unicorn-wings

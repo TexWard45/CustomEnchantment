@@ -13,55 +13,100 @@ miner:
   valuable: 0
   levels:
     1:
-      equip:
-        type: ARMOR_EQUIP
+      hold:
+        type: HOLD
         chance: 100
         cooldown: 0
         conditions:
-        - ''
-        effect-now: true
+          - "EQUIP_SLOT:MAINHAND"
         effects:
-        - ''
+          - "ADD_BLOCK_BONUS:MONEY:miner_money_bonus:ALL_ORE_BLOCK:3"
+          - "ADD_BLOCK_BONUS:EXP:miner_xp_bonus:ALL_ORE_BLOCK:3:0:100"
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:MAINHAND"
+        effects:
+          - "REMOVE_BLOCK_BONUS:MONEY:miner_money_bonus"
+          - "REMOVE_BLOCK_BONUS:EXP:miner_xp_bonus"
     2:
-      equip:
-        type: ARMOR_EQUIP
+      hold:
+        type: HOLD
         chance: 100
         cooldown: 0
         conditions:
-        - ''
-        effect-now: true
+          - "EQUIP_SLOT:MAINHAND"
         effects:
-        - ''
+          - "ADD_BLOCK_BONUS:MONEY:miner_money_bonus:ALL_ORE_BLOCK:6"
+          - "ADD_BLOCK_BONUS:EXP:miner_xp_bonus:ALL_ORE_BLOCK:6:0:100"
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:MAINHAND"
+        effects:
+          - "REMOVE_BLOCK_BONUS:MONEY:miner_money_bonus"
+          - "REMOVE_BLOCK_BONUS:EXP:miner_xp_bonus"
     3:
-      equip:
-        type: ARMOR_EQUIP
+      hold:
+        type: HOLD
         chance: 100
         cooldown: 0
         conditions:
-        - ''
-        effect-now: true
+          - "EQUIP_SLOT:MAINHAND"
         effects:
-        - ''
+          - "ADD_BLOCK_BONUS:MONEY:miner_money_bonus:ALL_ORE_BLOCK:9"
+          - "ADD_BLOCK_BONUS:EXP:miner_xp_bonus:ALL_ORE_BLOCK:9:0:100"
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:MAINHAND"
+        effects:
+          - "REMOVE_BLOCK_BONUS:MONEY:miner_money_bonus"
+          - "REMOVE_BLOCK_BONUS:EXP:miner_xp_bonus"
     4:
-      equip:
-        type: ARMOR_EQUIP
+      hold:
+        type: HOLD
         chance: 100
         cooldown: 0
         conditions:
-        - ''
-        effect-now: true
+          - "EQUIP_SLOT:MAINHAND"
         effects:
-        - ''
+          - "ADD_BLOCK_BONUS:MONEY:miner_money_bonus:ALL_ORE_BLOCK:12"
+          - "ADD_BLOCK_BONUS:EXP:miner_xp_bonus:ALL_ORE_BLOCK:12:0:100"
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:MAINHAND"
+        effects:
+          - "REMOVE_BLOCK_BONUS:MONEY:miner_money_bonus"
+          - "REMOVE_BLOCK_BONUS:EXP:miner_xp_bonus"
     5:
-      equip:
-        type: ARMOR_EQUIP
+      hold:
+        type: HOLD
         chance: 100
         cooldown: 0
         conditions:
-        - ''
-        effect-now: true
+          - "EQUIP_SLOT:MAINHAND"
         effects:
-        - ''
+          - "ADD_BLOCK_BONUS:MONEY:miner_money_bonus:ALL_ORE_BLOCK:15"
+          - "ADD_BLOCK_BONUS:EXP:miner_xp_bonus:ALL_ORE_BLOCK:15:0:100"
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:MAINHAND"
+        effects:
+          - "REMOVE_BLOCK_BONUS:MONEY:miner_money_bonus"
+          - "REMOVE_BLOCK_BONUS:EXP:miner_xp_bonus"
 lumberjack:
   group: 'tool'
   display: 'Lumberjack Tool'
@@ -77,52 +122,97 @@ lumberjack:
   valuable: 0
   levels:
     1:
-      equip:
-        type: ARMOR_EQUIP
+      hold:
+        type: HOLD
         chance: 100
         cooldown: 0
         conditions:
-        - ''
-        effect-now: true
+          - "EQUIP_SLOT:MAINHAND"
         effects:
-        - ''
+          - "ADD_BLOCK_BONUS:MONEY:lumberjack_money_bonus:ALL_LOG_BLOCK:3"
+          - "ADD_BLOCK_BONUS:EXP:lumberjack_xp_bonus:ALL_LOG_BLOCK:3:0:100"
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:MAINHAND"
+        effects:
+          - "REMOVE_BLOCK_BONUS:MONEY:lumberjack_money_bonus"
+          - "REMOVE_BLOCK_BONUS:EXP:lumberjack_xp_bonus"
     2:
-      equip:
-        type: ARMOR_EQUIP
+      hold:
+        type: HOLD
         chance: 100
         cooldown: 0
         conditions:
-        - ''
-        effect-now: true
+          - "EQUIP_SLOT:MAINHAND"
         effects:
-        - ''
+          - "ADD_BLOCK_BONUS:MONEY:lumberjack_money_bonus:ALL_LOG_BLOCK:6"
+          - "ADD_BLOCK_BONUS:EXP:lumberjack_xp_bonus:ALL_LOG_BLOCK:6:0:100"
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:MAINHAND"
+        effects:
+          - "REMOVE_BLOCK_BONUS:MONEY:lumberjack_money_bonus"
+          - "REMOVE_BLOCK_BONUS:EXP:lumberjack_xp_bonus"
     3:
-      equip:
-        type: ARMOR_EQUIP
+      hold:
+        type: HOLD
         chance: 100
         cooldown: 0
         conditions:
-        - ''
-        effect-now: true
+          - "EQUIP_SLOT:MAINHAND"
         effects:
-        - ''
+          - "ADD_BLOCK_BONUS:MONEY:lumberjack_money_bonus:ALL_LOG_BLOCK:9"
+          - "ADD_BLOCK_BONUS:EXP:lumberjack_xp_bonus:ALL_LOG_BLOCK:9:0:100"
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:MAINHAND"
+        effects:
+          - "REMOVE_BLOCK_BONUS:MONEY:lumberjack_money_bonus"
+          - "REMOVE_BLOCK_BONUS:EXP:lumberjack_xp_bonus"
     4:
-      equip:
-        type: ARMOR_EQUIP
+      hold:
+        type: HOLD
         chance: 100
         cooldown: 0
         conditions:
-        - ''
-        effect-now: true
+          - "EQUIP_SLOT:MAINHAND"
         effects:
-        - ''
+          - "ADD_BLOCK_BONUS:MONEY:lumberjack_money_bonus:ALL_LOG_BLOCK:12"
+          - "ADD_BLOCK_BONUS:EXP:lumberjack_xp_bonus:ALL_LOG_BLOCK:12:0:100"
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:MAINHAND"
+        effects:
+          - "REMOVE_BLOCK_BONUS:MONEY:lumberjack_money_bonus"
+          - "REMOVE_BLOCK_BONUS:EXP:lumberjack_xp_bonus"
     5:
-      equip:
-        type: ARMOR_EQUIP
+      hold:
+        type: HOLD
         chance: 100
         cooldown: 0
         conditions:
-        - ''
-        effect-now: true
+          - "EQUIP_SLOT:MAINHAND"
         effects:
-        - ''
+          - "ADD_BLOCK_BONUS:MONEY:lumberjack_money_bonus:ALL_LOG_BLOCK:15"
+          - "ADD_BLOCK_BONUS:EXP:lumberjack_xp_bonus:ALL_LOG_BLOCK:15:0:100"
+      change_hand:
+        type: CHANGE_HAND
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:MAINHAND"
+        effects:
+          - "REMOVE_BLOCK_BONUS:MONEY:lumberjack_money_bonus"
+          - "REMOVE_BLOCK_BONUS:EXP:lumberjack_xp_bonus"

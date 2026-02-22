@@ -847,6 +847,7 @@ lifesteal:
         effects:
           - TARGET=ENEMY | HEALTH:REMOVE:2
           - HEALTH:ADD:2
+          - "MESSAGE:&c&l***LifeSteal: &a&lSteal 2 HP &7&l> &f&l%enemy_name%&c&l***"
     "2":
       attack:
         type: ATTACK
@@ -858,6 +859,7 @@ lifesteal:
         effects:
           - TARGET=ENEMY | HEALTH:REMOVE:4
           - HEALTH:ADD:4
+          - "MESSAGE:&c&l***LifeSteal: &a&lSteal 4 HP &7&l> &f&l%enemy_name%&c&l***"
     "3":
       attack:
         type: ATTACK
@@ -869,6 +871,7 @@ lifesteal:
         effects:
           - TARGET=ENEMY | HEALTH:REMOVE:6
           - HEALTH:ADD:6
+          - "MESSAGE:&c&l***LifeSteal: &a&lSteal 6 HP &7&l> &f&l%enemy_name%&c&l***"
     "4":
       attack:
         type: ATTACK
@@ -880,6 +883,7 @@ lifesteal:
         effects:
           - TARGET=ENEMY | HEALTH:REMOVE:8
           - HEALTH:ADD:8
+          - "MESSAGE:&c&l***LifeSteal: &a&lSteal 8 HP &7&l> &f&l%enemy_name%&c&l***"
     "5":
       attack:
         type: ATTACK
@@ -891,6 +895,7 @@ lifesteal:
         effects:
           - TARGET=ENEMY | HEALTH:REMOVE:10
           - HEALTH:ADD:10
+          - "MESSAGE:&c&l***LifeSteal: &a&lSteal 10 HP &7&l> &f&l%enemy_name%&c&l***"
 lightweight:
   group: legendary
   display: LightWeight
@@ -1068,6 +1073,7 @@ obliterate:
           - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
           - TARGET=ENEMY | PULL:xE_~_zE
+          - "MESSAGE:&e&l***Obliterate: &6&lKnockback &7&l> &f&l%enemy_name%&e&l***"
     "2":
       attack:
         type: ATTACK
@@ -1078,6 +1084,7 @@ obliterate:
           - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
           - TARGET=ENEMY | PULL:xE*1.25_~_zE*1.25
+          - "MESSAGE:&e&l***Obliterate: &6&lKnockback &7&l> &f&l%enemy_name%&e&l***"
     "3":
       attack:
         type: ATTACK
@@ -1088,6 +1095,7 @@ obliterate:
           - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
           - TARGET=ENEMY | PULL:xE*1.5_~_zE*1.5
+          - "MESSAGE:&e&l***Obliterate: &6&lKnockback &7&l> &f&l%enemy_name%&e&l***"
     "4":
       attack:
         type: ATTACK
@@ -1098,6 +1106,7 @@ obliterate:
           - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
           - TARGET=ENEMY | PULL:xE*1.75_~_zE*1.75
+          - "MESSAGE:&e&l***Obliterate: &6&lKnockback &7&l> &f&l%enemy_name%&e&l***"
     "5":
       attack:
         type: ATTACK
@@ -1108,6 +1117,7 @@ obliterate:
           - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
           - TARGET=ENEMY | PULL:xE*2_~_zE*2
+          - "MESSAGE:&e&l***Obliterate: &6&lKnockback &7&l> &f&l%enemy_name%&e&l***"
 paralyze:
   group: epic
   display: Paralyze
@@ -1145,6 +1155,8 @@ paralyze:
           - TARGET=ENEMY | ADD_ATTRIBUTE:ATTACK_SPEED:paralyze_attack_speed:-0.5:1
           - TARGET=ENEMY,DELAY=20,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:paralyze_movement_speed
           - TARGET=ENEMY,DELAY=20,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:ATTACK_SPEED:paralyze_attack_speed
+          - "MESSAGE:&a&l***Paralyze: &7&l-50% SPD -50% ATS &f(0:01) &7&l> &f&l%enemy_name%&a&l***"
+          - TARGET=ENEMY | MESSAGE:&a&l***&7&l-50% SPD -50% ATS &f(0:01) &7&lby &f&l%enemy_name%&a&l***
     "2":
       attack:
         type: ATTACK
@@ -1158,6 +1170,8 @@ paralyze:
           - TARGET=ENEMY | ADD_ATTRIBUTE:ATTACK_SPEED:paralyze_attack_speed:-0.5:1
           - TARGET=ENEMY,DELAY=20,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:paralyze_movement_speed
           - TARGET=ENEMY,DELAY=20,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:ATTACK_SPEED:paralyze_attack_speed
+          - "MESSAGE:&a&l***Paralyze: &7&l-50% SPD -50% ATS &f(0:01) &7&l> &f&l%enemy_name%&a&l***"
+          - TARGET=ENEMY | MESSAGE:&a&l***&7&l-50% SPD -50% ATS &f(0:01) &7&lby &f&l%enemy_name%&a&l***
     "3":
       attack:
         type: ATTACK
@@ -1171,6 +1185,8 @@ paralyze:
           - TARGET=ENEMY | ADD_ATTRIBUTE:ATTACK_SPEED:paralyze_attack_speed:-0.5:1
           - TARGET=ENEMY,DELAY=20,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:paralyze_movement_speed
           - TARGET=ENEMY,DELAY=20,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:ATTACK_SPEED:paralyze_attack_speed
+          - "MESSAGE:&a&l***Paralyze: &7&l-50% SPD -50% ATS &f(0:01) &7&l> &f&l%enemy_name%&a&l***"
+          - TARGET=ENEMY | MESSAGE:&a&l***&7&l-50% SPD -50% ATS &f(0:01) &7&lby &f&l%enemy_name%&a&l***
     "4":
       attack:
         type: ATTACK
@@ -1184,6 +1200,8 @@ paralyze:
           - TARGET=ENEMY | ADD_ATTRIBUTE:ATTACK_SPEED:paralyze_attack_speed:-0.5:1
           - TARGET=ENEMY,DELAY=20,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:paralyze_movement_speed
           - TARGET=ENEMY,DELAY=20,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:ATTACK_SPEED:paralyze_attack_speed
+          - "MESSAGE:&a&l***Paralyze: &7&l-50% SPD -50% ATS &f(0:01) &7&l> &f&l%enemy_name%&a&l***"
+          - TARGET=ENEMY | MESSAGE:&a&l***&7&l-50% SPD -50% ATS &f(0:01) &7&lby &f&l%enemy_name%&a&l***
     "5":
       attack:
         type: ATTACK
@@ -1197,6 +1215,8 @@ paralyze:
           - TARGET=ENEMY | ADD_ATTRIBUTE:ATTACK_SPEED:paralyze_attack_speed:-0.5:1
           - TARGET=ENEMY,DELAY=20,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:paralyze_movement_speed
           - TARGET=ENEMY,DELAY=20,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:ATTACK_SPEED:paralyze_attack_speed
+          - "MESSAGE:&a&l***Paralyze: &7&l-50% SPD -50% ATS &f(0:01) &7&l> &f&l%enemy_name%&a&l***"
+          - TARGET=ENEMY | MESSAGE:&a&l***&7&l-50% SPD -50% ATS &f(0:01) &7&lby &f&l%enemy_name%&a&l***
 rage:
   group: supreme
   display: Rage
@@ -1897,6 +1917,7 @@ vampire:
         effects:
           - DELAY=20 | HEALTH:ADD:3
           - DELAY=40 | HEALTH:ADD:3
+          - "MESSAGE:&4&l***Vampire: &a&lRegen 3 HP/s &f(0:02)&4&l***"
     "2":
       attack:
         type: ATTACK
@@ -1909,6 +1930,7 @@ vampire:
           - DELAY=20 | HEALTH:ADD:3
           - DELAY=40 | HEALTH:ADD:3
           - DELAY=60 | HEALTH:ADD:3
+          - "MESSAGE:&4&l***Vampire: &a&lRegen 3 HP/s &f(0:03)&4&l***"
     "3":
       attack:
         type: ATTACK
@@ -1922,6 +1944,7 @@ vampire:
           - DELAY=40 | HEALTH:ADD:3
           - DELAY=60 | HEALTH:ADD:3
           - DELAY=80 | HEALTH:ADD:3
+          - "MESSAGE:&4&l***Vampire: &a&lRegen 3 HP/s &f(0:04)&4&l***"
     "4":
       attack:
         type: ATTACK
@@ -1936,6 +1959,7 @@ vampire:
           - DELAY=60 | HEALTH:ADD:3
           - DELAY=80 | HEALTH:ADD:3
           - DELAY=100 | HEALTH:ADD:3
+          - "MESSAGE:&4&l***Vampire: &a&lRegen 3 HP/s &f(0:05)&4&l***"
     "5":
       attack:
         type: ATTACK
@@ -1951,6 +1975,7 @@ vampire:
           - DELAY=80 | HEALTH:ADD:3
           - DELAY=100 | HEALTH:ADD:3
           - DELAY=120 | HEALTH:ADD:3
+          - "MESSAGE:&4&l***Vampire: &a&lRegen 3 HP/s &f(0:06)&4&l***"
 viper:
   group: rare
   display: Viper
@@ -2156,6 +2181,8 @@ lifechange:
           - HEALTH:SET:%enemy_value%
           - TARGET=ENEMY | HEALTH:SET:lifechange_enemy_health
           - TARGET=ENEMY | NUMBER_STORAGE:REMOVE:lifechange_enemy_health
+          - "MESSAGE:&b&l***LifeChange: &6&lHP Swap &7&l> &f&l%enemy_name%&b&l***"
+          - TARGET=ENEMY | MESSAGE:&b&l***&6&lHP Swap &7&lby &f&l%enemy_name%&b&l***
     "2":
       attack:
         type: ATTACK
@@ -2175,6 +2202,8 @@ lifechange:
           - HEALTH:SET:%enemy_value%
           - TARGET=ENEMY | HEALTH:SET:lifechange_enemy_health
           - TARGET=ENEMY | NUMBER_STORAGE:REMOVE:lifechange_enemy_health
+          - "MESSAGE:&b&l***LifeChange: &6&lHP Swap &7&l> &f&l%enemy_name%&b&l***"
+          - TARGET=ENEMY | MESSAGE:&b&l***&6&lHP Swap &7&lby &f&l%enemy_name%&b&l***
     "3":
       attack:
         type: ATTACK
@@ -2194,6 +2223,8 @@ lifechange:
           - HEALTH:SET:%enemy_value%
           - TARGET=ENEMY | HEALTH:SET:lifechange_enemy_health
           - TARGET=ENEMY | NUMBER_STORAGE:REMOVE:lifechange_enemy_health
+          - "MESSAGE:&b&l***LifeChange: &6&lHP Swap &7&l> &f&l%enemy_name%&b&l***"
+          - TARGET=ENEMY | MESSAGE:&b&l***&6&lHP Swap &7&lby &f&l%enemy_name%&b&l***
     "4":
       attack:
         type: ATTACK
@@ -2213,6 +2244,8 @@ lifechange:
           - HEALTH:SET:%enemy_value%
           - TARGET=ENEMY | HEALTH:SET:lifechange_enemy_health
           - TARGET=ENEMY | NUMBER_STORAGE:REMOVE:lifechange_enemy_health
+          - "MESSAGE:&b&l***LifeChange: &6&lHP Swap &7&l> &f&l%enemy_name%&b&l***"
+          - TARGET=ENEMY | MESSAGE:&b&l***&6&lHP Swap &7&lby &f&l%enemy_name%&b&l***
     "5":
       attack:
         type: ATTACK
@@ -2232,6 +2265,8 @@ lifechange:
           - HEALTH:SET:%enemy_value%
           - TARGET=ENEMY | HEALTH:SET:lifechange_enemy_health
           - TARGET=ENEMY | NUMBER_STORAGE:REMOVE:lifechange_enemy_health
+          - "MESSAGE:&b&l***LifeChange: &6&lHP Swap &7&l> &f&l%enemy_name%&b&l***"
+          - TARGET=ENEMY | MESSAGE:&b&l***&6&lHP Swap &7&lby &f&l%enemy_name%&b&l***
 thunderingblow:
   group: rare
   display: ThunderingBlow
@@ -2262,6 +2297,7 @@ thunderingblow:
           - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
           - LIGHTNING:~_xE_yE_zE
+          - "MESSAGE:&b&l***ThunderingBlow: &e&lLightning &7&l> &f&l%enemy_name%&b&l***"
     "2":
       attack:
         type: ATTACK
@@ -2272,6 +2308,7 @@ thunderingblow:
           - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
           - LIGHTNING:~_xE_yE_zE
+          - "MESSAGE:&b&l***ThunderingBlow: &e&lLightning &7&l> &f&l%enemy_name%&b&l***"
     "3":
       attack:
         type: ATTACK
@@ -2282,6 +2319,7 @@ thunderingblow:
           - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
           - LIGHTNING:~_xE_yE_zE
+          - "MESSAGE:&b&l***ThunderingBlow: &e&lLightning &7&l> &f&l%enemy_name%&b&l***"
     "4":
       attack:
         type: ATTACK
@@ -2292,6 +2330,7 @@ thunderingblow:
           - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
           - LIGHTNING:~_xE_yE_zE
+          - "MESSAGE:&b&l***ThunderingBlow: &e&lLightning &7&l> &f&l%enemy_name%&b&l***"
     "5":
       attack:
         type: ATTACK
@@ -2302,6 +2341,7 @@ thunderingblow:
           - TARGET=ENEMY | ENTITY_TYPE:PLAYER
         effects:
           - LIGHTNING:~_xE_yE_zE
+          - "MESSAGE:&b&l***ThunderingBlow: &e&lLightning &7&l> &f&l%enemy_name%&b&l***"
 duskblade:
   group: supreme
   display: Duskblade
@@ -2344,6 +2384,7 @@ duskblade:
           - ATTACK:4:0
         effects:
           - NUMBER_STORAGE:SET:duskblade_time:%time%
+          - "MESSAGE:&5&l***Duskblade: &c&l+4 ATK&5&l***"
     "2":
       hand:
         type: HOLD
@@ -2364,6 +2405,7 @@ duskblade:
           - ATTACK:8:0
         effects:
           - NUMBER_STORAGE:SET:duskblade_time:%time%
+          - "MESSAGE:&5&l***Duskblade: &c&l+8 ATK&5&l***"
     "3":
       hand:
         type: HOLD
@@ -2384,6 +2426,7 @@ duskblade:
           - ATTACK:12:0
         effects:
           - NUMBER_STORAGE:SET:duskblade_time:%time%
+          - "MESSAGE:&5&l***Duskblade: &c&l+12 ATK&5&l***"
 ignite:
   group: legendary
   display: Ignite
@@ -2418,6 +2461,7 @@ ignite:
           - TARGET=ENEMY | ON_FIRE:40
           - TARGET=ENEMY,DELAY=20 | HEALTH:REMOVE:2
           - TARGET=ENEMY,DELAY=40 | HEALTH:REMOVE:2
+          - "MESSAGE:&c&l***Ignite: &6&lBurn &f(0:02) &7&l> &f&l%enemy_name%&c&l***"
     "2":
       attack:
         type: ATTACK
@@ -2431,6 +2475,7 @@ ignite:
           - TARGET=ENEMY,DELAY=20 | HEALTH:REMOVE:2
           - TARGET=ENEMY,DELAY=40 | HEALTH:REMOVE:2
           - TARGET=ENEMY,DELAY=60 | HEALTH:REMOVE:2
+          - "MESSAGE:&c&l***Ignite: &6&lBurn &f(0:03) &7&l> &f&l%enemy_name%&c&l***"
     "3":
       attack:
         type: ATTACK
@@ -2445,6 +2490,7 @@ ignite:
           - TARGET=ENEMY,DELAY=40 | HEALTH:REMOVE:2
           - TARGET=ENEMY,DELAY=60 | HEALTH:REMOVE:2
           - TARGET=ENEMY,DELAY=80 | HEALTH:REMOVE:2
+          - "MESSAGE:&c&l***Ignite: &6&lBurn &f(0:04) &7&l> &f&l%enemy_name%&c&l***"
     "4":
       attack:
         type: ATTACK
@@ -2460,6 +2506,7 @@ ignite:
           - TARGET=ENEMY,DELAY=60 | HEALTH:REMOVE:2
           - TARGET=ENEMY,DELAY=80 | HEALTH:REMOVE:2
           - TARGET=ENEMY,DELAY=100 | HEALTH:REMOVE:2
+          - "MESSAGE:&c&l***Ignite: &6&lBurn &f(0:05) &7&l> &f&l%enemy_name%&c&l***"
     "5":
       attack:
         type: ATTACK
@@ -2476,6 +2523,7 @@ ignite:
           - TARGET=ENEMY,DELAY=80 | HEALTH:REMOVE:2
           - TARGET=ENEMY,DELAY=100 | HEALTH:REMOVE:2
           - TARGET=ENEMY,DELAY=120 | HEALTH:REMOVE:2
+          - "MESSAGE:&c&l***Ignite: &6&lBurn &f(0:06) &7&l> &f&l%enemy_name%&c&l***"
 brutal:
   group: supreme
   display: Brutal
@@ -3004,6 +3052,8 @@ arthritis:
           - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed
           - TARGET=ENEMY,DELAY=100 | ADD_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed:-0.5:2
           - TARGET=ENEMY,DELAY=150,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed
+          - "MESSAGE:&a&l***Arthritis: &7&lSlow &f(0:06) &7&l> &f&l%enemy_name%&a&l***"
+          - TARGET=ENEMY | MESSAGE:&a&l***&7&lSlow &f(0:06) &7&lby &f&l%enemy_name%&a&l***
     "2":
       attack:
         type: ATTACK
@@ -3033,6 +3083,8 @@ arthritis:
           - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed
           - TARGET=ENEMY,DELAY=100 | ADD_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed:-0.6:2
           - TARGET=ENEMY,DELAY=150,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed
+          - "MESSAGE:&a&l***Arthritis: &7&lSlow &f(0:06) &7&l> &f&l%enemy_name%&a&l***"
+          - TARGET=ENEMY | MESSAGE:&a&l***&7&lSlow &f(0:06) &7&lby &f&l%enemy_name%&a&l***
     "3":
       attack:
         type: ATTACK
@@ -3062,6 +3114,8 @@ arthritis:
           - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed
           - TARGET=ENEMY,DELAY=100 | ADD_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed:-0.7:2
           - TARGET=ENEMY,DELAY=150,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed
+          - "MESSAGE:&a&l***Arthritis: &7&lSlow &f(0:06) &7&l> &f&l%enemy_name%&a&l***"
+          - TARGET=ENEMY | MESSAGE:&a&l***&7&lSlow &f(0:06) &7&lby &f&l%enemy_name%&a&l***
     "4":
       attack:
         type: ATTACK
@@ -3091,6 +3145,8 @@ arthritis:
           - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed
           - TARGET=ENEMY,DELAY=100 | ADD_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed:-0.8:2
           - TARGET=ENEMY,DELAY=150,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed
+          - "MESSAGE:&a&l***Arthritis: &7&lSlow &f(0:06) &7&l> &f&l%enemy_name%&a&l***"
+          - TARGET=ENEMY | MESSAGE:&a&l***&7&lSlow &f(0:06) &7&lby &f&l%enemy_name%&a&l***
     "5":
       attack:
         type: ATTACK
@@ -3120,6 +3176,8 @@ arthritis:
           - TARGET=ENEMY,DELAY=100,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed
           - TARGET=ENEMY,DELAY=100 | ADD_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed:-0.9:2
           - TARGET=ENEMY,DELAY=150,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:arthritis_movement_speed
+          - "MESSAGE:&a&l***Arthritis: &7&lSlow &f(0:06) &7&l> &f&l%enemy_name%&a&l***"
+          - TARGET=ENEMY | MESSAGE:&a&l***&7&lSlow &f(0:06) &7&lby &f&l%enemy_name%&a&l***
 testtest:
   group: common
   display: Inquisitive

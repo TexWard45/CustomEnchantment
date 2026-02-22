@@ -1,0 +1,228 @@
+wukong:
+  group: legendary
+  display: Wukong
+  description:
+    - "&eNhận hiệu ứng tốc độ và nhảy cao"
+    - "&ekhi trang bị"
+  detail-description:
+    - "&eNhận hiệu ứng tốc độ và nhảy cao"
+    - "&ekhi trang bị"
+    - ""
+    - "&eHiệu ứng thuốc: Tốc độ, Nhảy cao"
+    - "&eCấp độ hiệu ứng: 1/2"
+    - "&eThời gian hiệu ứng: Vĩnh viễn"
+  applies-description:
+    - Giày
+  applies:
+    - ALL_BOOTS
+  max-level: 1
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - SET_STAFF_PARTICLE:#FFAA00,#FFAA00,#FFAA00,#FFAA00,#FFAA00,#FFFFFF,#FFFFFF,#FFFFFF,#FFFFFF,#FFFFFF,#18b58d,#18b58d,#18b58d,#18b58d,#18b58d:1
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_STAFF_PARTICLE
+bahamut:
+  group: legendary
+  display: Bahamut
+  description:
+    - "&eNhận hiệu ứng tốc độ và nhảy cao"
+    - "&ekhi trang bị"
+  detail-description:
+    - "&eNhận hiệu ứng tốc độ và nhảy cao"
+    - "&ekhi trang bị"
+    - ""
+    - "&eHiệu ứng thuốc: Tốc độ, Nhảy cao"
+    - "&eCấp độ hiệu ứng: 1/2"
+    - "&eThời gian hiệu ứng: Vĩnh viễn"
+  applies-description:
+    - Giày
+  applies:
+    - ALL_BOOTS
+  max-level: 1
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - SET_STAFF_PARTICLE:#adbed0,#e9faff,#80879f:1:5
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_STAFF_PARTICLE
+halloweenphantom:
+  group: legendary
+  display: Halloween Phantom
+  description:
+    - "&eNhận hiệu ứng tốc độ và nhảy cao"
+    - "&ekhi trang bị"
+  detail-description:
+    - "&eNhận hiệu ứng tốc độ và nhảy cao"
+    - "&ekhi trang bị"
+    - ""
+    - "&eHiệu ứng thuốc: Tốc độ, Nhảy cao"
+    - "&eCấp độ hiệu ứng: 1/2"
+    - "&eThời gian hiệu ứng: Vĩnh viễn"
+  applies-description:
+    - Giày
+  applies:
+    - ALL_BOOTS
+  max-level: 1
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - SET_STAFF_PARTICLE:#289672,#59c54b,#a2d957:1:5
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_STAFF_PARTICLE
+aceruin:
+  group: legendary
+  display: Aceruin
+  description:
+    - "&eNhận hiệu ứng tốc độ và nhảy cao"
+    - "&ekhi trang bị"
+  detail-description:
+    - "&eNhận hiệu ứng tốc độ và nhảy cao"
+    - "&ekhi trang bị"
+    - ""
+    - "&eHiệu ứng thuốc: Tốc độ, Nhảy cao"
+    - "&eCấp độ hiệu ứng: 1/2"
+    - "&eThời gian hiệu ứng: Vĩnh viễn"
+  applies-description:
+    - Giày
+  applies:
+    - ALL_BOOTS
+  max-level: 1
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - SET_STAFF_PARTICLE:#e26f0d,#f29f23,#5ce677,#3dcc72,#0f9970:1:5
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_STAFF_PARTICLE
+beats:
+  group: legendary
+  display: Beats
+  description:
+    - "&eNhận hiệu ứng tốc độ và nhảy cao"
+    - "&ekhi trang bị"
+  detail-description:
+    - "&eNhận hiệu ứng tốc độ và nhảy cao"
+    - "&ekhi trang bị"
+    - ""
+    - "&eHiệu ứng thuốc: Tốc độ, Nhảy cao"
+    - "&eCấp độ hiệu ứng: 1/2"
+    - "&eThời gian hiệu ứng: Vĩnh viễn"
+  applies-description:
+    - Giày
+  applies:
+    - ALL_BOOTS
+  max-level: 1
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - SET_STAFF_PARTICLE:#7019fb,#6a5bfc,#34d6fd,#32fcfe:1:5
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_STAFF_PARTICLE
+littleunicorn:
+  group: legendary
+  display: Little Unicorn
+  description:
+    - "&eNhận hiệu ứng tốc độ và nhảy cao"
+    - "&ekhi trang bị"
+  detail-description:
+    - "&eNhận hiệu ứng tốc độ và nhảy cao"
+    - "&ekhi trang bị"
+    - ""
+    - "&eHiệu ứng thuốc: Tốc độ, Nhảy cao"
+    - "&eCấp độ hiệu ứng: 1/2"
+    - "&eThời gian hiệu ứng: Vĩnh viễn"
+  applies-description:
+    - Giày
+  applies:
+    - ALL_BOOTS
+  max-level: 1
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - SET_STAFF_PARTICLE:#F91965,#FF3F9E,#F83466,#F83466,#FFB326,#FFCD4A,#19F88A,#3CFFBC,#22A6F7,#42C7FF,#8C25F6,#903FFF:1:3
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_STAFF_PARTICLE

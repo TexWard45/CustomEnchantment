@@ -9,7 +9,7 @@ outfit:
       glowing: true
       lore:
         - ""
-    enchant: "assassin"
+    enchant: "bahamut"
     levels:
       1:
         custom-types:

@@ -36,6 +36,7 @@ fairyelf:
         effects:
           - "ADD_ATTRIBUTE:MOVEMENT_SPEED:fairyelf_movement_speed:0.1:1"
           - "DELAY=20 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:fairyelf_movement_speed"
+          - "MESSAGE:&a&l***FairyElf: &6&l+10% SPD &c&l+2 ATK &f(0:01)&a&l***"
     2:
       arrow_hit:
         type: ARROW_HIT
@@ -48,6 +49,7 @@ fairyelf:
         effects:
           - "ADD_ATTRIBUTE:MOVEMENT_SPEED:fairyelf_movement_speed:0.15:1"
           - "DELAY=20 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:fairyelf_movement_speed"
+          - "MESSAGE:&a&l***FairyElf: &6&l+15% SPD &c&l+4 ATK &f(0:01)&a&l***"
     3:
       arrow_hit:
         type: ARROW_HIT
@@ -60,6 +62,7 @@ fairyelf:
         effects:
           - "ADD_ATTRIBUTE:MOVEMENT_SPEED:fairyelf_movement_speed:0.2:1"
           - "DELAY=30 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:fairyelf_movement_speed"
+          - "MESSAGE:&a&l***FairyElf: &6&l+20% SPD &c&l+6 ATK &f(0:01)&a&l***"
     4:
       arrow_hit:
         type: ARROW_HIT
@@ -72,6 +75,7 @@ fairyelf:
         effects:
           - "ADD_ATTRIBUTE:MOVEMENT_SPEED:fairyelf_movement_speed:0.25:1"
           - "DELAY=30 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:fairyelf_movement_speed"
+          - "MESSAGE:&a&l***FairyElf: &6&l+25% SPD &c&l+8 ATK &f(0:01)&a&l***"
     5:
       arrow_hit:
         type: ARROW_HIT
@@ -84,6 +88,7 @@ fairyelf:
         effects:
           - "ADD_ATTRIBUTE:MOVEMENT_SPEED:fairyelf_movement_speed:0.3:1"
           - "DELAY=40 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:fairyelf_movement_speed"
+          - "MESSAGE:&a&l***FairyElf: &6&l+30% SPD &c&l+10 ATK &f(0:02)&a&l***"
 # tag_potion: SPEED
 lightning:
   enable: false
@@ -116,6 +121,7 @@ lightning:
           - "TARGET=ENEMY | ENTITY_TYPE:PLAYER"
         effects:
           - "TARGET=ENEMY | LIGHTNING:~_xP_yP_zP"
+          - "MESSAGE:&b&l***Lightning: &e&lStrike &7&l> &f&l%enemy_name%&b&l***"
     2:
       arrow_hit:
         type: ARROW_HIT
@@ -126,6 +132,7 @@ lightning:
           - "TARGET=ENEMY | ENTITY_TYPE:PLAYER"
         effects:
           - "TARGET=ENEMY | LIGHTNING:~_xP_yP_zP"
+          - "MESSAGE:&b&l***Lightning: &e&lStrike &7&l> &f&l%enemy_name%&b&l***"
     3:
       arrow_hit:
         type: ARROW_HIT
@@ -136,6 +143,7 @@ lightning:
           - "TARGET=ENEMY | ENTITY_TYPE:PLAYER"
         effects:
           - "TARGET=ENEMY | LIGHTNING:~_xP_yP_zP"
+          - "MESSAGE:&b&l***Lightning: &e&lStrike &7&l> &f&l%enemy_name%&b&l***"
     4:
       arrow_hit:
         type: ARROW_HIT
@@ -146,6 +154,7 @@ lightning:
           - "TARGET=ENEMY | ENTITY_TYPE:PLAYER"
         effects:
           - "TARGET=ENEMY | LIGHTNING:~_xP_yP_zP"
+          - "MESSAGE:&b&l***Lightning: &e&lStrike &7&l> &f&l%enemy_name%&b&l***"
     5:
       arrow_hit:
         type: ARROW_HIT
@@ -156,6 +165,7 @@ lightning:
           - "TARGET=ENEMY | ENTITY_TYPE:PLAYER"
         effects:
           - "TARGET=ENEMY | LIGHTNING:~_xP_yP_zP"
+          - "MESSAGE:&b&l***Lightning: &e&lStrike &7&l> &f&l%enemy_name%&b&l***"
 multiarrow:
   group: "rare"
   display: "MultiArrow"
@@ -309,6 +319,8 @@ piercing:
           - "ATTACK:0.15:2"
         conditions:
           - "EQUIP_SLOT:MAINHAND"
+        effects:
+          - "MESSAGE:&e&l***Piercing: &c&l+15% ATK&e&l***"
     2:
       arrow_hit:
         type: ARROW_HIT
@@ -318,6 +330,8 @@ piercing:
           - "ATTACK:0.3:2"
         conditions:
           - "EQUIP_SLOT:MAINHAND"
+        effects:
+          - "MESSAGE:&e&l***Piercing: &c&l+30% ATK&e&l***"
     3:
       arrow_hit:
         type: ARROW_HIT
@@ -327,6 +341,8 @@ piercing:
           - "ATTACK:0.45:2"
         conditions:
           - "EQUIP_SLOT:MAINHAND"
+        effects:
+          - "MESSAGE:&e&l***Piercing: &c&l+45% ATK&e&l***"
     4:
       arrow_hit:
         type: ARROW_HIT
@@ -336,6 +352,8 @@ piercing:
           - "ATTACK:0.6:2"
         conditions:
           - "EQUIP_SLOT:MAINHAND"
+        effects:
+          - "MESSAGE:&e&l***Piercing: &c&l+60% ATK&e&l***"
     5:
       arrow_hit:
         type: ARROW_HIT
@@ -345,6 +363,8 @@ piercing:
           - "ATTACK:0.75:2"
         conditions:
           - "EQUIP_SLOT:MAINHAND"
+        effects:
+          - "MESSAGE:&e&l***Piercing: &c&l+75% ATK&e&l***"
     6:
       arrow_hit:
         type: ARROW_HIT
@@ -354,6 +374,8 @@ piercing:
           - "ATTACK:0.9:2"
         conditions:
           - "EQUIP_SLOT:MAINHAND"
+        effects:
+          - "MESSAGE:&e&l***Piercing: &c&l+90% ATK&e&l***"
     7:
       arrow_hit:
         type: ARROW_HIT
@@ -363,6 +385,8 @@ piercing:
           - "ATTACK:1.05:2"
         conditions:
           - "EQUIP_SLOT:MAINHAND"
+        effects:
+          - "MESSAGE:&e&l***Piercing: &c&l+105% ATK&e&l***"
     8:
       arrow_hit:
         type: ARROW_HIT
@@ -372,6 +396,8 @@ piercing:
           - "ATTACK:1.2:2"
         conditions:
           - "EQUIP_SLOT:MAINHAND"
+        effects:
+          - "MESSAGE:&e&l***Piercing: &c&l+120% ATK&e&l***"
     9:
       arrow_hit:
         type: ARROW_HIT
@@ -381,6 +407,8 @@ piercing:
           - "ATTACK:1.35:2"
         conditions:
           - "EQUIP_SLOT:MAINHAND"
+        effects:
+          - "MESSAGE:&e&l***Piercing: &c&l+135% ATK&e&l***"
     10:
       arrow_hit:
         type: ARROW_HIT
@@ -390,6 +418,8 @@ piercing:
           - "ATTACK:1.5:2"
         conditions:
           - "EQUIP_SLOT:MAINHAND"
+        effects:
+          - "MESSAGE:&e&l***Piercing: &c&l+150% ATK&e&l***"
 # tag_potion: POISON
 venom:
   group: "rare"
@@ -426,6 +456,7 @@ venom:
           - "TARGET=ENEMY | ENTITY_TYPE:PLAYER"
         effects:
           - "TARGET=ENEMY | ADD_POTION:POISON:0:40"
+          - "MESSAGE:&2&l***Venom: &a&lPoison I &f(0:02) &7&l> &f&l%enemy_name%&2&l***"
     2:
       arrow_hit:
         type: ARROW_HIT
@@ -436,6 +467,7 @@ venom:
           - "TARGET=ENEMY | ENTITY_TYPE:PLAYER"
         effects:
           - "TARGET=ENEMY | ADD_POTION:POISON:1:40"
+          - "MESSAGE:&2&l***Venom: &a&lPoison II &f(0:02) &7&l> &f&l%enemy_name%&2&l***"
     3:
       arrow_hit:
         type: ARROW_HIT
@@ -446,6 +478,7 @@ venom:
           - "TARGET=ENEMY | ENTITY_TYPE:PLAYER"
         effects:
           - "TARGET=ENEMY | ADD_POTION:POISON:2:40"
+          - "MESSAGE:&2&l***Venom: &a&lPoison III &f(0:02) &7&l> &f&l%enemy_name%&2&l***"
     4:
       arrow_hit:
         type: ARROW_HIT
@@ -456,6 +489,7 @@ venom:
           - "TARGET=ENEMY | ENTITY_TYPE:PLAYER"
         effects:
           - "TARGET=ENEMY | ADD_POTION:POISON:3:40"
+          - "MESSAGE:&2&l***Venom: &a&lPoison IV &f(0:02) &7&l> &f&l%enemy_name%&2&l***"
     5:
       arrow_hit:
         type: ARROW_HIT
@@ -466,6 +500,7 @@ venom:
           - "TARGET=ENEMY | ENTITY_TYPE:PLAYER"
         effects:
           - "TARGET=ENEMY | ADD_POTION:POISON:4:40"
+          - "MESSAGE:&2&l***Venom: &a&lPoison V &f(0:02) &7&l> &f&l%enemy_name%&2&l***"
 # adjust
 explosive:
   group: "epic"
@@ -496,6 +531,7 @@ explosive:
           - "TARGET=ENEMY | ENTITY_TYPE:PLAYER"
         effects:
           - "TARGET=ENEMY | EXPLOSION:~_~_~_~:1:false:false"
+          - "MESSAGE:&c&l***Explosive: &6&lBoom &7&l> &f&l%enemy_name%&c&l***"
     2:
       arrow_hit:
         type: ARROW_HIT
@@ -506,6 +542,7 @@ explosive:
           - "TARGET=ENEMY | ENTITY_TYPE:PLAYER"
         effects:
           - "TARGET=ENEMY | EXPLOSION:~_~_~_~:1:false:false"
+          - "MESSAGE:&c&l***Explosive: &6&lBoom &7&l> &f&l%enemy_name%&c&l***"
     3:
       arrow_hit:
         type: ARROW_HIT
@@ -516,6 +553,7 @@ explosive:
           - "TARGET=ENEMY | ENTITY_TYPE:PLAYER"
         effects:
           - "TARGET=ENEMY | EXPLOSION:~_~_~_~:2:false:false"
+          - "MESSAGE:&c&l***Explosive: &6&lBoom &7&l> &f&l%enemy_name%&c&l***"
     4:
       arrow_hit:
         type: ARROW_HIT
@@ -526,6 +564,7 @@ explosive:
           - "TARGET=ENEMY | ENTITY_TYPE:PLAYER"
         effects:
           - "TARGET=ENEMY | EXPLOSION:~_~_~_~:2:false:false"
+          - "MESSAGE:&c&l***Explosive: &6&lBoom &7&l> &f&l%enemy_name%&c&l***"
     5:
       arrow_hit:
         type: ARROW_HIT
@@ -536,6 +575,7 @@ explosive:
           - "TARGET=ENEMY | ENTITY_TYPE:PLAYER"
         effects:
           - "TARGET=ENEMY | EXPLOSION:~_~_~_~:3:false:false"
+          - "MESSAGE:&c&l***Explosive: &6&lBoom &7&l> &f&l%enemy_name%&c&l***"
 freeze:
   group: "epic"
   display: "Freeze"
@@ -569,6 +609,8 @@ freeze:
         effects:
           - "TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:frozen_movement_speed:-0.1:2"
           - "TARGET=ENEMY,DELAY=40 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:frozen_movement_speed"
+          - "MESSAGE:&b&l***Freeze: &7&l-10% SPD &f(0:02) &7&l> &f&l%enemy_name%&b&l***"
+          - "TARGET=ENEMY | MESSAGE:&b&l***&7&l-10% SPD &f(0:02) &7&lby &f&l%enemy_name%&b&l***"
     2:
       arrow_hit:
         type: ARROW_HIT
@@ -580,6 +622,8 @@ freeze:
         effects:
           - "TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:frozen_movement_speed:-0.15:2"
           - "TARGET=ENEMY,DELAY=40 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:frozen_movement_speed"
+          - "MESSAGE:&b&l***Freeze: &7&l-15% SPD &f(0:02) &7&l> &f&l%enemy_name%&b&l***"
+          - "TARGET=ENEMY | MESSAGE:&b&l***&7&l-15% SPD &f(0:02) &7&lby &f&l%enemy_name%&b&l***"
     3:
       arrow_hit:
         type: ARROW_HIT
@@ -591,6 +635,8 @@ freeze:
         effects:
           - "TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:frozen_movement_speed:-0.2:2"
           - "TARGET=ENEMY,DELAY=40 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:frozen_movement_speed"
+          - "MESSAGE:&b&l***Freeze: &7&l-20% SPD &f(0:02) &7&l> &f&l%enemy_name%&b&l***"
+          - "TARGET=ENEMY | MESSAGE:&b&l***&7&l-20% SPD &f(0:02) &7&lby &f&l%enemy_name%&b&l***"
     4:
       arrow_hit:
         type: ARROW_HIT
@@ -602,6 +648,8 @@ freeze:
         effects:
           - "TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:frozen_movement_speed:-0.25:2"
           - "TARGET=ENEMY,DELAY=40 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:frozen_movement_speed"
+          - "MESSAGE:&b&l***Freeze: &7&l-25% SPD &f(0:02) &7&l> &f&l%enemy_name%&b&l***"
+          - "TARGET=ENEMY | MESSAGE:&b&l***&7&l-25% SPD &f(0:02) &7&lby &f&l%enemy_name%&b&l***"
     5:
       arrow_hit:
         type: ARROW_HIT
@@ -613,6 +661,8 @@ freeze:
         effects:
           - "TARGET=ENEMY | ADD_ATTRIBUTE:MOVEMENT_SPEED:frozen_movement_speed:-0.3:2"
           - "TARGET=ENEMY,DELAY=40 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:frozen_movement_speed"
+          - "MESSAGE:&b&l***Freeze: &7&l-30% SPD &f(0:02) &7&l> &f&l%enemy_name%&b&l***"
+          - "TARGET=ENEMY | MESSAGE:&b&l***&7&l-30% SPD &f(0:02) &7&lby &f&l%enemy_name%&b&l***"
 # dynamite:
 # group: 'epic'
 # display: 'Dynamite'
@@ -669,6 +719,8 @@ glamour:
         effects:
           - "TARGET=ENEMY | DEACTIVE_ABILITY:MOVE:glamous_move:500"
           - "TARGET=ENEMY | DEACTIVE_ABILITY:ATTACK:glamous_arrow_hit:500"
+          - "MESSAGE:&d&l***Glamour: &5&lCharm &f(0:01) &7&l> &f&l%enemy_name%&d&l***"
+          - "TARGET=ENEMY | MESSAGE:&d&l***&5&lCharm &f(0:01) &7&lby &f&l%enemy_name%&d&l***"
     2:
       arrow_hit:
         type: ARROW_HIT
@@ -680,6 +732,8 @@ glamour:
         effects:
           - "TARGET=ENEMY | DEACTIVE_ABILITY:MOVE:glamous_move:1000"
           - "TARGET=ENEMY | DEACTIVE_ABILITY:ATTACK:glamous_arrow_hit:1000"
+          - "MESSAGE:&d&l***Glamour: &5&lCharm &f(0:01) &7&l> &f&l%enemy_name%&d&l***"
+          - "TARGET=ENEMY | MESSAGE:&d&l***&5&lCharm &f(0:01) &7&lby &f&l%enemy_name%&d&l***"
     3:
       arrow_hit:
         type: ARROW_HIT
@@ -691,6 +745,8 @@ glamour:
         effects:
           - "TARGET=ENEMY | DEACTIVE_ABILITY:MOVE:glamous_move:1500"
           - "TARGET=ENEMY | DEACTIVE_ABILITY:ATTACK:glamous_arrow_hit:1500"
+          - "MESSAGE:&d&l***Glamour: &5&lCharm &f(0:02) &7&l> &f&l%enemy_name%&d&l***"
+          - "TARGET=ENEMY | MESSAGE:&d&l***&5&lCharm &f(0:02) &7&lby &f&l%enemy_name%&d&l***"
 lodestar:
   group: "rare"
   display: "Lodestar"
@@ -804,6 +860,7 @@ sniper:
           - "ATTACK:-0.05:2"
         effects:
           - "TARGET=ENEMY | HEALTH:REMOVE:%damage%*5/100"
+          - "MESSAGE:&c&l***Sniper: &c&lDeal 5% True ATK&c&l***"
     2:
       arrow_hit:
         type: ARROW_HIT
@@ -816,6 +873,7 @@ sniper:
           - "ATTACK:-0.10:2"
         effects:
           - "TARGET=ENEMY | HEALTH:REMOVE:%damage%*10/100"
+          - "MESSAGE:&c&l***Sniper: &c&lDeal 10% True ATK&c&l***"
     3:
       arrow_hit:
         type: ARROW_HIT
@@ -828,6 +886,7 @@ sniper:
           - "ATTACK:-0.15:2"
         effects:
           - "TARGET=ENEMY | HEALTH:REMOVE:%damage%*15/100"
+          - "MESSAGE:&c&l***Sniper: &c&lDeal 15% True ATK&c&l***"
     4:
       arrow_hit:
         type: ARROW_HIT
@@ -840,6 +899,7 @@ sniper:
           - "ATTACK:-0.20:2"
         effects:
           - "TARGET=ENEMY | HEALTH:REMOVE:%damage%*20/100"
+          - "MESSAGE:&c&l***Sniper: &c&lDeal 20% True ATK&c&l***"
     5:
       arrow_hit:
         type: ARROW_HIT
@@ -852,6 +912,7 @@ sniper:
           - "ATTACK:-0.25:2"
         effects:
           - "TARGET=ENEMY | HEALTH:REMOVE:%damage%*25/100"
+          - "MESSAGE:&c&l***Sniper: &c&lDeal 25% True ATK&c&l***"
 doctor:
   group: "epic"
   display: "Doctor"
@@ -916,6 +977,7 @@ doctor:
           - "TARGET=ENEMY,DELAY=64 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*1/100"
           - "TARGET=ENEMY,DELAY=72 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*1/100"
           - "TARGET=ENEMY,DELAY=80 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*1/100"
+          - "MESSAGE:&a&l***Doctor: &2&lHeal Ally &f(0:04)&a&l***"
       arrow_hit2:
         type: ARROW_HIT
         chance: 100
@@ -967,6 +1029,7 @@ doctor:
           - "TARGET=ENEMY,DELAY=64 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*2/100"
           - "TARGET=ENEMY,DELAY=72 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*2/100"
           - "TARGET=ENEMY,DELAY=80 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*2/100"
+          - "MESSAGE:&a&l***Doctor: &2&lHeal Ally &f(0:04)&a&l***"
       arrow_hit2:
         type: ARROW_HIT
         chance: 100
@@ -1020,6 +1083,7 @@ doctor:
           - "TARGET=ENEMY,DELAY=64 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*3/100"
           - "TARGET=ENEMY,DELAY=72 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*3/100"
           - "TARGET=ENEMY,DELAY=80 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*3/100"
+          - "MESSAGE:&a&l***Doctor: &2&lHeal Ally &f(0:04)&a&l***"
       arrow_hit2:
         type: ARROW_HIT
         chance: 100
@@ -1073,6 +1137,7 @@ doctor:
           - "TARGET=ENEMY,DELAY=64 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*4/100"
           - "TARGET=ENEMY,DELAY=72 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*4/100"
           - "TARGET=ENEMY,DELAY=80 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*4/100"
+          - "MESSAGE:&a&l***Doctor: &2&lHeal Ally &f(0:04)&a&l***"
       arrow_hit2:
         type: ARROW_HIT
         chance: 100
@@ -1126,6 +1191,7 @@ doctor:
           - "TARGET=ENEMY,DELAY=64 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*5/100"
           - "TARGET=ENEMY,DELAY=72 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*5/100"
           - "TARGET=ENEMY,DELAY=80 | HEALTH:ADD:1+(%player_max_value%-%player_value%)*5/100"
+          - "MESSAGE:&a&l***Doctor: &2&lHeal Ally &f(0:04)&a&l***"
       arrow_hit2:
         type: ARROW_HIT
         chance: 100
@@ -1173,6 +1239,7 @@ creatine:
           - "TARGET=ENEMY | ADD_ATTRIBUTE:ATTACK_DAMAGE:creatine_attack_damage:0.05:1"
           - "TARGET=ENEMY,DELAY=200,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:creatine_movement_speed"
           - "TARGET=ENEMY,DELAY=200,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:ATTACK_DAMAGE:creatine_attack_damage"
+          - "MESSAGE:&a&l***Creatine: &6&l+5% SPD +5% ATK &f(0:10) &7&l> &f&lAlly&a&l***"
     2:
       arrow_hit:
         type: ARROW_HIT
@@ -1187,6 +1254,7 @@ creatine:
           - "TARGET=ENEMY | ADD_ATTRIBUTE:ATTACK_DAMAGE:creatine_attack_damage:0.10:1"
           - "TARGET=ENEMY,DELAY=200,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:creatine_movement_speed"
           - "TARGET=ENEMY,DELAY=200,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:ATTACK_DAMAGE:creatine_attack_damage"
+          - "MESSAGE:&a&l***Creatine: &6&l+10% SPD +10% ATK &f(0:10) &7&l> &f&lAlly&a&l***"
     3:
       arrow_hit:
         type: ARROW_HIT
@@ -1201,6 +1269,7 @@ creatine:
           - "TARGET=ENEMY | ADD_ATTRIBUTE:ATTACK_DAMAGE:creatine_attack_damage:0.15:1"
           - "TARGET=ENEMY,DELAY=200,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:creatine_movement_speed"
           - "TARGET=ENEMY,DELAY=200,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:ATTACK_DAMAGE:creatine_attack_damage"
+          - "MESSAGE:&a&l***Creatine: &6&l+15% SPD +15% ATK &f(0:10) &7&l> &f&lAlly&a&l***"
     4:
       arrow_hit:
         type: ARROW_HIT
@@ -1215,6 +1284,7 @@ creatine:
           - "TARGET=ENEMY | ADD_ATTRIBUTE:ATTACK_DAMAGE:creatine_attack_damage:0.20:1"
           - "TARGET=ENEMY,DELAY=200,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:creatine_movement_speed"
           - "TARGET=ENEMY,DELAY=200,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:ATTACK_DAMAGE:creatine_attack_damage"
+          - "MESSAGE:&a&l***Creatine: &6&l+20% SPD +20% ATK &f(0:10) &7&l> &f&lAlly&a&l***"
     5:
       arrow_hit:
         type: ARROW_HIT
@@ -1229,6 +1299,7 @@ creatine:
           - "TARGET=ENEMY | ADD_ATTRIBUTE:ATTACK_DAMAGE:creatine_attack_damage:0.25:1"
           - "TARGET=ENEMY,DELAY=200,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:creatine_movement_speed"
           - "TARGET=ENEMY,DELAY=200,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:ATTACK_DAMAGE:creatine_attack_damage"
+          - "MESSAGE:&a&l***Creatine: &6&l+25% SPD +25% ATK &f(0:10) &7&l> &f&lAlly&a&l***"
 penetration:
   group: "supreme"
   display: "Penetration"
@@ -1262,6 +1333,8 @@ penetration:
         effects:
           - "TARGET=ENEMY | ADD_ATTRIBUTE:ARMOR:penetration_armor:-0.05:1"
           - "TARGET=ENEMY,DELAY=80,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:ARMOR:penetration_armor"
+          - "MESSAGE:&a&l***Penetration: &7&l-5% Armor &f(0:04) &7&l> &f&l%enemy_name%&a&l***"
+          - "TARGET=ENEMY | MESSAGE:&a&l***&7&l-5% Armor &f(0:04) &7&lby &f&l%enemy_name%&a&l***"
     2:
       arrow_hit:
         type: ARROW_HIT
@@ -1273,6 +1346,8 @@ penetration:
         effects:
           - "TARGET=ENEMY | ADD_ATTRIBUTE:ARMOR:penetration_armor:-0.10:1"
           - "TARGET=ENEMY,DELAY=80,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:ARMOR:penetration_armor"
+          - "MESSAGE:&a&l***Penetration: &7&l-10% Armor &f(0:04) &7&l> &f&l%enemy_name%&a&l***"
+          - "TARGET=ENEMY | MESSAGE:&a&l***&7&l-10% Armor &f(0:04) &7&lby &f&l%enemy_name%&a&l***"
     3:
       arrow_hit:
         type: ARROW_HIT
@@ -1284,6 +1359,8 @@ penetration:
         effects:
           - "TARGET=ENEMY | ADD_ATTRIBUTE:ARMOR:penetration_armor:-0.15:1"
           - "TARGET=ENEMY,DELAY=80,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:ARMOR:penetration_armor"
+          - "MESSAGE:&a&l***Penetration: &7&l-15% Armor &f(0:04) &7&l> &f&l%enemy_name%&a&l***"
+          - "TARGET=ENEMY | MESSAGE:&a&l***&7&l-15% Armor &f(0:04) &7&lby &f&l%enemy_name%&a&l***"
     4:
       arrow_hit:
         type: ARROW_HIT
@@ -1295,6 +1372,8 @@ penetration:
         effects:
           - "TARGET=ENEMY | ADD_ATTRIBUTE:ARMOR:penetration_armor:-0.2:1"
           - "TARGET=ENEMY,DELAY=80,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:ARMOR:penetration_armor"
+          - "MESSAGE:&a&l***Penetration: &7&l-20% Armor &f(0:04) &7&l> &f&l%enemy_name%&a&l***"
+          - "TARGET=ENEMY | MESSAGE:&a&l***&7&l-20% Armor &f(0:04) &7&lby &f&l%enemy_name%&a&l***"
     5:
       arrow_hit:
         type: ARROW_HIT
@@ -1306,3 +1385,5 @@ penetration:
         effects:
           - "TARGET=ENEMY | ADD_ATTRIBUTE:ARMOR:penetration_armor:-0.25:1"
           - "TARGET=ENEMY,DELAY=80,EFFECT_AFTER_DEAD=true | REMOVE_ATTRIBUTE:ARMOR:penetration_armor"
+          - "MESSAGE:&a&l***Penetration: &7&l-25% Armor &f(0:04) &7&l> &f&l%enemy_name%&a&l***"
+          - "TARGET=ENEMY | MESSAGE:&a&l***&7&l-25% Armor &f(0:04) &7&lby &f&l%enemy_name%&a&l***"

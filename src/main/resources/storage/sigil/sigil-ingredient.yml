@@ -1,0 +1,83 @@
+armorial-lime:
+  type: LIME_DYE
+  display: "&f&lHuy Hiệu &#76ff03&lThể Chất"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Kết tinh từ sinh lực của những sinh vật trâu bò"
+    - ""
+    - "&7&oSử dụng tại /tavern"
+  enchants:
+    - "DURABILITY 1"
+  flags:
+    - HIDE_ENCHANTS
+armorial-red:
+  type: RED_DYE
+  display: "&f&lHuy Hiệu &#ff2a2a&lCuồng Nộ"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Kết tinh từ cơn thịnh nộ của những sinh vật"
+    - "&7hiếu chiến"
+    - ""
+    - "&7&oSử dụng tại /tavern"
+  enchants:
+    - "DURABILITY 1"
+  flags:
+    - HIDE_ENCHANTS
+armorial-yellow:
+  type: YELLOW_DYE
+  display: "&f&lHuy Hiệu &#ffe34f&lChuẩn Xác"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Kết tinh từ sự tập trung của những kẻ"
+    - "&7săn mồi tầm xa"
+    - ""
+    - "&7&oSử dụng tại /tavern"
+  enchants:
+    - "DURABILITY 1"
+  flags:
+    - HIDE_ENCHANTS
+armorial-black:
+  type: BLACK_DYE
+  display: "&f&lHuy Hiệu &#2b2b2b&lHắc Ám"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Kết tinh từ năng lượng hắc ám của những"
+    - "&7sinh vật bị nguyền rủa"
+    - ""
+    - "&7&oSử dụng tại /tavern"
+  enchants:
+    - "DURABILITY 1"
+  flags:
+    - HIDE_ENCHANTS
+armorial-blue:
+  type: BLUE_DYE
+  display: "&f&lHuy Hiệu &#2aa8ff&lKiểm Soát"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Kết tinh từ sức mạnh khống chế của những"
+    - "&7sinh vật khó thoát thân"
+    - ""
+    - "&7&oSử dụng tại /tavern"
+  enchants:
+    - "DURABILITY 1"
+  flags:
+    - HIDE_ENCHANTS
+armorial-purple:
+  type: PURPLE_DYE
+  display: "&f&lHuy Hiệu &#b65cff&lLinh Hồn"
+  lore:
+    - "&#77ff00Nguyên liệu hiếm"
+    - ""
+    - "&7Kết tinh từ linh lực của những sinh vật"
+    - "&7sử dụng ma thuật"
+    - ""
+    - "&7&oSử dụng tại /tavern"
+  enchants:
+    - "DURABILITY 1"
+  flags:
+    - HIDE_ENCHANTS
