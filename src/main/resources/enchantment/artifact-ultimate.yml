@@ -710,3 +710,178 @@ goldenapple:
           - DELAY=80 | REMOVE_CUSTOM_ATTRIBUTE:goldenapple_magic_resistance_consume
           - "MESSAGE:&c&l***Golden Apple: &a&lBuff&c&l***"
           - "DELAY=80 | MESSAGE:&c&l***Golden Apple: &7&lNo longer buff&c&l***"
+cursedchain:
+  group: artifact
+  display: "Cursed Chain"
+  description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm tỉ lệ chí mạng và sát thương chí mạng"
+    - ""
+    - "&eKhi tấn công:"
+    - "&7» &7Thiết lập khế ước với kẻ địch, làm chậm"
+    - "&7và gây sát thương chuẩn"
+  detail-description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm tỉ lệ chí mạng và sát thương chí mạng"
+    - ""
+    - "&eKhi tấn công:"
+    - "&7» &7Thiết lập khế ước với kẻ địch, làm chậm"
+    - "&7và gây sát thương chuẩn"
+    - ""
+    - "&eTỉ lệ chí mạng: 5% x Cấp"
+    - "&eSát thương chí mạng: 8% x Cấp"
+    - "&eSát thương chuẩn: 2 x Cấp"
+    - "&eLàm chậm: I/I/II/II/III"
+    - "&eThời gian: 3/3.5/4/4.5/5 giây"
+    - "&eThời gian hồi: 15 giây"
+  applies-description:
+    - "Thanh công cụ"
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_CUSTOM_ATTRIBUTE:cursedchain_crit:CRITICAL_CHANCE:5:0
+          - ADD_CUSTOM_ATTRIBUTE:cursedchain_critdmg:CRITICAL_DAMAGE:8:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_CUSTOM_ATTRIBUTE:cursedchain_crit
+          - REMOVE_CUSTOM_ATTRIBUTE:cursedchain_critdmg
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 15000
+        conditions:
+          - EQUIP_SLOT:EXTRA_SLOT
+        effects:
+          - TARGET=ENEMY | HEALTH:REMOVE:2
+          - TARGET=ENEMY | ADD_POTION:SLOW:0:60
+          - "MESSAGE:&c&l***Cursed Chain: &4&lKhế ước &c&l%enemy_name%&c&l***"
+    "2":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_CUSTOM_ATTRIBUTE:cursedchain_crit:CRITICAL_CHANCE:10:0
+          - ADD_CUSTOM_ATTRIBUTE:cursedchain_critdmg:CRITICAL_DAMAGE:16:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_CUSTOM_ATTRIBUTE:cursedchain_crit
+          - REMOVE_CUSTOM_ATTRIBUTE:cursedchain_critdmg
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 15000
+        conditions:
+          - EQUIP_SLOT:EXTRA_SLOT
+        effects:
+          - TARGET=ENEMY | HEALTH:REMOVE:4
+          - TARGET=ENEMY | ADD_POTION:SLOW:0:70
+          - "MESSAGE:&c&l***Cursed Chain: &4&lKhế ước &c&l%enemy_name%&c&l***"
+    "3":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_CUSTOM_ATTRIBUTE:cursedchain_crit:CRITICAL_CHANCE:15:0
+          - ADD_CUSTOM_ATTRIBUTE:cursedchain_critdmg:CRITICAL_DAMAGE:24:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_CUSTOM_ATTRIBUTE:cursedchain_crit
+          - REMOVE_CUSTOM_ATTRIBUTE:cursedchain_critdmg
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 15000
+        conditions:
+          - EQUIP_SLOT:EXTRA_SLOT
+        effects:
+          - TARGET=ENEMY | HEALTH:REMOVE:6
+          - TARGET=ENEMY | ADD_POTION:SLOW:1:80
+          - "MESSAGE:&c&l***Cursed Chain: &4&lKhế ước &c&l%enemy_name%&c&l***"
+    "4":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_CUSTOM_ATTRIBUTE:cursedchain_crit:CRITICAL_CHANCE:20:0
+          - ADD_CUSTOM_ATTRIBUTE:cursedchain_critdmg:CRITICAL_DAMAGE:32:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_CUSTOM_ATTRIBUTE:cursedchain_crit
+          - REMOVE_CUSTOM_ATTRIBUTE:cursedchain_critdmg
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 15000
+        conditions:
+          - EQUIP_SLOT:EXTRA_SLOT
+        effects:
+          - TARGET=ENEMY | HEALTH:REMOVE:8
+          - TARGET=ENEMY | ADD_POTION:SLOW:1:90
+          - "MESSAGE:&c&l***Cursed Chain: &4&lKhế ước &c&l%enemy_name%&c&l***"
+    "5":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - ADD_CUSTOM_ATTRIBUTE:cursedchain_crit:CRITICAL_CHANCE:25:0
+          - ADD_CUSTOM_ATTRIBUTE:cursedchain_critdmg:CRITICAL_DAMAGE:40:0
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - REMOVE_CUSTOM_ATTRIBUTE:cursedchain_crit
+          - REMOVE_CUSTOM_ATTRIBUTE:cursedchain_critdmg
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 15000
+        conditions:
+          - EQUIP_SLOT:EXTRA_SLOT
+        effects:
+          - TARGET=ENEMY | HEALTH:REMOVE:10
+          - TARGET=ENEMY | ADD_POTION:SLOW:2:100
+          - "MESSAGE:&c&l***Cursed Chain: &4&lKhế ước &c&l%enemy_name%&c&l***"
