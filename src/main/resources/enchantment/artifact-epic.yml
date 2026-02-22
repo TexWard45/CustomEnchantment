@@ -78,3 +78,1664 @@ graycompound:
           - REMOVE_ATTRIBUTE:SCALE:graycompound_scale
           - REMOVE_ATTRIBUTE:ARMOR:graycompound_armor
           - REMOVE_ATTRIBUTE:MOVEMENT_SPEED:graycompound_movement_speed
+cloakofairstream:
+  group: artifact
+  display: "Áo Choàng Khí Lưu"
+  description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm máu tối đa, tốc độ di chuyển"
+    - "&7và kháng làm chậm"
+    - "&7» &7Miễn nhiễm hiệu ứng thuốc làm chậm"
+  detail-description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm máu tối đa, tốc độ di chuyển"
+    - "&7và kháng làm chậm"
+    - "&7» &7Miễn nhiễm hiệu ứng thuốc làm chậm"
+    - ""
+    - "&eMáu tối đa: +6 x Cấp"
+    - "&eTốc độ di chuyển: +0.01 x Cấp"
+    - "&eKháng làm chậm: +8% x Cấp"
+  applies-description:
+    - "Thanh công cụ"
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:MAX_HEALTH:cloakofairstream_max_health:6:0"
+          - "ADD_ATTRIBUTE:MOVEMENT_SPEED:cloakofairstream_movement_speed:0.01:0"
+          - "ADD_CUSTOM_ATTRIBUTE:cloakofairstream_slow_resistance:SLOW_RESISTANCE:8:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:MAX_HEALTH:cloakofairstream_max_health"
+          - "REMOVE_ATTRIBUTE:MOVEMENT_SPEED:cloakofairstream_movement_speed"
+          - "REMOVE_CUSTOM_ATTRIBUTE:cloakofairstream_slow_resistance"
+      auto:
+        type: AUTO
+        chance: 100
+        cooldown: 1000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_POTION:SLOW"
+    "2":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:MAX_HEALTH:cloakofairstream_max_health:12:0"
+          - "ADD_ATTRIBUTE:MOVEMENT_SPEED:cloakofairstream_movement_speed:0.02:0"
+          - "ADD_CUSTOM_ATTRIBUTE:cloakofairstream_slow_resistance:SLOW_RESISTANCE:16:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:MAX_HEALTH:cloakofairstream_max_health"
+          - "REMOVE_ATTRIBUTE:MOVEMENT_SPEED:cloakofairstream_movement_speed"
+          - "REMOVE_CUSTOM_ATTRIBUTE:cloakofairstream_slow_resistance"
+      auto:
+        type: AUTO
+        chance: 100
+        cooldown: 1000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_POTION:SLOW"
+    "3":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:MAX_HEALTH:cloakofairstream_max_health:18:0"
+          - "ADD_ATTRIBUTE:MOVEMENT_SPEED:cloakofairstream_movement_speed:0.03:0"
+          - "ADD_CUSTOM_ATTRIBUTE:cloakofairstream_slow_resistance:SLOW_RESISTANCE:24:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:MAX_HEALTH:cloakofairstream_max_health"
+          - "REMOVE_ATTRIBUTE:MOVEMENT_SPEED:cloakofairstream_movement_speed"
+          - "REMOVE_CUSTOM_ATTRIBUTE:cloakofairstream_slow_resistance"
+      auto:
+        type: AUTO
+        chance: 100
+        cooldown: 1000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_POTION:SLOW"
+    "4":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:MAX_HEALTH:cloakofairstream_max_health:24:0"
+          - "ADD_ATTRIBUTE:MOVEMENT_SPEED:cloakofairstream_movement_speed:0.04:0"
+          - "ADD_CUSTOM_ATTRIBUTE:cloakofairstream_slow_resistance:SLOW_RESISTANCE:32:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:MAX_HEALTH:cloakofairstream_max_health"
+          - "REMOVE_ATTRIBUTE:MOVEMENT_SPEED:cloakofairstream_movement_speed"
+          - "REMOVE_CUSTOM_ATTRIBUTE:cloakofairstream_slow_resistance"
+      auto:
+        type: AUTO
+        chance: 100
+        cooldown: 1000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_POTION:SLOW"
+    "5":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:MAX_HEALTH:cloakofairstream_max_health:30:0"
+          - "ADD_ATTRIBUTE:MOVEMENT_SPEED:cloakofairstream_movement_speed:0.05:0"
+          - "ADD_CUSTOM_ATTRIBUTE:cloakofairstream_slow_resistance:SLOW_RESISTANCE:40:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:MAX_HEALTH:cloakofairstream_max_health"
+          - "REMOVE_ATTRIBUTE:MOVEMENT_SPEED:cloakofairstream_movement_speed"
+          - "REMOVE_CUSTOM_ATTRIBUTE:cloakofairstream_slow_resistance"
+      auto:
+        type: AUTO
+        chance: 100
+        cooldown: 1000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_POTION:SLOW"
+soulcampfire:
+  group: artifact
+  display: "Lửa Trại Xanh"
+  description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm máu tối đa và lượng máu hồi mỗi giây"
+    - "&7cho bản thân và đồng minh xung quanh"
+  detail-description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm máu tối đa và lượng máu hồi mỗi giây"
+    - "&7cho bản thân và đồng minh xung quanh"
+    - ""
+    - "&eMáu tối đa: +6 x Cấp"
+    - "&eHồi máu/giây: +0.8 x Cấp"
+    - "&eHào quang: Hồi phục cho đồng minh"
+    - "&ePhạm vi: 3/3.5/4/4.5/5 block"
+  applies-description:
+    - "Thanh công cụ"
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:MAX_HEALTH:soulcampfire_max_health:6:0"
+          - "ADD_CUSTOM_ATTRIBUTE:soulcampfire_health_regeneration:HEALTH_REGENERATION:2.0:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:MAX_HEALTH:soulcampfire_max_health"
+          - "REMOVE_CUSTOM_ATTRIBUTE:soulcampfire_health_regeneration"
+      auto:
+        type: AUTO
+        chance: 100
+        cooldown: 3000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        target-filter:
+          except-player: true
+          except-enemy: true
+          min-distance: 0
+          max-distance: 3
+        target-effects:
+          - "TARGET=ENEMY | ADD_POTION:REGENERATION:0:40"
+    "2":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:MAX_HEALTH:soulcampfire_max_health:12:0"
+          - "ADD_CUSTOM_ATTRIBUTE:soulcampfire_health_regeneration:HEALTH_REGENERATION:4.0:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:MAX_HEALTH:soulcampfire_max_health"
+          - "REMOVE_CUSTOM_ATTRIBUTE:soulcampfire_health_regeneration"
+      auto:
+        type: AUTO
+        chance: 100
+        cooldown: 3000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        target-filter:
+          except-player: true
+          except-enemy: true
+          min-distance: 0
+          max-distance: 3.5
+        target-effects:
+          - "TARGET=ENEMY | ADD_POTION:REGENERATION:0:60"
+    "3":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:MAX_HEALTH:soulcampfire_max_health:18:0"
+          - "ADD_CUSTOM_ATTRIBUTE:soulcampfire_health_regeneration:HEALTH_REGENERATION:6.0:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:MAX_HEALTH:soulcampfire_max_health"
+          - "REMOVE_CUSTOM_ATTRIBUTE:soulcampfire_health_regeneration"
+      auto:
+        type: AUTO
+        chance: 100
+        cooldown: 3000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        target-filter:
+          except-player: true
+          except-enemy: true
+          min-distance: 0
+          max-distance: 4
+        target-effects:
+          - "TARGET=ENEMY | ADD_POTION:REGENERATION:0:80"
+    "4":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:MAX_HEALTH:soulcampfire_max_health:24:0"
+          - "ADD_CUSTOM_ATTRIBUTE:soulcampfire_health_regeneration:HEALTH_REGENERATION:8.0:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:MAX_HEALTH:soulcampfire_max_health"
+          - "REMOVE_CUSTOM_ATTRIBUTE:soulcampfire_health_regeneration"
+      auto:
+        type: AUTO
+        chance: 100
+        cooldown: 3000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        target-filter:
+          except-player: true
+          except-enemy: true
+          min-distance: 0
+          max-distance: 4.5
+        target-effects:
+          - "TARGET=ENEMY | ADD_POTION:REGENERATION:1:40"
+    "5":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:MAX_HEALTH:soulcampfire_max_health:30:0"
+          - "ADD_CUSTOM_ATTRIBUTE:soulcampfire_health_regeneration:HEALTH_REGENERATION:10.0:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:MAX_HEALTH:soulcampfire_max_health"
+          - "REMOVE_CUSTOM_ATTRIBUTE:soulcampfire_health_regeneration"
+      auto:
+        type: AUTO
+        chance: 100
+        cooldown: 3000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        target-filter:
+          except-player: true
+          except-enemy: true
+          min-distance: 0
+          max-distance: 5
+        target-effects:
+          - "TARGET=ENEMY | ADD_POTION:REGENERATION:1:60"
+campfire:
+  group: artifact
+  display: "Lửa Trại Đỏ"
+  description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm sức tấn công và tỉ lệ chí mạng"
+    - "&7cho bản thân và đồng minh xung quanh"
+  detail-description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm sức tấn công và tỉ lệ chí mạng"
+    - "&7cho bản thân và đồng minh xung quanh"
+    - ""
+    - "&eSức tấn công: +1.5 x Cấp"
+    - "&eTỉ lệ chí mạng: +3% x Cấp"
+    - "&eHào quang: Tăng sức mạnh cho đồng minh"
+    - "&ePhạm vi: 3/3.5/4/4.5/5 block"
+  applies-description:
+    - "Thanh công cụ"
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:ATTACK_DAMAGE:campfire_attack_damage:1.5:0"
+          - "ADD_CUSTOM_ATTRIBUTE:campfire_critical_chance:CRITICAL_CHANCE:3:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:ATTACK_DAMAGE:campfire_attack_damage"
+          - "REMOVE_CUSTOM_ATTRIBUTE:campfire_critical_chance"
+      auto:
+        type: AUTO
+        chance: 100
+        cooldown: 3000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        target-filter:
+          except-player: true
+          except-enemy: true
+          min-distance: 0
+          max-distance: 3
+        target-effects:
+          - "TARGET=ENEMY | ADD_POTION:INCREASE_DAMAGE:0:40"
+    "2":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:ATTACK_DAMAGE:campfire_attack_damage:3.0:0"
+          - "ADD_CUSTOM_ATTRIBUTE:campfire_critical_chance:CRITICAL_CHANCE:6:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:ATTACK_DAMAGE:campfire_attack_damage"
+          - "REMOVE_CUSTOM_ATTRIBUTE:campfire_critical_chance"
+      auto:
+        type: AUTO
+        chance: 100
+        cooldown: 3000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        target-filter:
+          except-player: true
+          except-enemy: true
+          min-distance: 0
+          max-distance: 3.5
+        target-effects:
+          - "TARGET=ENEMY | ADD_POTION:INCREASE_DAMAGE:0:60"
+    "3":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:ATTACK_DAMAGE:campfire_attack_damage:4.5:0"
+          - "ADD_CUSTOM_ATTRIBUTE:campfire_critical_chance:CRITICAL_CHANCE:9:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:ATTACK_DAMAGE:campfire_attack_damage"
+          - "REMOVE_CUSTOM_ATTRIBUTE:campfire_critical_chance"
+      auto:
+        type: AUTO
+        chance: 100
+        cooldown: 3000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        target-filter:
+          except-player: true
+          except-enemy: true
+          min-distance: 0
+          max-distance: 4
+        target-effects:
+          - "TARGET=ENEMY | ADD_POTION:INCREASE_DAMAGE:0:80"
+    "4":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:ATTACK_DAMAGE:campfire_attack_damage:6.0:0"
+          - "ADD_CUSTOM_ATTRIBUTE:campfire_critical_chance:CRITICAL_CHANCE:12:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:ATTACK_DAMAGE:campfire_attack_damage"
+          - "REMOVE_CUSTOM_ATTRIBUTE:campfire_critical_chance"
+      auto:
+        type: AUTO
+        chance: 100
+        cooldown: 3000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        target-filter:
+          except-player: true
+          except-enemy: true
+          min-distance: 0
+          max-distance: 4.5
+        target-effects:
+          - "TARGET=ENEMY | ADD_POTION:INCREASE_DAMAGE:1:40"
+    "5":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:ATTACK_DAMAGE:campfire_attack_damage:7.5:0"
+          - "ADD_CUSTOM_ATTRIBUTE:campfire_critical_chance:CRITICAL_CHANCE:15:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:ATTACK_DAMAGE:campfire_attack_damage"
+          - "REMOVE_CUSTOM_ATTRIBUTE:campfire_critical_chance"
+      auto:
+        type: AUTO
+        chance: 100
+        cooldown: 3000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        target-filter:
+          except-player: true
+          except-enemy: true
+          min-distance: 0
+          max-distance: 5
+        target-effects:
+          - "TARGET=ENEMY | ADD_POTION:INCREASE_DAMAGE:1:60"
+eternalfrost:
+  group: artifact
+  display: "Băng Giá Vĩnh Cửu"
+  description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm máu tối đa và giáp"
+    - "&7» &7Làm chậm tốc độ đánh và tốc độ di chuyển"
+    - "&7của kẻ địch xung quanh"
+  detail-description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm máu tối đa và giáp"
+    - "&7» &7Làm chậm tốc độ đánh và tốc độ di chuyển"
+    - "&7của kẻ địch xung quanh"
+    - ""
+    - "&eMáu tối đa: +6 x Cấp"
+    - "&eGiáp: +3 x Cấp"
+    - "&eHào quang: Làm chậm kẻ địch"
+    - "&ePhạm vi: 2.5/3/3.5/4/4.5 block"
+  applies-description:
+    - "Thanh công cụ"
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:MAX_HEALTH:eternalfrost_max_health:6:0"
+          - "ADD_ATTRIBUTE:ARMOR:eternalfrost_armor:3:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:MAX_HEALTH:eternalfrost_max_health"
+          - "REMOVE_ATTRIBUTE:ARMOR:eternalfrost_armor"
+      auto:
+        type: AUTO
+        chance: 100
+        cooldown: 2000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        target-filter:
+          except-player: true
+          except-enemy: false
+          min-distance: 0
+          max-distance: 2.5
+        target-conditions:
+          - CAN_ATTACK
+        target-effects:
+          - "TARGET=ENEMY | ADD_POTION:SLOW:0:40"
+    "2":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:MAX_HEALTH:eternalfrost_max_health:12:0"
+          - "ADD_ATTRIBUTE:ARMOR:eternalfrost_armor:6:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:MAX_HEALTH:eternalfrost_max_health"
+          - "REMOVE_ATTRIBUTE:ARMOR:eternalfrost_armor"
+      auto:
+        type: AUTO
+        chance: 100
+        cooldown: 2000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        target-filter:
+          except-player: true
+          except-enemy: false
+          min-distance: 0
+          max-distance: 3
+        target-conditions:
+          - CAN_ATTACK
+        target-effects:
+          - "TARGET=ENEMY | ADD_POTION:SLOW:0:60"
+    "3":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:MAX_HEALTH:eternalfrost_max_health:18:0"
+          - "ADD_ATTRIBUTE:ARMOR:eternalfrost_armor:9:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:MAX_HEALTH:eternalfrost_max_health"
+          - "REMOVE_ATTRIBUTE:ARMOR:eternalfrost_armor"
+      auto:
+        type: AUTO
+        chance: 100
+        cooldown: 2000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        target-filter:
+          except-player: true
+          except-enemy: false
+          min-distance: 0
+          max-distance: 3.5
+        target-conditions:
+          - CAN_ATTACK
+        target-effects:
+          - "TARGET=ENEMY | ADD_POTION:SLOW:0:80"
+    "4":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:MAX_HEALTH:eternalfrost_max_health:24:0"
+          - "ADD_ATTRIBUTE:ARMOR:eternalfrost_armor:12:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:MAX_HEALTH:eternalfrost_max_health"
+          - "REMOVE_ATTRIBUTE:ARMOR:eternalfrost_armor"
+      auto:
+        type: AUTO
+        chance: 100
+        cooldown: 2000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        target-filter:
+          except-player: true
+          except-enemy: false
+          min-distance: 0
+          max-distance: 4
+        target-conditions:
+          - CAN_ATTACK
+        target-effects:
+          - "TARGET=ENEMY | ADD_POTION:SLOW:1:40"
+    "5":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:MAX_HEALTH:eternalfrost_max_health:30:0"
+          - "ADD_ATTRIBUTE:ARMOR:eternalfrost_armor:15:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:MAX_HEALTH:eternalfrost_max_health"
+          - "REMOVE_ATTRIBUTE:ARMOR:eternalfrost_armor"
+      auto:
+        type: AUTO
+        chance: 100
+        cooldown: 2000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        target-filter:
+          except-player: true
+          except-enemy: false
+          min-distance: 0
+          max-distance: 4.5
+        target-conditions:
+          - CAN_ATTACK
+        target-effects:
+          - "TARGET=ENEMY | ADD_POTION:SLOW:1:60"
+soulofgrassland:
+  group: artifact
+  display: "Linh Hồn Thảo Nguyên"
+  description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm lượng máu hồi phục mỗi giây"
+    - ""
+    - "&eKhi di chuyển:"
+    - "&7» &7Nhận thêm tốc độ di chuyển và tăng mạnh"
+    - "&7hồi máu mỗi giây"
+  detail-description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm lượng máu hồi phục mỗi giây"
+    - ""
+    - "&eKhi di chuyển:"
+    - "&7» &7Nhận thêm tốc độ di chuyển và tăng mạnh"
+    - "&7hồi máu mỗi giây"
+    - ""
+    - "&eHồi máu/giây: +0.8 x Cấp"
+    - "&eTỉ lệ kích hoạt: 20%/25%/30%/35%/40%"
+    - "&eThời gian hồi: 5/5/4/4/3 giây"
+  applies-description:
+    - "Thanh công cụ"
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_CUSTOM_ATTRIBUTE:soulofgrassland_health_regeneration:HEALTH_REGENERATION:2.0:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_CUSTOM_ATTRIBUTE:soulofgrassland_health_regeneration"
+      move:
+        type: MOVE
+        chance: 20
+        cooldown: 5000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_POTION:SPEED:0:60"
+          - "ADD_POTION:REGENERATION:0:60"
+          - "MESSAGE:&d&l***Thảo Nguyên: &a&lTốc Độ I + Hồi Phục I &f(0:03)&d&l***"
+    "2":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_CUSTOM_ATTRIBUTE:soulofgrassland_health_regeneration:HEALTH_REGENERATION:4.0:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_CUSTOM_ATTRIBUTE:soulofgrassland_health_regeneration"
+      move:
+        type: MOVE
+        chance: 25
+        cooldown: 5000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_POTION:SPEED:0:80"
+          - "ADD_POTION:REGENERATION:0:80"
+          - "MESSAGE:&d&l***Thảo Nguyên: &a&lTốc Độ I + Hồi Phục I &f(0:04)&d&l***"
+    "3":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_CUSTOM_ATTRIBUTE:soulofgrassland_health_regeneration:HEALTH_REGENERATION:6.0:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_CUSTOM_ATTRIBUTE:soulofgrassland_health_regeneration"
+      move:
+        type: MOVE
+        chance: 30
+        cooldown: 4000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_POTION:SPEED:0:100"
+          - "ADD_POTION:REGENERATION:1:60"
+          - "MESSAGE:&d&l***Thảo Nguyên: &a&lTốc Độ I + Hồi Phục II &f(0:05)&d&l***"
+    "4":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_CUSTOM_ATTRIBUTE:soulofgrassland_health_regeneration:HEALTH_REGENERATION:8.0:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_CUSTOM_ATTRIBUTE:soulofgrassland_health_regeneration"
+      move:
+        type: MOVE
+        chance: 35
+        cooldown: 4000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_POTION:SPEED:1:80"
+          - "ADD_POTION:REGENERATION:1:80"
+          - "MESSAGE:&d&l***Thảo Nguyên: &a&lTốc Độ II + Hồi Phục II &f(0:04)&d&l***"
+    "5":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_CUSTOM_ATTRIBUTE:soulofgrassland_health_regeneration:HEALTH_REGENERATION:10.0:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_CUSTOM_ATTRIBUTE:soulofgrassland_health_regeneration"
+      move:
+        type: MOVE
+        chance: 40
+        cooldown: 3000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_POTION:SPEED:1:100"
+          - "ADD_POTION:REGENERATION:1:100"
+          - "MESSAGE:&d&l***Thảo Nguyên: &a&lTốc Độ II + Hồi Phục II &f(0:05)&d&l***"
+greenapple:
+  group: artifact
+  display: "Táo Xanh"
+  description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm tim vàng tối đa và tăng tỉ lệ"
+    - "&7kháng khống chế"
+    - ""
+    - "&eKhi ăn táo đỏ:"
+    - "&7» &7Nhận thêm hồi phục máu mỗi giây và một"
+    - "&7lượng tim vàng"
+  detail-description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm tim vàng tối đa và tăng tỉ lệ"
+    - "&7kháng khống chế"
+    - ""
+    - "&eKhi ăn táo đỏ:"
+    - "&7» &7Nhận thêm hồi phục máu mỗi giây và một"
+    - "&7lượng tim vàng"
+    - ""
+    - "&eTim vàng tối đa: +4 x Cấp"
+    - "&eKháng khống chế: +5% x Cấp"
+    - "&eTim vàng khi ăn: 2/4/4/6/6"
+    - "&eHồi phục: I/I/II/II/II"
+  applies-description:
+    - "Thanh công cụ"
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:MAX_ABSORPTION:greenapple_max_absorption:4:0"
+          - "ADD_CUSTOM_ATTRIBUTE:greenapple_magic_resistance:MAGIC_RESISTANCE:5:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:MAX_ABSORPTION:greenapple_max_absorption"
+          - "REMOVE_CUSTOM_ATTRIBUTE:greenapple_magic_resistance"
+      item_consume:
+        type: ITEM_CONSUME
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+          - "ITEM_CONSUME:APPLE"
+        effects:
+          - "ADD_POTION:REGENERATION:0:100"
+          - "ABSORPTION_HEART:ADD:2:100"
+          - "MESSAGE:&d&l***Táo Xanh: &a&l+Hồi Phục I +2 Tim Vàng &f(0:05)&d&l***"
+    "2":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:MAX_ABSORPTION:greenapple_max_absorption:8:0"
+          - "ADD_CUSTOM_ATTRIBUTE:greenapple_magic_resistance:MAGIC_RESISTANCE:10:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:MAX_ABSORPTION:greenapple_max_absorption"
+          - "REMOVE_CUSTOM_ATTRIBUTE:greenapple_magic_resistance"
+      item_consume:
+        type: ITEM_CONSUME
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+          - "ITEM_CONSUME:APPLE"
+        effects:
+          - "ADD_POTION:REGENERATION:0:120"
+          - "ABSORPTION_HEART:ADD:4:100"
+          - "MESSAGE:&d&l***Táo Xanh: &a&l+Hồi Phục I +4 Tim Vàng &f(0:06)&d&l***"
+    "3":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:MAX_ABSORPTION:greenapple_max_absorption:12:0"
+          - "ADD_CUSTOM_ATTRIBUTE:greenapple_magic_resistance:MAGIC_RESISTANCE:15:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:MAX_ABSORPTION:greenapple_max_absorption"
+          - "REMOVE_CUSTOM_ATTRIBUTE:greenapple_magic_resistance"
+      item_consume:
+        type: ITEM_CONSUME
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+          - "ITEM_CONSUME:APPLE"
+        effects:
+          - "ADD_POTION:REGENERATION:1:100"
+          - "ABSORPTION_HEART:ADD:4:120"
+          - "MESSAGE:&d&l***Táo Xanh: &a&l+Hồi Phục II +4 Tim Vàng &f(0:05)&d&l***"
+    "4":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:MAX_ABSORPTION:greenapple_max_absorption:16:0"
+          - "ADD_CUSTOM_ATTRIBUTE:greenapple_magic_resistance:MAGIC_RESISTANCE:20:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:MAX_ABSORPTION:greenapple_max_absorption"
+          - "REMOVE_CUSTOM_ATTRIBUTE:greenapple_magic_resistance"
+      item_consume:
+        type: ITEM_CONSUME
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+          - "ITEM_CONSUME:APPLE"
+        effects:
+          - "ADD_POTION:REGENERATION:1:120"
+          - "ABSORPTION_HEART:ADD:6:120"
+          - "MESSAGE:&d&l***Táo Xanh: &a&l+Hồi Phục II +6 Tim Vàng &f(0:06)&d&l***"
+    "5":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:MAX_ABSORPTION:greenapple_max_absorption:20:0"
+          - "ADD_CUSTOM_ATTRIBUTE:greenapple_magic_resistance:MAGIC_RESISTANCE:25:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:MAX_ABSORPTION:greenapple_max_absorption"
+          - "REMOVE_CUSTOM_ATTRIBUTE:greenapple_magic_resistance"
+      item_consume:
+        type: ITEM_CONSUME
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+          - "ITEM_CONSUME:APPLE"
+        effects:
+          - "ADD_POTION:REGENERATION:1:160"
+          - "ABSORPTION_HEART:ADD:6:160"
+          - "MESSAGE:&d&l***Táo Xanh: &a&l+Hồi Phục II +6 Tim Vàng &f(0:08)&d&l***"
+inksac:
+  group: artifact
+  display: "Túi Mực Đen Kịt"
+  description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm tỉ lệ né tránh"
+    - ""
+    - "&eKhi bị tấn công:"
+    - "&7» &7Né tránh mỗi khoảng thời gian"
+  detail-description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm tỉ lệ né tránh"
+    - ""
+    - "&eKhi bị tấn công:"
+    - "&7» &7Né tránh mỗi khoảng thời gian"
+    - ""
+    - "&eNé tránh: +3% x Cấp"
+    - "&eTỉ lệ kích hoạt: 25%/30%/35%/40%/45%"
+    - "&eNé tránh thêm: +5/7/9/11/13%"
+    - "&eThời gian: 3/3/4/4/5 giây"
+    - "&eThời gian hồi: 8/8/7/7/6 giây"
+  applies-description:
+    - "Thanh công cụ"
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_CUSTOM_ATTRIBUTE:inksac_dodge_chance:DODGE_CHANCE:3:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_CUSTOM_ATTRIBUTE:inksac_dodge_chance"
+      defense:
+        type: DEFENSE
+        chance: 25
+        cooldown: 8000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_CUSTOM_ATTRIBUTE:inksac_dodge_bonus:DODGE_CHANCE:5:0"
+          - "NAME=inksac_dodge_bonus,DELAY=60 | REMOVE_CUSTOM_ATTRIBUTE:inksac_dodge_bonus"
+          - "MESSAGE:&d&l***Túi Mực: &a&l+5% Né Tránh &f(0:03)&d&l***"
+    "2":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_CUSTOM_ATTRIBUTE:inksac_dodge_chance:DODGE_CHANCE:6:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_CUSTOM_ATTRIBUTE:inksac_dodge_chance"
+      defense:
+        type: DEFENSE
+        chance: 30
+        cooldown: 8000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_CUSTOM_ATTRIBUTE:inksac_dodge_bonus:DODGE_CHANCE:7:0"
+          - "NAME=inksac_dodge_bonus,DELAY=60 | REMOVE_CUSTOM_ATTRIBUTE:inksac_dodge_bonus"
+          - "MESSAGE:&d&l***Túi Mực: &a&l+7% Né Tránh &f(0:03)&d&l***"
+    "3":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_CUSTOM_ATTRIBUTE:inksac_dodge_chance:DODGE_CHANCE:9:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_CUSTOM_ATTRIBUTE:inksac_dodge_chance"
+      defense:
+        type: DEFENSE
+        chance: 35
+        cooldown: 7000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_CUSTOM_ATTRIBUTE:inksac_dodge_bonus:DODGE_CHANCE:9:0"
+          - "NAME=inksac_dodge_bonus,DELAY=80 | REMOVE_CUSTOM_ATTRIBUTE:inksac_dodge_bonus"
+          - "MESSAGE:&d&l***Túi Mực: &a&l+9% Né Tránh &f(0:04)&d&l***"
+    "4":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_CUSTOM_ATTRIBUTE:inksac_dodge_chance:DODGE_CHANCE:12:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_CUSTOM_ATTRIBUTE:inksac_dodge_chance"
+      defense:
+        type: DEFENSE
+        chance: 40
+        cooldown: 7000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_CUSTOM_ATTRIBUTE:inksac_dodge_bonus:DODGE_CHANCE:11:0"
+          - "NAME=inksac_dodge_bonus,DELAY=80 | REMOVE_CUSTOM_ATTRIBUTE:inksac_dodge_bonus"
+          - "MESSAGE:&d&l***Túi Mực: &a&l+11% Né Tránh &f(0:04)&d&l***"
+    "5":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_CUSTOM_ATTRIBUTE:inksac_dodge_chance:DODGE_CHANCE:15:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_CUSTOM_ATTRIBUTE:inksac_dodge_chance"
+      defense:
+        type: DEFENSE
+        chance: 45
+        cooldown: 6000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_CUSTOM_ATTRIBUTE:inksac_dodge_bonus:DODGE_CHANCE:13:0"
+          - "NAME=inksac_dodge_bonus,DELAY=100 | REMOVE_CUSTOM_ATTRIBUTE:inksac_dodge_bonus"
+          - "MESSAGE:&d&l***Túi Mực: &a&l+13% Né Tránh &f(0:05)&d&l***"
+blazerod:
+  group: artifact
+  display: "Hỏa Trượng"
+  description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm sức tấn công và tỉ lệ chí mạng"
+    - ""
+    - "&eKhi tấn công:"
+    - "&7» &7Gây cháy cho kẻ địch trong một khoảng thời gian"
+    - "&7và gây thêm sát thương"
+  detail-description:
+    - "&eKhi trang bị:"
+    - "&7» &7Tăng thêm sức tấn công và tỉ lệ chí mạng"
+    - ""
+    - "&eKhi tấn công:"
+    - "&7» &7Gây cháy cho kẻ địch trong một khoảng thời gian"
+    - "&7và gây thêm sát thương"
+    - ""
+    - "&eSức tấn công: +1.5 x Cấp"
+    - "&eTỉ lệ chí mạng: +3% x Cấp"
+    - "&eTỉ lệ kích hoạt: 30%/35%/40%/45%/50%"
+    - "&eSát thương thêm: +1.0/1.5/2.0/2.5/3.0"
+    - "&eThời gian cháy: 2/3/3/4/4 giây"
+    - "&eThời gian hồi: 5/5/4/4/3 giây"
+  applies-description:
+    - "Thanh công cụ"
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:ATTACK_DAMAGE:blazerod_attack_damage:1.5:0"
+          - "ADD_CUSTOM_ATTRIBUTE:blazerod_critical_chance:CRITICAL_CHANCE:3:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:ATTACK_DAMAGE:blazerod_attack_damage"
+          - "REMOVE_CUSTOM_ATTRIBUTE:blazerod_critical_chance"
+      attack:
+        type: ATTACK
+        chance: 30
+        cooldown: 5000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "TARGET=ENEMY | ON_FIRE:40"
+          - "ATTACK:1.0:0"
+          - "MESSAGE:&d&l***Hỏa Trượng: &c&l+1.0 Sát Thương + Cháy &f(0:02)&d&l***"
+    "2":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:ATTACK_DAMAGE:blazerod_attack_damage:3.0:0"
+          - "ADD_CUSTOM_ATTRIBUTE:blazerod_critical_chance:CRITICAL_CHANCE:6:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:ATTACK_DAMAGE:blazerod_attack_damage"
+          - "REMOVE_CUSTOM_ATTRIBUTE:blazerod_critical_chance"
+      attack:
+        type: ATTACK
+        chance: 35
+        cooldown: 5000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "TARGET=ENEMY | ON_FIRE:60"
+          - "ATTACK:1.5:0"
+          - "MESSAGE:&d&l***Hỏa Trượng: &c&l+1.5 Sát Thương + Cháy &f(0:03)&d&l***"
+    "3":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:ATTACK_DAMAGE:blazerod_attack_damage:4.5:0"
+          - "ADD_CUSTOM_ATTRIBUTE:blazerod_critical_chance:CRITICAL_CHANCE:9:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:ATTACK_DAMAGE:blazerod_attack_damage"
+          - "REMOVE_CUSTOM_ATTRIBUTE:blazerod_critical_chance"
+      attack:
+        type: ATTACK
+        chance: 40
+        cooldown: 4000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "TARGET=ENEMY | ON_FIRE:60"
+          - "ATTACK:2.0:0"
+          - "MESSAGE:&d&l***Hỏa Trượng: &c&l+2.0 Sát Thương + Cháy &f(0:03)&d&l***"
+    "4":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:ATTACK_DAMAGE:blazerod_attack_damage:6.0:0"
+          - "ADD_CUSTOM_ATTRIBUTE:blazerod_critical_chance:CRITICAL_CHANCE:12:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:ATTACK_DAMAGE:blazerod_attack_damage"
+          - "REMOVE_CUSTOM_ATTRIBUTE:blazerod_critical_chance"
+      attack:
+        type: ATTACK
+        chance: 45
+        cooldown: 4000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "TARGET=ENEMY | ON_FIRE:80"
+          - "ATTACK:2.5:0"
+          - "MESSAGE:&d&l***Hỏa Trượng: &c&l+2.5 Sát Thương + Cháy &f(0:04)&d&l***"
+    "5":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:ATTACK_DAMAGE:blazerod_attack_damage:7.5:0"
+          - "ADD_CUSTOM_ATTRIBUTE:blazerod_critical_chance:CRITICAL_CHANCE:15:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:ATTACK_DAMAGE:blazerod_attack_damage"
+          - "REMOVE_CUSTOM_ATTRIBUTE:blazerod_critical_chance"
+      attack:
+        type: ATTACK
+        chance: 50
+        cooldown: 3000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "TARGET=ENEMY | ON_FIRE:80"
+          - "ATTACK:3.0:0"
+          - "MESSAGE:&d&l***Hỏa Trượng: &c&l+3.0 Sát Thương + Cháy &f(0:04)&d&l***"
+darksteel:
+  group: artifact
+  display: "Kim Loại Hắc Ám"
+  description:
+    - "&eKhi tấn công:"
+    - "&7» &7Gây sát thương chuẩn"
+  detail-description:
+    - "&eKhi tấn công:"
+    - "&7» &7Gây sát thương chuẩn"
+    - ""
+    - "&eSát thương chuẩn: 1.0/1.5/2.0/2.5/3.0"
+    - "&eThời gian hồi: 3/3/2.5/2.5/2 giây"
+  applies-description:
+    - "Thanh công cụ"
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 3000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "TARGET=ENEMY | HEALTH:REMOVE:1.0"
+          - "MESSAGE:&d&l***Hắc Kim: &4&l-1.0 HP Chuẩn&d&l***"
+    "2":
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 3000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "TARGET=ENEMY | HEALTH:REMOVE:1.5"
+          - "MESSAGE:&d&l***Hắc Kim: &4&l-1.5 HP Chuẩn&d&l***"
+    "3":
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 2500
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "TARGET=ENEMY | HEALTH:REMOVE:2.0"
+          - "MESSAGE:&d&l***Hắc Kim: &4&l-2.0 HP Chuẩn&d&l***"
+    "4":
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 2500
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "TARGET=ENEMY | HEALTH:REMOVE:2.5"
+          - "MESSAGE:&d&l***Hắc Kim: &4&l-2.5 HP Chuẩn&d&l***"
+    "5":
+      attack:
+        type: ATTACK
+        chance: 100
+        cooldown: 2000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "TARGET=ENEMY | HEALTH:REMOVE:3.0"
+          - "MESSAGE:&d&l***Hắc Kim: &4&l-3.0 HP Chuẩn&d&l***"
+rabbitear:
+  group: artifact
+  display: "Tai Thỏ"
+  description:
+    - "&eKhi trang bị:"
+    - "&7» &7Nhận thêm tốc độ di chuyển và tỉ lệ né tránh"
+    - ""
+    - "&eKhi có kẻ địch xung quanh:"
+    - "&7» &7Nhận thêm tốc độ di chuyển và tỉ lệ né tránh"
+  detail-description:
+    - "&eKhi trang bị:"
+    - "&7» &7Nhận thêm tốc độ di chuyển và tỉ lệ né tránh"
+    - ""
+    - "&eKhi có kẻ địch xung quanh:"
+    - "&7» &7Nhận thêm tốc độ di chuyển và tỉ lệ né tránh"
+    - ""
+    - "&eTốc độ: +0.01 x Cấp"
+    - "&eNé tránh: +3% x Cấp"
+    - "&eTốc độ thêm: +0.01/0.015/0.02/0.025/0.03"
+    - "&eNé tránh thêm: +3/4/5/6/7%"
+    - "&eThời gian: 3/3/4/4/5 giây"
+    - "&eThời gian hồi: 5/5/4/4/3 giây"
+  applies-description:
+    - "Thanh công cụ"
+  max-level: 5
+  enchant-point: 1
+  valuable: 0
+  levels:
+    "1":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:MOVEMENT_SPEED:rabbitear_movement_speed:0.01:0"
+          - "ADD_CUSTOM_ATTRIBUTE:rabbitear_dodge_chance:DODGE_CHANCE:3:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:MOVEMENT_SPEED:rabbitear_movement_speed"
+          - "REMOVE_CUSTOM_ATTRIBUTE:rabbitear_dodge_chance"
+      auto:
+        type: AUTO
+        chance: 100
+        cooldown: 5000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+          - "IN_COMBAT"
+        effects:
+          - "ADD_ATTRIBUTE:MOVEMENT_SPEED:rabbitear_combat_speed:0.01:0"
+          - "ADD_CUSTOM_ATTRIBUTE:rabbitear_combat_dodge:DODGE_CHANCE:3:0"
+          - "NAME=rabbitear_combat_speed,DELAY=60 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:rabbitear_combat_speed"
+          - "NAME=rabbitear_combat_dodge,DELAY=60 | REMOVE_CUSTOM_ATTRIBUTE:rabbitear_combat_dodge"
+          - "MESSAGE:&d&l***Tai Thỏ: &a&l+Tốc Độ +Né Tránh &f(0:03)&d&l***"
+    "2":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:MOVEMENT_SPEED:rabbitear_movement_speed:0.02:0"
+          - "ADD_CUSTOM_ATTRIBUTE:rabbitear_dodge_chance:DODGE_CHANCE:6:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:MOVEMENT_SPEED:rabbitear_movement_speed"
+          - "REMOVE_CUSTOM_ATTRIBUTE:rabbitear_dodge_chance"
+      auto:
+        type: AUTO
+        chance: 100
+        cooldown: 5000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+          - "IN_COMBAT"
+        effects:
+          - "ADD_ATTRIBUTE:MOVEMENT_SPEED:rabbitear_combat_speed:0.015:0"
+          - "ADD_CUSTOM_ATTRIBUTE:rabbitear_combat_dodge:DODGE_CHANCE:4:0"
+          - "NAME=rabbitear_combat_speed,DELAY=60 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:rabbitear_combat_speed"
+          - "NAME=rabbitear_combat_dodge,DELAY=60 | REMOVE_CUSTOM_ATTRIBUTE:rabbitear_combat_dodge"
+          - "MESSAGE:&d&l***Tai Thỏ: &a&l+Tốc Độ +Né Tránh &f(0:03)&d&l***"
+    "3":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:MOVEMENT_SPEED:rabbitear_movement_speed:0.03:0"
+          - "ADD_CUSTOM_ATTRIBUTE:rabbitear_dodge_chance:DODGE_CHANCE:9:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:MOVEMENT_SPEED:rabbitear_movement_speed"
+          - "REMOVE_CUSTOM_ATTRIBUTE:rabbitear_dodge_chance"
+      auto:
+        type: AUTO
+        chance: 100
+        cooldown: 4000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+          - "IN_COMBAT"
+        effects:
+          - "ADD_ATTRIBUTE:MOVEMENT_SPEED:rabbitear_combat_speed:0.02:0"
+          - "ADD_CUSTOM_ATTRIBUTE:rabbitear_combat_dodge:DODGE_CHANCE:5:0"
+          - "NAME=rabbitear_combat_speed,DELAY=80 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:rabbitear_combat_speed"
+          - "NAME=rabbitear_combat_dodge,DELAY=80 | REMOVE_CUSTOM_ATTRIBUTE:rabbitear_combat_dodge"
+          - "MESSAGE:&d&l***Tai Thỏ: &a&l+Tốc Độ +Né Tránh &f(0:04)&d&l***"
+    "4":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:MOVEMENT_SPEED:rabbitear_movement_speed:0.04:0"
+          - "ADD_CUSTOM_ATTRIBUTE:rabbitear_dodge_chance:DODGE_CHANCE:12:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:MOVEMENT_SPEED:rabbitear_movement_speed"
+          - "REMOVE_CUSTOM_ATTRIBUTE:rabbitear_dodge_chance"
+      auto:
+        type: AUTO
+        chance: 100
+        cooldown: 4000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+          - "IN_COMBAT"
+        effects:
+          - "ADD_ATTRIBUTE:MOVEMENT_SPEED:rabbitear_combat_speed:0.025:0"
+          - "ADD_CUSTOM_ATTRIBUTE:rabbitear_combat_dodge:DODGE_CHANCE:6:0"
+          - "NAME=rabbitear_combat_speed,DELAY=80 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:rabbitear_combat_speed"
+          - "NAME=rabbitear_combat_dodge,DELAY=80 | REMOVE_CUSTOM_ATTRIBUTE:rabbitear_combat_dodge"
+          - "MESSAGE:&d&l***Tai Thỏ: &a&l+Tốc Độ +Né Tránh &f(0:04)&d&l***"
+    "5":
+      equip:
+        type: EXTRA_SLOT_EQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "ADD_ATTRIBUTE:MOVEMENT_SPEED:rabbitear_movement_speed:0.05:0"
+          - "ADD_CUSTOM_ATTRIBUTE:rabbitear_dodge_chance:DODGE_CHANCE:15:0"
+      unequip:
+        type: EXTRA_SLOT_UNEQUIP
+        chance: 100
+        cooldown: 0
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+        effects:
+          - "REMOVE_ATTRIBUTE:MOVEMENT_SPEED:rabbitear_movement_speed"
+          - "REMOVE_CUSTOM_ATTRIBUTE:rabbitear_dodge_chance"
+      auto:
+        type: AUTO
+        chance: 100
+        cooldown: 3000
+        conditions:
+          - "EQUIP_SLOT:EXTRA_SLOT"
+          - "IN_COMBAT"
+        effects:
+          - "ADD_ATTRIBUTE:MOVEMENT_SPEED:rabbitear_combat_speed:0.03:0"
+          - "ADD_CUSTOM_ATTRIBUTE:rabbitear_combat_dodge:DODGE_CHANCE:7:0"
+          - "NAME=rabbitear_combat_speed,DELAY=100 | REMOVE_ATTRIBUTE:MOVEMENT_SPEED:rabbitear_combat_speed"
+          - "NAME=rabbitear_combat_dodge,DELAY=100 | REMOVE_CUSTOM_ATTRIBUTE:rabbitear_combat_dodge"
+          - "MESSAGE:&d&l***Tai Thỏ: &a&l+Tốc Độ +Né Tránh &f(0:05)&d&l***"
