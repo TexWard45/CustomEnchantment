@@ -8,6 +8,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.Damageable;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import com.bafmc.customenchantment.constant.CEConstants;
 import com.bafmc.customenchantment.enchant.CEFunctionData;
 import com.bafmc.customenchantment.enchant.EffectHook;
 import com.bafmc.customenchantment.enchant.ModifyType;
@@ -44,7 +45,7 @@ public class EffectDurability extends EffectHook {
 			ItemStack item = null;
 
 			EquipSlot typeArmor2 = null;
-			if (typeArmor.equals("AUTO") && data != null) {
+			if (typeArmor.equals(CEConstants.ArmorType.AUTO) && data != null) {
 				typeArmor2 = data.getEquipSlot();
 			} else {
 				typeArmor2 = EquipSlot.valueOf(typeArmor);

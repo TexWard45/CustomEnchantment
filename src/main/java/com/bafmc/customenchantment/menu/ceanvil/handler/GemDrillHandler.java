@@ -5,6 +5,7 @@ import com.bafmc.bukkit.utils.ItemStackUtils;
 import com.bafmc.bukkit.utils.StringUtils;
 import com.bafmc.customenchantment.item.ApplyReason;
 import com.bafmc.customenchantment.item.ApplyResult;
+import com.bafmc.customenchantment.constant.CEConstants;
 import com.bafmc.customenchantment.item.CEItem;
 import com.bafmc.customenchantment.item.CEWeapon;
 import com.bafmc.customenchantment.item.WeaponGem;
@@ -55,7 +56,7 @@ public class GemDrillHandler implements Slot2Handler {
             if (chance < 100) {
                 ItemStack itemStack = menu.getTemplateItemStack("confirm-gem-drill-with-chance");
                 itemStack = ItemStackUtils.getItemStack(itemStack,
-                        PlaceholderBuilder.builder().put("{chance}", StringUtils.formatNumber(chance)).build());
+                        PlaceholderBuilder.builder().put(CEConstants.ItemPlaceholder.CHANCE, StringUtils.formatNumber(chance)).build());
                 menu.updateSlots("confirm", itemStack);
             } else {
                 menu.updateSlots("confirm", menu.getTemplateItemStack("confirm-gem-drill"));

@@ -1,6 +1,7 @@
 package com.bafmc.customenchantment.item.removeenchantpoint;
 
 import com.bafmc.customenchantment.CustomEnchantment;
+import com.bafmc.customenchantment.constant.CEConstants;
 import com.bafmc.customenchantment.item.*;
 import com.bafmc.customenchantment.item.enchantpoint.CEEnchantPoint;
 import com.bafmc.customenchantment.item.enchantpoint.CEEnchantPointSimple;
@@ -82,8 +83,8 @@ public class CERemoveEnchantPoint extends CEItem<CERemoveEnchantPointData> {
 			reason.setRewards(Arrays.asList(enchantPoint.exportTo()));
 		}
 		
-		reason.putData("pattern", this.data.getPattern());
-		reason.putData("weapon", ItemStackUtils.toString(ceWeapon.getDefaultItemStack()));
+		reason.putData(CEConstants.DataKey.PATTERN, this.data.getPattern());
+		reason.putData(CEConstants.DataKey.WEAPON, ItemStackUtils.toString(ceWeapon.getDefaultItemStack()));
 		return reason;
 	}
 

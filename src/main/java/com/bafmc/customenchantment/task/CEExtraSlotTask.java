@@ -6,6 +6,8 @@ import com.bafmc.bukkit.utils.EquipSlot;
 import com.bafmc.bukkit.utils.ItemStackUtils;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.CustomEnchantmentMessage;
+import com.bafmc.customenchantment.constant.CEConstants;
+import com.bafmc.customenchantment.constant.CEMessageKey;
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.enchant.CECallerBuilder;
 import com.bafmc.customenchantment.enchant.CEType;
@@ -76,7 +78,7 @@ public class CEExtraSlotTask extends PlayerPerTickTask {
             if (uniqueItemList.size() != hotbarSlotMap.size()) {
                 handleExtraSlotDeactivation(cePlayer);
                 if (!inDisableExtraSlotSet.contains(player.getName())) {
-                    CustomEnchantmentMessage.send(player, "ce-item.extra-slot.duplicate");
+                    CustomEnchantmentMessage.send(player, CEMessageKey.CE_ITEM_EXTRA_SLOT_DUPLICATE);
                     inDisableExtraSlotSet.add(player.getName());
                 }
                 return false;
@@ -88,7 +90,7 @@ public class CEExtraSlotTask extends PlayerPerTickTask {
         }else {
             handleExtraSlotDeactivation(cePlayer);
             if (!inDisableExtraSlotSet.contains(player.getName())) {
-                CustomEnchantmentMessage.send(player, "ce-item.extra-slot.exceed-use-amount");
+                CustomEnchantmentMessage.send(player, CEMessageKey.CE_ITEM_EXTRA_SLOT_EXCEED_USE_AMOUNT);
                 inDisableExtraSlotSet.add(player.getName());
             }
             return false;
@@ -136,9 +138,9 @@ public class CEExtraSlotTask extends PlayerPerTickTask {
             CEWeaponAbstract ceArtifact = map.get(equipSlot);
 
             PlaceholderBuilder builder = PlaceholderBuilder.builder();
-            builder.put("{display}", ItemStackUtils.getDisplayName(ceArtifact.getDefaultItemStack()));
+            builder.put(CEConstants.ItemPlaceholder.DISPLAY, ItemStackUtils.getDisplayName(ceArtifact.getDefaultItemStack()));
 
-            CustomEnchantmentMessage.send(player, "ce-item.extra-slot.active", builder.build());
+            CustomEnchantmentMessage.send(player, CEMessageKey.CE_ITEM_EXTRA_SLOT_ACTIVE, builder.build());
         }
     }
 
@@ -147,9 +149,9 @@ public class CEExtraSlotTask extends PlayerPerTickTask {
             CEWeaponAbstract ceArtifact = map.get(equipSlot);
 
             PlaceholderBuilder builder = PlaceholderBuilder.builder();
-            builder.put("{display}", ItemStackUtils.getDisplayName(ceArtifact.getDefaultItemStack()));
+            builder.put(CEConstants.ItemPlaceholder.DISPLAY, ItemStackUtils.getDisplayName(ceArtifact.getDefaultItemStack()));
 
-            CustomEnchantmentMessage.send(player, "ce-item.extra-slot.deactive", builder.build());
+            CustomEnchantmentMessage.send(player, CEMessageKey.CE_ITEM_EXTRA_SLOT_DEACTIVE, builder.build());
         }
     }
 

@@ -6,10 +6,11 @@ import com.bafmc.bukkit.bafframework.custommenu.menu.data.MenuData;
 import com.bafmc.bukkit.bafframework.custommenu.menu.item.list.DefaultItem;
 import com.bafmc.bukkit.feature.placeholder.Placeholder;
 import com.bafmc.bukkit.feature.placeholder.PlaceholderBuilder;
-import com.bafmc.bukkit.utils.EnumUtils;
 import com.bafmc.bukkit.utils.InventoryUtils;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.CustomEnchantmentMessage;
+import com.bafmc.customenchantment.constant.CEConstants;
+import com.bafmc.customenchantment.constant.CEMessageKey;
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.enchant.CEEnchantSimple;
 import com.bafmc.customenchantment.item.CEItem;
@@ -86,7 +87,7 @@ public class BookCraftCustomMenu extends AbstractMenu<MenuData, BookCraftExtraDa
 
         // Must be amount=1 (legacy requirement)
         if (clickedItem.getAmount() != 1) {
-            CustomEnchantmentMessage.send(player, "menu.book-craft.must-be-one");
+            CustomEnchantmentMessage.send(player, CEMessageKey.MENU_BOOK_CRAFT_MUST_BE_ONE);
             return;
         }
 
@@ -94,7 +95,7 @@ public class BookCraftCustomMenu extends AbstractMenu<MenuData, BookCraftExtraDa
         CEItem ceItem = CEAPI.getCEItem(clickedItem);
 
         if (ceItem == null || !(ceItem instanceof CEBook)) {
-            CustomEnchantmentMessage.send(player, "menu.book-craft.not-support-item");
+            CustomEnchantmentMessage.send(player, CEMessageKey.MENU_BOOK_CRAFT_NOT_SUPPORT_ITEM);
             return;
         }
 
@@ -117,7 +118,7 @@ public class BookCraftCustomMenu extends AbstractMenu<MenuData, BookCraftExtraDa
         }
 
         // Send feedback message
-        CustomEnchantmentMessage.send(player, "menu.book-craft.add-book." + EnumUtils.toConfigStyle(reason));
+        CustomEnchantmentMessage.send(player, reason);
     }
 
     @Override
@@ -286,7 +287,7 @@ public class BookCraftCustomMenu extends AbstractMenu<MenuData, BookCraftExtraDa
 
         // Build Placeholder with money value
         Placeholder placeholder = PlaceholderBuilder.builder()
-                .put("%money%", String.valueOf((long)totalPrice))
+                .put(CEConstants.Placeholder.MONEY, String.valueOf((long)totalPrice))
                 .build();
 
         updateSlots("remind", getTemplateItemStack("accept-button", placeholder));

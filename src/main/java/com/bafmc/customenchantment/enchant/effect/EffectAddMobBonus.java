@@ -6,6 +6,7 @@ import org.bukkit.entity.Player;
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.api.EntityTypeList;
 import com.bafmc.customenchantment.attribute.RangeAttribute;
+import com.bafmc.customenchantment.constant.CEConstants;
 import com.bafmc.customenchantment.enchant.CEFunctionData;
 import com.bafmc.customenchantment.enchant.EffectHook;
 import com.bafmc.customenchantment.player.CEPlayer;
@@ -39,11 +40,11 @@ public class EffectAddMobBonus extends EffectHook {
 		}
 
 		CEPlayer cePlayer = CEAPI.getCEPlayer(player);
-		if (type.equals("EXP")) {
+		if (type.equals(CEConstants.RewardType.EXP)) {
 			cePlayer.getMobBonus().getExpBonus().put(name, list, attributeData);
-		} else if (type.equals("MONEY")) {
+		} else if (type.equals(CEConstants.RewardType.MONEY)) {
 			cePlayer.getMobBonus().getMoneyBonus().put(name, list, attributeData);
-		}else if (type.equals("MOB_SLAYER_EXP")) {
+		}else if (type.equals(CEConstants.RewardType.MOB_SLAYER_EXP)) {
 			cePlayer.getMobBonus().getMobSlayerExpBonus().put(name, list, attributeData);
 		}
 	}

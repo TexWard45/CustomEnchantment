@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import com.bafmc.customenchantment.constant.CEConstants;
 import com.bafmc.customenchantment.item.*;
 import org.bukkit.inventory.ItemStack;
 
@@ -61,7 +62,7 @@ public class CEBook extends CEItem<CEBookData> {
 		Map<String, String> map = new HashMap<>();
 		map.putAll(CEPlaceholder.getCESimplePlaceholder(data.getCESimple()));
         if (data.getCESimple().getCEEnchant().getCEDisplay().getBookDisplay() != null) {
-            map.put("%group_book_display%", data.getCESimple().getCEEnchant().getCEDisplay().getBookDisplay());
+            map.put(CEConstants.Placeholder.GROUP_BOOK_DISPLAY, data.getCESimple().getCEEnchant().getCEDisplay().getBookDisplay());
         }
 		return map;
 	}
@@ -96,7 +97,7 @@ public class CEBook extends CEItem<CEBookData> {
             CEEnchantSimple blacklistEnchant = enchant.getEnchantBlacklist(ceEnchantSimple);
 
             Map<String, String> placeholder = new LinkedHashMap<>();
-            placeholder.put("%enchant_display%", blacklistEnchant.getCEEnchant().getCEDisplay().getDisplay());
+            placeholder.put(CEConstants.Placeholder.ENCHANT_DISPLAY, blacklistEnchant.getCEEnchant().getCEDisplay().getDisplay());
             reason.setPlaceholder(placeholder);
             return reason;
         }
@@ -108,12 +109,12 @@ public class CEBook extends CEItem<CEBookData> {
 		reason.setPlaceholder(placeholder);
 
 		reason.setWriteLogs(true);
-		reason.putData("enchant", ceEnchantSimple.getName());
-		reason.putData("level", ceEnchantSimple.getLevel());
-		reason.putData("success", ceEnchantSimple.getSuccess().getValue());
-		reason.putData("destroy", ceEnchantSimple.getDestroy().getValue());
-        reason.putData("xp", ceEnchantSimple.getXp());
-		reason.putData("weapon", ItemStackUtils.toString(ceWeapon.getDefaultItemStack()));
+		reason.putData(CEConstants.DataKey.ENCHANT, ceEnchantSimple.getName());
+		reason.putData(CEConstants.DataKey.LEVEL, ceEnchantSimple.getLevel());
+		reason.putData(CEConstants.DataKey.SUCCESS, ceEnchantSimple.getSuccess().getValue());
+		reason.putData(CEConstants.DataKey.DESTROY, ceEnchantSimple.getDestroy().getValue());
+        reason.putData(CEConstants.DataKey.XP, ceEnchantSimple.getXp());
+		reason.putData(CEConstants.DataKey.WEAPON, ItemStackUtils.toString(ceWeapon.getDefaultItemStack()));
 
 		if (success.work()) {
 			enchant.removeCESimple(ceEnchantSimple.getName());
@@ -179,7 +180,7 @@ public class CEBook extends CEItem<CEBookData> {
             CEEnchantSimple blacklistEnchant = enchant.getEnchantBlacklist(ceEnchantSimple);
 
             Map<String, String> placeholder = new LinkedHashMap<>();
-            placeholder.put("%enchant_display%", blacklistEnchant.getCEEnchant().getCEDisplay().getDisplay());
+            placeholder.put(CEConstants.Placeholder.ENCHANT_DISPLAY, blacklistEnchant.getCEEnchant().getCEDisplay().getDisplay());
             reason.setPlaceholder(placeholder);
             return reason;
         }

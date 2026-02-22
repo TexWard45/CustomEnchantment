@@ -4,9 +4,9 @@ import com.bafmc.bukkit.bafframework.custommenu.menu.data.ClickData;
 import com.bafmc.bukkit.bafframework.custommenu.menu.data.MenuData;
 import com.bafmc.bukkit.bafframework.custommenu.menu.AbstractMenu;
 import com.bafmc.bukkit.bafframework.custommenu.menu.item.list.DefaultItem;
-import com.bafmc.bukkit.utils.EnumUtils;
 import com.bafmc.bukkit.utils.InventoryUtils;
 import com.bafmc.customenchantment.CustomEnchantmentMessage;
+import com.bafmc.customenchantment.constant.CEMessageKey;
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.item.CEItem;
 import com.bafmc.customenchantment.menu.tinkerer.item.TinkerAcceptItem;
@@ -85,7 +85,7 @@ public class TinkererCustomMenu extends AbstractMenu<MenuData, TinkererExtraData
         CEItem ceItem = CEAPI.getCEItem(clickedItem);
 
         if (ceItem == null) {
-            CustomEnchantmentMessage.send(player, "menu.tinkerer.not-support-item");
+            CustomEnchantmentMessage.send(player, CEMessageKey.MENU_TINKERER_NOT_SUPPORT_ITEM);
             return;
         }
 
@@ -107,7 +107,7 @@ public class TinkererCustomMenu extends AbstractMenu<MenuData, TinkererExtraData
         }
 
         // Send feedback message
-        CustomEnchantmentMessage.send(player, "menu.tinkerer.add-tinkerer." + EnumUtils.toConfigStyle(reason));
+        CustomEnchantmentMessage.send(player, reason);
     }
 
     @Override

@@ -8,6 +8,7 @@ import com.bafmc.bukkit.utils.ColorUtils;
 import com.bafmc.bukkit.utils.NumberUtils;
 import com.bafmc.customenchantment.api.ITrade;
 import com.bafmc.customenchantment.attribute.CustomAttributeType;
+import com.bafmc.customenchantment.constant.CEConstants;
 import com.bafmc.customenchantment.enchant.CEEnchant;
 import com.bafmc.customenchantment.enchant.CEEnchantSimple;
 import com.bafmc.customenchantment.enchant.CEPlaceholder;
@@ -32,7 +33,7 @@ import java.util.*;
 @Getter
 @Setter
 public class WeaponDisplay extends CEItemExpansion implements ITrade<NMSNBTTagCompound> {
-	public static final String REMOVE = "__REMOVE__";
+	public static final String REMOVE = CEConstants.Sentinel.REMOVE;
 	public static final String BEGIN_LABEL = "Ⓑ";
 	public static final String END_LABEL = "Ⓔ";
 	private List<String> beginLore = new ArrayList<String>();
@@ -97,25 +98,25 @@ public class WeaponDisplay extends CEItemExpansion implements ITrade<NMSNBTTagCo
 				newLore.remove(i);
 			}
 
-			if (newLore.get(i).isEmpty() && newLore.get(i + 1).contains("blank_lore")) {
+			if (newLore.get(i).isEmpty() && newLore.get(i + 1).contains(CEConstants.Sentinel.BLANK_LORE)) {
 				newLore.remove(i);
 			}
 		}
 
 		for (int i = 0; i < newLore.size() - 1; i++) {
-			if (newLore.get(i).contains("blank_lore") && newLore.get(i + 1).isEmpty()) {
+			if (newLore.get(i).contains(CEConstants.Sentinel.BLANK_LORE) && newLore.get(i + 1).isEmpty()) {
 				newLore.remove(i + 1);
 				i--;
 				continue;
 			}
 			
-			if (newLore.get(i).contains("lower_blank_lore") && newLore.get(i + 1).contains("lower_blank_lore")) {
+			if (newLore.get(i).contains(CEConstants.Sentinel.LOWER_BLANK_LORE) && newLore.get(i + 1).contains(CEConstants.Sentinel.LOWER_BLANK_LORE)) {
 				newLore.remove(i + 1);
 				i--;
 				continue;
 			}
 			
-			if (newLore.get(i).contains("upper_blank_lore") && newLore.get(i + 1).contains("upper_blank_lore")) {
+			if (newLore.get(i).contains(CEConstants.Sentinel.UPPER_BLANK_LORE) && newLore.get(i + 1).contains(CEConstants.Sentinel.UPPER_BLANK_LORE)) {
 				newLore.remove(i + 1);
 				i--;
 				continue;
@@ -123,12 +124,12 @@ public class WeaponDisplay extends CEItemExpansion implements ITrade<NMSNBTTagCo
 		}
 
 		// Trim
-		while (!newLore.isEmpty() && (newLore.getFirst().isEmpty() || newLore.getFirst().equals("lower_blank_lore"))) {
+		while (!newLore.isEmpty() && (newLore.getFirst().isEmpty() || newLore.getFirst().equals(CEConstants.Sentinel.LOWER_BLANK_LORE))) {
 			newLore.removeFirst();
 		}
 
 		while (!newLore.isEmpty() && (newLore.getLast().isEmpty()
-				|| newLore.getLast().equals("upper_blank_lore"))) {
+				|| newLore.getLast().equals(CEConstants.Sentinel.UPPER_BLANK_LORE))) {
 			newLore.removeLast();
 		}
 
@@ -137,7 +138,7 @@ public class WeaponDisplay extends CEItemExpansion implements ITrade<NMSNBTTagCo
 		while (ite.hasNext()) {
 			String next = ite.next();
 
-			if (next.contains("blank_lore")) {
+			if (next.contains(CEConstants.Sentinel.BLANK_LORE)) {
 				ite.set("");
 			}
 		}
@@ -259,8 +260,8 @@ class NormalEnchantLore {
 
 			for (Enchantment enchantment : enchantMap.keySet()) {
 				String vanillaLore = settings.getVanillaEnchantLore();
-				vanillaLore = vanillaLore.replace("%enchant_display%", PlaceholderAPI.setPlaceholders(null, EnchantmentUtils.getDisplayName(enchantment)));
-				vanillaLore = vanillaLore.replace("%enchant_level%", NumberUtils.toRomanNumber(enchantMap.get(enchantment)));
+				vanillaLore = vanillaLore.replace(CEConstants.Placeholder.ENCHANT_DISPLAY, PlaceholderAPI.setPlaceholders(null, EnchantmentUtils.getDisplayName(enchantment)));
+				vanillaLore = vanillaLore.replace(CEConstants.Placeholder.ENCHANT_LEVEL, NumberUtils.toRomanNumber(enchantMap.get(enchantment)));
 				lore.add(vanillaLore);
 			}
 		}
@@ -337,7 +338,7 @@ class GemLore {
 			display = builder.build().apply(display);
 
 			String customDisplay = settings.getCustomGemLore();
-			builder = PlaceholderBuilder.builder().put("%gem_display%", display);
+			builder = PlaceholderBuilder.builder().put(CEConstants.Placeholder.GEM_DISPLAY, display);
 
 			display = builder.build().apply(customDisplay);
 
@@ -364,7 +365,7 @@ class GemLore {
 			}
 
 			String customDisplay = settings.getCustomGemLore();
-			PlaceholderBuilder builder = PlaceholderBuilder.builder().put("%gem_display%", slotSettings.getDisplay());
+			PlaceholderBuilder builder = PlaceholderBuilder.builder().put(CEConstants.Placeholder.GEM_DISPLAY, slotSettings.getDisplay());
 
 			String display = builder.build().apply(customDisplay);
 			lore.add(display);
@@ -400,7 +401,7 @@ class ExtraEnchantPoint {
 		int point = data.getExtraEnchantPoint();
 		String lore = settings.getEnchantPointLore(point);
 		if (lore != null) {
-			lore = lore.replace("%amount%", String.valueOf(point));
+			lore = lore.replace(CEConstants.Placeholder.AMOUNT, String.valueOf(point));
 		}
 
 		if (lore.isEmpty()) {
@@ -420,7 +421,7 @@ class ExtraProtectDead {
 		int point = data.getExtraProtectDead();
 		String lore = settings.getProtectDeadLore(point);
 		if (lore != null) {
-			lore = lore.replace("%amount%", String.valueOf(point));
+			lore = lore.replace(CEConstants.Placeholder.AMOUNT, String.valueOf(point));
 		}
 
 		if (lore.isEmpty()) {
@@ -440,7 +441,7 @@ class ExtraProtectDestroy {
 		int point = data.getExtraProtectDestroy();
 		String lore = settings.getProtectDestroyLore(point);
 		if (lore != null) {
-			lore = lore.replace("%amount%", String.valueOf(point));
+			lore = lore.replace(CEConstants.Placeholder.AMOUNT, String.valueOf(point));
 		}
 
 		if (lore.isEmpty()) {
@@ -477,27 +478,27 @@ class AttributeLore {
 					}
 
 					if (type instanceof CustomAttributeType customAttributeType && customAttributeType.isPercent()) {
-						currentLore.add(typeMap.get(type).replace("%amount%", format.format(Math.abs(amount)) + "%")
-								.replace("%operation%", operation));
+						currentLore.add(typeMap.get(type).replace(CEConstants.Placeholder.AMOUNT, format.format(Math.abs(amount)) + "%")
+								.replace(CEConstants.Placeholder.OPERATION, operation));
 					} else {
-						currentLore.add(typeMap.get(type).replace("%amount%", format.format(Math.abs(amount)))
-								.replace("%operation%", operation));
+						currentLore.add(typeMap.get(type).replace(CEConstants.Placeholder.AMOUNT, format.format(Math.abs(amount)))
+								.replace(CEConstants.Placeholder.OPERATION, operation));
 					}
 				}
 
 				if (attributes.hasAttributeType(type, slot, NMSAttributeOperation.MULTIPLY_PERCENTAGE)) {
 					double amount = attributes.getValue(type, slot, NMSAttributeOperation.MULTIPLY_PERCENTAGE);
 					String operation = amount >= 0 ? "+" : "-";
-					currentLore.add(typeMap.get(type).replace("%amount%", format.format(Math.abs(amount) * 100) + "%")
-							.replace("%operation%", operation));
+					currentLore.add(typeMap.get(type).replace(CEConstants.Placeholder.AMOUNT, format.format(Math.abs(amount) * 100) + "%")
+							.replace(CEConstants.Placeholder.OPERATION, operation));
 				}
 
 				if (attributes.hasAttributeType(type, slot, NMSAttributeOperation.ADD_PERCENTAGE)) {
 					double amount = attributes.getValue(1, type, slot, NMSAttributeOperation.ADD_PERCENTAGE);
 					amount -= 1; // Convert to percentage
 					String operation = amount >= 0 ? "+" : "-";
-					currentLore.add(typeMap.get(type).replace("%amount%", format.format(Math.abs(amount) * 100) + "%")
-							.replace("%operation%", operation));
+					currentLore.add(typeMap.get(type).replace(CEConstants.Placeholder.AMOUNT, format.format(Math.abs(amount) * 100) + "%")
+							.replace(CEConstants.Placeholder.OPERATION, operation));
 				}
 			}
 

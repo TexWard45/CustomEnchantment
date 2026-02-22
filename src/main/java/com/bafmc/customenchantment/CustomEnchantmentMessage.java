@@ -3,6 +3,7 @@ package com.bafmc.customenchantment;
 import com.bafmc.bukkit.config.AdvancedFileConfiguration;
 import com.bafmc.bukkit.utils.MessageUtils;
 import com.bafmc.bukkit.utils.StringUtils;
+import com.bafmc.customenchantment.constant.MessageKey;
 import org.bukkit.command.CommandSender;
 
 import java.util.HashMap;
@@ -40,6 +41,14 @@ public class CustomEnchantmentMessage {
 		for (String message : messages) {
 			MessageUtils.send(player, StringUtils.replace(message, placeholder));
 		}
+	}
+
+	public static void send(CommandSender player, MessageKey key) {
+		send(player, key.getKey());
+	}
+
+	public static void send(CommandSender player, MessageKey key, Map<String, String> placeholder) {
+		send(player, key.getKey(), placeholder);
 	}
 
 	public static void send(CommandSender player, String path, Map<String, String> placeholder) {

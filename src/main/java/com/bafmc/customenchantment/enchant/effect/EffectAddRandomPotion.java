@@ -8,6 +8,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
+import com.bafmc.customenchantment.constant.CEConstants;
 import com.bafmc.customenchantment.enchant.CEFunctionData;
 import com.bafmc.customenchantment.enchant.EffectHook;
 import com.bafmc.customenchantment.enchant.EffectUtil;
@@ -44,7 +45,7 @@ public class EffectAddRandomPotion extends EffectHook {
 		}
 
 		List<PotionEffectType> potions = new ArrayList<PotionEffectType>();
-		if (type.equals("DUPLICATE")) {
+		if (type.equals(CEConstants.RewardType.DUPLICATE)) {
 			int amount = potionType.size();
 			for (int i = 0; i < this.amount.getIntValue(); i++) {
 				PotionEffectType pe = potionType.get(random.nextInt(amount));

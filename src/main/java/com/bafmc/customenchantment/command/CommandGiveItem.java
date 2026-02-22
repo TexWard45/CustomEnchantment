@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ListIterator;
 
+import com.bafmc.customenchantment.constant.CEConstants;
 import com.bafmc.bukkit.utils.ItemStackUtils;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -62,7 +63,7 @@ public class CommandGiveItem implements CommandRegistrar {
 		public List<String> onTabComplete(CommandSender sender, Argument arg) {
 			String type = arg.get(2);
 
-			if (type.equals("book")) {
+			if (type.equals(CEConstants.ItemDisplayType.BOOK)) {
 				return CustomEnchantment.instance().getCeEnchantMap().getKeys();
 			}
 
@@ -126,7 +127,7 @@ public class CommandGiveItem implements CommandRegistrar {
 				.permission("customenchantment.reload")
 				.subCommand(ArgumentType.PLAYER)
 					.commandExecutorUntilNextCommand(giveExecutor)
-					.subCommand("book")
+					.subCommand(CEConstants.ItemDisplayType.BOOK)
 						.subCommand("<name>")
 							.tabCompleter(nameTab)
 							.subCommand("<level>")
@@ -204,7 +205,7 @@ public class CommandGiveItem implements CommandRegistrar {
 						.subCommand("<amount>").tabCompleter(amountTab)
 						.end().end()
 					.end()
-					.subCommand("storage")
+					.subCommand(CEConstants.ItemDisplayType.STORAGE)
 						.subCommand("<name>").tabCompleter(nameTab)
 						.subCommand("<amount>").tabCompleter(amountTab)
 						.end().end()

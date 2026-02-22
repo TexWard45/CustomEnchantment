@@ -2,6 +2,7 @@ package com.bafmc.customenchantment.item.banner;
 
 import com.bafmc.bukkit.bafframework.nms.NMSNBTTagCompound;
 import com.bafmc.bukkit.utils.MaterialUtils;
+import com.bafmc.customenchantment.constant.CEConstants;
 import com.bafmc.customenchantment.item.*;
 import com.bafmc.customenchantment.item.mask.CEMask;
 import com.bafmc.customenchantment.nms.CECraftItemStackNMS;
@@ -73,7 +74,7 @@ public class CEBanner extends CEUnify<CEBannerData> {
 	}
 
 	public String getWeaponSettingsName() {
-		return getUnifyWeapon().isSet() ? "banner-" + super.getWeaponSettingsName() : super.getWeaponSettingsName();
+		return getUnifyWeapon().isSet() ? CEConstants.ItemPrefix.BANNER + super.getWeaponSettingsName() : super.getWeaponSettingsName();
 	}
 
 	public String getDisplay(String display) {

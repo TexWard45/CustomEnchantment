@@ -6,6 +6,7 @@ import com.bafmc.bukkit.utils.RandomRange;
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.api.MaterialList;
 import com.bafmc.customenchantment.attribute.RangeAttribute;
+import com.bafmc.customenchantment.constant.CEConstants;
 import com.bafmc.customenchantment.enchant.CEFunctionData;
 import com.bafmc.customenchantment.enchant.EffectHook;
 import com.bafmc.customenchantment.player.CEPlayer;
@@ -38,9 +39,9 @@ public class EffectAddBlockBonus extends EffectHook {
 		}
 
 		CEPlayer cePlayer = CEAPI.getCEPlayer(player);
-		if (type.equals("EXP")) {
+		if (type.equals(CEConstants.RewardType.EXP)) {
 			cePlayer.getBlockBonus().getExpBonus().put(name, list, attributeData);
-		} else if (type.equals("MONEY")) {
+		} else if (type.equals(CEConstants.RewardType.MONEY)) {
 			cePlayer.getBlockBonus().getMoneyBonus().put(name, list, attributeData);
 		}
 	}

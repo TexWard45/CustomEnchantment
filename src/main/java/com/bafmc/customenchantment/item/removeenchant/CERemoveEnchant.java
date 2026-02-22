@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
+import com.bafmc.customenchantment.constant.CEConstants;
 import com.bafmc.customenchantment.item.*;
 import org.bukkit.inventory.ItemStack;
 
@@ -96,11 +97,11 @@ public class CERemoveEnchant extends CEItem<CERemoveEnchantData> {
 		reason.setPlaceholder(placeholder);
 		reason.setRewards(Arrays.asList(CEAPI.getCEBookItemStack(removeCEEnchantSimple)));
 		reason.setWriteLogs(true);
-		reason.putData("pattern", getData().getPattern());
-		reason.putData("enchant", removeCEEnchantSimple.getName());
-		reason.putData("level", removeCEEnchantSimple.getLevel());
-		reason.putData("success", removeCEEnchantSimple.getSuccess().getValue());
-		reason.putData("destroy", removeCEEnchantSimple.getDestroy().getValue());
+		reason.putData(CEConstants.DataKey.PATTERN, getData().getPattern());
+		reason.putData(CEConstants.DataKey.ENCHANT, removeCEEnchantSimple.getName());
+		reason.putData(CEConstants.DataKey.LEVEL, removeCEEnchantSimple.getLevel());
+		reason.putData(CEConstants.DataKey.SUCCESS, removeCEEnchantSimple.getSuccess().getValue());
+		reason.putData(CEConstants.DataKey.DESTROY, removeCEEnchantSimple.getDestroy().getValue());
 		return reason;
 	}
 	

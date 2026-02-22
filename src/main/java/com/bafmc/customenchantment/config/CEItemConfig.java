@@ -11,6 +11,7 @@ import com.bafmc.bukkit.utils.SparseMap;
 import com.bafmc.bukkit.utils.StringUtils;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.api.MaterialList;
+import com.bafmc.customenchantment.constant.CEConstants;
 import com.bafmc.customenchantment.config.item.CEOutfitConfig;
 import com.bafmc.customenchantment.config.item.CESkinConfig;
 import com.bafmc.customenchantment.config.item.CEWeaponConfig;
@@ -599,7 +600,7 @@ public class CEItemConfig extends AbstractConfig {
 			ItemMeta itemMeta = itemStack.getItemMeta();
 			if (artifactGroup.getItemDisplay() != null) {
 				PlaceholderBuilder placeholderBuilder = PlaceholderBuilder.builder();
-				placeholderBuilder.put("{item_display}", itemMeta.hasDisplayName() ? itemMeta.getDisplayName() : "");
+				placeholderBuilder.put(CEConstants.ItemPlaceholder.ITEM_DISPLAY, itemMeta.hasDisplayName() ? itemMeta.getDisplayName() : "");
 
 				String itemDisplay = artifactGroup.getItemDisplay();
 				itemMeta.setDisplayName(placeholderBuilder.build().apply(itemDisplay));
@@ -607,7 +608,7 @@ public class CEItemConfig extends AbstractConfig {
 
 			if (artifactGroup.getItemLore() != null) {
 				PlaceholderBuilder placeholderBuilder = PlaceholderBuilder.builder();
-				placeholderBuilder.put("{item_lore}", itemMeta.hasLore() ? itemMeta.getLore() : new ArrayList<>());
+				placeholderBuilder.put(CEConstants.ItemPlaceholder.ITEM_LORE, itemMeta.hasLore() ? itemMeta.getLore() : new ArrayList<>());
 				itemMeta.setLore(placeholderBuilder.build().apply(artifactGroup.getItemLore()));
 			}
 			itemStack.setItemMeta(itemMeta);
@@ -834,7 +835,7 @@ public class CEItemConfig extends AbstractConfig {
 			ItemMeta itemMeta = itemStack.getItemMeta();
 			if (sigilGroup.getItemDisplay() != null) {
 				PlaceholderBuilder placeholderBuilder = PlaceholderBuilder.builder();
-				placeholderBuilder.put("{item_display}", itemMeta.hasDisplayName() ? itemMeta.getDisplayName() : "");
+				placeholderBuilder.put(CEConstants.ItemPlaceholder.ITEM_DISPLAY, itemMeta.hasDisplayName() ? itemMeta.getDisplayName() : "");
 
 				String itemDisplay = sigilGroup.getItemDisplay();
 				itemMeta.setDisplayName(placeholderBuilder.build().apply(itemDisplay));
@@ -842,7 +843,7 @@ public class CEItemConfig extends AbstractConfig {
 
 			if (sigilGroup.getItemLore() != null) {
 				PlaceholderBuilder placeholderBuilder = PlaceholderBuilder.builder();
-				placeholderBuilder.put("{item_lore}", itemMeta.hasLore() ? itemMeta.getLore() : new ArrayList<>());
+				placeholderBuilder.put(CEConstants.ItemPlaceholder.ITEM_LORE, itemMeta.hasLore() ? itemMeta.getLore() : new ArrayList<>());
 				itemMeta.setLore(placeholderBuilder.build().apply(sigilGroup.getItemLore()));
 			}
 			itemStack.setItemMeta(itemMeta);

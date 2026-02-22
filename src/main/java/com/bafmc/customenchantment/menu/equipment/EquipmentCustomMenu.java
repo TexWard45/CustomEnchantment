@@ -7,11 +7,13 @@ import com.bafmc.bukkit.bafframework.custommenu.menu.data.MenuData;
 import com.bafmc.bukkit.bafframework.custommenu.menu.item.list.DefaultItem;
 import com.bafmc.bukkit.bafframework.utils.MaterialUtils;
 import com.bafmc.bukkit.feature.placeholder.PlaceholderBuilder;
-import com.bafmc.bukkit.utils.EnumUtils;
 import com.bafmc.bukkit.utils.EquipSlot;
 import com.bafmc.bukkit.utils.ItemStackUtils;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.CustomEnchantmentMessage;
+import com.bafmc.customenchantment.constant.CEConstants;
+import com.bafmc.customenchantment.constant.CEMessageKey;
+import com.bafmc.customenchantment.constant.MessageKey;
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.api.Parameter;
 import com.bafmc.customenchantment.config.data.ExtraSlotSettingsData;
@@ -48,10 +50,17 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class EquipmentCustomMenu extends AbstractMenu<MenuData, EquipmentExtraData> {
 
-	public enum EquipmentAddReason {
+	public enum EquipmentAddReason implements MessageKey {
 		SUCCESS, NOT_SUPPORT_ITEM, UNDRESS_FIRST,
 		ADD_EXTRA_SLOT, MAX_EXTRA_SLOT, DUPLICATE_EXTRA_SLOT, NOTHING, NO_EXTRA_SLOT,
-		ADD_PROTECT_DEAD, EXCEED_PROTECT_DEAD, DIFFERENT_PROTECT_DEAD
+		ADD_PROTECT_DEAD, EXCEED_PROTECT_DEAD, DIFFERENT_PROTECT_DEAD;
+
+		private static final String PREFIX = "menu.equipment.add-equipment.";
+
+		@Override
+		public String getKey() {
+			return PREFIX + name().toLowerCase().replace("_", "-");
+		}
 	}
 
 	public static final String MENU_NAME = "equipment";
@@ -60,7 +69,7 @@ public class EquipmentCustomMenu extends AbstractMenu<MenuData, EquipmentExtraDa
 	public static final String PLAYER_INFO_SLOT = "player-info";
 	public static final String WINGS_SLOT = "wings";
 	public static final String WINGS_OFF_SLOT = "wings-no-skin";
-	public static final String WINGS_TYPE = "WINGS";
+	public static final String WINGS_TYPE = CEConstants.EquipmentType.WINGS;
 	public static final String HELMET_SLOT = "helmet";
 	public static final String CHESTPLATE_SLOT = "chestplate";
 	public static final String LEGGINGS_SLOT = "leggings";
@@ -172,7 +181,7 @@ public class EquipmentCustomMenu extends AbstractMenu<MenuData, EquipmentExtraDa
 
 		CEItem ceItem = CEAPI.getCEItem(clickedItem);
 		EquipmentAddReason reason = addItem(data.getEvent(), clickedItem, ceItem);
-		CustomEnchantmentMessage.send(data.getPlayer(), "menu.equipment.add-equipment." + EnumUtils.toConfigStyle(reason));
+		CustomEnchantmentMessage.send(data.getPlayer(), reason);
 	}
 
 	@Override
@@ -205,7 +214,7 @@ public class EquipmentCustomMenu extends AbstractMenu<MenuData, EquipmentExtraDa
 	public void returnItem(String itemName, int slot) {
 		if (itemInteractList.contains(itemName) || itemName.startsWith(EXTRA_SLOT)) {
 			if (owner.getInventory().firstEmpty() == -1) {
-				CustomEnchantmentMessage.send(owner, "menu.equipment.return-item.no-empty-slot");
+				CustomEnchantmentMessage.send(owner, CEMessageKey.MENU_EQUIPMENT_RETURN_ITEM_NO_EMPTY_SLOT);
 				return;
 			}
 		}
@@ -357,13 +366,13 @@ public class EquipmentCustomMenu extends AbstractMenu<MenuData, EquipmentExtraDa
 	private ItemStack applySkinTemplate(String itemName, ItemStack itemStack) {
 		NextSwapSkinStatus status = getSwapSkinIndex(itemName);
 		if (status == NextSwapSkinStatus.CAN_SWAP) {
-			ItemStack swapTemplate = getTemplateItemStackForEquipment(itemName + "-swap");
+			ItemStack swapTemplate = getTemplateItemStackForEquipment(itemName + CEConstants.EquipmentSuffix.SWAP);
 			if (swapTemplate != null) return applyItemPlaceholders(itemStack, swapTemplate);
 		} else if (status == NextSwapSkinStatus.SKIN_OFF) {
-			ItemStack noSkinTemplate = getTemplateItemStackForEquipment(itemName + "-no-skin");
+			ItemStack noSkinTemplate = getTemplateItemStackForEquipment(itemName + CEConstants.EquipmentSuffix.NO_SKIN);
 			if (noSkinTemplate != null) return noSkinTemplate;
 		} else {
-			ItemStack equipTemplate = getTemplateItemStackForEquipment(itemName + "-equip");
+			ItemStack equipTemplate = getTemplateItemStackForEquipment(itemName + CEConstants.EquipmentSuffix.EQUIP);
 			if (equipTemplate != null) return applyItemPlaceholders(itemStack, equipTemplate);
 		}
 		return itemStack;
@@ -383,12 +392,12 @@ public class EquipmentCustomMenu extends AbstractMenu<MenuData, EquipmentExtraDa
 		List<String> itemLore = ItemStackUtils.getLore(sourceItem);
 
 		PlaceholderBuilder placeholder = PlaceholderBuilder.builder();
-		placeholder.put("{item_display}", itemDisplay != null ? itemDisplay : MaterialUtils.getDisplayName(sourceItem.getType()));
-		placeholder.put("{item_lore}", itemLore != null ? itemLore : Arrays.asList("__LORE_REMOVER__"));
+		placeholder.put(CEConstants.ItemPlaceholder.ITEM_DISPLAY, itemDisplay != null ? itemDisplay : MaterialUtils.getDisplayName(sourceItem.getType()));
+		placeholder.put(CEConstants.ItemPlaceholder.ITEM_LORE, itemLore != null ? itemLore : Arrays.asList(CEConstants.Sentinel.LORE_REMOVER));
 
 		display = placeholder.build().apply(display);
 		lore = placeholder.build().apply(lore);
-		lore.removeIf(line -> line.contains("__LORE_REMOVER__"));
+		lore.removeIf(line -> line.contains(CEConstants.Sentinel.LORE_REMOVER));
 
 		ItemStack result = sourceItem.clone();
 		ItemMeta resultMeta = result.getItemMeta();

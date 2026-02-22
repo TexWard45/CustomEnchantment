@@ -7,6 +7,7 @@ import com.bafmc.customenchantment.CEEnchantMap;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.enchant.CEEnchant;
+import com.bafmc.customenchantment.constant.CEConstants;
 import com.bafmc.customenchantment.enchant.CEEnchantSimple;
 import com.bafmc.custommenu.menu.Catalog;
 import org.bukkit.entity.Player;
@@ -105,13 +106,13 @@ public class CEBookCatalog extends Catalog {
 			return map;
 		}
 		CEEnchant enchant = data.ceEnchant;
-        map.put("display", data.display);
-		map.put("display_all_level", data.displayAllLevel);
-		map.put("display_level_1", data.displayLevel1);
-		map.put("description", data.description);
-		map.put("random_description", data.randomDescription);
-		map.put("name", enchant.getName());
-		map.put("citem_name", enchant.getName());
+        map.put(CEConstants.DataKey.DISPLAY, data.display);
+		map.put(CEConstants.DataKey.DISPLAY_ALL_LEVEL, data.displayAllLevel);
+		map.put(CEConstants.DataKey.DISPLAY_LEVEL_1, data.displayLevel1);
+		map.put(CEConstants.DataKey.DESCRIPTION, data.description);
+		map.put(CEConstants.DataKey.RANDOM_DESCRIPTION, data.randomDescription);
+		map.put(CEConstants.DataKey.NAME, enchant.getName());
+		map.put(CEConstants.DataKey.CITEM_NAME, enchant.getName());
 		return map;
 	}
 

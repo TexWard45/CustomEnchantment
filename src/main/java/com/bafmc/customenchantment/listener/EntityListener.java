@@ -7,6 +7,7 @@ import com.bafmc.bukkit.utils.RandomUtils;
 import com.bafmc.bukkit.utils.SoundUtils;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.CustomEnchantmentMessage;
+import com.bafmc.customenchantment.constant.CEMessageKey;
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.attribute.AttributeCalculate;
 import com.bafmc.customenchantment.attribute.CustomAttributeType;
@@ -306,7 +307,7 @@ public class EntityListener implements Listener {
 				MainConfig mainConfig = plugin.getMainConfig();
 				if (mainConfig.isCombatSettingsRequireWeapon()) {
 					if (combatWarnTime.getOrDefault(attacker.getName(), 0) % 5 == 0) {
-						CustomEnchantmentMessage.send(attacker, "combat.require-weapon");
+						CustomEnchantmentMessage.send(attacker, CEMessageKey.COMBAT_REQUIRE_WEAPON);
 					}
 
 					combatWarnTime.put(attacker.getName(), combatWarnTime.getOrDefault(attacker.getName(), 0) + 1);
@@ -817,7 +818,7 @@ public class EntityListener implements Listener {
 			return damage;
 		}
 
-		CustomEnchantmentMessage.send(player, "attribute.critical.success");
+		CustomEnchantmentMessage.send(player, CEMessageKey.ATTRIBUTE_CRITICAL_SUCCESS);
 		return damage * attribute.getValue(CustomAttributeType.CRITICAL_DAMAGE);
 	}
 
@@ -855,7 +856,7 @@ public class EntityListener implements Listener {
 		}
 
 		if (RandomUtils.randomChance(chance)) {
-			CustomEnchantmentMessage.send(defender, "attribute.dodge.success");
+			CustomEnchantmentMessage.send(defender, CEMessageKey.ATTRIBUTE_DODGE_SUCCESS);
 			return true;
 		}
 		return false;
