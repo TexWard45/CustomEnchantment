@@ -1,6 +1,7 @@
 package com.bafmc.customenchantment.menu.tinkerer;
 
 import com.bafmc.bukkit.bafframework.custommenu.menu.data.ExtraData;
+import com.bafmc.customenchantment.constant.MessageKey;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.inventory.ItemStack;
@@ -43,14 +44,28 @@ public class TinkererExtraData extends ExtraData {
     /**
      * Result codes for adding items
      */
-    public enum TinkererAddReason {
-        SUCCESS, NOT_SUPPORT_ITEM, FULL_SLOT
+    public enum TinkererAddReason implements MessageKey {
+        SUCCESS, NOT_SUPPORT_ITEM, FULL_SLOT;
+
+        private static final String PREFIX = "menu.tinkerer.add-tinkerer.";
+
+        @Override
+        public String getKey() {
+            return PREFIX + name().toLowerCase().replace("_", "-");
+        }
     }
 
     /**
      * Result codes for confirming tinkerer
      */
-    public enum TinkererConfirmReason {
-        SUCCESS, NOTHING
+    public enum TinkererConfirmReason implements MessageKey {
+        SUCCESS, NOTHING;
+
+        private static final String PREFIX = "menu.tinkerer.confirm.";
+
+        @Override
+        public String getKey() {
+            return PREFIX + name().toLowerCase().replace("_", "-");
+        }
     }
 }

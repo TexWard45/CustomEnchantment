@@ -15,7 +15,6 @@ import com.bafmc.bukkit.utils.Chance;
 import com.bafmc.bukkit.utils.InventoryUtils;
 import com.bafmc.bukkit.utils.ItemStackUtils;
 import com.bafmc.bukkit.utils.StringUtils;
-import com.bafmc.bukkit.utils.EnumUtils;
 import com.bafmc.customenchantment.CustomEnchantmentMessage;
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.item.CEItem;
@@ -77,8 +76,7 @@ public class ArtifactUpgradeCustomMenu extends AbstractMenu<MenuData, ArtifactUp
             data.getEvent().setCurrentItem(null);
         }
 
-        CustomEnchantmentMessage.send(data.getPlayer(),
-                "menu.artifactupgrade.add-item." + EnumUtils.toConfigStyle(reason));
+        CustomEnchantmentMessage.send(data.getPlayer(), reason);
     }
 
     @Override

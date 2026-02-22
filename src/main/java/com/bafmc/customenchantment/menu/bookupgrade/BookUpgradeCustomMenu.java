@@ -31,7 +31,6 @@ import com.bafmc.customenchantment.menu.bookupgrade.item.BookUpgradeSlotItem;
 import com.bafmc.customenchantment.menu.bookupgrade.item.IngredientPreviewItem;
 import com.bafmc.customenchantment.menu.data.BookData;
 import com.bafmc.customenchantment.player.CEPlayer;
-import com.bafmc.bukkit.utils.EnumUtils;
 import org.bukkit.inventory.ItemStack;
 
 import lombok.Getter;
@@ -81,8 +80,7 @@ public class BookUpgradeCustomMenu extends AbstractMenu<MenuData, BookUpgradeExt
             data.getEvent().setCurrentItem(null);
         }
 
-        CustomEnchantmentMessage.send(data.getPlayer(),
-                "menu.bookupgrade.add-book." + EnumUtils.toConfigStyle(reason));
+        CustomEnchantmentMessage.send(data.getPlayer(), reason);
     }
 
     @Override

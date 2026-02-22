@@ -4,6 +4,7 @@ import com.bafmc.bukkit.command.CommandRegistrar;
 import com.bafmc.bukkit.command.AdvancedCommandBuilder;
 import com.bafmc.customenchantment.CustomEnchantmentMessage;
 import com.bafmc.customenchantment.constant.CEConstants;
+import com.bafmc.customenchantment.constant.CEMessageKey;
 import com.bafmc.customenchantment.enchant.CEEnchantSimple;
 import com.bafmc.customenchantment.enchant.CEPlaceholder;
 import com.bafmc.customenchantment.item.randombook.CERandomBookPlayerFilter;
@@ -28,14 +29,14 @@ public class CommandFilterEnchant implements CommandRegistrar {
 
                         CEEnchantSimple ceEnchantSimple = new CEEnchantSimple(arg.get("<enchant>"), 1);
                         if (ceEnchantSimple.getCEEnchant() == null) {
-                            CustomEnchantmentMessage.send(player, "command.cefilter.add.not-found");
+                            CustomEnchantmentMessage.send(player, CEMessageKey.COMMAND_CEFILTER_ADD_NOT_FOUND);
                             return true;
                         }
 
                         CERandomBookPlayerFilter.add(player, ceEnchantSimple);
 
                         Map<String, String> placeholder = CEPlaceholder.getCESimplePlaceholder(ceEnchantSimple);
-                        CustomEnchantmentMessage.send(player, "command.cefilter.add.success", placeholder);
+                        CustomEnchantmentMessage.send(player, CEMessageKey.COMMAND_CEFILTER_ADD_SUCCESS, placeholder);
                         return true;
                     })
 				.end()
@@ -50,14 +51,14 @@ public class CommandFilterEnchant implements CommandRegistrar {
 
                         CEEnchantSimple ceEnchantSimple = new CEEnchantSimple(arg.get("<enchant>"), 1);
                         if (ceEnchantSimple.getCEEnchant() == null) {
-                            CustomEnchantmentMessage.send(player, "command.cefilter.remove.not-found");
+                            CustomEnchantmentMessage.send(player, CEMessageKey.COMMAND_CEFILTER_REMOVE_NOT_FOUND);
                             return true;
                         }
 
                         CERandomBookPlayerFilter.remove(player, arg.get("<enchant>"));
 
                         Map<String, String> placeholder = CEPlaceholder.getCESimplePlaceholder(ceEnchantSimple);
-                        CustomEnchantmentMessage.send(player, "command.cefilter.remove.success", placeholder);
+                        CustomEnchantmentMessage.send(player, CEMessageKey.COMMAND_CEFILTER_REMOVE_SUCCESS, placeholder);
                             return true;
                     })
                 .end()
@@ -69,12 +70,12 @@ public class CommandFilterEnchant implements CommandRegistrar {
                     }
 
                     if (CERandomBookPlayerFilter.isEmpty(player)) {
-                        CustomEnchantmentMessage.send(player, "command.cefilter.clear.empty");
+                        CustomEnchantmentMessage.send(player, CEMessageKey.COMMAND_CEFILTER_CLEAR_EMPTY);
                         return true;
                     }
 
                     CERandomBookPlayerFilter.clear(player);
-                    CustomEnchantmentMessage.send(player, "command.cefilter.clear.success");
+                    CustomEnchantmentMessage.send(player, CEMessageKey.COMMAND_CEFILTER_CLEAR_SUCCESS);
                     return true;
                 })
             .end()
@@ -85,7 +86,7 @@ public class CommandFilterEnchant implements CommandRegistrar {
                     }
 
                     if (CERandomBookPlayerFilter.isEmpty(player)) {
-                        CustomEnchantmentMessage.send(player, "command.cefilter.list.empty");
+                        CustomEnchantmentMessage.send(player, CEMessageKey.COMMAND_CEFILTER_LIST_EMPTY);
                         return true;
                     }
 
@@ -100,7 +101,7 @@ public class CommandFilterEnchant implements CommandRegistrar {
                     Map<String, String> placeholder = new HashMap<>();
                     placeholder.put(CEConstants.Placeholder.ENCHANT_LIST, enchantListComma);
 
-                    CustomEnchantmentMessage.send(player, "command.cefilter.list.success", placeholder);
+                    CustomEnchantmentMessage.send(player, CEMessageKey.COMMAND_CEFILTER_LIST_SUCCESS, placeholder);
                     return true;
                 })
             .end()
@@ -110,10 +111,10 @@ public class CommandFilterEnchant implements CommandRegistrar {
                         return true;
                     }
 
-                    CustomEnchantmentMessage.send(player, "command.cefilter.help");
+                    CustomEnchantmentMessage.send(player, CEMessageKey.COMMAND_CEFILTER_HELP);
                     return true;
                 })
             .end();
 	}
-	
+
 }

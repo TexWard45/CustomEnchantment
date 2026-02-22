@@ -8,6 +8,7 @@ import com.bafmc.bukkit.utils.InventoryUtils;
 import com.bafmc.bukkit.utils.ItemStackUtils;
 import com.bafmc.customenchantment.CustomEnchantmentLog;
 import com.bafmc.customenchantment.CustomEnchantmentMessage;
+import com.bafmc.customenchantment.constant.CEMessageKey;
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.item.ApplyReason;
 import com.bafmc.customenchantment.item.CEItem;
@@ -75,8 +76,7 @@ public class CEAnvilCustomMenu extends AbstractMenu<MenuData, CEAnvilExtraData> 
             data.getEvent().setCurrentItem(null);
         }
 
-        CustomEnchantmentMessage.send(data.getPlayer(),
-                "menu.ce-anvil.add-item." + reason.name().toLowerCase().replace("_", "-"));
+        CustomEnchantmentMessage.send(data.getPlayer(), reason);
     }
 
     @Override
@@ -211,7 +211,7 @@ public class CEAnvilCustomMenu extends AbstractMenu<MenuData, CEAnvilExtraData> 
             InventoryUtils.addItem(owner, reason.getRewards());
         }
 
-        CustomEnchantmentMessage.send(owner, "ce-item." + ceItem2.getType() + "." + reason.getReason().toLowerCase(),
+        CustomEnchantmentMessage.send(owner, CEMessageKey.ceItem(ceItem2.getType(), reason.getReason().toLowerCase()),
                 reason.getPlaceholder());
 
         updateMenu();

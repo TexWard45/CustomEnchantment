@@ -5,6 +5,7 @@ import com.bafmc.bukkit.utils.InventoryUtils;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.CustomEnchantmentMessage;
 import com.bafmc.customenchantment.constant.CEConstants;
+import com.bafmc.customenchantment.constant.CEMessageKey;
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.item.CEWeaponAbstract;
 import com.bafmc.customenchantment.player.CEPlayer;
@@ -62,7 +63,7 @@ public class CEProtectDeadListener implements Listener {
 
 				int amountLeft = StorageUtils.getProtectDeadAmount(storage);
 				PlaceholderBuilder placeholderBuilder = PlaceholderBuilder.builder().put(CEConstants.ItemPlaceholder.AMOUNT, amountLeft);
-				CustomEnchantmentMessage.send(e.getPlayer(), "ce-item.protectdead.use-advanced", placeholderBuilder.build());
+				CustomEnchantmentMessage.send(e.getPlayer(), CEMessageKey.CE_ITEM_PROTECTDEAD_USE_ADVANCED, placeholderBuilder.build());
 
 				e.getDrops().clear();
 			}

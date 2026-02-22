@@ -7,12 +7,13 @@ import com.bafmc.bukkit.bafframework.custommenu.menu.data.MenuData;
 import com.bafmc.bukkit.bafframework.custommenu.menu.item.list.DefaultItem;
 import com.bafmc.bukkit.bafframework.utils.MaterialUtils;
 import com.bafmc.bukkit.feature.placeholder.PlaceholderBuilder;
-import com.bafmc.bukkit.utils.EnumUtils;
 import com.bafmc.bukkit.utils.EquipSlot;
 import com.bafmc.bukkit.utils.ItemStackUtils;
 import com.bafmc.customenchantment.CustomEnchantment;
 import com.bafmc.customenchantment.CustomEnchantmentMessage;
 import com.bafmc.customenchantment.constant.CEConstants;
+import com.bafmc.customenchantment.constant.CEMessageKey;
+import com.bafmc.customenchantment.constant.MessageKey;
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.api.Parameter;
 import com.bafmc.customenchantment.config.data.ExtraSlotSettingsData;
@@ -49,10 +50,17 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class EquipmentCustomMenu extends AbstractMenu<MenuData, EquipmentExtraData> {
 
-	public enum EquipmentAddReason {
+	public enum EquipmentAddReason implements MessageKey {
 		SUCCESS, NOT_SUPPORT_ITEM, UNDRESS_FIRST,
 		ADD_EXTRA_SLOT, MAX_EXTRA_SLOT, DUPLICATE_EXTRA_SLOT, NOTHING, NO_EXTRA_SLOT,
-		ADD_PROTECT_DEAD, EXCEED_PROTECT_DEAD, DIFFERENT_PROTECT_DEAD
+		ADD_PROTECT_DEAD, EXCEED_PROTECT_DEAD, DIFFERENT_PROTECT_DEAD;
+
+		private static final String PREFIX = "menu.equipment.add-equipment.";
+
+		@Override
+		public String getKey() {
+			return PREFIX + name().toLowerCase().replace("_", "-");
+		}
 	}
 
 	public static final String MENU_NAME = "equipment";
@@ -173,7 +181,7 @@ public class EquipmentCustomMenu extends AbstractMenu<MenuData, EquipmentExtraDa
 
 		CEItem ceItem = CEAPI.getCEItem(clickedItem);
 		EquipmentAddReason reason = addItem(data.getEvent(), clickedItem, ceItem);
-		CustomEnchantmentMessage.send(data.getPlayer(), "menu.equipment.add-equipment." + EnumUtils.toConfigStyle(reason));
+		CustomEnchantmentMessage.send(data.getPlayer(), reason);
 	}
 
 	@Override
@@ -206,7 +214,7 @@ public class EquipmentCustomMenu extends AbstractMenu<MenuData, EquipmentExtraDa
 	public void returnItem(String itemName, int slot) {
 		if (itemInteractList.contains(itemName) || itemName.startsWith(EXTRA_SLOT)) {
 			if (owner.getInventory().firstEmpty() == -1) {
-				CustomEnchantmentMessage.send(owner, "menu.equipment.return-item.no-empty-slot");
+				CustomEnchantmentMessage.send(owner, CEMessageKey.MENU_EQUIPMENT_RETURN_ITEM_NO_EMPTY_SLOT);
 				return;
 			}
 		}

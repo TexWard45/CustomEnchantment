@@ -8,6 +8,7 @@ import com.bafmc.customenchantment.CustomEnchantmentMessage;
 import com.bafmc.customenchantment.enchant.CEEnchantSimple;
 import com.bafmc.customenchantment.enchant.CEPlaceholder;
 import com.bafmc.customenchantment.constant.CEConstants;
+import com.bafmc.customenchantment.constant.CEMessageKey;
 import com.bafmc.customenchantment.item.*;
 import com.bafmc.customenchantment.item.book.CEBook;
 import com.bafmc.customenchantment.item.book.CEBookStorage;
@@ -64,7 +65,7 @@ public class CERandomBook extends CEItemUsable<CERandomBookData> {
 
 	public boolean useBy(Player player) {
         if (InventoryUtils.isFullSlot(player, 1)) {
-            CustomEnchantmentMessage.send(player, "ce-item." + getType() + ".full");
+            CustomEnchantmentMessage.send(player, CEMessageKey.ceItem(getType(), "full"));
             return false;
         }
 
@@ -97,26 +98,26 @@ public class CERandomBook extends CEItemUsable<CERandomBookData> {
 		if (CERandomBookPlayerFilter.isFilter(player)) {
 			if (CERandomBookPlayerFilter.isFilter(player, ceEnchantSimple.getName())) {
 				InventoryUtils.addItem(player, Arrays.asList(itemStack));
-				CustomEnchantmentMessage.send(player, "ce-item." + getType() + ".success", placeholder);
+				CustomEnchantmentMessage.send(player, CEMessageKey.ceItem(getType(), "success"), placeholder);
 			} else {
 				TinkererSettings settings = TinkererCustomMenu.getSettings();
 				TinkererReward reward = settings.getReward(ceBook);
 				if (reward != null) {
 					reward.getExecute().execute(player);
-					CustomEnchantmentMessage.send(player, "ce-item." + getType() + ".success-tinker", placeholder);
+					CustomEnchantmentMessage.send(player, CEMessageKey.ceItem(getType(), "success-tinker"), placeholder);
 				} else {
 					InventoryUtils.addItem(player, Arrays.asList(itemStack));
-					CustomEnchantmentMessage.send(player, "ce-item." + getType() + ".success", placeholder);
+					CustomEnchantmentMessage.send(player, CEMessageKey.ceItem(getType(), "success"), placeholder);
 				}
 			}
 		}else {
 			InventoryUtils.addItem(player, Arrays.asList(itemStack));
-			CustomEnchantmentMessage.send(player, "ce-item." + getType() + ".success", placeholder);
+			CustomEnchantmentMessage.send(player, CEMessageKey.ceItem(getType(), "success"), placeholder);
 
 			bookOpen.put(player.getName(), bookOpen.getOrDefault(player.getName(), 0) + 1);
 
 			if (bookOpen.get(player.getName()) % 10 == 0) {
-				CustomEnchantmentMessage.send(player, "command.cefilter.notify");
+				CustomEnchantmentMessage.send(player, CEMessageKey.COMMAND_CEFILTER_NOTIFY);
 			}
 		}
         return true;

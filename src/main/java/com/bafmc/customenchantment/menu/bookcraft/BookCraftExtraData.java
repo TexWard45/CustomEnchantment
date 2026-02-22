@@ -1,6 +1,7 @@
 package com.bafmc.customenchantment.menu.bookcraft;
 
 import com.bafmc.bukkit.bafframework.custommenu.menu.data.ExtraData;
+import com.bafmc.customenchantment.constant.MessageKey;
 import com.bafmc.customenchantment.menu.data.BookData;
 import lombok.Getter;
 import lombok.Setter;
@@ -33,19 +34,33 @@ public class BookCraftExtraData extends ExtraData {
     /**
      * Enum for add book result reasons
      */
-    public enum BookAddReason {
+    public enum BookAddReason implements MessageKey {
         SUCCESS,
         FULL_SLOT,
         NOT_MATCH_BOOK,
-        MAX_LEVEL
+        MAX_LEVEL;
+
+        private static final String PREFIX = "menu.book-craft.add-book.";
+
+        @Override
+        public String getKey() {
+            return PREFIX + name().toLowerCase().replace("_", "-");
+        }
     }
 
     /**
      * Enum for confirm result reasons
      */
-    public enum BookConfirmReason {
+    public enum BookConfirmReason implements MessageKey {
         SUCCESS,
         NOTHING,
-        NOT_ENOUGH_MONEY
+        NOT_ENOUGH_MONEY;
+
+        private static final String PREFIX = "menu.book-craft.confirm.";
+
+        @Override
+        public String getKey() {
+            return PREFIX + name().toLowerCase().replace("_", "-");
+        }
     }
 }

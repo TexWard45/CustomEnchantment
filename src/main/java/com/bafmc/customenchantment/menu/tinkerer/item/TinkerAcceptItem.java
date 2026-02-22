@@ -3,7 +3,6 @@ package com.bafmc.customenchantment.menu.tinkerer.item;
 import com.bafmc.customenchantment.constant.CEConstants;
 import com.bafmc.bukkit.bafframework.custommenu.menu.data.ClickData;
 import com.bafmc.bukkit.bafframework.custommenu.menu.item.AbstractItem;
-import com.bafmc.bukkit.utils.EnumUtils;
 import com.bafmc.customenchantment.CustomEnchantmentMessage;
 import com.bafmc.customenchantment.menu.tinkerer.TinkererCustomMenu;
 import com.bafmc.customenchantment.menu.tinkerer.TinkererExtraData;
@@ -28,7 +27,7 @@ public class TinkerAcceptItem extends AbstractItem<TinkererCustomMenu> {
         TinkererExtraData.TinkererConfirmReason reason = menu.confirmTinkerer();
 
         // Send message to player
-        CustomEnchantmentMessage.send(player, "menu.tinkerer.confirm." + EnumUtils.toConfigStyle(reason));
+        CustomEnchantmentMessage.send(player, reason);
     }
 
     @Override

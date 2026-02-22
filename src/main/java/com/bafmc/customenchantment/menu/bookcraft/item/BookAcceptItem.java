@@ -3,7 +3,6 @@ package com.bafmc.customenchantment.menu.bookcraft.item;
 import com.bafmc.customenchantment.constant.CEConstants;
 import com.bafmc.bukkit.bafframework.custommenu.menu.data.ClickData;
 import com.bafmc.bukkit.bafframework.custommenu.menu.item.AbstractItem;
-import com.bafmc.bukkit.utils.EnumUtils;
 import com.bafmc.customenchantment.CustomEnchantmentMessage;
 import com.bafmc.customenchantment.menu.bookcraft.BookCraftCustomMenu;
 import com.bafmc.customenchantment.menu.bookcraft.BookCraftExtraData;
@@ -27,6 +26,6 @@ public class BookAcceptItem extends AbstractItem<BookCraftCustomMenu> {
         BookCraftExtraData.BookConfirmReason reason = menu.confirmBookCraft();
 
         // Send feedback message
-        CustomEnchantmentMessage.send(player, "menu.book-craft.confirm." + EnumUtils.toConfigStyle(reason));
+        CustomEnchantmentMessage.send(player, reason);
     }
 }

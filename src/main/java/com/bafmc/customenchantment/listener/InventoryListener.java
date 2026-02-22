@@ -8,6 +8,7 @@ import com.bafmc.customenchantment.CustomEnchantmentLog;
 import com.bafmc.customenchantment.CustomEnchantmentMessage;
 import com.bafmc.customenchantment.api.CEAPI;
 import com.bafmc.customenchantment.constant.CEConstants;
+import com.bafmc.customenchantment.constant.CEMessageKey;
 import com.bafmc.customenchantment.item.*;
 import com.bafmc.customenchantment.item.CEUnifyWeapon.Target;
 import com.bafmc.customenchantment.item.nametag.CENameTag;
@@ -164,7 +165,7 @@ public class InventoryListener implements Listener {
 				CustomEnchantmentLog.writeItemActionLogs(reason);
 
 				CustomEnchantmentMessage.send(player,
-						"ce-item." + ceItem1.getType() + "." + reason.getReason().toLowerCase(),
+						CEMessageKey.ceItem(ceItem1.getType(), reason.getReason().toLowerCase()),
 						reason.getPlaceholder());
 			}
 
@@ -392,7 +393,7 @@ public class InventoryListener implements Listener {
 		}
 
 		CustomEnchantmentMessage.send(player,
-				"ce-item." + cursorType.getType() + "." + reason.getReason().toLowerCase(), reason.getPlaceholder());
+				CEMessageKey.ceItem(cursorType.getType(), reason.getReason().toLowerCase()), reason.getPlaceholder());
 	}
 
 	public boolean onFastEnchant(InventoryClickEvent e) {
