@@ -2,7 +2,7 @@
 name: build-error-resolver
 description: Java/Gradle build error resolution specialist. Use PROACTIVELY when build fails or compilation errors occur. Fixes build errors only with minimal diffs, no architectural edits. Focuses on getting the build green quickly.
 tools: ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
-model: opus
+model: haiku
 ---
 
 # Build Error Resolver

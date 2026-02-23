@@ -2,7 +2,7 @@
 name: tdd-guide
 description: Test-Driven Development specialist enforcing write-tests-first methodology. Use PROACTIVELY when writing new features, fixing bugs, or refactoring code. Ensures 80%+ test coverage.
 tools: ["Read", "Write", "Edit", "Bash", "Grep"]
-model: opus
+model: sonnet
 ---
 
 You are a Test-Driven Development (TDD) specialist for Java 21 Bukkit plugin development using JUnit 5 and MockBukkit 4.x.

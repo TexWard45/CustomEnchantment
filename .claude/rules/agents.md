@@ -4,15 +4,28 @@
 
 Located in `.claude/agents/`:
 
-| Agent | Purpose | When to Use |
-|-------|---------|-------------|
-| planner | Implementation planning | Complex features, refactoring |
-| architect | System design | Architectural decisions |
-| tdd-guide | Test-driven development | New features, bug fixes |
-| code-reviewer | Code review | After writing code |
-| security-reviewer | Security analysis | Before commits |
-| build-error-resolver | Fix Java/Gradle build errors | When build fails |
-| issue-creator | GitHub issue generation | Creating well-structured issues |
+| Agent | Model | Purpose | When to Use |
+|-------|-------|---------|-------------|
+| planner | sonnet | Implementation planning | Complex features, refactoring |
+| architect | opus | System design | Architectural decisions |
+| tdd-guide | sonnet | Test-driven development | New features, bug fixes |
+| code-reviewer | sonnet | Code review | After writing code |
+| security-reviewer | sonnet | Security analysis | Before commits |
+| build-error-resolver | haiku | Fix Java/Gradle build errors | When build fails |
+| doc-updater | haiku | Documentation updates | Updating codemaps/docs |
+| issue-creator | haiku | GitHub issue generation | Creating well-structured issues |
+
+## Model Selection for Subagent Tasks
+
+When spawning ad-hoc subagents via the Task tool, select the model by task complexity:
+
+| Model | Use For | Examples |
+|-------|---------|---------|
+| **haiku** | Routine, templated, search tasks | File searches, build verification, doc generation, issue creation |
+| **sonnet** | Standard development work | Code review, TDD, planning, security review |
+| **opus** | Deep reasoning required | Architecture decisions, complex debugging, cross-module refactoring |
+
+**Default to haiku** unless the task requires code reasoning or judgment.
 
 ## Immediate Agent Usage
 
