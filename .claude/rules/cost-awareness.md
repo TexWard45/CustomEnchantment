@@ -1,8 +1,26 @@
 # Token Conservation
 
-- Read summaries before full files when available (`.claude/docs/codemap/summaries/`)
-- Use subagents for verbose operations (test running, log analysis, codebase exploration)
+## Reading Files
+
+- Read summaries before full files when available
 - Check if information is already in loaded context before reading new files
-- For questions: often summaries and index files are sufficient — don't read full source files
-- Prefer targeted file reads over broad exploration
-- Use Haiku model for subagent tasks where appropriate
+- For questions: summaries are often sufficient — don't read full source files
+- Avoid re-reading files already in context
+
+## Subagent Delegation
+
+- Delegate verbose operations to subagents (test running, build output, log analysis)
+- Subagents isolate large outputs from the main context window
+- Use haiku model for subagents by default (see `claude-model-selection.md`)
+
+## Context Hygiene
+
+- Use `/clear` between unrelated tasks to reset context
+- Avoid reading files unrelated to the current task
+- Prefer targeted grep/glob over broad exploration in the main context
+
+## Efficient Searches
+
+- Use Glob for known file patterns instead of exploring directories
+- Use Grep with specific patterns instead of reading entire files
+- Use the Explore agent for broad codebase searches (isolates results from main context)
