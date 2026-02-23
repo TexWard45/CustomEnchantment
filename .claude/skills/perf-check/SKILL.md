@@ -1,3 +1,8 @@
+---
+name: perf-check
+description: Check for common Minecraft server performance anti-patterns. Use when writing tick tasks, event handlers, or optimizing hot paths. Covers main thread blocking, GC pressure, allocation in loops, and memory leaks.
+---
+
 # Game Server Performance
 
 ## Context: This Is a Real-Time Game Server
