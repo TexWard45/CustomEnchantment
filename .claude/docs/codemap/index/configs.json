@@ -1,0 +1,202 @@
+{
+  "generated": "2026-02-23",
+  "plugin": "CustomEnchantment",
+  "count": 17,
+  "configs": [
+    {
+      "yamlFile": "config.yml",
+      "javaClass": "MainConfig",
+      "fqn": "com.bafmc.customenchantment.config.MainConfig",
+      "module": "ConfigModule",
+      "annotation": "@Configuration",
+      "keyPaths": [
+        "event.move-period",
+        "event.sneak-period",
+        "combat.time",
+        "combat.staff-min-required-attack-strength-scale",
+        "combat.require-weapon",
+        "unbreakable-armor.enable",
+        "outfit.extra-slot",
+        "max-extra-slot-use-count",
+        "extra-slot-settings.*"
+      ],
+      "tags": ["config", "config-class"]
+    },
+    {
+      "yamlFile": "messages.yml",
+      "javaClass": "CustomEnchantmentMessage",
+      "fqn": "com.bafmc.customenchantment.CustomEnchantmentMessage",
+      "module": "ConfigModule",
+      "annotation": "AdvancedFileConfiguration",
+      "keyPaths": [],
+      "tags": ["config"]
+    },
+    {
+      "yamlFile": "book-craft.yml",
+      "javaClass": "BookCraftConfig",
+      "fqn": "com.bafmc.customenchantment.config.BookCraftConfig",
+      "module": "ConfigModule",
+      "annotation": "@Configuration",
+      "keyPaths": ["money-require.*"],
+      "tags": ["config", "config-class"]
+    },
+    {
+      "yamlFile": "book-upgrade.yml",
+      "javaClass": "BookUpgradeConfig",
+      "fqn": "com.bafmc.customenchantment.config.BookUpgradeConfig",
+      "module": "ConfigModule",
+      "annotation": "@Configuration",
+      "keyPaths": [],
+      "tags": ["config", "config-class"]
+    },
+    {
+      "yamlFile": "tinkerer.yml",
+      "javaClass": "TinkererConfig",
+      "fqn": "com.bafmc.customenchantment.config.TinkererConfig",
+      "module": "ConfigModule",
+      "annotation": "@Configuration",
+      "keyPaths": [],
+      "tags": ["config", "config-class"]
+    },
+    {
+      "yamlFile": "artifact-upgrade.yml",
+      "javaClass": "ArtifactUpgradeConfig",
+      "fqn": "com.bafmc.customenchantment.config.ArtifactUpgradeConfig",
+      "module": "ConfigModule",
+      "annotation": "@Configuration",
+      "keyPaths": [],
+      "tags": ["config", "config-class"]
+    },
+    {
+      "yamlFile": "groups.yml",
+      "javaClass": "CEEnchantGroupConfig",
+      "fqn": "com.bafmc.customenchantment.config.CEEnchantGroupConfig",
+      "module": "ConfigModule",
+      "annotation": "@Configuration",
+      "keyPaths": [],
+      "tags": ["config", "config-class", "enchantment"]
+    },
+    {
+      "yamlFile": "artifact-groups.yml",
+      "javaClass": "CEArtifactGroupConfig",
+      "fqn": "com.bafmc.customenchantment.config.CEArtifactGroupConfig",
+      "module": "ConfigModule",
+      "annotation": "@Configuration",
+      "keyPaths": [],
+      "tags": ["config", "config-class", "artifact"]
+    },
+    {
+      "yamlFile": "sigil-groups.yml",
+      "javaClass": "CESigilGroupConfig",
+      "fqn": "com.bafmc.customenchantment.config.CESigilGroupConfig",
+      "module": "ConfigModule",
+      "annotation": "@Configuration",
+      "keyPaths": [],
+      "tags": ["config", "config-class"]
+    },
+    {
+      "yamlFile": "outfit-groups.yml",
+      "javaClass": "CEOutfitGroupConfig",
+      "fqn": "com.bafmc.customenchantment.config.CEOutfitGroupConfig",
+      "module": "ConfigModule",
+      "annotation": "@Configuration",
+      "keyPaths": [],
+      "tags": ["config", "config-class"]
+    },
+    {
+      "yamlFile": "items.yml",
+      "javaClass": "CEItemConfig",
+      "fqn": "com.bafmc.customenchantment.config.CEItemConfig",
+      "module": "ConfigModule",
+      "annotation": "@Configuration",
+      "keyPaths": [],
+      "tags": ["config", "config-class", "items"]
+    },
+    {
+      "yamlFile": "enchantment/*.yml",
+      "javaClass": "CEEnchantConfig",
+      "fqn": "com.bafmc.customenchantment.config.CEEnchantConfig",
+      "module": "ConfigModule",
+      "annotation": "@Configuration",
+      "keyPaths": [],
+      "folder": true,
+      "files": ["all.yml", "armor.yml", "artifact-common-attack.yml", "artifact-common-defense.yml", "artifact-common.yml", "artifact-epic.yml", "artifact-event.yml", "artifact-legendary.yml", "artifact-rare.yml", "artifact-supreme.yml", "artifact-ultimate.yml", "artifact.yml", "axe.yml", "boots.yml", "bow.yml", "chestplate.yml", "helmet.yml", "hoe.yml", "leggings.yml", "mask.yml", "mix.yml", "new-ce.yml", "outfit.yml", "pickaxe.yml", "prime.yml", "set.yml", "sigil.yml", "space.yml", "sword.yml", "test.yml", "tool.yml", "trident.yml"],
+      "tags": ["config", "config-class", "enchantment"]
+    },
+    {
+      "yamlFile": "vanilla-item.yml",
+      "javaClass": "VanillaItemConfig",
+      "fqn": "com.bafmc.customenchantment.config.VanillaItemConfig",
+      "module": "ConfigModule",
+      "annotation": "@Configuration",
+      "keyPaths": [],
+      "tags": ["config", "config-class", "items"]
+    },
+    {
+      "yamlFile": "weapon/*.yml",
+      "javaClass": "CEWeaponConfig",
+      "fqn": "com.bafmc.customenchantment.config.CEWeaponConfig",
+      "module": "ConfigModule",
+      "annotation": "@Configuration",
+      "keyPaths": [],
+      "folder": true,
+      "tags": ["config", "config-class", "items"]
+    },
+    {
+      "yamlFile": "outfit/*.yml",
+      "javaClass": "CEOutfitConfig",
+      "fqn": "com.bafmc.customenchantment.config.CEOutfitConfig",
+      "module": "ConfigModule",
+      "annotation": "@Configuration",
+      "keyPaths": [],
+      "folder": true,
+      "tags": ["config", "config-class", "items"]
+    },
+    {
+      "yamlFile": "skin/*.yml",
+      "javaClass": "CESkinConfig",
+      "fqn": "com.bafmc.customenchantment.config.CESkinConfig",
+      "module": "ConfigModule",
+      "annotation": "@Configuration",
+      "keyPaths": [],
+      "folder": true,
+      "tags": ["config", "config-class", "items"]
+    },
+    {
+      "yamlFile": "extra-slot-settings (nested in config.yml)",
+      "javaClass": "ExtraSlotSettingsData",
+      "fqn": "com.bafmc.customenchantment.config.ExtraSlotSettingsData",
+      "module": "ConfigModule",
+      "annotation": "@Configuration",
+      "keyPaths": ["maxCount", "list", "slots"],
+      "tags": ["config", "config-class"]
+    }
+  ],
+  "dataFiles": [
+    {
+      "path": "storage/save-items.yml",
+      "purpose": "Persistent item storage",
+      "loadedBy": "CEItemStorageMap"
+    },
+    {
+      "path": "data/player/<name>.yml",
+      "purpose": "Per-player data",
+      "loadedBy": "PlayerModule"
+    }
+  ],
+  "loadOrder": [
+    "messages.yml (CustomEnchantmentMessage)",
+    "config.yml (MainConfig)",
+    "book-craft.yml (BookCraftConfig)",
+    "groups.yml (CEEnchantGroupConfig)",
+    "artifact-groups.yml (CEArtifactGroupConfig)",
+    "sigil-groups.yml (CESigilGroupConfig)",
+    "outfit-groups.yml (CEOutfitGroupConfig)",
+    "enchantment/*.yml (CEEnchantConfig)",
+    "items.yml (CEItemConfig)",
+    "vanilla-item.yml (VanillaItemConfig)",
+    "book-upgrade.yml (BookUpgradeConfig)",
+    "tinkerer.yml (TinkererConfig)",
+    "artifact-upgrade.yml (ArtifactUpgradeConfig)"
+  ]
+}

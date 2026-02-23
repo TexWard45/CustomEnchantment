@@ -1,0 +1,183 @@
+{
+  "generated": "2026-02-23",
+  "plugin": "CustomEnchantment",
+  "count": 16,
+  "modules": [
+    {
+      "name": "FeatureModule",
+      "order": 1,
+      "phase": 1,
+      "package": "com.bafmc.customenchantment.feature",
+      "purpose": "Item strategy registration (CustomEnchantmentItem)",
+      "classCount": 5,
+      "dependsOn": [],
+      "dependedBy": [],
+      "tags": ["module", "items"]
+    },
+    {
+      "name": "EnchantModule",
+      "order": 2,
+      "phase": 1,
+      "package": "com.bafmc.customenchantment.enchant",
+      "purpose": "28 conditions + 77 effects hook registration",
+      "classCount": 141,
+      "dependsOn": [],
+      "dependedBy": ["ListenerModule", "ConfigModule", "PlayerModule"],
+      "tags": ["module", "enchantment", "hook"]
+    },
+    {
+      "name": "AttributeModule",
+      "order": 3,
+      "phase": 1,
+      "package": "com.bafmc.customenchantment.attribute",
+      "purpose": "Custom attribute types and attribute map registration",
+      "classCount": 4,
+      "dependsOn": ["PlayerModule"],
+      "dependedBy": [],
+      "tags": ["module", "attributes"]
+    },
+    {
+      "name": "FilterModule",
+      "order": 4,
+      "phase": 1,
+      "package": "com.bafmc.customenchantment.filter",
+      "purpose": "Item/entity filtering with FilterRegister",
+      "classCount": 3,
+      "dependsOn": [],
+      "dependedBy": [],
+      "tags": ["module", "filtering"]
+    },
+    {
+      "name": "ExecuteModule",
+      "order": 5,
+      "phase": 1,
+      "package": "com.bafmc.customenchantment.execute",
+      "purpose": "Give/use item execute hooks",
+      "classCount": 3,
+      "dependsOn": [],
+      "dependedBy": [],
+      "tags": ["module", "hook", "executes"]
+    },
+    {
+      "name": "ConfigModule",
+      "order": 6,
+      "phase": 2,
+      "package": "com.bafmc.customenchantment.config",
+      "purpose": "YAML config loading for all 15+ config classes",
+      "classCount": 18,
+      "dependsOn": ["EnchantModule"],
+      "dependedBy": ["MenuModule", "CustomMenuModule"],
+      "tags": ["module", "config"]
+    },
+    {
+      "name": "CustomMenuModule",
+      "order": 7,
+      "phase": 3,
+      "package": "com.bafmc.customenchantment.custommenu",
+      "purpose": "External CustomMenu plugin integration",
+      "classCount": 4,
+      "dependsOn": ["ConfigModule"],
+      "dependedBy": [],
+      "tags": ["module", "integration"]
+    },
+    {
+      "name": "CommandModule",
+      "order": 8,
+      "phase": 3,
+      "package": "com.bafmc.customenchantment.command",
+      "purpose": "9 root commands, 20+ subcommands",
+      "classCount": 31,
+      "dependsOn": [],
+      "dependedBy": [],
+      "tags": ["module", "command"]
+    },
+    {
+      "name": "ItemModule",
+      "order": 9,
+      "phase": 3,
+      "package": "com.bafmc.customenchantment.item",
+      "purpose": "22 item factories for all CE item types",
+      "classCount": 129,
+      "dependsOn": [],
+      "dependedBy": [],
+      "tags": ["module", "items", "factory"]
+    },
+    {
+      "name": "PlayerModule",
+      "order": 10,
+      "phase": 3,
+      "package": "com.bafmc.customenchantment.player",
+      "purpose": "14 player expansions, 6 mining strategies, PlayerStorage",
+      "classCount": 41,
+      "dependsOn": ["EnchantModule"],
+      "dependedBy": ["TaskModule", "AttributeModule"],
+      "tags": ["module", "player"]
+    },
+    {
+      "name": "TaskModule",
+      "order": 11,
+      "phase": 3,
+      "package": "com.bafmc.customenchantment.task",
+      "purpose": "16 sync + 6 async scheduled tasks",
+      "classCount": 24,
+      "dependsOn": ["PlayerModule"],
+      "dependedBy": [],
+      "tags": ["module", "scheduling"]
+    },
+    {
+      "name": "GuardModule",
+      "order": 12,
+      "phase": 3,
+      "package": "com.bafmc.customenchantment.guard",
+      "purpose": "Guard mob system (spawning, targeting, management)",
+      "classCount": 5,
+      "dependsOn": [],
+      "dependedBy": [],
+      "tags": ["module", "mobs"]
+    },
+    {
+      "name": "DatabaseModule",
+      "order": 13,
+      "phase": 3,
+      "package": "com.bafmc.customenchantment.database",
+      "purpose": "SQLite persistence for player data",
+      "classCount": 2,
+      "dependsOn": [],
+      "dependedBy": [],
+      "tags": ["module", "persistence"]
+    },
+    {
+      "name": "MenuModule",
+      "order": 14,
+      "phase": 3,
+      "package": "com.bafmc.customenchantment.menu",
+      "purpose": "6 menu strategies, 12 anvil handlers",
+      "classCount": 76,
+      "dependsOn": ["ConfigModule"],
+      "dependedBy": [],
+      "tags": ["module", "gui"]
+    },
+    {
+      "name": "PlaceholderModule",
+      "order": 15,
+      "phase": 3,
+      "package": "com.bafmc.customenchantment.placeholder",
+      "purpose": "PlaceholderAPI integration",
+      "classCount": 2,
+      "dependsOn": [],
+      "dependedBy": [],
+      "tags": ["module", "integration"]
+    },
+    {
+      "name": "ListenerModule",
+      "order": 16,
+      "phase": 3,
+      "package": "com.bafmc.customenchantment.listener",
+      "purpose": "9 core + 5 conditional event listeners (50+ events)",
+      "classCount": 15,
+      "dependsOn": ["EnchantModule"],
+      "dependedBy": [],
+      "tags": ["module", "events", "listener"]
+    }
+  ]
+}

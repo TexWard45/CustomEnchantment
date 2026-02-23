@@ -1,0 +1,11322 @@
+{
+ "generated": "2026-02-23",
+ "plugin": "CustomEnchantment",
+ "count": 579,
+ "files": [
+  "all.yml",
+  "armor.yml",
+  "artifact-common-attack.yml",
+  "artifact-common-defense.yml",
+  "artifact-common.yml",
+  "artifact-epic.yml",
+  "artifact-event.yml",
+  "artifact-legendary.yml",
+  "artifact-rare.yml",
+  "artifact-supreme.yml",
+  "artifact-ultimate.yml",
+  "artifact.yml",
+  "axe.yml",
+  "boots.yml",
+  "bow.yml",
+  "chestplate.yml",
+  "helmet.yml",
+  "hoe.yml",
+  "leggings.yml",
+  "mask.yml",
+  "mix.yml",
+  "new-ce.yml",
+  "outfit.yml",
+  "pickaxe.yml",
+  "prime.yml",
+  "set.yml",
+  "sigil.yml",
+  "sword.yml",
+  "test.yml",
+  "tool.yml",
+  "trident.yml"
+ ],
+ "enchantments": [
+  {
+   "id": "burnshield",
+   "file": "all.yml",
+   "group": "epic",
+   "display": "Burnshield",
+   "maxLevel": 1,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "triggers": [
+    "ARMOR_EQUIP",
+    "ARMOR_UNDRESS"
+   ],
+   "effects": [
+    "ADD_FOREVER_POTION",
+    "REMOVE_FOREVER_POTION"
+   ],
+   "tags": [
+    "armor",
+    "enchantment",
+    "epic"
+   ]
+  },
+  {
+   "id": "cactus",
+   "file": "all.yml",
+   "group": "legendary",
+   "display": "Cactus",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "triggers": [
+    "DEFENSE"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "TARGET"
+   ],
+   "tags": [
+    "armor",
+    "combat",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "drunk",
+   "file": "all.yml",
+   "group": "epic",
+   "display": "Drunk",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "triggers": [
+    "ARMOR_EQUIP",
+    "ARMOR_UNDRESS"
+   ],
+   "effects": [
+    "ADD_ATTRIBUTE",
+    "REMOVE_ATTRIBUTE"
+   ],
+   "tags": [
+    "armor",
+    "enchantment",
+    "epic"
+   ]
+  },
+  {
+   "id": "enlightened",
+   "file": "all.yml",
+   "group": "legendary",
+   "display": "Enlightened",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "triggers": [
+    "ARROW_DEFENSE",
+    "DEFENSE"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "HEALTH"
+   ],
+   "tags": [
+    "armor",
+    "combat",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "savior",
+   "file": "all.yml",
+   "group": "legendary",
+   "display": "Savior",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "triggers": [
+    "DEFENSE"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "tags": [
+    "armor",
+    "combat",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "fortify",
+   "file": "all.yml",
+   "group": "rare",
+   "display": "Fortify",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "triggers": [
+    "DEFENSE"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "TARGET"
+   ],
+   "tags": [
+    "armor",
+    "combat",
+    "enchantment",
+    "rare"
+   ]
+  },
+  {
+   "id": "frozen",
+   "file": "all.yml",
+   "group": "epic",
+   "display": "Frozen",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "triggers": [
+    "DEFENSE"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "TARGET"
+   ],
+   "tags": [
+    "armor",
+    "combat",
+    "enchantment",
+    "epic"
+   ]
+  },
+  {
+   "id": "hellforged",
+   "file": "all.yml",
+   "group": "supreme",
+   "display": "HellForged",
+   "maxLevel": 1,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "triggers": [
+    "MOVE"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "DURABILITY"
+   ],
+   "tags": [
+    "armor",
+    "enchantment",
+    "supreme"
+   ]
+  },
+  {
+   "id": "hulk",
+   "file": "all.yml",
+   "group": "legendary",
+   "display": "Hulk",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "triggers": [
+    "ARMOR_EQUIP",
+    "ARMOR_UNDRESS"
+   ],
+   "effects": [
+    "ADD_ATTRIBUTE",
+    "ADD_FOREVER_POTION",
+    "REMOVE_ATTRIBUTE",
+    "REMOVE_FOREVER_POTION"
+   ],
+   "tags": [
+    "armor",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "implants",
+   "file": "all.yml",
+   "group": "epic",
+   "display": "Implants",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "triggers": [
+    "MOVE"
+   ],
+   "conditions": [
+    "EQUIP_SLOT",
+    "FOOD"
+   ],
+   "effects": [
+    "FOOD"
+   ],
+   "tags": [
+    "armor",
+    "enchantment",
+    "epic"
+   ]
+  },
+  {
+   "id": "insomnia",
+   "file": "all.yml",
+   "group": "epic",
+   "display": "Insomnia",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "triggers": [
+    "ARMOR_EQUIP",
+    "ARMOR_UNDRESS"
+   ],
+   "effects": [
+    "ADD_ATTRIBUTE",
+    "ADD_FOREVER_POTION",
+    "REMOVE_ATTRIBUTE",
+    "REMOVE_FOREVER_POTION"
+   ],
+   "tags": [
+    "armor",
+    "enchantment",
+    "epic"
+   ]
+  },
+  {
+   "id": "molten",
+   "file": "all.yml",
+   "group": "rare",
+   "display": "Molten",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "triggers": [
+    "DEFENSE"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "TARGET"
+   ],
+   "tags": [
+    "armor",
+    "combat",
+    "enchantment",
+    "rare"
+   ]
+  },
+  {
+   "id": "ninja",
+   "file": "all.yml",
+   "group": "supreme",
+   "display": "Ninja",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "triggers": [
+    "ARMOR_EQUIP",
+    "ARMOR_UNDRESS"
+   ],
+   "effects": [
+    "ADD_ATTRIBUTE",
+    "REMOVE_ATTRIBUTE"
+   ],
+   "tags": [
+    "armor",
+    "enchantment",
+    "supreme"
+   ]
+  },
+  {
+   "id": "nursery",
+   "file": "all.yml",
+   "group": "supreme",
+   "display": "Nursery",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "triggers": [
+    "MOVE"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "HEALTH"
+   ],
+   "tags": [
+    "armor",
+    "enchantment",
+    "supreme"
+   ]
+  },
+  {
+   "id": "overload",
+   "file": "all.yml",
+   "group": "legendary",
+   "display": "Overload",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "triggers": [
+    "ARMOR_EQUIP",
+    "ARMOR_UNDRESS"
+   ],
+   "effects": [
+    "ADD_FOREVER_POTION",
+    "REMOVE_FOREVER_POTION"
+   ],
+   "tags": [
+    "armor",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "paingiver",
+   "file": "all.yml",
+   "group": "epic",
+   "display": "PainGiver",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "triggers": [
+    "DEFENSE"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "TARGET"
+   ],
+   "tags": [
+    "armor",
+    "combat",
+    "enchantment",
+    "epic"
+   ]
+  },
+  {
+   "id": "recover",
+   "file": "all.yml",
+   "group": "rare",
+   "display": "Recover",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "triggers": [
+    "KILL_PLAYER"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "HEALTH"
+   ],
+   "tags": [
+    "armor",
+    "enchantment",
+    "rare"
+   ]
+  },
+  {
+   "id": "rocket",
+   "file": "all.yml",
+   "group": "rare",
+   "display": "Rocket",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "triggers": [
+    "DEFENSE"
+   ],
+   "conditions": [
+    "EQUIP_SLOT",
+    "HEALTH"
+   ],
+   "effects": [
+    "PULL"
+   ],
+   "tags": [
+    "armor",
+    "combat",
+    "enchantment",
+    "rare"
+   ]
+  },
+  {
+   "id": "smokebomb",
+   "file": "all.yml",
+   "group": "legendary",
+   "display": "SmokeBomb",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "triggers": [
+    "DEFENSE"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "HEALTH",
+    "TARGET"
+   ],
+   "effects": [
+    "TARGET"
+   ],
+   "tags": [
+    "armor",
+    "combat",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "stormcaller",
+   "file": "all.yml",
+   "group": "rare",
+   "display": "StormCaller",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "triggers": [
+    "DEFENSE"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "TARGET"
+   ],
+   "tags": [
+    "armor",
+    "combat",
+    "enchantment",
+    "rare"
+   ]
+  },
+  {
+   "id": "trickster",
+   "file": "all.yml",
+   "group": "epic",
+   "display": "Trickster",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "triggers": [
+    "DEFENSE"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "PACKET_PARTICLE",
+    "TELEPORT"
+   ],
+   "tags": [
+    "armor",
+    "combat",
+    "enchantment",
+    "epic"
+   ]
+  },
+  {
+   "id": "valor",
+   "file": "all.yml",
+   "group": "supreme",
+   "display": "Valor",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "triggers": [
+    "DEFENSE"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "DURABILITY"
+   ],
+   "tags": [
+    "armor",
+    "combat",
+    "enchantment",
+    "supreme"
+   ]
+  },
+  {
+   "id": "voodoo",
+   "file": "all.yml",
+   "group": "legendary",
+   "display": "Voodoo",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "triggers": [
+    "DEFENSE"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "TARGET"
+   ],
+   "tags": [
+    "armor",
+    "combat",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "durable",
+   "file": "all.yml",
+   "group": "common",
+   "display": "Durable",
+   "maxLevel": 10,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "triggers": [
+    "DEFENSE"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "DURABILITY"
+   ],
+   "tags": [
+    "armor",
+    "combat",
+    "common",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "hearty",
+   "file": "all.yml",
+   "group": "event",
+   "display": "Hearty",
+   "maxLevel": 4,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "triggers": [
+    "ARROW_DEFENSE",
+    "DEFENSE"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "DELAY"
+   ],
+   "tags": [
+    "armor",
+    "combat",
+    "enchantment",
+    "event"
+   ]
+  },
+  {
+   "id": "absorb",
+   "file": "all.yml",
+   "group": "event",
+   "display": "Absorb",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "triggers": [
+    "DEFENSE"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "ABSORPTION_HEART"
+   ],
+   "tags": [
+    "armor",
+    "combat",
+    "enchantment",
+    "event"
+   ]
+  },
+  {
+   "id": "vitality",
+   "file": "all.yml",
+   "group": "legendary",
+   "display": "Vitality",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "triggers": [
+    "ARMOR_EQUIP",
+    "ARMOR_UNDRESS"
+   ],
+   "effects": [
+    "ADD_FOREVER_POTION",
+    "REMOVE_FOREVER_POTION"
+   ],
+   "tags": [
+    "armor",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "guzzle",
+   "file": "all.yml",
+   "group": "epic",
+   "display": "Guzzle",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "triggers": [
+    "DEFENSE"
+   ],
+   "conditions": [
+    "EQUIP_SLOT",
+    "FOOD",
+    "HEALTH_PERCENT"
+   ],
+   "effects": [
+    "FOOD",
+    "HEALTH"
+   ],
+   "tags": [
+    "armor",
+    "combat",
+    "enchantment",
+    "epic"
+   ]
+  },
+  {
+   "id": "sunfire",
+   "file": "all.yml",
+   "group": "legendary",
+   "display": "Sunfire",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "triggers": [
+    "ARMOR_EQUIP",
+    "ARMOR_UNDRESS",
+    "AUTO"
+   ],
+   "conditions": [
+    "EQUIP_SLOT",
+    "NUMBER_STORAGE"
+   ],
+   "effects": [
+    "NUMBER_STORAGE"
+   ],
+   "tags": [
+    "armor",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "testarmor",
+   "file": "all.yml",
+   "group": "supreme",
+   "display": "Ninja",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "triggers": [
+    "CHANGE_HAND",
+    "HOLD"
+   ],
+   "effects": [
+    "ADD_ATTRIBUTE",
+    "ADD_CUSTOM_ATTRIBUTE",
+    "REMOVE_ATTRIBUTE",
+    "REMOVE_CUSTOM_ATTRIBUTE"
+   ],
+   "tags": [
+    "armor",
+    "enchantment",
+    "supreme"
+   ]
+  },
+  {
+   "id": "greencompound",
+   "file": "all.yml",
+   "group": "artifact",
+   "display": "Green Compound",
+   "maxLevel": 1,
+   "triggers": [
+    "EXTRA_SLOT_EQUIP",
+    "EXTRA_SLOT_UNEQUIP"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "ADD_ATTRIBUTE",
+    "REMOVE_ATTRIBUTE"
+   ],
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "graycompound",
+   "file": "all.yml",
+   "group": "artifact",
+   "display": "Gray Compound",
+   "maxLevel": 1,
+   "triggers": [
+    "EXTRA_SLOT_EQUIP",
+    "EXTRA_SLOT_UNEQUIP"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "ADD_ATTRIBUTE",
+    "REMOVE_ATTRIBUTE"
+   ],
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "bloodarmor",
+   "file": "all.yml",
+   "group": "artifact",
+   "display": "Blood Armor",
+   "maxLevel": 5,
+   "triggers": [
+    "AUTO",
+    "EXTRA_SLOT_EQUIP",
+    "EXTRA_SLOT_UNEQUIP"
+   ],
+   "conditions": [
+    "EQUIP_SLOT",
+    "IN_COMBAT",
+    "NEGATIVE"
+   ],
+   "effects": [
+    "ADD_ATTRIBUTE",
+    "ADD_CUSTOM_ATTRIBUTE",
+    "HEALTH",
+    "REMOVE_ATTRIBUTE",
+    "REMOVE_CUSTOM_ATTRIBUTE"
+   ],
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "eternalbread",
+   "file": "all.yml",
+   "group": "artifact",
+   "display": "Eternal Bread",
+   "maxLevel": 1,
+   "triggers": [
+    "EXTRA_SLOT_EQUIP",
+    "EXTRA_SLOT_UNEQUIP"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "ADD_FOREVER_POTION",
+    "REMOVE_FOREVER_POTION"
+   ],
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "blessed",
+   "file": "all.yml",
+   "group": "legendary",
+   "display": "Blessed",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "MESSAGE",
+    "REMOVE_POTION"
+   ],
+   "tags": [
+    "axe",
+    "combat",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "berserk",
+   "file": "all.yml",
+   "group": "epic",
+   "display": "Berserk",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "ADD_ATTRIBUTE",
+    "DELAY",
+    "MESSAGE"
+   ],
+   "tags": [
+    "axe",
+    "combat",
+    "enchantment",
+    "epic"
+   ]
+  },
+  {
+   "id": "cursed",
+   "file": "all.yml",
+   "group": "epic",
+   "display": "Cursed",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "MESSAGE",
+    "TARGET"
+   ],
+   "tags": [
+    "axe",
+    "combat",
+    "enchantment",
+    "epic"
+   ]
+  },
+  {
+   "id": "dizzy",
+   "file": "all.yml",
+   "group": "epic",
+   "display": "Dizzy",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "MESSAGE",
+    "TARGET"
+   ],
+   "tags": [
+    "axe",
+    "combat",
+    "enchantment",
+    "epic"
+   ]
+  },
+  {
+   "id": "feedme",
+   "file": "all.yml",
+   "group": "epic",
+   "display": "FeedMe",
+   "maxLevel": 1,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "EQUIP_SLOT",
+    "FOOD"
+   ],
+   "effects": [
+    "FOOD",
+    "MESSAGE"
+   ],
+   "tags": [
+    "axe",
+    "combat",
+    "enchantment",
+    "epic"
+   ]
+  },
+  {
+   "id": "rekt",
+   "file": "all.yml",
+   "group": "legendary",
+   "display": "Rekt",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "MESSAGE"
+   ],
+   "tags": [
+    "axe",
+    "combat",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "hammer",
+   "file": "all.yml",
+   "group": "legendary",
+   "display": "Hammer",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "TARGET"
+   ],
+   "tags": [
+    "axe",
+    "combat",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "urchin",
+   "file": "all.yml",
+   "group": "epic",
+   "display": "Urchin",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "MESSAGE",
+    "TARGET"
+   ],
+   "tags": [
+    "axe",
+    "combat",
+    "enchantment",
+    "epic"
+   ]
+  },
+  {
+   "id": "sledgehammer",
+   "file": "all.yml",
+   "group": "legendary",
+   "display": "Sledgehammer",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "NUMBER_STORAGE",
+    "TARGET"
+   ],
+   "effects": [
+    "MESSAGE",
+    "TARGET"
+   ],
+   "tags": [
+    "axe",
+    "combat",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "overpower",
+   "file": "all.yml",
+   "group": "supreme",
+   "display": "Overpower",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "MESSAGE",
+    "TARGET"
+   ],
+   "tags": [
+    "axe",
+    "combat",
+    "enchantment",
+    "supreme"
+   ]
+  },
+  {
+   "id": "crack",
+   "file": "all.yml",
+   "group": "legendary",
+   "display": "Crack",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "MESSAGE",
+    "TARGET"
+   ],
+   "tags": [
+    "axe",
+    "combat",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "bleed",
+   "file": "all.yml",
+   "group": "legendary",
+   "display": "Bleed",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "MESSAGE",
+    "TARGET"
+   ],
+   "tags": [
+    "axe",
+    "combat",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "blacksmith",
+   "file": "all.yml",
+   "group": "legendary",
+   "display": "Blacksmith",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "DURABILITY"
+   ],
+   "tags": [
+    "axe",
+    "combat",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "devour",
+   "file": "all.yml",
+   "group": "legendary",
+   "display": "Devour",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "HEALTH",
+    "MESSAGE",
+    "TARGET"
+   ],
+   "tags": [
+    "axe",
+    "combat",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "pummel",
+   "file": "all.yml",
+   "group": "rare",
+   "display": "Pummel",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "MESSAGE",
+    "TARGET"
+   ],
+   "tags": [
+    "axe",
+    "combat",
+    "enchantment",
+    "rare"
+   ]
+  },
+  {
+   "id": "smite",
+   "file": "all.yml",
+   "group": "rare",
+   "display": "Smite",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "HEALTH",
+    "TARGET"
+   ],
+   "tags": [
+    "axe",
+    "combat",
+    "enchantment",
+    "rare"
+   ]
+  },
+  {
+   "id": "dissect",
+   "file": "all.yml",
+   "group": "common",
+   "display": "Dissect",
+   "maxLevel": 10,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "triggers": [
+    "CHANGE_HAND",
+    "HOLD"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "ADD_MOB_BONUS",
+    "MESSAGE",
+    "REMOVE_MOB_BONUS"
+   ],
+   "tags": [
+    "axe",
+    "common",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "infested",
+   "file": "all.yml",
+   "group": "legendary",
+   "display": "Infested",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "HEALTH",
+    "TARGET"
+   ],
+   "effects": [
+    "HEALTH",
+    "MESSAGE"
+   ],
+   "tags": [
+    "axe",
+    "combat",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "hamstring",
+   "file": "all.yml",
+   "group": "epic",
+   "display": "Harmstring",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "MESSAGE",
+    "TARGET"
+   ],
+   "tags": [
+    "axe",
+    "combat",
+    "enchantment",
+    "epic"
+   ]
+  },
+  {
+   "id": "divine",
+   "file": "all.yml",
+   "group": "ultimate",
+   "display": "Divine",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "MESSAGE",
+    "TARGET"
+   ],
+   "tags": [
+    "axe",
+    "combat",
+    "enchantment",
+    "ultimate"
+   ]
+  },
+  {
+   "id": "axswing",
+   "file": "all.yml",
+   "group": "supreme",
+   "display": "AxSwing",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "triggers": [
+    "ATTACK",
+    "AUTO"
+   ],
+   "conditions": [
+    "EQUIP_SLOT",
+    "NUMBER_STORAGE"
+   ],
+   "effects": [
+    "MESSAGE",
+    "NUMBER_STORAGE"
+   ],
+   "tags": [
+    "axe",
+    "combat",
+    "enchantment",
+    "supreme"
+   ]
+  },
+  {
+   "id": "pulverize",
+   "file": "all.yml",
+   "group": "supreme",
+   "display": "Pulverize",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "MESSAGE"
+   ],
+   "tags": [
+    "axe",
+    "combat",
+    "enchantment",
+    "supreme"
+   ]
+  },
+  {
+   "id": "rampage",
+   "file": "all.yml",
+   "group": "supreme",
+   "display": "Rampage",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "triggers": [
+    "ATTACK",
+    "CHANGE_HAND",
+    "HOLD"
+   ],
+   "conditions": [
+    "EQUIP_SLOT",
+    "NUMBER_STORAGE"
+   ],
+   "effects": [
+    "NAME",
+    "NUMBER_STORAGE",
+    "REMOVE_ATTRIBUTE",
+    "REMOVE_TASK"
+   ],
+   "tags": [
+    "axe",
+    "combat",
+    "enchantment",
+    "supreme"
+   ]
+  },
+  {
+   "id": "feather",
+   "file": "all.yml",
+   "group": "legendary",
+   "display": "Nhanh nhảy",
+   "maxLevel": 2,
+   "applies": [
+    "ALL_BOOTS"
+   ],
+   "triggers": [
+    "ARMOR_EQUIP",
+    "ARMOR_UNDRESS"
+   ],
+   "effects": [
+    "ADD_FOREVER_POTION",
+    "NAME",
+    "REMOVE_FOREVER_POTION",
+    "REMOVE_TASK_ASYNC"
+   ],
+   "tags": [
+    "boots",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "gears",
+   "file": "all.yml",
+   "group": "epic",
+   "display": "Chạy nhanh",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_BOOTS"
+   ],
+   "triggers": [
+    "ARMOR_EQUIP",
+    "ARMOR_UNDRESS"
+   ],
+   "effects": [
+    "ADD_FOREVER_POTION",
+    "NAME",
+    "REMOVE_FOREVER_POTION",
+    "REMOVE_TASK_ASYNC"
+   ],
+   "tags": [
+    "boots",
+    "enchantment",
+    "epic"
+   ]
+  },
+  {
+   "id": "springs",
+   "file": "all.yml",
+   "group": "epic",
+   "display": "Nhảy cao",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_BOOTS"
+   ],
+   "triggers": [
+    "ARMOR_EQUIP",
+    "ARMOR_UNDRESS"
+   ],
+   "effects": [
+    "ADD_FOREVER_POTION",
+    "NAME",
+    "REMOVE_FOREVER_POTION",
+    "REMOVE_TASK_ASYNC"
+   ],
+   "tags": [
+    "boots",
+    "enchantment",
+    "epic"
+   ]
+  },
+  {
+   "id": "sanguine",
+   "file": "all.yml",
+   "group": "legendary",
+   "display": "Sanguine",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_BOOTS"
+   ],
+   "triggers": [
+    "DEFENSE"
+   ],
+   "conditions": [
+    "EQUIP_SLOT",
+    "HEALTH_PERCENT"
+   ],
+   "effects": [
+    "ADD_ATTRIBUTE",
+    "DELAY",
+    "MESSAGE"
+   ],
+   "tags": [
+    "boots",
+    "combat",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "dash",
+   "file": "all.yml",
+   "group": "supreme",
+   "display": "Lướt",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_BOOTS"
+   ],
+   "triggers": [
+    "ARMOR_EQUIP",
+    "ARMOR_UNDRESS"
+   ],
+   "effects": [
+    "ACTIVE_DASH",
+    "DEACTIVE_DASH"
+   ],
+   "tags": [
+    "boots",
+    "enchantment",
+    "supreme"
+   ]
+  },
+  {
+   "id": "doublejump",
+   "file": "all.yml",
+   "group": "rare",
+   "display": "DoubleJump",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_BOOTS"
+   ],
+   "triggers": [
+    "ARMOR_EQUIP",
+    "ARMOR_UNDRESS"
+   ],
+   "effects": [
+    "ACTIVE_DOUBLE_JUMP",
+    "DEACTIVE_DOUBLE_JUMP"
+   ],
+   "tags": [
+    "boots",
+    "enchantment",
+    "rare"
+   ]
+  },
+  {
+   "id": "fairyelf",
+   "file": "all.yml",
+   "group": "supreme",
+   "display": "FairyElf",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_BOW"
+   ],
+   "triggers": [
+    "ARROW_HIT"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "ADD_ATTRIBUTE",
+    "DELAY"
+   ],
+   "tags": [
+    "bow",
+    "enchantment",
+    "supreme"
+   ]
+  },
+  {
+   "id": "lightning",
+   "file": "all.yml",
+   "group": "rare",
+   "display": "Lightning",
+   "maxLevel": 1,
+   "applies": [
+    "ALL_BOW"
+   ],
+   "triggers": [
+    "ARROW_HIT"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "TARGET"
+   ],
+   "tags": [
+    "bow",
+    "enchantment",
+    "rare"
+   ]
+  },
+  {
+   "id": "multiarrow",
+   "file": "all.yml",
+   "group": "rare",
+   "display": "MultiArrow",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_BOW"
+   ],
+   "triggers": [
+    "CHANGE_HAND",
+    "HOLD"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "DISABLE_MULTIPLE_ARROW",
+    "ENABLE_MULTIPLE_ARROW"
+   ],
+   "tags": [
+    "bow",
+    "enchantment",
+    "rare"
+   ]
+  },
+  {
+   "id": "piercing",
+   "file": "all.yml",
+   "group": "rare",
+   "display": "Piercing",
+   "maxLevel": 10,
+   "applies": [
+    "ALL_BOW"
+   ],
+   "triggers": [
+    "ARROW_HIT"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "tags": [
+    "bow",
+    "enchantment",
+    "rare"
+   ]
+  },
+  {
+   "id": "venom",
+   "file": "all.yml",
+   "group": "rare",
+   "display": "Venom",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_BOW"
+   ],
+   "triggers": [
+    "ARROW_HIT"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "TARGET"
+   ],
+   "tags": [
+    "bow",
+    "enchantment",
+    "rare"
+   ]
+  },
+  {
+   "id": "explosive",
+   "file": "all.yml",
+   "group": "epic",
+   "display": "Explosive",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_BOW"
+   ],
+   "triggers": [
+    "ARROW_HIT"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "TARGET"
+   ],
+   "tags": [
+    "bow",
+    "enchantment",
+    "epic"
+   ]
+  },
+  {
+   "id": "freeze",
+   "file": "all.yml",
+   "group": "epic",
+   "display": "Freeze",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_BOW"
+   ],
+   "triggers": [
+    "ARROW_HIT"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "TARGET"
+   ],
+   "tags": [
+    "bow",
+    "enchantment",
+    "epic"
+   ]
+  },
+  {
+   "id": "glamour",
+   "file": "all.yml",
+   "group": "event",
+   "display": "Glamour",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_BOW"
+   ],
+   "triggers": [
+    "ARROW_HIT"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "TARGET"
+   ],
+   "tags": [
+    "bow",
+    "enchantment",
+    "event"
+   ]
+  },
+  {
+   "id": "lodestar",
+   "file": "all.yml",
+   "group": "rare",
+   "display": "Lodestar",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_BOW"
+   ],
+   "triggers": [
+    "ARROW_HIT"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "tags": [
+    "bow",
+    "enchantment",
+    "rare"
+   ]
+  },
+  {
+   "id": "sniper",
+   "file": "all.yml",
+   "group": "ultimate",
+   "display": "Sniper",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_BOW"
+   ],
+   "triggers": [
+    "ARROW_HIT"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "TARGET"
+   ],
+   "tags": [
+    "bow",
+    "enchantment",
+    "ultimate"
+   ]
+  },
+  {
+   "id": "doctor",
+   "file": "all.yml",
+   "group": "epic",
+   "display": "Doctor",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_BOW"
+   ],
+   "triggers": [
+    "ARROW_HIT"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "FACTION_RELATION",
+    "TARGET"
+   ],
+   "effects": [
+    "TARGET"
+   ],
+   "tags": [
+    "bow",
+    "enchantment",
+    "epic"
+   ]
+  },
+  {
+   "id": "creatine",
+   "file": "all.yml",
+   "group": "epic",
+   "display": "Creatine",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_BOW"
+   ],
+   "triggers": [
+    "ARROW_HIT"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "FACTION_RELATION",
+    "TARGET"
+   ],
+   "effects": [
+    "TARGET"
+   ],
+   "tags": [
+    "bow",
+    "enchantment",
+    "epic"
+   ]
+  },
+  {
+   "id": "penetration",
+   "file": "all.yml",
+   "group": "supreme",
+   "display": "Penetration",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_BOW"
+   ],
+   "triggers": [
+    "ARROW_HIT"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "TARGET"
+   ],
+   "tags": [
+    "bow",
+    "enchantment",
+    "supreme"
+   ]
+  },
+  {
+   "id": "stoneplate",
+   "file": "all.yml",
+   "group": "legendary",
+   "display": "Stoneplate",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_CHESTPLATE"
+   ],
+   "triggers": [
+    "DEFENSE"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "MESSAGE",
+    "PLAY_SOUND"
+   ],
+   "tags": [
+    "chestplate",
+    "combat",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "abnegation",
+   "file": "all.yml",
+   "group": "legendary",
+   "display": "Abnegation",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_CHESTPLATE"
+   ],
+   "triggers": [
+    "DEFENSE"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "HEALTH_PERCENT",
+    "TARGET"
+   ],
+   "effects": [
+    "HEALTH",
+    "TARGET"
+   ],
+   "tags": [
+    "chestplate",
+    "combat",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "endurance",
+   "file": "all.yml",
+   "group": "supreme",
+   "display": "Endurance",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_CHESTPLATE"
+   ],
+   "triggers": [
+    "ARMOR_EQUIP",
+    "DEFENSE"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "NUMBER_STORAGE"
+   ],
+   "effects": [
+    "MESSAGE",
+    "NAME",
+    "NUMBER_STORAGE"
+   ],
+   "tags": [
+    "chestplate",
+    "combat",
+    "enchantment",
+    "supreme"
+   ]
+  },
+  {
+   "id": "immortal",
+   "file": "all.yml",
+   "group": "ultimate",
+   "display": "Immortal",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_CHESTPLATE"
+   ],
+   "triggers": [
+    "DEFENSE"
+   ],
+   "conditions": [
+    "EQUIP_SLOT",
+    "NUMBER_STORAGE"
+   ],
+   "effects": [
+    "DELAY",
+    "MESSAGE",
+    "NUMBER_STORAGE"
+   ],
+   "tags": [
+    "chestplate",
+    "combat",
+    "enchantment",
+    "ultimate"
+   ]
+  },
+  {
+   "id": "phoenix",
+   "file": "all.yml",
+   "group": "ultimate",
+   "display": "Phoenix",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_CHESTPLATE"
+   ],
+   "triggers": [
+    "DEFENSE"
+   ],
+   "conditions": [
+    "EQUIP_SLOT",
+    "HEALTH_PERCENT"
+   ],
+   "effects": [
+    "HEALTH"
+   ],
+   "tags": [
+    "chestplate",
+    "combat",
+    "enchantment",
+    "ultimate"
+   ]
+  },
+  {
+   "id": "aegis",
+   "file": "all.yml",
+   "group": "ultimate",
+   "display": "Aegis",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_CHESTPLATE"
+   ],
+   "triggers": [
+    "DEFENSE"
+   ],
+   "conditions": [
+    "EQUIP_SLOT",
+    "HEALTH_PERCENT"
+   ],
+   "effects": [
+    "ABSORPTION_HEART"
+   ],
+   "tags": [
+    "chestplate",
+    "combat",
+    "enchantment",
+    "ultimate"
+   ]
+  },
+  {
+   "id": "glowing",
+   "file": "all.yml",
+   "group": "rare",
+   "display": "Glowing",
+   "maxLevel": 1,
+   "applies": [
+    "ALL_HELMET"
+   ],
+   "triggers": [
+    "ARMOR_EQUIP",
+    "ARMOR_UNDRESS"
+   ],
+   "effects": [
+    "ADD_FOREVER_POTION",
+    "REMOVE_FOREVER_POTION"
+   ],
+   "tags": [
+    "enchantment",
+    "helmet",
+    "rare"
+   ]
+  },
+  {
+   "id": "mermaid",
+   "file": "all.yml",
+   "group": "epic",
+   "display": "Mermaid",
+   "maxLevel": 1,
+   "applies": [
+    "ALL_HELMET"
+   ],
+   "triggers": [
+    "ARMOR_EQUIP",
+    "ARMOR_UNDRESS"
+   ],
+   "effects": [
+    "ADD_FOREVER_POTION",
+    "REMOVE_FOREVER_POTION"
+   ],
+   "tags": [
+    "enchantment",
+    "epic",
+    "helmet"
+   ]
+  },
+  {
+   "id": "hurstwic",
+   "file": "all.yml",
+   "group": "epic",
+   "display": "Hurstwic",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_HELMET"
+   ],
+   "triggers": [
+    "DEFENSE"
+   ],
+   "conditions": [
+    "EQUIP_SLOT",
+    "NUMBER_STORAGE"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "epic",
+    "helmet"
+   ]
+  },
+  {
+   "id": "greathelm",
+   "file": "all.yml",
+   "group": "legendary",
+   "display": "GreatHelm",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_HELMET"
+   ],
+   "triggers": [
+    "ARROW_DEFENSE"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "tags": [
+    "enchantment",
+    "helmet",
+    "legendary"
+   ]
+  },
+  {
+   "id": "sober",
+   "file": "all.yml",
+   "group": "supreme",
+   "display": "Sober",
+   "maxLevel": 1,
+   "applies": [
+    "ALL_HELMET"
+   ],
+   "triggers": [
+    "ARMOR_EQUIP",
+    "ARMOR_UNDRESS"
+   ],
+   "effects": [
+    "BLOCK_FOREVER_POTION",
+    "UNBLOCK_FOREVER_POTION"
+   ],
+   "tags": [
+    "enchantment",
+    "helmet",
+    "supreme"
+   ]
+  },
+  {
+   "id": "deathscythe",
+   "file": "all.yml",
+   "group": "supreme",
+   "display": "DeathScythe",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_HOE"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "ADD_ATTRIBUTE",
+    "DELAY",
+    "MESSAGE"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "hoe",
+    "supreme"
+   ]
+  },
+  {
+   "id": "fieldprot",
+   "file": "all.yml",
+   "group": "rare",
+   "display": "FieldProt",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_HOE"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "TARGET"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "hoe",
+    "rare"
+   ]
+  },
+  {
+   "id": "rush",
+   "file": "all.yml",
+   "group": "legendary",
+   "display": "Rush",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_HOE"
+   ],
+   "triggers": [
+    "CHANGE_HAND",
+    "HOLD"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "ADD_ATTRIBUTE",
+    "REMOVE_ATTRIBUTE"
+   ],
+   "tags": [
+    "enchantment",
+    "hoe",
+    "legendary"
+   ]
+  },
+  {
+   "id": "peasant",
+   "file": "all.yml",
+   "group": "common",
+   "display": "Peasant",
+   "maxLevel": 10,
+   "applies": [
+    "ALL_HOE"
+   ],
+   "triggers": [
+    "CHANGE_HAND",
+    "HOLD"
+   ],
+   "effects": [
+    "ADD_BLOCK_BONUS",
+    "REMOVE_BLOCK_BONUS"
+   ],
+   "tags": [
+    "common",
+    "enchantment",
+    "hoe"
+   ]
+  },
+  {
+   "id": "aghast",
+   "file": "all.yml",
+   "group": "event",
+   "display": "Aghast",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_HOE"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "TARGET"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "event",
+    "hoe"
+   ]
+  },
+  {
+   "id": "bloodthief",
+   "file": "all.yml",
+   "group": "supreme",
+   "display": "BloodThief",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_HOE"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "DELAY",
+    "TARGET"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "hoe",
+    "supreme"
+   ]
+  },
+  {
+   "id": "ravage",
+   "file": "all.yml",
+   "group": "supreme",
+   "display": "Ravage",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_HOE"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "TARGET"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "hoe",
+    "supreme"
+   ]
+  },
+  {
+   "id": "woundhealing",
+   "file": "all.yml",
+   "group": "epic",
+   "display": "WoundHealing",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_LEGGINGS"
+   ],
+   "triggers": [
+    "DEFENSE"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "DELAY"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "epic",
+    "leggings"
+   ]
+  },
+  {
+   "id": "defusing",
+   "file": "all.yml",
+   "group": "supreme",
+   "display": "Defusing",
+   "maxLevel": 1,
+   "applies": [
+    "ALL_LEGGINGS"
+   ],
+   "triggers": [
+    "DEFENSE",
+    "UNKNOWN_DEFENSE"
+   ],
+   "conditions": [
+    "DAMAGE_CAUSE",
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "leggings",
+    "supreme"
+   ]
+  },
+  {
+   "id": "zombie",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "Zombie",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "triggers": [
+    "ARMOR_UNDRESS",
+    "ATTACK",
+    "DEFENSE"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "REMOVE_GUARD",
+    "SUMMON_GUARD"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "pig",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "Pig",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "triggers": [
+    "DEFENSE",
+    "ITEM_CONSUME"
+   ],
+   "conditions": [
+    "EQUIP_SLOT",
+    "ITEM_CONSUME"
+   ],
+   "effects": [
+    "ADD_POTION"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "chicken",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "Chicken",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "triggers": [
+    "UNKNOWN_DEFENSE"
+   ],
+   "conditions": [
+    "DAMAGE_CAUSE",
+    "EQUIP_SLOT"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "sheep",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "Sheep",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "triggers": [
+    "DEFENSE",
+    "ITEM_CONSUME"
+   ],
+   "conditions": [
+    "EQUIP_SLOT",
+    "ITEM_CONSUME"
+   ],
+   "effects": [
+    "ADD_POTION"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "cavespider",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "CaveSpider",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "triggers": [
+    "ARMOR_EQUIP",
+    "ARMOR_UNDRESS",
+    "ATTACK",
+    "UNKNOWN_DEFENSE"
+   ],
+   "conditions": [
+    "DAMAGE_CAUSE",
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "TARGET"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "cow",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "Cow",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "triggers": [
+    "ATTACK",
+    "ITEM_CONSUME"
+   ],
+   "conditions": [
+    "EQUIP_SLOT",
+    "ITEM_CONSUME"
+   ],
+   "effects": [
+    "ADD_POTION",
+    "REMOVE_POTION"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "ocelot",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "Ocelot",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "EQUIP_SLOT",
+    "OUT_OF_SIGHT"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "wolf",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "Wolf",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "triggers": [
+    "ARMOR_UNDRESS",
+    "DEFENSE"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "ADD_ATTRIBUTE",
+    "DELAY",
+    "REMOVE_GUARD",
+    "SUMMON_GUARD"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "bat",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "Bat",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "triggers": [
+    "ARMOR_EQUIP",
+    "ARMOR_UNDRESS",
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "ADD_FOREVER_POTION",
+    "HEALTH",
+    "REMOVE_FOREVER_POTION",
+    "TARGET"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "spider",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "Spider",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "triggers": [
+    "ATTACK",
+    "UNKNOWN_DEFENSE"
+   ],
+   "conditions": [
+    "DAMAGE_CAUSE",
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "TARGET"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "rabbit",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "Rabbit",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "triggers": [
+    "ARMOR_EQUIP",
+    "ARMOR_UNDRESS"
+   ],
+   "effects": [
+    "ADD_FOREVER_POTION",
+    "REMOVE_FOREVER_POTION"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "llama",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "Llama",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "TARGET"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "squid",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "Squid",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "triggers": [
+    "ARMOR_EQUIP",
+    "ARMOR_UNDRESS",
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "ADD_FOREVER_POTION",
+    "REMOVE_FOREVER_POTION",
+    "TARGET"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "mooshroom",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "Mooshroom",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "triggers": [
+    "DEFENSE",
+    "ITEM_CONSUME"
+   ],
+   "conditions": [
+    "EQUIP_SLOT",
+    "ITEM_CONSUME"
+   ],
+   "effects": [
+    "ABSORPTION_HEART",
+    "REMOVE_POTION"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "skeleton",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "Skeleton",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "triggers": [
+    "ARMOR_EQUIP",
+    "ARMOR_UNDRESS",
+    "ARROW_DEFENSE"
+   ],
+   "effects": [
+    "ADD_CUSTOM_ATTRIBUTE",
+    "REMOVE_CUSTOM_ATTRIBUTE"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "parrot",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "Parrot",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "triggers": [
+    "ARMOR_EQUIP",
+    "ARMOR_UNDRESS"
+   ],
+   "effects": [
+    "REMOVE_GUARD",
+    "SUMMON_GUARD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "fox",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "Fox",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "triggers": [
+    "ARMOR_EQUIP",
+    "ARMOR_UNDRESS",
+    "ATTACK",
+    "AUTO"
+   ],
+   "conditions": [
+    "EQUIP_SLOT",
+    "NUMBER_STORAGE"
+   ],
+   "effects": [
+    "NUMBER_STORAGE"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "turtle",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "Turtle",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "triggers": [
+    "ARMOR_EQUIP",
+    "ARMOR_UNDRESS",
+    "ATTACK",
+    "DEFENSE"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "ADD_FOREVER_POTION",
+    "REMOVE_FOREVER_POTION"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "stray",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "Stray",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "triggers": [
+    "ARROW_HIT"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "TARGET"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "blaze",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "Blaze",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "triggers": [
+    "ARMOR_EQUIP",
+    "ARMOR_UNDRESS",
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "ADD_FOREVER_POTION",
+    "REMOVE_FOREVER_POTION",
+    "TARGET"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "horse",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "Horse",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "triggers": [
+    "ARMOR_EQUIP",
+    "ARMOR_UNDRESS"
+   ],
+   "effects": [
+    "ADD_ATTRIBUTE",
+    "REMOVE_ATTRIBUTE"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "bee",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "Bee",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "triggers": [
+    "ARMOR_UNDRESS",
+    "DEFENSE"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "REMOVE_GUARD",
+    "SUMMON_CUSTOM_GUARD"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "panda",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "Panda",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "triggers": [
+    "ARMOR_UNDRESS",
+    "DEFENSE"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "REMOVE_GUARD",
+    "SUMMON_CUSTOM_GUARD"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "endermite",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "Endermite",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "triggers": [
+    "ARMOR_UNDRESS",
+    "DEFENSE"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "REMOVE_GUARD",
+    "SUMMON_CUSTOM_GUARD"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "piglin",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "Piglin",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "triggers": [
+    "ARMOR_EQUIP",
+    "ARMOR_UNDRESS",
+    "ARROW_HIT",
+    "ATTACK",
+    "CHANGE_HAND",
+    "HOLD"
+   ],
+   "conditions": [
+    "EQUIP_SLOT",
+    "HOLD"
+   ],
+   "effects": [
+    "ADD_ATTRIBUTE",
+    "REMOVE_ATTRIBUTE"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "dolphin",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "Dolphin",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "triggers": [
+    "ARMOR_EQUIP",
+    "ARMOR_UNDRESS",
+    "ATTACK",
+    "AUTO",
+    "DEFENSE"
+   ],
+   "conditions": [
+    "EQUIP_SLOT",
+    "NUMBER_STORAGE"
+   ],
+   "effects": [
+    "ADD_FOREVER_POTION",
+    "ADD_POTION",
+    "NUMBER_STORAGE",
+    "REMOVE_FOREVER_POTION"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "pillager",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "Pillager",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "creeper",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "Creeper",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "triggers": [
+    "ATTACK",
+    "DEFENSE",
+    "UNKNOWN_DEFENSE"
+   ],
+   "conditions": [
+    "DAMAGE_CAUSE",
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "EXPLOSION"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "hoglin",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "Hoglin",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "triggers": [
+    "ARMOR_EQUIP",
+    "ARMOR_UNDRESS",
+    "ATTACK"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "ADD_ATTRIBUTE",
+    "ADD_FOREVER_POTION",
+    "REMOVE_ATTRIBUTE",
+    "REMOVE_FOREVER_POTION"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "zombifiedpiglin",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "ZombifiedPiglin",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "triggers": [
+    "ARMOR_EQUIP",
+    "ARMOR_UNDRESS",
+    "ATTACK"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "ABSORPTION_HEART",
+    "ADD_FOREVER_POTION",
+    "REMOVE_FOREVER_POTION"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "phantom",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "Phantom",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "triggers": [
+    "ARMOR_EQUIP",
+    "ARMOR_UNDRESS",
+    "ATTACK",
+    "DEFENSE"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "NAME",
+    "REMOVE_GUARD",
+    "REMOVE_TASK",
+    "SUMMON_GUARD"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "strider",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "Strider",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "triggers": [
+    "ARMOR_EQUIP",
+    "ARMOR_UNDRESS",
+    "AUTO"
+   ],
+   "conditions": [
+    "EQUIP_SLOT",
+    "NUMBER_STORAGE"
+   ],
+   "effects": [
+    "ADD_FOREVER_POTION",
+    "NUMBER_STORAGE",
+    "REMOVE_FOREVER_POTION"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "polarbear",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "PolarBear",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "triggers": [
+    "ARMOR_UNDRESS",
+    "ATTACK",
+    "DEFENSE"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "TARGET"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "ravager",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "Ravager",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "triggers": [
+    "ARMOR_UNDRESS",
+    "DEFENSE"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "REMOVE_GUARD",
+    "SUMMON_CUSTOM_GUARD"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "witch",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "Witch",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "TARGET"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "guardian",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "Guardian",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "triggers": [
+    "ARMOR_EQUIP",
+    "ARMOR_UNDRESS",
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "ADD_FOREVER_POTION",
+    "REMOVE_FOREVER_POTION",
+    "TARGET"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "enderman",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "Enderman",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "triggers": [
+    "ARROW_DEFENSE",
+    "ATTACK"
+   ],
+   "conditions": [
+    "EQUIP_SLOT",
+    "NEGATIVE",
+    "OUT_OF_SIGHT"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "ghast",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "Ghast",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "irongolem",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "IronGolem",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "triggers": [
+    "ARMOR_EQUIP",
+    "ARMOR_UNDRESS",
+    "ATTACK",
+    "DEFENSE",
+    "UNKNOWN_DEFENSE"
+   ],
+   "effects": [
+    "ADD_ATTRIBUTE",
+    "REMOVE_ATTRIBUTE"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "camel",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "Camel",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "allay",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "Allay",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "triggers": [
+    "ATTACK",
+    "DEFENSE"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "ADD_ATTRIBUTE",
+    "DELAY"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "armadillo",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "Armadillo",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "sniffer",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "Sniffer",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "bogged",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "Bogged",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "vindicator",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "Vindicator",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "triggers": [
+    "ARMOR_UNDRESS",
+    "AUTO"
+   ],
+   "conditions": [
+    "EQUIP_SLOT",
+    "HOLD",
+    "IN_COMBAT",
+    "NEGATIVE",
+    "NUMBER_STORAGE"
+   ],
+   "effects": [
+    "ADD_ATTRIBUTE",
+    "MESSAGE",
+    "NAME",
+    "NUMBER_STORAGE",
+    "REMOVE_ATTRIBUTE"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "axolotl",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "Axolotl",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "slime",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "Slime",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "triggers": [
+    "ARMOR_EQUIP",
+    "ARMOR_UNDRESS",
+    "ATTACK"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "ADD_ATTRIBUTE",
+    "REMOVE_ATTRIBUTE"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "magmacube",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "MagmaCube",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "breeze",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "Breeze",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "triggers": [
+    "ARMOR_EQUIP",
+    "ARMOR_UNDRESS",
+    "ATTACK",
+    "DEFENSE"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "ADD_ATTRIBUTE",
+    "REMOVE_ATTRIBUTE"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "goat",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "Goat",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "triggers": [
+    "ATTACK",
+    "SNEAK"
+   ],
+   "conditions": [
+    "EQUIP_SLOT",
+    "NUMBER_STORAGE"
+   ],
+   "effects": [
+    "ADD_ATTRIBUTE",
+    "DELAY",
+    "MESSAGE",
+    "NAME",
+    "NUMBER_STORAGE",
+    "REMOVE_TASK"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "frog",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "Frog",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "telepathy",
+   "file": "all.yml",
+   "group": "legendary",
+   "display": "Telepathy",
+   "maxLevel": 1,
+   "applies": [
+    "ALL_PICKAXE",
+    "ALL_SHOVEL",
+    "ALL_AXE",
+    "ALL_HOE"
+   ],
+   "triggers": [
+    "CHANGE_HAND",
+    "HOLD"
+   ],
+   "effects": [
+    "DISABLE_TELEPATHY",
+    "ENABLE_TELEPATHY"
+   ],
+   "tags": [
+    "axe",
+    "enchantment",
+    "hoe",
+    "legendary",
+    "pickaxe",
+    "shovel"
+   ]
+  },
+  {
+   "id": "autosell",
+   "file": "all.yml",
+   "group": "ultimate",
+   "display": "AutoSell",
+   "maxLevel": 1,
+   "applies": [
+    "ALL_PICKAXE",
+    "ALL_SHOVEL",
+    "ALL_AXE",
+    "ALL_HOE"
+   ],
+   "triggers": [
+    "CHANGE_HAND",
+    "HOLD"
+   ],
+   "effects": [
+    "DISABLE_AUTO_SELL",
+    "ENABLE_AUTO_SELL"
+   ],
+   "tags": [
+    "axe",
+    "enchantment",
+    "hoe",
+    "pickaxe",
+    "shovel",
+    "ultimate"
+   ]
+  },
+  {
+   "id": "oxygenate",
+   "file": "all.yml",
+   "group": "rare",
+   "display": "Oxygenate",
+   "maxLevel": 1,
+   "applies": [
+    "ALL_PICKAXE",
+    "ALL_SHOVEL",
+    "ALL_AXE",
+    "ALL_HOE"
+   ],
+   "triggers": [
+    "CHANGE_HAND",
+    "HOLD"
+   ],
+   "effects": [
+    "ADD_FOREVER_POTION",
+    "REMOVE_FOREVER_POTION"
+   ],
+   "tags": [
+    "axe",
+    "enchantment",
+    "hoe",
+    "pickaxe",
+    "rare",
+    "shovel"
+   ]
+  },
+  {
+   "id": "bountyhunter",
+   "file": "all.yml",
+   "group": "common",
+   "display": "BountyHunter",
+   "maxLevel": 10,
+   "applies": [
+    "ALL_SWORD",
+    "ALL_AXE"
+   ],
+   "triggers": [
+    "CHANGE_HAND",
+    "HOLD"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "ADD_MOB_BONUS",
+    "MESSAGE",
+    "REMOVE_MOB_BONUS"
+   ],
+   "tags": [
+    "axe",
+    "common",
+    "enchantment",
+    "sword"
+   ]
+  },
+  {
+   "id": "reforged",
+   "file": "all.yml",
+   "group": "common",
+   "display": "Reforged",
+   "maxLevel": 10,
+   "applies": [
+    "ALL_AXE",
+    "ALL_SWORD"
+   ],
+   "triggers": [
+    "ATTACK",
+    "CHANGE_HAND",
+    "HOLD"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "DURABILITY",
+    "MESSAGE"
+   ],
+   "tags": [
+    "axe",
+    "combat",
+    "common",
+    "enchantment",
+    "sword"
+   ]
+  },
+  {
+   "id": "tonic",
+   "file": "all.yml",
+   "group": "event",
+   "display": "Tonic",
+   "maxLevel": 4,
+   "applies": [
+    "ALL_AXE",
+    "ALL_SWORD"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "effects": [
+    "ADD_RANDOM_POTION"
+   ],
+   "tags": [
+    "axe",
+    "combat",
+    "enchantment",
+    "event",
+    "sword"
+   ]
+  },
+  {
+   "id": "moonlight",
+   "file": "all.yml",
+   "group": "event",
+   "display": "Moonlight",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_AXE",
+    "ALL_SWORD"
+   ],
+   "triggers": [
+    "FINAL_ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "NUMBER_STORAGE",
+    "TARGET"
+   ],
+   "effects": [
+    "MESSAGE",
+    "NAME",
+    "NUMBER_STORAGE",
+    "REMOVE_TASK"
+   ],
+   "tags": [
+    "axe",
+    "enchantment",
+    "event",
+    "sword"
+   ]
+  },
+  {
+   "id": "autosmelt",
+   "file": "all.yml",
+   "group": "rare",
+   "display": "AutoSmelt",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_PICKAXE"
+   ],
+   "triggers": [
+    "CHANGE_HAND",
+    "HOLD"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "ADD_BLOCK_DROP_BONUS_MINING",
+    "ADD_FURNACE_MINING",
+    "REMOVE_BLOCK_DROP_BONUS_MINING",
+    "REMOVE_FURNACE_MINING"
+   ],
+   "tags": [
+    "enchantment",
+    "pickaxe",
+    "rare"
+   ]
+  },
+  {
+   "id": "goldminer",
+   "file": "all.yml",
+   "group": "common",
+   "display": "Goldminer",
+   "maxLevel": 10,
+   "applies": [
+    "ALL_PICKAXE"
+   ],
+   "triggers": [
+    "CHANGE_HAND",
+    "HOLD"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "ADD_BLOCK_BONUS",
+    "REMOVE_BLOCK_BONUS"
+   ],
+   "tags": [
+    "common",
+    "enchantment",
+    "pickaxe"
+   ]
+  },
+  {
+   "id": "experience",
+   "file": "all.yml",
+   "group": "common",
+   "display": "Experience",
+   "maxLevel": 10,
+   "applies": [
+    "ALL_PICKAXE"
+   ],
+   "triggers": [
+    "CHANGE_HAND",
+    "HOLD"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "ADD_BLOCK_BONUS",
+    "REMOVE_BLOCK_BONUS"
+   ],
+   "tags": [
+    "common",
+    "enchantment",
+    "pickaxe"
+   ]
+  },
+  {
+   "id": "furnace",
+   "file": "all.yml",
+   "group": "rare",
+   "display": "Furnace",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_PICKAXE"
+   ],
+   "triggers": [
+    "CHANGE_HAND",
+    "HOLD"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "ADD_FURNACE_MINING",
+    "REMOVE_FURNACE_MINING"
+   ],
+   "tags": [
+    "enchantment",
+    "pickaxe",
+    "rare"
+   ]
+  },
+  {
+   "id": "trench",
+   "file": "all.yml",
+   "group": "epic",
+   "display": "Trench",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_PICKAXE"
+   ],
+   "triggers": [
+    "CHANGE_HAND",
+    "HOLD"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "ADD_EXPLOSION_MINING",
+    "REMOVE_EXPLOSION_MINING"
+   ],
+   "tags": [
+    "enchantment",
+    "epic",
+    "pickaxe"
+   ]
+  },
+  {
+   "id": "primedoubledamage",
+   "file": "all.yml",
+   "group": "primelegendary",
+   "display": "PrimeDoubleDamage",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "MESSAGE"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "prime",
+    "sword"
+   ]
+  },
+  {
+   "id": "primerekt",
+   "file": "all.yml",
+   "group": "primelegendary",
+   "display": "PrimeRekt",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "MESSAGE"
+   ],
+   "tags": [
+    "axe",
+    "combat",
+    "enchantment",
+    "prime"
+   ]
+  },
+  {
+   "id": "primeenlightened",
+   "file": "all.yml",
+   "group": "primelegendary",
+   "display": "PrimeEnlightened",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "triggers": [
+    "ARROW_DEFENSE",
+    "DEFENSE"
+   ],
+   "effects": [
+    "HEALTH"
+   ],
+   "tags": [
+    "armor",
+    "combat",
+    "enchantment",
+    "prime"
+   ]
+  },
+  {
+   "id": "primesavior",
+   "file": "all.yml",
+   "group": "primelegendary",
+   "display": "PrimeSavior",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "triggers": [
+    "DEFENSE"
+   ],
+   "tags": [
+    "armor",
+    "combat",
+    "enchantment",
+    "prime"
+   ]
+  },
+  {
+   "id": "primepiercing",
+   "file": "all.yml",
+   "group": "primerare",
+   "display": "PrimePiercing",
+   "maxLevel": 10,
+   "applies": [
+    "ALL_BOW"
+   ],
+   "triggers": [
+    "ARROW_HIT"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "tags": [
+    "bow",
+    "enchantment",
+    "prime"
+   ]
+  },
+  {
+   "id": "primehurstwic",
+   "file": "all.yml",
+   "group": "primeepic",
+   "display": "PrimeHurstwic",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_HELMET"
+   ],
+   "triggers": [
+    "DEFENSE"
+   ],
+   "conditions": [
+    "EQUIP_SLOT",
+    "NUMBER_STORAGE"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "helmet",
+    "prime"
+   ]
+  },
+  {
+   "id": "primerage",
+   "file": "all.yml",
+   "group": "primesupreme",
+   "display": "PrimeRage",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "triggers": [
+    "ATTACK",
+    "HOLD"
+   ],
+   "conditions": [
+    "EQUIP_SLOT",
+    "NUMBER_STORAGE"
+   ],
+   "effects": [
+    "MESSAGE",
+    "NAME",
+    "NUMBER_STORAGE"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "prime",
+    "sword"
+   ]
+  },
+  {
+   "id": "primeexcalibur",
+   "file": "all.yml",
+   "group": "primeultimate",
+   "display": "PrimeExcalibur",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "MESSAGE",
+    "TARGET"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "prime",
+    "sword"
+   ]
+  },
+  {
+   "id": "primedivine",
+   "file": "all.yml",
+   "group": "primeultimate",
+   "display": "PrimeDivine",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "MESSAGE",
+    "TARGET"
+   ],
+   "tags": [
+    "axe",
+    "combat",
+    "enchantment",
+    "prime"
+   ]
+  },
+  {
+   "id": "primesniper",
+   "file": "all.yml",
+   "group": "primeultimate",
+   "display": "PrimeSniper",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_BOW"
+   ],
+   "triggers": [
+    "ARROW_HIT"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "TARGET"
+   ],
+   "tags": [
+    "bow",
+    "enchantment",
+    "prime"
+   ]
+  },
+  {
+   "id": "primevalor",
+   "file": "all.yml",
+   "group": "primesupreme",
+   "display": "PrimeValor",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "triggers": [
+    "DEFENSE"
+   ],
+   "effects": [
+    "DURABILITY"
+   ],
+   "tags": [
+    "armor",
+    "combat",
+    "enchantment",
+    "prime"
+   ]
+  },
+  {
+   "id": "primerampage",
+   "file": "all.yml",
+   "group": "primesupreme",
+   "display": "PrimeRampage",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "triggers": [
+    "ATTACK",
+    "CHANGE_HAND",
+    "HOLD"
+   ],
+   "conditions": [
+    "EQUIP_SLOT",
+    "NUMBER_STORAGE"
+   ],
+   "effects": [
+    "NAME",
+    "NUMBER_STORAGE",
+    "REMOVE_ATTRIBUTE",
+    "REMOVE_TASK"
+   ],
+   "tags": [
+    "axe",
+    "combat",
+    "enchantment",
+    "prime"
+   ]
+  },
+  {
+   "id": "primestabstraight",
+   "file": "all.yml",
+   "group": "primelegendary",
+   "display": "PrimeStabStraight",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "prime",
+    "sword"
+   ]
+  },
+  {
+   "id": "primewoundhealing",
+   "file": "all.yml",
+   "group": "primeepic",
+   "display": "PrimeWoundHealing",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_LEGGINGS"
+   ],
+   "triggers": [
+    "DEFENSE"
+   ],
+   "effects": [
+    "DELAY"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "leggings",
+    "prime"
+   ]
+  },
+  {
+   "id": "primenursery",
+   "file": "all.yml",
+   "group": "primesupreme",
+   "display": "PrimeNursery",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "triggers": [
+    "MOVE"
+   ],
+   "effects": [
+    "HEALTH"
+   ],
+   "tags": [
+    "armor",
+    "enchantment",
+    "prime"
+   ]
+  },
+  {
+   "id": "primegreathelm",
+   "file": "all.yml",
+   "group": "primelegendary",
+   "display": "PrimeGreatHelm",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_HELMET"
+   ],
+   "triggers": [
+    "ARROW_DEFENSE"
+   ],
+   "tags": [
+    "enchantment",
+    "helmet",
+    "prime"
+   ]
+  },
+  {
+   "id": "primeinquisitive",
+   "file": "all.yml",
+   "group": "primecommon",
+   "display": "PrimeInquisitive",
+   "maxLevel": 10,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "triggers": [
+    "CHANGE_HAND",
+    "HOLD"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "ADD_MOB_BONUS",
+    "MESSAGE",
+    "REMOVE_MOB_BONUS"
+   ],
+   "tags": [
+    "enchantment",
+    "prime",
+    "sword"
+   ]
+  },
+  {
+   "id": "primedissect",
+   "file": "all.yml",
+   "group": "primecommon",
+   "display": "PrimeDissect",
+   "maxLevel": 10,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "triggers": [
+    "CHANGE_HAND",
+    "HOLD"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "ADD_MOB_BONUS",
+    "MESSAGE",
+    "REMOVE_MOB_BONUS"
+   ],
+   "tags": [
+    "axe",
+    "enchantment",
+    "prime"
+   ]
+  },
+  {
+   "id": "fighter",
+   "file": "all.yml",
+   "group": "legendary",
+   "display": "Fighter",
+   "maxLevel": 1,
+   "applies": [
+    "ALL_BOOTS"
+   ],
+   "triggers": [
+    "EXTRA_SLOT_EQUIP",
+    "EXTRA_SLOT_UNEQUIP"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "NAME",
+    "REMOVE_TASK_ASYNC"
+   ],
+   "tags": [
+    "boots",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "knight",
+   "file": "all.yml",
+   "group": "legendary",
+   "display": "Knight",
+   "maxLevel": 1,
+   "applies": [
+    "ALL_BOOTS"
+   ],
+   "triggers": [
+    "EXTRA_SLOT_EQUIP",
+    "EXTRA_SLOT_UNEQUIP"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "NAME",
+    "REMOVE_TASK_ASYNC"
+   ],
+   "tags": [
+    "boots",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "archer",
+   "file": "all.yml",
+   "group": "legendary",
+   "display": "Archer",
+   "maxLevel": 1,
+   "applies": [
+    "ALL_BOOTS"
+   ],
+   "triggers": [
+    "EXTRA_SLOT_EQUIP",
+    "EXTRA_SLOT_UNEQUIP"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "NAME",
+    "REMOVE_TASK_ASYNC"
+   ],
+   "tags": [
+    "boots",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "assassin",
+   "file": "all.yml",
+   "group": "legendary",
+   "display": "Sát thủ",
+   "maxLevel": 1,
+   "applies": [
+    "ALL_BOOTS"
+   ],
+   "triggers": [
+    "EXTRA_SLOT_EQUIP",
+    "EXTRA_SLOT_UNEQUIP"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "NAME",
+    "REMOVE_TASK_ASYNC"
+   ],
+   "tags": [
+    "boots",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "poseidon",
+   "file": "all.yml",
+   "group": "legendary",
+   "display": "Poseidon",
+   "maxLevel": 1,
+   "applies": [
+    "ALL_BOOTS"
+   ],
+   "triggers": [
+    "EXTRA_SLOT_EQUIP",
+    "EXTRA_SLOT_UNEQUIP"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "NAME",
+    "REMOVE_TASK_ASYNC"
+   ],
+   "tags": [
+    "boots",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "reaper",
+   "file": "all.yml",
+   "group": "legendary",
+   "display": "Reaper",
+   "maxLevel": 1,
+   "applies": [
+    "ALL_BOOTS"
+   ],
+   "triggers": [
+    "EXTRA_SLOT_EQUIP",
+    "EXTRA_SLOT_UNEQUIP"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "NAME",
+    "REMOVE_TASK_ASYNC"
+   ],
+   "tags": [
+    "boots",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "miner",
+   "file": "all.yml",
+   "group": "tool",
+   "display": "Miner Tool",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_PICKAXE"
+   ],
+   "triggers": [
+    "ARMOR_EQUIP"
+   ],
+   "tags": [
+    "enchantment",
+    "pickaxe",
+    "tool"
+   ]
+  },
+  {
+   "id": "lumberjack",
+   "file": "all.yml",
+   "group": "tool",
+   "display": "Lumberjack Tool",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "triggers": [
+    "ARMOR_EQUIP"
+   ],
+   "tags": [
+    "axe",
+    "enchantment",
+    "tool"
+   ]
+  },
+  {
+   "id": "tavernleader",
+   "file": "all.yml",
+   "group": "set",
+   "display": "Tavern Leader Set",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_ARMOR",
+    "ALL_SWORD",
+    "ALL_AXE",
+    "SHIELD"
+   ],
+   "triggers": [
+    "ARMOR_EQUIP"
+   ],
+   "tags": [
+    "armor",
+    "axe",
+    "enchantment",
+    "set",
+    "shield",
+    "sword"
+   ]
+  },
+  {
+   "id": "axstruction",
+   "file": "all.yml",
+   "group": "supreme",
+   "display": "Axstruction",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "HOLD",
+    "TARGET"
+   ],
+   "effects": [
+    "MESSAGE"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "supreme",
+    "sword"
+   ]
+  },
+  {
+   "id": "cutthroat",
+   "file": "all.yml",
+   "group": "supreme",
+   "display": "Cutthroat",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "NUMBER_STORAGE",
+    "TARGET"
+   ],
+   "effects": [
+    "MESSAGE",
+    "NUMBER_STORAGE",
+    "PACKET_PARTICLE",
+    "PLAY_SOUND",
+    "TELEPORT",
+    "TEXT_STORAGE"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "supreme",
+    "sword"
+   ]
+  },
+  {
+   "id": "confusion",
+   "file": "all.yml",
+   "group": "epic",
+   "display": "Confusion",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "MESSAGE",
+    "TARGET"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "epic",
+    "sword"
+   ]
+  },
+  {
+   "id": "doubledamage",
+   "file": "all.yml",
+   "group": "legendary",
+   "display": "DoubleDamage",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "MESSAGE"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "legendary",
+    "sword"
+   ]
+  },
+  {
+   "id": "execute",
+   "file": "all.yml",
+   "group": "epic",
+   "display": "Execute",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "EQUIP_SLOT",
+    "HEALTH",
+    "TARGET"
+   ],
+   "effects": [
+    "MESSAGE"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "epic",
+    "sword"
+   ]
+  },
+  {
+   "id": "fastturn",
+   "file": "all.yml",
+   "group": "legendary",
+   "display": "FastTurn",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "MESSAGE"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "legendary",
+    "sword"
+   ]
+  },
+  {
+   "id": "inquisitive",
+   "file": "all.yml",
+   "group": "common",
+   "display": "Inquisitive",
+   "maxLevel": 10,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "triggers": [
+    "CHANGE_HAND",
+    "HOLD"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "ADD_MOB_BONUS",
+    "MESSAGE",
+    "REMOVE_MOB_BONUS"
+   ],
+   "tags": [
+    "common",
+    "enchantment",
+    "sword"
+   ]
+  },
+  {
+   "id": "lifesteal",
+   "file": "all.yml",
+   "group": "supreme",
+   "display": "LifeSteal",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "HEALTH",
+    "TARGET"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "supreme",
+    "sword"
+   ]
+  },
+  {
+   "id": "lightweight",
+   "file": "all.yml",
+   "group": "legendary",
+   "display": "LightWeight",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "ADD_POTION",
+    "MESSAGE"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "legendary",
+    "sword"
+   ]
+  },
+  {
+   "id": "nutrition",
+   "file": "all.yml",
+   "group": "epic",
+   "display": "Nutrition",
+   "maxLevel": 1,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "EQUIP_SLOT",
+    "FOOD"
+   ],
+   "effects": [
+    "FOOD",
+    "MESSAGE"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "epic",
+    "sword"
+   ]
+  },
+  {
+   "id": "obliterate",
+   "file": "all.yml",
+   "group": "rare",
+   "display": "Obliterate",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "TARGET"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "rare",
+    "sword"
+   ]
+  },
+  {
+   "id": "paralyze",
+   "file": "all.yml",
+   "group": "epic",
+   "display": "Paralyze",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "TARGET"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "epic",
+    "sword"
+   ]
+  },
+  {
+   "id": "rage",
+   "file": "all.yml",
+   "group": "supreme",
+   "display": "Rage",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "triggers": [
+    "ATTACK",
+    "HOLD"
+   ],
+   "conditions": [
+    "EQUIP_SLOT",
+    "NUMBER_STORAGE"
+   ],
+   "effects": [
+    "MESSAGE",
+    "NAME",
+    "NUMBER_STORAGE"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "supreme",
+    "sword"
+   ]
+  },
+  {
+   "id": "skillswipe",
+   "file": "all.yml",
+   "group": "rare",
+   "display": "SkillSwipe",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "EXP",
+    "TARGET"
+   ],
+   "effects": [
+    "EXP",
+    "MESSAGE",
+    "TARGET"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "rare",
+    "sword"
+   ]
+  },
+  {
+   "id": "slowmo",
+   "file": "all.yml",
+   "group": "rare",
+   "display": "SlowMo",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "MESSAGE",
+    "TARGET"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "rare",
+    "sword"
+   ]
+  },
+  {
+   "id": "snare",
+   "file": "all.yml",
+   "group": "rare",
+   "display": "Snare",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "MESSAGE",
+    "TARGET"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "rare",
+    "sword"
+   ]
+  },
+  {
+   "id": "trap",
+   "file": "all.yml",
+   "group": "epic",
+   "display": "Trap",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "MESSAGE",
+    "TARGET"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "epic",
+    "sword"
+   ]
+  },
+  {
+   "id": "vampire",
+   "file": "all.yml",
+   "group": "legendary",
+   "display": "Vampire",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "DELAY"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "legendary",
+    "sword"
+   ]
+  },
+  {
+   "id": "viper",
+   "file": "all.yml",
+   "group": "rare",
+   "display": "Viper",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "MESSAGE",
+    "TARGET"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "rare",
+    "sword"
+   ]
+  },
+  {
+   "id": "wither",
+   "file": "all.yml",
+   "group": "rare",
+   "display": "Wither",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "TARGET"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "rare",
+    "sword"
+   ]
+  },
+  {
+   "id": "lifechange",
+   "file": "all.yml",
+   "group": "rare",
+   "display": "LifeChange",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "HEALTH",
+    "TARGET"
+   ],
+   "effects": [
+    "HEALTH",
+    "TARGET"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "rare",
+    "sword"
+   ]
+  },
+  {
+   "id": "thunderingblow",
+   "file": "all.yml",
+   "group": "rare",
+   "display": "ThunderingBlow",
+   "maxLevel": 1,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "LIGHTNING"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "rare",
+    "sword"
+   ]
+  },
+  {
+   "id": "duskblade",
+   "file": "all.yml",
+   "group": "supreme",
+   "display": "Duskblade",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "triggers": [
+    "ATTACK",
+    "HOLD"
+   ],
+   "conditions": [
+    "EQUIP_SLOT",
+    "NUMBER_STORAGE"
+   ],
+   "effects": [
+    "NUMBER_STORAGE"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "supreme",
+    "sword"
+   ]
+  },
+  {
+   "id": "ignite",
+   "file": "all.yml",
+   "group": "legendary",
+   "display": "Ignite",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "TARGET"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "legendary",
+    "sword"
+   ]
+  },
+  {
+   "id": "brutal",
+   "file": "all.yml",
+   "group": "supreme",
+   "display": "Brutal",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "triggers": [
+    "KILL_PLAYER"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "ADD_ATTRIBUTE",
+    "DELAY",
+    "MESSAGE"
+   ],
+   "tags": [
+    "enchantment",
+    "supreme",
+    "sword"
+   ]
+  },
+  {
+   "id": "hush",
+   "file": "all.yml",
+   "group": "supreme",
+   "display": "Hush",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "MESSAGE",
+    "TARGET"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "supreme",
+    "sword"
+   ]
+  },
+  {
+   "id": "disarm",
+   "file": "all.yml",
+   "group": "supreme",
+   "display": "Disarm",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "MESSAGE",
+    "TARGET"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "supreme",
+    "sword"
+   ]
+  },
+  {
+   "id": "bayonet",
+   "file": "all.yml",
+   "group": "supreme",
+   "display": "Bayonet",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "NUMBER_STORAGE",
+    "TARGET"
+   ],
+   "effects": [
+    "MESSAGE"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "supreme",
+    "sword"
+   ]
+  },
+  {
+   "id": "stabstraight",
+   "file": "all.yml",
+   "group": "legendary",
+   "display": "StabStraight",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "legendary",
+    "sword"
+   ]
+  },
+  {
+   "id": "excalibur",
+   "file": "all.yml",
+   "group": "ultimate",
+   "display": "Excalibur",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "MESSAGE",
+    "TARGET"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "sword",
+    "ultimate"
+   ]
+  },
+  {
+   "id": "arthritis",
+   "file": "all.yml",
+   "group": "legendary",
+   "display": "Arthritis",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "TARGET"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "legendary",
+    "sword"
+   ]
+  },
+  {
+   "id": "wind",
+   "file": "all.yml",
+   "group": "rare",
+   "display": "Wind",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "triggers": [
+    "ATTACK",
+    "HOLD"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "MESSAGE",
+    "WIND_CHARGE"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "rare",
+    "sword"
+   ]
+  },
+  {
+   "id": "texward",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "TexWard",
+   "maxLevel": 1,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "triggers": [
+    "ARMOR_EQUIP",
+    "ARMOR_UNDRESS",
+    "AUTO"
+   ],
+   "conditions": [
+    "EQUIP_SLOT",
+    "NUMBER_STORAGE"
+   ],
+   "effects": [
+    "NUMBER_STORAGE"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "veinminer",
+   "file": "all.yml",
+   "group": "supreme",
+   "display": "VeinMiner",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_PICKAXE"
+   ],
+   "triggers": [
+    "CHANGE_HAND",
+    "HOLD"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "ADD_VEIN_MINING",
+    "REMOVE_VEIN_MINING"
+   ],
+   "tags": [
+    "enchantment",
+    "pickaxe",
+    "supreme"
+   ]
+  },
+  {
+   "id": "hasten",
+   "file": "all.yml",
+   "group": "legendary",
+   "display": "Hasten",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_PICKAXE"
+   ],
+   "tags": [
+    "enchantment",
+    "legendary",
+    "pickaxe"
+   ]
+  },
+  {
+   "id": "planter",
+   "file": "all.yml",
+   "group": "epic",
+   "display": "Planter",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_HOE"
+   ],
+   "tags": [
+    "enchantment",
+    "epic",
+    "hoe"
+   ]
+  },
+  {
+   "id": "harvest",
+   "file": "all.yml",
+   "group": "epic",
+   "display": "Harvest",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_HOE"
+   ],
+   "triggers": [
+    "CHANGE_HAND",
+    "HOLD"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "ADD_EXPLOSION_MINING",
+    "REMOVE_EXPLOSION_MINING"
+   ],
+   "tags": [
+    "enchantment",
+    "epic",
+    "hoe"
+   ]
+  },
+  {
+   "id": "jellylegs",
+   "file": "all.yml",
+   "group": "rare",
+   "display": "JellyLegs",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_BOOTS"
+   ],
+   "triggers": [
+    "UNKNOWN_DEFENSE"
+   ],
+   "conditions": [
+    "DAMAGE_CAUSE",
+    "EQUIP_SLOT"
+   ],
+   "tags": [
+    "boots",
+    "enchantment",
+    "rare"
+   ]
+  },
+  {
+   "id": "slash",
+   "file": "all.yml",
+   "group": "legendary",
+   "display": "Slash",
+   "maxLevel": 5,
+   "applies": [
+    "TRIDENT"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "MESSAGE",
+    "TARGET"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "legendary",
+    "trident"
+   ]
+  },
+  {
+   "id": "hydraulic",
+   "file": "all.yml",
+   "group": "supreme",
+   "display": "Hydraulic",
+   "maxLevel": 5,
+   "applies": [
+    "TRIDENT"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "EQUIP_SLOT",
+    "NUMBER_STORAGE",
+    "TARGET"
+   ],
+   "effects": [
+    "MESSAGE",
+    "TARGET"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "supreme",
+    "trident"
+   ]
+  },
+  {
+   "id": "frostbite",
+   "file": "all.yml",
+   "group": "supreme",
+   "display": "Frostbite",
+   "maxLevel": 5,
+   "applies": [
+    "TRIDENT"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "MESSAGE",
+    "TARGET"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "supreme",
+    "trident"
+   ]
+  },
+  {
+   "id": "thrust",
+   "file": "all.yml",
+   "group": "supreme",
+   "display": "Thrust",
+   "maxLevel": 5,
+   "applies": [
+    "TRIDENT"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "MESSAGE",
+    "TARGET"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "supreme",
+    "trident"
+   ]
+  },
+  {
+   "id": "lunge",
+   "file": "all.yml",
+   "group": "legendary",
+   "display": "Lunge",
+   "maxLevel": 5,
+   "applies": [
+    "TRIDENT"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "EQUIP_SLOT",
+    "NUMBER_STORAGE"
+   ],
+   "effects": [
+    "MESSAGE",
+    "NUMBER_STORAGE",
+    "TARGET"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "legendary",
+    "trident"
+   ]
+  },
+  {
+   "id": "godpiercer",
+   "file": "all.yml",
+   "group": "supreme",
+   "display": "Godpiercer",
+   "maxLevel": 5,
+   "applies": [
+    "TRIDENT"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "TARGET"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "supreme",
+    "trident"
+   ]
+  },
+  {
+   "id": "threshold",
+   "file": "all.yml",
+   "group": "supreme",
+   "display": "Threshold",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_HOE"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "EQUIP_SLOT",
+    "HEALTH_PERCENT",
+    "TARGET"
+   ],
+   "effects": [
+    "MESSAGE",
+    "TARGET"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "hoe",
+    "supreme"
+   ]
+  },
+  {
+   "id": "deathhunt",
+   "file": "all.yml",
+   "group": "legendary",
+   "display": "DeathHunt",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_HOE"
+   ],
+   "triggers": [
+    "ATTACK",
+    "AUTO",
+    "CHANGE_HAND",
+    "HOLD"
+   ],
+   "conditions": [
+    "EQUIP_SLOT",
+    "NUMBER_STORAGE"
+   ],
+   "effects": [
+    "MESSAGE",
+    "NUMBER_STORAGE"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "hoe",
+    "legendary"
+   ]
+  },
+  {
+   "id": "ironbeak",
+   "file": "all.yml",
+   "group": "artifact",
+   "display": "Iron Beak",
+   "maxLevel": 5,
+   "triggers": [
+    "EXTRA_SLOT_EQUIP",
+    "EXTRA_SLOT_UNEQUIP"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "ADD_ATTRIBUTE",
+    "REMOVE_ATTRIBUTE"
+   ],
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "eggshell",
+   "file": "all.yml",
+   "group": "artifact",
+   "display": "Egg Shell",
+   "maxLevel": 5,
+   "triggers": [
+    "EXTRA_SLOT_EQUIP",
+    "EXTRA_SLOT_UNEQUIP"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "ADD_CUSTOM_ATTRIBUTE",
+    "REMOVE_CUSTOM_ATTRIBUTE"
+   ],
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "freshgrass",
+   "file": "all.yml",
+   "group": "artifact",
+   "display": "Fresh Grass",
+   "maxLevel": 5,
+   "triggers": [
+    "EXTRA_SLOT_EQUIP",
+    "EXTRA_SLOT_UNEQUIP"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "ADD_CUSTOM_ATTRIBUTE",
+    "REMOVE_CUSTOM_ATTRIBUTE"
+   ],
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "steelbelt",
+   "file": "all.yml",
+   "group": "artifact",
+   "display": "Steel Belt",
+   "maxLevel": 5,
+   "triggers": [
+    "EXTRA_SLOT_EQUIP",
+    "EXTRA_SLOT_UNEQUIP"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "ADD_ATTRIBUTE",
+    "REMOVE_ATTRIBUTE"
+   ],
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "lunarsnake",
+   "file": "all.yml",
+   "group": "artifact",
+   "display": "Lunar Snake",
+   "maxLevel": 5,
+   "triggers": [
+    "ATTACK",
+    "EXTRA_SLOT_EQUIP",
+    "EXTRA_SLOT_UNEQUIP"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "ADD_ATTRIBUTE",
+    "ADD_CUSTOM_ATTRIBUTE",
+    "MESSAGE",
+    "REMOVE_ATTRIBUTE",
+    "REMOVE_CUSTOM_ATTRIBUTE",
+    "TARGET"
+   ],
+   "tags": [
+    "artifact",
+    "combat",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "blessedwishwreath",
+   "file": "all.yml",
+   "group": "artifact",
+   "display": "Bleseed Wish Wreath",
+   "maxLevel": 5,
+   "triggers": [
+    "DEFENSE",
+    "EXTRA_SLOT_EQUIP",
+    "EXTRA_SLOT_UNEQUIP"
+   ],
+   "conditions": [
+    "EQUIP_SLOT",
+    "HEALTH_PERCENT"
+   ],
+   "effects": [
+    "ADD_ATTRIBUTE",
+    "ADD_CUSTOM_ATTRIBUTE",
+    "DELAY",
+    "MESSAGE",
+    "REMOVE_ATTRIBUTE",
+    "REMOVE_CUSTOM_ATTRIBUTE"
+   ],
+   "tags": [
+    "artifact",
+    "combat",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "doombringer",
+   "file": "all.yml",
+   "group": "artifact",
+   "display": "Doombringer",
+   "maxLevel": 5,
+   "triggers": [
+    "ATTACK",
+    "EXTRA_SLOT_EQUIP",
+    "EXTRA_SLOT_UNEQUIP"
+   ],
+   "conditions": [
+    "EQUIP_SLOT",
+    "HEALTH_PERCENT",
+    "TARGET"
+   ],
+   "effects": [
+    "ADD_ATTRIBUTE",
+    "MESSAGE",
+    "REMOVE_ATTRIBUTE",
+    "TARGET"
+   ],
+   "tags": [
+    "artifact",
+    "combat",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "soulofrevival",
+   "file": "all.yml",
+   "group": "artifact",
+   "display": "Soul of Revival",
+   "maxLevel": 5,
+   "triggers": [
+    "DEFENSE",
+    "EXTRA_SLOT_EQUIP",
+    "EXTRA_SLOT_UNEQUIP"
+   ],
+   "conditions": [
+    "EQUIP_SLOT",
+    "HEALTH_PERCENT"
+   ],
+   "effects": [
+    "ADD_ATTRIBUTE",
+    "HEALTH",
+    "MESSAGE",
+    "REMOVE_ATTRIBUTE"
+   ],
+   "tags": [
+    "artifact",
+    "combat",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "goldenapple",
+   "file": "all.yml",
+   "group": "artifact",
+   "display": "Golden Apple",
+   "maxLevel": 5,
+   "triggers": [
+    "EXTRA_SLOT_EQUIP",
+    "EXTRA_SLOT_UNEQUIP",
+    "ITEM_CONSUME"
+   ],
+   "conditions": [
+    "EQUIP_SLOT",
+    "ITEM_CONSUME"
+   ],
+   "effects": [
+    "ADD_ATTRIBUTE",
+    "ADD_CUSTOM_ATTRIBUTE",
+    "DELAY",
+    "MESSAGE",
+    "REMOVE_ATTRIBUTE",
+    "REMOVE_CUSTOM_ATTRIBUTE"
+   ],
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "souldrinker",
+   "file": "all.yml",
+   "group": "legendary",
+   "display": "SoulDrinker",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_HOE"
+   ],
+   "triggers": [
+    "KILL_PLAYER"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "HEALTH",
+    "MESSAGE"
+   ],
+   "tags": [
+    "enchantment",
+    "hoe",
+    "legendary"
+   ]
+  },
+  {
+   "id": "soulfire",
+   "file": "all.yml",
+   "group": "legendary",
+   "display": "SoulFire",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_HOE"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "TARGET"
+   ],
+   "effects": [
+    "MESSAGE",
+    "TARGET"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "hoe",
+    "legendary"
+   ]
+  },
+  {
+   "id": "wraith",
+   "file": "all.yml",
+   "group": "ultimate",
+   "display": "Wraith",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_HOE"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT",
+    "NUMBER_STORAGE",
+    "TARGET"
+   ],
+   "effects": [
+    "MESSAGE",
+    "TARGET"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "hoe",
+    "ultimate"
+   ]
+  },
+  {
+   "id": "zoglin",
+   "file": "all.yml",
+   "group": "mask",
+   "display": "Zoglin",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "triggers": [
+    "ARMOR_EQUIP",
+    "ARMOR_UNDRESS",
+    "ATTACK"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "ADD_ATTRIBUTE",
+    "ADD_FOREVER_POTION",
+    "REMOVE_ATTRIBUTE",
+    "REMOVE_FOREVER_POTION"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "flash",
+   "file": "all.yml",
+   "group": "supreme",
+   "display": "Tốc biến",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_BOOTS"
+   ],
+   "triggers": [
+    "ARMOR_EQUIP",
+    "ARMOR_UNDRESS"
+   ],
+   "effects": [
+    "ACTIVE_FLASH",
+    "DEACTIVE_FLASH"
+   ],
+   "tags": [
+    "boots",
+    "enchantment",
+    "supreme"
+   ]
+  },
+  {
+   "id": "primedeathscythe",
+   "file": "all.yml",
+   "group": "primesupreme",
+   "display": "PrimeDeathScythe",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_HOE"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "ADD_ATTRIBUTE",
+    "DELAY",
+    "MESSAGE"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "hoe",
+    "prime"
+   ]
+  },
+  {
+   "id": "primethrust",
+   "file": "all.yml",
+   "group": "primesupreme",
+   "display": "PrimeThrust",
+   "maxLevel": 5,
+   "applies": [
+    "TRIDENT"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "MESSAGE",
+    "TARGET"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "prime",
+    "trident"
+   ]
+  },
+  {
+   "id": "primedash",
+   "file": "all.yml",
+   "group": "primesupreme",
+   "display": "PrimeDash",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_BOOTS"
+   ],
+   "triggers": [
+    "ARMOR_EQUIP",
+    "ARMOR_UNDRESS"
+   ],
+   "effects": [
+    "ACTIVE_DASH",
+    "DEACTIVE_DASH"
+   ],
+   "tags": [
+    "boots",
+    "enchantment",
+    "prime"
+   ]
+  },
+  {
+   "id": "thunder",
+   "file": "all.yml",
+   "group": "supreme",
+   "display": "Thunder",
+   "maxLevel": 3,
+   "applies": [
+    "TRIDENT"
+   ],
+   "triggers": [
+    "ATTACK"
+   ],
+   "conditions": [
+    "ENTITY_TYPE",
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "MESSAGE",
+    "TARGET"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "supreme",
+    "trident"
+   ]
+  },
+  {
+   "id": "striker",
+   "file": "all.yml",
+   "group": "legendary",
+   "display": "Striker",
+   "maxLevel": 1,
+   "applies": [
+    "ALL_BOOTS"
+   ],
+   "triggers": [
+    "EXTRA_SLOT_EQUIP",
+    "EXTRA_SLOT_UNEQUIP"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "NAME",
+    "REMOVE_TASK_ASYNC"
+   ],
+   "tags": [
+    "boots",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "danceblade",
+   "file": "all.yml",
+   "group": "legendary",
+   "display": "DanceBlade",
+   "maxLevel": 1,
+   "applies": [
+    "ALL_BOOTS"
+   ],
+   "triggers": [
+    "EXTRA_SLOT_EQUIP",
+    "EXTRA_SLOT_UNEQUIP"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "NAME",
+    "REMOVE_TASK_ASYNC"
+   ],
+   "tags": [
+    "boots",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "testtest",
+   "file": "all.yml",
+   "group": "common",
+   "display": "Inquisitive",
+   "maxLevel": 10,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "triggers": [
+    "ARMOR_EQUIP",
+    "ARMOR_UNDRESS",
+    "CHANGE_HAND",
+    "HOLD"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "MESSAGE"
+   ],
+   "tags": [
+    "common",
+    "enchantment",
+    "sword"
+   ]
+  },
+  {
+   "id": "burnshield",
+   "file": "armor.yml",
+   "group": "epic",
+   "display": "Burnshield",
+   "maxLevel": 1,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "tags": [
+    "armor",
+    "enchantment",
+    "epic"
+   ]
+  },
+  {
+   "id": "cactus",
+   "file": "armor.yml",
+   "group": "legendary",
+   "display": "Cactus",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "tags": [
+    "armor",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "drunk",
+   "file": "armor.yml",
+   "group": "epic",
+   "display": "Drunk",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "tags": [
+    "armor",
+    "enchantment",
+    "epic"
+   ]
+  },
+  {
+   "id": "enlightened",
+   "file": "armor.yml",
+   "group": "legendary",
+   "display": "Enlightened",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "tags": [
+    "armor",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "savior",
+   "file": "armor.yml",
+   "group": "legendary",
+   "display": "Savior",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "tags": [
+    "armor",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "fortify",
+   "file": "armor.yml",
+   "group": "rare",
+   "display": "Fortify",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "tags": [
+    "armor",
+    "enchantment",
+    "rare"
+   ]
+  },
+  {
+   "id": "frozen",
+   "file": "armor.yml",
+   "group": "epic",
+   "display": "Frozen",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "tags": [
+    "armor",
+    "enchantment",
+    "epic"
+   ]
+  },
+  {
+   "id": "hellforged",
+   "file": "armor.yml",
+   "group": "supreme",
+   "display": "HellForged",
+   "maxLevel": 1,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "tags": [
+    "armor",
+    "enchantment",
+    "supreme"
+   ]
+  },
+  {
+   "id": "hulk",
+   "file": "armor.yml",
+   "group": "legendary",
+   "display": "Hulk",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "tags": [
+    "armor",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "implants",
+   "file": "armor.yml",
+   "group": "epic",
+   "display": "Implants",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "tags": [
+    "armor",
+    "enchantment",
+    "epic"
+   ]
+  },
+  {
+   "id": "insomnia",
+   "file": "armor.yml",
+   "group": "epic",
+   "display": "Insomnia",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "tags": [
+    "armor",
+    "enchantment",
+    "epic"
+   ]
+  },
+  {
+   "id": "molten",
+   "file": "armor.yml",
+   "group": "rare",
+   "display": "Molten",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "tags": [
+    "armor",
+    "enchantment",
+    "rare"
+   ]
+  },
+  {
+   "id": "ninja",
+   "file": "armor.yml",
+   "group": "supreme",
+   "display": "Ninja",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "tags": [
+    "armor",
+    "enchantment",
+    "supreme"
+   ]
+  },
+  {
+   "id": "nursery",
+   "file": "armor.yml",
+   "group": "supreme",
+   "display": "Nursery",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "tags": [
+    "armor",
+    "enchantment",
+    "supreme"
+   ]
+  },
+  {
+   "id": "overload",
+   "file": "armor.yml",
+   "group": "legendary",
+   "display": "Overload",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "tags": [
+    "armor",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "paingiver",
+   "file": "armor.yml",
+   "group": "epic",
+   "display": "PainGiver",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "tags": [
+    "armor",
+    "enchantment",
+    "epic"
+   ]
+  },
+  {
+   "id": "recover",
+   "file": "armor.yml",
+   "group": "rare",
+   "display": "Recover",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "tags": [
+    "armor",
+    "enchantment",
+    "rare"
+   ]
+  },
+  {
+   "id": "rocket",
+   "file": "armor.yml",
+   "group": "rare",
+   "display": "Rocket",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "tags": [
+    "armor",
+    "enchantment",
+    "rare"
+   ]
+  },
+  {
+   "id": "smokebomb",
+   "file": "armor.yml",
+   "group": "legendary",
+   "display": "SmokeBomb",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "tags": [
+    "armor",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "stormcaller",
+   "file": "armor.yml",
+   "group": "rare",
+   "display": "StormCaller",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "tags": [
+    "armor",
+    "enchantment",
+    "rare"
+   ]
+  },
+  {
+   "id": "trickster",
+   "file": "armor.yml",
+   "group": "epic",
+   "display": "Trickster",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "tags": [
+    "armor",
+    "enchantment",
+    "epic"
+   ]
+  },
+  {
+   "id": "valor",
+   "file": "armor.yml",
+   "group": "supreme",
+   "display": "Valor",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "tags": [
+    "armor",
+    "enchantment",
+    "supreme"
+   ]
+  },
+  {
+   "id": "voodoo",
+   "file": "armor.yml",
+   "group": "legendary",
+   "display": "Voodoo",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "tags": [
+    "armor",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "durable",
+   "file": "armor.yml",
+   "group": "common",
+   "display": "Durable",
+   "maxLevel": 10,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "tags": [
+    "armor",
+    "common",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "hearty",
+   "file": "armor.yml",
+   "group": "event",
+   "display": "Hearty",
+   "maxLevel": 4,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "tags": [
+    "armor",
+    "enchantment",
+    "event"
+   ]
+  },
+  {
+   "id": "absorb",
+   "file": "armor.yml",
+   "group": "event",
+   "display": "Absorb",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "tags": [
+    "armor",
+    "enchantment",
+    "event"
+   ]
+  },
+  {
+   "id": "vitality",
+   "file": "armor.yml",
+   "group": "legendary",
+   "display": "Vitality",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "tags": [
+    "armor",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "guzzle",
+   "file": "armor.yml",
+   "group": "epic",
+   "display": "Guzzle",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "tags": [
+    "armor",
+    "enchantment",
+    "epic"
+   ]
+  },
+  {
+   "id": "sunfire",
+   "file": "armor.yml",
+   "group": "legendary",
+   "display": "Sunfire",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "tags": [
+    "armor",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "testarmor",
+   "file": "armor.yml",
+   "group": "supreme",
+   "display": "Ninja",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_ARMOR"
+   ],
+   "tags": [
+    "armor",
+    "enchantment",
+    "supreme"
+   ]
+  },
+  {
+   "id": "ironbeak",
+   "file": "artifact-common-attack.yml",
+   "group": "artifact",
+   "display": "\"Iron Beak\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "eggshell",
+   "file": "artifact-common-attack.yml",
+   "group": "artifact",
+   "display": "\"Egg Shell\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "freshgrass",
+   "file": "artifact-common-defense.yml",
+   "group": "artifact",
+   "display": "\"Fresh Grass\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "steelbelt",
+   "file": "artifact-common-defense.yml",
+   "group": "artifact",
+   "display": "\"Steel Belt\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "deadtwig",
+   "file": "artifact-common.yml",
+   "group": "artifact",
+   "display": "\"Dead Twig\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "rustyblade",
+   "file": "artifact-common.yml",
+   "group": "artifact",
+   "display": "\"Rusty Blade\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "crackedglassshard",
+   "file": "artifact-common.yml",
+   "group": "artifact",
+   "display": "\"Cracked Glass Shard\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "tatteredboots",
+   "file": "artifact-common.yml",
+   "group": "artifact",
+   "display": "\"Tattered Boots\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "rabbithide",
+   "file": "artifact-common.yml",
+   "group": "artifact",
+   "display": "\"Rabbit Hide\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "fang",
+   "file": "artifact-common.yml",
+   "group": "artifact",
+   "display": "\"Fang\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "ironarrow",
+   "file": "artifact-common.yml",
+   "group": "artifact",
+   "display": "\"Iron Arrow\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "yellowsand",
+   "file": "artifact-common.yml",
+   "group": "artifact",
+   "display": "\"Yellow Sand\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "wornstone",
+   "file": "artifact-common.yml",
+   "group": "artifact",
+   "display": "\"Worn Stone\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "bentblade",
+   "file": "artifact-common.yml",
+   "group": "artifact",
+   "display": "\"Bent Blade\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "chainchestplate",
+   "file": "artifact-common.yml",
+   "group": "artifact",
+   "display": "\"Chain Chestplate\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "herballeaves",
+   "file": "artifact-common.yml",
+   "group": "artifact",
+   "display": "\"Herbal Leaves\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "feather",
+   "file": "artifact-common.yml",
+   "group": "artifact",
+   "display": "\"Feather\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "greencompound",
+   "file": "artifact-epic.yml",
+   "group": "artifact",
+   "display": "\"Green Compound\"",
+   "maxLevel": 1,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "graycompound",
+   "file": "artifact-epic.yml",
+   "group": "artifact",
+   "display": "\"Gray Compound\"",
+   "maxLevel": 1,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "cloakofairstream",
+   "file": "artifact-epic.yml",
+   "group": "artifact",
+   "display": "\"Áo Choàng Khí Lưu\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "soulcampfire",
+   "file": "artifact-epic.yml",
+   "group": "artifact",
+   "display": "\"Lửa Trại Xanh\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "campfire",
+   "file": "artifact-epic.yml",
+   "group": "artifact",
+   "display": "\"Lửa Trại Đỏ\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "eternalfrost",
+   "file": "artifact-epic.yml",
+   "group": "artifact",
+   "display": "\"Băng Giá Vĩnh Cửu\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "soulofgrassland",
+   "file": "artifact-epic.yml",
+   "group": "artifact",
+   "display": "\"Linh Hồn Thảo Nguyên\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "greenapple",
+   "file": "artifact-epic.yml",
+   "group": "artifact",
+   "display": "\"Táo Xanh\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "inksac",
+   "file": "artifact-epic.yml",
+   "group": "artifact",
+   "display": "\"Túi Mực Đen Kịt\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "blazerod",
+   "file": "artifact-epic.yml",
+   "group": "artifact",
+   "display": "\"Hỏa Trượng\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "darksteel",
+   "file": "artifact-epic.yml",
+   "group": "artifact",
+   "display": "\"Kim Loại Hắc Ám\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "rabbitear",
+   "file": "artifact-epic.yml",
+   "group": "artifact",
+   "display": "\"Tai Thỏ\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "lunarsnake",
+   "file": "artifact-event.yml",
+   "group": "artifact",
+   "display": "\"Lunar Snake\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "blessedwishwreath",
+   "file": "artifact-event.yml",
+   "group": "artifact",
+   "display": "\"Bleseed Wish Wreath\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "lightningrod",
+   "file": "artifact-legendary.yml",
+   "group": "\"artifact\"",
+   "display": "\"Lightning Rod\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "frostbound_mantle",
+   "file": "artifact-legendary.yml",
+   "group": "\"artifact\"",
+   "display": "\"Frostbound Mantle\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "purificationcharm",
+   "file": "artifact-legendary.yml",
+   "group": "\"artifact\"",
+   "display": "\"Purification Charm\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "beastvinewhip",
+   "file": "artifact-legendary.yml",
+   "group": "\"artifact\"",
+   "display": "\"Beast Vine Whip\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "seedofvitality",
+   "file": "artifact-legendary.yml",
+   "group": "\"artifact\"",
+   "display": "\"Seed of Vitality\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "lifependant",
+   "file": "artifact-legendary.yml",
+   "group": "\"artifact\"",
+   "display": "\"Life Pendant\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "lanternofinferno",
+   "file": "artifact-legendary.yml",
+   "group": "\"artifact\"",
+   "display": "\"Lantern of Inferno\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "lanternofspecters",
+   "file": "artifact-legendary.yml",
+   "group": "\"artifact\"",
+   "display": "\"Lantern of Specters\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "glowinksac",
+   "file": "artifact-legendary.yml",
+   "group": "\"artifact\"",
+   "display": "\"Glow Ink Sac\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "hornofrally",
+   "file": "artifact-legendary.yml",
+   "group": "\"artifact\"",
+   "display": "\"Horn of Rally\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "eternalbread",
+   "file": "artifact-rare.yml",
+   "group": "artifact",
+   "display": "\"Eternal Bread\"",
+   "maxLevel": 1,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "steelaxe",
+   "file": "artifact-rare.yml",
+   "group": "artifact",
+   "display": "\"Steel Axe\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "torch",
+   "file": "artifact-rare.yml",
+   "group": "artifact",
+   "display": "\"Torch\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "waterbottle",
+   "file": "artifact-rare.yml",
+   "group": "artifact",
+   "display": "\"Water Bottle\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "trainsword",
+   "file": "artifact-rare.yml",
+   "group": "artifact",
+   "display": "\"Training Sword\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "drybone",
+   "file": "artifact-rare.yml",
+   "group": "artifact",
+   "display": "\"Dry Bone\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "destructionmask",
+   "file": "artifact-rare.yml",
+   "group": "artifact",
+   "display": "\"Destruction Mask\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "poisondagger",
+   "file": "artifact-rare.yml",
+   "group": "artifact",
+   "display": "\"Poison Dagger\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "junglelog",
+   "file": "artifact-rare.yml",
+   "group": "artifact",
+   "display": "\"Jungle Log\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "speedboots",
+   "file": "artifact-rare.yml",
+   "group": "artifact",
+   "display": "\"Speed Boots\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "honeycomb",
+   "file": "artifact-rare.yml",
+   "group": "artifact",
+   "display": "\"Honeycomb\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "bandage",
+   "file": "artifact-rare.yml",
+   "group": "artifact",
+   "display": "\"Bandage\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "crimsonscythe",
+   "file": "artifact-supreme.yml",
+   "group": "\"artifact\"",
+   "display": "\"Crimson Scythe\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "triplecrystal",
+   "file": "artifact-supreme.yml",
+   "group": "\"artifact\"",
+   "display": "\"Triple Crystal\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "assassinationletter",
+   "file": "artifact-supreme.yml",
+   "group": "\"artifact\"",
+   "display": "\"Assassination Letter\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "demonheart",
+   "file": "artifact-supreme.yml",
+   "group": "\"artifact\"",
+   "display": "\"Demon Heart\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "bladeofhatred",
+   "file": "artifact-supreme.yml",
+   "group": "\"artifact\"",
+   "display": "\"Blade of Hatred\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "executioneraxe",
+   "file": "artifact-supreme.yml",
+   "group": "\"artifact\"",
+   "display": "\"Executioner Axe\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "demonpact",
+   "file": "artifact-supreme.yml",
+   "group": "\"artifact\"",
+   "display": "\"Demon Pact\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "thunderaxe",
+   "file": "artifact-supreme.yml",
+   "group": "\"artifact\"",
+   "display": "\"Thunder Axe\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "werewolf",
+   "file": "artifact-supreme.yml",
+   "group": "\"artifact\"",
+   "display": "\"Werewolf\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "focusedarmor",
+   "file": "artifact-supreme.yml",
+   "group": "\"artifact\"",
+   "display": "\"Focused Armor\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "torchflower",
+   "file": "artifact-supreme.yml",
+   "group": "\"artifact\"",
+   "display": "\"Torch Flower\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "bloodarmor",
+   "file": "artifact-ultimate.yml",
+   "group": "artifact",
+   "display": "\"Blood Armor\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "doombringer",
+   "file": "artifact-ultimate.yml",
+   "group": "artifact",
+   "display": "\"Doombringer\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "soulofrevival",
+   "file": "artifact-ultimate.yml",
+   "group": "artifact",
+   "display": "\"Soul of Revival\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "goldenapple",
+   "file": "artifact-ultimate.yml",
+   "group": "artifact",
+   "display": "\"Golden Apple\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "cursedchain",
+   "file": "artifact-ultimate.yml",
+   "group": "artifact",
+   "display": "\"Cursed Chain\"",
+   "maxLevel": 5,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "greencompound",
+   "file": "artifact.yml",
+   "group": "artifact",
+   "display": "\"Green Compound\"",
+   "maxLevel": 1,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "graycompound",
+   "file": "artifact.yml",
+   "group": "artifact",
+   "display": "\"Gray Compound\"",
+   "maxLevel": 1,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "bloodarmor",
+   "file": "artifact.yml",
+   "group": "artifact",
+   "display": "\"Blood Armor\"",
+   "maxLevel": 1,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "eternalbread",
+   "file": "artifact.yml",
+   "group": "artifact",
+   "display": "\"Eternal Bread\"",
+   "maxLevel": 1,
+   "tags": [
+    "artifact",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "blessed",
+   "file": "axe.yml",
+   "group": "legendary",
+   "display": "Blessed",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "tags": [
+    "axe",
+    "combat",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "berserk",
+   "file": "axe.yml",
+   "group": "epic",
+   "display": "Berserk",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "tags": [
+    "axe",
+    "combat",
+    "enchantment",
+    "epic"
+   ]
+  },
+  {
+   "id": "cursed",
+   "file": "axe.yml",
+   "group": "epic",
+   "display": "Cursed",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "tags": [
+    "axe",
+    "combat",
+    "enchantment",
+    "epic"
+   ]
+  },
+  {
+   "id": "dizzy",
+   "file": "axe.yml",
+   "group": "epic",
+   "display": "Dizzy",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "tags": [
+    "axe",
+    "combat",
+    "enchantment",
+    "epic"
+   ]
+  },
+  {
+   "id": "feedme",
+   "file": "axe.yml",
+   "group": "epic",
+   "display": "FeedMe",
+   "maxLevel": 1,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "tags": [
+    "axe",
+    "combat",
+    "enchantment",
+    "epic"
+   ]
+  },
+  {
+   "id": "rekt",
+   "file": "axe.yml",
+   "group": "legendary",
+   "display": "Rekt",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "tags": [
+    "axe",
+    "combat",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "hammer",
+   "file": "axe.yml",
+   "group": "legendary",
+   "display": "Hammer",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "tags": [
+    "axe",
+    "combat",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "urchin",
+   "file": "axe.yml",
+   "group": "epic",
+   "display": "Urchin",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "tags": [
+    "axe",
+    "combat",
+    "enchantment",
+    "epic"
+   ]
+  },
+  {
+   "id": "sledgehammer",
+   "file": "axe.yml",
+   "group": "legendary",
+   "display": "Sledgehammer",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "tags": [
+    "axe",
+    "combat",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "overpower",
+   "file": "axe.yml",
+   "group": "supreme",
+   "display": "Overpower",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "tags": [
+    "axe",
+    "combat",
+    "enchantment",
+    "supreme"
+   ]
+  },
+  {
+   "id": "crack",
+   "file": "axe.yml",
+   "group": "legendary",
+   "display": "Crack",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "tags": [
+    "axe",
+    "combat",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "bleed",
+   "file": "axe.yml",
+   "group": "legendary",
+   "display": "Bleed",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "tags": [
+    "axe",
+    "combat",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "blacksmith",
+   "file": "axe.yml",
+   "group": "legendary",
+   "display": "Blacksmith",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "tags": [
+    "axe",
+    "combat",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "devour",
+   "file": "axe.yml",
+   "group": "legendary",
+   "display": "Devour",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "tags": [
+    "axe",
+    "combat",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "pummel",
+   "file": "axe.yml",
+   "group": "rare",
+   "display": "Pummel",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "tags": [
+    "axe",
+    "combat",
+    "enchantment",
+    "rare"
+   ]
+  },
+  {
+   "id": "smite",
+   "file": "axe.yml",
+   "group": "rare",
+   "display": "Smite",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "tags": [
+    "axe",
+    "combat",
+    "enchantment",
+    "rare"
+   ]
+  },
+  {
+   "id": "dissect",
+   "file": "axe.yml",
+   "group": "common",
+   "display": "Dissect",
+   "maxLevel": 10,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "tags": [
+    "axe",
+    "combat",
+    "common",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "infested",
+   "file": "axe.yml",
+   "group": "legendary",
+   "display": "Infested",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "tags": [
+    "axe",
+    "combat",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "hamstring",
+   "file": "axe.yml",
+   "group": "epic",
+   "display": "Harmstring",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "tags": [
+    "axe",
+    "combat",
+    "enchantment",
+    "epic"
+   ]
+  },
+  {
+   "id": "divine",
+   "file": "axe.yml",
+   "group": "ultimate",
+   "display": "Divine",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "tags": [
+    "axe",
+    "combat",
+    "enchantment",
+    "ultimate"
+   ]
+  },
+  {
+   "id": "axswing",
+   "file": "axe.yml",
+   "group": "supreme",
+   "display": "AxSwing",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "tags": [
+    "axe",
+    "combat",
+    "enchantment",
+    "supreme"
+   ]
+  },
+  {
+   "id": "pulverize",
+   "file": "axe.yml",
+   "group": "supreme",
+   "display": "Pulverize",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "tags": [
+    "axe",
+    "combat",
+    "enchantment",
+    "supreme"
+   ]
+  },
+  {
+   "id": "rampage",
+   "file": "axe.yml",
+   "group": "supreme",
+   "display": "Rampage",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "tags": [
+    "axe",
+    "combat",
+    "enchantment",
+    "supreme"
+   ]
+  },
+  {
+   "id": "feather",
+   "file": "boots.yml",
+   "group": "legendary",
+   "display": "\"Nhanh nhảy\"",
+   "maxLevel": 2,
+   "applies": [
+    "ALL_BOOTS"
+   ],
+   "tags": [
+    "boots",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "gears",
+   "file": "boots.yml",
+   "group": "epic",
+   "display": "\"Chạy nhanh\"",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_BOOTS"
+   ],
+   "tags": [
+    "boots",
+    "enchantment",
+    "epic"
+   ]
+  },
+  {
+   "id": "springs",
+   "file": "boots.yml",
+   "group": "epic",
+   "display": "\"Nhảy cao\"",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_BOOTS"
+   ],
+   "tags": [
+    "boots",
+    "enchantment",
+    "epic"
+   ]
+  },
+  {
+   "id": "sanguine",
+   "file": "boots.yml",
+   "group": "legendary",
+   "display": "Sanguine",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_BOOTS"
+   ],
+   "tags": [
+    "boots",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "dash",
+   "file": "boots.yml",
+   "group": "\"supreme\"",
+   "display": "\"Lướt\"",
+   "maxLevel": 5,
+   "tags": [
+    "enchantment"
+   ]
+  },
+  {
+   "id": "doublejump",
+   "file": "boots.yml",
+   "group": "\"rare\"",
+   "display": "\"DoubleJump\"",
+   "maxLevel": 5,
+   "tags": [
+    "enchantment"
+   ]
+  },
+  {
+   "id": "jellylegs",
+   "file": "boots.yml",
+   "group": "rare",
+   "display": "JellyLegs",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_BOOTS"
+   ],
+   "tags": [
+    "boots",
+    "enchantment",
+    "rare"
+   ]
+  },
+  {
+   "id": "fairyelf",
+   "file": "bow.yml",
+   "group": "\"supreme\"",
+   "display": "\"FairyElf\"",
+   "maxLevel": 5,
+   "tags": [
+    "combat",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "lightning",
+   "file": "bow.yml",
+   "group": "\"rare\"",
+   "display": "\"Lightning\"",
+   "maxLevel": 1,
+   "tags": [
+    "combat",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "multiarrow",
+   "file": "bow.yml",
+   "group": "\"rare\"",
+   "display": "\"MultiArrow\"",
+   "maxLevel": 5,
+   "tags": [
+    "combat",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "piercing",
+   "file": "bow.yml",
+   "group": "\"rare\"",
+   "display": "\"Piercing\"",
+   "maxLevel": 10,
+   "tags": [
+    "combat",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "venom",
+   "file": "bow.yml",
+   "group": "\"rare\"",
+   "display": "\"Venom\"",
+   "maxLevel": 5,
+   "tags": [
+    "combat",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "explosive",
+   "file": "bow.yml",
+   "group": "\"epic\"",
+   "display": "\"Explosive\"",
+   "maxLevel": 5,
+   "tags": [
+    "combat",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "freeze",
+   "file": "bow.yml",
+   "group": "\"epic\"",
+   "display": "\"Freeze\"",
+   "maxLevel": 5,
+   "tags": [
+    "combat",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "glamour",
+   "file": "bow.yml",
+   "group": "\"event\"",
+   "display": "\"Glamour\"",
+   "maxLevel": 3,
+   "tags": [
+    "combat",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "lodestar",
+   "file": "bow.yml",
+   "group": "\"rare\"",
+   "display": "\"Lodestar\"",
+   "maxLevel": 5,
+   "tags": [
+    "combat",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "sniper",
+   "file": "bow.yml",
+   "group": "\"ultimate\"",
+   "display": "\"Sniper\"",
+   "maxLevel": 5,
+   "tags": [
+    "combat",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "doctor",
+   "file": "bow.yml",
+   "group": "\"epic\"",
+   "display": "\"Doctor\"",
+   "maxLevel": 5,
+   "tags": [
+    "combat",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "creatine",
+   "file": "bow.yml",
+   "group": "\"epic\"",
+   "display": "\"Creatine\"",
+   "maxLevel": 5,
+   "tags": [
+    "combat",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "penetration",
+   "file": "bow.yml",
+   "group": "\"supreme\"",
+   "display": "\"Penetration\"",
+   "maxLevel": 5,
+   "tags": [
+    "combat",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "stoneplate",
+   "file": "chestplate.yml",
+   "group": "legendary",
+   "display": "Stoneplate",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_CHESTPLATE"
+   ],
+   "tags": [
+    "chestplate",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "abnegation",
+   "file": "chestplate.yml",
+   "group": "legendary",
+   "display": "Abnegation",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_CHESTPLATE"
+   ],
+   "tags": [
+    "chestplate",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "endurance",
+   "file": "chestplate.yml",
+   "group": "supreme",
+   "display": "Endurance",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_CHESTPLATE"
+   ],
+   "tags": [
+    "chestplate",
+    "enchantment",
+    "supreme"
+   ]
+  },
+  {
+   "id": "immortal",
+   "file": "chestplate.yml",
+   "group": "ultimate",
+   "display": "Immortal",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_CHESTPLATE"
+   ],
+   "tags": [
+    "chestplate",
+    "enchantment",
+    "ultimate"
+   ]
+  },
+  {
+   "id": "phoenix",
+   "file": "chestplate.yml",
+   "group": "ultimate",
+   "display": "Phoenix",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_CHESTPLATE"
+   ],
+   "tags": [
+    "chestplate",
+    "enchantment",
+    "ultimate"
+   ]
+  },
+  {
+   "id": "aegis",
+   "file": "chestplate.yml",
+   "group": "ultimate",
+   "display": "Aegis",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_CHESTPLATE"
+   ],
+   "tags": [
+    "chestplate",
+    "enchantment",
+    "ultimate"
+   ]
+  },
+  {
+   "id": "glowing",
+   "file": "helmet.yml",
+   "group": "rare",
+   "display": "Glowing",
+   "maxLevel": 1,
+   "applies": [
+    "ALL_HELMET"
+   ],
+   "triggers": [
+    "ARMOR_EQUIP",
+    "ARMOR_UNDRESS"
+   ],
+   "effects": [
+    "ADD_FOREVER_POTION",
+    "REMOVE_FOREVER_POTION"
+   ],
+   "tags": [
+    "enchantment",
+    "helmet",
+    "rare"
+   ]
+  },
+  {
+   "id": "mermaid",
+   "file": "helmet.yml",
+   "group": "epic",
+   "display": "Mermaid",
+   "maxLevel": 1,
+   "applies": [
+    "ALL_HELMET"
+   ],
+   "triggers": [
+    "ARMOR_EQUIP",
+    "ARMOR_UNDRESS"
+   ],
+   "effects": [
+    "ADD_FOREVER_POTION",
+    "REMOVE_FOREVER_POTION"
+   ],
+   "tags": [
+    "enchantment",
+    "epic",
+    "helmet"
+   ]
+  },
+  {
+   "id": "hurstwic",
+   "file": "helmet.yml",
+   "group": "epic",
+   "display": "Hurstwic",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_HELMET"
+   ],
+   "triggers": [
+    "DEFENSE"
+   ],
+   "conditions": [
+    "EQUIP_SLOT",
+    "NUMBER_STORAGE"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "epic",
+    "helmet"
+   ]
+  },
+  {
+   "id": "greathelm",
+   "file": "helmet.yml",
+   "group": "legendary",
+   "display": "GreatHelm",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_HELMET"
+   ],
+   "triggers": [
+    "ARROW_DEFENSE"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "tags": [
+    "enchantment",
+    "helmet",
+    "legendary"
+   ]
+  },
+  {
+   "id": "sober",
+   "file": "helmet.yml",
+   "group": "supreme",
+   "display": "Sober",
+   "maxLevel": 1,
+   "applies": [
+    "ALL_HELMET"
+   ],
+   "triggers": [
+    "ARMOR_EQUIP",
+    "ARMOR_UNDRESS"
+   ],
+   "effects": [
+    "BLOCK_FOREVER_POTION",
+    "UNBLOCK_FOREVER_POTION"
+   ],
+   "tags": [
+    "enchantment",
+    "helmet",
+    "supreme"
+   ]
+  },
+  {
+   "id": "deathscythe",
+   "file": "hoe.yml",
+   "group": "supreme",
+   "display": "DeathScythe",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_HOE"
+   ],
+   "tags": [
+    "enchantment",
+    "hoe",
+    "mining",
+    "supreme"
+   ]
+  },
+  {
+   "id": "fieldprot",
+   "file": "hoe.yml",
+   "group": "rare",
+   "display": "FieldProt",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_HOE"
+   ],
+   "tags": [
+    "enchantment",
+    "hoe",
+    "mining",
+    "rare"
+   ]
+  },
+  {
+   "id": "rush",
+   "file": "hoe.yml",
+   "group": "legendary",
+   "display": "Rush",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_HOE"
+   ],
+   "tags": [
+    "enchantment",
+    "hoe",
+    "legendary",
+    "mining"
+   ]
+  },
+  {
+   "id": "peasant",
+   "file": "hoe.yml",
+   "group": "common",
+   "display": "Peasant",
+   "maxLevel": 10,
+   "applies": [
+    "ALL_HOE"
+   ],
+   "tags": [
+    "common",
+    "enchantment",
+    "hoe",
+    "mining"
+   ]
+  },
+  {
+   "id": "aghast",
+   "file": "hoe.yml",
+   "group": "event",
+   "display": "Aghast",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_HOE"
+   ],
+   "tags": [
+    "enchantment",
+    "event",
+    "hoe",
+    "mining"
+   ]
+  },
+  {
+   "id": "bloodthief",
+   "file": "hoe.yml",
+   "group": "supreme",
+   "display": "BloodThief",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_HOE"
+   ],
+   "tags": [
+    "enchantment",
+    "hoe",
+    "mining",
+    "supreme"
+   ]
+  },
+  {
+   "id": "ravage",
+   "file": "hoe.yml",
+   "group": "supreme",
+   "display": "Ravage",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_HOE"
+   ],
+   "tags": [
+    "enchantment",
+    "hoe",
+    "mining",
+    "supreme"
+   ]
+  },
+  {
+   "id": "threshold",
+   "file": "hoe.yml",
+   "group": "supreme",
+   "display": "Threshold",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_HOE"
+   ],
+   "tags": [
+    "enchantment",
+    "hoe",
+    "mining",
+    "supreme"
+   ]
+  },
+  {
+   "id": "deathhunt",
+   "file": "hoe.yml",
+   "group": "legendary",
+   "display": "DeathHunt",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_HOE"
+   ],
+   "tags": [
+    "enchantment",
+    "hoe",
+    "legendary",
+    "mining"
+   ]
+  },
+  {
+   "id": "souldrinker",
+   "file": "hoe.yml",
+   "group": "legendary",
+   "display": "SoulDrinker",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_HOE"
+   ],
+   "tags": [
+    "enchantment",
+    "hoe",
+    "legendary",
+    "mining"
+   ]
+  },
+  {
+   "id": "soulfire",
+   "file": "hoe.yml",
+   "group": "legendary",
+   "display": "SoulFire",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_HOE"
+   ],
+   "tags": [
+    "enchantment",
+    "hoe",
+    "legendary",
+    "mining"
+   ]
+  },
+  {
+   "id": "wraith",
+   "file": "hoe.yml",
+   "group": "ultimate",
+   "display": "Wraith",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_HOE"
+   ],
+   "tags": [
+    "enchantment",
+    "hoe",
+    "mining",
+    "ultimate"
+   ]
+  },
+  {
+   "id": "woundhealing",
+   "file": "leggings.yml",
+   "group": "epic",
+   "display": "WoundHealing",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_LEGGINGS"
+   ],
+   "tags": [
+    "enchantment",
+    "epic",
+    "leggings"
+   ]
+  },
+  {
+   "id": "defusing",
+   "file": "leggings.yml",
+   "group": "supreme",
+   "display": "Defusing",
+   "maxLevel": 1,
+   "applies": [
+    "ALL_LEGGINGS"
+   ],
+   "tags": [
+    "enchantment",
+    "leggings",
+    "supreme"
+   ]
+  },
+  {
+   "id": "zombie",
+   "file": "mask.yml",
+   "group": "mask",
+   "display": "Zombie",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "pig",
+   "file": "mask.yml",
+   "group": "mask",
+   "display": "Pig",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "chicken",
+   "file": "mask.yml",
+   "group": "mask",
+   "display": "Chicken",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "sheep",
+   "file": "mask.yml",
+   "group": "mask",
+   "display": "Sheep",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "cavespider",
+   "file": "mask.yml",
+   "group": "mask",
+   "display": "CaveSpider",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "cow",
+   "file": "mask.yml",
+   "group": "mask",
+   "display": "Cow",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "ocelot",
+   "file": "mask.yml",
+   "group": "mask",
+   "display": "Ocelot",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "wolf",
+   "file": "mask.yml",
+   "group": "mask",
+   "display": "Wolf",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "bat",
+   "file": "mask.yml",
+   "group": "mask",
+   "display": "Bat",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "spider",
+   "file": "mask.yml",
+   "group": "mask",
+   "display": "Spider",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "rabbit",
+   "file": "mask.yml",
+   "group": "mask",
+   "display": "Rabbit",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "llama",
+   "file": "mask.yml",
+   "group": "mask",
+   "display": "Llama",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "squid",
+   "file": "mask.yml",
+   "group": "mask",
+   "display": "Squid",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "mooshroom",
+   "file": "mask.yml",
+   "group": "mask",
+   "display": "Mooshroom",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "skeleton",
+   "file": "mask.yml",
+   "group": "mask",
+   "display": "Skeleton",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "parrot",
+   "file": "mask.yml",
+   "group": "mask",
+   "display": "Parrot",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "fox",
+   "file": "mask.yml",
+   "group": "mask",
+   "display": "Fox",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "turtle",
+   "file": "mask.yml",
+   "group": "mask",
+   "display": "Turtle",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "stray",
+   "file": "mask.yml",
+   "group": "mask",
+   "display": "Stray",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "blaze",
+   "file": "mask.yml",
+   "group": "mask",
+   "display": "Blaze",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "horse",
+   "file": "mask.yml",
+   "group": "mask",
+   "display": "Horse",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "bee",
+   "file": "mask.yml",
+   "group": "mask",
+   "display": "Bee",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "panda",
+   "file": "mask.yml",
+   "group": "mask",
+   "display": "Panda",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "endermite",
+   "file": "mask.yml",
+   "group": "mask",
+   "display": "Endermite",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "piglin",
+   "file": "mask.yml",
+   "group": "mask",
+   "display": "Piglin",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "dolphin",
+   "file": "mask.yml",
+   "group": "mask",
+   "display": "Dolphin",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "pillager",
+   "file": "mask.yml",
+   "group": "mask",
+   "display": "Pillager",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "creeper",
+   "file": "mask.yml",
+   "group": "mask",
+   "display": "Creeper",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "zoglin",
+   "file": "mask.yml",
+   "group": "mask",
+   "display": "Zoglin",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "hoglin",
+   "file": "mask.yml",
+   "group": "mask",
+   "display": "Hoglin",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "zombifiedpiglin",
+   "file": "mask.yml",
+   "group": "mask",
+   "display": "ZombifiedPiglin",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "phantom",
+   "file": "mask.yml",
+   "group": "mask",
+   "display": "Phantom",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "strider",
+   "file": "mask.yml",
+   "group": "mask",
+   "display": "Strider",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "polarbear",
+   "file": "mask.yml",
+   "group": "mask",
+   "display": "PolarBear",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "ravager",
+   "file": "mask.yml",
+   "group": "mask",
+   "display": "Ravager",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "witch",
+   "file": "mask.yml",
+   "group": "mask",
+   "display": "Witch",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "guardian",
+   "file": "mask.yml",
+   "group": "mask",
+   "display": "Guardian",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "enderman",
+   "file": "mask.yml",
+   "group": "mask",
+   "display": "Enderman",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "ghast",
+   "file": "mask.yml",
+   "group": "mask",
+   "display": "Ghast",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "irongolem",
+   "file": "mask.yml",
+   "group": "mask",
+   "display": "IronGolem",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "camel",
+   "file": "mask.yml",
+   "group": "mask",
+   "display": "Camel",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "allay",
+   "file": "mask.yml",
+   "group": "mask",
+   "display": "Allay",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "armadillo",
+   "file": "mask.yml",
+   "group": "mask",
+   "display": "Armadillo",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "sniffer",
+   "file": "mask.yml",
+   "group": "mask",
+   "display": "Sniffer",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "bogged",
+   "file": "mask.yml",
+   "group": "mask",
+   "display": "Bogged",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "vindicator",
+   "file": "mask.yml",
+   "group": "mask",
+   "display": "Vindicator",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "axolotl",
+   "file": "mask.yml",
+   "group": "mask",
+   "display": "Axolotl",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "slime",
+   "file": "mask.yml",
+   "group": "mask",
+   "display": "Slime",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "magmacube",
+   "file": "mask.yml",
+   "group": "mask",
+   "display": "MagmaCube",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "breeze",
+   "file": "mask.yml",
+   "group": "mask",
+   "display": "Breeze",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "goat",
+   "file": "mask.yml",
+   "group": "mask",
+   "display": "Goat",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "frog",
+   "file": "mask.yml",
+   "group": "mask",
+   "display": "Frog",
+   "maxLevel": 5,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "telepathy",
+   "file": "mix.yml",
+   "group": "\"legendary\"",
+   "display": "\"Telepathy\"",
+   "maxLevel": 1,
+   "tags": [
+    "enchantment"
+   ]
+  },
+  {
+   "id": "autosell",
+   "file": "mix.yml",
+   "group": "\"ultimate\"",
+   "display": "\"AutoSell\"",
+   "maxLevel": 1,
+   "tags": [
+    "enchantment"
+   ]
+  },
+  {
+   "id": "oxygenate",
+   "file": "mix.yml",
+   "group": "\"rare\"",
+   "display": "\"Oxygenate\"",
+   "maxLevel": 1,
+   "tags": [
+    "enchantment"
+   ]
+  },
+  {
+   "id": "bountyhunter",
+   "file": "mix.yml",
+   "group": "common",
+   "display": "BountyHunter",
+   "maxLevel": 10,
+   "tags": [
+    "common",
+    "enchantment"
+   ]
+  },
+  {
+   "id": "reforged",
+   "file": "mix.yml",
+   "group": "\"common\"",
+   "display": "\"Reforged\"",
+   "maxLevel": 10,
+   "tags": [
+    "enchantment"
+   ]
+  },
+  {
+   "id": "tonic",
+   "file": "mix.yml",
+   "group": "\"event\"",
+   "display": "\"Tonic\"",
+   "maxLevel": 4,
+   "tags": [
+    "enchantment"
+   ]
+  },
+  {
+   "id": "moonlight",
+   "file": "mix.yml",
+   "group": "\"event\"",
+   "display": "\"Moonlight\"",
+   "maxLevel": 5,
+   "tags": [
+    "enchantment"
+   ]
+  },
+  {
+   "id": "hasten",
+   "file": "new-ce.yml",
+   "group": "legendary",
+   "display": "Hasten",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_PICKAXE"
+   ],
+   "tags": [
+    "enchantment",
+    "legendary",
+    "pickaxe"
+   ]
+  },
+  {
+   "id": "planter",
+   "file": "new-ce.yml",
+   "group": "epic",
+   "display": "Planter",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_HOE"
+   ],
+   "tags": [
+    "enchantment",
+    "epic",
+    "hoe"
+   ]
+  },
+  {
+   "id": "flash",
+   "file": "new-ce.yml",
+   "group": "\"supreme\"",
+   "display": "\"Tốc biến\"",
+   "maxLevel": 5,
+   "tags": [
+    "enchantment"
+   ]
+  },
+  {
+   "id": "wukong",
+   "file": "outfit.yml",
+   "group": "legendary",
+   "display": "Wukong",
+   "maxLevel": 1,
+   "applies": [
+    "ALL_BOOTS"
+   ],
+   "triggers": [
+    "EXTRA_SLOT_EQUIP",
+    "EXTRA_SLOT_UNEQUIP"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "REMOVE_STAFF_PARTICLE",
+    "SET_STAFF_PARTICLE"
+   ],
+   "tags": [
+    "boots",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "bahamut",
+   "file": "outfit.yml",
+   "group": "legendary",
+   "display": "Bahamut",
+   "maxLevel": 1,
+   "applies": [
+    "ALL_BOOTS"
+   ],
+   "triggers": [
+    "EXTRA_SLOT_EQUIP",
+    "EXTRA_SLOT_UNEQUIP"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "REMOVE_STAFF_PARTICLE",
+    "SET_STAFF_PARTICLE"
+   ],
+   "tags": [
+    "boots",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "halloweenphantom",
+   "file": "outfit.yml",
+   "group": "legendary",
+   "display": "Halloween Phantom",
+   "maxLevel": 1,
+   "applies": [
+    "ALL_BOOTS"
+   ],
+   "triggers": [
+    "EXTRA_SLOT_EQUIP",
+    "EXTRA_SLOT_UNEQUIP"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "REMOVE_STAFF_PARTICLE",
+    "SET_STAFF_PARTICLE"
+   ],
+   "tags": [
+    "boots",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "aceruin",
+   "file": "outfit.yml",
+   "group": "legendary",
+   "display": "Aceruin",
+   "maxLevel": 1,
+   "applies": [
+    "ALL_BOOTS"
+   ],
+   "triggers": [
+    "EXTRA_SLOT_EQUIP",
+    "EXTRA_SLOT_UNEQUIP"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "REMOVE_STAFF_PARTICLE",
+    "SET_STAFF_PARTICLE"
+   ],
+   "tags": [
+    "boots",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "beats",
+   "file": "outfit.yml",
+   "group": "legendary",
+   "display": "Beats",
+   "maxLevel": 1,
+   "applies": [
+    "ALL_BOOTS"
+   ],
+   "triggers": [
+    "EXTRA_SLOT_EQUIP",
+    "EXTRA_SLOT_UNEQUIP"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "REMOVE_STAFF_PARTICLE",
+    "SET_STAFF_PARTICLE"
+   ],
+   "tags": [
+    "boots",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "littleunicorn",
+   "file": "outfit.yml",
+   "group": "legendary",
+   "display": "Little Unicorn",
+   "maxLevel": 1,
+   "applies": [
+    "ALL_BOOTS"
+   ],
+   "triggers": [
+    "EXTRA_SLOT_EQUIP",
+    "EXTRA_SLOT_UNEQUIP"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "REMOVE_STAFF_PARTICLE",
+    "SET_STAFF_PARTICLE"
+   ],
+   "tags": [
+    "boots",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "autosmelt",
+   "file": "pickaxe.yml",
+   "group": "rare",
+   "display": "AutoSmelt",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_PICKAXE"
+   ],
+   "triggers": [
+    "CHANGE_HAND",
+    "HOLD"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "ADD_BLOCK_DROP_BONUS_MINING",
+    "ADD_FURNACE_MINING",
+    "REMOVE_BLOCK_DROP_BONUS_MINING",
+    "REMOVE_FURNACE_MINING"
+   ],
+   "tags": [
+    "enchantment",
+    "mining",
+    "pickaxe",
+    "rare"
+   ]
+  },
+  {
+   "id": "goldminer",
+   "file": "pickaxe.yml",
+   "group": "common",
+   "display": "Goldminer",
+   "maxLevel": 10,
+   "applies": [
+    "ALL_PICKAXE"
+   ],
+   "triggers": [
+    "CHANGE_HAND",
+    "HOLD"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "ADD_BLOCK_BONUS",
+    "REMOVE_BLOCK_BONUS"
+   ],
+   "tags": [
+    "common",
+    "enchantment",
+    "mining",
+    "pickaxe"
+   ]
+  },
+  {
+   "id": "experience",
+   "file": "pickaxe.yml",
+   "group": "common",
+   "display": "Experience",
+   "maxLevel": 10,
+   "applies": [
+    "ALL_PICKAXE"
+   ],
+   "triggers": [
+    "CHANGE_HAND",
+    "HOLD"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "ADD_BLOCK_BONUS",
+    "REMOVE_BLOCK_BONUS"
+   ],
+   "tags": [
+    "common",
+    "enchantment",
+    "mining",
+    "pickaxe"
+   ]
+  },
+  {
+   "id": "furnace",
+   "file": "pickaxe.yml",
+   "group": "rare",
+   "display": "Furnace",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_PICKAXE"
+   ],
+   "triggers": [
+    "CHANGE_HAND",
+    "HOLD"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "ADD_FURNACE_MINING",
+    "REMOVE_FURNACE_MINING"
+   ],
+   "tags": [
+    "enchantment",
+    "mining",
+    "pickaxe",
+    "rare"
+   ]
+  },
+  {
+   "id": "trench",
+   "file": "pickaxe.yml",
+   "group": "epic",
+   "display": "Trench",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_PICKAXE"
+   ],
+   "triggers": [
+    "CHANGE_HAND",
+    "HOLD"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "ADD_EXPLOSION_MINING",
+    "REMOVE_EXPLOSION_MINING"
+   ],
+   "tags": [
+    "enchantment",
+    "epic",
+    "mining",
+    "pickaxe"
+   ]
+  },
+  {
+   "id": "veinminer",
+   "file": "pickaxe.yml",
+   "group": "supreme",
+   "display": "VeinMiner",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_PICKAXE"
+   ],
+   "triggers": [
+    "CHANGE_HAND",
+    "HOLD"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "ADD_VEIN_MINING",
+    "REMOVE_VEIN_MINING"
+   ],
+   "tags": [
+    "enchantment",
+    "mining",
+    "pickaxe",
+    "supreme"
+   ]
+  },
+  {
+   "id": "harvest",
+   "file": "pickaxe.yml",
+   "group": "epic",
+   "display": "Harvest",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_HOE"
+   ],
+   "triggers": [
+    "CHANGE_HAND",
+    "HOLD"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "ADD_EXPLOSION_MINING",
+    "REMOVE_EXPLOSION_MINING"
+   ],
+   "tags": [
+    "enchantment",
+    "epic",
+    "hoe",
+    "mining"
+   ]
+  },
+  {
+   "id": "primedoubledamage",
+   "file": "prime.yml",
+   "group": "primelegendary",
+   "display": "PrimeDoubleDamage",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "tags": [
+    "enchantment",
+    "prime",
+    "sword"
+   ]
+  },
+  {
+   "id": "primerekt",
+   "file": "prime.yml",
+   "group": "primelegendary",
+   "display": "PrimeRekt",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "tags": [
+    "axe",
+    "enchantment",
+    "prime"
+   ]
+  },
+  {
+   "id": "primeenlightened",
+   "file": "prime.yml",
+   "group": "'primelegendary'",
+   "display": "'PrimeEnlightened'",
+   "maxLevel": 5,
+   "tags": [
+    "enchantment"
+   ]
+  },
+  {
+   "id": "primesavior",
+   "file": "prime.yml",
+   "group": "'primelegendary'",
+   "display": "'PrimeSavior'",
+   "maxLevel": 5,
+   "tags": [
+    "enchantment"
+   ]
+  },
+  {
+   "id": "primepiercing",
+   "file": "prime.yml",
+   "group": "'primerare'",
+   "display": "'PrimePiercing'",
+   "maxLevel": 10,
+   "tags": [
+    "enchantment"
+   ]
+  },
+  {
+   "id": "primehurstwic",
+   "file": "prime.yml",
+   "group": "'primeepic'",
+   "display": "'PrimeHurstwic'",
+   "maxLevel": 5,
+   "tags": [
+    "enchantment"
+   ]
+  },
+  {
+   "id": "primerage",
+   "file": "prime.yml",
+   "group": "primesupreme",
+   "display": "PrimeRage",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "tags": [
+    "enchantment",
+    "prime",
+    "sword"
+   ]
+  },
+  {
+   "id": "primeexcalibur",
+   "file": "prime.yml",
+   "group": "primeultimate",
+   "display": "PrimeExcalibur",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "tags": [
+    "enchantment",
+    "prime",
+    "sword"
+   ]
+  },
+  {
+   "id": "primedivine",
+   "file": "prime.yml",
+   "group": "primeultimate",
+   "display": "PrimeDivine",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "tags": [
+    "axe",
+    "enchantment",
+    "prime"
+   ]
+  },
+  {
+   "id": "primesniper",
+   "file": "prime.yml",
+   "group": "'primeultimate'",
+   "display": "'PrimeSniper'",
+   "maxLevel": 5,
+   "tags": [
+    "enchantment"
+   ]
+  },
+  {
+   "id": "primevalor",
+   "file": "prime.yml",
+   "group": "'primesupreme'",
+   "display": "'PrimeValor'",
+   "maxLevel": 5,
+   "tags": [
+    "enchantment"
+   ]
+  },
+  {
+   "id": "primerampage",
+   "file": "prime.yml",
+   "group": "primesupreme",
+   "display": "PrimeRampage",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "tags": [
+    "axe",
+    "enchantment",
+    "prime"
+   ]
+  },
+  {
+   "id": "primestabstraight",
+   "file": "prime.yml",
+   "group": "primelegendary",
+   "display": "PrimeStabStraight",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "tags": [
+    "enchantment",
+    "prime",
+    "sword"
+   ]
+  },
+  {
+   "id": "primewoundhealing",
+   "file": "prime.yml",
+   "group": "'primeepic'",
+   "display": "'PrimeWoundHealing'",
+   "maxLevel": 5,
+   "tags": [
+    "enchantment"
+   ]
+  },
+  {
+   "id": "primenursery",
+   "file": "prime.yml",
+   "group": "'primesupreme'",
+   "display": "'PrimeNursery'",
+   "maxLevel": 5,
+   "tags": [
+    "enchantment"
+   ]
+  },
+  {
+   "id": "primegreathelm",
+   "file": "prime.yml",
+   "group": "'primelegendary'",
+   "display": "'PrimeGreatHelm'",
+   "maxLevel": 5,
+   "tags": [
+    "enchantment"
+   ]
+  },
+  {
+   "id": "primeinquisitive",
+   "file": "prime.yml",
+   "group": "primecommon",
+   "display": "PrimeInquisitive",
+   "maxLevel": 10,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "tags": [
+    "enchantment",
+    "prime",
+    "sword"
+   ]
+  },
+  {
+   "id": "primedissect",
+   "file": "prime.yml",
+   "group": "primecommon",
+   "display": "PrimeDissect",
+   "maxLevel": 10,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "tags": [
+    "axe",
+    "enchantment",
+    "prime"
+   ]
+  },
+  {
+   "id": "primedeathscythe",
+   "file": "prime.yml",
+   "group": "primesupreme",
+   "display": "PrimeDeathScythe",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_HOE"
+   ],
+   "tags": [
+    "enchantment",
+    "hoe",
+    "prime"
+   ]
+  },
+  {
+   "id": "primethrust",
+   "file": "prime.yml",
+   "group": "primesupreme",
+   "display": "PrimeThrust",
+   "maxLevel": 5,
+   "applies": [
+    "TRIDENT"
+   ],
+   "tags": [
+    "enchantment",
+    "prime",
+    "trident"
+   ]
+  },
+  {
+   "id": "primedash",
+   "file": "prime.yml",
+   "group": "\"primesupreme\"",
+   "display": "\"PrimeDash\"",
+   "maxLevel": 5,
+   "tags": [
+    "enchantment"
+   ]
+  },
+  {
+   "id": "knight",
+   "file": "set.yml",
+   "group": "\"set\"",
+   "display": "\"Knight Set\"",
+   "maxLevel": 5,
+   "tags": [
+    "enchantment"
+   ]
+  },
+  {
+   "id": "archer",
+   "file": "set.yml",
+   "group": "\"set\"",
+   "display": "\"Archer Set\"",
+   "maxLevel": 5,
+   "tags": [
+    "enchantment"
+   ]
+  },
+  {
+   "id": "assassin",
+   "file": "set.yml",
+   "group": "\"set\"",
+   "display": "\"Assassin Set\"",
+   "maxLevel": 5,
+   "tags": [
+    "enchantment"
+   ]
+  },
+  {
+   "id": "poseidon",
+   "file": "set.yml",
+   "group": "\"set\"",
+   "display": "\"Poseidon Set\"",
+   "maxLevel": 5,
+   "tags": [
+    "enchantment"
+   ]
+  },
+  {
+   "id": "reaper",
+   "file": "set.yml",
+   "group": "\"set\"",
+   "display": "\"Reaper Set\"",
+   "maxLevel": 5,
+   "tags": [
+    "enchantment"
+   ]
+  },
+  {
+   "id": "miner",
+   "file": "set.yml",
+   "group": "\"tool\"",
+   "display": "\"Miner Tool\"",
+   "maxLevel": 5,
+   "tags": [
+    "enchantment"
+   ]
+  },
+  {
+   "id": "lumberjack",
+   "file": "set.yml",
+   "group": "\"tool\"",
+   "display": "\"Lumberjack Tool\"",
+   "maxLevel": 5,
+   "tags": [
+    "enchantment"
+   ]
+  },
+  {
+   "id": "tavernleader",
+   "file": "set.yml",
+   "group": "\"set\"",
+   "display": "\"Tavern Leader Set\"",
+   "maxLevel": 3,
+   "tags": [
+    "enchantment"
+   ]
+  },
+  {
+   "id": "striker",
+   "file": "sigil.yml",
+   "group": "legendary",
+   "display": "Striker",
+   "maxLevel": 1,
+   "applies": [
+    "ALL_BOOTS"
+   ],
+   "triggers": [
+    "EXTRA_SLOT_EQUIP",
+    "EXTRA_SLOT_UNEQUIP"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "NAME",
+    "REMOVE_TASK_ASYNC"
+   ],
+   "tags": [
+    "boots",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "fighter",
+   "file": "sigil.yml",
+   "group": "legendary",
+   "display": "Fighter",
+   "maxLevel": 1,
+   "applies": [
+    "ALL_BOOTS"
+   ],
+   "triggers": [
+    "EXTRA_SLOT_EQUIP",
+    "EXTRA_SLOT_UNEQUIP"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "NAME",
+    "REMOVE_TASK_ASYNC"
+   ],
+   "tags": [
+    "boots",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "knight",
+   "file": "sigil.yml",
+   "group": "legendary",
+   "display": "Knight",
+   "maxLevel": 1,
+   "applies": [
+    "ALL_BOOTS"
+   ],
+   "triggers": [
+    "EXTRA_SLOT_EQUIP",
+    "EXTRA_SLOT_UNEQUIP"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "NAME",
+    "REMOVE_TASK_ASYNC"
+   ],
+   "tags": [
+    "boots",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "danceblade",
+   "file": "sigil.yml",
+   "group": "legendary",
+   "display": "DanceBlade",
+   "maxLevel": 1,
+   "applies": [
+    "ALL_BOOTS"
+   ],
+   "triggers": [
+    "EXTRA_SLOT_EQUIP",
+    "EXTRA_SLOT_UNEQUIP"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "NAME",
+    "REMOVE_TASK_ASYNC"
+   ],
+   "tags": [
+    "boots",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "archer",
+   "file": "sigil.yml",
+   "group": "legendary",
+   "display": "Archer",
+   "maxLevel": 1,
+   "applies": [
+    "ALL_BOOTS"
+   ],
+   "triggers": [
+    "EXTRA_SLOT_EQUIP",
+    "EXTRA_SLOT_UNEQUIP"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "NAME",
+    "REMOVE_TASK_ASYNC"
+   ],
+   "tags": [
+    "boots",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "poseidon",
+   "file": "sigil.yml",
+   "group": "legendary",
+   "display": "Poseidon",
+   "maxLevel": 1,
+   "applies": [
+    "ALL_BOOTS"
+   ],
+   "triggers": [
+    "EXTRA_SLOT_EQUIP",
+    "EXTRA_SLOT_UNEQUIP"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "NAME",
+    "REMOVE_TASK_ASYNC"
+   ],
+   "tags": [
+    "boots",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "reaper",
+   "file": "sigil.yml",
+   "group": "legendary",
+   "display": "Reaper",
+   "maxLevel": 1,
+   "applies": [
+    "ALL_BOOTS"
+   ],
+   "triggers": [
+    "EXTRA_SLOT_EQUIP",
+    "EXTRA_SLOT_UNEQUIP"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "NAME",
+    "REMOVE_TASK_ASYNC"
+   ],
+   "tags": [
+    "boots",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "assassin",
+   "file": "sigil.yml",
+   "group": "legendary",
+   "display": "Sát thủ",
+   "maxLevel": 1,
+   "applies": [
+    "ALL_BOOTS"
+   ],
+   "triggers": [
+    "EXTRA_SLOT_EQUIP",
+    "EXTRA_SLOT_UNEQUIP"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "NAME",
+    "REMOVE_TASK_ASYNC"
+   ],
+   "tags": [
+    "boots",
+    "enchantment",
+    "legendary"
+   ]
+  },
+  {
+   "id": "axstruction",
+   "file": "sword.yml",
+   "group": "supreme",
+   "display": "Axstruction",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "supreme",
+    "sword"
+   ]
+  },
+  {
+   "id": "cutthroat",
+   "file": "sword.yml",
+   "group": "supreme",
+   "display": "Cutthroat",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "supreme",
+    "sword"
+   ]
+  },
+  {
+   "id": "confusion",
+   "file": "sword.yml",
+   "group": "epic",
+   "display": "Confusion",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "epic",
+    "sword"
+   ]
+  },
+  {
+   "id": "doubledamage",
+   "file": "sword.yml",
+   "group": "legendary",
+   "display": "DoubleDamage",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "legendary",
+    "sword"
+   ]
+  },
+  {
+   "id": "execute",
+   "file": "sword.yml",
+   "group": "epic",
+   "display": "Execute",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "epic",
+    "sword"
+   ]
+  },
+  {
+   "id": "fastturn",
+   "file": "sword.yml",
+   "group": "legendary",
+   "display": "FastTurn",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "legendary",
+    "sword"
+   ]
+  },
+  {
+   "id": "inquisitive",
+   "file": "sword.yml",
+   "group": "common",
+   "display": "Inquisitive",
+   "maxLevel": 10,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "tags": [
+    "combat",
+    "common",
+    "enchantment",
+    "sword"
+   ]
+  },
+  {
+   "id": "lifesteal",
+   "file": "sword.yml",
+   "group": "supreme",
+   "display": "LifeSteal",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "supreme",
+    "sword"
+   ]
+  },
+  {
+   "id": "lightweight",
+   "file": "sword.yml",
+   "group": "legendary",
+   "display": "LightWeight",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "legendary",
+    "sword"
+   ]
+  },
+  {
+   "id": "nutrition",
+   "file": "sword.yml",
+   "group": "epic",
+   "display": "Nutrition",
+   "maxLevel": 1,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "epic",
+    "sword"
+   ]
+  },
+  {
+   "id": "obliterate",
+   "file": "sword.yml",
+   "group": "rare",
+   "display": "Obliterate",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "rare",
+    "sword"
+   ]
+  },
+  {
+   "id": "paralyze",
+   "file": "sword.yml",
+   "group": "epic",
+   "display": "Paralyze",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "epic",
+    "sword"
+   ]
+  },
+  {
+   "id": "rage",
+   "file": "sword.yml",
+   "group": "supreme",
+   "display": "Rage",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "supreme",
+    "sword"
+   ]
+  },
+  {
+   "id": "skillswipe",
+   "file": "sword.yml",
+   "group": "rare",
+   "display": "SkillSwipe",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "rare",
+    "sword"
+   ]
+  },
+  {
+   "id": "slowmo",
+   "file": "sword.yml",
+   "group": "rare",
+   "display": "SlowMo",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "rare",
+    "sword"
+   ]
+  },
+  {
+   "id": "snare",
+   "file": "sword.yml",
+   "group": "rare",
+   "display": "Snare",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "rare",
+    "sword"
+   ]
+  },
+  {
+   "id": "trap",
+   "file": "sword.yml",
+   "group": "epic",
+   "display": "Trap",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "epic",
+    "sword"
+   ]
+  },
+  {
+   "id": "vampire",
+   "file": "sword.yml",
+   "group": "legendary",
+   "display": "Vampire",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "legendary",
+    "sword"
+   ]
+  },
+  {
+   "id": "viper",
+   "file": "sword.yml",
+   "group": "rare",
+   "display": "Viper",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "rare",
+    "sword"
+   ]
+  },
+  {
+   "id": "wither",
+   "file": "sword.yml",
+   "group": "rare",
+   "display": "Wither",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "rare",
+    "sword"
+   ]
+  },
+  {
+   "id": "lifechange",
+   "file": "sword.yml",
+   "group": "rare",
+   "display": "LifeChange",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "rare",
+    "sword"
+   ]
+  },
+  {
+   "id": "thunderingblow",
+   "file": "sword.yml",
+   "group": "rare",
+   "display": "ThunderingBlow",
+   "maxLevel": 1,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "rare",
+    "sword"
+   ]
+  },
+  {
+   "id": "duskblade",
+   "file": "sword.yml",
+   "group": "supreme",
+   "display": "Duskblade",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "supreme",
+    "sword"
+   ]
+  },
+  {
+   "id": "ignite",
+   "file": "sword.yml",
+   "group": "legendary",
+   "display": "Ignite",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "legendary",
+    "sword"
+   ]
+  },
+  {
+   "id": "brutal",
+   "file": "sword.yml",
+   "group": "supreme",
+   "display": "Brutal",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "supreme",
+    "sword"
+   ]
+  },
+  {
+   "id": "hush",
+   "file": "sword.yml",
+   "group": "supreme",
+   "display": "Hush",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "supreme",
+    "sword"
+   ]
+  },
+  {
+   "id": "disarm",
+   "file": "sword.yml",
+   "group": "supreme",
+   "display": "Disarm",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "supreme",
+    "sword"
+   ]
+  },
+  {
+   "id": "bayonet",
+   "file": "sword.yml",
+   "group": "supreme",
+   "display": "Bayonet",
+   "maxLevel": 3,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "supreme",
+    "sword"
+   ]
+  },
+  {
+   "id": "stabstraight",
+   "file": "sword.yml",
+   "group": "legendary",
+   "display": "StabStraight",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "legendary",
+    "sword"
+   ]
+  },
+  {
+   "id": "excalibur",
+   "file": "sword.yml",
+   "group": "ultimate",
+   "display": "Excalibur",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "sword",
+    "ultimate"
+   ]
+  },
+  {
+   "id": "arthritis",
+   "file": "sword.yml",
+   "group": "legendary",
+   "display": "Arthritis",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "legendary",
+    "sword"
+   ]
+  },
+  {
+   "id": "testtest",
+   "file": "sword.yml",
+   "group": "common",
+   "display": "Inquisitive",
+   "maxLevel": 10,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "tags": [
+    "combat",
+    "common",
+    "enchantment",
+    "sword"
+   ]
+  },
+  {
+   "id": "wind",
+   "file": "test.yml",
+   "group": "rare",
+   "display": "Wind",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_SWORD"
+   ],
+   "triggers": [
+    "ATTACK",
+    "HOLD"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "MESSAGE",
+    "WIND_CHARGE"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "rare",
+    "sword"
+   ]
+  },
+  {
+   "id": "texward",
+   "file": "test.yml",
+   "group": "mask",
+   "display": "TexWard",
+   "maxLevel": 1,
+   "applies": [
+    "PLAYER_HEAD"
+   ],
+   "triggers": [
+    "ARMOR_EQUIP",
+    "ARMOR_UNDRESS",
+    "AUTO"
+   ],
+   "conditions": [
+    "EQUIP_SLOT",
+    "NUMBER_STORAGE"
+   ],
+   "effects": [
+    "NUMBER_STORAGE"
+   ],
+   "tags": [
+    "enchantment",
+    "mask"
+   ]
+  },
+  {
+   "id": "miner",
+   "file": "tool.yml",
+   "group": "tool",
+   "display": "Miner Tool",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_PICKAXE"
+   ],
+   "triggers": [
+    "CHANGE_HAND",
+    "HOLD"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "ADD_BLOCK_BONUS",
+    "REMOVE_BLOCK_BONUS"
+   ],
+   "tags": [
+    "enchantment",
+    "mining",
+    "pickaxe",
+    "tool"
+   ]
+  },
+  {
+   "id": "lumberjack",
+   "file": "tool.yml",
+   "group": "tool",
+   "display": "Lumberjack Tool",
+   "maxLevel": 5,
+   "applies": [
+    "ALL_AXE"
+   ],
+   "triggers": [
+    "CHANGE_HAND",
+    "HOLD"
+   ],
+   "conditions": [
+    "EQUIP_SLOT"
+   ],
+   "effects": [
+    "ADD_BLOCK_BONUS",
+    "REMOVE_BLOCK_BONUS"
+   ],
+   "tags": [
+    "axe",
+    "enchantment",
+    "mining",
+    "tool"
+   ]
+  },
+  {
+   "id": "slash",
+   "file": "trident.yml",
+   "group": "legendary",
+   "display": "Slash",
+   "maxLevel": 5,
+   "applies": [
+    "TRIDENT"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "legendary",
+    "trident"
+   ]
+  },
+  {
+   "id": "hydraulic",
+   "file": "trident.yml",
+   "group": "supreme",
+   "display": "Hydraulic",
+   "maxLevel": 5,
+   "applies": [
+    "TRIDENT"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "supreme",
+    "trident"
+   ]
+  },
+  {
+   "id": "frostbite",
+   "file": "trident.yml",
+   "group": "supreme",
+   "display": "Frostbite",
+   "maxLevel": 5,
+   "applies": [
+    "TRIDENT"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "supreme",
+    "trident"
+   ]
+  },
+  {
+   "id": "thrust",
+   "file": "trident.yml",
+   "group": "supreme",
+   "display": "Thrust",
+   "maxLevel": 5,
+   "applies": [
+    "TRIDENT"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "supreme",
+    "trident"
+   ]
+  },
+  {
+   "id": "lunge",
+   "file": "trident.yml",
+   "group": "legendary",
+   "display": "Lunge",
+   "maxLevel": 5,
+   "applies": [
+    "TRIDENT"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "legendary",
+    "trident"
+   ]
+  },
+  {
+   "id": "godpiercer",
+   "file": "trident.yml",
+   "group": "supreme",
+   "display": "Godpiercer",
+   "maxLevel": 5,
+   "applies": [
+    "TRIDENT"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "supreme",
+    "trident"
+   ]
+  },
+  {
+   "id": "thunder",
+   "file": "trident.yml",
+   "group": "supreme",
+   "display": "Thunder",
+   "maxLevel": 3,
+   "applies": [
+    "TRIDENT"
+   ],
+   "tags": [
+    "combat",
+    "enchantment",
+    "supreme",
+    "trident"
+   ]
+  }
+ ]
+}

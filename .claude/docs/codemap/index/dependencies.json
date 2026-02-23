@@ -1,0 +1,71 @@
+{
+  "generated": "2026-02-23",
+  "plugin": "CustomEnchantment",
+  "moduleDependencies": {
+    "direct": [
+      {"source": "ListenerModule", "target": "EnchantModule", "reason": "CECaller triggers enchant execution"},
+      {"source": "MenuModule", "target": "ConfigModule", "reason": "Reads menu configuration data"},
+      {"source": "PlayerModule", "target": "EnchantModule", "reason": "Manages player enchant data"},
+      {"source": "TaskModule", "target": "PlayerModule", "reason": "Tick-based player stat updates"},
+      {"source": "ConfigModule", "target": "EnchantModule", "reason": "Populates enchant registry maps"},
+      {"source": "AttributeModule", "target": "PlayerModule", "reason": "Uses AttributeMapRegister for player attributes"},
+      {"source": "CustomMenuModule", "target": "ConfigModule", "reason": "Reads menu config for CustomMenu integration"}
+    ],
+    "implicit": [
+      {"producer": "ConfigModule", "consumer": "ItemModule", "data": "CEEnchantMap, CEGroupMap, CEItemConfig"},
+      {"producer": "ConfigModule", "consumer": "MenuModule", "data": "BookCraftConfig, TinkererConfig, ArtifactUpgradeConfig"},
+      {"producer": "PlayerModule", "consumer": "TaskModule", "data": "CEPlayer instances, PlayerStorage"},
+      {"producer": "EnchantModule", "consumer": "ListenerModule", "data": "ConditionHook/EffectHook registrations"},
+      {"producer": "ItemModule", "consumer": "MenuModule", "data": "CEItemFactory registrations, CEItemRegister"},
+      {"producer": "DatabaseModule", "consumer": "PlayerModule", "data": "Database connection for player data persistence"}
+    ]
+  },
+  "initializationOrder": {
+    "phase1": {
+      "name": "Hooks",
+      "modules": ["FeatureModule", "EnchantModule", "AttributeModule", "FilterModule", "ExecuteModule"],
+      "description": "Register hooks and strategies before config loading"
+    },
+    "phase2": {
+      "name": "Config",
+      "modules": ["ConfigModule"],
+      "description": "Load all configurations (requires hooks from Phase 1)"
+    },
+    "phase3": {
+      "name": "Features",
+      "modules": ["CustomMenuModule", "CommandModule", "ItemModule", "PlayerModule", "TaskModule", "GuardModule", "DatabaseModule", "MenuModule", "PlaceholderModule", "ListenerModule"],
+      "description": "Register feature modules that depend on loaded configs"
+    }
+  },
+  "dataFlows": [
+    {
+      "name": "Event Processing",
+      "flow": ["Bukkit Event", "ListenerModule", "CECaller", "EnchantModule (conditions + effects)", "PlayerModule (CEPlayer)", "TaskModule (scheduled updates)"]
+    },
+    {
+      "name": "Item Creation",
+      "flow": ["ConfigModule (YAML)", "CEEnchantMap/CEItemConfig", "ItemModule (CEItemFactory)", "CEItem/CEWeapon instances", "MenuModule (display/trade)", "Player inventory"]
+    },
+    {
+      "name": "Player Data",
+      "flow": ["PlayerListener (join)", "PlayerModule (create CEPlayer)", "PlayerExpansions (14 systems)", "TaskModule (periodic updates)", "DatabaseModule (persist via SaveTask)"]
+    }
+  ],
+  "externalDependencies": {
+    "required": [
+      {"name": "BafFramework", "type": "compileOnly", "purpose": "Core framework"}
+    ],
+    "optional": [
+      {"name": "CustomMenu", "type": "compileOnly", "purpose": "Menu integration", "usedBy": ["CustomMenuModule", "CMenuListener"]},
+      {"name": "StackMob", "type": "compileOnly", "purpose": "Mob stacking compat", "usedBy": ["MobStackDeathListener"]},
+      {"name": "Vouchers", "type": "compileOnly", "purpose": "Voucher integration"},
+      {"name": "ItemDropManager", "type": "compileOnly", "purpose": "Item drop management"},
+      {"name": "mcMMO", "type": "compileOnly", "purpose": "mcMMO integration", "usedBy": ["McMMOListener", "McMMOUtils"]},
+      {"name": "PlaceholderAPI", "type": "compileOnly", "purpose": "Placeholder support", "usedBy": ["PlaceholderModule"]},
+      {"name": "CustomShop", "type": "compileOnly", "purpose": "Shop integration"},
+      {"name": "DamageIndicator", "type": "compileOnly", "purpose": "Damage display"},
+      {"name": "CustomFarm", "type": "compileOnly", "purpose": "Farm integration", "usedBy": ["CustomFarmListener"]},
+      {"name": "Citizens", "type": "compileOnly", "purpose": "NPC integration"}
+    ]
+  }
+}

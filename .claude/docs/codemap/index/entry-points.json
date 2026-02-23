@@ -1,0 +1,275 @@
+{
+  "generated": "2026-02-23",
+  "plugin": "CustomEnchantment",
+  "listeners": {
+    "count": 15,
+    "core": [
+      {
+        "class": "PlayerListener",
+        "module": "ListenerModule",
+        "events": ["PlayerJoinEvent", "PlayerQuitEvent", "PlayerChangedWorldEvent", "PlayerDeathEvent", "ItemEquipEvent", "PlayerMoveEvent", "PlayerInteractEvent", "PlayerItemConsumeEvent", "PlayerToggleSneakEvent", "PlayerToggleFlightEvent", "CEPlayerStatsModifyEvent"],
+        "eventCount": 11,
+        "conditional": false,
+        "tags": ["listener", "events", "player"]
+      },
+      {
+        "class": "InventoryListener",
+        "module": "ListenerModule",
+        "events": ["PrepareItemCraftEvent", "PrepareGrindstoneEvent", "PrepareSmithingEvent", "InventoryOpenEvent", "InventoryCloseEvent", "InventoryClickEvent", "PrepareAnvilEvent"],
+        "eventCount": 7,
+        "conditional": false,
+        "tags": ["listener", "events", "gui"]
+      },
+      {
+        "class": "EntityListener",
+        "module": "ListenerModule",
+        "events": ["SheepDyeWoolEvent", "EntityResurrectEvent", "EntityShootBowEvent", "ProjectileLaunchEvent", "ProjectileHitEvent", "EntityDamageEvent", "EntityDamageByEntityEvent"],
+        "eventCount": 7,
+        "priorityNotes": "LOWEST for EntityDamage, HIGHEST for EntityDamageByEntity",
+        "conditional": false,
+        "tags": ["listener", "events", "combat"]
+      },
+      {
+        "class": "BlockListener",
+        "module": "ListenerModule",
+        "events": ["BlockFromToEvent", "BlockBreakEvent", "BlockDropItemEvent", "BlockExplodeEvent", "EntityExplodeEvent"],
+        "eventCount": 5,
+        "conditional": false,
+        "tags": ["listener", "events", "mining"]
+      },
+      {
+        "class": "CEProtectDeadListener",
+        "module": "ListenerModule",
+        "events": ["PlayerDeathEvent", "PlayerRespawnEvent"],
+        "eventCount": 2,
+        "priorityNotes": "MONITOR priority",
+        "conditional": false,
+        "tags": ["listener", "events", "player"]
+      },
+      {
+        "class": "GuardListener",
+        "module": "ListenerModule",
+        "events": ["CreatureSpawnEvent", "EntityTargetLivingEntityEvent", "EntityDeathEvent", "EntityTameEvent", "PlayerTeleportEvent"],
+        "eventCount": 5,
+        "conditional": false,
+        "tags": ["listener", "events", "mobs"]
+      },
+      {
+        "class": "BannerListener",
+        "module": "ListenerModule",
+        "events": ["InventoryClickEvent"],
+        "eventCount": 1,
+        "conditional": false,
+        "tags": ["listener", "events", "items"]
+      },
+      {
+        "class": "OutfitListener",
+        "module": "ListenerModule",
+        "events": ["InventoryClickEvent", "PlayerDropItemEvent", "BlockDropItemEvent"],
+        "eventCount": 3,
+        "conditional": false,
+        "tags": ["listener", "events", "items"]
+      },
+      {
+        "class": "StaffMechanicListener",
+        "module": "ListenerModule",
+        "events": ["PlayerInteractEvent", "EntityDamageByEntityEvent"],
+        "eventCount": 2,
+        "conditional": false,
+        "tags": ["listener", "events", "combat"]
+      }
+    ],
+    "conditional": [
+      {
+        "class": "MobDeathListener",
+        "module": "ListenerModule",
+        "events": ["EntityDeathEvent"],
+        "eventCount": 1,
+        "condition": "StackMob NOT installed",
+        "conditional": true,
+        "tags": ["listener", "events", "mobs"]
+      },
+      {
+        "class": "MobStackDeathListener",
+        "module": "ListenerModule",
+        "events": ["StackDeathEvent"],
+        "eventCount": 1,
+        "condition": "StackMob installed",
+        "conditional": true,
+        "tags": ["listener", "events", "mobs", "integration"]
+      },
+      {
+        "class": "CMenuListener",
+        "module": "ListenerModule",
+        "events": ["CustomMenuOpenEvent", "CustomMenuCloseEvent", "CustomMenuClickEvent", "InventoryClickEvent"],
+        "eventCount": 4,
+        "condition": "CustomMenu installed",
+        "conditional": true,
+        "tags": ["listener", "events", "integration"]
+      },
+      {
+        "class": "McMMOListener",
+        "module": "ListenerModule",
+        "events": ["McMMOItemSpawnEvent"],
+        "eventCount": 1,
+        "condition": "mcMMO installed",
+        "conditional": true,
+        "tags": ["listener", "events", "integration"]
+      },
+      {
+        "class": "CustomFarmListener",
+        "module": "ListenerModule",
+        "events": ["OreBreakEvent"],
+        "eventCount": 1,
+        "condition": "CustomFarm installed",
+        "conditional": true,
+        "tags": ["listener", "events", "integration"]
+      },
+      {
+        "class": "MobDamageTrackerListener",
+        "module": "Root",
+        "events": [],
+        "eventCount": 0,
+        "condition": "Currently disabled",
+        "conditional": true,
+        "tags": ["listener", "combat"]
+      }
+    ]
+  },
+  "commands": {
+    "count": 9,
+    "root": [
+      {
+        "name": "/customenchantment",
+        "handler": "CustomEnchantmentCommand",
+        "module": "CommandModule",
+        "subcommands": ["addenchant", "addgem", "removegem", "additem", "admin", "cleartime", "disablehelmet", "enablehelmet", "giveitem", "info", "open", "reload", "removeenchant", "removeitem", "updateitem", "useitem", "debug", "fullchance", "debugall", "debugce", "test"],
+        "tags": ["command"]
+      },
+      {
+        "name": "/tinkerer",
+        "handler": "TinkererCommand",
+        "module": "CommandModule",
+        "subcommands": [],
+        "tags": ["command", "gui"]
+      },
+      {
+        "name": "/bookcraft",
+        "handler": "BookCraftCommand",
+        "module": "CommandModule",
+        "subcommands": [],
+        "tags": ["command", "gui"]
+      },
+      {
+        "name": "/ceanvil",
+        "handler": "CEAnvilCommand",
+        "module": "CommandModule",
+        "subcommands": [],
+        "tags": ["command", "gui"]
+      },
+      {
+        "name": "/bookupgrade",
+        "handler": "BookUpgradeCommand",
+        "module": "CommandModule",
+        "subcommands": [],
+        "tags": ["command", "gui"]
+      },
+      {
+        "name": "/artifactupgrade",
+        "handler": "ArtifactUpgradeCommand",
+        "module": "CommandModule",
+        "subcommands": [],
+        "tags": ["command", "gui"]
+      },
+      {
+        "name": "/equipment",
+        "handler": "EquipmentCommand",
+        "module": "CommandModule",
+        "subcommands": [],
+        "tags": ["command", "gui", "player"]
+      },
+      {
+        "name": "/nametag",
+        "handler": "CommandNameTag",
+        "module": "CommandModule",
+        "subcommands": [],
+        "tags": ["command", "items"]
+      },
+      {
+        "name": "/cefilter",
+        "handler": "CommandFilterEnchant",
+        "module": "CommandModule",
+        "subcommands": [],
+        "tags": ["command", "filtering"]
+      }
+    ],
+    "subcommands": [
+      {"name": "addenchant", "class": "CommandAddEnchant", "purpose": "Add enchantment to item"},
+      {"name": "addgem", "class": "CommandAddGem", "purpose": "Add gem to item"},
+      {"name": "removegem", "class": "CommandRemoveGem", "purpose": "Remove gem from item"},
+      {"name": "additem", "class": "CommandAddItem", "purpose": "Add CE item to inventory"},
+      {"name": "admin", "class": "CommandAdmin", "purpose": "Admin operations"},
+      {"name": "cleartime", "class": "CommandClearTime", "purpose": "Clear cooldowns"},
+      {"name": "disablehelmet", "class": "CommandDisableHelmet", "purpose": "Disable helmet effects"},
+      {"name": "enablehelmet", "class": "CommandEnableHelmet", "purpose": "Enable helmet effects"},
+      {"name": "giveitem", "class": "CommandGiveItem", "purpose": "Give CE item to player"},
+      {"name": "info", "class": "CommandInfo", "purpose": "Item/enchant info"},
+      {"name": "open", "class": "CommandOpen", "purpose": "Open custom menu"},
+      {"name": "reload", "class": "CommandReload", "purpose": "Reload config"},
+      {"name": "removeenchant", "class": "CommandRemoveEnchant", "purpose": "Remove enchantment"},
+      {"name": "removeitem", "class": "CommandRemoveItem", "purpose": "Remove CE item"},
+      {"name": "updateitem", "class": "CommandUpdateItem", "purpose": "Update item properties"},
+      {"name": "useitem", "class": "CommandUseItem", "purpose": "Use/activate CE item"},
+      {"name": "debug", "class": "CommandDebug", "purpose": "Debug single feature"},
+      {"name": "fullchance", "class": "CommandFullChance", "purpose": "Test chance calculations"},
+      {"name": "debugall", "class": "CommandDebugAll", "purpose": "Debug all enchantments"},
+      {"name": "debugce", "class": "CommandDebugCE", "purpose": "Debug CE enchantments"},
+      {"name": "test", "class": "CommandTest", "purpose": "Test features"}
+    ]
+  },
+  "tasks": {
+    "syncCount": 16,
+    "asyncCount": 6,
+    "sync": [
+      {"class": "EffectExecuteTask", "period": "1 tick", "purpose": "Execute enchant effects (max 500/tick)", "tags": ["scheduling", "enchantment"]},
+      {"class": "CECallerTask", "period": "1 tick", "purpose": "Trigger enchantment callers", "tags": ["scheduling", "enchantment"]},
+      {"class": "SpecialMiningTask", "period": "1 tick", "purpose": "Mining speed enchantments", "extends": "PlayerPerTickTask", "tags": ["scheduling", "mining"]},
+      {"class": "BlockTask", "period": "1 tick", "purpose": "Block interaction effects", "tags": ["scheduling", "mining"]},
+      {"class": "OutfitItemTask", "period": "1 tick", "purpose": "Outfit item processing", "extends": "PlayerPerTickTask", "tags": ["scheduling", "items"]},
+      {"class": "OutfitTopInventoryTask", "period": "1 tick", "purpose": "Equipment display sync", "extends": "PlayerPerTickTask", "tags": ["scheduling", "gui"]},
+      {"class": "CEExtraSlotTask", "period": "4 ticks", "purpose": "Extra inventory slots", "extends": "PlayerPerTickTask", "tags": ["scheduling", "player"]},
+      {"class": "RegenerationTask", "period": "4 ticks", "purpose": "Regeneration effects", "extends": "PlayerPerTickTask", "tags": ["scheduling", "player"]},
+      {"class": "UpdateAttributeTask", "period": "4 ticks", "purpose": "Recalculate attributes", "extends": "PlayerPerTickTask", "tags": ["scheduling", "attributes"]},
+      {"class": "SlowResistanceTask", "period": "4 ticks", "purpose": "Slow/resistance effects", "extends": "PlayerPerTickTask", "tags": ["scheduling", "player"]},
+      {"class": "UpdateJumpTask", "period": "4 ticks", "purpose": "Jump ability effects", "extends": "PlayerPerTickTask", "tags": ["scheduling", "player"]},
+      {"class": "UnbreakableArmorTask", "period": "config", "purpose": "Armor durability", "extends": "PlayerPerTickTask", "tags": ["scheduling", "items"]},
+      {"class": "CEPlayerTask", "period": "20 ticks", "purpose": "Update potion effects", "tags": ["scheduling", "player"]},
+      {"class": "ArrowTask", "period": "20 ticks", "purpose": "Arrow/projectile effects", "tags": ["scheduling", "combat"]},
+      {"class": "ExpTask", "period": "200 ticks", "purpose": "Experience management", "tags": ["scheduling", "player"]},
+      {"class": "SaveTask", "period": "18000 ticks", "purpose": "Persist player data (15 min)", "tags": ["scheduling", "persistence"]}
+    ],
+    "async": [
+      {"class": "EffectExecuteTask", "period": "1 tick", "purpose": "Async effect execution", "note": "async instance", "tags": ["scheduling", "enchantment"]},
+      {"class": "RecalculateAttributeTask", "period": "1 tick", "purpose": "Async attribute calc", "tags": ["scheduling", "attributes"]},
+      {"class": "SigilItemTask", "period": "1 tick", "purpose": "Sigil display updates (conditional)", "tags": ["scheduling", "items"]},
+      {"class": "OutfitItemAsyncTask", "period": "1 tick", "purpose": "Async outfit data prep", "tags": ["scheduling", "items"]},
+      {"class": "OutfitTopInventoryAsyncTask", "period": "1 tick", "purpose": "Async equipment data prep", "tags": ["scheduling", "gui"]},
+      {"class": "PowerAsyncTask", "period": "20 ticks", "purpose": "Async power/stat processing", "tags": ["scheduling", "player"]}
+    ],
+    "inheritance": {
+      "base": "PlayerPerTickTask",
+      "description": "Abstract base — processes all online players per tick",
+      "subclasses": [
+        "RecalculateAttributeTask",
+        "CEExtraSlotTask",
+        "RegenerationTask",
+        "SlowResistanceTask",
+        "SpecialMiningTask",
+        "UnbreakableArmorTask",
+        "OutfitItemTask",
+        "OutfitTopInventoryTask",
+        "UpdateJumpTask"
+      ]
+    }
+  }
+}
