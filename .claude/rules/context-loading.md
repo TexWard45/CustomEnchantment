@@ -43,6 +43,23 @@ Summaries live in `.claude/docs/codemap/summaries/`:
 - **Phase 2 JSON indexes** (`.claude/docs/codemap/index/`) are for search/lookup, not for loading into context
 - Module files are named by module: `enchant.md`, `item.md`, `player.md`, `menu.md`, `command.md`, `listener.md`, `task.md`, `config.md`, `guard.md`, `database.md`, `attribute.md`, `filter.md`, `execute.md`, `feature.md`, `custommenu.md`, `placeholder.md`, `root.md`
 
+## MCP Semantic Search (Phase 4)
+
+When MCP server is running, use these tools for natural language search:
+
+| Tool | Use Case | Example |
+|------|----------|---------|
+| `search_code` | Find classes, methods, listeners, modules | "damage reduction", "player join event" |
+| `search_enchantments` | Find enchantments with domain filters | "legendary sword fire", group="legendary" |
+| `search_configs` | Find config classes and YAML keys | "combat settings", "redis configuration" |
+| `get_module_summary` | Direct lookup of Phase 3 summaries | module_name="enchant", section="Key Classes" |
+| `reindex` | Rebuild index after data changes | force=True to rebuild regardless |
+
+**When to use MCP search vs direct file reads:**
+- Use MCP search when you don't know which class/file to look at
+- Use direct file reads when you already know the exact file
+- MCP search is especially useful for finding enchantments (579 total) and cross-module relationships
+
 ## Regenerating Summaries
 
 When the codebase changes significantly, regenerate with:

@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "ce-semantic-search": {
+      "command": "python",
+      "args": [".claude/mcp/server.py"],
+      "env": {}
+    }
+  }
+}

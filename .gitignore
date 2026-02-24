@@ -39,4 +39,11 @@ bin/
 .vscode/
 
 ### Mac OS ###
-.DS_Store__pycache__/
+.DS_Store
+
+### Python ###
+__pycache__/
+*.pyc
+
+### MCP Server ###
+.claude/mcp/persist/
