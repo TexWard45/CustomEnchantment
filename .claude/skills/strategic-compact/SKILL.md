@@ -57,7 +57,27 @@ Environment variables:
 3. **Don't compact mid-implementation** - Preserve context for related changes
 4. **Read the suggestion** - The hook tells you *when*, you decide *if*
 
+## Context Preservation Rules
+
+When compacting (manually or via auto-compaction), preserve these in order of priority:
+
+1. **Task State** — Current task type (question/bugfix/feature/refactor), scope (narrow/module/broad), and implementation phase
+2. **Files Read** — List of summaries and source files already loaded, with one-line notes on findings
+3. **Discovered Relationships** — Class dependencies, data flows, cross-module interactions found
+4. **Decisions Made** — Architectural choices, rejected alternatives, rationale
+5. **Test Results** — Passing/failing tests, error messages, relevant stack traces
+6. **Cache State** — Which files are known-unchanged (from file-hashes.json check)
+7. **Memory Pointers** — Which memory files (conventions.md, patterns.md, etc.) have been consulted
+
+### Before Compacting Checklist
+
+Save new findings to persistent memory before they are lost:
+- New conventions discovered (3+ observations) → `conventions.md`
+- Bug patterns found → `bug-patterns.md`
+- Design decisions for this project → `MEMORY.md`
+- Cross-project learnings → `cross-project.md`
+
 ## Related
 
 - [The Longform Guide](https://x.com/affaanmustafa/status/2014040193557471352) - Token optimization section
-- Memory persistence hooks - For state that survives compaction
+- Persistent memory files: `~/.claude/projects/{project}/memory/`

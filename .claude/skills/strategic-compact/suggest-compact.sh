@@ -44,9 +44,14 @@ fi
 # Suggest compact after threshold tool calls
 if [ "$count" -eq "$THRESHOLD" ]; then
   echo "[StrategicCompact] $THRESHOLD tool calls reached - consider /compact if transitioning phases" >&2
+  echo "[Memory] Before compacting, save new findings to persistent memory:" >&2
+  echo "  - New conventions (3+ observations) -> conventions.md" >&2
+  echo "  - Bug patterns found -> bug-patterns.md" >&2
+  echo "  - Design decisions -> MEMORY.md" >&2
 fi
 
 # Suggest at regular intervals after threshold
 if [ "$count" -gt "$THRESHOLD" ] && [ $((count % 25)) -eq 0 ]; then
   echo "[StrategicCompact] $count tool calls - good checkpoint for /compact if context is stale" >&2
+  echo "[Memory] Consider saving discoveries to persistent memory before compacting" >&2
 fi

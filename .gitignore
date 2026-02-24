@@ -47,3 +47,6 @@ __pycache__/
 
 ### MCP Server ###
 .claude/mcp/persist/
+
+### AI Context Cache ###
+.claude/docs/codemap/cache/file-hashes.json

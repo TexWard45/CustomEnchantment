@@ -64,6 +64,32 @@ Use MCP tools when you don't know which file/class to look at:
 
 For discovery scope or unknown modules, invoke `/context-selector` before loading summaries.
 
+## Cache-Aware Loading
+
+Before reading a Java source file, check the file hash cache for a cached summary:
+
+1. Look up the file's relative path in `.claude/docs/codemap/cache/file-hashes.json`
+2. If the cached `summary`, `tags`, and `methods` are sufficient for the task → skip reading the full file
+3. If deeper inspection is needed → read the source but note it was cache-checked
+4. After completing work that involved source file analysis → suggest running `/cache-update`
+
+**When to use cache vs source:**
+| Need | Use Cache | Read Source |
+|------|-----------|-------------|
+| What does this class do? | Yes (summary) | No |
+| What module is it in? | Yes (module field) | No |
+| What methods does it have? | Yes (methods list) | No |
+| How is a method implemented? | No | Yes |
+| What are the exact parameters? | No | Yes |
+| Find a specific code pattern | No | Yes (or Grep) |
+
+**Cache maintenance:**
+```bash
+python .claude/docs/codemap/cache/_generate_cache.py --check   # Validate
+python .claude/docs/codemap/cache/_generate_cache.py --diff ... # Incremental update
+python .claude/docs/codemap/cache/_generate_cache.py --full     # Full rebuild
+```
+
 ## Regenerating Summaries
 
 When the codebase changes significantly:
