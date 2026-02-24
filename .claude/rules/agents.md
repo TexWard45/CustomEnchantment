@@ -17,15 +17,27 @@ Located in `.claude/agents/`:
 
 ## Model Selection for Subagent Tasks
 
+**MANDATORY: ALWAYS set the `model` parameter** when using the Task tool for ad-hoc subagents. Never rely on the default — explicitly specify the model.
+
 When spawning ad-hoc subagents via the Task tool, select the model by task complexity:
 
 | Model | Use For | Examples |
 |-------|---------|---------|
-| **haiku** | Routine, templated, search tasks | File searches, build verification, doc generation, issue creation |
-| **sonnet** | Standard development work | Code review, TDD, planning, security review |
+| **haiku** | Routine, templated, search tasks | File searches, build verification, doc generation, issue creation, codebase exploration |
+| **sonnet** | Standard development work | Code review, TDD, planning, security review, feature implementation |
 | **opus** | Deep reasoning required | Architecture decisions, complex debugging, cross-module refactoring |
 
-**Default to haiku** unless the task requires code reasoning or judgment.
+**Default to `model: "haiku"`** for ALL Task tool calls unless the task explicitly requires code reasoning or judgment. When in doubt, use haiku — it handles 80% of subagent tasks.
+
+```
+# CORRECT: Always set model explicitly
+Task(model: "haiku", subagent_type: "Explore", prompt: "Find all listeners...")
+Task(model: "haiku", subagent_type: "Bash", prompt: "Run gradle build...")
+Task(model: "sonnet", subagent_type: "code-reviewer", prompt: "Review this code...")
+
+# WRONG: Missing model parameter
+Task(subagent_type: "Explore", prompt: "Find all listeners...")
+```
 
 ## Immediate Agent Usage
 

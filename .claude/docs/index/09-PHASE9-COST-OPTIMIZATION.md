@@ -230,6 +230,42 @@ Create a cost tracking rule:
 - For questions: often summaries are sufficient, don't read full files
 ```
 
+## Measurement Protocol
+
+### Per-Session Tracking Template
+
+After each significant session, note:
+
+```
+Session: [date] | Task: [brief description]
+├── Task type: question / bugfix / feature / refactor
+├── Task size: XS / S / M / L / XL
+├── Files read: [count] (source files opened via Read tool)
+├── Summaries used: [count] (module summaries or get_file_summary calls)
+├── Cache hits: [count] (times get_file_summary avoided a full read)
+├── Subagent calls: [count] (model used for each: haiku/sonnet/opus)
+├── Context stages reached: 1 (orientation) / 2 (targeted) / 3 (deep dive)
+└── Outcome: success / partial / blocked
+```
+
+### What to Measure
+
+| Metric | How to Observe | Target |
+|--------|---------------|--------|
+| Source files read per task | Count `Read` calls on `.java` files | < 3 for questions, < 5 for features |
+| Summary-first compliance | Was `get_file_summary` called before each `Read`? | 100% |
+| Cache hit rate | `get_file_summary` sufficient / total file lookups | > 60% |
+| Subagent model choice | Was haiku used for routine tasks? | > 80% haiku |
+| Stage escalation | Did task stop at Stage 1-2, or always reach Stage 3? | Stage 2 sufficient for 60%+ of tasks |
+| Re-reads | Same file read twice in one session | 0 |
+
+### Weekly Review
+
+Compare token usage week-over-week using `/cost`:
+- Track average tokens per task category (question, bugfix, feature)
+- Identify tasks that consumed excessive tokens and why
+- Update rules if patterns of waste are found
+
 ## Dependencies
 
 - **Phase 3** — Summaries enable summary-first reading

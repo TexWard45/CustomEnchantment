@@ -1,5 +1,35 @@
 # Context Loading Strategy
 
+## Pre-Read Protocol (MANDATORY)
+
+**Before reading ANY `.java` source file, follow this checklist in order. Stop at the first step that provides sufficient information.**
+
+1. **Check loaded context** — Is the answer already in summaries or files loaded this session? → **Stop, use existing context**
+2. **Check module summary** — Does `{module}.md` in `.claude/docs/codemap/summaries/` cover this class? → **Read module summary only**
+3. **Check MCP file summary** — Call `get_file_summary(class_name)` to get cached summary, methods, tags → **Use if sufficient**
+4. **Read source file** — Only if steps 1-3 are insufficient AND the task requires exact implementation details
+
+**NEVER read source files for:**
+- Questions about class purpose, module membership, or relationships (use summaries)
+- Questions about what methods a class has (use `get_file_summary`)
+- Exploring which classes exist in a module (use module summary or MCP `search_code`)
+
+## Incremental Loading Stages
+
+Load context in stages. **Stop at the earliest sufficient stage.**
+
+| Stage | What | Token Cost | When Sufficient |
+|-------|------|-----------|-----------------|
+| **1. Orientation** | PLUGIN-SUMMARY.md | ~300 tokens | Always loaded. Sufficient for "which module handles X?" questions |
+| **2. Targeted** | 1-2 module summaries + MCP `get_file_summary` | ~200-500 tokens | Questions, discovery, simple bug triage |
+| **3. Deep Dive** | Source files (max 2-3 at a time) | ~600-2000 tokens | Implementation, debugging, exact code inspection |
+
+**Rules:**
+- **Questions** → Stop at Stage 2. Only proceed to Stage 3 if asking about exact implementation logic
+- **Bug fixes** → Start at Stage 2, proceed to Stage 3 only for the specific buggy file(s)
+- **Features** → Stage 2 for planning, Stage 3 only for files being modified or serving as patterns
+- **Refactors** → Stage 2 + LSP/Grep for impact analysis, Stage 3 for files being changed
+
 ## Summary Hierarchy
 
 Summaries live in `.claude/docs/codemap/summaries/`:
@@ -64,31 +94,47 @@ Use MCP tools when you don't know which file/class to look at:
 
 For discovery scope or unknown modules, invoke `/context-selector` before loading summaries.
 
-## Cache-Aware Loading
+## Cache-Aware Loading (MANDATORY)
 
-Before reading a Java source file, check the file hash cache for a cached summary:
+**MANDATORY: Before using the `Read` tool on ANY Java source file, call MCP `get_file_summary(class_name)` first.** If the summary, methods list, and tags answer your question → skip the full read.
 
-1. Look up the file's relative path in `.claude/docs/codemap/cache/file-hashes.json`
-2. If the cached `summary`, `tags`, and `methods` are sufficient for the task → skip reading the full file
-3. If deeper inspection is needed → read the source but note it was cache-checked
-4. After completing work that involved source file analysis → suggest running `/cache-update`
+### Pre-Read Decision Flow
 
-**When to use cache vs source:**
-| Need | Use Cache | Read Source |
-|------|-----------|-------------|
+```
+Need info about a Java class?
+  ├─ Call get_file_summary(class_name)
+  ├─ Summary sufficient? → STOP, use summary
+  ├─ Need method signatures? → Check methods list → STOP if found
+  └─ Need exact implementation? → Read source file (Stage 3)
+```
+
+### When to Use Cache vs Source
+
+| Need | Use `get_file_summary` | Read Source |
+|------|------------------------|-------------|
 | What does this class do? | Yes (summary) | No |
 | What module is it in? | Yes (module field) | No |
 | What methods does it have? | Yes (methods list) | No |
+| What does it depend on? | Yes (dependencies) | No |
 | How is a method implemented? | No | Yes |
 | What are the exact parameters? | No | Yes |
 | Find a specific code pattern | No | Yes (or Grep) |
 
-**Cache maintenance:**
+### Session Re-Read Prevention
+
+- Track files already read in the current session — never re-read an unchanged file
+- If you need to reference a file you already read, use the context already loaded
+- After modifying a file, re-read only if you need to verify the edit
+
+### Cache Maintenance
+
 ```bash
 python .claude/docs/codemap/cache/_generate_cache.py --check   # Validate
 python .claude/docs/codemap/cache/_generate_cache.py --diff ... # Incremental update
 python .claude/docs/codemap/cache/_generate_cache.py --full     # Full rebuild
 ```
+
+After completing work that involved source file analysis → suggest running `/cache-update`.
 
 ## Regenerating Summaries
 
