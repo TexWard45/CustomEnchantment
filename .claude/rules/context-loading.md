@@ -36,6 +36,7 @@ Summaries live in `.claude/docs/codemap/summaries/`:
 
 | Level | File | Size | Contains |
 |-------|------|------|----------|
+| 6 | `~/.claude/shared/` | ~2KB | Cross-project: BafFramework API, Bukkit patterns, registry |
 | 5 | `ECOSYSTEM.md` | ~1KB | Plugin in server stack, integration points |
 | 4 | `PLUGIN-SUMMARY.md` | ~3KB | All 16 modules at a glance, data flows |
 | 3 | `{module}.md` | ~4-15KB | Module classes with key methods |

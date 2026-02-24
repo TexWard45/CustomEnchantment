@@ -1,366 +1,89 @@
-# Phase 10 — Multi-Plugin & Cross-Project Support
+# Phase 10 — Multi-Plugin & Cross-Project Knowledge Layer
+
+**Status: COMPLETE** | **Implemented: 2026-02-24**
 
 ## Purpose
 
-Enable a shared knowledge layer across all plugins in the ecosystem. Detect reusable components, recommend code sharing, handle version differences, and provide a unified search across all projects.
+Enable a shared knowledge layer across all plugins in the ecosystem. Provide cross-project docs, reusable component detection, shared convention enforcement, and version compatibility tracking via `--add-dir` and `~/.claude/shared/`.
 
-## Design
+## What Was Built
 
-### Ecosystem Architecture
-
-```
-┌─────────────────────────────────────────────────┐
-│              SHARED KNOWLEDGE LAYER              │
-│                                                  │
-│  BafFramework API    Bukkit/Paper patterns       │
-│  Shared conventions  Reusable component registry │
-│  Cross-project deps  Version compatibility map   │
-└────────────────┬────────────────────────────────┘
-                 │
-    ┌────────────┼────────────────┐
-    │            │                │
-    ▼            ▼                ▼
-┌─────────┐ ┌──────────┐ ┌─────────────┐
-│ Custom   │ │ Custom   │ │ Custom      │
-│ Enchant  │ │ Menu     │ │ Shop        │
-│          │ │          │ │             │
-│ Index    │ │ Index    │ │ Index       │
-│ Summaries│ │ Summaries│ │ Summaries   │
-│ Cache    │ │ Cache    │ │ Cache       │
-└─────────┘ └──────────┘ └─────────────┘
-```
-
-### Shared Knowledge Components
-
-#### 1. BafFramework API Reference (Shared)
+### Directory Structure
 
 ```
-~/.claude/shared/bafframework/
-├── API-REFERENCE.md            # Full API surface
-├── MODULE-LIFECYCLE.md         # PluginModule, onEnable/onReload/etc.
-├── CONFIG-SYSTEM.md            # @Configuration, @Path patterns
-├── COMMAND-SYSTEM.md           # AdvancedCommandBuilder
-├── FEATURE-SYSTEM.md           # ConditionHook, EffectHook, ExecuteHook
-├── UTILITIES.md                # ColorUtils, ItemStackBuilder, etc.
-└── VERSION-CHANGELOG.md        # API changes between versions
+C:\Users\nhata\.claude\
+  CLAUDE.md                              # User-level config (< 200 tokens)
+  shared\
+    README.md                            # Overview + --add-dir usage
+    bafframework\
+      INDEX.md                           # TOC pointing to BafFramework source docs
+      QUICK_REFERENCE.md                 # Most-used APIs (~800 tokens)
+      PATTERNS.md                        # Strategy, Singleton, Builder, Hook, Factory
+      CONVENTIONS.md                     # Naming, Lombok, package structure
+    bukkit-patterns\
+      BUKKIT_PATTERNS.md                 # Events, items, scheduler patterns
+      TESTING_GUIDE.md                   # MockBukkit 4.x cross-project reference
+      ASYNC_RULES.md                     # Main thread rules, async patterns
+    registry\
+      registry.json                      # 4 projects with metadata
+      conventions.json                   # Cross-project naming/testing/git
+      reusable-components.json           # 11 shared patterns catalog
+      version-map.json                   # MC 1.21.1, Java 21, all versions
+    workflows\
+      CROSS_PROJECT_WORKFLOW.md          # --add-dir usage, when/how
+      BOOTSTRAP_NEW_PLUGIN.md            # New plugin checklist
 ```
 
-Distribution methods:
-- **Symlink**: `ln -s ~/.claude/shared/bafframework .claude/docs/bafframework`
-- **Git submodule**: Shared docs as a separate repo
-- **User-level CLAUDE.md**: Reference in `~/.claude/CLAUDE.md`
+### Key Design Decisions
 
-#### 2. Bukkit/Paper Pattern Library (Shared)
+1. **`--add-dir` over symlinks** — Windows-safe, no admin permissions needed
+2. **Curated shared docs** — Quick reference + index, not full copies
+3. **No cross-project MCP server** — `--add-dir` provides sufficient access
+4. **4 core projects** — BafFramework, CustomEnchantment, CustomMenu, CustomFarm
+5. **User-level CLAUDE.md under 200 tokens** — Loads in every session
 
-```
-~/.claude/shared/bukkit-patterns/
-├── THREADING.md                # Main thread rules, async patterns
-├── EVENTS.md                   # Event handling best practices
-├── ITEMS.md                    # ItemStack creation, NBT, PersistentDataContainer
-├── INVENTORY.md                # Inventory management patterns
-├── COMMANDS.md                 # Command registration (Brigadier vs legacy)
-├── PERSISTENCE.md              # Database, file, config patterns
-├── NMS.md                      # NMS access patterns (version-specific)
-└── PERFORMANCE.md              # Server performance considerations
-```
+### Changes to Existing Files
 
-#### 3. Cross-Project Convention Registry
+- `CLAUDE.md` — Added shared knowledge layer reference
+- `.claude/rules/context-loading.md` — Added Level 6 (shared layer) to summary hierarchy
 
-```json
-// ~/.claude/shared/conventions.json
-{
-  "naming": {
-    "modules": "{Feature}Module",
-    "configs": "{Feature}Config",
-    "listeners": "{Feature}Listener",
-    "managers": "{Feature}Manager"
-  },
-  "patterns": {
-    "singleton": "instance() method + null in onDisable()",
-    "config-loading": "ConfigUtils.setupResource() in onReload()",
-    "listener-registration": "self-register in constructor"
-  },
-  "testing": {
-    "framework": "JUnit 5 + MockBukkit 4.x",
-    "package": "org.mockbukkit.mockbukkit",
-    "setup": "@BeforeAll with isMocked() guard"
-  }
-}
-```
+## Access Methods
 
-#### 4. Reusable Component Registry
-
-Automatically detect components used across multiple plugins:
-
-```json
-// ~/.claude/shared/reusable-components.json
-{
-  "components": [
-    {
-      "name": "ConditionHook pattern",
-      "source": "BafFramework",
-      "usedBy": ["CustomEnchantment", "CustomMenu"],
-      "description": "Extensible condition check system",
-      "howToUse": "Extend ConditionHook, implement getIdentifier() + check()"
-    },
-    {
-      "name": "AbstractMenu pattern",
-      "source": "CustomMenu",
-      "usedBy": ["CustomEnchantment", "CustomShop"],
-      "description": "Type-safe menu system with data binding",
-      "howToUse": "Extend AbstractMenu<D, E>, implement buildMenu()"
-    },
-    {
-      "name": "PlayerExpansion pattern",
-      "source": "CustomEnchantment",
-      "candidates": ["CustomShop", "any RPG plugin"],
-      "description": "Extensible player data without modifying player class",
-      "howToUse": "Extend CEPlayerExpansion, register in expansion register"
-    }
-  ]
-}
-```
-
-### Cross-Project Search
-
-When working on Plugin A, search across Plugin B's index:
-
-```pseudocode
-function crossProjectSearch(query, projects):
-  allResults = []
-  for project in projects:
-    index = loadIndex(project.path)
-    results = index.search(query)
-    for r in results:
-      r.project = project.name
-      allResults.append(r)
-
-  # Rank by relevance, with current project boosted
-  return rank(allResults, boost_current_project=1.5)
-```
-
-### Cross-Project Context Loading
-
-Using Claude Code's `--add-dir`:
-
+### Primary: `--add-dir`
 ```bash
-# Working on CustomEnchantment, need BafFramework context
-claude --add-dir ../BafFramework
-
-# Working on CustomShop, need both frameworks
-claude --add-dir ../BafFramework --add-dir ../CustomMenu
+claude --add-dir "C:\Users\nhata\.claude\shared"
 ```
 
-With `CLAUDE_CODE_ADDITIONAL_DIRECTORIES_CLAUDE_MD=1`, CLAUDE.md files from additional directories are loaded automatically.
-
-### Version Compatibility Map
-
-Track API compatibility across plugin versions:
-
-```json
-// ~/.claude/shared/version-map.json
-{
-  "bafframework": {
-    "1.0.0": {
-      "minecraft": "1.21.1",
-      "breaking_changes": [],
-      "new_apis": ["AdvancedCommandBuilder", "CommandRegistrar"]
-    }
-  },
-  "customenchantment": {
-    "1.0.0": {
-      "bafframework": ">=1.0.0",
-      "minecraft": "1.21.1",
-      "api_surface": ["CEAPI", "CEEnchant", "CEPlayer"]
-    }
-  }
-}
+### Optional: Directory junctions
+```cmd
+mklink /J shared "C:\Users\nhata\.claude\shared"
 ```
-
-### Reuse Detection Algorithm
-
-```pseudocode
-function detectReusableComponents(projects):
-  # Find patterns that appear in 2+ projects
-  allPatterns = {}
-  for project in projects:
-    patterns = project.index.getPatterns()
-    for pattern in patterns:
-      allPatterns[pattern.signature].add(project.name)
-
-  reusable = []
-  for pattern, projects in allPatterns:
-    if len(projects) >= 2:
-      reusable.append({
-        "pattern": pattern,
-        "usedBy": projects,
-        "recommendation": suggestExtraction(pattern, projects)
-      })
-
-  return reusable
-
-function suggestExtraction(pattern, projects):
-  if pattern.isUtility:
-    return f"Extract to shared utility library"
-  if pattern.isFrameworkExtension:
-    return f"Consider adding to BafFramework"
-  if pattern.isPluginSpecific:
-    return f"Document as reusable pattern, keep in each plugin"
-```
-
-## Technical Implementation
-
-### Shared Knowledge Directory
-
-```bash
-# Create shared knowledge directory
-mkdir -p ~/.claude/shared/bafframework
-mkdir -p ~/.claude/shared/bukkit-patterns
-mkdir -p ~/.claude/shared/project-registry
-
-# Symlink into each project
-ln -s ~/.claude/shared .claude/shared
-```
-
-### Cross-Project MCP Server
-
-A single MCP server that indexes multiple projects:
-
-```json
-// ~/.claude/mcp.json (user-level, applies to all projects)
-{
-  "mcpServers": {
-    "ecosystem-search": {
-      "command": "node",
-      "args": ["~/.claude/shared/mcp-server/index.js"],
-      "env": {
-        "PROJECTS": "D:/IntellijWorkspace/3FMC/Bukkit/CustomEnchantment,D:/IntellijWorkspace/3FMC/Bukkit/BafFramework,D:/IntellijWorkspace/3FMC/Bukkit/CustomMenu"
-      }
-    }
-  }
-}
-```
-
-### Project Registry
-
-```json
-// ~/.claude/shared/project-registry/registry.json
-{
-  "projects": [
-    {
-      "name": "CustomEnchantment",
-      "path": "D:/IntellijWorkspace/3FMC/Bukkit/CustomEnchantment",
-      "type": "bukkit-plugin",
-      "framework": "BafFramework",
-      "minecraft": "1.21.1",
-      "modules": 16,
-      "lastIndexed": "2026-02-23"
-    },
-    {
-      "name": "BafFramework",
-      "path": "D:/IntellijWorkspace/3FMC/Bukkit/BafFramework",
-      "type": "framework",
-      "minecraft": "1.21.1",
-      "lastIndexed": "2026-02-23"
-    },
-    {
-      "name": "CustomMenu",
-      "path": "D:/IntellijWorkspace/3FMC/Bukkit/CustomMenu",
-      "type": "bukkit-plugin",
-      "framework": "BafFramework",
-      "minecraft": "1.21.1",
-      "lastIndexed": "2026-02-23"
-    }
-  ]
-}
-```
-
-## Applied Example: Adding Economy to CustomEnchantment
-
-```
-Task: "Add money cost to enchantment upgrades"
-
-Cross-project search:
-1. Search CustomEnchantment → BookUpgradeMenu, ArtifactUpgradeMenu
-2. Search CustomShop → economy API, vault integration, player balance
-3. Search BafFramework → RequirementHook (cost system)
-
-Shared knowledge:
-- BafFramework provides RequirementHook pattern
-- CustomShop has a VaultEconomyManager that wraps Vault API
-- Convention: costs go through RequirementHook.check() + pay()
-
-Context loaded:
-- CustomEnchantment: BookUpgradeMenu summary, RequirementHook docs
-- CustomShop: VaultEconomyManager summary (from cross-project search)
-- BafFramework: FEATURE_SYSTEM.md RequirementHook section
-
-Result: Claude implements MoneyRequirement following the established pattern,
-compatible with CustomShop's economy system, without reading the full
-CustomShop codebase.
-```
-
-## Dependencies
-
-- **Phase 6** — Cross-session memory provides the persistence layer
-- **Phase 7** — Agent tools provide cross-project search capability
 
 ## Success Criteria
 
-- [ ] Shared knowledge directory created with BafFramework docs
-- [ ] Project registry tracks all plugins in ecosystem
-- [ ] Cross-project search finds relevant code across 2+ projects
-- [ ] Reusable component registry identifies shared patterns
-- [ ] Version compatibility map prevents incompatible changes
-- [ ] `--add-dir` workflow documented for cross-project sessions
-- [ ] New plugin bootstraps with shared knowledge in < 5 minutes
+- [x] Shared knowledge directory created with BafFramework docs
+- [x] BafFramework API available via shared docs (QUICK_REFERENCE.md)
+- [x] Bukkit/Paper pattern library extracted (3 files)
+- [x] Project registry tracks 4 ecosystem plugins
+- [x] Cross-project convention registry with naming/testing/git
+- [x] Reusable component registry identifies 11 shared patterns
+- [x] Version compatibility map with all dependency versions
+- [x] `--add-dir` workflow documented (CROSS_PROJECT_WORKFLOW.md)
+- [x] New plugin bootstrap guide (BOOTSTRAP_NEW_PLUGIN.md)
+- [x] User-level CLAUDE.md under 200 tokens
 
----
+## What Was NOT Built (Deferred)
+
+- Cross-project MCP server (not needed with `--add-dir`)
+- Automatic reuse detection algorithm (manual registry sufficient)
+- Symlink-based distribution (junctions documented as optional)
+- Cross-project search indexing (each project has its own index)
+
+## Dependencies
+
+- **Phase 6** — Cross-session memory provides persistence layer
+- **Phase 7** — Agent tools provide MCP search capability
 
 ## GitHub Issue
 
-### Title
-`feat: Phase 10 — Multi-Plugin & Cross-Project Knowledge Layer`
-
-### Description
-
-Build a shared knowledge layer that spans all plugins in the ecosystem. Enable cross-project search, reusable component detection, shared convention enforcement, and version compatibility tracking.
-
-### Background / Motivation
-
-The 3FMC ecosystem has multiple interdependent plugins (CustomEnchantment, BafFramework, CustomMenu, CustomShop, etc.). Currently, knowledge about one plugin doesn't transfer to another. A developer working on CustomEnchantment who needs to integrate with CustomShop must manually find and read the relevant code.
-
-A shared knowledge layer means context built for one plugin immediately benefits all others.
-
-### Tasks
-
-- [ ] Create shared knowledge directory structure at `~/.claude/shared/`
-- [ ] Extract BafFramework API reference into shared docs
-- [ ] Extract Bukkit/Paper pattern library into shared docs
-- [ ] Create project registry tracking all ecosystem plugins
-- [ ] Create cross-project convention registry
-- [ ] Implement reusable component detection algorithm
-- [ ] Create version compatibility map
-- [ ] Configure cross-project MCP server (if Phase 4 complete)
-- [ ] Document `--add-dir` workflow for cross-project sessions
-- [ ] Implement symlink-based shared docs distribution
-- [ ] Test: search from CustomEnchantment finds CustomShop economy code
-- [ ] Test: new plugin bootstraps with shared knowledge
-
-### Acceptance Criteria
-
-- [ ] BafFramework API available to all plugins via shared docs
-- [ ] Cross-project search returns results from 2+ projects
-- [ ] Reusable component registry identifies 5+ shared patterns
-- [ ] New plugin setup includes shared knowledge in < 5 minutes
-- [ ] No duplicate documentation across projects
-
-### Future Improvements
-
-- Automatic cross-project index merging on git push
-- Shared test fixtures library
-- Plugin compatibility testing framework
-- API change detection (flag breaking changes across plugins)
-
----
-**Priority:** P3 | **Effort:** L | **Labels:** `feature`, `infrastructure`, `phase-10`, `effort:L`
+[#68](https://github.com/TexWard45/CustomEnchantment/issues/68) — feat: Phase 10 — Multi-Plugin & Cross-Project Knowledge Layer

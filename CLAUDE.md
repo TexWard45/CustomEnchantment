@@ -106,6 +106,11 @@ When a first fix attempt breaks something or introduces regressions, STOP and an
 - Keep responses concise
 <!-- Add your own preferences below -->
 
+## Shared Knowledge Layer
+
+Cross-project docs are at `C:\Users\nhata\.claude\shared\`. Use `--add-dir "C:\Users\nhata\.claude\shared"` for cross-project context.
+See `shared/workflows/CROSS_PROJECT_WORKFLOW.md` for usage patterns.
+
 ## External Dependencies
 
 **Required:**
