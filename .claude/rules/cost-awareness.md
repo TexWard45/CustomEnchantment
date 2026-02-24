@@ -6,6 +6,7 @@
 - Check if information is already in loaded context before reading new files
 - For questions: summaries are often sufficient — don't read full source files
 - Avoid re-reading files already in context
+- For unknown-module tasks, invoke `/context-selector` before loading summaries
 
 ## Subagent Delegation
 

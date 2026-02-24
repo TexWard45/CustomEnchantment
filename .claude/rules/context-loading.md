@@ -12,57 +12,61 @@ Summaries live in `.claude/docs/codemap/summaries/`:
 | 2 | Embedded in Level 3 | — | ~121 detailed class summaries |
 | 1 | Embedded in Level 2 | — | Key method signatures per class |
 
-## When to Load What
+Module files: `enchant.md`, `item.md`, `player.md`, `menu.md`, `command.md`, `listener.md`, `task.md`, `config.md`, `guard.md`, `database.md`, `attribute.md`, `filter.md`, `execute.md`, `feature.md`, `custommenu.md`, `placeholder.md`, `root.md`
 
-### Questions / Explanations
-1. Read `PLUGIN-SUMMARY.md` first
-2. Read the relevant `{module}.md` if question is module-specific
-3. **Do NOT read source files** unless the summary is insufficient
+## Task Classification
 
-### Bug Fixes
-1. Read `PLUGIN-SUMMARY.md` for context
-2. Read the relevant `{module}.md` to understand class relationships
-3. Read the specific source file(s) for the bug
+| Type | Keyword Signals |
+|------|----------------|
+| **question** | what, why, how, explain, show, list, where, describe |
+| **bugfix** | fix, NPE, error, exception, crash, wrong, broken, fails |
+| **feature** | add, create, implement, new, support, integrate, enable |
+| **refactor** | refactor, rename, extract, move, split, consolidate |
 
-### New Features
-1. Read `PLUGIN-SUMMARY.md` for architecture overview
-2. Read `{module}.md` for the target module
-3. Read `{module}.md` for any similar existing patterns
-4. Read source files only for the classes you need to modify/extend
+## Scope Detection
 
-### Code Review
-1. Read `PLUGIN-SUMMARY.md` if unfamiliar with the codebase
-2. Read relevant `{module}.md` to understand affected area
-3. Read the changed source files
+| Scope | Signals | Token Budget |
+|-------|---------|-------------|
+| **narrow** | Names a specific class/method/field | ~2K (PLUGIN-SUMMARY + 0-1 module) |
+| **module** | Names or implies 1-2 modules | ~4.5K (PLUGIN-SUMMARY + 1-2 modules) |
+| **broad** | Crosses 3+ modules; system-wide change | ~8K (PLUGIN-SUMMARY + 2-4 modules) |
+| **discovery** | No module identifiable; "where is X handled?" | ~3K (PLUGIN-SUMMARY + MCP/Grep) |
 
-## Rules
+## Loading Matrix (Task Type x Scope)
 
-- **Never load all module summaries at once** — pick only the relevant ones
-- **Start at the highest useful level** — Level 4 for broad context, Level 3 for module work
-- **Summaries replace source reads for understanding** — only read source when you need exact implementation details
-- **Phase 2 JSON indexes** (`.claude/docs/codemap/index/`) are for search/lookup, not for loading into context
-- Module files are named by module: `enchant.md`, `item.md`, `player.md`, `menu.md`, `command.md`, `listener.md`, `task.md`, `config.md`, `guard.md`, `database.md`, `attribute.md`, `filter.md`, `execute.md`, `feature.md`, `custommenu.md`, `placeholder.md`, `root.md`
+| | Narrow | Module | Broad | Discovery |
+|--|--------|--------|-------|-----------|
+| **question** | PLUGIN-SUMMARY + relevant `{module}.md` | PLUGIN-SUMMARY + 1-2 `{module}.md` | PLUGIN-SUMMARY + 2-4 `{module}.md` | PLUGIN-SUMMARY + MCP `search_code` |
+| **bugfix** | PLUGIN-SUMMARY + `{module}.md` + source file(s) | PLUGIN-SUMMARY + 1-2 `{module}.md` + source file(s) | PLUGIN-SUMMARY + 2-3 `{module}.md` + source files | PLUGIN-SUMMARY + MCP/Grep to locate, then source |
+| **feature** | PLUGIN-SUMMARY + `{module}.md` | PLUGIN-SUMMARY + 1-2 `{module}.md` + similar patterns | PLUGIN-SUMMARY + 2-4 `{module}.md` + source stubs | PLUGIN-SUMMARY + MCP search, then module summaries |
+| **refactor** | PLUGIN-SUMMARY + `{module}.md` + source file(s) | PLUGIN-SUMMARY + 1-2 `{module}.md` + source files + callers | PLUGIN-SUMMARY + 2-4 `{module}.md` + LSP references | PLUGIN-SUMMARY + MCP/Grep to map usage |
 
-## MCP Semantic Search (Phase 4)
+**Always start with PLUGIN-SUMMARY.** Add module summaries only for modules relevant to the task. Read source files only when the matrix cell includes "source."
 
-When MCP server is running, use these tools for natural language search:
+## Stopping Rules — When NOT to Read Source Files
 
-| Tool | Use Case | Example |
-|------|----------|---------|
-| `search_code` | Find classes, methods, listeners, modules | "damage reduction", "player join event" |
-| `search_enchantments` | Find enchantments with domain filters | "legendary sword fire", group="legendary" |
-| `search_configs` | Find config classes and YAML keys | "combat settings", "redis configuration" |
-| `get_module_summary` | Direct lookup of Phase 3 summaries | module_name="enchant", section="Key Classes" |
-| `reindex` | Rebuild index after data changes | force=True to rebuild regardless |
+- **Questions**: Summaries are sufficient unless asking about exact implementation logic
+- **Never load all module summaries** — pick only relevant ones (max 4)
+- **Never load JSON indexes directly** — `classes.json` (221KB), `enchantments.json` (181KB) are too large; use MCP search or Grep instead
+- **Stop reading** once you have enough context to answer/implement — do not read "just in case"
+- **Skip source files** for questions about structure, relationships, or module responsibilities
 
-**When to use MCP search vs direct file reads:**
-- Use MCP search when you don't know which class/file to look at
-- Use direct file reads when you already know the exact file
-- MCP search is especially useful for finding enchantments (579 total) and cross-module relationships
+## MCP Semantic Search
+
+Use MCP tools when you don't know which file/class to look at:
+
+| Tool | Use Case |
+|------|----------|
+| `search_code` | Find classes, methods, listeners by description |
+| `search_enchantments` | Find enchantments (579 total) with group/trigger/item filters |
+| `search_configs` | Find config classes and YAML key paths |
+| `get_module_summary` | Direct lookup of a module summary by name |
+
+For discovery scope or unknown modules, invoke `/context-selector` before loading summaries.
 
 ## Regenerating Summaries
 
-When the codebase changes significantly, regenerate with:
+When the codebase changes significantly:
 ```bash
 python .claude/docs/codemap/summaries/_generate_summaries.py
 ```
