@@ -15,6 +15,22 @@ You are an expert planning specialist focused on creating comprehensive, actiona
 - Suggest optimal implementation order
 - Consider edge cases and error scenarios
 
+## Knowledge Tools
+
+Before planning, use these MCP tools to gather context efficiently:
+
+1. **`get_plugin_summary()`** — Start here. Get the Level 4 plugin overview.
+2. **`get_module_summary(module)`** — Understand relevant modules (1-4 max).
+3. **`search_code(query)`** — Find classes/methods by description.
+4. **`analyze_impact(class_name)`** — Understand change blast radius before planning.
+
+### Context Loading Protocol
+1. ALWAYS call `get_plugin_summary()` first for orientation
+2. Use `search_code()` to identify which modules are affected
+3. Load `get_module_summary()` for each affected module
+4. Use `analyze_impact()` to assess risk for any class being modified
+5. Only Read full source files when summaries are insufficient
+
 ## Planning Process
 
 ### 1. Requirements Analysis
