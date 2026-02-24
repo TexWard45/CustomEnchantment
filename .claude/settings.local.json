@@ -4,5 +4,29 @@
     "LANGFUSE_PUBLIC_KEY": "pk-lf-1c983f0a-cf10-4437-b1d6-44b8fe77bdb6",
     "LANGFUSE_SECRET_KEY": "sk-lf-b1b2cf3b-0ca9-49c5-980f-67a1f051c97b",
     "LANGFUSE_HOST": "http://localhost:3000"
+  },
+  "hooks": {
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "agent",
+            "prompt": "Before context is compacted, extract session learnings. Read the auto memory MEMORY.md file first. Then review this session for: (1) Wrong APIs used — e.g., inline strings instead of CEMessageKey, NMS instead of CEItemRegister, ColorUtils.color() instead of .t() (2) Convention violations — new file created when existing file sufficed, messages in config.yml instead of messages.yml, mutable class instead of record (3) Build failures and their root causes (4) New patterns that worked well. ONLY update MEMORY.md if genuine new learnings exist that aren't already documented. Keep entries concise (1-2 lines). Group by: API Rules, Patterns, Pitfalls. Do NOT add session-specific context. Do NOT exceed 200 lines total.",
+            "timeout": 120
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/session-end-log.sh",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
   }
 }
